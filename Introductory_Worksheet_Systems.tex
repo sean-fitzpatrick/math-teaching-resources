@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.2in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}      
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}   
+                  
+\begin{document}
+%\thispagestyle{empty}
+
+ \begin{enumerate}
+\item For each system of equations below, write down the corresponding augmented matrix.
+\begin{multicols}{2}
+\begin{enumerate}
+ \item $\arraycolsep=1pt\begin{array}{ccccccc}2x&-&3y&+&z&=&2\\[5pt] & &2y&-&5z&=&-3\\[5pt] -3x& & &+&2z&=&7\end{array}$
+
+
+
+ \item $\arraycolsep=1pt\begin{array}{ccccccccc}x_1&+&4x_2& & &-&7x_4&=&0\\[5pt]-3x_1&-&x_2&+&4x_3& & &=&2\\[5pt] & &2x_2&-&4x_3&+&x_4&=&-5\end{array}$
+ \end{enumerate}
+\end{multicols}
+
+
+\vspace{3.5cm}
+
+%\arraycolsep=4pt
+
+\item For each augmented matrix below, write down a corresponding system of equations using whatever variables you prefer.
+\begin{multicols}{2}
+\begin{enumerate}
+ \item $\bam{3}2&-1&0&4\\-3&4&1&-2\\0&2&3&-7\eam$
+
+
+
+ \item $\bam{4}3&2&0&1&-5\\0&4&2&-7&2\eam$
+\end{enumerate}
+\end{multicols}
+
+\vspace{4cm}
+
+\item State whether or not the given augmented matrix is in reduced row-echelon form (RREF), and if not, why.
+
+\[
+ \bam{3}1&0&2&-1\\0&1&2&4\\0&0&0&0\eam \quad \bam{3}1&0&0&2\\0&1&1&0\\0&0&0&4\eam \quad \bam{3}1&2&0&3\\0&1&0&-4\\0&0&1&2\eam \quad \bam{3}1&0&0&7\\0&2&0&3\\0&0&1&0\eam 
+\quad \bam{4}0&1&0&2&-3\\0&0&1&-3&4\\0&0&0&1&3\eam
+\]
+
+\pagebreak
+
+\item Suppose you want to perform Gaussian elimination on the augmented matrices below. \\For each matrix, what are the first two row operations you would perform, and why?
+
+\begin{multicols}{3}
+\begin{enumerate}
+\item $\bam{3} 1&-4&2&0\\-2&4&1&6\\3&2&-1&1\eam$
+\item $\bam{3} 2&4&-8&10\\-1&2&4&-5\\0&1&5&2\eam$
+\item $\bam{3} 3&2&-7&4\\1&2&-4&0\\0&-1&3&2\eam$
+\end{enumerate}
+\end{multicols}
+
+\vspace{5cm}
+
+\item For each matrix $A$ and $B$ below, write down the row operation that transforms $A$ into $B$.
+
+\begin{enumerate}
+\item $A = \bbm 3&-2&5\\2&8&-4\\1&-2&1\ebm$, $B = \bbm 3&-2&5\\1&4&-2\\1&-2&1\ebm$
+
+\bigskip
+
+\item $A = \bbm 2&7&-3\\6&8&1\\1&12&-6\ebm$, $B = \bbm 2&7&-3\\0&-13&10\\1&12&-6\ebm$
+
+\bigskip
+
+\item $A = \bbm 4&-2&3\\1&3&4\\-5&6&0\ebm$, $B = \bbm -5&6&0\\1&3&4\\4&-2&3\ebm$
+
+\end{enumerate}
+
+
+\pagebreak
+
+\item Write down the augmented matrix of the following system, and then use Gaussian elimination to solve the system.
+\[
+ \arraycolsep=2pt \begin{array}{ccccccc}
+                  x&+&2y&-&z&=&4\\-x&+&y&-&2z&=&-1\\ 2x&+&6y&-&3z&=&5
+                  \end{array}
+\]
+
+\vspace{4in}
+
+\item A system in variables $x,y,z$ has an augmented matrix with RREF $\di \bam{3} 1&0&-3&4\\0&1&2&6\eam$.
+
+Write down the system of equations corresponding to this matrix. How would you describe the solution to the system?
+
+(Hint: what geometric problem corresponds to a system of two equations in three variables?)
+
+ \end{enumerate}
+  
+\end{document}

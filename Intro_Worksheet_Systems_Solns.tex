@@ -1,0 +1,252 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=0.75in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}      
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}   
+                  
+\begin{document}
+
+ \begin{enumerate}
+\item For each system of equations below, write down the corresponding augmented matrix.
+\begin{multicols}{2}
+\begin{enumerate}
+ \item $\arraycolsep=1pt\begin{array}{ccccccc}2x&-&3y&+&z&=&2\\[5pt] & &2y&-&5z&=&-3\\[5pt] -3x& & &+&2x&=&7\end{array}$
+
+\medskip
+
+ $\bam{3}2&-3&1&2\\0&2&-5&-3\\-3&0&2&7\eam$
+
+ \item $\arraycolsep=1pt\begin{array}{ccccccccc}x_1&+&4x_2& & &-&7x_4&=&0\\[5pt]-3x_1&-&x_2&+&4x_3& & &=&2\\[5pt] & &2x_2&-&4x_3&+&x_4&=&-5\end{array}$
+ 
+ \medskip
+ 
+ $\bam{4}1&4&0&-7&0\\-3&-1&4&0&2\\0&2&-4&1&-5\eam$
+ \end{enumerate}
+\end{multicols}
+
+\bigskip
+
+\item For each augmented matrix below, write down a corresponding system of equations using whatever variables you prefer.
+\begin{multicols}{2}
+\begin{enumerate}
+ \item $\bam{3}2&-1&0&4\\-3&4&1&-2\\0&2&3&-7\eam$
+
+\medskip
+
+ $\arraycolsep=1pt\begin{array}{ccccccc}
+ 2x&-&y& & &=&4\\-3x&+&4y&+&z&=&-2\\ & &2y&+&3z&=&-7\end{array}$
+
+ \item $\bam{4}3&2&0&1&-5\\0&4&2&-7&2\eam$
+ 
+\medskip
+
+ $\arraycolsep1pt\begin{array}{ccccccccc}
+ 3x_1&+&2x_2& & &+&x_4&=&-5\\ & &4x_2&+&2x_3&-&7x_4&=&2\end{array}$
+\end{enumerate}
+\end{multicols}
+
+\bigskip
+
+\item State whether or not the given augmented matrix is in reduced row-echelon form (RREF), and if not, why.
+\begin{multicols}{5}
+$\bam{3}1&0&2&-1\\0&1&2&4\\0&0&0&0\eam$
+
+RREF\columnbreak
+
+$\bam{3}1&0&0&2\\0&1&1&0\\0&0&0&4\eam$
+
+Not RREF: the 4 in row 3 should be a 1.\columnbreak
+
+$\bam{3}1&2&0&3\\0&1&0&-4\\0&0&1&2\eam$
+
+Not RREF due to the 2 in row 1 above the leading 1 in row 2.\columnbreak
+
+$\bam{3}1&0&0&7\\0&2&0&3\\0&0&1&0\eam$
+
+Not in RREF: the 2 in row 2 needs to be a 1.\columnbreak
+
+$\bam{4}0&1&0&2&-3\\0&0&1&-3&4\\0&0&0&1&3\eam$
+
+Not in RREF: There are two non-zero entries above the leading 1 in row 3.
+\end{multicols}
+
+\pagebreak
+
+\item Suppose you want to perform Gaussian elimination on the augmented matrices below. \\For each matrix, what are the first two row operations you would perform, and why?
+
+\begin{enumerate}
+\item $\bam{3} 1&-4&2&0\\-2&4&1&6\\3&2&-1&1\eam$
+
+$R_2+2R_1\to R_2$ and 
+$R_3-3R_1\to R_3$, to create zeros in the first column below the leading 1.
+
+\item $\bam{3} 2&4&-8&10\\-1&2&4&-5\\0&1&5&2\eam$
+
+There are several reasonable options here. One is $\frac12 R_1\to R_1$ to get a leading one in the first row, then $R_2+R_1\to R_2$ to create a zero below it. Another option would be $R_1\leftrightarrow R_2$, followed by $-R_1\to R_1$, to get a leading one with minimal arithmetic. Another would be $R_1+R_2\to R_1$ to create a leading one in the first row, followed by $R_2-R_1\to R_2$ to create a zero below it.
+
+\item $\bam{3} 3&2&-7&4\\1&2&-4&0\\0&-1&3&2\eam$
+
+$R_1\leftrightarrow R_3$, to get a leading 1 in the first row without creating fractions, then $R_3-3R_1\to R_3$ to create a zero below the leading 1.
+\end{enumerate}
+
+\bigskip
+
+\item For each matrix $A$ and $B$ below, write down the row operation that transforms $A$ into $B$.
+
+\begin{enumerate}
+\item $A = \bbm 3&-2&5\\2&8&-4\\1&-2&1\ebm$, $B = \bbm 3&-2&5\\1&4&-2\\1&-2&1\ebm$ \hspace{1cm} $\frac12 R_2\to R_2$
+
+\bigskip
+
+\item $A = \bbm 2&7&-3\\6&8&1\\1&12&-6\ebm$, $B = \bbm 2&7&-3\\0&-13&10\\1&12&-6\ebm$ \hspace{1cm} $R_2-3R_1\to R_2$
+
+\bigskip
+
+\item $A = \bbm 4&-2&3\\1&3&4\\-5&6&0\ebm$, $B = \bbm -5&6&0\\1&3&4\\4&-2&3\ebm$ \hspace{1cm} $R_1\leftrightarrow R_3$
+
+\end{enumerate}
+
+
+\pagebreak
+
+\item Write down the augmented matrix of the following system, and then use Gaussian elimination to solve the system.
+\[
+ \arraycolsep=2pt \begin{array}{ccccccc}
+                  x&+&2y&-&z&=&4\\-x&+&y&-&2z&=&-1\\ 2x&+&6y&-&3z&=&5
+                  \end{array}
+\]
+
+We have the following augmented matrix and elimination steps. We begin by eliminating all the non-zero entries below our first leading one.
+\[
+\bam{3}
+1&2&-1&4\\
+-1&1&-2&-1\\
+2&6&-3&5
+\eam  \xrightarrow[]{R_2+R_1\to R_2}
+\bam{3}
+ 1&2&-1&4\\
+ 0&3&-3&3\\
+ 2&6&-3&5
+\eam
+ \xrightarrow[]{R_3-2R_1\to R_3} 
+\bam{3}
+ 1&2&-1&4\\
+ 0&3&-3&3\\
+ 0&2&-1&-3
+\eam
+\]
+Next, we can get our second leading one by dividing by 3 in the second row. We can then use that leading one to eliminate the non-zero entry below it:
+\[
+\bam{3}
+ 1&2&-1&4\\
+ 0&3&-3&3\\
+ 0&2&-1&-3
+\eam
+\xrightarrow[]{\frac13 R_2\to R_2}
+\bam{3}
+ 1&2&-1&4\\
+ 0&1&-1&1\\
+ 0&2&-1&-3
+\eam 
+\xrightarrow[]{R_3-2R_2\to R_3}
+\bam{3}
+ 1&2&-1&4\\
+ 0&1&-1&1\\
+ 0&0&1&-5
+\eam
+\]
+At this point we've reached row-echelon form, and we have the option of solving by back-substitution. Row 3 tells us that $z=-5$. Row 2 says $y-z=1$. Putting $z=-5$ into this equation, we get $y+5=1$, so $y=-4$. row 1 says $x+2y-z=4$. Putting $y=-4$ and $z=-5$, we get $x-8+5=4$, so $x=7$.
+
+
+
+Alternatively, we can continue with the augmented matrix, performing the ``backward steps'' to reach RREF:
+
+\noindent\hskip -60pt
+\noindent\begin{minipage}{1.2\textwidth}
+\[
+\bam{3}
+ 1&2&-1&4\\
+ 0&1&-1&1\\
+ 0&0&1&-5
+\eam  \xrightarrow[]{R_2+R_3\to R_2} 
+\bam{3}
+ 1&2&-1&4\\
+ 0&1&0&-4\\
+ 0&0&1&-5
+\eam
+\xrightarrow[]{R_1+R_3\to R_1} 
+\bam{3}
+ 1&2&0&-1\\
+ 0&1&0&-4\\
+ 0&0&1&-5
+\eam
+\xrightarrow[]{R_1-2R_2\to R_1}
+\bam{3}
+ 1&0&0&7\\
+ 0&1&0&-4\\
+ 0&0&1&-5
+\eam 
+\]
+\end{minipage}
+
+From here we can directly read off the solution $x=7, y=-4, z=-5$.
+
+Of course, we can also confirm that our solution works by plugging these values into each of our original equations: $7+2(-4)-(-5)=4$, $-7+(-4)+2(-5)=-1$, and $2(7)+6(-4)-3(-5) = 5$.
+
+\bigskip
+
+
+\item A system in variables $x,y,z$ has an augmented matrix with RREF $\di \bam{3} 1&0&-3&4\\0&1&2&6\eam$.
+
+Write down the system of equations corresponding to this matrix. How would you describe the solution to the system?
+
+(Hint: what geometric problem corresponds to a system of two equations in three variables?)
+
+The first row corresponds to the equation $x-3z=4$, and the second to the equation $y+2z=6$. From Chapter 3, we recall that two equations in three variables represents the intersection of two planes, and we expect the solution to be a line. Indeed, we note that both equations can easily be solved, for $x$ and $y$ respectively, in terms of $z$. If we assign $z$ to a parameter $t$, then we have
+\[
+x=4+3t, y=6-2t, z=t,
+\]
+which represents the parametric equations for a line through the point $(4,6,0)$ in the direction of the vector $\langle 3,-2,1\rangle$.
+
+ \end{enumerate}
+ 
+
+\end{document}
