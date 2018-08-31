@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000B}\chead{Quiz \# 12}\rhead{Thursday, 16\textsuperscript{th} April, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\renewcommand{\div}[2]{#1\, |\,#2}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+\bigskip
+
+
+
+{\bf Name: Solutions}
+
+\bigskip
+
+\begin{enumerate}
+ \item Determine the domain and range of each of the following relations on $\R$, and sketchthe graph of each relation:
+
+\begin{enumerate}
+ \item $R=\{(x,y)\in\R\times\R\,|\, x^2+y^2=10\}$
+
+\bigskip
+
+Since $x^2\geq 0$ and $y^2\geq 0$, we note that $x^2=10-y^2\leq 10$, so $x^2\leq 10$, which means that $-\sqrt{10}\leq x\leq \sqrt{10}$. Similarly $-\sqrt{10}]\leq y\leq \sqrt{10}$. Thus
+\begin{align*}
+ \operatorname{dom}R &=\{x\in \R\,|\, -\sqrt{10}\leq x\leq \sqrt{10}\}= [-\sqrt{10},\sqrt{10}]\\
+ \operatorname{range}R &=\{y\in\R\,|\, -\sqrt{10}\leq y\leq \sqrt{10}\} = [-\sqrt{10},\sqrt{10}].
+\end{align*}
+
+The graph (omitted) is that of a circle of radius $\sqrt{10}$ centred at the origin.
+
+\item $S=\{(x,y)\in\R\times\R\,|\, x^2=y^2\}$
+
+\bigskip
+
+We have 
+\[x^2=y^2 \leftrightarrow x^2-y^2=0\leftrightarrow (x-y)(x+y)=0 \leftrightarrow x=y \text{ or } x=-y,\]
+and we see immediately that $\operatorname{dom}S=\operatorname{range}S=\R$, since $(x,x)\in S$ for all $x\in\R$.
+
+The graph (omitted) is the pair of lines $y=x$ and $y=-x$. (It should look like a big X.)
+\end{enumerate}
+
+\item Let $A=\{1,2,3,4,5\}$. Draw a directed graph that represents the relation $R$ on $A$ defined by
+\[
+ R = \{(1,1),(1,2),(1,3),(2,1),(2,2),(2,3),(3,1),(3,3),(4,4),(4,5),(5,4),(5,5)\}.
+\]
+
+\bigskip
+
+
+ A (somewhat poorly rendered) directed graph of the relation is given as follows:
+\begin{center}
+\includegraphics[width=3in]{digraph.pdf}
+\end{center}
+
+\bigskip
+
+{\bf Bonus:} Is $R$ an equivalence relation? Why or why not?
+
+\bigskip
+
+It is not an equivalence relation because it is not symmetric: we have $(2,3)\in R$ but $(3,2)\notin R$.
+\end{enumerate}
+
+\end{document}

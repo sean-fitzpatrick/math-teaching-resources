@@ -1,0 +1,60 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\title{Math 2580 Assignment \#1\\University of Lethbridge, Spring 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Thursday, January 21, by 3 pm.
+
+\bigskip
+
+Please provide solutions to the problems below, using the following guidelines:
+\begin{itemize}
+\item Your submitted assignment should be a {\bf good copy} -- figure out the problems first, and then write down organized solutions to each problem. 
+\item You should include a {\bf cover page} with the following information: the course number and title, the assignment number, your name, and a list of any resources you used or people you worked with.
+\item Since you have plenty of time to work on the problems, assignment solutions will be held to a higher standard than on a test. Your explanations should be clear enough that any of your classmates can understand your solutions.
+\item Group work is permitted, but copying is not. If you're not sure what the difference is, feel free to ask. If you get help solving a problem, you should (a) make sure you completely understand the solution, and (b) re-write the solution for your good copy by yourself, in your own words.
+\item Assignments can be submitted in class, or in the designated drop box on the 5th floor of University Hall, across from the Math Department office.
+\item Late assignments will not be accepted without prior permission.
+
+\end{itemize}
+\newpage
+\subsection*{Assigned problems}
+\begin{enumerate}
+ \item Each of the equations below describes a quadric surface. Identify (as an ellipsoid, hyperboloid, etc.) and sketch each surface.
+\begin{enumerate}
+ \item $\dfrac{x^2}{4}+\dfrac{y^2}{9}+z^2=1$.
+ \item $x^2+z^2=1-2y^2$
+ \item $z+y^2=2x^2$.
+\end{enumerate}
+{\bf Note:} For each sketch, you will probably find it helpful to compute a few sections of each surface in planes parallel to the three coordinate planes. (That is, try sketching a few of the curves obtained by setting one of the variables equal to a constant.)
+
+\item Consider the function $f:\R^2\to \R$ defined by
+\[
+ f(x,y) = \begin{cases}
+           \dfrac{xy(x^2-y^2)}{x^2+y^2}, & \text{ if } (x,y)\neq (0,0)\\ 0, & \text{ if } (x,y)=(0,0).
+          \end{cases}
+\]
+\begin{enumerate}
+ \item Compute $f_x$ and $f_y$ for $(x,y)\neq (0,0)$.
+ \item Show that $f_x(0,0)=f_y(0,0)=0$. (Hint: use the definitions. What is the value of $f(x,0)$ and $f(0,y)$?
+ \item Show that $f_x(0,y)=-y$ when $y\neq 0$.
+ \item What is $f_y(x,0)$ when $x\neq 0$?
+ \item Show that $f_{yx}(0,0)=1$ and $f_{xy}(0,0)=-1$. (You'll need to use limits again.)
+ \item Why does this not contradict the theorem about equality of mixed partials?
+\end{enumerate}
+
+ \end{enumerate}
+\end{document}
+ 

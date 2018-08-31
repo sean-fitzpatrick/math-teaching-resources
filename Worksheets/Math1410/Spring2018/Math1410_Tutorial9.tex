@@ -1,0 +1,133 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.2in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}      
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 1410 - Tutorial \#9}\\
+Wednesday, March 7
+\end{center}
+\skipline \ \noindent \skipline
+
+\vspace*{\fill}
+
+
+
+
+
+
+
+Additional practice: (\textbf{do not submit}).
+\begin{enumerate}
+\item Determine the inverse of the following matrices, if possible: 
+\begin{multicols}{2}
+\begin{enumerate}
+\item $\bbm 4&-3\\-2&7\ebm$
+\item $\bbm 1&0&3\\-2&1&4\\3&2&-2\ebm$
+\item $\bbm 2&-6\\-1&3\ebm$
+\item $\bbm 2&-1&4\\0&3&-5\\4&1&3\ebm$
+\end{enumerate}
+\end{multicols}
+\end{enumerate}
+
+\newpage
+%\thispagestyle{empty}
+
+ \begin{enumerate}
+\item Let $A=\bbm 1&-1&4\\-2&3&-5\\1&1&9\ebm$.
+\begin{enumerate}
+\item Compute $A^{-1}$.
+
+\vspace{4in}
+
+\item Solve for $X$, if $AX+\bbm 2&-3\\-1&-5\\4&2\ebm = \bbm 1&0\\4&-3\\-2&1\ebm$
+\end{enumerate}
+\newpage
+
+\item For each equation given below, explain why $A$ is invertible, and determine an expression (in terms of $A$) for $A^{-1}$.
+
+\textit{Hint:} Recall that $A$ is invertible provided there exists a matrix $B$ such that $AB=I$, in which case $B=A^{-1}$.
+
+\begin{enumerate}
+\item $A^5=I$
+
+\vspace{1.25in}
+
+\item $A^4=9I$
+
+\vspace{1.25in}
+
+\item $A^2-5A+6I=0$
+
+\end{enumerate}
+\vspace{1.5in}
+
+\item Show that the matrix $A=\bbm -3&-3\\10&8\ebm$ satisfies the equation $A^2-5A+6I=0$. Using your result from problem 2(c), determine $A^{-1}$.
+
+\newpage
+
+\item For each problem below, assume $T$ is a linear transformation from $\R^2$ to $\R^3$.
+\begin{enumerate}
+\item Given vectors $\vec{u},\vec{v}\in\R^2$ such that $T(\vec{u})=\bbm 3\\-1\\4\ebm$ and $T(\vec{v})=\bbm -1\\2\\5\ebm$, determine the value of $T(4\vec{u}-3\vec{v})$.
+
+\vspace{2in}
+
+\item Determine the matrix of $T$, if $T\left(\bbm 1\\0\ebm\right)=\bbm 1\\-2\\0\ebm$ and $T\left(\bbm 0\\1\ebm\right) = \bbm 4\\-1\\2\ebm$.
+
+\vspace{2in}
+
+\item \textit{For fun}: find the matrix of the transformation $T$ in part(a), if $\vec{u}=\bbm 2\\1\ebm$ and $\vec{v}=\bbm -1\\1\ebm$.
+
+\textit{Hint:} First determine how to write $\bbm 1\\0\ebm$ and $\bbm 0\\1\ebm$ in terms of $\vec{u}$ and $\vec{v}$. 
+\end{enumerate}
+
+ \end{enumerate}
+ 
+\end{document}

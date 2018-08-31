@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage[all, cmtip]{xy}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000}\chead{Quiz \# 10 Solutions}\rhead{Thursday, 20\textsuperscript{th} November, 2014}
+\rfoot{Total: 10 points}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\modd}[3]{#1\equiv #2 \pmod{#3}}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+
+ \begin{enumerate}
+ \item \begin{enumerate}
+        \item Suppose $k\leq l$ and let $\N_k=\{1,2,\ldots, k\}$ and let $\N_l = \{1,2,\ldots, l\}$. Show that the function $f:\N_k\to \N_l$ given by $f(n) = n$ for $n=1,2,\ldots, k$ is one-to-one.\points{2}
+
+\bigskip
+
+For any  $n,m\in \N_k$, if $f(n)=f(m)$ then $n=m$, since $n=f(n)=f(m)=m$. Thus, $f$ is one-to-one.
+
+\bigskip
+
+	\item Is the function $f$ in part (a) necessarily onto? Explain. \points{1}
+
+\bigskip
+
+If $l>k$, then $f$ will not be onto, since the numbers $k+1,\ldots, l$ will not be in the range of $f$.
+
+\bigskip
+
+	\item Suppose $k\leq l$, and suppose $A$ and $B$ are sets, with $\abs{A}=k$ and $\abs{B}=l$. Let $g:A\to \N_k$ and $h:B\to \N_l$ be bijections. (The bijections $g$ and $h$ exist, by the definition of the cardinality of finite sets.) Use part (a) and the bijections $g$ and $h$ to construct a one-to-one function from $A$ to $B$. \points{2}
+
+\bigskip
+
+Given the bijections $g:A\to \N_k$ and $h:B\to \N_l$, note that $h^{-1}:\N_l\to B$ is also a bijection, and let $f:\N_k\to\N_l$ be the function from part (a). Since $f$, $g$ and $h^{-1}$ are all one-to-one, the composition $k=h^{-1}\circ f\circ g:A\to B$ is one-to-one. That is, $k:A\to B$ is given by the diagram below:
+\[
+ \xymatrix{A \ar[r]^{k} \ar[d]^g& B\ar[d]^h\\ \N_k\ar[r]^f& \N_l}
+\]
+
+       \end{enumerate}
+
+\bigskip
+
+\item Suppose every student at a university has three initials, say F.M.L. for First, Middle, Last. How many students must the university have to guarantee that two students have the same initials? \points{5}
+
+{\em Hint}: Let $A$ be the set of university students, and let $B$ be the set of letters in the alphabet, so $\abs{B}=26$. The set of all possible initials can be identified with $B\times B\times B$, since an ordered triple of letters $(b_1,b_2,b_3)$ corresponds to a set of initials. If $f:A\to B\times B\times B$ is the function that assigns each student to their initials, how big must the cardinality of $A$ be to guarantee that $f$ cannot be one-to-one?
+
+\bigskip
+
+Since $\abs{B}=26$, $\abs{B\times B\times B} = 26^3$, by the multiplication principle. By the pigeonhole principle, if $\abs{A}>\abs{B\times B\times B}$, then there are no one-to-one functions $A\to B\times B\times B$, which in this case implies that there is no way to assign each student to a unique set of initials. Thus, if $\abs{A}\geq 26^3+1$, then at least two students have the same set of initials.
+
+{\bf Note}: For the record, I would never expect anyone to actually multiply out $26^3$. It's perfectly fine to leave this as is.
+
+ \end{enumerate}
+\end{document}

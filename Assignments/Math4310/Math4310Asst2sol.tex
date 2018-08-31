@@ -1,0 +1,139 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+
+\title{Math 4310 Assignment \#2 Solutions\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+\item Since any $\epsilon$-neighbourhood in a metric space $X$ is open in $X$, we know that the union of any collection of such neighbourhoods is an open set in $X$. Prove that this is in fact the most general type of open set. That is, prove that any open subset $U\subseteq X$ of a metric space $X$ is a union of $\epsilon$-neighbourhoods.
+
+\bigskip
+
+{\bf Solution}: Let $U\subseteq X$ be open in $X$. Then for any $x\in U$ there exists some $\epsilon_x>0$ such that $N_{\epsilon_x}(x)\subseteq U$. We claim that $U$ can be written as the union
+\[
+ U = \bigcup_{x\in U}N_{\epsilon_x}(x),
+\]
+since if $x\in U$, then $x\in N_{\epsilon_x}(x)\subseteq \bigcup N_{\epsilon_x}(x)$, and since each neighbourhood $N_{\epsilon_x}(x)$ is contained in $U$, their union must be a subset of $U$ as well.
+
+\item Let $(X,d)$ be a metric space. Prove that $d:X\times X\to \R$ is continuous with respect to the product metric $d_1$ on $X\times X$. (See the text if you need a reminder on how $d_1$ is defined.)
+
+\bigskip
+
+{\bf Solution}: We equip $Y=X\times X$ with the metric $d_1$ given by
+\[
+ d_1((x,y),(a,b)) = d(x,a)+d(y,b),
+\]
+for any points $(x,y), (a,b)\in Y$. We want to show $d:Y\to \R$ is continuous with respect to $d_1$ and the standard metric on $\R$. Let $\epsilon>0$ be given, and take $\delta=\epsilon$. If $d_1((x,y),(a,b))<\delta$, then we have
+\begin{align*}
+ d(x,y)-d(a,b) & \leq d(x,a)+d(a,y)-d(a,b)\\
+&\leq d(x,a)+d(a,b)-d(b,y)-d(a,b)\\
+& = d(x,a)+d(y,b).
+\end{align*}
+Similarly, we can show that $d(a,b)-d(x,y)\leq d(x,a)+d(y,b)$. Thus, we have that
+\[
+ \abs{d(x,y)-d(a,b)}\leq d(x,a)+d(y,b) = d_1((x,y),(a,b)) <\delta=\epsilon.
+\]
+
+\item (Do not hand in) Suppose that in a metric space $X$ we have that $N_a(x) = N_b(y)$ for some $x,y\in X$ and $a,b\in\R$. Can we conclude that $a=b$ and $x=y$?
+
+\bigskip
+
+{\bf Solution}: Consider the discrete metric on $\R$. Then we have, for example, that $N_2(0)=N_3(1) = \R$, but $2\neq 3$ and $0\neq 1$. 
+
+\item (Do not hand in) Prove that any finite subset of a metric space $X$ is closed in $X$.
+
+\bigskip
+
+{\bf Solution}: Since the union of any finite collection of closed sets is closed, it suffices to prove that $A=\{x\}$ is closed for any $x\in X$. To that end, we need to show that if $y$ is a point of closure of $A$, then $y\in A$. If $y\neq x$ then we can take $\epsilon = \abs{y-x}/2$, and then $N_\epsilon(y)\cap A = \emptyset$. Thus, the only point of closure of $A$ is $x$ itself, and $x\in A$, so $A$ is closed.
+
+\item Prove that the Cantor set is a closed subset of $\R$ with respect to the standard metric on $\R$. (See Problem 6.5 in the text, or type `Cantor set' into Google and follow the first link for a definition.)
+
+\bigskip
+
+{\bf Solution}: We saw in class that $C = \bigcap C_n$, where each $C_n$ is the union of $2^n$ closed intervals of length $3^{-n}$. Since any finite union of closed sets is closed, it follows that each $C_n$ is closed. But then $C$ is the interesection of a collection of closed sets, which implies that $C$ is closed.
+
+\item (Do not hand in) Let $\mathcal{C}[0,1]$ be the space of continuous functions on $[0,1]$, equipped with the sup-norm metric ($d_\infty$). For any subset $A\subseteq [0,1]$, show that the set $Y=\{f\in \mathcal{C}[0,1] : f(a)=0 \text{ for all } a\in A\}$ is a closed subset of $\mathcal{C}[0,1]$.
+
+\bigskip
+
+I'm short on time, so I'll skip this one, but I'm happy to discuss it during office hours or on Piazza if anyone wants the solution.
+
+\item Prove that a map $f:X\to Y$ of metric spaces is continuous if and only if $f(\overline{A})\subseteq \overline{f(A)}$ for all subsets $A\subseteq X$, where $\overline{B}$ denotes the closure of $B$.
+
+\bigskip
+
+{\bf Solution}: I'm actually going to give two proofs for this one, mainly to illustrate the fact that it's a good idea to know several different characterizations of what it means for a function to be continuous. First, let's work with the $\epsilon-\delta$ definition of continuity:
+
+Proof: Let $(X,d)$ and $(Y,d')$ be metric spaces, and let $f:X\to Y$ be $(d,d')$-continuous. We want to show that $f(\overline{A})\subseteq \overline{f(A)}$ for any subset $A\subseteq X$. Let $y\in f(\overline{A})$. Then $y=f(x)$ for some $x\in\overline{A}$. Now, let $\epsilon>0$ be given. We need to show that $N_\epsilon(y)$ contains an element of $f(A)$. Since $f$ is continuous, there exists some $\delta>0$ such that $f(N_\delta(x))\subseteq N_\epsilon(y)$. Since $x$ is a point of closure\footnote{Here is an example of where the definition of a point of closure is more convenient than defining $\overline{A}$ as the union of $A$ and its limit points: we'd otherwise have to consider the cases $x\in A$ and $x\notin A$ separately.} of $A$, there exists some $a\in A$ such that $a\in N_\delta(x)$, which implies that $f(a)\in N_\epsilon(y)$, which is what we needed to show.
+
+Now suppose that $f$ is not continuous at some point $a\in X$. Then there exists some $\epsilon>0$ such that for all $\delta>0$, there is some $x\in X$ such that $d_X(x,a)<\delta$ but $d_Y(f(x),f(a))>\epsilon$. In particular, for each $n\in\N$, if we take $\delta = 1/n$, then there is some $x_n\in X$ with $d_X(x_n,a)<1/n$, but $d_Y(f(x),f(a))>\epsilon$. Let $A=\{x_n\}$ be the set of all points $x_n$ so defined. Then $a\in\overline{A}$, since every neighbourhood of $a$ contains one of the points $x_n$, so $f(a)\in f(\overline{A})$. However, we have that $f(a)\notin \overline{f(A)}$, since we have already established the existence of an $\epsilon>0$ such that $d_Y(f(a),f(x_n))>\epsilon$ for all $x_n$, and thus, $N_\epsilon(f(a))$ contains no points of $f(A) = \{f(x_n)\,|\,n\in\N\}$. Therefore, there exists a subset $A\subseteq X$ such that $f(\overline{A})\nsubseteq \overline{f(A)}$.
+
+(Note: this is closely related to the fact that a function is continuous if any only if $\lim f(a_n) = f(a)$ whenever $a_n\to a$ is a convergent sequence in a metric space $X$. This observation alone is not quite enough however. If you start with an arbitrary sequence, rather than the tailor-made one constructed above, you're almost guaranteed to get stuck. For example, assuming continuity (and thus sequential continuity, that the limit of $f(a_n)$ is $f(a)$) and taking $A=\{a_n\}$, you can show that every neighbourhood of $f(a)$ contains a point of $f(A)$ --- infinitely many points, in fact --- but this is not enough. Why? Because you can easily construct a function where $f(a_{2k})\to f(a)$, but $f(a_{2k+1})=100$ (or some other fixed and unhelpful value), so each neighbourhood of $f(a)$ can contain infinitely many points of $f(A)$ and still not contain all points $f(a_n)$ for {\em all} $n\geq N$ for some $N$: there might always be the occasional point that jumps out. But still, we've got a situation where working with sequences was helpful.)
+
+\bigskip
+
+Let's now proceed with Proof \#2. We will use the following facts: for any $A\subseteq X$ we have $A\subseteq f^{-1}(f(A))$ and for any $B\subseteq Y$, we have $f(f^{-1}(B))\subseteq B$;\footnote{The first inclusion is an equality provided that $f$ is an injection (one-to-one), and the second is an equality if $f$ is a surjection (onto)} we'll also use the fact that a function $f:X\to Y$ is continuous if and only if whenever $B\subseteq Y$ is {\em closed} in $Y$, $f^{-1}(B)$ is closed in $X$. (As an exercise, you should verify that this is a corollary of the fact that the inverse image of any open set is open for a continuous function.)
+
+Proof: Suppose that $f$ is continuous. Since $\overline{f(A)}$ is closed, $f^{-1}(\overline{f(A)})$ is closed. Since $f(A)\subseteq \overline{f(A)}$, we have that 
+\[
+A\subseteq f^{-1}(f(A))\subseteq f^{-1}(\overline{f(A)}).
+\]
+Since $f^{-1}(\overline{f(A)}$ is closed and $\overline{A}$ is the smallest closed set containing $A$,\footnote{I believe this is proved in the text. If not, as an exercise, you can prove that $\overline{A}=\bigcap F$, where the intersection is taken over all closed subsets containing $A$, then then explain why it follows that if $A\subseteq F$ and $F$ is closed, then $\overline{A}\subseteq F$.} we have that
+$\overline{A}\subseteq f^{-1}(\overline{f(A)})$,
+and thus, $f(\overline{A})\subseteq \overline{f(A)}$.\footnote{If $a\in f^{-1}(B)$ then by definition, $f(a)\in f(B)$, so $A\subseteq f^{-1}(B)$ implies that $f(A)\subseteq B$.}
+
+Conversely, suppose that we know that $f(\overline{A})\subseteq \overline{f(A)}$ for each $A\subseteq X$. Let $B\subset Y$ be closed in $Y$, and let $A=f^{-1}(B)$. Then, since $f(\overline{A})\subseteq \overline{f(A)}$, we have
+\[
+\overline{A}\subseteq f^{-1}(f(\overline{A}))\subseteq f^{-1}(\overline{f(A)}) = f^{-1}(\overline{B}) = f^{-1}(B) = A,
+\] 
+since $B$ is closed, so $\overline{B}=B$. But then we have $\overline{A}\subseteq A$, and $A\subseteq \overline{A}$ by definition, so $A=\overline{A}$, and $A$ is closed, and thus $f$ is continuous.
+
+(So the second proof was... shorter. I'd say easier as well, at least for me -- it took awhile to think up the set $A$ for the proof of the converse. The second approach illustrates two useful lessons: the usefulness of having multiple formulations of continuity, and the usefulness of being comfortable with the set gymnastics involved with direct and inverse images.)
+
+\item (Do not hand in) Let $A$ be a nonempty subset of a metric space $(X,d)$. For $x\in X$, define
+\[
+d(x,A) = \inf\{d(x,a):a\in A\}.
+\]
+\begin{enumerate}
+\item Prove that $d(x,A)=0$ if and only if $x\in \overline{A}$.
+\item Show that if $y\in X$ is another point of $X$, then $d(x,A)\leq d(x,y)+d(y,A)$.
+\item Prove that $x\to d(x,A)$ defines a continuous map $X\to \R$.
+\end{enumerate}
+
+OK, I was totally going to include solutions for this one and then I spent all my time coming up with a probably unnecessary second proof for the last question. In any case, the main one we need is 8(a), and I proved this in class. Well, I proved (ok explained; it maybe doesn't count as a proof if I say it out loud rather than writing it down) in class that $d(x,A)=0$ if and only if for all $\epsilon>0$ there exists some $a\in A$ with $d(x,a)<\epsilon$, and this latter condition is the same thing as requiring $x$ to be a limit point of $A$.
+
+\item Let $A$ be a nonempty subset of a metric space $X$. Prove that a point $x\in X$ belongs to the boundary $\partial A$ of $A$ if and only if $d(x,A) = d(x,X\setminus A)=0$, where $d(x,A)$ is the distance from a point to a set defined in the previous problem.
+
+\bigskip
+
+{\bf Solution}: From 8(a) we know that $d(x,A)=0$ and $d(x,X\setminus A)=0$ if and only if $x$ is a point of closure of both $A$ and $X\setminus A$, which means that every neighbourhood of $x$ contains points of both $A$ and $X\setminus A$. But this is exactly the definition of a boundary point.
+
+\item (Do not hand in, unless you really want to) For a subset $A$ of a metric space $X$, prove:
+\begin{enumerate}
+\item $\inter{A} = A\setminus \partial A = \overline{A}\setminus \partial A$
+\item $\overline{X\setminus A} = X\setminus \inter{A}$
+\item $\partial A = \overline{A}\cap \overline{X\setminus A} = \partial (X\setminus A)$
+\item $\partial A$ is closed in $X$.
+\end{enumerate}
+Nobody handed it in and I don't really want to write the solutions, at least not now -- I'd rather be sleeping. I'm happy to solve any of them on request, however.
+\end{enumerate}
+\end{document}
+ 

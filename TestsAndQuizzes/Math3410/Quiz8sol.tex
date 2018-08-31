@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 3410A}\chead{Quiz \# 8}\rhead{Friday, 27\textsuperscript{th} March, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\nul}{null}
+\newcommand{\len}[1]{\lVert #1\rVert}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+{\bf Name: Solutions}
+
+\bigskip
+
+Solve the following {\bf two} questions. 
+ \begin{enumerate}
+ \item Suppose that $u,v\in V$ are such that $\len{u}=3$, $\len{u+v}=4$, and $\len{u-v}=6$. What is the value of $\len{v}$? \points{5}
+
+\bigskip
+
+We note that
+\begin{align*}
+ \len{u+v}^2+\len{u-v}^2 & = \langle u+v,u+v\rangle + \langle u-v,u-v\rangle\\
+& = \len{u}^2+\langle u,v\rangle+\langle v,u\rangle+\len{v}^2+\len{u}^2-\langle u,v\rangle-\langle v,u\rangle +\len{v}^2\\
+& = 2\len{u}^2+2\len{v}^2.
+\end{align*}
+Subsitutiting $\len{u}=3$, $\len{u+v}=4$, and $\len{u-v}=6$, we find
+\[
+ 4^2+6^2 = 2(3^2)+2\len{v}^2,
+\]
+which gives $2\len{v}^2 = 16+36-18 = 34$, so $\len{v}^2=17$, and thus $\len{v}=\sqrt{17}$.
+
+\bigskip
+
+ \item Prove that for all positive numbers $a,b,c,d\in\R$, we have \points{5}
+\[
+ 16\leq (a+b+c+d)\left(\frac{1}{a}+\frac{1}{b}+\frac{1}{c}+\frac{1}{d}\right).
+\]
+
+\bigskip
+
+Consider the vectors $u=(\sqrt{a},\sqrt{b},\sqrt{c},\sqrt{d})$ and $v = \left(\dfrac{1}{\sqrt{a}},\dfrac{1}{\sqrt{b}},\dfrac{1}{\sqrt{c}},\dfrac{1}{\sqrt{d}}\right)$ in $\R^4$. We have $\langle u,v\rangle = 1+1+1+1=4$, $\len{u}^2=a+b+c+d$, and $\len{v}^2 = \dfrac{1}{a}+\dfrac{1}{b}+\dfrac{1}{c}+\dfrac{1}{d}$.
+
+Since the Cauchy-Schwarz inequality guarantees that $\langle u,v\rangle^2\leq \len{u}^2\len{v}^2$, the result follows.
+
+\bigskip
+
+\item ({\bf Bonus}) Suppose that $V$ is a real inner product space. Prove that \points{5}
+\[
+ \langle u,v\rangle = \frac{\len{u+v}^2-\len{u-v}^2}{4}
+\]
+for all $u,v\in V$.
+
+\bigskip
+
+For any $u,v\in V$, we have (noting that $\langle u,v\rangle = \langle v,u\rangle$, since $V$ is a real inner product space)
+\begin{align*}
+ \len{u+v}^2-\len{u-v}^2 & = \langle u+v,u+v\rangle - \langle u-v,u-v\rangle\\
+& = \langle u,u\rangle+ 2\langle u,v\rangle + \langle v,v\rangle -(\langle u,u\rangle - 2\langle u,v\rangle +\langle v,v\rangle)\\
+& = 4\langle u,v\rangle,
+\end{align*}
+and the result follows upon dividing both sides of the equality by 4.
+ \end{enumerate}
+\end{document}

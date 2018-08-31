@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 5}\rhead{October 12/13, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+{\bf \large Name:} \hspace{2.5in} {\bf Tutorial day and time:}
+
+\bigskip
+
+{\bf Select {\bf one} {\em completed} problem for feedback:}
+
+\bigskip
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+ \begin{enumerate}
+ 
+\item Consider the vectors $\vec{w} = \bbm 2\\-3\\1\ebm, \vec{v}_1 = \bbm -4\\0\\3\ebm, \vec{v}_2 = \bbm 0\\1\\3\ebm, \vec{v}_3=\bbm 2\\-1\\1\ebm$.\\
+Recall that the question ``Does $\vec{w}$ belong to the span of $\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}$?'' is the same as the question ``Are there scalars $x_1,x_2,x_3$ such that $\vec{w} = x_1\vec{v}_1+x_2\vec{v}_2+x_3\vec{v}_3$?''
+
+Show that this question is, in turn, equivalent to the question of whether or not there is a solution to the following system of equations:
+\[
+ \begin{array}{ccccccc}
+  -4x_1 & & &+&2x_3&=&2\\
+   & &x_2&-&x_3&=&-3\\
+ 3x_1&+&3x_2&+&x_3&=&1
+ \end{array}
+\]
+(You do not have to solve the system.)
+
+\vspace{3in}
+
+\item Let $U = \left\{\left.\bbm 2x-y\\x+3y\\4y-x\ebm \right|x,y\in\R\right\}$. Find vectors $\vec{a}$ and $\vec{b}$ such that $U=\operatorname{span}\{\vec{a},\vec{b}\}$.
+
+\newpage
+
+\item Determine if the following subsets of $\R^2$ are subspaces. Explain your answer.
+\begin{enumerate}
+ \item $U=\left\{\left.\bbm x\\y\ebm \right| 3x-2y=0\right\}$
+
+\vspace{1.5in}
+
+ \item $V=\left\{\left.\bbm 2x-1\\x+2\ebm \right| x\in\R\right\}$
+
+\end{enumerate}
+
+\vspace{1.5in}
+
+\item Using only the vector space properties of $\R^n$ (Theorem 19 in Section 4.2), show the following:
+\begin{enumerate}
+ \item $0\vec{v} = \vec{0}$ for any vector $\vec{v}\in\R^n$. (Hint: use property 10 and the fact that $0+0=0$.)
+
+\vspace{1.75in}
+
+ \item If $c\vec{v}=\vec{0}$ for some scalar $c$ and vector $\vec{v}$, then either $c=0$ or $\vec{v}=\vec{0}$.\\
+(Hint: there are two cases -- either $c$ equals zero, or it doesn't.)
+\end{enumerate}
+
+ \end{enumerate}
+\end{document}

@@ -1,0 +1,219 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 40}}
+\chead{MATH 53}\lhead{Test \# 2}\rhead{Friday, 15\textsuperscript{th} March, 2013}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\rd}[2]{\frac{d #1}{d #2}}
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of California, Berkeley}\\
+Department of Mathematics\\
+15\textsuperscript{th} March, 2013, 12:10-12:55 pm\\
+{\bf MATH 53 - Test \#2}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{100pt}Solutions\hspace{200pt}}\\
+\skipline
+First Name:\underline{\hspace{100pt}The\hspace{225pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+\skipline
+Discussion Section: \underline{\hspace{307pt}}\\
+\skipline
+Name of GSI: \underline{\hspace{336pt}}\\
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ {\bf Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+There is a list of potentially useful formulas available on the last page of the exam.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 1 & \enspace\enspace\enspace\enspace\enspace\enspace/15\\
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/15\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/40\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+B
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item Let $f(x,y) = y^2e^{xy}$.
+\begin{enumerate}
+\item Find the linearization of $f$ at the point $(0,1)$. \points{4}
+
+
+\bigskip
+
+The partial derivatives of $f$ are $f_x(x,y) = y^3e^{xy}$ and $f_y(x,y) = 2ye^{xy}+xy^2e^{xy}$, so the linearization of $f$ at $(0,1)$ is given by
+\begin{align*}
+L(x,y) & = f(0,1)+f_x(0,1)(x-0)+f_y(0,1)(y-1)\\
+& = 1+x+2(y-1) = x+2y-1.
+\end{align*}
+
+\bigskip
+
+\bigskip
+
+\item Find the derivative of $f$ in the direction of $\mathbf{v} = \langle 3,-4\rangle$ at the point $(0,1)$. \points{3}
+
+\bigskip
+
+The directional derivative is given by 
+\[
+D_{\mathbf{v}}f(0,1) = \frac{\nabla f(0,1)\dotp \mathbf{v}}{\lVert \mathbf{v}\rVert} = \frac{\langle 1,2\rangle \dotp \langle 3,-4\rangle}{\sqrt{3^2+(-4)^2}} = -1.
+\]
+
+\bigskip
+
+
+\item If $x(t)=2-2t$ and $y(t) = t^2$, use the chain rule to find the tangent vector to the curve $\mathbf{r}(t) = \langle x(t),y(t),z(t)\rangle$ when $t=1$, where $z(t)=f(x(t),y(t))$. \points{5}
+
+\bigskip
+
+We have $x'(t) = -2$, $y'(t) = 2t$ and
+\[
+z'(t) = \frac{d}{dt}f(x(t),y(t)) = \pd{f}{x}\rd{x}{t}+\pd{f}{y}\rd{y}{t}.
+\]
+When $t=1$, $x(1)=0$, $y(1)=1$, $x'(1)=-2$, and $y'(1) = 2$. Thus, $z'(1) = f_x(0,1)x'(1)+f_y(0,1)y'(1) = 1(-2)+2(2)=2$, so $\mathbf{r}'(1) = \langle -2,2,2\rangle$.
+
+\bigskip
+
+\item Verify that the tangent vector found in part (c) is tangent to the surface $z=f(x,y)$ at the point $(0,1,1)$. \points{3}
+
+\bigskip
+
+The tangent plane is given by $z=L(x,y) = x+2y-1$, so a normal vector is $\mathbf{n} = \langle 1,2,-1\rangle$. Since $\mathbf{n}\dotp \mathbf{r}'(1) = \langle 1,2,-1\rangle\dotp \langle -2,2,2\rangle = -2+4-2=0$, $\mathbf{r}'(1)$ must lie in the tangent plane at $(0,1,1)$.
+\end{enumerate}
+\newpage
+
+\item Let $f(x,y) = 8x^3+12xy-y^3$.
+\begin{enumerate}
+\item Find and classify the critical points of $f$. \points{8}
+
+The gradient of $f$ is given by
+\[
+\nabla f(x,y) = \langle 24x^2+12y, 12x-3y^2\rangle,
+\]
+which vanishes when $y=-2x^2$ and $4x=y^2$. Plugging the first equation into the second gives $4x=4x^4$, so $x=0$ or $x=1$. This gives us the critical points $(0,0)$ and $(1,-2)$.
+
+The second derivatives of $f$ are given by $f_{xx}(x,y) = 48x$, $f_{xy}(x,y) = 12$, and $f_{yy}(x,y) = -6y$. Thus, we have
+\begin{itemize}
+\item At $(0,0)$, $A=0, \, B= 12,\, C=0$, and $D = AC-B^2=-144<0$, so $(0,0)$ is a saddle point.
+\item At $(1,-2)$, $A=48>0,\, B=12,\, C=12$, and $D = AC-B^2 = 4(12)^2-12^2>0$, so $(1,-2)$ is a local minimum.
+\end{itemize}
+
+\bigskip
+
+\item Find the absolute maximum and minimum of $f$ on the set $D$ given by the triangular region with vertices at $(0,0)$, $(1,0)$, and $(1,-2)$. \points{7}
+
+\bigskip
+
+From part (a) we have the critical values $f(0,0)=0$ and $f(1,-2) = -8$, which occur at points in $D$, since $(0,0)$ and $(1,-2)$ are two of the three vertices of the triangle. The value of $f$ at the remaining vertex is $f(1,0) = 8$.
+
+Since there are no critical points on the interior of $D$, it remains to check for any boundary extrema. The boundary consists of three lines: $y=0$, $x=1$, and $y=-2x$. Since we've already checked the end points of these lines (the vertices of the triangle), we just have to check for critical points of the restriction of $f$ to each line.
+
+For $y=0$ we get $f(x,0) = 8x^3$, which has its only critical point when $x=0$, which gives the point $(0,0)$, which we've already checked. For $x=1$ we get $g(y) = f(1,y) = 8+12y-y^3$. We have $g'(y) = 12-3y^2$, so $g$ has critical points when $y=\pm 2$, but $(1,2)$ is not in $D$, and $(1,-2)$ we've already checked.
+
+Finally, if $y=-2x$ we have $h(x) = f(x,-2x) = 16x^3-24x^2$, so $h'(x) = 48x-48x^2$, and $h$ has critical points $x=0$ and $x=1$, corresponding to the points $(0,0)$ and $(1,-2)$, which we've already checked. Having exhausted all possibilities, we conclude that the absolute maximum is $f(1,0)=8$, and the absolute minimum is $f(1,-2)=-8$.
+\end{enumerate}
+\newpage
+
+\item \begin{enumerate}
+\item Define what it means for a function $f(x,y,z)$ to be {\em continuous} at a point $(a,b,c)$ in its domain. \points{2}
+
+\bigskip
+
+A function $f:D\subseteq \R^3\to \R$ is continuous at $(a,b,c)\in D$ if 
+\[
+\lim_{(x,y,z)\to (a,b,c)}f(x,y,z) = f(a,b,c).
+\]
+
+\bigskip
+
+
+\item Define what it means for a function $f(x,y,z)$ to be {\em differentiable} at a point $(a,b,c)$ in its domain. \points{3}
+
+\bigskip
+
+A function $f:D\subseteq \R^3\to \R$ is differentiable at $(a,b,c)\in D$ if
+\[
+\lim_{(x,y,z)\to (a,b,c)}\frac{f(x,y,z)-f(a,b,c)-\nabla f(a,b,c)\dotp \langle x-a, y-b, z- c\rangle}{\sqrt{(x-a)^2+(y-b)^2+(z-c)^2}}=0.
+\]
+
+\bigskip
+
+\item Show that if $f$ is differentiable at a point $(a,b,c)$, then it is continuous at $(a,b,c)$.\points{5}
+
+{\em Hint:} You can show this using only the above two definitions and the limit laws.
+
+\bigskip
+
+Let $\x=\langle x,y,z\rangle$ be the position vector for $(x,y,z)$, and similarly define $\aaa=\langle a,b,c\rangle$. Suppose that $f$ is differentiable at $\aaa$. Then we have
+\begin{align*}
+\lim_{\x\to\aaa}f(\x) & = \lim_{\x\to\aaa}\left(f(\x)-f(\aaa)-\nabla f(\aaa)\dotp (\x-\aaa) + \nabla f(\aaa)\dotp (\x-\aaa) + f(\aaa)\right)\\
+& = \lim_{\x\to\aaa}\left[\left(\frac{f(\x)-f(\aaa)-\nabla f(\aaa)\dotp (\x-\aaa)}{\lVert \x-\aaa\rVert}\right)(\lVert \x-\aaa\rVert)\right]\\
+& \hspace{2in} + \lim_{\x\to\aaa}\nabla f(\aaa)\dotp (\x-\aaa) + \lim_{\x\to\aaa}f(\aaa)\\
+& = 0(0) + \nabla f(\aaa)\dotp \mathbf{0} +f(\aaa)\\
+& = f(\aaa).
+\end{align*}
+Thus, $f$ is continuous at $\aaa$.
+\end{enumerate}
+\end{enumerate}
+
+
+\end{document}

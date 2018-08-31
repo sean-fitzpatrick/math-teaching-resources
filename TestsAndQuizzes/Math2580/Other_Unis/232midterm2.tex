@@ -1,0 +1,228 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+%\input quizstyle.tex
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\addtolength{\headheight}{\baselineskip}
+
+\lhead{{\bf Date:} Friday, June 8th }
+\chead{{\bf Time:} 9:10 pm}
+\rhead{MAT232HF}
+\cfoot{Page \thepage \ of \pageref{LastPage}}
+\rfoot{{\bf Total Marks:} 60}
+
+%Redefine the plain page style in fancyhdr package
+\fancypagestyle{plain}{%  
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{Page \thepage \ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}}
+
+\newcounter{probnum}
+\newcounter{subprobnum}
+
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\nll}{null}
+\DeclareMathOperator{\tr}{tr}
+
+\newenvironment{problems}{
+\begin{list}{\arabic{probnum}.}{\usecounter{probnum}}
+}{
+\end{list}
+}
+
+\newenvironment{subproblem}{ % start for subprob
+\begin{list}{ % first arg for list
+(\alph{subprobnum})
+}{ % second arg for list
+\usecounter{subprobnum}
+\setlength{\topsep}{0in}
+} % end of list def
+}{ % end for subprob
+\end{list}
+}
+
+\newcommand{\skipline}{\vspace{12pt}}
+%\input local.tex
+\renewcommand{\labelenumi}{(\roman{enumi})}
+
+\begin{document}
+\thispagestyle{plain}
+%Supresses the headers on the front page
+
+\centerline {\bf University of Toronto at Mississauga}
+\medskip
+\centerline {\bf Mid-Term Make-up Exam}
+\medskip
+\centerline {\bf MAT232HF}
+\centerline {\bf Calculus of Several Variables}
+\medskip
+\centerline {Instructor: Sean Fitzpatrick}
+\centerline {Duration: 110 minutes}
+\bigskip
+\bigskip
+
+\noindent {\bf NO AIDS ALLOWED.} \hfill {\bf Total: 60 marks}
+\vglue .25truein
+\begin{tabular}{ll}
+Family Name: &\underbar {\hskip 4.5in} \\
+   &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[15pt]
+Given Name(s): &\underbar {\hskip 4.5in} \\
+    &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[15pt]
+Please sign here: &\underbar {\hskip 4.5in}\\
+[25pt]
+Student ID Number: &\underbar {\hskip 4.5in}\\
+\end{tabular}
+\bigskip
+
+
+%\vspace{1in}
+\begin{quote}
+{\large \bf You may not use calculators, cell phones, or PDAs during
+the exam.  Partial credit will be given for partially correct work.
+Please read through the entire test before starting, and take note of
+how many points each question is worth.  Please put a box around your
+solutions so that the grader may find them easily.  }
+\end{quote}
+
+\vspace{.25in}
+\begin{center}
+\begin{tabular}{|l|r|}
+\hline \hline
+\multicolumn{2}{|c|}
+{\rule[-3mm]{0mm}{8mm}
+FOR MARKER'S USE ONLY} \\
+\hline
+Problem 1: & \hspace{.5in}  /10 \\ [3pt]
+\hline
+Problem 2: & \hspace{.5in}  /10 \\ [3pt]
+\hline
+Problem 3: & \hspace{.5in}  /10 \\ [3pt]
+\hline
+Problem 4: & \hspace{.5in}  /15 \\ [3pt]
+\hline
+Problem 5: & \hspace{.5in}  /8 \\ [3pt]
+\hline
+Problem 6: & \hspace{.5in}  /7 \\ [3pt]
+\hline
+\hline 
+{\rule[-3mm]{0mm}{8mm} TOTAL:}  & /60  \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+\vglue1pt
+%vglue adds space between headers and text
+
+\begin{problems}
+\item   \begin{subproblem}
+	\item Obtain the equation of the ellipse with foci at $(\pm 3, 0)$ 
+and major axis of length 10, and then sketch the graph.
+\marginpar{[5]}
+\vspace{4in}
+	\item Eliminate the parameter to sketch the parametric curve $x(t) 
+=\cos 2t$, $y(t) = \sin t$, $t\in [-\pi,\pi]$. Then, 
+describe the motion of a particle moving according to these 
+equations as $t$ changes. \marginpar{[5]}
+	\end{subproblem}
+\newpage
+\vglue1pt
+
+\item Recall the identity $\vec{u}\times(\vec{v}\times\vec{w}) = 
+(\vec{u}\cdot\vec{w})\vec{v} - (\vec{u}\cdot\vec{v})\vec{w}$.
+	\begin{subproblem}
+	\item Show that \marginpar{[4]}
+\begin{equation*}
+(\vec{u}\times\vec{v})\times\vec{w} = (\vec{w}\cdot\vec{u})\vec{v} - 
+(\vec{v}\cdot\vec{w})\vec{u}
+\end{equation*}
+
+\noindent {\bf Hint:} $\vec{a}\times\vec{b} = -\vec{b}\times\vec{a}$.
+
+\vspace{2.8in}
+	\item Let $\vec{a}$ be a given non-zero vector, and $\hat{u}$ a 
+unit vector.  Show that $\vec{a}$ can be written as $\vec{a} = 
+\vec{a}_\parallel + \vec{a}_\bot$, where $\vec{a}_\parallel = 
+(\vec{a}\cdot\hat{u})\hat{u}$ is parallel to $\hat{u}$ and $\vec{a}_\bot = 
+(\hat{u}\times\vec{a})\times\hat{u}$ is perpendicular to $\vec{a}$. 
+\marginpar{[6]}
+	\end{subproblem}
+\newpage
+\vglue1pt
+\item In each case, determine whether or not the given line $L$ and plane 
+$P$ are 
+parallel, or intersect.  If they intersect, find the point of 
+intersection.
+	\begin{subproblem}
+	\item $L:\: x = 7-4t,\: y=3+6t,\: z=9+5t$, and $P:\: 4x+y+2z=17$.
+\marginpar{[5]}
+\vspace{3.2in}
+	\item $L:\: x=3+3t,\: y=6-5t,\: z = 2+3t$, and $P:\: 3x+2y-4z=1$.
+\marginpar{[5]}
+	\end{subproblem}
+\newpage
+\vglue1pt
+\item \begin{subproblem}
+	\item Find all first-order partial derivatives 
+of the following functions:\marginpar{[8]}
+	\begin{enumerate}
+		\item $f(x,y) = {\displaystyle \frac{x\sin y}{y\cos x}}$.
+\vspace{2in}
+                \item $g(x,y,z) = \ln(\frac{x}{y})-ye^{xz}$.
+\vspace{2in}
+
+                \item $h(x,y,z) = xy+yz+zx$.
+	\end{enumerate}
+\newpage
+\vglue1pt
+	\item Given $u(x,y) = {\displaystyle \frac{xy}{x+y}}$, show that
+\marginpar{[7]}
+\begin{equation*}
+x^2\frac{\partial^2 u}{\partial x^2} + 2xy\frac{\partial^2 u}{\partial 
+x\partial y} + y^2\frac{\partial^2 u}{\partial y^2}=0
+\end{equation*}
+	\end{subproblem}
+\newpage
+\vglue1pt
+
+\item Consider the elliptic paraboloid $x^2 + \frac{y^2}{b^2} = z$.
+\begin{subproblem}
+	\item Describe the trace of this paraboloid in the plane 
+$z=1$.\marginpar{[2]}
+\vspace{1.5in}
+	\item What happens to this trace as 
+$b\rightarrow\infty$?\marginpar{[3]}
+\vspace{2.5in}
+	\item What happens to the paraboloid as 
+$b\rightarrow\infty$?\marginpar{[3]}
+\end{subproblem}
+\newpage
+\vglue1pt
+
+\item Show that the limit \marginpar{[7]}
+\begin{equation*}
+\lim_{(x,y)\rightarrow (1,1)}\frac{x-y^4}{x^3-y^4}
+\end{equation*}
+does not exist.
+
+\newpage
+\vglue1pt
+Extra space for rough work. Do {\bf not} tear out this page.
+\end{problems}
+\end{document}
+\newpage
+

@@ -1,0 +1,128 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+\usepackage[all,cmtip]{xy}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Int}{Int}
+
+\title{Math 4310 Assignment \#9 Solutions\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+\item Let $p:X\to Y$ be a quotient map, and let $A\subseteq X$ be a subspace. Show that the restricted map $q=p|_A:A\to p(A)$ need not be a quotient map. (Hint: consider the following example: $X=[0,1]\cup [2,3]$, $A=[0,1)\cup [2,3]$, and $p(x)=x$ for $x\in [0,1]$, and $p(x)=x-1$ for $x\in [2,3]$.)
+
+\bigskip
+
+Let $X=[0,1]\cup [2,3]$ and let $Y=[0,2]$. Define $p:X\to Y$ by
+\[
+ p(x) = \begin{cases} x, & \text{ if } x\in [0,1]\\
+         x-1, & \text{ if } x\in [2,3].
+        \end{cases}
+\]
+It's clear that $p$ is a surjection, and $p$ is continuous, since $p$ is continuous on the two connected components of $X$. Moreover, since $X$ is compact and $Y$ is Hausdorff, $p$ is a quotient map.
+
+Now let $A\subseteq X$ be given by $A=[0,1)\cup [2,3]$ with the subspace topology, and let $q:A\to p(A)$ be the restriction of $p$ to $A$ viewed as a surjection onto its image. Since restrictions of continuous maps are always continuous, $q$ is a continuous surjection, but it is not a quotient map, since $p^{-1}([0,1]) = [2,3]$ is open in $X$ (connected components are always open subsets), but $[0,1]$ is not an open subset of $[0,2]$.
+
+\bigskip
+
+\item With the same terminology as the previous problem, show that if either $A$ is open in $X$ and $p$ is an open map, or $A$ is closed in $X$ and $p$ is a closed map, then $p_A:A\to p(A)$ is a quotient map.
+
+\bigskip
+
+Let $p:X\to Y$ be an open map, and let $A\subseteq X$ be open. Consider the restricted map $p_A:A\to p(A)$. Since $p$ is continuous, its restriction $p_A$ is continuous, and is a surjection by construction. Now, if $U\subseteq A$ is open in the subspace topology, then $U=V\cap A$ for some open subset $V\subseteq X$. Since $A$ and $V$ are open in $X$, so is $U$. Since $p$ is an open map, $p_A(U)=p(U)$ is open in $Y$, and since $U\subseteq A$, $p(U)\subseteq p(A)$. Since $A$ is open in $X$, $p(A)$ is open in $Y$, and thus $p(U) = p(U)\cap p(A)$ is open in $p(A)$. Thus, $p_A$ is an open map, and therefore a quotient map.
+
+The proof when $A$ is closed and $p$ is a closed map is idenitical, with every instance of `open' replaced by `closed'.
+
+\bigskip
+
+\item Let $X$ denote the quotient space obtained from $\R$ by identifying all of the integers to a single point.
+\begin{enumerate}
+ \item Explain why $X$ can be viewed as a countable union of circles that are all joined at a single point.
+
+\bigskip
+
+To see this, note that $\R = \bigcup_{n\in\Z}[n,n+1]$, and that identifying the endpoints of the interval $[n,n+1]$ produces a copy of $S^1$. Thus, identifying the endpoints of {\em all} intervals to a single point produces one copy of $S^1$ for each $n\in \Z$, with all copies of $S^1$ joined at the single point in $X$ corresponding to the set $\Z$ in the partition of $\R$ consisting of $\Z$ and the sets $\{x\}$ for $x\notin \Z$.
+
+Another way to think of it (although it doesn't quite work out exactly) is to consider the disjoint union
+\[
+ \tilde{\R} = \bigsqcup_{n\in\Z}[n,n+1] = \bigcup_{n\in\Z}[n,n+1]\times\{n\}
+\]
+and let $p:\tilde{\R}\to\R$ be the quotient map given by identifying $(n,n)\in [n,n+1]\times\{n\}$ with $(n,n-1)\in [n-1,n]\times\{n-1\}$. (That is we obtain $\R$ from $\tilde{\R}$ by gluing the disjoint union of intervals back together at their endpoints.
+
+Now, for each $n\in \Z$, we have a quotient map $p_n:[n,n+1]\to S^1$ given by identifying the endpoints of the interval. This allows us to define the map
+\[
+ \sqcup p_n: \tilde{\R} \to \bigsqcup_{n\in\Z}S^1
+\]
+given by applying the map $p_n$ to $[n,n+1]$ for each $n\in \Z$. Now fix a point $x_0\in S^1$ and define a quotient of $\bigsqcup S^1$ by identifying the points $(x_0,n)\in S^1\times \{n\}$ for each $n\in \N$. The resulting space $X'$ is then countably many copies of $S^1$ that have all been glued together at the point $x_0$. At this point we'd like to just claim that $X'=X$, but the details get messy, so let's just go with the first explanation.
+
+\bigskip
+
+ \item Let $Y$ be the union of the circles $(x-1/n)^2+y^2=1/n^2$, for $n\in \N$. (The space $Y$ is called the ``Hawaiian Earring''.) Show that $Y$ is {\em not} homeomorphic to $X$. (For a hint, see the first paragraph of the Wikipedia entry on the Hawaiian Earring.)
+ 
+ \bigskip
+ 
+We note that the space $Y$ is compact. To see this, let $\mathcal{A}$ be any open cover of $Y$. (Since $Y$ is a subspace of $\R^2$ it suffices to cover $Y$ by open subsets of $\R^2$.) Some $A\in \mathcal{A}$ will have to contain the origin, and since $A$ is open in $\R^2$, it contains an open disc $D$ of radius $\epsilon>0$. Choosing $N\in\N$ such that $1/N<\epsilon$, we note that all of the circles $S^1_n$ given by $(x-1/n)^2+y^2=1/n^2$ for $n\geq N$ lie within the disc $D$ and thus within $A$. It follows that $Y\setminus A$ consists of the union of the finitely many sets $S^1_n\setminus A$ for $n=1,\ldots, N-1$, and since $A$ is open, and each circle $S^1_n$ is closed, each $S^1_n\setminus A$ is closed and bounded, and therefore compact, and thus their union is compact. Thus, there exist finitely many sets $A_1,\ldots, A_n\in \mathcal{A}$ that cover $Y\setminus A$, and thus $\{A_1,\ldots, A_n, A\}$ is a finite subcover of $Y$.
+
+Now, notice that $X$ cannot be compact, since we can take an open cover of $X$ as follows:  choose an open neighbourhood of the point $p$ corresponding to the integers whose preimage in $\R$ is of the form $\bigcup (n-1/4,n+1/4)$, together with the open intervals $(n,n+1)$. Then this is an open cover of $X$ with no finite subcover.
+
+Since $Y$ is compact and $X$ is not, $X$ cannot be homeomorphic to $Y$. 
+ 
+ \bigskip
+ 
+\end{enumerate}
+ \item Let $f:X\to X'$ be a continuous function and suppose that we have partitions $\mathcal{P},\mathcal{P}'$ of $X$ and $X'$, respectively, such that if two points in $X$ lie in the same member of $\mathcal{P}$, then $f(x)$ and $f(x')$ lie in the same member of $\mathcal{P}'$. If $Y$ and $Y'$ are the quotient spaces of $X$ and $X'$ corresponding to the given partitions, show that $f$ induces a map $\tilde{f}:Y\to Y'$ and that if $f$ is a quotient map, then so is $\tilde{f}$.
+ 
+ \bigskip
+ 
+Define a map $\tilde{f}:Y\to Y'$ by $\tilde{f}([x])=[f(x)]$, where $[x]\in Y$ denotes the equivalence class of $x\in X$, and $[f(x)]\in Y'$ denotes the equivalence class of $f(x)\in X'$. By assumption, if $y\in [x]$, then $f(y)\in [f(x)]$, so $\tilde{f}$ does not depend on the choice of representative in $[x]$, and therefore is well-defined.
+
+Now, suppose that $f$ is a quotient map, let $p:X\to Y$ and $p':X\to Y'$ denote the quotient maps defined by the partitions $\mathcal{P}$ and $\mathcal{P}'$, and notice that $\tilde{f}$ is defined by the commutative diagram
+\[
+\xymatrix{ X \ar[r]^f \ar[d]^p & X' \ar[d]^{p'}\\ Y \ar[r]^{\tilde{f}} & Y'}
+\]
+since for any $x\in X$, $\tilde{f}(p(x)) = \tilde{f}([x]) = [f(x)] = p'(f(x))$. Now, we note that for any subset $U\subseteq Y'$, we have 
+\begin{equation}\label{1}
+p^{-1}(\tilde{f}^{-1}(U)) = (\tilde{f}\circ p)^{-1}(U) = (p'\circ f)^{-1}(U) = f^{-1}((p')^{-1}(U)).
+\end{equation}
+Thus, $U$ is open in $Y'$ if and only if $(p')^{-1}(U)$ is open in $X'$, which is if and only if $f^{-1}((p')^{-1}(U))$ is open in $X$, which is if and only if $p^{-1}(\tilde{f}^{-1}(U))$ is open in $X$ (by \eqref{1}), which is if and only if $\tilde{f}^{-1}(U)$ is open in $Y$.
+Therefore, $\tilde{f}$ is a quotient map.
+
+ \bigskip
+ 
+ 
+ \item \begin{enumerate}
+        \item Let $p:X\to Y$ be a continuous map. Show that if there is a continuous map $f:Y\to X$ such that $p\circ f$ equals the identity map of $Y$, then $p$ is a quotient map.
+        
+ \bigskip
+ 
+ Let $p:X\to Y$ be given and suppose such a map $f$ exists. Then $p$ must be onto, since for any $y\in Y$ we have $p(f(y)) = I_Y(y)=y$. Moreover, if $p^{-1}(U)$ is open in $X$, then $f^{-1}(p^{-1}(U)) = (p\circ f)^{-1}(U) = I_Y^{-1}(U) = U$ is open in $Y$, and of course if $U$ is open in $Y$ then $p^{-1}(U)$ is open in $X$, since $p$ is continuous. Thus, $p$ is a quotient map.
+ 
+ \bigskip
+ 
+        \item If $A\subseteq X$, a {\em retraction} of $X$ onto $A$ is a continuous map $r:X\to A$ such that $r(a)=a$ for all $a\in A$. Show that any retraction map is a quotient map.
+
+\bigskip
+
+Given a retraction map $r:X\to A$, let $i:A\to X$ denote the inclusion map given by $i(a)=a$ for all $a\in A$. We know that any inclusion map is continuous in the subspace topology, and for any $a\in A$ we have $(r\circ i)(a) = r(i(a)) = r(a) = a$, so $r\circ i = I_A$, and thus $r$ is a quotient map, by part (a).
+       \end{enumerate}
+
+\end{enumerate}
+\end{document}
+ 

@@ -1,0 +1,132 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 40}}
+\chead{MATH 4310}\lhead{Term Test II}\rhead{Monday, 17\textsuperscript{th} November, 2014}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+17\textsuperscript{th} November, 2014, 5:00-5:50 pm\\
+{\bf Math 4310 - Term Test II}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ {\bf Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/40\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item Let $X$ be a topological space. List as many conditions as possible equivalent to the statement ``$X$ is not connected.'' \points{6} You don't need to justify your responses.
+
+(Note: It is possible to earn bonus points on this problem. I will give 2 points per correct response, up to 6 points, plus 1 point for any additional correct responses.)
+
+\vspace{3.5in}
+
+\item Let $X$ be a subspace of $\R^n$ (with the Euclidean topology). List as many conditions as possible equivalent to the statement ``$X$ is compact.'' \points{6} The same scoring rules apply as in Problem \#1.
+
+\newpage
+
+\item Let $X$ and $Y$ be topological spaces, where $X$ is compact and $Y$ is Hausdorff, and let $f:X\to Y$ be continuous.
+\begin{enumerate}
+ \item Prove that if $f:X\to Y$ is a surjection, then $f$ is a quotient map. \points{5}
+
+\vspace{3.5in}
+
+ \item Prove that if $f:X\to Y$ is a bijection, then $f$ is a homeomorphism. \points{3}
+
+
+
+\end{enumerate}
+\newpage
+ \item Prove that if $f:X\to Y$ is a continuous surjection and $X$ is path-connected, then $Y$ is path-connected. \points{5}
+
+\vspace{3.5in}
+
+ \item Suppose that $X=A\cup B$, with $A,B$ nonempty, disjoint, open subsets of $X$. (That is, $\{A,B\}$ is a separation of $X$.) Prove that a map $f:X\to Y$ is continuous if and only if the restrictions $f|_A:A\to Y$ and $f|_B:B\to Y$ are continuous. \points{5}
+
+\newpage
+
+ \item Suppose $\{F_n | n\in\N\}$ is a family of nonempty closed subsets of a topological space $X$, such that $F_{n+1}\subseteq F_n$ for each $n\in \N$. Prove that if $X$ is compact, then $\bigcap_{n\in\N}F_n$ is nonempty. \points{6}
+
+Hint: To get a contradiction, suppose $\bigcap_{n\in\N}F_n = \emptyset$, and take complements.
+
+ \vspace{4.5in}
+
+ \item Consider the cylinder $X=S^1\times [-1,1]$, and let $\sim$ be the equivalence relation on $X$ defined by the partition  $\mathcal{P}$ consisting of the sets $S^1\times\{-1\}$, $S^1\times\{1\}$, and the single point sets $\{(x,t)\}$, where $x\in S^1$ and $t\in (-1,1)$. Describe the quotient space $X/\sim$. \points{4} (A formal proof is not required.)
+
+
+\end{enumerate}
+
+
+
+\end{document}

@@ -1,0 +1,189 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.2in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}      
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}  
+%\newenvironment{inva}{\left[\begin{array}{cc|cc}}{\end{array}\right]} 
+%\newcommand{\binva}{\begin{inva}}
+%\newcommand{\einva}{\end{inva}}     
+\newcommand{\binv}{\left[\begin{array}{ccc|ccc}}
+\newcommand{\einv}{\end{array}\right]}     
+
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+{\bf MATH 1410 - Tutorial \#9 Solutions}
+\end{center}
+
+
+
+
+%\thispagestyle{empty}
+
+ \begin{enumerate}
+\item Let $A=\bbm 1&-1&4\\-2&3&-5\\1&1&9\ebm$.
+\begin{enumerate}
+\item Compute $A^{-1}$.
+
+We form the augmented matrix $\bbm A&I\ebm$ and proceed to RREF, as follows:
+\begin{align*}
+\binv 1&-1&4&1&0&0\\
+     -2&3&-5&-&1&0\\
+      1&1& 9&0&0&1\einv \xrightarrow[R_3-R_1\to R_3]{R_2+2R_1\to R_2}&
+\binv 1&-1&4&1&0&0\\
+      0&1&3&2&1&0\\
+      0&2&5&-1&0&1\einv\\ \xrightarrow{R_3-2R_2\to R_3}&
+\binv 1&-1&4&1&0&0\\
+      0&1&3&2&1&0\\
+      0&0&-1&-5&-2&1\einv\\ \xrightarrow{-R_3\to R_3}&
+\binv 1&-1&4&1&0&0\\
+      0&1&3&2&1&0\\
+      0&0&1&5&2&-1\einv\\ \xrightarrow[R_2-3R_3\to R_2]{R_1-4R_3\to R_1}&
+\binv 1&-1&0&-19&-8&4\\
+      0&1&0&-13&-5&3\\
+      0&0&1&5&2&-1\einv\\ \xrightarrow{R_1+R_2\to R_1}&
+\binv 1&0&0&-32&-13&7\\
+      0&1&0&-13&-5&3\\
+      0&0&1&5&2&-1\einv      
+\end{align*}
+Since we now have identity matrix on the left, we can conclude that $A^{-1} = \bbm -32 &-13&7\\-13&-5&3\\5&2&-1\ebm$.
+
+\item Solve for $X$, if $AX+\bbm 2&-3\\-1&-5\\4&2\ebm = \bbm 1&0\\4&-3\\-2&1\ebm$
+
+Since $AX = \bbm 1&0\\4&-3\\-2&1\ebm - \bbm 2&-3\\-1&-5\\4&2\ebm = \bbm -1&3\\5&2\\-6&-1\ebm$, we can multiply by $A^{-1}$ (as determined above) to get
+\[
+X = \bbm -32 &-13&7\\-13&-5&3\\5&2&-1\ebm \bbm -1&3\\5&2\\-6&-1\ebm = \bbm -75&-129\\-30&-52\\11&20\ebm.
+\]
+
+\end{enumerate}
+\newpage
+
+\item For each equation given below, explain why $A$ is invertible, and determine an expression (in terms of $A$) for $A^{-1}$.
+
+\textit{Hint:} Recall that $A$ is invertible provided there exists a matrix $B$ such that $AB=I$, in which case $B=A^{-1}$.
+
+\begin{enumerate}
+\item $A^5=I$
+
+\bigskip
+
+Since $A(A^4) = A^5 = I$, we can conclude that $A$ is invertible, and $A^{-1}=A^4$.
+
+\bigskip
+
+\item $A^4=9I$
+
+\bigskip
+
+We have $\frac19 A^4 = I$, so $A\left(\frac19 A^3\right) = \frac19 A(A^3)=\frac19 A^4=I$.
+
+Therefore, $A$ is invertible, and $A^{-1} = \frac19 A^3$.
+
+\bigskip
+
+
+
+\item $A^2-5A+6I=0$
+
+\bigskip
+
+Notice that $6I=5A-A^2$, so 
+\[
+I = \frac16 (5A-A^2) = \frac56 A-\frac16 A^2 = (\frac56 I -\frac16 A)A.
+\]
+Thus, $A$ is invertible, and $A^{-1} = \frac56 I-\frac16 A$.
+
+\textbf{Note:} when factoring an expression such as $5A-A^2$, we must be careful. First instinct suggests that we can write $5A-A^2=A(5-A)$, but the expression $5-A$ is undefined: we cannot subtract a matrix from a number. The correct factorization is $5A-A^2 = A(5I-A)$. Adding the identity matrix ensures that everything is defined, and does not affect the product: $A(5I) = 5(AI)=5A$.
+\end{enumerate}
+
+\bigskip
+
+\item Show that the matrix $A=\bbm -3&-3\\10&8\ebm$ satisfies the equation $A^2-5A+6I=0$. Using your result from problem 2(c), determine $A^{-1}$.
+
+We find $A^2 = \bbm -3&-3\\10&8\ebm\bbm -3&-3\\10&8\ebm=\bbm -21&-15\\50&34\ebm$, so
+\[
+A^2-5A+6I = \bbm -21&-15\\50&34\ebm+\bbm 15&15\\-50&-40\ebm + \bbm 6&0\\0&6\ebm = \bbm 0&0\\0&0\ebm,
+\]
+as required. It follows from 2(c) that
+\[
+A^{-1} = \frac56 I-\frac16 A = \bbm 5/6 &0\\0&5/6\ebm+\bbm 1/2&1/2\\-5/3&4/3\ebm = \bbm 4/3&1/2\\-5/3&-1/2\ebm.
+\]
+\newpage
+
+\item For each problem below, assume $T$ is a linear transformation from $\R^2$ to $\R^3$.
+\begin{enumerate}
+\item Given vectors $\vec{u},\vec{v}\in\R^2$ such that $T(\vec{u})=\bbm 3\\-1\\4\ebm$ and $T(\vec{v})=\bbm -1\\2\\5\ebm$, determine the value of $T(4\vec{u}-3\vec{v})$.
+
+\[
+T(4\vec{u}-3\vec{v})=4T(\vec{u})-3T(\vec{v})=4\bbm 3\\-1\\4\ebm-3\bbm -1\\2\\5\ebm = \bbm 15\\-10\\1\ebm.
+\]
+
+\item Determine the matrix of $T$, if $T\left(\bbm 1\\0\ebm\right)=\bbm 1\\-2\\0\ebm$ and $T\left(\bbm 0\\1\ebm\right) = \bbm 4\\-1\\2\ebm$.
+
+\bigskip
+
+It is a general fact (see Theorem 35 on p. 266 of the textbook) that the if $A$ is the matrix of $T$, then the columns of $A$ are given by the values of $T$ on the standard unit vectors. In this case, $T\left(\bbm 1\\0\ebm\right)$ gives the first column, and $T\left(\bbm 0\\1\ebm\right)$
+the second, so
+\[
+A=[T] = \bbm 1&4\\-2&-1\\0&2\ebm.
+\]
+\item \textit{For fun}: find the matrix of the transformation $T$ in part(a), if $\vec{u}=\bbm 2\\1\ebm$ and $\vec{v}=\bbm -1\\1\ebm$.
+
+\textit{Hint:} First determine how to write $\bbm 1\\0\ebm$ and $\bbm 0\\1\ebm$ in terms of $\vec{u}$ and $\vec{v}$. 
+
+First, notice that $\bbm 1\\0\ebm =\frac 13\vec{u}-\frac13 \vec{v}$, and $\bbm 0\\1\ebm = \frac13 \vec{u}+\frac23\vec{v}$. Thus,
+\[
+T\left(\bbm 1\\0\ebm\right) = T(\frac13 \vec{u}-\frac13\vec{v}) = \frac13\bbm 3\\-1\\4\ebm-\frac13\bbm -1\\2\\5\ebm = \bbm 4/3\\-1\\-1/3\ebm,
+\]
+and
+\[
+T\left(\bbm 0\\1 \ebm\right) T(\frac13\vec{u}+\frac23\vec{v}) = \frac13\bbm 3\\-1\\4\ebm +\frac23 \bbm -1\\2\\5\ebm = \bbm 1/3\\1\\14/3\ebm,
+\]
+so $[T] = \bbm 4/3&1/3\\-1&1\\-1/3&14/3\ebm$. (Feel free to confirm the values of $T(\vec{u})$ and $T(\vec{v})$ using this matrix.)
+\end{enumerate}
+
+ \end{enumerate}
+ 
+\end{document}

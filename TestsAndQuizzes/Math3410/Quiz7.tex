@@ -1,0 +1,55 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 3410A}\chead{Quiz \# 7}\rhead{Friday, 13\textsuperscript{th} March, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\nul}{null}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+{\bf Name:}
+
+\bigskip
+
+Solve the following {\bf two} questions. (Question \#2 is on the back of the page.)
+ \begin{enumerate}
+ \item Suppose $T\in\mathcal{L}(V)$ and $(T-2I)(T-3I)(T-4I)=0$. Suppose $\lambda$ is an eigenvalue of $T$. Prove that $\lambda =2$ or $\lambda =3$ or $\lambda=4$.\points{5}
+
+{\em Hint:} Compute $(T-2I)(T-3I)(T-4I)v$, where $v$ is an eigenvector with eigenvalue $\lambda$.
+
+\newpage
+
+ \item Suppose $T\in\mathcal{L}(V)$ is invertible. Prove that $E(\lambda, T)=E(\frac{1}{\lambda},T^{-1})$ for every $\lambda\in\mathbb{F}$ with $\lambda\neq 0$.
+
+{\em Reminder:} the eigenspace $E(\lambda, T)$ is defined to be $\nul(T-\lambda I)$.
+ \end{enumerate}
+\end{document}

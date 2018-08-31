@@ -1,0 +1,122 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+
+\newcommand{\R}{\mathbb{R}}
+\title{Practice Problems for Quiz 3\\Math 2000A}
+%\author{Sean Fitzpatrick}
+\date{}
+
+\begin{document}
+ \maketitle
+\vspace{-1cm}
+
+Quiz \#3 will take place in class on Thursday, September 25. 
+\begin{enumerate}
+ \item I've just posted a handout to our Moodle page entitled ``Logical Equivalences''. It contains a list of some of the rules from propositional logic we've encountered. Work your way through this list as follows: let $A,B,C$ be sets. Let $P$ be the statement $x\in A$, $Q$ the statement $x\in B$, and $R$ the statement $x\in C$. Each of the definitions (e.g. of $P\vee Q$, etc.) and each of the equivalences corresponds to a definition or rule involving sets. Work out what each of these are.
+
+(For example, $P\vee Q$ becomes $(x\in A)\vee (x\in B)$, which by definition means that $x\in (A\cup B)$, the equivalence $P\vee (Q\vee R)\equiv (P\vee Q)\vee R$ corresponds to the set equality $A\cup (B\cup C)=(A\cup B)\cup C$, and so on.) If you assume that $A,B,C$ are subsets of some universal set $U$, then you can consider a tautology $T$ to be equivalent to the statement $x\in U$, and a contradiction $F$ to mean the same thing as $x\in \emptyset$.
+
+Once you've done all of those, try the following: 
+
+Two equivalences missing from the list that we frequently use are $P\to Q\equiv \neg P\vee Q$ and $P\wedge \neg Q\equiv \neg (P\to Q)$. Translate these into statements about sets.
+
+\item Determine which of the following assertions are true and which are false (give a reason for each one):
+\begin{multicols}{2}
+\begin{enumerate}
+ \item $\emptyset\in \emptyset$
+ \item $1\in\{1\}$
+ \item $\{1,2\}=\{2,1\}$
+ \item $\emptyset=\{\emptyset\}$
+ \item $\emptyset\subseteq \{\emptyset\}$
+ \item $1\subseteq \{1\}$
+ \item $\{1\}\subseteq \{1,2\}$
+ \item $\emptyset\in\{\emptyset\}$
+\end{enumerate}
+\end{multicols}
+\item For each set below, determine (i) the cardinality of the set, and (ii) the power set of the set.
+\begin{multicols}{3}
+\begin{enumerate}
+\item $\emptyset$
+\item $\{1\}$
+\item $\{1,2\}$
+\item $\{1,2,3\}$
+\item $\{\emptyset,\{1\}\}$
+\item $\mathcal{P}(\mathcal{P}(\emptyset))$
+\end{enumerate}
+\end{multicols}
+(For part (f), $\mathcal{P}(A)$ denotes the power set of $A$.)
+
+\item Assume that the universal set is the set $\R$ of real numbers. Let $A,B,C,D$ be subsets of $\R$, where
+\begin{center}
+\begin{tabular}{ll}
+$A = \{-3,-2,2,3\}$ & $B = \{x\in\R \,|\, x^2=4 \text{ or } x^2=9\}$\\
+$C = \{x\in \R\,|\, x^2+2=0\}$ & $D = \{x\in\R\,|\, x>0\}$
+\end{tabular}
+\end{center}
+\begin{enumerate}
+\item Is the set $A$ equal to the set $B$?
+\item Is the set $A$ a subset of the set $B$?
+\item Is the set $C$ equal to the set $D$?
+\item Is the set $C$ a subset of the set $D$?
+\end{enumerate}
+For the next two problems, the ``roster method'' refers to the method of describing a set by listing its elements, e.g. finite sets such as $\{1,2,3,4\}$ or infinite sets such as $\{1,2,3,\ldots\}$, and $S^c$ denotes the compliment of a set $S$.
+\item Let $U=\{1,2,3,4,5,6,7,8,9,10\}$ be the universal set, and let
+\begin{center}
+\begin{tabular}{ll}
+$A=\{3,4,5,6,7\}$ & $B=\{1,5,7,9\}$\\
+$C = \{3,6,9\}$ & $D=\{2,4,6,8\}$
+\end{tabular}
+\end{center}
+Use the roster method to list all of the elements of each of the following sets.
+\begin{multicols}{2}
+\begin{enumerate}
+\item $A\cap B$
+\item $A\cup B$
+\item $(A\cup B)^c$
+\item $A^c\cap B^c$
+\item $(A\cup B)\cap C$
+\item $A\cap C$
+\item $B\cap C$
+\item $(A\cap C)\cup (B\cap C)$
+\item $B\cap D$
+\item $(B\cap D)^c$
+\item $A\setminus D$
+\item $B\setminus D$
+\item $(A\setminus D)\cup (B\setminus D)$
+\item $(A\cup B)\setminus D$
+\end{enumerate}
+\end{multicols}
+\item Repeat problems (a)-(n) of the previous question, if the sets $A,B,C,D$ are given by
+\begin{center}
+\begin{tabular}{ll}
+$A = \{n\in\mathbb{N}\,|\, n\geq 7\}$&$B=\{n\in\mathbb{N}\,|\,n \text{ is odd}\}$\\
+$C = \{n\in\mathbb{N}\,|\, n \text{ is a multiple of } 3\}$&$D = \{n\in\mathbb{N}\,|\, n \text{ is even}\}$
+\end{tabular}
+\end{center}
+\item Consider the following assertion: If $A\subseteq B$, then $B^c\subseteq A^c$.
+\begin{enumerate}
+\item Write the negation of this statement.
+\item Write the contrapositive of this statement.
+\item Identify three different conditional statements contained within this statement.
+\end{enumerate}
+\item Let $A$ and $B$ be subsets of some universal set $U$. Prove each of the following:
+\begin{multicols}{3}
+\begin{enumerate}
+\item $A\cap B\subseteq A$
+\item $A\cap A=A$
+\item $A\subseteq A\cup B$
+\item $A\cup A=A$
+\item $A\cap \emptyset = \emptyset$
+\item $A\cup \emptyset = A$
+\end{enumerate}
+\end{multicols}
+\end{enumerate}
+\end{document}
+ 

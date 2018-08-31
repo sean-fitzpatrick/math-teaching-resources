@@ -1,0 +1,75 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+
+\title{Math 1410 Assignment \#4\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} {\bf Wednesday}, March 25th, by 5 pm.
+
+\bigskip
+
+Assignment \#4 should be prepared according to the guidelines as outlined on Assignments 1 and 3.
+
+\subsection*{Assigned problems}
+\begin{enumerate}
+\item Let $A$ be an $m\times n$ matrix. Note that each column of $A$ is of size $m\times 1$, and therefore a vector in $\R^m$. Recall that for a vector $\vec{x} = \begin{bmatrix}x_1&x_2&\cdots &x_n\end{bmatrix}^T$ in $\R^n$, we have
+\[
+ A\vec{x} = x_1C_1+x_2C_2+\cdots +x_nC_n,
+\]
+where $C_1,C_2,\ldots, C_n$ denote the columns of $A$. Show that the following are true:
+\begin{enumerate}
+ \item The columns $C_1,C_2,\ldots, C_n$ are linearly independent if and only if\footnote{For an ``if and only if'' statement you need to prove two things: if the columns are independent, then the only solution to the homogeneous system is the trivial solution, {\bf and} if the only solution to the homogeneous system is the trivial solution, then the columns are linearly independent. For both directions, it's mostly a matter of looking up the definition of linear independence in your notes and writing it down in this context.} the only solution to the homogeneous equation $A\vec{x}=\vec{0}$ is $\vec{x}=\vec{0}$.
+ \item The non-homogeneous equation $A\vec{x}=\vec{y}$ has a solution if and only if\\ $\vec{y}\in\operatorname{span}\{C_1,C_2,\ldots, C_n\}$.
+\end{enumerate}
+
+\item Find the point of intersection (if any) of the following pairs of lines:
+\begin{enumerate}
+ \item \begin{align*}
+        \begin{bmatrix}x\\y\\z\end{bmatrix} & = \begin{bmatrix}3\\-1\\2\end{bmatrix}+t\begin{bmatrix}1\\1\\-1\end{bmatrix}\\
+        \begin{bmatrix}x\\y\\z\end{bmatrix} & = \begin{bmatrix}1\\1\\-2\end{bmatrix}+s\begin{bmatrix}2\\0\\3\end{bmatrix}\\
+       \end{align*}
+\item \begin{align*}
+        \begin{bmatrix}x\\y\\z\end{bmatrix} & = \begin{bmatrix}4\\-1\\5\end{bmatrix}+t\begin{bmatrix}1\\0\\1\end{bmatrix}\\
+        \begin{bmatrix}x\\y\\z\end{bmatrix} & = \begin{bmatrix}2\\-7\\12\end{bmatrix}+s\begin{bmatrix}0\\-2\\3\end{bmatrix}\\
+       \end{align*}
+
+\end{enumerate}
+\item \begin{enumerate}
+       \item Show that $\vec{n} = \begin{bmatrix}a\\b\end{bmatrix}$ is perpendicular to the line $ax+by+c=0$.
+       \item Show that the shortest distance from the point $P_1=(x_1,y_1)$ to the line is
+\[
+ \frac{\abs{x_1+y_1+c}}{\sqrt{a^2+b^2}}.
+\]
+{\em Hint: } Take any point $P_0$ on the line and project $\vec{u}=\overrightarrow{P_0P_1}$ onto $\vec{n}$. If you haven't drawn yourself a picture, you're probably doing it wrong.
+       \item Now, let $L$ be a line in $\R^3$ through the point $P_0=(x_0,y_0,z_0)$ with direction vector $\vec{d}$. Show that the shortest distance from a point $P_1=(x_1,y_1,z_1)$ to the line is
+\[
+ \frac{\len{\overrightarrow{P_0P_1}\times \vec{d}}}{\len{d}}.
+\]
+
+      \end{enumerate}
+\item Find the shortest distance between the following pair of skew lines, and the points on each line that are closest together:
+\begin{align*}
+        \begin{bmatrix}x\\y\\z\end{bmatrix} & = \begin{bmatrix}1\\-1\\0\end{bmatrix}+t\begin{bmatrix}1\\1\\1\end{bmatrix}\\
+        \begin{bmatrix}x\\y\\z\end{bmatrix} & = \begin{bmatrix}2\\-1\\3\end{bmatrix}+s\begin{bmatrix}3\\1\\0\end{bmatrix}\\
+       \end{align*}
+
+\end{enumerate}
+
+
+\end{document}
+ 

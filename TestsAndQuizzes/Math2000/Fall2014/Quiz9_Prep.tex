@@ -1,0 +1,94 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\modd}[3]{#1\equiv #2 \pmod{#3}}
+
+
+\title{Practice Problems for Quiz 9\\Math 2000A}
+\date{}
+\begin{document}
+ \maketitle
+\vspace{-0.5in}
+
+Quiz \#9 will take place in class on Thursday, November 13th. There's no class on the 11th (Remembrance Day) so this quiz covers less material than usual. 
+
+As usual, solving the problems on this sheet will significantly improve your chances of getting a high score on the quiz.
+
+{\bf Note to help session tutors}: It's 100\% OK for you to help my students solve these questions.
+\begin{enumerate}
+\item A function $f:\R\to\R$ is called {\em periodic} if there exists some $T\in\R$, with $T>0$, such that $f(x+T)=f(x)$ for all $x\in\R$. The smallest such $T$ is called the {\em period} of $f$. Prove that no periodic function can be one-to-one.
+
+\item Let $f:S\to T$ be a function, and let $A$ and $B$ be subsets of $S$, and $C$ and $D$ subsets of $T$. For $x\in S$ and $y\in T$, carefully explain what it means to say that
+\begin{multicols}{2}
+ \begin{enumerate}
+  \item $y\in f(A\cap B)$
+  \item $y\in f(A\cup B)$
+  \item $y\in f(A)\cap f(B)$
+  \item $y\in f(A)\cup f(B)$
+  \item $x\in f^{-1}(C\cap D)$
+  \item $x\in f^{-1}(C\cup D)$
+  \item $x\in f^{-1}(C)\cap f^{-1}(D)$
+  \item $x\in f^{-1}(C)\cup f^{-1}(D)$
+ \end{enumerate}
+\end{multicols}
+\item Let $f:\R\to\R$ be given by $f(x)=-2x+1$. Let
+\[
+ A = [2,5]\quad B = [-1,3]\quad C = [-2,3] \quad D =[1,4].
+\]
+Find each of the following:
+\begin{multicols}{2}
+ \begin{enumerate}
+  \item $f(A)$
+  \item $f^{-1}(f(A))$
+  \item $f^{-1}(C)$
+  \item $f(f^{-1}(C))$
+  \item $f(A\cap B)$
+  \item $f(A)\cap f(B)$
+  \item $f^{-1}(C\cap D)$
+  \item $f^{-1}(C)\cap f^{-1}(D)$
+ \end{enumerate}
+\end{multicols}
+\item Repeat Question 3 for $f(x) = x^2+3$.
+\item Let $f:A\to B$ be a given function, and let $g:A\to f(A)$ be defined by $g(x)=f(x)$ for all $x\in A$. Prove that $g$ is onto.
+\newpage
+\item Let $f:A\to B$ be a function, and let $C\subseteq A$.
+\begin{enumerate}
+ \item Prove that $C\subseteq f^{-1}(f(C))$.
+ \item Give an example where $C$ is a {\em proper} subset of $f^{-1}(f(C))$.
+ \item Prove that if $f$ is one-to-one, then $C=f^{-1}(f(C))$. (This fact might suggest an example for part (b))
+\end{enumerate}
+\item Let $g:A\to B$ be a function, and let $D\subseteq B$.
+\begin{enumerate}
+ \item Prove that $f(f^{-1}(D))\subseteq D$.
+ \item Give an example where $f(f^{-1}(D))$ is a {\em proper} subset of $D$.
+ \item Prove that if $f$ is onto, then $f(f^{-1}(D))=D$.
+\end{enumerate}
+\item Let $f:A\to B$ and let $C$ and $D$ be subsets of $B$. Prove the following, or give a counterexample to show it is false:
+\begin{enumerate}
+ \item If $C\subseteq D$, then $f^{-1}(C)\subseteq f^{-1}(D)$.
+ \item If $f^{-1}(C)\subseteq f^{-1}(D)$, then $C\subseteq D$. 
+\end{enumerate}
+\item Let $f:A\to B$ and let $U$ and $V$ be subsets of $A$. Prove the following, or give a counterexample to show it is false:\label{a}
+\begin{enumerate}
+ \item $f(U\cap V)\subseteq f(U)\cap f(V)$
+ \item $f(U)\cap f(V) \subseteq f(U\cap V)$
+\end{enumerate}
+\item For Question \ref{a}, you should have found that (a) was true, but (b) was false. Does it affect your answer if you know that $f$ is one-to-one?
+
+\end{enumerate}
+
+
+
+\end{document}
+ 

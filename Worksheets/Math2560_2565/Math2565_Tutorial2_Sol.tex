@@ -1,0 +1,273 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=0.85in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+{\bf MATH 2565 - Tutorial \#2 Solutions}
+\end{center}
+
+Additional practice problems:
+
+\begin{enumerate}
+  \item  \begin{align*}
+\int \sin^5(x)\cos^6(x)\,dx &= \int \sin(x)(1-\cos^2(x))^2\cos^6(x)\,dx\\& = \int \sin(x)(\cos^6(x)-2\cos^8(x)+\cos^{10}(x))\,dx, 
+       \end{align*}
+so letting $u=\cos(x)$, we have $du =\sin (x)\,dx$        and the integral becomes
+\[
+ \int(-u^6+u^8-u^{10})\,dx = -\frac{u^7}{7}+\frac{u^9}{9}-\frac{u^{11}}{11} +c = -\frac{1}{7}\cos^7(x)+\frac{1}{9}\cos^9(x)-\frac{1}{11}\cos^{11}(x)+C.
+\]
+
+ \item $\di \int \sin(x)\sin(2x)\,dx = \int \sin(x)(2\sin(x)\cos(x))\,dx = 2\int \sin^2(x)\cos(x)\,dx = \frac{2}{3}\sin^{3}(x)+C$, using the $u$-substitution $u=\sin(x)$, $du = \sin(x)\,dx$.
+ 
+ (Could you do it by parts? Maybe. But why would you subject yourself to that when a quick application of a trig identity gives you a much easier integral?)
+
+  \item $\di \int \sqrt{9-x^2}\,dx$ 
+  
+  Here we use the trig substitution $x=3\sin\theta$, which gives us $dx = 3\cos\theta\,d\theta$, and $9-x^2 = 9-9\sin^2\theta = 9\cos^2\theta$, so $\sqrt{9-x^2} = 3\cos\theta$. Thus,
+ \begin{align*}
+ \int \sqrt{9-x^2}\,dx & = \int 9\cos^2\theta\,d\theta\\
+ & = \int \frac{9}{2}(1+\cos(2\theta))\,d\theta\\
+ & = \frac{9}{2}\theta + \frac{9}{4}\sin(2\theta)+C\\
+ & = \frac{9}{2}\theta + \frac{9}{2}\sin\theta\cos\theta.
+ \end{align*}
+ Now, we use the fact that $3\sin\theta = x$, so $\theta = \sin^{-1}(x/3)$, and $3\cos\theta = \sqrt{9-x^2}$ to substitute back in terms of $x$, giving us
+ \[
+ \int \sqrt{9-x^2}\,dx = \frac{9}{2}\sin^{-1}\left(\frac{\theta}{3}\right)+\frac{1}{2}x\sqrt{9-x^2}+C.
+ \]
+\pagebreak
+
+ \item $\di \int \frac{8}{\sqrt{x^2+2}}\,dx$
+ 
+ There are two options for this integral. We can either let $x=\sqrt{2}\tan\theta$, or $x=\sqrt{2}\sinh(t)$.
+ 
+ Taking the first option, we get $dx = \sqrt{2}\sec^2\theta\,d\theta$ and 
+ \[
+ \sqrt{x^2+2} = \sqrt{2\tan^2\theta+2} = \sqrt{2\sec^2\theta} = \sqrt{2}\sec\theta,
+ \]
+ so
+ \[
+ \int\frac{8}{\sqrt{x^2+2}}\,dx = \int \frac{8\sqrt{2}\sec^2\theta}{\sqrt{2}\sec\theta}\,d\theta = \int 8\sec\theta\,d\theta = 8\ln\abs{\sec\theta+\tan\theta}+C.
+ \]
+ Now, $\tan\theta = x/\sqrt{2}$, and $\sec\theta = \sqrt{x^2+2}/\sqrt{2}$, so this becomes
+ \[
+ \int\frac{8}{\sqrt{x^2+2}}\,dx = 8\ln\left\lvert \frac{\sqrt{x^2+2}+x}{\sqrt{2}}\right\rvert+C.
+ \]
+ (Note: using log laws, you can get rid of the $\sqrt{2}$ in the denominator --  you'll get a $-\ln\sqrt{2}$ term, which is a constant that can be absorbed into the constant of integration.)
+ 
+ \bigskip
+ 
+ If we take the second option, $x=\sqrt{2}\sinh(t)$, so $dx = \sqrt{2}\cosh(t)$, and 
+ \[
+ \sqrt{x^2+2} = \sqrt{2\sinh^2(t)+2} = \sqrt{2\cosh^2(t)} = \sqrt{2}\cosh(t).
+ \]
+ Thus,
+ \[
+ \int \frac{8}{\sqrt{x^2+2}}\,dx = \int \frac{8\sqrt{2}\cosh(t)}{\sqrt{2}}\cosh(t)\,dt = 8t+C = 8\sinh^{-1}(x/\sqrt{2})+C.
+ \]
+ 
+{\bf Exercise:} Can you show that the answers given by the two methods are equivalent? In other words, is it true that
+\[
+ \ln\left\lvert \frac{\sqrt{x^2+2}+x}{\sqrt{2}}\right\rvert=\sinh^{-1}(x/\sqrt{2})+C
+\]
+for some constant $C$? (If it is, then the derivative of either side should be equal.)
+
+ \item $\di \int \frac{1-\tan^2(x)}{\sec^2(x)}\,dx$
+ 
+ Since
+ \[
+ \frac{1-\tan^2(x)}{\sec^2(x)} = \cos^2(x)(1-\tan^2(x))=\cos^2(x)-\sin^2(x)=\cos(2x),
+ \]
+ we have
+ \[
+ \int \frac{1-\tan^2(x)}{\sec^2(x)}\,dx = \int \cos(2x)\,dx = \frac{1}{2}\sin(2x)+C.
+ \]
+ 
+ \item $\di \int \frac{dx}{\cos(x)-1}\,dx$
+ 
+ First we manipulate the integrand:
+ \[
+ \frac{1}{\cos(x)-1} = \frac{cos(x)+1}{\cos^2(x)-1} = -\frac{\cos(x)+1}{\sin^2(x)} = -\frac{\cos(x)}{\sin^2(x)}-\csc^2(x).
+ \]
+ Having written the integrand as a sum of two terms, we split up the integral into two pieces:
+ \[
+ \int \frac{1-\tan^2(x)}{\sec^2(x)}\,dx = -\int\frac{\cos(x)}{\sin^2(x)}\,dx - \int\csc^2(x)\,dx.
+ \]
+ The first integral can be evaluated using the substitution $u=\sin(x)$, $du = \cos(x)\,dx$, resulting in $\int\frac{-1}{u^2}\,du = \frac{1}{u}+C$; the second integral is immediate. We get
+ \[
+ \int \frac{dx}{\cos(x)-1}\,dx = \frac{1}{\sin(x)}+\cot(x)+C.
+ \]
+\end{enumerate}  
+
+
+
+
+%\thispagestyle{empty}
+\textbf{Assigned problems}: Evaluate the following integrals.
+  \begin{enumerate}
+  \item $\di \int \tan^4(x)\sec^6(x)\,dx$
+ 
+\medskip
+
+ We employ the identity 
+ \[
+ \sec^4(x) = (1+\tan^2(x))^2 =1+2\tan^2(x)+\tan^4(x)
+ \]
+ to obtain
+ \begin{align*}
+ \int\tan^4(x)\sec^6(x)\,dx &= \int(\tan^4(x)+2\tan^6(x)+\tan^8(x))\sec^2(x)\,dx\\
+ \frac{1}{5}\tan^5(x)+\frac{2}{7}\tan^7(x)+\frac{1}{9}\tan^9(x)+C.
+ \end{align*}
+ 
+ 
+ \item  $\di \int \tan^3(x)\sec^5(x)\,dx$
+ 
+ \medskip
+ 
+ This time we use $\tan^2(x) = \sec^2(x)-1$ to get
+ \[
+ \tan^3(x)\sec^5(x) = (\tan^2(x)\sec^4(x))\sec(x)\tan(x) = (\sec^6(x)-\sec^4(x))\sec(x)\tan(x),
+ \]
+ so
+ \[
+ \int \tan^3(x)\sec^5(x)\,dx = \frac{1}{7}\sec^7(x)-\frac{1}{5}\sec^5(x)+C.
+ \]
+ 
+ \item $\di \int \sin(8x)\cos(5x)\,dx$
+ 
+ \medskip
+ 
+ Here we need the product-to-sum identity
+ \[
+ \sin(8x)\cos(5x) = \frac{1}{2}[\sin(8x-5x)+\sin(8x+5x)] = \frac{1}{2}(\sin(3x)+\sin(13x)),
+ \]
+ giving us
+ \[
+ \int \sin(8x)\cos(5x)\,dx = -\frac{1}{6}\cos(6x)-\frac{1}{26}\cos(13x)+C.
+ \]
+ 
+ \item $\di \int_0^{\pi/6}\sqrt{1+\cos(2x)}\,dx$
+ 
+ \medskip
+ 
+ Recalling that $\cos(2x) = 2\cos^2(x)-1$, we get
+ \[
+ \int_0^{\pi/6}\sqrt{1+\cos(2x)}\,dx = \int_0^{\pi/6}\sqrt{2\cos^2(x)}\,dx = \sqrt{2}\int_0^{\pi/6}\cos(x)\,dx = \sqrt{2}/2.
+ \]
+ (Note that $\cos(x)\geq 0$ on $[0,\pi/6]$, so $\sqrt{\cos^2(x)} = \cos(x)$ -- there is no need to worry about the absolute value.)
+
+ \item $\di \int \frac{5x^2}{\sqrt{x^2-10}}\,dx$, using a secant substitution.
+ 
+As suggested, we let $x=\sqrt{10}\sec\theta$, so that $dx = \sqrt{10}\sec\theta\tan\theta\,d\theta$, and
+ \[
+ \sqrt{x^2-10} = \sqrt{10(\sec^2\theta-1)} = \sqrt{10\tan^2\theta} = \sqrt{10}\tan\theta.
+ \]
+ Thus,
+ \[
+ \int \frac{5x^2}{\sqrt{x^2-10}}\,dx = \int\frac{50\sec^2\theta}{\sqrt{10}\tan\theta}(\sqrt{10}\sec\theta\tan\theta)\,d\theta = \int 50\sec^3\theta\,d\theta.
+ \]
+ Uh oh... the dreaded $\sec^3\theta$ integral. Luckily we have that answer in our notes, so we can plug it in, giving us
+ \[
+ \int \frac{5x^2}{\sqrt{x^2-10}}\,dx = 25\sec\theta\tan\theta+25\ln\abs{\sec\theta+\tan\theta}+C,
+ \]
+ and we note that $\sec\theta = x/\sqrt{10}$ and $\tan\theta = \sqrt{x^2-10}/\sqrt{10}$, so
+ \[
+ \int \frac{5x^2}{\sqrt{x^2-10}}\,dx = \frac{5}{2}x\sqrt{x^2-10}+25\ln\abs{(x+\sqrt{x^2-10})/\sqrt{10}}+C.
+ \]
+ 
+ \bigskip
+ 
+
+ 
+\item  $\di \int \frac{5x^2}{\sqrt{x^2-10}}\,dx$, using a hyperbolic substitution.
+
+ If we use a hyperbolic substitution instead, we take $x=\sqrt{10}\cosh(t)$, so $dx = \sqrt{10}\sinh(t)$, and
+ \[
+ \sqrt{x^2-10} = \sqrt{10(\cosh^2(t)-1)} = \sqrt{10\sinh^2(t)} = \sqrt{10}\sinh(t).
+ \]
+ Thus,
+ \[
+ \int \frac{5x^2}{\sqrt{x^2-10}}\,dx = \int \frac{50\cosh^2(t)}{\sqrt{10}\sinh(t)}(\sqrt{10})\sinh(t)\,dt = \int 50\cosh^2(t)\,dt.
+ \]
+ Now we have to know how to integrate $\cosh^2(t)$. If we recall how $\cosh(t)$ is defined, we have
+ \[
+ \cosh^2(t) = \left(\frac{e^t+e^{-t}}{2}\right)^2 = \frac{e^{2t}+e^{-2t}+2}{4}.
+ \]
+ So you could simply write $\cosh^2(t)$ in terms of exponentials as above, and integrate term-by-term. The other option is to notice that there's an identity sitting there: $\dfrac{e^{2t}+e^{-2t}}{4} = \frac{1}{2}\cosh(2t)$, so
+ \[
+ \int \cosh^2(t)\,dt = \int\left( \frac{1}{2}\cosh(2t)+\frac{1}{2}\right)\,dt = \frac{1}{4}\sinh(2t)+\frac{t}{2}+C.
+ \]
+ Finally, we have to substitute back in terms of $x$. Would it surprise you to learn that $\sinh(2t)=2\sinh(t)\cosh(t)$? Well, that turns out to be true. Since $\sinh(t) = \sqrt{x^2-10}/\sqrt{10}$ and $\cosh(t) = x/\sqrt{10}$, we get
+ \[
+ \int\cosh^2(t)\,dt = \frac{5}{2}x\sqrt{x^2-10}+25\cosh^{-1}(x/\sqrt{10})+C.
+ \]
+ The last thing you might be wondering is whether the two answers are the same. They certainly look different. It's a good exercise to see if you can show that
+ \[
+ \ln(x+\sqrt{x^2-10}) = \cosh^{-1}(x/\sqrt{10}) \text{ (up to a constant)}
+ \]
+ The easiest way to do that is to show that their derivatives are the same.
+
+  \end{enumerate}
+
+Discussion problem (no submission required):
+
+Prove the following formulas, where $m$ and $n$ are integers:
+\begin{align*}
+\frac{1}{\pi}\int_{-\pi}^\pi\sin(mx)\cos(nx)\,dx & = 0\\
+\frac{1}{\pi}\int_{-\pi}^\pi\sin(mx)\sin(nx)\,dx & = \begin{cases}0, & \text{ if } m\neq n\\1, & \text{ if } m=n\end{cases}\\
+\frac{1}{\pi}\int_{-\pi}^\pi\cos(mx)\cos(nx)\,dx & = \begin{cases}0, & \text{ if } m\neq n\\1, & \text{ if } m=n\end{cases}
+\end{align*}
+
+\medskip
+
+Suppose a function $f$ can be written as a \textit{finite Fourier series}
+\[
+f(x) = \frac{1}{2}a_0+\sum_{n=1}^N a_n\sin(nx)+\sum_{m=1}^M b_m\cos(mx).
+\]
+
+Show that the coefficients $a_n$ ($n=0,\ldots, N$) and $b_m$ ($m=1,\ldots, M$) are given by
+\[
+a_0 = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\,dx, a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)\,dx, (i=1,\ldots, N), b_m = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(mx)\,dx.
+\]
+
+\bigskip
+
+If you want to know how to do this problem, you can come ``discuss'' it with me during office hours.
+\end{document}

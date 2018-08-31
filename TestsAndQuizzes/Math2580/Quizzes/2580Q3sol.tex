@@ -1,0 +1,102 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+
+\title{Solutions for Quiz 3 Practice Problems\\Math 2580\\Spring 2016}
+\author{Sean Fitzpatrick}
+\date{January 19th, 2016}
+
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+ \item Express the partial derivative $f_y(x,y,z)$ as a limit.
+
+\[
+ f_y(x,y,z) = \lim_{h\to 0}\frac{f(x,y+h,z)-f(x,y,z)}{h}.
+\]
+(Note that this is consistent with the procedural description of holding the variables $x$ and $z$ constant while taking the derivative with respect to $y$.)
+
+\bigskip
+
+ \item Calculate all four second-order partial derivatives for the function $f(x,y) = \cos(xy^2)$. Verify that the mixed second-order partial derivatives are equal.
+
+\bigskip
+
+We have $f_x(x,y) = -y^2\sin(xy^2)$ and $f_y(x,y) = -2xy\sin(xy^2)$, so
+\begin{align*}
+ f_{xx}(x,y) &= \frac{\partial^2 f}{\partial x^2}(x,y) = \frac{\partial}{\partial x}(-y^2\sin(xy^2)) = -y^4\cos(xy^2),\\
+ f_{xy}(x,y) &= \frac{\partial^2 f}{\partial y\partial x}(x,y) = \frac{\partial}{\partial y}(-y^2\sin(xy^2)) = -2y\sin(xy^2)-2xy^3\cos(xy^2),\\
+ f_{yx}(x,y) &= \frac{\partial^2 f}{\partial x\partial y}(x,y) = \frac{\partial}{\partial x}(-2xy\sin(xy^2)) = -2y\sin(xy^2)-2xy^3\cos(xy^2),\\
+ f_{yy}(x,y) &= \frac{\partial^2 f}{\partial y^2}(x,y) = \frac{\partial}{\partial y}(-2xy\sin(xy^2)) = -2x\sin(xy^2)-4x^2y^2\cos(xy^2).
+\end{align*}
+We can easily see from the above that $f_{xy}(x,y)=f_{yx}(x,y)$. 
+
+\medskip
+
+{\bf Note:} This is called {\bf Clairault's Theorem}; it states that the mixed second-order partial derivatives are equal provided that all the second-order partial derivatives of $f$ are continuous. We won't need this result (or second-order derivatives generally) until we discuss classification of critical points in another week or two, so I haven't mentioned it in class yet.
+
+{\bf Note \#2:} On your assignment (due tomorrow) you don't need to show that the second-order derivatives are not continuous (it's a bit of a mess).
+
+\bigskip
+
+
+ \item Give a convincing (but not rigorous -- no $\epsilon - \delta$) argument that
+\[
+ \lim_{(x,y)\to (0,0)}\frac{x^2y+y^3}{x^2+y^2} = 0.
+\]
+
+\bigskip
+
+The argument amounts to observing that $\dfrac{x^2y+y^3}{x^2+y^2} = \dfrac{y(x^2+y^2)}{x^2+y^2} = y$, and pointing out that it's clear that if $(x,y)\to (0,0)$, then in particular it must be true that $y\to 0$.
+
+\bigskip
+
+ \item Show that $\displaystyle \lim_{(x,y)\to (0,0)}\frac{xy^3}{x^2+y^6}$ does not exist.
+
+\bigskip
+
+It's easy to check that if we let $(x,y)\to (0,0)$ along the $x$-axis or $y$-axis, the limit is zero. In fact, along any line $y=mx$, we have, for $x\neq 0$,
+\[
+ \frac{xy^3}{x^2+y^6} = \frac{m^3x^4}{x^2+m^6x^6} = \frac{m^3x^2}{1+m^6x^4},
+\]
+so as $x\to 0$, we get a limit of zero. However, along the curve $x=y^3$, we have, for $y\neq 0$,
+\[
+ \frac{xy^3}{x^2+y^6} = \frac{y^3}{y^6+y^6} = \frac{1}{2},
+\]
+so if $(x,y)\to (0,0)$ along this curve we get a limit of $\dfrac{1}{2}\neq 0$. Since we get different values when we approach the origin along different paths, the limit does not exist.
+
+\bigskip
+
+
+\item Find the equation of the tangent plane to the graph $z=x^3+y^3-6xy$ at the point $(1,2,-3)$.
+
+\bigskip
+
+In general, the tangent plane to $z=f(x,y)$ at the point $(a,b,f(a,b))$ is given by
+\[
+ z = f(a,b) + f_x(a,b)(x-a)+f_y(a,b)(y-b).
+\]
+We have $f(1,2)=-3$, $f_x(x,y) = 3x^2-6y$, so $f_x(1,2) = 3(1)^2-6(2) = -9$, and $f_y(x,y) = 3y^2-6x$, so $f_y(1,2) = 3(2)^2-6(1) = 6$, and thus the equation of the plane is
+\[
+ z = -3 -9(x-1) + 6(y-2).
+\]
+If you must simplify, this becomes $9x-6y+z=-6$.
+
+
+
+ 
+\end{enumerate}
+
+\end{document}
+ 

@@ -1,0 +1,109 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\Abs}[1]{\left| #1 \right|}
+\newcommand{\len}[1]{\lVert #1\Vert}
+
+\title{Math 3500 Exercise Sheet}
+\date{22 October, 2014}
+
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+ \item Let $f:D\to \R$ be a given function. Recall that $f$ is {\bf continuous} at $a\in D$ if and only if for every $\epsilon>0$ there exists some $\delta>0$ such that if $x\in D$ and $\abs{x-a}<\delta$, then $\abs{f(x)-f(a)}<\epsilon$. Note there are a few subtle differences between this definition and the definition of continuity: we require that $a\in D$, but we do not require that $a$ be a limit point of $D$. (For limits, it's the opposite.) Since we have $a\in D$, we can allow $x=a$, so we have $\abs{x-a}<\delta$ rather than $0<\abs{x-a}<\delta$. If $f$ is continuous at $a$ for all $a\in D$, we say that $f$ is {\bf continuous on its domain} $D$.
+
+ Now, suppose that $a\in D$ {\em and} $a$ is a limit point of $D$. (This means $a$ is either an interior or boundary point of $A$, but not an isolated point.) Show that the following are all equivalent to the above definition of continuity:
+\begin{enumerate}
+ \item $\displaystyle \lim_{x\to a}f(x) = f(a)$.
+ \item For any sequence $(a_n)$ in $D$ such that $a_n\to a$, $f(a_n)\to f(a)$.
+ \item For all $\epsilon>0$, there exists a $\delta>0$ such that if $x\in D\cap N_\delta(a)$, then $f(x)\in N_\epsilon(f(a))$.
+ \item For all $\epsilon>0$, there exists a $\delta>0$ such that $f(D\cap N_\delta(a))\subseteq N_\epsilon(f(a))$.
+ \item If $U\subseteq \R$ is open, then $f^{-1}(U)$ is relatively open in $D$. (That is, $f^{-1}(U) = D\cap V$ for some open subset $V\subseteq \R$.) 
+\end{enumerate}
+(I'll include a proof of (e) at the end of the worksheet.)
+
+\item\begin{enumerate}
+      \item Show that $f(x)=x$ and $g(x)=k$, where $k\in\R$ is a constant, are continuous.
+      \item Explain why we can conclude that any polynomial function is continuous.
+     \end{enumerate}
+
+\item Prove that if $f$ is continuous at $a$ and $g$ is continuous at $f(a)$, then $g\circ f$ is continuous at $a$.
+\item A function $f:\R\to\R$ is called {\bf additive} if $f(x+y)=f(x)+f(y)$ for all $x,y\in\R$. 
+\begin{enumerate}
+ \item Show that if $f$ is additive, then $f(0)=0$ and $f(-x)=-f(x)$ for any $x\in\R$.
+ \item Show that if $f$ is additive and $f$ is continuous at $x=0$, then $f$ is continuous on $\R$.
+ \item Let $k=f(1)$. Show that $f(n)=kn$ for all $k\in\N$, and explain why it follows that $f(n)=kn$ for all $n\in\Z$. Now prove that $f(p/q) = kp/q$ for any rational number $p/q$.
+ \item Explain why it follows that if $f$ is continuous, then $f(x)=kx$ for all $x\in\R$. Thus, any additive function is a linear function that preserves 0.
+\end{enumerate}
+\item Recall that the Heine-Borel and Bolzano-Weierstrass theorems tell us that the following are equivalent:
+\begin{enumerate}
+ \item $K\subseteq \R$ is compact.
+ \item $K\subseteq \R$ is closed and bounded.
+ \item If $(a_n)$ is any sequence in $K$, then $(a_n)$ has a subsequence that converges to a limit in $K$.
+\end{enumerate}
+(We proved a different version of the Bolzano-Weierstrass theorem, which is that any bounded infinite subset of $\R$ has a limit point. If that subset is also closed, then the limit point must belong to the set. If you want an extra problem to work on, you can show that (c) implies (b).)
+
+Use part (c) to prove that if $K$ is compact and $f$ is continuous on $K$, then $f(K)$ is compact. That is, let $(y_k)$ be an arbirary sequence contained in $f(K)$, and show that $(y_k)$ must admit a convergent subsequence whose limit is contained in $f(K)$. (Hint: for each $n$ there must exist some $x_n\in K$ such that $f(x_n)=y_n$, and we're assuming $K$ is compact.
+\item Let $\displaystyle f(x) = \begin{cases} x & \text{ if } x\in \Q\\ 0 & \text{ if } x\notin \Q\end{cases}$. Prove that $f$ is continuous at $x=0$.
+
+
+\end{enumerate}
+
+\bigskip
+
+{\bf Proof of 1(e)}: Before beginning the proof, recall that a subset $A$ of a set $D\subseteq \R$ is {\bf relatively open} in $D$ if there exists an open set $V\subseteq \R$ such that $A=V\cap D$. Equivalently, $A\subseteq D$ is relatively open if and only if for any $a\in A$ there exists some $\delta >0$ such that $N_\delta(a)\cap D\subseteq A= V\cap D$. (Recall that $V$ is open in $\R$ if and only if for every $a\in V$ there exists a $\delta>0$ such that $N_\delta(a)\subseteq V$. Relatively open is the same thing, except that we only consider the intersection with $D$.)
+
+\bigskip
+
+Suppose that $f$ is continuous on $D$, and let $U\subseteq \R$ be open. If there is no $a\in D$ such that $f(a)\in U$, then $f^{-1}(U)=\emptyset$, which is open. So suppose that $f^{-1}(U)$ is nonempty. We want to show that $f^{-1}(U)$ is relatively open in $D$. Let $f(a)\in U$ for some $a\in D$. Since $U$ is open, there exists some $\epsilon>0$ such that $N_\epsilon(f(a))\subseteq U$. (That is, if $\abs{y-f(a)}<\epsilon$, then $y\in U$.) Since $f$ is continuous at $a$, there exists some $\delta>0$ such that $x\in D\cap N_\delta(a)$ implies $f(x)\in N_\epsilon(f(a))$, and thus $f^{-1}(U)$ is relatively open in $D$.
+
+Conversely, suppose that $f^{-1}(U)$ is relatively open in $D$ whenever $U\subseteq \R$ is open. Let $a\in U$ and $\epsilon>0$ be given. Since $U=N_\epsilon(a)$ is open, we know that $f^{-1}(U)$ is relatively open in $D$. Thus there exists some $\delta>0$ such that $D\cap N_\delta(a)\subseteq f^{-1}(N_\epsilon(a))$, but then $f(N_\delta(a)\cap D)\subseteq f(f^{-1}(N_\epsilon(a)))\subseteq N_\epsilon(a)$, so $f$ is continuous on $U$ by 1(d).
+
+\newpage
+
+\subsection*{Proof that continuous images of compact sets are compact}
+I left a few details out of the proof given in Monday's class, so here's the proof again with all the details intact. We want to prove that if $f$ is continuous on $K$ and $K$ is compact, then $f(K)$ is compact.
+
+We'll make use of some of the following general properties of direct and inverse images of sets:
+
+For any set $A$, $A\subseteq f^{-1}(f(A))$, with equality if $f$ is one-to-one, and for any set $B$, $f(f^{-1}(B))\subseteq B$, with equality if $f$ is onto. If $\{A_\alpha : \alpha\in I\}$ and $\{B_\beta : \beta\in J\}$ are any indexed family of sets, then
+\begin{enumerate}
+ \item $\displaystyle f\left(\bigcup_{\alpha\in I}A_\alpha\right) = \bigcup_{\alpha\in I}f(A_\alpha)$ and $\displaystyle f^{-1}\left(\bigcup_{\beta\in J}B_\beta\right) = \bigcup_{\beta\in J}f(B_\beta)$.
+ \item $\displaystyle f\left(\bigcap_{\alpha\in I}A_\alpha\right) \subseteq \bigcap_{\alpha\in I}f(A_\alpha)$ (with equality if $f$ is 1-1) and $\displaystyle f^{-1}\left(\bigcap_{\beta\in J}B_\beta\right) = \bigcap_{\beta\in J}f(B_\beta)$.
+\end{enumerate}
+
+\bigskip
+
+\noindent{\bf Proof}: Suppose $K$ is compact and $f$ is continuous on $K$. Let $\{G_\alpha\}$ be an open cover of $f(K)$. We want to show that there is a finite subcover. Since $f$ is continuous on $K$, we know that $f^{-1}(G_\alpha)$ is relatively open in $K$ for each $\alpha$. Thus, there exist sets $V_\alpha$ such that $f^{-1}(G_\alpha) = K\cap V_\alpha$ for each $\alpha$. Since $f^{-1}(G_\alpha)=K\cap V_\alpha$, we have $f^{-1}(G_\alpha)\subseteq V_\alpha$ for each $\alpha$, and thus
+\[
+ K\subseteq f^{-1}(f(K))\subseteq f^{-1}\left(\bigcup_\alpha G_\alpha\right) = \bigcup_\alpha f^{-1}(G_\alpha)\subseteq \bigcup_\alpha V_\alpha.
+\]
+Thus, $\{V_\alpha\}$ is an open cover for $K$. Since $K$ is compact, there exists a finite subcover for $K$; that is, we have
+\[
+ K\subseteq V_{\alpha_1}\cup \cdots \cup V_{\alpha_k}
+\]
+for some finite subcollection $\{V_{\alpha_1},\ldots, V_{\alpha_k}\}$. Since $K\subseteq V_{\alpha_1}\cup \cdots \cup V_{\alpha_k}$, it follows that
+\[
+ K\subseteq (V_{\alpha_1}\cup \cdots \cup V_{\alpha_k})\cap K = (V_{\alpha_1}\cap K)\cup\cdots\cup(V_{\alpha_k}\cap K) = f^{-1}(G_{\alpha_1})\cup\cdots\cup f^{-1}(G_{\alpha_k}).
+\]
+It follows that 
+\[
+ f(K)\subseteq f(f^{-1}(G_{\alpha_1})\cup\cdots\cup f^{-1}(G_{\alpha_k})) = f(f^{-1}(G_{\alpha_1}))\cup\cdots\cup f(f^{-1}(G_{\alpha_k}))\subseteq G_{\alpha_1}\cup\cdots\cup G_{\alpha_k},
+\]
+so $\{G_{\alpha_1},\ldots, G_{\alpha_k}\}$ is the desired finite subcover.
+
+\end{document}
+ 

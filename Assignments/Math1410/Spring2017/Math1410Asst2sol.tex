@@ -1,0 +1,184 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+
+\newcommand{\ivec}{\,\boldsymbol{\hat{\imath}}}
+\newcommand{\jvec}{\,\boldsymbol{\hat{\jmath}}}
+\newcommand{\kvec}{\,\boldsymbol{\hat{k}}}
+\newcommand{\bvm}{\begin{vmatrix}}
+\newcommand{\evm}{\end{vmatrix}}
+
+\title{Math 1410 Assignment \#2 Solutions\\University of Lethbridge, Spring 2017}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+\item Consider the triangle $\Delta PQR$ with vertices $P=(2,0,-3)$, $Q=(5,-2,1)$, and $R=(7,5,3)$.
+\begin{enumerate}
+ \item Show that $\Delta PQR$ is a right-angled triangle. (Hint: this is a question about dot products.)
+
+\bigskip
+
+{\bf Solution:} The three sides of the triangle can be represented by the vectors
+\begin{align*}
+ \overrightarrow{PQ} &= \langle 3,-2,4\rangle\\
+ \overrightarrow{PR} & = \langle 5,5,6\rangle\\
+ \overrightarrow{QR} & = \langle 2,7,2\rangle.
+\end{align*}
+Among all possible pairs of vectors, we notice that the pair $\overrightarrow{PQ},\overrightarrow{QR}$ satisfies
+\[
+ \overrightarrow{PQ}\dotp\overrightarrow{QR} = 3(2)-2(7)+4(2) = 6-14+8=0.
+\]
+Since the dot product vanishes, we know that $\overrightarrow{PQ}$ is orthgonal to $\overrightarrow{QR}$, and thus $\Delta PQR$ is a right triangle.
+
+\medskip
+
+ \item Compute the lengths of the three sides of $\Delta PQR$ and verify that the Pythagorean Theorem holds.
+
+\bigskip
+
+{\bf Solution:} The lengths of the three sides are given by 
+\begin{align*}
+ \len{\overrightarrow{PQ}} & = \sqrt{3^2+(-2)^2+4^2} = \sqrt{29}\\
+ \len{\overrightarrow{PR}} & = \sqrt{5^2+5^2+6^2} = \sqrt{86}\\
+ \len{\overrightarrow{QR}} & = \sqrt{2^2+7^2+2^2} = \sqrt{57}.
+\end{align*}
+We note that since $\overrightarrow{PQ}\dotp\overrightarrow{QR}=0$, the side corresponding to the vector $\overrightarrow{PR}$ must be the hypotenuse (if this is not clear, sketch a diagram), and we have
+\[
+ \len{\overrightarrow{PR}}^2 = 86 = 29+57 = \len{\overrightarrow{PQ}}^2+\len{\overrightarrow{QR}}^2.
+\]
+
+\medskip
+
+ \item Determine the equation of the plane containing $\Delta PQR$.
+
+\bigskip
+
+{\bf Solution:} We know that the vectors $\overrightarrow{PQ}$ and $\overrightarrow{PR}$ are parallel to the plane; thus,
+\[
+ \vec{n} = \overrightarrow{PQ}\times\overrightarrow{PR} = \bvm \ivec & \jvec & \kvec\\3&-2&4\\5&5&6\evm = -32\ivec+2\jvec+25\kvec
+\]
+is a normal vector for the plane. The scalar equation of the plane is therefore given by
+
+\[
+ -32(x-2)+2y+25(z+3)=0.
+\]
+
+\medskip
+
+\end{enumerate}
+\item Let $\vec{u}$ and $\vec{v}$ be any two vectors in $\R^3$.
+\begin{enumerate}
+ \item Show that $\len{\vec{u}+\vec{v}}^2+\len{\vec{u}-\vec{v}}^2 = 2(\len{\vec{u}}^2+\len{\vec{v}}^2)$.
+
+\bigskip
+
+{\bf Solution:} Using properties of the dot product, we have
+\begin{align*}
+ \len{\vec{u}+\vec{v}}^2+\len{\vec{u}-\vec{v}}^2 & = (\vec{u}+\vec{v})\dotp (\vec{u}+\vec{v}) + (\vec{u}-\vec{v})\dotp (\vec{u}-\vec{v})\\
+ & = \vec{u}\dotp\vec{u}+\vec{u}\dotp\vec{v}+\vec{v}\dotp\vec{u}+\vec{v}\dotp\vec{v} + \vec{u}\dotp\vec{u}-\vec{u}\dotp\vec{v}-\vec{v}\dotp\vec{u}+\vec{v}\dotp\vec{v}\\
+ & = 2\vec{u}\dotp\vec{u}+2\vec{v}\dotp\vec{v}\\
+ & = 2(\len{\vec{u}}^2+\len{\vec{v}}^2),
+\end{align*}
+as required.
+
+\medskip
+
+ \item What does part (a) tell you about parallelograms?
+
+\bigskip
+
+{\bf Solution:} Part (a) tells us that the sum of the squares of the lengths of the two diagonals of any parallelogram is equal to the sum of the lengths of its four sides. (This is known as the ``Parallelogram Identity''. Note that in the case of a rectangle, the two diagonals have equal length, and the parallelogram identity reduces to the Pythagorean Theorem.)
+
+\medskip
+
+\end{enumerate}
+
+\item  Let $\ell$ be a line through the origin in $\R^3$, and let $\vec{p}$ and $\vec{q}$ be the position vectors for any two points on $\ell$.
+\begin{enumerate}
+ \item Show that the point with position vector $\vec{p}+\vec{q}$ also lies on the line $\ell$.
+
+\bigskip
+
+{\bf Solution:} A general line in $\R^3$ can be given by a vector equation of the form $\vec{r} = \vec{r}_0+t\vec{v}$, where $\vec{r}=\langle x,y,z\rangle$ is the position vector for a general point on the line, $\vec{r}_0 = \langle x_0,y_0,z_0\rangle$ is a specified (fixed) point on the line, and $\vec{v}$ is a direction vector for the line. Since our line passes through the origin, we can take $\vec{r}_0=\vec{0}$, and thus every point on the line has a position of the form $\vec{r} = t\vec{v}$ for some real number $t$.
+
+It follows that if $\vec{p}$ and $\vec{q}$ are position vectors for points on our line, then $\vec{p} = t_1\vec{v}$ and $\vec{q} = t_2\vec{v}$ for some real numbers $t_1$ and $t_2$. This gives us
+\[
+ \vec{p}+\vec{q} = t_1\vec{v}+t_2\vec{v} = (t_1+t_2)\vec{v} = t\vec{v},
+\]
+where $t=t_1+t_2$. Thus, $\vec{p}+\vec{q}$ is also a point on the line.
+
+\medskip
+
+
+ \item Show that for any scalar $c$, the point with position vector $c\vec{p}$ also lies on the line $\ell$.
+
+\bigskip
+
+Similarly, for any point with position vector $\vec{p} = t\vec{v}$, we have
+\[
+ c\vec{p} = c(t\vec{v}) = (ct)\vec{v},
+\]
+which is again a scalar multiple of $\vec{v}$, and thus a point on the line.
+
+\medskip
+
+ \item Repeat parts (a) and (b) with $\ell$ replaced by a \textit{plane} through the origin.
+
+\bigskip
+
+{\bf Solution:} There are two valid approaches to this problem, depending on whether you want to use a vector or scalar equation for your plane.
+
+If we use a vector equation, then, since the plane passes through the origin, we can again take $\vec{r}_0=\vec{0}$ and write the equation of our plane as
+\[
+ \vec{r} = s\vec{v}+t\vec{w},
+\]
+where $s$ and $t$ are real numbers and $\vec{v}$, $\vec{w}$ are vectors parallel to the plane (but not parallel to each other). Thus, if $\vec{p}$ and $\vec{q}$ are position vectors for points on our plane, we have
+\begin{align*}
+ \vec{p} & = s_1\vec{v}+t_1\vec{w} \quad \text{ for some $s_1, t_1\in \R$}\\
+ \vec{q} & = s_2\vec{v}+t_2\vec{w} \quad \text{ for some $s_2, t_2\in \R$}\\
+ \vec{p}+\vec{q} & = (s_1\vec{v}+t_1\vec{w})+(s_2\vec{v}+t_2\vec{w}) = (s_1+t_1)\vec{v}+(s_2+t_2)\vec{w}\\
+ c\vec{p} & = c(s_1\vec{v}+t_1\vec{w}) = (cs_1)\vec{v}+(ct_1)\vec{w}.
+\end{align*}
+Thus, $\vec{p}+\vec{q}$ is of the form $s\vec{v}+t\vec{w}$, with $s=s_1+s_2$ and $t=t_1+t_2$, so $\vec{p}+\vec{q}$ corresponds to a point on the plane, and $c\vec{p}$ is also of the desired form, with $s=cs_1$ and $t=ct_1$, so $c\vec{p}$ corresponds to a point on the plane as well.
+
+\bigskip
+
+This result can also be established using the scalar equation. Since our plane passes through the origin, its equation must be of the form 
+\[
+ ax+by+cz=0,
+\]
+for real numbers $a,b,c$. (The fact that it passes through the origin is indicated by the zero on the right-hand side.)
+
+Let $\vec{p}=\langle x_1,y_1,z_1\rangle$ and $\vec{q}=\langle x_2,y_2,z_2\rangle$ represent two points on the plane. Then we have $ax_1+by_1+cz_1=0$, $ax_2+by_2+cz_2=0$, 
+\[
+ \vec{p}+\vec{q} = \langle x_1+x_2,y_1+y_2,z_1+z_2\rangle,
+\]
+and
+\[
+ a(x_1+x_2)+b(y_1+y_2)+c(z_1+z_2) = (ax_1+by_1+cz_1)+(ax_2+by_2+cz_2) = 0+0 = 0,
+\]
+so $\vec{p}+\vec{q}$ corresponds to a point on the plane. Similarly, for any scalar $k$, $k\vec{p} = \langle kx_1,ky_1,kz_1\rangle$, and
+\[
+ a(kx_1)+b(ky_1)+c(kz_1) = k(ax_1+by_1+cz_1) = k(0)=0,
+\]
+so $k\vec{p}$ represents a point on the plane.
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
+ 

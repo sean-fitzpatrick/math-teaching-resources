@@ -1,0 +1,322 @@
+\documentclass[letter, 12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[in]{fullpage}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+%\input quizstyle.tex
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\addtolength{\headheight}{\baselineskip}
+
+\lhead{{\bf Date:} 10$^{\text{th}}$ December, 2008 }
+\chead{{\bf Time:} 9:30 am}
+\rhead{MAT294H1F}
+\cfoot{Page \thepage \ of \pageref{LastPage}}
+\rfoot{{\bf Total Marks:} 100}
+
+%Redefine the plain page style in fancyhdr package
+\fancypagestyle{plain}{%  
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{Page \thepage \ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}}
+
+\newcounter{probnum}
+\newcounter{subprobnum}
+
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\nll}{null}
+\DeclareMathOperator{\tr}{tr}
+
+\newenvironment{problems}{
+\begin{list}{\arabic{probnum}.}{\usecounter{probnum}}
+}{
+\end{list}
+}
+
+\newenvironment{subproblem}{ % start for subprob
+\begin{list}{ % first arg for list
+(\alph{subprobnum})
+}{ % second arg for list
+\usecounter{subprobnum}
+\setlength{\topsep}{0in}
+} % end of list def
+}{ % end for subprob
+\end{list}
+}
+
+\newcommand{\skipline}{\vspace{12pt}}
+%\input local.tex
+\renewcommand{\labelenumi}{(\roman{enumi})}
+
+\begin{document}
+\thispagestyle{plain}
+%Supresses the headers on the front page
+
+\centerline {\bf University of Toronto}
+\centerline {\bf FACULTY OF APPLIED SCIENCE AND ENGINEERING}
+
+\bigskip
+
+\centerline {FINAL EXAMINATION, December 2008}
+\centerline {DURATION: $2\frac{1}{2}$ hours}
+
+\medskip
+
+\centerline {Second Year - Materials Science and Engineering}
+
+\medskip
+
+\centerline {\bf MAT294H1F - Calculus and Differential Equations}
+ 
+\medskip
+
+\centerline {Calculator type: 3}
+\centerline {Exam type: B}
+
+\medskip
+
+\centerline {Examiner: Sean Fitzpatrick}
+
+\bigskip
+
+\noindent {\bf Total: 100 marks}
+\vglue .25truein
+\begin{tabular}{ll}
+Family Name: &\underbar {\hskip 4.5in} \\
+   &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[15pt]
+Given Name(s): &\underbar {\hskip 4.5in} \\
+    &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[15pt]
+Please sign here: &\underbar {\hskip 4.5in}\\
+[25pt]
+Student ID Number: &\underbar {\hskip 4.5in}\\
+\end{tabular}
+\bigskip
+
+
+\vspace{.5in}
+\begin{quote}
+{\large \bf No aids, electronic or otherwise, are permitted, with the exception of faculty-approved calculators.  
+Partial credit will be given for partially correct work.
+Please read through the entire exam before beginning, and take note of
+how many points each question is worth.
+
+The second page of the exam contains a list of formulas that may be helpful in the completion of the exam.}
+\end{quote}
+\newpage
+
+\thispagestyle{empty}
+\vspace{.25in}
+
+\begin{tabular}{|l|r|}
+\hline
+\multicolumn{2}{|c|}
+{\rule[-3mm]{0mm}{8mm}
+FOR MARKER'S USE ONLY} \\
+\hline
+Problem 1: & \hspace{.5in}  /12 \\ [3pt]
+\hline
+Problem 2: & \hspace{.5in}  /10 \\ [3pt]
+\hline
+Problem 3: & \hspace{.5in}  /18 \\ [3pt]
+\hline
+Problem 4: & \hspace{.5in}  /15 \\ [3pt]
+\hline
+Problem 5: & \hspace{.5in}  /15 \\ [3pt]
+\hline
+Problem 6: & \hspace{.5in}  /15 \\ [3pt]
+\hline
+Problem 7: & \hspace{.5in}  /15 \\ [3pt]
+\hline
+\hline 
+  {\rule[-3mm]{0mm}{8mm} TOTAL:}  & /100  \\
+\hline
+\end{tabular}
+
+
+\addtocounter{page}{-1}
+\newpage
+{\bf List of relevant formulas}
+
+\bigskip
+
+Coordinate systems:
+\begin{align*}
+Cylindrical & & Spherical &\\
+x &= r\cos\theta & x &=\rho\sin\phi\cos\theta\\
+y &= r\sin\theta & y &=\rho\sin\phi\sin\theta\\
+z &= z & z &=\rho\cos\phi
+\end{align*}
+
+\bigskip
+
+Jacobian:
+\[J_T(u,v) = \det\begin{pmatrix}x_u & x_v\\y_u & y_v\end{pmatrix}\]
+
+\bigskip
+
+Integrating factor:
+\[u(x) = e^{\int P(x)\,dx}\]
+
+\bigskip
+
+Normal vector:
+\[\vec{N}(u,v) = \frac{\partial(y,z)}{\partial(u,v)}\hat{\imath} + \frac{\partial(z,x)}{\partial(u,v)}\hat{\jmath} + \frac{\partial(x,y)}{\partial(u,v)}\hat{k}\]
+
+\bigskip
+
+Fundamental theorem for line integrals:
+\[\int_C \nabla f\cdot d\vec{r} = f(\vec{r}(b)) - f(\vec{r}(a))\]
+
+\bigskip
+
+Stokes' theorem:
+\[\iint\limits_S(\nabla\times\vec{F})\cdot\vec{n}\,dS = \oint_C \vec{F}\cdot d\vec{r}\]
+
+\bigskip
+
+Divergence theorem:
+\[\iiint\limits_T \nabla\cdot\vec{F}\,dV = \int\limits_{\phantom{l}S} \hspace{-.8em} \int
+\vec{F}\cdot\vec{n}\,dS\]
+
+\bigskip
+
+Solution of the $n^{th}$-order system $\vec{r}\,'(t) = A\,\vec{r}(t)$:
+\[\vec{r}(t) = c_1\vec{X}_1 e^{\lambda_1 t} + c_2\vec{X}_2 e^{\lambda_2 t} + \cdots + c_n\vec{X}_n e^{\lambda_n t}\]
+
+		
+
+\newpage
+\vglue1pt
+%vglue adds space between headers and text
+
+\begin{problems}
+\item Consider the function $f(x,y) = 4xy -2x^4-y^2$.
+\begin{subproblem}
+\item Calculate $\nabla f(x,y)$. \marginpar{[3]}
+\vspace{1.5in}
+
+\item At which points $(x,y)$ is the plane tangent to the surface $z=f(x,y)$ horizontal? \marginpar{[3]}
+\vspace{1.5in}
+
+\item Which (if any) of the above points are local maxima? \marginpar{[3]}
+\vspace{2in}
+
+\item Set up (but do not solve) \marginpar{[3]}the three equations that would let us find the maximum value of  $f(x,y)$ subject to the constraint $2x^2+3y^2 = 6$.  
+\end{subproblem}
+
+\newpage
+\vglue1pt
+
+\item  Let $R$ be the region in the first quadrant of the $xy$-plane bounded by the curves $y=x^2$, $y=2x^2$, $x=y^2$ and $x=4y^2$.
+\begin{subproblem}
+\item Sketch the region $R$. \marginpar{[2]}
+\vspace{3in}
+\item Determine a transformation $(x,y) = T(u,v)$ such that $R$ is the image under $T$ of a rectangle \marginpar{[2]}
+of the form $a\leq u\leq b$, $c\leq v\leq d$, for some $a,b,c,d$.
+\newpage
+\vglue1pt
+\item Compute the Jacobian of the transformation $T$.\marginpar{[3]}
+\vspace{3in}
+\item Evaluate the integral\marginpar{[3]}
+\begin{equation*}
+ \iint\limits_R\left(\frac{y^2}{x^4} + \frac{x^2}{y^4}\right)\,dx\,dy.
+\end{equation*}
+\end{subproblem}
+\newpage
+\vglue1pt
+\item Consider the following two first-order differential equations:
+\begin{equation*}
+ \text{(I)}\:(-2x+3y)\,dx + x\,dy = 0 \qquad \text{(II)} (3x^2y + e^y)\,dx + (x^3 + xe^y - 2y)\,dy = 0.
+\end{equation*}
+\begin{subproblem}
+\item Classify each of the above equations as either sepearable, linear, or exact.\marginpar{[4]}
+\vspace{2in}
+\item Find the general solution to equation (I).\marginpar{[4]}
+\newpage
+\vglue1pt
+
+\item Find the general solution to equation (II).\marginpar{[4]}
+\vspace{4in}
+
+\item Evaluate the line integral $\displaystyle \int_C (3x^2y + e^y)\,dx + (x^3 + xe^y - 2y)\,dy$ \marginpar{[6]}, where $C$ is the curve given by $(x(t), y(t)) = (2t^2, -3t)$, for $-1\leq t\leq 1$.\\
+You do {\bf not} have to simplify your answer.
+\end{subproblem}
+\newpage
+\vglue1pt
+
+\item Consider the surface $S$ given by $z = 9-x^2-y^2$, for $5\leq z\leq 9$..
+\begin{subproblem}
+\item Describe $S$ as a parametric surface $\vec{r}(u,v)$. \marginpar{[4]}
+\vspace{3in}
+\item Using the parameterization from part (a), compute the normal vector $\vec{N}(u,v)$ to the surface $S$.\marginpar{[5]}
+\newpage
+\vglue1pt
+\item Compute the surface area of $S$. \marginpar{[6]}
+\end{subproblem}
+
+\newpage
+\vglue1pt
+\item Let $\vec{F}(x,y,z) = \left<yz,\,-xz,\,z^3\right>$, and let $S$ be the surface given by the part of the cone $z = \sqrt{x^2+y^2}$ between the planes $z=1$ and $z=3$.
+\begin{subproblem}
+\item Sketch the surface $S$.\marginpar{[3]}
+\vspace{2.5in}
+
+\item Calculate $\nabla\times \vec{F}$. \marginpar{[2]}
+\newpage
+\vglue1pt
+
+\item Use Stokes' theorem to evaluate \marginpar{[6]}
+\begin{equation*}
+\iint\limits_S\left(\nabla\times\vec{F}\right)\cdot\vec{n}\,dS.
+\end{equation*}
+\noindent {\bf Hint:} This problem is easiest if you apply Stokes' theorem twice in a clever way to obtain two much simpler surface integrals.  The boundary of $S$ has two seperate parts so be sure to keep track of orientation!
+\vspace{4in}
+
+\newpage
+\vglue1pt
+
+\item In the special case that $\vec{F} = P\hat{\imath} + Q\hat{\jmath}$ \marginpar{[4]} and that $S$ is a region $R$ in the $xy$-plane, show that Stokes' theorem reduces to Green's theorem.
+\end{subproblem}
+\newpage
+\vglue1pt
+
+\item Let $\vec{F}(x,y,z) = ||\vec{r}||\vec{r}$, where $\vec{r} = x\hat{\imath} + y\hat{\jmath} + z\hat{k}$, and let $S$ be the spherical surface $x^2+y^2+z^2 = 9$.
+\begin{subproblem}
+\item Evaluate the surface integral $\displaystyle \iint\limits_S \vec{F}\cdot\vec{n}\,dS$ by direct computation. \marginpar{[6]}
+\newpage
+\vglue1pt
+
+\item Compute $\nabla\cdot\vec{F}$. \marginpar{[3]}
+\vspace{2in}
+
+\item Evaluate $\displaystyle \iint\limits_S \vec{F}\cdot\vec{n}\,dS$ using the divergence theorem. \marginpar{[6]}
+\end{subproblem}
+\newpage
+\vglue1pt
+
+\item Solve the following system of linear first order differential equations:
+\begin{equation*}
+ \vec{r}\,'(t) = (4x+5y)\hat{\imath} + (-2x + 6y)\hat{\jmath}
+\end{equation*}
+\noindent {\bf Note:} Your solution should involve complex numbers.\\
+A correct final answer that still involves complex numbers is worth 10/15.\\
+To score 15/15 you must give the correct answer in terms of {\em real numbers only}.
+\newpage
+\vglue1pt
+
+Extra space for rough work. Do {\bf not} tear out this page.
+\end{problems}
+\end{document}
+
+

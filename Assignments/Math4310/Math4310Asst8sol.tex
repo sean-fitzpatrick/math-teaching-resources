@@ -1,0 +1,90 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\A}{\mathcal{A}}
+\DeclareMathOperator{\Int}{Int}
+
+\title{Math 4310 Assignment \#8 Solutions\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+\item Prove that any finite subset of a topological space is compact.
+
+\bigskip
+
+\noindent {\bf Solution}: Let $X$ be a topological space and let $A=\{x_1,\ldots, x_n\}$ be a finite subset of $X$. Given any open cover $\mathcal{A}$ of $A$, we know that for each $i=1,\ldots, n$ there exists $A_i\in\mathcal{A}$ such that $x_i\in A_i$. It follows that $A\subseteq A_1\cup\cdots \cup A_n$, so $\{A_i : i=1,\ldots, n\}$ is a finite subcover.
+
+\bigskip
+
+\item Let $X$ be a set and let $\T_1, \T_2$ be two topologies on $X$, such that $\T_1\subseteq \T_2$.
+\begin{enumerate}
+ \item Prove that if $(X,\T_2)$ is compact, then $(X,\T_1)$ is compact.
+
+\bigskip
+
+\noindent {\bf Solution}: Suppose $(X,\T_2)$ is compact and let $\A$ be an open cover of $(X,\T_1)$. Then $\A$ is a collection of open sets in the topology $\T_1$ such that $X=\bigcup_{A\in\A}A$. But any open set in $\T_1$ is also an open set in the topology $\T_2$, since $\T_1\subseteq\T_2$. Thus, $\A$ is an open cover of $(X,\T_2)$. Since this space is compact, there must be a finite subcover $\{A_1,\ldots, A_n\}\subseteq \A$ such that $X=A_1\cup\cdots \cup A_n$, and since each $A_i$ was originally chosen to be open in $\T_1$, we have our finite subcover and thus $(X,\T_1)$ must be compact.
+
+\bigskip
+
+ \item Prove that if $(X,\T_1)$ is Hausdorff and $(X,\T_2)$ is compact, then $\T_1=\T_2$.
+
+\bigskip
+
+\noindent {\bf Solution}: Suppose $(X,\T_1)$ is Hausdorff, and $(X,\T_2)$ is compact, where $\T_1\subseteq \T_2$. Consider the identity map $I_X:(X,\T_2)\to (X,\T_1)$ given by $I_X(x)=x$ for all $x\in X$. For any $U\in\T_1$ we have $I_X^{-1}(U)=U$, and since $\T_1\subseteq \T_2$, $U$ is open in $(X,\T_2)$. Thus, $I_X$ is a continuous bijection. Since any continuous bijection from a compact space to a Hausdorff space is a homeomorphism, we must have that $\T_1=\T_2$. 
+
+(Recall the proof of this fact: if $F\subseteq (X,\T_2)$ is closed, then it is compact, since $(X,\T_2)$ is compact, and thus $I_X(U)=U$ is a compact subset of $(X,\T_1)$, since $I_X$ is continuous and the continuous image of a compact set is compact. But $(X,\T_1)$ is Hausdorff, and compact subsets of a Hausdorff space are closed. Thus $I_X$ sends closed sets to closed sets, which shows that the inverse map $I_X^{-1}:(X,\T_1)\to (X,\T_2)$ is also continuous.)
+
+\bigskip
+
+\end{enumerate}
+ \item Prove that if $\{A_\alpha\}$ is any collection of compact subsets of a Hausdorff space $X$, then $\bigcap_\alpha A_\alpha$ is compact.
+
+\bigskip
+
+\noindent {\bf Solution}: Let $\{A_\alpha\}$ be a collection of compact subsets of a Hausdorff space $X$. Since $X$ is Hausdorff, can conclude that $A_\alpha$ is closed for each $\alpha$, since $A_\alpha$ is compact. Thus, $\bigcap_\alpha A_\alpha$ is closed, since the intersection of closed sets is closed. Since $\bigcap A_\alpha\subseteq A_\beta$ for any $\beta$, $\bigcap A_\alpha$ is a closed subset of a compact set, and is therefore compact.
+
+\bigskip
+
+ \item Prove that if $Y$ is compact, then the projection $\pi_X: X\times Y\to X$ is a closed map.
+
+\bigskip
+
+\noindent {\bf Solution}: I'll present two proofs. The first uses the Tube Lemma: Suppose $F\subseteq X\times Y$ is closed. We will show that $X\setminus \pi_X(F)$ is closed. Choose any $x_0\in X\setminus \pi_X(F)$, and consider the slice $S_0=\{x_0\}\times Y$. Since $x_0\notin\pi_X(F)$, we must have $(x_0,y)\notin F$ for all $y\in Y$, so $S_0\cap F = \emptyset$. Thus $N=X\times Y\setminus F$ is an open neighbourhood of the slice $S_0$, so by the Tube Lemma there exists a neighbourhood $W$ of $x_0$ such that $W\times Y\subseteq N$. Since $W\times Y\cap F=\emptyset$, it follows that $W\cap \pi_X(F) = \emptyset$, so $W$ is the desired open neighbourhood of $x_0$.
+
+The second proof uses the compactness of $Y$ directly. Suppose $F\subseteq X\times Y$ is closed, and $x_0\in X\setminus \pi_X(F)$. Then, for each $y\in Y$, $(x_0,y)\notin F$, so $(x_0,y)\in X\times Y\setminus F$, which is open, so there exists a basic open set $U_y\times V_y$ such that $(x_0,y)\in U_y\times V_y\subseteq X\times Y\setminus F$. Since the open sets $V_y$ cover $Y$ and $Y$ is compact, there exist finitely many sets $V_{y_1},\ldots, V_{y_n}$ such that $Y=V_{y_1}\cup\cdots\cup V_{y_n}$. Now let $U=U_{y_1}\cap\cdots\cap U_{y_n}$. Since $x_0\in U_{y_i}$ for $i=1,\ldots, n$ and $U$ is open, since it's the intersection of finitely many open sets, we see that $U$ is a neighbourhood of $x_0$. Moreover, $U\cap\pi_X(F)=\emptyset$ since if $x\in U$ then $(x,y)\notin F$, for each $y\in Y$, so $x\notin\pi_X(F)$. (Note that this is essentially the proof of the Tube Lemma.)
+
+\bigskip
+
+ \item Prove the following theorem: Let $Y$ be a compact Hausdorff space, and let $f:X\to Y$ be a map. Then $f$ is continuous if and only if the graph of $f$, $\Gamma_f = \{(x,f(x)) : x\in X\}$ is closed in $X\times Y$.
+
+{\em Hint:} If $\Gamma_f$ is closed and $V$ is a neighbourhood of $f(x_0)$ in $Y$, then the intersection of $\Gamma_f$ and $X\times (Y\setminus V)$ is closed. Now apply the previous problem.
+
+\bigskip
+
+\noindent {\bf Solution}: First, suppose that $f$ is continuous, and choose a point $(x,y)\in X\times Y\setminus \Gamma_f$. Then $y\neq f(x)$, and since $Y$ is Hausdorff, there exist open neighbourhoods $U$ of $y$ and $V$ of $f(x)$ in $Y$ with $U\cap V=\emptyset$. Since $f$ is continuous, $W=f^{-1}(V)$ is open in $X$ and $x'\in W$ satisfies $f(x')\in f(f^{-1}(V))\subseteq V$. If $(x',y')\in W\times U$ we must have $y'\neq f(x')$ since $y'\in U$ and $f(x')\in V$, and $U$ and $V$ are disjoint. Thus, $W\times U$ is a neighbourhood of $(x,y)$ contained in the complement of $\Gamma_f$. It follows that $\Gamma_f$ is closed, since its complement is open.
+
+Conversely, suppose that $\Gamma_f$ is closed in $X\times Y$, where $Y$ is a compact Hausdorff space. Fix a point $x_0\in X$, and let $V$ be a neighbourhood of $f(x_0)\in Y$. Since $X\times (Y\setminus V)$ is closed, so is $F=(X\times (Y\setminus V))\cap \Gamma_f=\{(x,f(x)):f(x)\notin V\}$. Since $Y$ is compact, $\pi_X(F)=\{x\in X | f(x)\notin V\}$ is closed, by the previous problem. Thus, $f^{-1}(V) = \{x\in X|f(x)\in V\}$ is open, since it's the complement of a closed set. Thus, $f$ is continuous.
+
+{\bf Note}: For the first direction, it's tempting to say that if $f$ is continuous, then the map $x\mapsto (x,f(x))$ defines a homeomorphism of $X$ onto the subspace $\Gamma_f\subseteq X\times Y$, (Proposition 10.18 in the text) and it follows that $\Gamma_f$ is closed. Technically this is true, but in fact we've only proved that $\Gamma_f$ is closed {\em as a subset of itself}. It's not guaranteed that it will be closed as a subset of the ambient space $X\times Y$.
+
+
+\end{enumerate}
+\end{document}
+ 

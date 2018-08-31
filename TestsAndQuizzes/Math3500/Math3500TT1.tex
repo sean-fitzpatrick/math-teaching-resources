@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 30}}
+\chead{MATH 3500}\lhead{Test \# 1}\rhead{Monday, 6\textsuperscript{th} October, 2014}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+6\textsuperscript{th} October 2014, 2:00-2:50 pm\\
+{\bf MATH 3500 - Test \#1}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+\skipline
+
+\vspace{0.5in}
+
+
+\begin{quote}
+{\bf For full credit you must answer three of the four problems on this test. If you include work for all four problems, make sure that you clearly indicate which three problems you wish to have graded. If you solve all four problems and do not indicate which problems should be graded, only the {\bf first three} problems will be graded.}
+
+\bigskip
+ 
+ {Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. }
+
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Problem&Grade\\
+\hline \hline
+\cline{1-2} 1 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/30\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item \begin{enumerate}
+       \item Find the supremum and infimum of each of the following sets, or explain why they do not exist. 
+\begin{enumerate}
+\item $A = \{x\in\R : \abs{x-2}<1\}$ \points{2}
+
+\vspace{2.75in}
+
+\item $B = \left\{(-1)^n\left(1+\frac{1}{n}\right) : n\in\N\right\}$ \points{2}
+
+\vspace{2.75in}
+
+\item $C = \{x\in \R : x^2<0\}$ \points{2}
+\end{enumerate}
+\newpage
+\item Let $x\in\R$ and set $A = \{q\in\Q : q<x\}$. Prove that $x=\sup A$. \points{4}
+      \end{enumerate}
+\newpage
+\item Let $B = \left\{\dfrac{(-1)^nn}{n+1} : n\in\N\right\}$.
+\begin{enumerate}
+       \item What are the limit points of $B$? (You should explain your answer but a formal proof is not required.)\points{3}
+
+\vspace{4.5in}
+
+      \item Is $B$ open, closed, both, or neither? Explain.\points{2}
+
+\newpage
+
+      \item Which points of $B$ are isolated points? Why? \points{2}
+
+\vspace{4in}
+
+      \item What are the closure, interior, and boundary of$B$? \points{3}
+
+\end{enumerate}
+\newpage
+\item \begin{enumerate}
+       \item Define what it means for a set $x\in\R$ to be a {\em limit point} of a set $A\subseteq \R$. (A limit point is also known as an accumulation point.) \points{3}
+
+\vspace{2.5in}
+
+      \item Prove that if a set $K\subseteq \R$ is compact, than any subset $E\subseteq K$ with infinitely many elements has a limit point that belongs to $K$. \points{7}
+      \end{enumerate}
+\newpage
+
+\item \begin{enumerate}
+       \item Prove that $\di \lim_{n\to\infty}\frac{n}{n+1} = 1$ using the definition of convergence. \points{4}
+
+\newpage
+
+      \item Let $(a_n)$ be the sequence defined by $a_1=1$ and $a_{n+1} = \sqrt{2a_n+2}$ for $n\geq 1$. Using induction, one can prove that for all $n\in\N$ we have $a_n\leq a_{n+1} <3$. Explain why we can conclude that $(a_n)$ converges, and find the limit of the sequence. \points{3}
+
+\vspace{4in}
+
+      \item Prove that if $(a_n)$ and $(b_n)$ are Cauchy sequences, then so is $c_n=\abs{a_n-b_n}$. \points{3}
+
+Hint: triangle inequality.
+      \end{enumerate}
+
+
+
+\end{enumerate}
+
+\end{document}

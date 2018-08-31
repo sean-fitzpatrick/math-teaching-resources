@@ -1,0 +1,256 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+\DeclareMathOperator{\proj}{proj}
+
+\title{Math 1410 Assignment \#3 Solutions\\University of Lethbridge, Spring 2017}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+\item For each of the following subsets $S$ of $\R^3$ (viewed as the vector space of $3\times 1$ column vectors), determine if $S$ is a subspace. If $S$ is a subspace, determine a set of vectors that spans $S$.
+\begin{enumerate}
+ \item $S = \left\{\left. \bbm x\\y\\z\ebm \,\right|\, 3x-4y+z=2\right\}$
+
+\bigskip
+
+The set $S$ is not a subspace, since it does not contain the zero vector: 
+\[
+ 3(0)-4(0)+0=0\neq 2.
+\]
+
+
+\medskip
+
+ \item $S = \left\{\left. \bbm 2u-3v\\u\\v-5u\ebm \,\right|\, u,v\in \R\right\}$
+
+\bigskip
+
+We note that for a general element $\vec{w}\in S$ we have
+\[
+ \vec{w} = \bbm 2u-3v\\u\\v-5u\ebm = \bbm 2u\\u\\-5u\ebm+\bbm -3v\\0\\v\ebm = u\bbm 2\\1\\-5\ebm+v\bbm -3\\0\\1\ebm.
+\]
+Letting $\vec{a} = \bbm 2\\1\\-5\ebm$ and $\vec{b}=\bbm -3\\0\\1\ebm$, we have that $\vec{w}\in S$ if and only if $\vec{w}=u\vec{a}+v\vec{b}$ for scalars $u$ and $v$, which is equivalent to stating that $\vec{w}\in\operatorname{span}\{\vec{a},\vec{b}\}$.
+
+It follows that $S=\operatorname{span}\{\vec{a},\vec{b}\}$, and thus $S$ is a subspace.
+
+\pagebreak
+
+ \item $S = \left\{\vec{v}\in\R^3 \,|\, \vec{v}\dotp \vec{w} =0\right\}$, where $\vec{w} = \bbm 3\\-1\\2\ebm$.
+
+\bigskip
+
+The set $S$ is a subspace, which we can demonstrate in one of two ways. Using the definition, we check that $S$ is non-empty, since $\vec{0}\dotp \vec{w} = 0$, and thus $\vec{0}\in S$. If $\vec{v}_1,\vec{v}_2$ are any two elements of $S$, then by definition of $S$, we have $\vec{v}_1\dotp\vec{w}=0$ and $\vec{v}_2\dotp\vec{w}=0$. Therefore,
+\[
+ (\vec{v}_1+\vec{v}_2)\dotp \vec{w} = \vec{v}_1\dotp\vec{w} + \vec{v}_2\dotp \vec{w} = 0+0=0,
+\]
+which shows that $\vec{v}_1+\vec{v}_2\in S$, and thus $S$ is closed under addition. Similarly, if $c\in\R$ is any scalar, then with $\vec{v}_1\in S$ as above, we have
+\[
+ (c\vec{v}_1)\dotp \vec{w} = c(\vec{v}_1\dotp \vec{w}) = c(0)=0,
+\]
+so $c\vec{v}_1\in S$, showing that $S$ is closed under scalar multiplication. Therefore, by our definition of subspace, $S$ is a subspace.
+
+\medskip
+
+Alternatively, note that for any vector $\vec{v} = \bbm a\\b\\c\ebm$ we have $\vec{v}\dotp\vec{w} = 3a-b+2c$, and thus $\vec{v}\in S$ if and only if $3a-b+2c=0$. Solving for $b$, we see that for any $\vec{v}\in S$, we have $b=3a+2c$, and thus
+\[
+ \vec{v} = \bbm a\\3a+2c\\c\ebm = a\bbm 1\\3\\0\ebm + c\bbm 0\\2\\1\ebm,
+\]
+showing that $S = \operatorname{span}\left\{\bbm 1\\3\\0\ebm,\bbm 0\\2\\1\ebm\right\}$, from which it follows that $S$ is a subspace.
+\end{enumerate}
+
+\bigskip
+
+\item A set of vectors $\mathcal{A} = \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k\}\subseteq \R^n$ is called \textbf{orthogonal} if $\vec{v}_i \neq \vec{0}$ for each $i=1,\ldots, k$, and if $\vec{v}_i\dotp \vec{v}_j = 0$ for all $i\neq j$. In other words, $\mathcal{A}$ is a set of non-zero, mutually orthogonal vectors: each vector in the set is orthogonal to all the others.
+
+\begin{enumerate}
+ \item Show that the set $\mathcal{A} = \left\{\bbm 1\\-2\\0\\1\ebm, \bbm 4\\1\\-1\\-2\ebm, \bbm 1\\1\\3\\1\ebm\right\}$ is an orthogonal subset of $\R^4$.
+
+\bigskip
+
+It is clear that none of the vectors in $\mathcal{A}$ is the zero vector. We check that
+\begin{align*}
+ \bbm 1\\-2\\0\\1\ebm \dotp \bbm 4\\1\\-1\\-2\ebm &= 1(4)-2(1)+0(-1)+1(-2) 4-2-2=0,\\
+ \bbm 1\\-2\\0\\1\ebm \dotp \bbm 1\\1\\3\\1\ebm & = 1(1)-2(1)+0(3)+1(1) = 1-2+1=0, \quad \text{ and}\\
+ \bbm 4\\1\\-1\\-2\ebm \dotp \bbm 1\\1\\3\\1\ebm & = 4(1)+1(1)-1(3)-2(1) = 4+1-3-2=0.
+\end{align*}
+
+Since all dot products of different vectors in $\mathcal{A}$ are zero, the set $\mathcal{A}$ is orthogonal.
+
+
+ \item Prove that any orthogonal set of vectors is linearly independent.
+
+\bigskip
+
+Suppose $\mathcal{A} = \{\vec{v}_1,\vec{v}_2,\ldots, \vec{v}_k\}$ is an orthgonal set of vectors, and suppose that
+\begin{equation}\label{a}
+ c_1\vec{v}_1+c_2\vec{v}_2+\cdots +c_k\vec{v}_k=\vec{0}
+\end{equation}
+
+for some scalars $c_1,c_2,\ldots, c_k$. To show that $\mathcal{A}$ is linearly independent, we need to show that each of these scalars must equal to zero. If we take the dot product of both sides of \eqref{a} with respect to the vector $\vec{v}_i$, for some $i\in\{1,2,\ldots, k\}$, we have
+\begin{align*}
+ 0 & = \vec{v}_i\dotp \vec{0}\\
+ & = \vec{v}_i\dotp (c_1\vec{v}_1+c_2\vec{v}_2+\cdots +c_k\vec{v}_k)\\
+ & = c_1(\vec{v}_i\dotp \vec{v}_1) +c_2(\vec{v}_i\dotp \vec{v}_2)+ \cdots + c_k(\vec{v}_i\dotp \vec{v}_k).
+\end{align*}
+But we know that $\vec{v}_i\dotp \vec{v}_j = 0$ for $i\neq j$, so the above reduces to simply
+\[
+ 0=c_i(\vec{v}_i\dotp \vec{v}_i).
+\]
+We also know that $\vec{v}_i\dotp\vec{v}_i = \len{\vec{v}_i}^2\neq 0$, since by assumption none of the vectors in $\mathcal{A}$ are the zero vector. It follows that $c_i=0$, and this is true for each $i=1,2,\ldots, k$, which is what we needed to show.
+
+\medskip
+
+
+
+ \item Prove that if $\mathcal{A} = \{\vec{v}_1,\ldots, \vec{v}_k\}$ is an orthogonal set of vectors and $\vec{w}$ belongs to the span of $\mathcal{A}$, then
+\[
+ \vec{w} = \left(\frac{\vec{w}\dotp\vec{v}_1}{\vec{v}_1\dotp \vec{v}_1}\right)\vec{v}_1 + \left(\frac{\vec{w}\dotp\vec{v}_2}{\vec{v}_2\dotp\vec{v}_2}\right)\vec{v}_2+\cdots + \left(\frac{\vec{w}\dotp\vec{v}_k}{\vec{v}_k\dotp\vec{v}_k}\right)\vec{v}_k.
+\]
+This is called the \textit{Fourier decomposition theorem}.
+
+\bigskip
+
+Suppose that $\vec{w}\in \operatorname{span}(\mathcal{A})$. Then, by the definition of the span of a set of vectors, there exist scalars $a_1,a_2,\ldots, a_k$ such that
+\begin{equation}\label{b}
+ \vec{w} = a_1\vec{v}_1+a_2\vec{v}_2+\cdots +a_k\vec{v}_k.
+\end{equation}
+As with the solution to part (b), we take the dot product of both sides of \eqref{b} with the vector $\vec{v}_i$, for some choice of $i\in\{1,2,\ldots, k\}$, giving us
+\[
+ \vec{v}_i\dotp \vec{w} = a_i(\vec{v}_i\dotp\vec{v}_i),
+\]
+where we have simplified the right-hand side as in part (b), using the fact that $\vec{v}_i\dotp \vec{v}_j=0$ for $i\neq j$. Since $\vec{v}_i\dotp \vec{v}_i = \len{\vec{v}_i}^2\neq 0$, we can solve for $a_i$, giving us $a_i = \dfrac{\vec{v}_i\dotp \vec{w}}{\vec{v}_i\dotp \vec{v}_i}$ for each $i=1,2\ldots, k$. Subsituting these values into \eqref{b}, we obtain our result.
+
+\medskip
+
+
+ \item Let $\mathcal{A}$ be the orthogonal subset of $\R^4$ from part (a). Determine whether or not the following vectors belong to the span of $\mathcal{A}$:
+\[
+ \vec{a} = \bbm -4\\-7\\5\\8\ebm, \quad \vec{b} = \bbm 2\\3\\-5\\1\ebm.
+\]
+
+\bigskip
+
+We use the result from part (c). We compute the right-hand side of \eqref{b} for each vector, and compare to the original vector. We compute the following:
+
+\begin{align*}
+ \vec{v}_1\dotp \vec{v}_1 & = 1^2+(-2)^2+0^2+1^2 = 6\\
+ \vec{v}_2\dotp \vec{v}_2 & = 4^2+1^2+(-1)^2+(-2)^2 = 22\\
+ \vec{v}_3\dotp \vec{v}_3 & = 1^2+1^2+3^2+1^2 = 12.
+\end{align*}
+For the vector $\vec{a}$, we have
+\begin{align*}
+ \vec{a}\dotp \vec{v}_1 & = -4(1)-7(-2)+5(0)+8(1) = 18\\
+ \vec{a}\dotp \vec{v}_2 & = -4(4)-7(1)+5(-1)+8(-2) = -44\\
+ \vec{a}\dotp \vec{v}_3 & = -4(1)-7(1)+5(3)+8(1) = 12.
+\end{align*}
+Thus, we have
+\begin{align*}
+ \left(\frac{\vec{a}\dotp \vec{v}_1}{\vec{v}_1\dotp\vec{v}_1}\right)\vec{v}_1+
+ \left(\frac{\vec{a}\dotp \vec{v}_2}{\vec{v}_1\dotp\vec{v}_2}\right)\vec{v}_2+
+ \left(\frac{\vec{a}\dotp \vec{v}_3}{\vec{v}_1\dotp\vec{v}_3}\right)\vec{v}_3 & = \frac{18}{6}\bbm 1\\-2\\0\\1\ebm + \frac{-44}{22}\bbm 4\\1\\-1\\-2\ebm + \frac{12}{12}\bbm 1\\1\\3\\1\ebm\\
+ & = \bbm 3\\-6\\0\\3\ebm + \bbm -8\\-2\\2\\4\ebm + \bbm 1\\1\\3\\1\ebm = \bbm -4\\-7\\5\\8\ebm = \vec{a}
+\end{align*}
+This shows that $\vec{a} = 3\vec{v}_1-2\vec{v}_2+\vec{v}_3$, so $\vec{a}\in \operatorname{span}(\mathcal{A})$.
+
+\medskip
+
+For the vector $\vec{b}$, we have
+\begin{align*}
+ \vec{b}\dotp \vec{v}_1 & = 2(1)+3(-2)-5(0)+1(1) = -3\\
+ \vec{b}\dotp \vec{v}_2 & = 2(4)+3(1)-5(-1)+1(-2) = 14\\
+ \vec{b}\dotp \vec{v}_3 & = 2(1)+3(1)-5(3)+1(1) = -9.
+\end{align*}
+This gives us
+\begin{align*}
+ \left(\frac{\vec{b}\dotp \vec{v}_1}{\vec{v}_1\dotp\vec{v}_1}\right)\vec{v}_1+
+ \left(\frac{\vec{b}\dotp \vec{v}_2}{\vec{v}_1\dotp\vec{v}_2}\right)\vec{v}_2+
+ \left(\frac{\vec{b}\dotp \vec{v}_3}{\vec{v}_1\dotp\vec{v}_3}\right)\vec{v}_3 & = \frac{-3}{6}\bbm 1\\-2\\0\\1\ebm + \frac{-14}{22}\bbm 4\\1\\-1\\-2\ebm + \frac{-9}{12}\bbm 1\\1\\3\\1\ebm\\
+ & = \bbm -167/44\\-17/44\\71/44\\1/44\ebm \neq \vec{b}
+\end{align*}
+This tells us that $\vec{b}\notin \operatorname{span}(\mathcal{A})$, since equation \eqref{b} is not satisfied.
+\end{enumerate}
+
+\bigskip
+
+\item In the previous problem, we saw that if $\mathcal{A}$ is an orthogonal set of vectors, and $\vec{w}\in\operatorname{span}(\mathcal{A})$, then the $\vec{w}$ can be written in terms of the vectors in $\mathcal{A}$ using the Fourier decomposition theorem. If $\vec{w}$ is \textbf{not} in the span of $\mathcal{A}$, then the vector
+\begin{equation}\label{c}
+ \vec{v}=\left(\frac{\vec{w}\dotp\vec{v}_1}{\vec{v}_1\dotp \vec{v}_1}\right)\vec{v}_1 + \left(\frac{\vec{w}\dotp\vec{v}_2}{\vec{v}_2\dotp\vec{v}_2}\right)\vec{v}_2+\cdots + \left(\frac{\vec{w}\dotp\vec{v}_k}{\vec{v}_k\dotp\vec{v}_k}\right)\vec{v}_k.
+\end{equation}
+is called the \textbf{orthogonal projection} of $\vec{w}$ onto the subspace $U=\operatorname{span}(\mathcal{A})$, and dentoed by $\proj_U(\vec{w})$. In more advanced linear algebra courses, one proves that $\proj_U(\vec{w})$ is the element of $U$ that is \textit{closest} to $\vec{w}$, in the sense that $\len{\vec{w}-\proj_U(\vec{w})}$ is as small as possible.
+
+Consider the subspace $U\subseteq \R^3$ given by $U = \operatorname{span}\left\{\bbm 1\\2\\0\ebm, \bbm 2\\-1\\1\ebm\right\}$. Note that $U$ is a plane through the origin, and that the vectors $\vec{v} = \bbm 1\\2\\0\ebm$ and $\vec{w}=\bbm 2\\-1\\1\ebm$ are orthogonal.
+
+Determine the point $Q$ on the plane $U$ that is closest to the point $P=(3,-1,4)$ (and the distance from $P$ to $Q$):
+\begin{enumerate}
+ \item By computing the orthogonal projection of $\vec{p} = \bbm 3\\-1\\4\ebm$ onto $U$, as described above.
+
+\bigskip
+
+We will compute the projection $\vec{q}=\proj_U\vec{p}$ using equation \eqref{c} above. We have
+\begin{align*}
+ \vec{q} &= \left(\frac{\vec{p}\dotp\vec{v}}{\vec{v}\dotp\vec{v}}\right)\vec{v}+\left(\frac{\vec{p}\dotp\vec{w}}{\vec{w}\dotp\vec{w}}\right)\vec{w}\\
+	 &= \frac{3(1)-1(2)+4(0)}{1^2+2^2+0^2}\bbm 1\\2\\0\ebm + \frac{3(2)-1(-1)+4(1)}{2^2+(-1)^2+1^2}\bbm 2\\-1\\1\ebm\\
+	 & = \frac{1}{5}\bbm 1\\2\\0\ebm + \frac{11}{6}\bbm 2\\-1\\1\ebm = \bbm 58/15\\-43/30\\11/6\ebm.
+\end{align*}
+The point on the plane closest to $P$ is therefore $Q=\left(\dfrac{58}{15}, -\dfrac{43}{30}, \dfrac{11}{6}\right)$, and the distance is
+\[
+ d(P,Q) = \sqrt{\left(3-\frac{58}{15}\right)^2+\left(-1+\frac{43}{30}\right)^2+\left(4-\frac{11}{6}\right)^2} = \sqrt{(-13/15)^2+(13/30)^2+(13/6)^2}
+\]
+If we want to simplify this, note that
+\[
+ \left(\frac{-13}{15}\right)^2+\left(\frac{13}{30}\right)^2+\left(\frac{13}{6}\right)^2 = \left(-2\cdot\frac{13}{30}\right)^2+\left(\frac{13}{30}\right)^2+\left(5\cdot\frac{13}{30}\right)^2 = \left(\frac{13}{30}\right)^2((-2)^2+1^2+5^2).
+\]
+Thus, $d(P,Q) = \dfrac{13}{30}\sqrt{(-2)^2+1^2+5^2} = \dfrac{13}{30}\sqrt{30} = \dfrac{13}{\sqrt{30}}$.
+
+\medskip
+
+ \item Using the method described in Example 54 (and the discussion that follows) in Section 3.6 of the textbook.
+
+\bigskip
+
+We first compute the normal vector
+\[
+ \vec{n} = \vec{v}\times\vec{w} = \begin{vmatrix} \hat{\imath} & \hat{\jmath} & \hat{k}\\1&2&0\\2&-1&1\end{vmatrix} = \bbm 2\\-1\\-5\ebm.
+\]
+
+We next compute the projection of $\vec{p}$ onto $\vec{n}$. We find
+\[
+ \proj_{\vec{n}}\vec{p} = \left(\frac{\vec{p}\dotp\vec{n}}{\vec{n}\dotp\vec{n}}\right)\vec{n} = -\frac{13}{30}\bbm 2\\-1\\-5\ebm.
+\]
+
+According to Example 54 in the textbook, we have $\proj_{\vec{n}}\vec{p} = \overrightarrow{QP}$, where $Q$ is the point on the plane closest to $P$. This tells us that the distance from the point $P$ to the plane is
+\[
+ d(P,Q) = \len{\proj_{\vec{n}}\vec{p}} = \left\lVert-\frac{13}{30}\bbm 2\\-1\\5\ebm\right\rVert = \frac{13}{30}\left\lVert\bbm 2\\-1\\-5\ebm\right\rVert = \frac{13}{30}\sqrt{30} = \frac{13}{\sqrt{30}},
+\]
+the same as before.
+
+The point $P$ can be found using the fact that $\overrightarrow{QP} = \vec{p}-\vec{q}$, so 
+\[
+ \vec{q} = \vec{p}-\overrightarrow{QP} = \bbm 3\\-1\\4\ebm - \left(-\frac{13}{30}\right)\bbm 2\\-1\\-5\ebm = \bbm 58/15\\-43/30\\11/6\ebm,
+\]
+which also agrees with our previous answer.
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}
+ 

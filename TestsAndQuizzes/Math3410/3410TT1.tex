@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 30}}
+\chead{MATH 3410}\lhead{Test \# 1}\rhead{Friday, 13\textsuperscript{th} February, 2015}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\ivec}{\,\boldsymbol{\hat{\imath}}}
+\newcommand{\jvec}{\,\boldsymbol{\hat{\jmath}}}
+\newcommand{\kvec}{\,\boldsymbol{\hat{k}}}
+\DeclareMathOperator{\comp}{comp}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+13\textsuperscript{th} February, 2015, 3:00 - 3:50 pm\\
+{\bf MATH 3410 - Test \#1}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{353pt}}\\
+\skipline
+First Name:\underline{\hspace{350pt}}\\
+\skipline
+Student Number:\underline{\hspace{323pt}}\\
+\skipline
+
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ {\bf Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/30\\
+\hline
+\end{tabular}
+
+
+
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item True/False: For each of the statements below, state whether it is true or false, and give a {\bf brief} explanation supporting your choice.
+ \begin{enumerate}
+\item The set $U=\{(x,y,xy)\,|\,x,y\in\R\}$ is a subspace of $\R^3$.\points{3}
+
+\vspace{1.6in}
+
+\item If a vector space $V$ can be written as a direct sum $V=U\oplus W$, and for some $v\in V$ we have $v\notin U$, then $v\in W$.\points{3}
+
+\vspace{1.6in}
+
+\item For any subspace $U\subseteq V$, where $V$ is finite-dimensional, there exists a subspace $W\subseteq V$ such that $V=U\oplus W$.\points{3}
+
+\vspace{1.6in}
+
+\item If $T:V\to W$ is a linear transformation, and we know $\dim V=4$ and $\dim W=3$, then $T$ cannot be one-to-one.\points{3}
+
+\end{enumerate}
+\newpage
+Please provide a solution to {\bf one} of the two problems on this page: 
+\item Suppose that the vectors $v_1,v_2,v_3,v_4$ form a basis for $V$. Prove that the vectors \points{8}
+\[
+ v_1+v_2,v_2+v_3,v_3+v_4,v_4
+\]
+also form a basis for $V$.
+\item Determine whether or not the vector $v=(1,3,-4)$ belongs to the span of the vectors $(2,0,1), (0,3,-4)$, and  $(4,-3,9)$. \points{8}
+
+\newpage
+Please provide a solution to {\bf one} of the two problems on this page:
+\item Suppose $T:V\to W$ is injective, and the vectors $v_1,\ldots, v_n$ are linearly independent in $V$. Prove that the vectors $Tv_1,\ldots, Tv_n$ are linearly independent in $W$. \points{10}
+\item Let $V=\R^{3,1} = \left\{\begin{bmatrix}x\\y\\z\end{bmatrix} : x,y,z\in\R\right\}$, and let $T:V\to V$ be the linear transformation given by\points{10}
+\[
+T\left(\begin{bmatrix}x\\y\\z\end{bmatrix}\right) = \begin{bmatrix}2&-1&3\\-1&0&4\\4&-1&-5\end{bmatrix}\begin{bmatrix}
+x\\y\\z
+\end{bmatrix}=\begin{bmatrix}
+2x-y+3z\\-x+4z\\4x-y-5z
+\end{bmatrix}.
+\]
+Determine the null space and range of $T$.
+\end{enumerate}
+\newpage
+
+Extra space for rough work or to complete a problem, as needed. Please do not remove this page. If there is work to be graded on this page, please indicate this next to the corresponding question.
+\end{document}

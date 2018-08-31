@@ -1,0 +1,72 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+%\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\ss}{\subseteq}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\Abs}[1]{\left| #1\right|}
+
+\title{Math 3500 Assignment \#9\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+{\bf Due date}: Friday, November 28th, by 6 pm.
+
+\bigskip
+
+This is the last regular assignment for the course. But don't forget that you have an essay assignment to submit by the last lecture!
+\begin{enumerate}
+ \item Let $f$ be a bounded function on $[a,b]$, let $\mathcal{P}$ denote the set of all partitions of $[a,b]$, and let $P\in \mathcal{P}$ be an arbitrary partition of $[a,b]$.
+\begin{enumerate}
+ \item Prove that $U(f)\geq L(f,P)$, where $U(f) = \inf\{U(f,P) | P\in\mathcal{P}\}$.
+ \item Prove that $U(f)\geq L(f)$, where $L(f)=\sup\{L(f,P) | P\in\mathcal{P}\}$.
+\end{enumerate}
+ \item Let $f$ be a bounded function on $[a,b]$.
+\begin{enumerate}
+ \item Prove that $f$ is integrable on $[a,b]$ if and only if there exists a sequence of partitions $(P_n)_{n=1}^\infty$ satisfying
+\[
+ \lim_{n\to\infty}[U(f,P_n)-L(f,P_n)]=0.
+\]
+ \item For each $n$, let $P_n$ denote the uniform partition of $[0,1]$ into $n$ equal subintervals of length $1/n$, and let $f(x)=x$. Find formulas for $U(f,P_n)$ and $L(f,P_n)$ in terms of $n$.
+
+Hint: recall the summation formula $1+2+\cdots+n = n(n+1)/2$.
+ \item Use the results from (a) and (b) to prove that $f(x)=x$ is integrable on $[0,1]$.
+\end{enumerate}
+ \item Let $f:[a,b]\to\R$ be bounded and increasing. Show that $f$ is integrable on $[a,b]$.
+
+Hint: Use a uniform partition and the results of the previous problem. You should find that for an increasing function, the sum $U(f,P_n)-L(f,P_n)$ simplifies considerably.
+\newpage
+ \item Define the function $\displaystyle H(x) = \int_1^x\frac{1}{t}\,dt$, where $x>0$.
+\begin{enumerate}
+ \item What is the value of $H(1)$? What is $H'(x)$ for any $x>0$?
+ \item Show that if $0<x<y$, then $H(x)<H(y)$; that is, that $H$ is strictly increasing on $(0,\infty)$.
+ \item Show that $H(cx)=H(c)+H(x)$ for any $c>0$.
+
+Hint: it's possible to prove this using $u$-substitution, but a more efficient/clever approach is to treat $c$ as a constant and consider the derivative of $g(x)=H(cx)$ with respect to $x$ using the Chain Rule. (Of course via the FTC the Chain Rule and $u$-substitution are really just two sides of the same coin.) Keep in mind that two functions with the same derivative must differ by a constant.
+ \item Use a similar argument to show that $H(x^a)=aH(x)$.
+\end{enumerate}
+Note: One often writes the function $H(x)$ as $\ln(x)$, and refers to this function as the natural logarithm. Parts (c) and (d) then tell us that $\ln(xy)=\ln x+\ln y$ and $\ln(x^y)=y\ln x$. Since $H$ is strictly increasing on $(0,\infty)$, it is one-to-one and therefore has a well-defined inverse function, which is usually denoted by $H^{-1}(x)=e^x$.
+
+\item ({\bf Bonus}) Define a bounded function $f$ on $[0,1]$ by $\displaystyle f(x)=\begin{cases} 1, & \text{ if } x=1/n\\ 0, & \text{ otherwise}\end{cases}$. \\Prove that $f$ is integrable on $[0,1]$.
+
+
+
+
+
+\end{enumerate}
+
+\end{document}
+ 

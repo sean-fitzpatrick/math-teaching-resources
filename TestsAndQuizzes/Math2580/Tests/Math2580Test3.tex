@@ -1,0 +1,221 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 60}}
+\chead{MATH 2580A}\lhead{Test \#3}\rhead{Thursday, 21\textsuperscript{st} April, 2016}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\rd}[2]{\dfrac{d #1}{d #2}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\F}{\mathbf{F}}
+\newcommand{\G}{\mathbf{G}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\renewcommand{\S}{\mathbf{S}}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\len}[1]{\left\lVert #1\right\rVert}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+21\textsuperscript{st} April, 2016, 2:00 - 4:00 pm\\
+{\bf Math 2580A - Test \#3}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+%Student Number:\underline{\hspace{322pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ Record your answers below each question in the space provided.    {\bf Left-hand pages may be used as scrap paper for rough work.}  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+The value of each problem is indicated in the left-hand margins. The value of a problem does not always indicate the amount of work required to do the problem.
+
+Outside aids, including, but not limited to, cheat sheets, smart phones, in-ear radio communication devices, and telepathy are not permitted. You can keep a calculator with you if it makes you feel better.
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 7 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/60\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item Let $\F = yz\i+xz\j+(xy+2z)\k$.
+\begin{enumerate}
+\item Show that $\F$ is conservative, and find a function $f$ such that $\nabla f=\F$. \points{5}
+
+\vspace{5in}
+
+\item Compute $\displaystyle \int_C \F\dotp \,d\r$, where $C$ is given by $\r(t) = \langle t^2,t+1,2t-1\rangle$, with $t\in [0,1]$.\points{5}
+\end{enumerate}
+
+
+\newpage
+
+\item Let $\F(x,y) = \langle xy, x^2\rangle$, and let $C$ be the triangular path from $(0,0)$ to $(1,0)$ to $(1,2)$ and back to $(0,0)$. Evaluate the integral $\int_C \F\dotp \,d\r$:
+\begin{enumerate}
+\item Directly.\points{6}
+
+\vspace{5in}
+
+\item Using Green's Theorem.\points{4}
+
+\end{enumerate}
+\newpage
+
+
+\item Let $S$ be the oriented surface given by the vector-valued function
+\[
+\r(u,v) = \langle u^2,v^2,uv\rangle.
+\]
+\begin{enumerate}
+\item Find the equation of tangent plane to $S$ at the point given by $(u,v)=(1,2)$.\points{5}
+
+\vspace{3.5in}
+
+\item Set up, but do not evaluate, the integral that will compute the surface area of the portion of $S$ where $u^2+v^2\leq 9$. \points{3}
+
+\vspace{2.75in}
+
+\item At what (if any) points is the tangent plane to $S$ horizontal? \points{2}
+\end{enumerate}
+
+\newpage
+
+\item Let $\F(x,y,z) = \langle yz, -xz, z^3\rangle$, and let $S$ be the surface given by the part of the cone $z = \sqrt{x^2+y^2}$ between the planes $z=1$ and $z=4$, oriented downwards.\points{10}
+
+Use Stokes' theorem to evaluate 
+\begin{equation*}
+\iint\limits_S\left(\nabla\times\F\right)\dotp\,d\S.
+\end{equation*}
+\noindent {\bf Hint:} Sketch the surface. The boundary of $S$ consists of two circles with opposite orientations.
+
+
+\newpage
+
+
+\item Verify the Divergence Theorem for $\F(x,y,z) = \len{\r}\r$, where $\r = x\i + y\j + z\k$, and $S$ is the spherical surface $x^2+y^2+z^2 = 4$.\points{10}
+
+
+\newpage
+
+
+\item \begin{enumerate}
+\item Prove that $\nabla\dotp (\nabla\times \F) = 0$ for any $C^2$ vector field $\F$.\points{4}
+
+\vspace{3.5in}
+
+%\item Verify Stokes' Theorem in this case by computing the original surface integral directly. \points{8}
+
+\item Evaluate $\di \iint_S \F\dotp d\S$, where $\F(x,y,z) = \langle x, -y, 3\rangle$, and $S$ is the hemisphere\\ $z=\sqrt{4-x^2-y^2}$. \points{6} \\(Hint: There is an easy way and a hard way -- what is the divergence of $\F$?.)
+\end{enumerate}
+
+\end{enumerate}
+\newpage
+
+\begin{center}
+List of potentially useful facts and formulas
+\end{center}
+\begin{itemize}
+\item Line integrals: for a curve $C$ parameterized by $\r(t) = \langle x(t),y(t),z(t)\rangle$, $t\in [a,b]$, we have
+\begin{align*}
+\int_C f\,ds &= \int_a^b f(\r(t))\len{\r'(t)}\,dt \quad \text{ for a scalar field } f(x,y,z)\\
+\int_C \F\dotp\,d\r & = \int_a^b \F(\r(t))\dotp \r'(t)\,dt \quad \text{ for a vector field } \F(x,y,z).
+\end{align*}
+
+\item Surface integrals: For a surface $S$ parameterized by $\r(u,v) = \langle x(u,v), y(u,v), z(u,v)\rangle$, $(u,v)\in D\subseteq \R^2$, the normal vector to the surface at a point $\r(u_0,v_0)$ is given by
+\[
+\N(u,v) = \r_u(u,v)\times \r_v(u,v),
+\]
+and 
+\begin{align*}
+\iint_S f\,dS & = \iint_D f(\r(u,v))\len{\N(u,v)}\,du\,dv \quad \text{ for a scalar field } f(x,y,z)\\
+\iint_S \F\dotp\,d\S & = \iint_D \F(\r(u,v))\dotp \N(u,v)\,du\,dv \quad \text{ for a vector field } \F(x,y,z).
+\end{align*}
+
+\item $\nabla\times (\nabla f) = \mathbf{0}$ and $\nabla \dotp (\nabla\times \F) = 0$.
+
+\item Fundamental Theorem of Calculus: if $\F = \nabla f$ for some $C^1$ function $f$, and $C$ is a curve from a point $\mathbf{a}$ to a point $\mathbf{b}$, then
+\[
+\int_C \F\dotp \,d\r = f(\mathbf{b})-f(\mathbf{a}).
+\]
+
+
+\item Green's Theorem: let $D\subseteq \R^2$ be a region whose positively-oriented boundary is a simple, closed piecewise-smooth curve $C$. Then
+\[
+\int_C P\,dx+Q\,dy = \iint_D \left(\pd{Q}{x}-\pd{P}{y}\right)\,dA
+\]
+for any $C^1$ functions $P(x,y)$ and $Q(x,y)$ on $D$.
+
+\item Stokes' Theorem: let $S$ be a piecewise-smooth surface in $\R^3$ with positively-oriented boundary curve $C$. If $\F$ is a $C^1$ vector field defined on an open set containing $S$, then
+\[
+\iint_S (\nabla\times \F)\dotp \,d\S = \int_C \F\dotp \,d\r.
+\]
+
+\item Divergence Theorem: let $E\subseteq \R^3$ be a region bounded by a piecewise-smooth surface $S$, and let $\F$ be a $C^1$ vector field defined on an open set containing $E$. Then
+\[
+\iiint_E (\nabla\dotp \F)\,dV = \iint_S \F\dotp \,d\S.
+\]
+\end{itemize}
+\end{document}

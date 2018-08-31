@@ -1,0 +1,159 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 5 Solutions}\rhead{October 12/13, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+ \begin{enumerate}
+ 
+\item Consider the vectors $\vec{w} = \bbm 2\\-3\\1\ebm, \vec{v}_1 = \bbm -4\\0\\3\ebm, \vec{v}_2 = \bbm 0\\1\\3\ebm, \vec{v}_3=\bbm 2\\-1\\1\ebm$.\\
+Recall that the question ``Does $\vec{w}$ belong to the span of $\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}$?'' is the same as the question ``Are there scalars $x_1,x_2,x_3$ such that $\vec{w} = x_1\vec{v}_1+x_2\vec{v}_2+x_3\vec{v}_3$?''
+
+Show that this question is, in turn, equivalent to the question of whether or not there is a solution to the following system of equations:
+\[
+ \begin{array}{ccccccc}
+  -4x_1 & & &+&2x_3&=&2\\
+   & &x_2&-&x_3&=&-3\\
+ 3x_1&+&3x_2&+&x_3&=&1
+ \end{array}
+\]
+(You do not have to solve the system.)
+
+\bigskip
+
+{\bf Solution:} We begin with the left-hand side of the vector equation $x_1\vec{v}_1+x_2\vec{v}_2+x_3\vec{v}_3=\vec{w}$ and subsitute the vectors $\vec{v}_1,\vec{v}_2,\vec{v}_3$. We then equate the simplified vector to the right-hand side $\vec{w}$, as follows:
+\begin{align*}
+ x_1\vec{v}_1+x_2\vec{v}_2+x_3\vec{v}_3 &= x_1\bbm -4\\0\\3\ebm+x_2\bbm 0\\1\\3\ebm+x_3\bbm 2\\-1\\1\ebm = \bbm -4x_1\\0\\3x_1\ebm+\bbm 0\\x_2\\3x_2\ebm+\bbm 2x_3\\-x_3\\x_3\ebm\\&= \bbm -4x_1+2x_3\\x_2-x_3\\3x_1+3x_2+x_3\ebm = \bbm 2\\-3\\1\ebm.
+\end{align*}
+Recalling that two vectors are equal provided that each of their corresponding components are equal, we can equate components, and doing so results in the desired system of equations.
+
+\bigskip
+
+\item Let $U = \left\{\left.\bbm 2x-y\\x+3y\\4y-x\ebm \right|x,y\in\R\right\}$. Find vectors $\vec{a}$ and $\vec{b}$ such that $U=\operatorname{span}\{\vec{a},\vec{b}\}$.
+
+\bigskip
+
+{\bf Solution:} Given a general element $\vec{u}=\bbm 2x-y\\x+3y\\4y-x\ebm\in U$, we have
+\[
+ \vec{u}=\bbm 2x-y\\x+3y\\4y-x\ebm=\bbm 2x\\x\\-x\ebm+\bbm-y\\3y\\4y\ebm = x\bbm 2\\1\\-1\ebm+y\bbm -1\\3\\4\ebm.
+\]
+Letting $\vec{a} = \bbm 2\\1\\-1\ebm$ and $\vec{b} = \bbm -1\\3\\4\ebm$, the above equation shows that any element $\vec{u}\in U$ can be written as a linear combination $\vec{u}=x\vec{a}+y\vec{b}$ of the vectors $\vec{a}$ and $\vec{b}$; thus, $\vec{u}$ belongs to $\operatorname{span}\{\vec{a},\vec{b}\}$. Conversely, any element of $\operatorname{span}\{\vec{a},\vec{b}\}$ is a vector of the form $\vec{v}=x\vec{a}+y\vec{b}$. Reversing the above equality, we see that 
+\[
+ \vec{v}=x\vec{a}+y\vec{b} = \bbm 2x-y\\x+3y\\4y-x\ebm
+\]
+is an element of $U$. Since $U$ and $\operatorname{span}\{\vec{a},\vec{b}\}$ contain the same vectors, they must be equal.
+
+\bigskip
+
+
+\item Determine if the following subsets of $\R^2$ are subspaces. Explain your answer.
+\begin{enumerate}
+ \item $U=\left\{\left.\bbm x\\y\ebm \right| 3x-2y=0\right\}$
+
+\bigskip
+
+{\bf Solution:} The set $U$ is a subspace. We can prove this directly using the subspace test, or by showing that $U$ can be written as a span.
+
+Using the subspace test, we first check that $\vec{0}=\bbm 0\\0\ebm$ belongs to $U$, since $3(0)-2(0)=0$. Now, suppose that $\vec{v}=\bbm a\\b\ebm$ and $\vec{w}=\bbm c\\d\ebm$ are elements of $U$, which means that we must have $3a-2b=0$ and $3c-2d=0$. We then have $\vec{v}+\vec{w} =\bbm  a+c\\b+d\ebm$, and
+\[
+ 3(a+c)-2(b+d) = (3a-2b)+(3c-2d) = 0+0=0,
+\]
+which shows that $\vec{v}+\vec{w}$ is an element of $U$. Similarly, for any scalar $k$, we have $k\vec{u} = \bbm ka\\kb\ebm$, and
+\[
+ 3(ka)-2(kb) = k(3a-2b) = k(0)=0,
+\]
+so $k\vec{u}$ belongs to $U$. This shows that $U$ is a subspace.
+
+\medskip
+
+The other approach is to rewrite $U$ as a span. The condition $3x-2y=0$ can be re-written as $y=\dfrac{3}{2}x$; thus, if $\bbm x\\y\ebm$ is an element of $U$, we have
+\[
+ \bbm x\\y\ebm = \bbm x\\\frac{3}{2}x\ebm = x\bbm 1\\\frac{3}{2}\ebm = x\vec{v},
+\]
+where $\vec{v} = \bbm 1\\3/2\ebm$. This shows that we can write
+\[
+ U = \{x\vec{v} | x\in \R\} = \operatorname{span}\{\vec{v}\}.
+\]
+Since the span of any set of vectors is a subspace, we can conclude that $U$ is a subspace.
+
+ \item $V=\left\{\left.\bbm 2x-1\\x+2\ebm \right| x\in\R\right\}$
+
+\bigskip
+
+{\bf Solution:} The set $V$ is not a subspace, since it does not contain the zero vector $\vec{0} = \bbm 0\\0\ebm$. To see this, suppose that $\bbm 2x-1\\x+2\ebm = \bbm 0\\0\ebm$ for some value of $x$. Looking at the first component, we must have $2x-1=0$, so $x=1/2$. Looking at the second component, we must have $x+2=0$, so $x=-2\neq 1/2$. Thus, there is no value of $x$ that can produce the zero vector.
+\end{enumerate}
+
+
+
+\item Using only the vector space properties of $\R^n$ (Theorem 19 in Section 4.2), show the following:
+\begin{enumerate}
+ \item $0\vec{v} = \vec{0}$ for any vector $\vec{v}\in\R^n$. (Hint: use property 10 and the fact that $0+0=0$.)
+
+\bigskip
+
+{\bf Solution:} We proceed as follows:
+\begin{align*}
+ 0\vec{v} & = (0+0)\vec{v} = 0\vec{v}+0\vec{v} \tag*{Distributive property}\\
+ -0\vec{v} +0\vec{v} & = -0\vec{v}+(0\vec{v}+0\vec{v}) \tag*{Add $-0\vec{v}$ to both sides}\\
+ -0\vec{v}+0\vec{v} & = (-0\vec{v}+0\vec{v})+0\vec{v} \tag*{Associative property}\\
+ \vec{0} & = \vec{0} + 0\vec{v} \tag*{Since $-\vec{w}+\vec{w}=\vec{0}$ for any vector $\vec{w}$}\\
+ \vec{0} & = 0\vec{v} \tag*{Since $\vec{0}+\vec{w}=\vec{w}$ for any vector $\vec{w}$}
+\end{align*}
+Thus, we see that $0\vec{v} = \vec{0}$.
+
+\medskip
+
+
+ \item If $c\vec{v}=\vec{0}$ for some scalar $c$ and vector $\vec{v}$, then either $c=0$ or $\vec{v}=\vec{0}$.\\
+(Hint: there are two cases -- either $c$ equals zero, or it doesn't.)
+
+\bigskip
+
+{\bf Solution:} Suppose that $c\vec{v}=\vec{0}$ for some scalar $c$ and vector $\vec{v}$. If $c=0$ then we have our conclusion, so there is nothing to prove. It remains to show that if $c\neq 0$, then we must have $\vec{v}=\vec{0}$, so we suppose that $c\neq 0$. Since $c$ is a nonzero real number, we know that its multiplicative inverse $\dfrac{1}{c}$ is defined. Multiplying both sides of the equation $c\vec{v}=\vec{0}$ by $\dfrac{1}{c}$, we have
+\begin{align*}
+ \frac{1}{c}(c\vec{v}) &= \frac{1}{c}(\vec{0})\\
+ \left(\frac{1}{c}(c)\right)\vec{v} & = \frac{1}{c}(\vec{0}) \tag*{Associativity of scalar multiplication}\\
+ (1)\vec{v} & = \frac{1}{c}(\vec{0}) \tag*{Since $c(1/c)=1$ for any real number $c$}\\
+ \vec{v} & = \frac{1}{c}(\vec{0}) \tag*{Since $1\vec{v}=\vec{v}$ for any vector $\vec{v}$}
+\end{align*}
+The last step is to confirm that $\dfrac{1}{c}\vec{0} = \vec{0}$. While true, this isn't actually one of the 10 properties given in Theorem 19. It can, however, be proved using an argument similar to the one in 4(a): for any scalar $k$, $k\vec{0} = k(\vec{0}+\vec{0}) = k\vec{0}+k\vec{0}$, and adding $-k\vec{0}$ to both sides allows us to simplify and deduce that $k\vec{0}=\vec{0}$.
+\end{enumerate}
+
+ \end{enumerate}
+\end{document}

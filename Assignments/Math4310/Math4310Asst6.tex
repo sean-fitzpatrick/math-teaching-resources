@@ -1,0 +1,41 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+\newcommand{\T}{\mathcal{T}}
+\DeclareMathOperator{\Int}{Int}
+
+\title{Math 4310 Assignment \#6\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Friday, October 17th, by 5 pm.
+
+\bigskip
+
+Please submit solutions to the following problems (except where indicated). As usual, all the textbook exercises are recommended as practice problems if they don't appear as an assigned problem below.
+
+\begin{enumerate}
+\item Prove that any normed vector space is a metric space.
+\item Let $X={l}^\infty$ denote the set of all {\em bounded} sequences of real numbers. (Thus, $x=(x_1,x_2,x_3,\ldots)\in X$ if there exists some $M\geq 0$ such that $\abs{x_i}\leq M$ for all $i=1,2,3,\ldots$. Prove that $\len{x} = \sup\{\abs{x_n}:n\in\N\}$ defines a norm on $X$. 
+\item Let $A$ be a subset of a metric space $X$. An element $a\in A$ is called an {\em isolated point} of $A$ if there exists an $\epsilon>0$ such that $N_\epsilon(a)\cap A = \{a\}$. Prove that the closure of $A$ is equal to the disjoint union of the limit points of $A$ and the isolated points of $A$.
+\item Let $X$ be a topological space and $A\subseteq X$. Prove that $\overline{A} = X\setminus (X\setminus A)^\circ$. That is, the closure of $A$ is the complement of the interior of the complement of $A$.
+\item Let $S$ be a subset of a topological space $X$, and let $S$ be given the subspace topology. Show that if $A$ is a relatively open subset of $S$, then $A\cap T$ is a relatively open subset of $S\cap T$ for any subset $T\subseteq X$.
+\item Under what condition is a space $X$ with the cofinite topology a Hausdorff space?
+\end{enumerate}
+\end{document}
+ 

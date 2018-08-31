@@ -1,0 +1,233 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 36}}
+\chead{MATH 53}\lhead{Test \# 1}\rhead{Friday, 5\textsuperscript{th} October, 2012}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\r}{\mathbf{r}}
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of California, Berkeley}\\
+Department of Mathematics\\
+5\textsuperscript{th} October, 2012, 12:10-12:55 pm\\
+{\bf MATH 53 - Test \#1}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Discussion Section: \underline{\hspace{307pt}}\\
+\skipline
+Name of GSI: \underline{\hspace{336pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ {\bf Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 1 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/36\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+\skipline
+
+B
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item Find the equation of the tangent line to the curve $C$ represented by the vector-valued function $\mathbf{r}(t) = \langle 4-3t, e^{t^2}, \ln(1+t)\rangle$ at the point $(4,1,0)$.\points{4}
+
+\bigskip
+
+The point $(4,1,0)$ corresponds to $t=0$, and we have $\r'(t) = \langle -3, 2te^{t^2}, 1/(1+t)\rangle$, so the tangent vector to the curve at $(4,1,0)$ is $\r'(0) = \langle -3, 0, 1\rangle$. The equation of the tangent line is thus
+\[
+ \langle x,y,z\rangle = \langle 4, 1, 0\rangle +t\langle -3, 0, 1\rangle.
+\]
+
+\bigskip
+
+\bigskip
+
+\item Find the area of the circle $r=4\cos\theta$ using an integral in polar coordinates. \points{5}
+
+\bigskip
+
+The given circle lies in the first and fourth quadrants, so we have $-\pi/2\leq\theta\leq \pi/2$, and
+\begin{align*}
+ A &= \int_{-\pi/2}{\pi/2}\frac{1}{2}\left(16\cos^2\theta\right)d\theta\\
+& = 4\int_{-\pi/2}^{\pi/2}\left(1+\cos 2\theta)\right)d\theta\\
+& = 4\left[\theta+\frac{1}{2}\sin 2\theta\right]_{-\pi/2}^{\pi/2}\\
+& = 4\pi.
+\end{align*}
+
+\bigskip
+
+\bigskip
+
+\item Show that $\di \lim_{(x,y)\to (0,0)}\frac{x^2-y^2}{x^2+y^2}$ does not exist. \points{3}
+
+\bigskip
+
+Let $f(x,y) = \dfrac{x^2-y^2}{x^2+y^2}$ If we let $(x,y)\to (0,0)$ along the $x$-axis, we have $y=0$ and  $f(x,0)= \frac{x^2}{x^2}=1$, and so $f$ appears to be approaching a limit of 1, while if we let $(x,y)\to (0,0)$ along the $y$-axis, where $x=0$, we have $f(0,y) = \dfrac{-y^2}{y^2}=-1$, and so $f$ appears to be approaching a limit of $-1\neq 1$. Thus, the limit cannot exist, since $f$ approaches two different values along two different paths.
+\newpage
+
+\item Consider the two lines in $\R^3$ given by
+\begin{align*}
+\mathbf{r}_1(t) & = \langle 3,2,3\rangle + t\langle 3,0,2\rangle\\
+\mathbf{r}_2(s) & = \langle 0,1,2\rangle +s\langle 0,1,-1\rangle.
+\end{align*}
+\begin{enumerate}
+\item Verify that the two lines intersect at the point $(0,2,1)$. \points{2}
+
+\bigskip
+
+By direct computation we see that $\r_1(-1) = \langle 0,2,1\rangle$ and $\r_2(1) = \langle 0,2,1\rangle$, so the two lines indeed intersect at $(0,2,1)$.
+
+\bigskip
+
+\bigskip
+
+
+\item Find the cosine of the angle between the two lines. \points{3}
+
+\bigskip
+
+The direction vectors of the two lines are $\vv_1 = \langle 3,0,2\rangle$ and $\vv_2 = \langle 0,1,-1\rangle$, and thus the angle between the two lines at their point of intersection is given by
+\[
+ \cos\theta = \frac{\vv_1\dotp\vv_2}{\len{\vv_1}\len{\vv_2}} = \frac{-2}{\sqrt{13}\sqrt{2}}.
+\]
+
+\bigskip
+
+
+\item Find the equation of the plane that contains the two lines. \points{4}
+
+\bigskip
+
+We know that a point on the plane is $(0,2,1)$, and a normal vector to the plane is given by
+\[
+ \mathbf{n} = \vv_1\times\vv_2 = \langle 0(-1)-2(1), 2(0)-3(-1), 3(1)-0(0)\rangle =\langle -2, 3, 3\rangle.
+\]
+The equation of the line is thus given by $-2x+3(y-2)+3(z-1)=0$, or $-2x+3y+3z-9=0$.
+
+\bigskip
+
+
+\item Find the distance between the point $P(1,-1,2)$ and the plane from part (c).\points{3}
+
+\bigskip
+
+The distance from a point $P(x_1,y_1,z_1)$ to the plane $ax+by+cz+d=0$ is given by $D=\dfrac{\lvert ax_1+by_1+cz_1+d\rvert}{\sqrt{a^2+b^2+c^2}}$, and thus,
+\[
+ D = \frac{\lvert -2(1)+3(-1)+3(2)-9\rvert}{\sqrt{4+9+9}} = \frac{8}{\sqrt{22}}.
+\]
+
+\end{enumerate}
+\newpage
+
+
+\item \begin{enumerate}
+\item Find the equation of the tangent plane to the surface $z=\sin(3+x^2-y^2)$ at the point $(1,2,0)$. \points{5}
+
+\bigskip
+
+Letting $f(x,y) = \sin(3+x^2-y^2)$ we have $f_x(x,y) = 2x\cos(3+x^2-y^2)$, and $f_y(x,y) = -2y\cos(3+x^2-y^2)$. Thus, we have $f_x(1,2) = 2\cos(0)=2$ and $f_y(1,2) = -4\cos(0) = -4$. Since $f(1,2)=0$, the equation of the tangent plane is given by
+\[
+ z=  2(x-1)-4(y-2).
+\]
+
+\bigskip
+
+\bigskip
+
+
+
+\item Show that the surface from part (a) has the horizontal tangent plane $z=1$ at every point on the hyperbola $y^2-x^2 = 3-\dfrac{\pi}{2}$. \points{2}
+
+\bigskip
+
+Whenever $x^2-y^2 = \dfrac{\pi}{2}-3$, we have $f(x,y) = \sin(\pi/2) = 1$ and $f_x(x,y)=f_y(x,y) = 0$, since $\cos(\pi/2)=0$. The tangent plane at any such point is thus given by $z=1+0+0=1$, which is clearly horizontal.
+\end{enumerate} 
+
+
+\bigskip
+
+\bigskip
+
+\item Use the chain rule to compute $\dfrac{\partial f}{\partial u}$ and $\dfrac{\partial f}{\partial v}$ if $f(x,y,z) = x^3yz^2$, where $x = 2u+v$, $y=u-3v$, and $z=uv$. \points{5}
+
+\bigskip
+
+We have
+\begin{align*}
+ \frac{\partial f}{\partial u} & = \frac{\partial f}{\partial x}\frac{\partial x}{\partial u} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial u} + \frac{\partial f}{\partial z}\frac{\partial z}{\partial u}\\
+& = 3x^2yz^2(2)+x^3z^2(1)+2x^3yz(v)\\
+& = 6(2u+v)^2(u-3v)u^2v^2+(2u+v)^3u^2v^2+2(2u+v)^3(u-3v)uv^2,
+\end{align*}
+and
+\begin{align*}
+ \frac{\partial f}{\partial v} & = \frac{\partial f}{\partial x}\frac{\partial x}{\partial v} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial v} + \frac{\partial f}{\partial z}\frac{\partial z}{\partial v}\\
+& = 3x^2yz^2(1)+x^3z^2(-3)+2x^3yz(u)\\
+& = 3(2u+v)^2(u-3v)u^2v^2-3(2u+v)^3u^2v^2+2(2u+v)^3(u-3v)u^2v.
+\end{align*}
+
+
+
+\end{enumerate}
+
+
+
+\end{document}

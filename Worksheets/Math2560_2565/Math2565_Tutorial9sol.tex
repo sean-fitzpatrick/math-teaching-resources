@@ -1,0 +1,174 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.2in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+{\bf MATH 2565 - Tutorial \#9 Solutions}
+\end{center}
+
+
+
+ \begin{enumerate}
+\item Use the ratio or root test to determine whether the series is convergent or divergent. (If the test is inconclusive, or impractical, determine converge with another test.)
+\begin{enumerate}
+\item $\di\sum_{n=1}^\infty n\left(\frac{3}{5}\right)^n$
+
+The ratio test gives us
+\[
+\lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}}=\lim_{n\to\infty}\abs{\frac{(n+1)(3/5)^{n+1}}{n(3/5)^n}}=\frac35\lim_{n\to\infty}\frac{n+1}{n}=\frac35 <1,
+\]
+so the series converges. 
+
+\item $\di\sum_{n=1}^\infty \frac{(2n)!}{(n!)^2}$
+
+Using the ratio test again (note that $2(n+1)=2n+2$),
+\[
+\lim_{n\to\infty}\abs{\frac{(2n+2)!}{((n+1)!)^2}\cdot\frac{(n!)^2}{(2n)!}}=\lim_{n\to\infty}\frac{(2n+2)(2n+1)(2n)!}{((n+1)n!)^2}\cdot\frac{(n!)^2}{(2n)!}=\lim_{n\to\infty}\frac{(2n+2)(2n+1)}{(n+1)^2}=4>1,
+\]
+so the series diverges.
+
+\item $\di\sum_{n=2}^\infty\left(\frac{1}{n}-\frac{1}{n^2}\right)^n$
+
+Using the root test, we have
+\[
+\lim_{n\to\infty}\sqrt[n]{\abs{\left(\frac{1}{n}-\frac{1}{n^2}\right)^2n}} = \lim_{n\to\infty}\left(\frac1n-\frac{1}{n^2}\right)=0<1,
+\]
+so the series converges.
+
+\item $\di\sum_{n=1}^\infty\frac{5^n+n^4}{7^n+n^2}$
+
+Here, we first split the series into two parts:
+\[
+\sum_{n=1}^\infty\frac{5^n+n^4}{7^n+n^2} = \sum_{n=1}^\infty\frac{5^n}{7^n+n^2}+\sum_{n=1}^\infty\frac{n^4}{7^n+n^2}.
+\]
+Since $\dfrac{5^n}{7^n+n^2}<\frac{5^n}{7^n}$ for all $n\geq 1$ and $\di\sum_{n=1}^\infty\frac{5^n}{7^n}$ is a convergent geometric series, the first part of the series converges by comparison.
+
+Now, we note that $\frac{n^4}{7^n+n^2}<\frac{n^4}{7^n}$ for all $n\geq 1$. For the series $\di\sum_{n=1}^\infty \frac{n^4}{7^n}$, the ratio test gives us
+\[
+\lim_{n\to\infty}\abs{\frac{(n+1)^4}{7^{n+1}}\cdot \frac{7^n}{n^4}}=\frac17 \lim_{n\to\infty}\frac{(n+1)^4}{n^4} = \frac17 < 1,
+\]
+so this series converges, and thus, the second part of the series converges by comparison.
+
+Since our series is the sum of two convergent series, it converges.
+
+\item $\di\sum_{n=1}^\infty\left(1+\frac{1}{n}\right)^{n^2}$
+
+Here, the root test gives us
+\[
+\lim_{n\to\infty}\sqrt[n]{\abs{a_n}} =\lim_{n\to \infty} \left(\left(1+\frac1n\right)^{n^2}\right)^{1/n} = \lim_{n\to \infty}\left(1+\frac{1}{n}\right)^n = e>1,
+\]
+so the series diverges.
+
+\textit{Note:} If you didn't remember this last limit as a result from Math 1565, note that
+\[
+\lim_{x\to \infty}(1+1/x)^x=\lim_{x\to\infty}e^{x\ln(1+1/x)}= e^{\lim_{x\to\infty}\frac{\ln(1+1/x)}{1/x}} = e^{\lim_{x\to\infty}\frac{1}{1+1/x}}=e^1=e,
+\]
+using L'Hospital's Rule.
+\end{enumerate}
+%\newpage
+
+\item Determine if the series converges conditionally, or absolutely, or not at all:
+\begin{enumerate}
+\item $\di\sum_{n=1}^\infty\frac{\sin(n\pi/3)}{1+n\sqrt{n}}$
+
+We note that for $a_n = \dfrac{\sin(n\pi/3)}{1+n\sqrt{n}}$ we have
+\[
+\abs{a_n} = \frac{\abs{\sin(n\pi/3)}}{1+n\sqrt{n}}\leq \frac{1}{1+n^{3/2}}<\frac{1}{n^{3/2}},
+\]
+so the series converges absolutely by comparison with the convergent $p$-series $\sum_{n=1}^\infty 1/n^{3/2}$.
+
+\item $\di\sum_{n=1}^\infty\frac{(-1)^n}{\sqrt{n}}$
+
+The series converges by the Alternating Series Test, since the terms are of the form $(-1)^na_n$, where $a_n=1/\sqrt{n}$, and $\{a_n\}$ is a positive, decreasing sequence with $\lim_{n\to\infty}a_n=0$.
+
+However, the series does not converge absolutely, since $\di\abs{\frac{(-1)^n}{\sqrt{n}}}=\frac{1}{\sqrt{n}}$ is a $p$-series with $p=1/2<1$, which diverges.
+
+\item $\di\sum_{n=1}^\infty n\cos(\pi n)\sin(1/n)$
+
+This series does not converge. To see this, note that $\cos(\pi n)=(-1)^n$, while
+\[
+\lim_{n\to\infty}n\sin(1/n)=\lim_{n\to\infty}\frac{\sin(1/n)}{1/n}=1.
+\]
+The series thus fails the divergence test, since $\lim_{n\to\infty}n\cos(\pi n)\sin(1/n)$ does not exist (for large $n$ the terms alternate between values close to 1 and close to -1).
+\end{enumerate}
+
+
+\item One can show that $\di \pi = \sum_{n=0}^\infty \frac{4(-1)^n}{2n+1}$. What is the least value of $N$ such that the partial sum $\di S_N=\sum_{n=1}^N \frac{4(-1)^n}{2n+1}$ approximates the value of $\pi$, correct to 3 decimal places?
+
+According to the Alternating Series Approximation Theorem, if a series $\sum_{n=1}^\infty (-1)^na_n$ converges to some limit $L$, then for each $N$, $\di\abs{\sum_{n=1}^N-L}<a_{N+1}$. Thus, it suffices to determine the least $N$ such that $a_N = \frac{4}{2N+1} < 0.0005$. For this, we must have
+\[
+N>\frac12\left(\frac{4}{0.0005}-1\right)= \frac{7999}{2}.
+\]
+Rounding to the nearest integer, we see that we need $N=4000$ terms. 
+
+From this, we can conclude that this is not a very effective method for computing $\pi$. (A method referred to at least once as \href{https://mathwithbaddrawings.com/2016/03/14/the-pi-day-recipe-book/}{Gottfried's slow jam}.)
+
+
+\item For each series below, indicate whether it converges or diverges. Also indicate which convergence test you used, and why.
+\begin{enumerate}
+\item $\di \sum_{m=1}^\infty me^{-m}$
+
+We apply the ratio test:
+\[
+\lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}}=\lim_{n\to\infty}\frac{n+1}{e^{n+1}}\cdot \frac{e^n}{n} = \frac{1}{e}<1,
+\]
+so the series converges.
+
+\item $\di \sum_{n=1}^\infty \frac{2(n^2+2)^{2018}}{3(n^3+n+3)^{2018}}$
+
+Noticing that for large $n$ our terms are approximately $\dfrac{2(n^2)^{2018}}{3(n^3)^{2018}}=\dfrac{2}{3n^{2018}}$, we use limit comparison with the convergent $p$-series $\di\sum_{n=1}^\infty\frac{1}{n^{2018}}$. We have
+\[
+\lim_{n\to\infty}\frac{\dfrac{2(n^2+2)^{2018}}{3(n^3+n+3)^{2018}}}{\dfrac{1}{n^{2018}}}=\frac23 \lim_{n\to\infty}\frac{n^{2018}(n^2+2)^{2018}}{(n^3+n+3)^{2018}} =\frac23\lim_{n\to\infty}\left(\frac{n^3+2n}{n^3+n+2}\right)^{2018}=\frac23\cdot 1^{2018}=\frac23.
+\]
+Since this limit is positive and finite, we can conclude that our series converges by the limit comparison test.
+
+
+\item $\di \sum_{k=1}^\infty \frac{(k!)^k}{k^{4k}}$
+
+Here we try the root test, due to the powers in both the numerator and denominator. (It's less messy than the ratio test in this case.) We have
+\[
+\lim_{k\to\infty}\sqrt[k]{\abs{a_k}} = \lim_{k\to\infty}\frac{k!}{k^4}=\lim_{k\to\infty}\frac{k(k-1)(k-2)(k-3)}{k^4}\cdot (k-4)! = \infty,
+\]
+so the series diverges. (One could also have verified that the series fails the divergence test.)
+\end{enumerate}
+\end{enumerate}
+\end{document}

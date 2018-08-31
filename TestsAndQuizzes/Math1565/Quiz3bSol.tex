@@ -1,0 +1,83 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1in,bottom=1.25in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 1565 - Quiz \#3 Solution}\\
+\end{center}
+\thispagestyle{empty}
+\begin{enumerate}
+ \item Determine the equation of the tangent line to the curve
+ \[
+ (x^2+y^2+y)^2=x^2+y^2
+ \]
+ at the point $(1,0)$.
+% \end{enumerate}
+\end{enumerate}
+
+Taking the derivative of both sides of the equation with respect to $x$, we have
+\[
+2(x^2+y^2+y)\left(2x+2y\frac{dy}{dx}+\frac{dy}{dx}\right)=2x+2y\frac{dy}{dx}.
+\]
+Having taken the derivative, we can put in $x=1$, $y=0$, giving us
+\[
+2(1+0+0)\left(2+0+\frac{dy}{dx}\right)=2(1)+0,
+\]
+so $2(2+dy/dx)=2$, giving us $2+dy/dx=1$, so  $\dfrac{dy}{dx}=-1$.
+
+With the slope $m=-1$ and point $(1,0)$ we obtain the equation
+\[
+y-0=-1(x-1) \text{ or } y=-x+1
+\]
+for the tangent line.
+
+\bigskip
+
+\textbf{Note:} it was not necessary to solve for $\dfrac{dy}{dx}$ in terms of $x$ and $y$ before putting  in the given values, but if you did, you should get:
+\[
+4y(x^2+y^2+y)\frac{dy}{dx}+2(x^2+y^2+y)\frac{dy}{dx}+4x(x^2+y^2+y)=2x+2y\frac{dy}{dx},
+\]
+so
+\[
+\frac{dy}{dx} = \frac{2x-4x^3-4xy^2-4xy}{4x^2y+4y^3+6y^2+2x^2}.
+\]
+\end{document}

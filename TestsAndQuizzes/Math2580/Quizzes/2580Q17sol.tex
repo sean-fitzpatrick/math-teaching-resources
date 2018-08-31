@@ -1,0 +1,96 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\di}{\displaystyle}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\len}[1]{\left\lVert #1\right\rVert}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\F}{\mathbf{F}}
+
+\title{Solutions to practice problems for Quiz 17\\Math 2580\\Spring 2016}
+\author{Sean Fitzpatrick}
+\date{March 22nd, 2016}
+
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+ \item Calculate the derivative of the following vector-valued functions:
+\begin{enumerate}
+ \item $\r(t) = \langle t^2, t^3, t^4\rangle \quad \r'(t) = \langle 2t, 3t^2, 4t^3\rangle$
+
+
+ \item $\r(t) = \langle \sin(t), e^{3t}, \cos(2t)\rangle \quad \r'(t) = \langle \cos(t), 3e^{3t}, -2\sin(2t)\rangle$.
+
+ \item $\r(t) = \langle \sin(t^2), \ln(t^2+1)\rangle \quad \r'(t) = \langle 2t\cos(t^2), \frac{2t}{t^2+1}\rangle$.
+\end{enumerate}
+ \item Calculate $\len{\r'(t)}$ for the vector-valued functions in problem 1. (Note that if $\r(t)$ is interpreted as position with respect to time, then $\r'(t)$ is velocity, and $\len{\r'(t)}$ is speed.
+
+\begin{enumerate}
+ \item $\len{\r'(t)} = \sqrt{4t^2+9t^4+16t^6}$
+ \item $\len{\r'(t)} = \sqrt{\cos^2(t)+9e^{6t}+4\sin^2(2t)}$
+ \item $\len{\r'(t)} = \sqrt{4t^2\cos^2(t^2)+\frac{4t^2}{(t^2+1)^2}}$.
+\end{enumerate}
+
+
+ \item Show that $\dfrac{d}{dt}\len{\r(t)}^2 = 2\r(t)\dotp r'(t)$.
+
+\bigskip
+
+Using the product rule $\dfrac{d}{dt}(\mathbf{a}(t)\dotp\mathbf{b}(t)) = \mathbf{a}'(t)\dotp\mathbf{b}'(t) + \mathbf{a}(t)\dotp\mathbf{b}'(t)$, we have
+\[
+ \frac{d}{dt}\len{\r(t)}^2 = \frac{d}{dt}(\r(t)\dotp \r(t)) = \r'(t)\dotp\r(t)+ \r(t)\dotp\r'(t) = 2\r(t)\dotp\r'(t).
+\]
+ 
+ \item Determine a vector-valued function $\r(t)$ and an interval $[a,b]$ that parameterize the line segment from $(1,2,0)$ to $(4,-3,2)$.
+
+\bigskip
+
+ Since we're given two points on the line, we can form the direction vector $\mathbf{v} = \langle 4-1, -3-2, 2-0\rangle = \langle 3, -5, 2\rangle$, and the line segmenet is given by
+\[
+ \r(t) = \langle 1,2,0\rangle + t\mathbf{v} = \langle 1,2,0\rangle+t\langle 3, -5, 2\rangle = \langle 1+3t, 2-5t, 2t\rangle,
+\]
+with $t\in [0,1]$. (Note that since we took $P=(1,2,0)$ as our initial point, $\r(0)=\langle 1,2,0\rangle$, and taking $\mathbf{v} = \overrightarrow{PQ}$, where $Q=(4,-2,3)$ is the final point, guarantees that adding $\mathbf{v}$ once to the initial point takes us to the final point, so $\r(1) = \langle 4,-3,2\rangle$.)
+
+ \item Evaluate $\di \int_a^b \F(\r(t))\dotp r'(t)\,dt$ for the vector field $\F$ and curve $\r$ given by
+\begin{enumerate}
+ \item $\F(x,y) = x^2\i -xy\j$, and $\r(t) = \sin(t)\i+\cos(t)\j$, $a=0$, $b=\pi$.
+
+\bigskip
+
+We have $\F(\sin t, \cos t) = \sin^2(t)\i-(\sin t)(\cos t)\j$, and $\r'(t) = \langle \cos t, -\sin t\rangle$, so 
+\[
+ \F(\r(t))\dotp \r'(t) = \sin^2(t)\cos (t) + \sin^2(t)\cos(t) = 2\sin^2(t)\cos(t).
+\]
+It follows that $\int_a^b \F(\r(t))\dotp \r'(t)\,dt = \int_0^\pi 2\sin^2(t)\cos(t)\,dt = \sin^2(\pi)-\sin^2(0)=0$. 
+
+ \item $\F(x,y,z) = \langle xy^2, xyz, yz^2\rangle$, $\r(t) = \langle t, t^2, 4t\rangle$, $a=0$, $t=1$.
+
+\bigskip
+
+Since $\F(t,t^2, 4t) = \langle t(t^2)^2, t(t^2)(4t), t^2(4t)^2\rangle = \langle t^5, 4t^4, 16t^4\rangle$ and $\r'(t) = \langle 1, 2t, 4\rangle$, we have
+\[
+ \F(\r(t))\dotp \r'(t) = t^5+4t^4(2t)+16t^4(4) = 9t^5+64t^4,
+\]
+so $\int_a^b \F(\r(t))\dotp\r'(t)\,dt = \int_0^1(9t^5+64t^4)\,dt = \frac{9}{6}+\frac{64}{5}$.
+\end{enumerate}
+
+
+ \end{enumerate}
+
+\end{document}
+ 

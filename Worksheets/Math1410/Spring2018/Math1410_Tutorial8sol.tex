@@ -1,0 +1,205 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}      
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+{\bf MATH 1410 - Tutorial \#8 Solutions}
+\end{center}
+
+ \begin{enumerate}
+\item For each matrix $A$ and vector $\vec{b}$ below, solve the equation $A\vec{x}=\vec{b}$. Express your answer in terms of the vector $\vec{x}$.
+
+If there are infinitely many solutions, give your answer in the form $\vec{x}=\vec{x}_p+\vec{x}_h$, where $\vec{x}_p$ is a particular solution, and $\vec{x}_h$ is the general solution to the homogeneous system $A\vec{x}=\vec{0}$. (Express $\vec{x}_h$ in terms of basic solutions.)
+\begin{enumerate}
+\item $A = \bbm 1&0&-4\\-2&1&4\\1&0&6\ebm$, $\vec{b}=\bbm 2\\-1\\5\ebm$.
+
+Setting up and reducing the corresponding augmented matrix, we get
+\[
+\bam{3}1&0&-4&2\\-2&1&4&-1\\1&0&6&5\eam \xrightarrow{\text{RREF}} \bam{3}1&0&0&16/5\\0&1&0&21/5\\0&0&1&3/10\eam.
+\]
+Thus, we have a unique solution ($\vec{x}_h=\vec{0}$), and
+\[
+\vec{x}=\vec{x}_p = \bbm 16/5\\32/5\\3/10\ebm.
+\]
+
+\item $A= \bbm 1&0&2&-4\\3&1&5&-7\\-2&-2&-2&-2\ebm$, $\vec{b}=\bbm 3\\2\\8\ebm$
+
+Again, we set up and reduce our augmented matrix, getting:
+\[
+\bam{4}
+1&0&2&-4&3\\3&1&5&-7&2\\-2&-2&-2&-2&8\eam \xrightarrow{\text{RREF}} 
+\bam{4}1&0&2&-4&3\\0&1&-1&5&-7\\0&0&0&0&0\eam.
+\]
+Writing $\vec{x}=\bbm x_1\\x_2\\x_3\\x_4\ebm$, we have $x_1 = 3-2x_3+4x_4$ and $x_2=-7+x_3-5x_4$, where $x_3$ and $x_4$ are free variables. Assigning parameters $x_3=s$ and $x_4=t$, we have
+\[
+\vec{x} = \bbm x_1\\x_2\\x_3\\x_4\ebm = \bbm 3-2s+4t\\-7+s-5t\\s\\t\ebm = \bbm 3\\-7\\0\\0\ebm+s\bbm -2\\1\\1\\0\ebm+t\bbm 4\\-5\\0\\1\ebm.
+\]
+Thus $\vec{x}_p = \bbm 3\\-7\\0\\0\ebm$ and $\vec{x}_h = s\vec{x}_1+t\vec{x}_2$, where $\vec{x}_1 = \bbm -2\\1\\1\\0\ebm$ and $\vec{x}_2 = \bbm 4\\-5\\0\\1\ebm$ are the basic solutions to $A\vec{x}=\vec{0}$.
+\end{enumerate}
+
+%\newpage
+
+\item Consider the matrices
+\[
+A = \bbm 2&-1&3\\5&4&-2\ebm, B = \bbm 4&-2\\5&1\ebm, C = \bbm 1&4\\-2&-1\\6&3\ebm.
+\]
+For each of the 9 possible products ($A^2, AB, AC, BA, B^2, BC, CA, CB, C^2$), compute the product, or state why it is undefined.
+
+$A^2$ is undefined: only square matrices can be multiplied by themselves.
+
+$AB$ is undefined: $A$ is $2\times 3$, $B$ is $2\times 2$, and $3\neq 2$.
+
+\[
+AC = \bbm 2&-1&3\\5&4&-2\ebm\bbm 1&4\\-2&-1\\6&3\ebm = \bbm 22&18\\-15&10\ebm
+\]
+
+\[
+BA = \bbm 4&-2\\5&1\ebm\bbm 2&-1&3\\5&4&-2\ebm = \bbm -2&-12&16\\15&-1&13\ebm
+\]
+
+\[
+B^2 = \bbm 4&-2\\5&1\ebm\bbm 4&-2\\5&1\ebm=\bbm 6&-10\\25&-9\ebm
+\]
+
+$BC$ is undefined: $B$ is $2\times 2$, $C$ is $3\times 2$, and $2\neq 3$.
+
+\[
+CA = \bbm 1&4\\-2&-1\\6&3\ebm\bbm 2&-1&3\\5&4&-2\ebm = \bbm 22&15&-5\\-9&-2&-4\\27&6&12\ebm
+\]
+
+\[
+CB = \bbm 1&4\\-2&-1\\6&3\ebm\bbm 4&-2\\5&1\ebm = \bbm 24&2\\-13&3\\39&-9\ebm
+\]
+
+$C^2$ is undefined: only square matrices can be multiplied by themselves.
+
+
+\newpage
+
+\item Consider a system of equations, written in matrix form as $A\vec{x}=\vec{b}$. Prove that if there is more than one solution to the system (say, $\vec{x}_1$ and $\vec{x}_2$, with $\vec{x}_1\neq \vec{x}_2$), then there are infinitely many solutions.
+
+\bigskip
+
+Suppose $\vec{x}_1$ and $\vec{x}_2$ are distinct solutions to $A\vec{x}=\vec{b}$. Then
+\[
+A\vec{x}_1=\vec{b}, A\vec{x}_2=\vec{b}, \text{ and } \vec{x}_1\neq\vec{x}_2.
+\]
+
+It follows that $\vec{x}_1- \vec{x}_2\neq \vec{0}$ and 
+\[
+A(\vec{x_1}-\vec{x}_2)=A\vec{x}_1-A\vec{x}_2 = \vec{b}-\vec{b}=\vec{0}.
+\]
+Thus, $\vec{x}_h = \vec{x}_1-\vec{x}_2$ is a non-zero solution to the homogeneous system $A\vec{x}=\vec{0}$. 
+
+Since $A(t\vec{x}_h) = t(A\vec{x}_h)=t\vec{0}=\vec{0}$ for any real number $t$, we find that
+\[
+A(\vec{x}_1+t\vec{x}_h) = A\vec{x}_1+A(t\vec{x}_h) = \vec{b}+\vec{0}=\vec{b}.
+\]
+Therefore, $\vec{x}=\vec{x}_1+t(\vec{x}_1-\vec{x}_2)$ is a solution to $A\vec{x}=\vec{b}$ for each real number $t$, and since there are infinitely many real numbers, we get infinitely many solutions.
+
+\item For which values of $k$ will the system \hspace{12pt}
+$\arraycolsep1pt
+\begin{array}{ccccccc}
+x&+&y&+&kz&=&1\\
+x&+&ky&+&z&=&1\\
+kx&+&y&+&z&=&-2
+\end{array}$
+\hspace{12pt} have: 
+
+(a) No solution? \hspace{12pt} (b) A unique solution? \hspace{12pt} (c) Infinitely many solutions?
+
+Reducing our corresponding augmented matrix, we find
+\[
+\bam{3}
+1&1&k&1\\
+1&k&1&1\\
+k&1&1&-2\eam\xrightarrow[R_3-kR_1\to R_1]{R_2-R_1\to R_2}
+\bam{3}
+1&1&k&1\\
+0&k-1&1-k&0\\
+0&1-k&1-k^2&-2-k\eam
+\]
+At this point, we notice that if $k=1$, then we get the augmented matrix $\bam{3}1&1&0&1\\0&0&0&0\\0&0&0&-3\eam$, and from the third row, we can conclude that if $k=1$, there is no solution to the system.
+
+If $k\neq 1$, then $k-1\neq 0$, so we can divide by $k-1$. This lets us proceed as follows:
+\[
+\bam{3}
+1&1&k&1\\
+0&k-1&1-k&0\\
+0&1-k&1-k^2&-2-k\eam\xrightarrow[\frac{1}{1-k}R_3\to R_3]{\frac{1}{k-1}R_2\to R_2}
+\bam{3}
+1&1&k&1\\
+0&1&-1&0\\
+0&1&1+k&\frac{-2-k}{1-k}\eam\xrightarrow{R_3-R_2\to R_3}
+\bam{3}
+1&1&k&1\\
+0&1&-1&0\\
+0&0&2+k&\frac{-2-k}{1-k}\eam
+\]
+Now, we notice that if $k=-2$, then we get the augmented matrix $\bam{3}1&1&-2&1\\0&1&-1&0\\0&0&0&0\eam$, and since there is no leading 1 in the third column, we have infinitely many solutions.
+
+If $k\neq -2$, then $k+2\neq 0$, so we can divide by $k+2$. This lets us do one more row operation:
+\[
+\bam{3}
+1&1&k&1\\
+0&1&-1&0\\
+0&0&2+k&\frac{-2-k}{1-k}\eam\xrightarrow{\frac{1}{k+2}R_3\to R_3}
+\bam{3}
+1&1&k&1\\
+0&1&-1&0\\
+0&0&1&\frac{-1}{1-k}\eam.
+\]
+Since we have a leading one in each of the variable columns, we conclude that there is a unique solution to the system.
+
+In conclusion, if $k=1$, there is no solution. If $k=-2$, there are infinitely many solutions. For all other values of $k$, there is a unique solution.
+
+\textit{Algebra notes:} Notice that $1-k=(-1)(k-1)$, which is why dividing $1-k$ by $k-1$ gave us $-1$. Also $1-k^2=(1-k)(1+k)$, which is why dividing $1-k^2$ by $1-k$ gave us $1+k$. 
+ \end{enumerate}
+ 
+\end{document}

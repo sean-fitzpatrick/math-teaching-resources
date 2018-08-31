@@ -1,0 +1,59 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\di}{\displaystyle}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\len}[1]{\left\lVert #1\right\rVert}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\F}{\mathbf{F}}
+
+\title{Practice for Quiz 19\\Math 2580\\Spring 2016}
+\author{Sean Fitzpatrick}
+\date{March 29th, 2016}
+
+\begin{document}
+ \maketitle
+
+If you can answer the following problems, you should be well-prepared for Quiz 19:
+
+
+
+\begin{enumerate}
+ \item Find a function $f$ such that $\nabla f = \F$, and use this to evaluate $\int_C \F\dotp d\r$ for the given curve:
+\begin{enumerate}
+ \item $\F(x,y) = \dfrac{y^2}{1+x^2}\i + 2y\arctan x\j$, $C$ parameterized by $\r(t) = t^2\i+2t\j$, $0\leq t\leq 1$.
+ \item $\F(x,y,z) = (2xz+y^2)\i+2xy\j + (x^2+3z^2)\k$, $C$ parameterized by $x=t^2, y=t+1, z=2t-1$, $0\leq t\leq 2$.
+ \item $\F(x,y,z) = \langle e^y, xe^y, (z+1)e^z\rangle$, $C$ parameterized by $\r(t) = \langle t, t^2, t^3\rangle$, $t\in [0,1]$.
+\end{enumerate}
+ \item Calculate the curl of the given vector field:
+\begin{enumerate}
+ \item $\F(x,y,z) = \langle 2xy, xz, y^2z\rangle$
+ \item $\F(x,y,z) = \langle y\cos xy, x\cos xy, -\sin z\rangle$
+\end{enumerate}
+ \item Verify that Green's Theorem holds for the following line integrals in the plane:
+\begin{enumerate}
+ \item $\int_C xy^2\,dx+x^3\,dy$, where $C$ is the rectangle with corners at $(0,0), (2,0), (2,3)$, and $(0,3)$.
+ \item $\int_C y\,dx-x\,dy$, where $C$ is the unit circle.
+ \item $\int_C x\,dx+y\,dy$, where $C$ consists of the line segments from $(0,1)$ to $(0,0)$, and from $(0,0)$ to $(1,0)$, and the portion of the parabola $y=1-x^2$ from $(1,0)$ to $(0,1)$.
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+
+\end{document}
+ 

@@ -1,0 +1,248 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\di}{\displaystyle}
+\title{Math 1560 Assignment \#5 Solutions\\University of Lethbridge, Fall 2017}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+\item Let $f$ and $g$ be two functions with 3 or more continuous derivatives at $x=a$.
+
+Let $p(x)$ and $q(x)$ be the degree 3 Taylor polynomials at $x=a$ for $f$ and $g$, respectively. 
+
+\begin{enumerate}
+\item Compute the product $p(x)q(x)$.
+
+\medskip
+
+We have 
+\begin{align*}
+p(x) & = f(a)+f'(a)(x-a)+\frac{f''(a)}{2}(x-a)^2+\frac{f'''(a)}{6}(x-a)^3\\
+q(x) & = g(a)+g'(a)(x-a)+\frac{g''(a)}{2}(x-a)^2+\frac{g'''(a)}{6}(x-a)^3
+\end{align*}
+
+This gives us
+\begin{align*}
+p(x)q(x) & = \left(f(a)+f'(a)(x-a)+\frac{f''(a)}{2}(x-a)^2+\frac{f'''(a)}{6}(x-a)^3\right)\\
+&\quad\quad \times\left(g(a)+g'(a)(x-a)+\frac{g''(a)}{2}(x-a)^2+\frac{g'''(a)}{6}(x-a)^3\right)\\
+ & = f(a)g(a)+(f'(a)g(a)+f(a)g'(a))(x-a)\\
+ & \quad +\left(\frac{f''(a)}{2}g(a)+f'(a)g'(a)+f(a)\frac{g''(a)}{2}\right)(x-a)^2 \\
+ &\quad \quad + \left(\frac{f'''(a)}{6}g(a) + \frac{f''(a)}{2}g'(a)+f'(a)\frac{g''(a)}{2}+f(a)\frac{g'''(a)}{6}\right)(x-a)^3\\
+ &\quad\quad\quad + \left(\frac{f'''(a)}{6}g'(a)+\frac{f''(a)}{2}\cdot\frac{g''(a)}{2}+f'(a)\frac{g'''(a)}{6}\right)(x-a)^4\\ 
+ &\quad\quad\quad\quad + \left(\frac{f'''(a)}{6}\cdot \frac{g''(a)}{2} + \frac{f''(a)}{2}\frac{g'''(a)}{6}\right)(x-a)^5 + \frac{f'''(a)}{6}\cdot \frac{g'''(a)}{6}(x-a)^6.
+\end{align*}
+
+\bigskip
+
+\item Compute the degree 3 Taylor polynomial at $x=a$ for $fg$. (You may use your results from Assignment 2 here.)
+
+\medskip
+
+From Assignment 2, we had
+\begin{align*}
+(fg)'(a) & = f'(a)g(a)+f(a)g'(a)\\
+(fg)''(a) & = f''(a)g(a) + 2 f'(a)g'(a) + f(a)g''(a)\\
+(fg)'''(a) & = f'''(a)g(a) + 3f''(a)g'(a) + 3f'(a)g''(a) + f(a)g'''(a)
+\end{align*}
+
+The degree 3 Taylor polynomial for $f(x)g(x)$ at $x=a$ is therefore
+\begin{align*}
+P_3(x) &= f(a)g(a)+(f'(a)g(a)+f(a)g'(a))(x-a)\\
+&\quad +\frac{(f''(a)g(a) + 2 f'(a)g'(a) + f(a)g''(a))}{2}(x-a)^2\\
+&\quad\quad + \frac{(f'''(a)g(a) + 3f''(a)g'(a) + 3f'(a)g''(a) + f(a)g'''(a))}{6}(x-a)^3.
+\end{align*}
+
+\bigskip
+
+\item How do your answers in parts (a) and (b) compare?
+
+\medskip
+
+Since
+\[
+\frac{1}{2}(f''(a)g(a) + 2 f'(a)g'(a) + f(a)g''(a)) = \frac{f''(a)}{2}g(a)+f'(a)g'(a)+f(a)\frac{g''(a)}{2}
+\]
+and
+\begin{multline*}
+\frac{1}{6}(f'''(a)g(a) + 3f''(a)g'(a) + 3f'(a)g''(a) + f(a)g'''(a)) = \\\frac{f'''(a)}{6}g(a)+\frac{f''(a)}{2}g'(a) + f'(a)\frac{g''(a)}{2}+f(a)\frac{g'''(a)}{6},
+\end{multline*}
+we see that, up to degree three, the two polynomials agree. (That is, if we drop the terms involving $(x-a)^k$ for $k=4,5,6$ from the product $p(x)q(x)$, the results are the same.)
+\end{enumerate}
+
+\bigskip
+
+\item Consider the function $f(x) = 3x^2-2x$, for $x\in [1,3]$.
+\begin{enumerate}
+\item Determine the partition points $x_0, x_1, \ldots, x_{10}$ for a uniform partition of $[1,3]$ into 10 subintervals.
+
+\medskip
+
+We have $\Delta x = \frac{3-1}{10} = \frac{1}{5} = 0.2$. Our partition is therefore given by
+\begin{multline*}
+x_0 = 1, x_1 = 1.2, x_2 = 1.4, x_3 = 1.6, x_4 = 1.8, x_5 = 2,\\ x_6 = 2.2, x_7 = 2.4, x_8 = 2.6, x_9 = 2.8, \text{ and } x_{10} = 3.
+\end{multline*}
+
+\medskip
+
+\item Using the "Riemann sum calculator \#2" (available in the section for November 21 - 23 on Moodle), estimate the value of $\int_1^3 f(x)\,dx$ using your partition from part (a) and: 
+
+(i) left endpoints: $\int_1^3 f(x) \,dx \approx 16.04$
+
+(ii) right endpoints: $\int_1^3 f(x)\,dx \approx 20.04$
+
+\bigskip
+
+\item Estimate the value of $\int_1^3f(x)\,dx$ using your partition from part (a) and the midpoint of each subinterval.
+
+\medskip
+
+We choose $c_i = \frac{x_{i-1}+x_i}{2}$, for $i=1,\ldots, 10$, and evaluate, as follows:
+
+\begin{center}
+\begin{tabular}{c|cccccccccc}
+$i$ & 1 &2&3&4&5&6&7&8&9&10\\
+\hline
+$c_i$&1.1&1.3&1.5&1.7&1.9&2.1&2.3&2.5&2.7&2.9\\
+$f(c_i)$&1.43&2.47&3.75&5.27&7.03&9.03&11.27&13.75&16.47&19.43
+\end{tabular}
+\end{center}
+
+
+Our approximation is given by
+\[
+\int_1^3f(x)\,dx \approx \sum_{i=1}^n f(c_i)\Delta x = 0.2\sum_{i=1}^nf(c_i),
+\]
+since $\Delta x =0.2$ is common to each term and can be factored out. Thus, we need to add up the 10 values $f(c_1),\ldots, f(c_{10})$ and then multiply by 0.2. (All of this is most easily done using a spreadsheet.) We find that
+\[
+\int_1^3f(x)\,dx \approx 17.98.
+\]
+
+\medskip
+
+\item Estimate the value of $\int_1^3f(x)\,dx$ using your partition from part (a) and the trapezoid rule.
+
+\medskip
+
+The trapezoid rule was given to us in the problem as
+\[
+\int_a^b f(x)\,dx \approx \sum_{i=1}^n \left[\frac{f(x_{i-1})+f(x_i)}{2}\right]\Delta x_i
+\]
+where in our case, $n=10$. Using properties of summation, we find
+\[
+\sum_{i=1}^n \left[\frac{f(x_{i-1})+f(x_i)}{2}\right]\Delta x_i = \frac{1}{2}\left(\sum_{i=1}^n f(x_{i-1})\Delta x_i + \sum_{i=1}^nf(x_i)\Delta x_i\right).
+\]
+But this is just the average of the sum obtained using left endpoints and the sum obtained using right endpoints. Since we already have these values in part (b), we get the approximation
+\[
+\int_1^3f(x)\,dx \approx \frac{16.04+20.04}{2} = 18.04.
+\]
+\end{enumerate}
+
+\bigskip
+
+\item Let $f(x) = 3x^2-2x$, for $x\in [1,3]$.
+\begin{enumerate}
+\item Let $n$ be any positive integer, and let $x_0, x_1, \ldots, x_n$ be the points of a uniform partition of $[1,3]$ into $n$ subintervals. Determine an expression for $x_i$ in terms of $i$, where $1\leq i\leq n$.
+
+\medskip
+
+We have $\Delta x = \frac{3-1}{n} = \frac{2}{n}$. Since $\Delta x = x_i-x_{i-1}$ for each $i$, we have $x_i = x_{i-1}+\Delta x$, for $i=1,\ldots, n$. This gives us
+\begin{align*}
+x_0 & = 1\\
+x_1 & = x_0+\Delta x = 1+\frac{2}{n}\\
+x_2 & = x_1+\Delta x = 1+\frac{2}{n}+\frac{2}{n} = 1+\frac{2(2)}{n}\\
+x_3 & = x_2+\Delta x = 1+\frac{2(2)}{n}=\frac{2}{n} = 1+\frac{3(2)}{n}\\
+\cdots
+\end{align*}
+Recognizing the pattern, we see that in order to reach $x_i$, we add $\Delta x = \frac{2}{n}$ to $x_0=1$ $i$ times, giving us
+\[
+x_i = 1+\frac{2i}{n}.
+\]
+
+\medskip
+
+\item Write out the Riemann sum $R(f,P)$ for $f(x)$ on $[1,3]$ using your partition from part (a) and \textbf{right} endpoints.
+
+\medskip
+
+Our Riemann sum formula is given by
+\[
+R(f,P) = \sum_{i=1}^n f(c_i)\Delta x_i,
+\]
+where in our case $\Delta x_i = \frac{2}{n}$ for each $i$, and since we're taking right endpoints for $c_i\in [x_{i-1},x_i]$, we have $c_i = x_i = 1+\frac{2i}{n}$. This gives us
+\[
+f(c_i) = f\left(1+\frac{2i}{n}\right) = 3\left(1+\frac{2i}{n}\right)^2-2\left(1+\frac{2i}{n}\right) = \frac{12i^2}{n^2}+\frac{8i}{n}+1,
+\]
+so
+\[
+R(f,P) = \sum_{i=1}^n \left(\frac{12i^2}{n^2}+\frac{8i}{n}+1\right)\frac{2}{n}.
+\]
+
+\medskip
+
+\item Determine the value of $\int_1^3f(x)\,dx$ by computing 
+$\lim_{n\to\infty}R(f,P).$
+
+\medskip
+
+We first re-write our Riemann sum in three parts using properties of summation:
+\begin{align*}
+R(f,P) &= \sum_{i=1}^n \left(\frac{12i^2}{n^2}+\frac{8i}{n}+1\right)\frac{2}{n}\\
+& = \sum_{i=1}^n \frac{12i^2}{n^2}\cdot \frac{2}{n} + \sum_{i=1}^n\frac{8i}{n}\cdot \frac{2}{n} + \sum_{i=1}^n 1\cdot \frac{2}{n}\\
+& = \frac{24}{n^3}\sum_{i=1}^ni^2 + \frac{16}{n^2}\sum_{i=1}^ni+\frac{2}{n}\sum_{i=1}^n 1.
+\end{align*}
+Using the summation formulas
+\[
+\sum_{i=1}^n 1 = n, \sum_{i=1}^n i = \frac{n(n+1)}{2}, \text{ and } \sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}
+\]
+given in the textbook, we find
+\begin{align*}
+R(f,P) & = \frac{24}{n^3}\sum_{i=1}^ni^2 + \frac{16}{n^2}\sum_{i=1}^ni+\frac{2}{n}\sum_{i=1}^n 1\\
+& = \frac{24}{n^3}\left(\frac{n(n+1)(2n+1)}{6}\right)+\frac{16}{n^2}\left(\frac{n(n+1)}{2}\right)+\frac{2}{n}(n)\\
+& = 4\left(\frac{n(n+1)(2n+1)}{n^3}\right)+8\left(\frac{n(n+1)}{n^2}\right)+2.
+\end{align*}
+Since
+\[
+\lim_{n\to \infty}\frac{n(n+1)(2n+1)}{n^3}=\lim_{n\to\infty}\left(\frac{n+1}{n}\right)\left(\frac{2n+1}{n}\right) = 1\cdot 2 = 2
+\]
+and
+\[
+\lim_{n\to \infty}\frac{n(n+1)}{n^2} = \lim_{n\to\infty}\frac{n+1}{n} = 1,
+\]
+we find that
+\[
+\int_1^3 f(x)\,dx = \lim_{n\to\infty}R(f,P) = 4(2)+8(1)+2 = 18.
+\]
+
+\medskip
+
+\item Which of your estimates in Q2 was closest to the exact value in part (c)?
+
+\medskip
+
+Our approximation was 17.98 using midpoints, and 18.04 using the Trapezoid rule. In this case, the midpoint approximation is the closest to the exact value.
+
+(Note: this is not always the case. In fact, in most cases the Trapezoid rule is more reliable.)
+\end{enumerate}
+
+
+
+
+\end{enumerate}
+
+\end{document}
+ 

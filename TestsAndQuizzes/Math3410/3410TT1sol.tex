@@ -1,0 +1,317 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 30}}
+\chead{MATH 3410}\lhead{Test \# 1}\rhead{Friday, 13\textsuperscript{th} February, 2015}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\ivec}{\,\boldsymbol{\hat{\imath}}}
+\newcommand{\jvec}{\,\boldsymbol{\hat{\jmath}}}
+\newcommand{\kvec}{\,\boldsymbol{\hat{k}}}
+\DeclareMathOperator{\comp}{comp}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+13\textsuperscript{th} February, 2015, 3:00 - 3:50 pm\\
+{\bf MATH 3410 - Test \#1}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{50pt}{\bf Solutions}\hspace{248pt}}\\
+\skipline
+First Name:\underline{\hspace{50pt}{\bf The}\hspace{275pt}}\\
+\skipline
+Student Number:\underline{\hspace{323pt}}\\
+\skipline
+
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ {\bf Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/30\\
+\hline
+\end{tabular}
+
+
+
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item True/False: For each of the statements below, state whether it is true or false, and give a {\bf brief} explanation supporting your choice.
+ \begin{enumerate}
+\item The set $U=\{(x,y,xy)\,|\,x,y\in\R\}$ is a subspace of $\R^3$.\points{3}
+
+\bigskip
+
+{\bf False}.
+
+For example, $(1,1,1)\in U$, but $2(1,1,1)=(2,2,2)\notin U$, since $2\cdot 2=4\neq 2$. Thus, $U$ is not closed under scalar multiplication, and therefore cannot be a subspace.
+
+\bigskip
+
+\item If a vector space $V$ can be written as a direct sum $V=U\oplus W$, and for some $v\in V$ we have $v\notin U$, then $v\in W$.\points{3}
+
+\bigskip
+
+{\bf False}.
+
+For example, take $V=\R^2$, $U=\spn\{(1,0)\}$, and $W=\spn\{(0,1)\}$. Then the vector $v=(1,1)$ belongs to neither $U$ nor $W$. (In general, any vector of the form $v=u+w$, where $u\in U$ and $w\in W$ are nonzero vectors, will do the job.)
+
+\bigskip
+
+\item For any subspace $U\subseteq V$, where $V$ is finite-dimensional, there exists a subspace $W\subseteq V$ such that $V=U\oplus W$.\points{3}
+
+\bigskip
+
+{\bf True}.
+
+Let $B_U=\{u_1,\ldots, u_k\}$ be any basis for $U$. As we know from class, $B_U$ can be extended to a basis $B_V = \{u_1,\ldots, u_k,w_1,\ldots, w_m\}$, and letting $W=\spn\{w_1,\ldots, w_m\}$ provides the desired subspace.
+
+\bigskip
+
+\item If $T:V\to W$ is a linear transformation, and we know $\dim V=4$ and $\dim W=3$, then $T$ cannot be one-to-one.\points{3}
+
+\bigskip
+
+{\bf True}.
+
+Since $\range T\subseteq W$, we know that $\dim\range T\leq \dim W=3$. Thus,
+\[
+ \dim\nul T = \dim V - \dim \range T \geq 4-3=1.
+\]
+This shows that $\nul T\neq \{0\}$, and therefore, $T$ cannot be one-to-one.
+\end{enumerate}
+\newpage
+Please provide a solution to {\bf one} of the two problems on this page: 
+\item Suppose that the vectors $v_1,v_2,v_3,v_4$ form a basis for $V$. Prove that the vectors \points{8}
+\[
+ v_1+v_2,v_2+v_3,v_3+v_4,v_4
+\]
+also form a basis for $V$.
+
+\bigskip
+
+{\bf Solution}: Since $\{v_1,v_2,v_3,v_4\}$ is a basis for $V$, we know that $\dim V=4$. Since we are given four vectors, it suffices to show that {\em either} they're linearly indepenent,  {\em or} they span.
+
+To see that the vectors $ v_1+v_2,v_2+v_3,v_3+v_4,v_4$ are linearly indepenent, suppose that we have
+\[
+ c_1(v_1+v_2)+c_2(v_2+v_3)+c_3(v_3+v_4)+c_4v_4=0
+\]
+for some scalars $c_1,c_2,c_3,c_4$. Then we have
+\[
+ 0 = c_1v_1+(c_1+c_2)v_2+(c_2+c_3)v_3+(c_3+c_4)v_4,
+\]
+and since the vectors $v_1,v_2,v_3,v_4$ are linearly independent, we have
+\[
+ c_1=0, c_1+c_2=0, c_2+c_3=0, c_3+c_4=0.
+\]
+But putting $c_1=0$ into the second equation gives $c_2=0$, which in turn gives $c_3=0$ in the third equation, and then $c_4=0$ in the fourth equation. Thus, we've shown that the four vectors $v_1+v_2, v_2+v_3,v_3+v_4,v_4$ are linearly independent, and therefore form a basis for $V$.
+
+\medskip
+
+At this point you're done, but if you want to also show that the vectors $v_1+v_2, v_2+v_3,v_3+v_4,v_4$ span $V$ (or you did both) then note that we can write
+\begin{align*}
+ v_1 & = 1(v_1+v_2)+(-1)(v_2+v_3)+(1)(v_3+v_4)+(-1)v_4\\
+ v_2 & = 1(v_2+v_3)+(-1)(v_3+v_4)+(1)v_4\\
+ v_3 & = 1(v_3+v_4)+(-1)v_4\\
+ v_4 & = v_4.
+\end{align*}
+Since any vector in $V$ can be written in terms of the vectors $v_1,v_2,v_3,v_4$, since these vectors form a basis and therefore span $V$, and each of these four basis vectors can be written in terms of the vectors $v_1+v_2, v_2+v_3,v_3+v_4,v_4$, it follows that these latter vectors span $V$. To see this directly, note that any $v\in V$ can be written as
+\begin{align*}
+ v & = c_1v_1+c_2v_2+c_3v_3+c_4v_4\\
+ & = c_1[(v_1+v_2)+(-1)(v_2+v_3)+(1)(v_3+v_4)+(-1)v_4]\\
+ & \quad\quad\quad+c_2[(v_2+v_3)+(-1)(v_3+v_4)+(1)v_4]\\
+ &\quad\quad\quad\quad\quad\quad +c_3[(v_3+v_4)+(-1)v_4]+c_4v_4\\
+ & = c_1(v_1+v_2)+(c_2-c_1)(v_2+v_3)+(c_3-c_2+c_1)(v_3+v_4)+(c_4-c_3+c_2-c_1)v_4
+\end{align*}
+for some scalars $c_1,c_2,c_3,c_4$.
+
+
+\newpage
+
+\item Determine whether or not the vector $v=(1,3,-4)$ belongs to the span of the vectors $(2,0,1), (0,3,-4)$, and  $(4,-3,9)$. \points{8}
+
+\bigskip
+
+{\bf Solution:} We need to determine whether or not there exist scalars $x,y,z\in\R$ such that
+\[
+ (1,3,-4) = x(2,0,1)+y(0,3,-4)+z(4,-3,9) = (2x+4z,3y-3z,x-4y+9z).
+\]
+Since two vectors in $\R^3$ are equal if and only if their components are all equal, this yields the system of linear equations
+\[
+ \begin{array}{ccccccc}
+  2x& &  &+&4y&=&1\\
+    & &3y&-&3z&=&3\\
+   x&-&4y&+&9z&=&-4
+ \end{array}
+\]
+We solve the system by setting up an augmented matrix and reducing, using Gaussian elimination:
+\begin{align*}
+ \begin{amatrix}{3}
+  2&0&4&1\\
+  0&3&-3&3\\
+  1&-4&9&-4
+ \end{amatrix}&\xrightarrow[R_2\to \frac{1}{3}R_2]{R_1\leftrightarrow R_2}
+ \begin{amatrix}{3}
+  1&-4&9&-4\\
+  0& 1&-1&1\\
+  2&0&4&1
+ \end{amatrix}\\
+&\xrightarrow[]{R_3\to R_3-2R_1}
+\begin{amatrix}{3}
+ 1&-4&9&-4\\0&1&-1&1\\0&8&-14&9
+\end{amatrix}\\
+&\xrightarrow[R_3\to R_3-8R_2]{R_1\to R_1+4R_2}
+ \begin{amatrix}{3}
+  1&0&5&0\\0&1&-1&1\\0&0&-6&1
+ \end{amatrix}.
+\end{align*}
+Since the rank of the coefficient matrix is equal to 3, which is also the number of variables, we know that we have a unique solution, which we can read off using back-substitution. The third row gives us $z=-1/6$; the second row yields $y-z=1$, and plugging in $z=-1/6$ gives $y=5/6$. Finally, the first row tells us $x+5z=0$, and substituting $z=-1/6$ gives us $x=5/6$.
+
+Thus, we have shown that
+\[
+ (1,3,-4) = \frac{5}{6}(2,0,1)+\frac{5}{6}(0,3,-4)-\frac{1}{6}(4,-3,9),
+\]
+which shows that $(1,3,-4)$ is in the span of the given vectors.
+
+
+\newpage
+Please provide a solution to {\bf one} of the two problems on this page:
+\item Suppose $T:V\to W$ is injective, and the vectors $v_1,\ldots, v_n$ are linearly independent in $V$. Prove that the vectors $Tv_1,\ldots, Tv_n$ are linearly independent in $W$. \points{10}
+
+\bigskip
+
+{\bf Solution}: Let $T:V\to W$ be an injective linear transformation, and let $v_1,\ldots, v_n$ be linearly independent vectors in $V$. Suppose that we have
+\[
+ c_1Tv_1+c_2Tv_2+\cdots +c_nTv_n = 0
+\]
+for some scalars $c_1,c_2,\ldots, c_n$. It follows that
+\[
+ 0 = c_1Tv_1+c_2Tv_2+\cdots +c_nTv_n = T(c_1v_1+c_2v_2+\cdots +c_nv_n),
+\]
+which implies that $c_1v_1+c_2v_2+\cdots +c_nv_n\in \nul T$. Since $T$ is injective, $\nul T = \{0\}$, and thus $c_1v_1+c_2v_2+ \cdots +c_nv_n=0$. Since the vectors $v_1,v_2,\ldots, v_n$ are linearly independent, we must have $c_1=c_2=\cdots =c_n=0$ as the only solution. Therefore, the vectors $Tv_1,Tv_2,\ldots, Tv_n$ are linearly independent.
+
+\newpage
+
+\item Let $V=\R^{3,1} = \left\{\begin{bmatrix}x\\y\\z\end{bmatrix} : x,y,z\in\R\right\}$, and let $T:V\to V$ be the linear transformation given by\points{10}
+\[
+T\left(\begin{bmatrix}x\\y\\z\end{bmatrix}\right) = \begin{bmatrix}2&-1&3\\-1&0&4\\4&-1&-5\end{bmatrix}\begin{bmatrix}
+x\\y\\z
+\end{bmatrix}=\begin{bmatrix}
+2x-y+3z\\-x+4z\\4x-y-5z
+\end{bmatrix}.
+\]
+Determine the null space and range of $T$.
+
+\bigskip
+
+{\bf Solution}: For both the null space and range, it therefore suffices to consider the system of equations
+\[
+ \begin{array}{ccccccc}
+  2x&-&y&+&3z&=&a\\
+  -x& & &+&4z&=&b\\
+  4x&-&y&-&5z&=&c
+ \end{array}.
+\]
+The null space corresponds to all solutions of the system with $a=b=c=0$, while the range consists of all values of $a, b$, and $c$ for which a solution exists. Reducing the corresponding augmented matrix, we find
+\begin{align*}
+ \begin{amatrix}{3}
+  2&-1&3&a\\-1&0&4&b\\4&-1&-5&c
+ \end{amatrix} & \xrightarrow{R_1\leftrightarrow R_2} 
+\begin{amatrix}{3}
+-1&0&4&b\\2&-1&3&a\\4&-1&-5&c                                                       
+\end{amatrix}\xrightarrow[R_3\to R_3+4R_1]{R_2\to R_2+2R_1}
+\begin{amatrix}{3}
+ -1&0&4&b\\
+ 0&-1&11&a+2b\\
+ 0&-1&11&c+4b
+\end{amatrix}\\
+&\xrightarrow[R_3\to R_3-R_2]{R_1\to -R_1}
+\begin{amatrix}{3}
+ 1&0&-4&-b\\
+ 0&-1&11&a+2b\\
+ 0&0&0&(c+4b)-(a+2b)\\
+\end{amatrix}\\
+&\xrightarrow{R_2\to-R_2}
+\begin{amatrix}{3}
+ 1&0&-4&-b\\
+ 0&1&-11&a+2b\\
+ 0&0&0&-a+2b+c
+\end{amatrix}.
+\end{align*}
+From this, we see that to have $T\left(\begin{bmatrix}x\\y\\z\end{bmatrix}\right)=\begin{bmatrix}0\\0\\0\end{bmatrix}$ we must have $x-4z=0$ and $y-11z=0$. Thus,
+\[
+ \begin{bmatrix}x\\y\\z\end{bmatrix}\in\nul T \quad \Leftrightarrow  \quad \begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}4z\\11z\\z\end{bmatrix} = z\begin{bmatrix}4\\11\\1\end{bmatrix},
+\]
+so that $\nul T = \spn\left\{\begin{bmatrix}4\\11\\1\end{bmatrix}\right\}$.
+
+We also see that in order for the system to be consistent, we must have $-a+2b+c=0$, or $c=a-2b$. Thus, the range of $T$ consists of all vectors of the form
+\[
+ \begin{bmatrix}a\\b\\c\end{bmatrix} = \begin{bmatrix}a\\b\\a-2b\end{bmatrix} = a\begin{bmatrix}1\\0\\1\end{bmatrix}+b\begin{bmatrix}0\\1\\-2\end{bmatrix},
+\]
+so that $\range T = \spn\left\{\begin{bmatrix}1\\0\\1\end{bmatrix},\begin{bmatrix}0\\1\\-2\end{bmatrix}\right\}$.
+
+\end{enumerate}
+
+\end{document}

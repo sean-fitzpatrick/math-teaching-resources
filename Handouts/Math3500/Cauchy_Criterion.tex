@@ -1,0 +1,122 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[margin=1 in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsthm}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{cor}{Corollary}
+
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\n}{\mathbf{n}}
+\newcommand{\ivec}{\,\boldsymbol{\hat{\imath}}}
+\newcommand{\jvec}{\,\boldsymbol{\hat{\jmath}}}
+\newcommand{\kvec}{\,\boldsymbol{\hat{k}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\inter}[1]{\overset{\,\,\,\circ}{#1}}
+
+\DeclareMathOperator{\comp}{comp}
+\DeclareMathOperator{\diam}{diam}
+
+\title{The Cauchy Criterion\\Math 3500A\\University of Lethbridge\\Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+\maketitle
+
+Recall from class that a sequence $(a_n)$ is a {\em Cauchy sequence} if, for any $\epsilon>0$, there exists some $N\in\N$ such that
+\[
+ n,m\geq N \Rightarrow \abs{a_n-a_m}<\epsilon.
+\]
+We proved that if $(a_n)$ converges, then it must be a Cauchy sequence. Our goal in this note is to prove the converse: if $(a_n)$ is a Cauchy sequence in $\R$, then $(a_n)$ converges to a limit in $\R$.
+
+\noindent {\bf Remark}: we also noted in class that the convergence of Cauchy sequences depends heavily on the completeness axiom for $\R$; indeed, it's not too hard to construct a Cauchy sequence of rational numbers that has no rational limit, so if the rational numbers were all that we had, then Cauchy sequences would not converge in general.
+
+\begin{lemma}
+Any Cauchy sequence is bounded. 
+\end{lemma}
+\begin{proof}
+Let $(a_n)$ be a Cauchy sequence. For $N=1,2,3,\ldots$, let $A_N = \{a_n,a_{N+1},a_{N+2},\ldots\}$. Since $(a_n)$ is Cauchy, there exists an $N\in\N$ such that
+\[
+ \diam A_N = \sup\{\abs{a_n-a_m} : n,m\geq N\} < 1.
+\]
+(In other words, $A_N$ can be contained in an interval of length 1.) Since the range of $(a_n)$ is $A_N\cup\{a_1,\ldots, a_{N-1}\}$, it follows that $(a_n)$ is bounded. (Any finite set of points is bounded, and the union of two bounded sets is bounded.)
+\end{proof}
+\begin{lemma}
+ If $(a_n)$ is bounded, then $(a_n)$ has a convergent subsequence.
+\end{lemma}
+\begin{proof}
+If the range $\{a_n:n\in\N\}$ is finite, then there must be infinitely many terms $a_{n_1},a_{n_2},\ldots$ that are all equal to the same value. This gives us a subsequence which is constant, and therefore convergent.
+
+If the set $A=\{a_n : n\in \N\}$ is infinite, then by the Bolzano-Weierstrass theorem it has a limit point $a\in\R$, since $A$ is bounded according to Lemma 1. For each $k\in\N$ we can therefore find some $a_{n_k}$ such that $\abs{a_{n_k}-a}<1/k$. (Every neighbourhood of $a$ must contain some point of $A$ other than $a$ itself.)
+In this way, we can construct a subsequence $(a_{n_k})$ that converges to $a$. (Given $\epsilon>0$, choose $N$ such that $1/N<\epsilon$; then if $k\geq N$ we have $n_k\geq k\geq N$, so $\abs{a_{n_k}-a}<1/k \leq 1/N<\epsilon$.)
+\end{proof}
+
+\begin{theorem}
+ If $(a_n)$ is a Cauchy sequence in $\R$, then $a_n\to a$ for some $a\in \R$.
+\end{theorem}
+\begin{proof}[Proof \#1] Let $(a_n)$ be a Cauchy sequence. By Lemma 1, it is bounded, so by Lemma 2, there is a convergent subsequence $(a_{n_k})$ that converges to some limit $a\in\R$.
+
+It remains to show that the original sequence converges to the same limit. Let $\epsilon>0$ be given. Since $(a_n)$ is Cauchy, there exists $N\in\N$ such that $\abs{a_n-a_m}<\epsilon/2$ for all $n,m\geq N$. Since the subsequence $(a_{n_k})$ converges to $a$, we can find a term $a_{n_K}$ in the subsequence such that $n_K\geq N$ and $\abs{a_{n_K}-a}<\epsilon/2$. (Note that we're not saying that this works for every $n_k\geq N$, just that it's possible to go far enough out in the subsequence such that we're further out than $N$ {\em and} far enough out that we're within $\epsilon/2$ of $a$.)
+
+Now, if $n\geq n_K$, then we have
+\[
+ \abs{a_n-a} = \abs{a_n-a_{n_K}+a_{n_K}-a} \leq \abs{a_n-a_{n_K}}+\abs{a_{n_K}-a}<\epsilon/2+\epsilon/2 = \epsilon.\qedhere
+\]
+\end{proof}
+\begin{proof}[Proof \#2] For this proof you need to have already seen the definitions of $\limsup$ and $\liminf$ for a sequence. (We'll get to these on Friday.) The proof relies on the fact that if $\limsup a_n = \liminf a_n$, then $\lim a_n$ exists and is equal to this common value.
+
+Suppose that $(a_n)$ is a Cauchy sequence. From our Lemma above, we know that $(a_n)$ is bounded. Let $\epsilon>0$ be given. Then there exists $N\in\N$ such that $m,n\geq N$ implies that $\abs{a_n-a_m}<\epsilon$. But
+\[
+ \abs{a_n-a_m}<\epsilon \Leftrightarrow a_m-\epsilon<a_n<a_m+\epsilon.
+\]
+Thus, for any $m>N$, $a_m+\epsilon$ is an upper bound for $\{a_n:n>N\}$, which implies that $v_N = \sup\{a_n:n>N\}$ exists, and $v_N<a_m+\epsilon$, for any $m>N$. But this means that $v_N-\epsilon$ is a lower bound for $\{a_m:m>N\}$, so $v_N-\epsilon\leq \inf\{a_m:m>N\}=u_N$ (which we also know exists from the completeness axiom). It follows that
+\[
+ \limsup a_n\leq v_N\leq u_N+\epsilon\leq \liminf a_n+\epsilon.
+\]
+Since this holds for all $\epsilon>0$, we have $\limsup a_n\leq \liminf a_n$, and since the opposite inequality always holds, we have $\liminf a_n = \limsup a_n$, and the result follows.
+\end{proof}
+We end with one more proof. This one is slightly overkill, but fun all the same. It's also the only one of the three that doesn't rely on subsequences. First, we need a theorem from the textbook:
+\begin{lemma}
+ Let $\mathcal{F}=\{K_\alpha : \alpha\in\mathcal{A}\}$ be a family of compact subsets of $\R$, such that the intersection of any finite collection of sets in $\mathcal{F}$ is nonempty. Then $\bigcap_{\alpha\in\mathcal{A}}K_\alpha \neq\emptyset$.
+\end{lemma}
+\begin{proof}
+If the intersection is empty then there is some $K\in\mathcal{F}$ such that no point of $K$ belongs to each of the sets $K_\alpha$. Thus every point of $K$ belongs to one of the open sets $F_\alpha = \R\setminus K_\alpha$, which means that the collection $\{F_\alpha:\alpha\in\mathcal{A}\}$ is an open cover of $K$. Since $K$ is compact, it admits a finite subcover $\{F_{\alpha_1},\ldots, F_{\alpha_k}$, then $K$ is contained in the union of the $F_{\alpha_j}$, from which it follows that the intersection
+\[
+ K\cap K_{\alpha_1}\cap\cdots \cap K_{\alpha_k}
+\]
+is empty. But this contradicts the assumption that any finite intersection of sets in $\mathcal{F}$ is nonempty.
+\end{proof}
+In particular, if $\{K_n\}$ is a nested sequence of compact sets (i.e. with $K_{n+1}\subseteq K_n$ for each $n$), then $\bigcap_{n=1}^\infty K_n$ is nonempty. Moreover, if the diameter of the sets $K_n$ shrinks to zero, then we have the following:
+\begin{cor}
+ Suppose that $\{K_n:n\in\N\}$ is a nested sequence of compact sets such that $\lim_{n\to \infty}\diam K_n = 0$. Then $\bigcap_{n=1}^\infty K_n = \{a\}$ for some single point $a\in\R$.
+\end{cor}
+\begin{proof}
+From Lemma 3 above, we know that $K=\bigcap K_n$ is not empty. If $K$ contained two distinct points, then we would have $\diam K>0$. But since $K\subseteq K_n$ for all $n\in\N$, and $\diam K_n\to 0$, this is impossible.
+\end{proof}
+We now come to our last proof that every Cauchy sequence converges.
+\begin{proof}[Proof \#3]
+Let $(a_n)$ be a Cauchy sequence, and define the sets $A_N=\{a_N,a_{N+1},\ldots\}$ as in the proof of Lemma 1 above. We know that each $A_N$ is bounded, and thus the closure $K_N=\overline{A_N}$ is compact, since it's closed and bounded. Moreover, since $A_{N+1}\subseteq A_N$ for each $N\in\N$, $K_{N}\subseteq K_{N+1}$ for each $N$ as well, so $\{K_N\}$ is a nested sequence of compact sets.
+
+Since $(a_n)$ is Cauchy, we must have that
+\[
+ \lim_{n\to\infty}\diam K_N = 0,
+\]
+since $\diam K_N = \diam A_N$\footnote{Exercise: prove that $\diam \overline{A} = \diam A$ for any set $A\subseteq \R$.} for each $N$, and if $\lim\diam A_N = d >0$, we could take $\epsilon=d/2$, and thus we could always find arbirarily large $n,m\in\N$ with $\abs{a_n-a_m}>\epsilon$. By Corollary 4, it follows that $\bigcap K_N = \{a\}$ for some $a\in \R$.
+
+It remains to show that this single point $a\in\bigcap K_N$ is the limit of the sequence $(a_n)$. Let $\epsilon>0$ be given. Since $\diam K_N\to 0$, there exists some $N_0$ such that $\diam K_N<\epsilon$ if  $N\geq N_0$. Since $a\in K_N$, it follows that $\abs{a,b}<\epsilon$ for every $b\in K_n$, and thus in particular, $\abs{a-a_n}<\epsilon$ for every $a_n\in A_N\subseteq K_N$. But this says simply that $\abs{a_n-a}<\epsilon$ whenever $n\geq N_0$, and thus $a_n\to a$.
+\end{proof}
+
+
+\end{document}

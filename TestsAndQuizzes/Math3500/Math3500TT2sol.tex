@@ -1,0 +1,249 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 40}}
+\chead{MATH 3500}\lhead{Test \# 2}\rhead{Monday, 10\textsuperscript{th} November, 2014}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\Abs}[1]{\left| #1 \right|}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+10\textsuperscript{th} November 2014, 2:00-2:50 pm\\
+{\bf MATH 3500 - Test \#2}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{50pt}{\bf Solutions}\hspace{248pt}}\\
+\skipline
+First Name:\underline{\hspace{50pt}{\bf The}\hspace{275pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+\skipline
+
+\vspace{0.5in}
+
+
+\begin{quote}
+
+ 
+ {Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. }
+
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/40\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item Let $(a_n)$ be the sequence defined by $a_n = \cos\left(\dfrac{n\pi}{3}\right)$ for $n=1,2,3,\ldots$.
+\begin{enumerate}
+ \item Recall that $\abs{\cos x}\leq 1$ for all $x\in\R$. Explain why this guarantees that $(a_n)$ has a covergent subsequence.\points{2}
+
+\bigskip
+
+The fact that $\abs{\cos x}\leq 1$ tells us that $(a_n)$ is bounded, and the Bolzano-Weierstrass theorem guarantees that every bounded sequence has a convergent subsequence.
+
+\bigskip
+
+ \item Find the set of subsequential limits of $(a_n)$. (That is find the set of limits of convergent subsequences. It might help to recall that $\cos(\pi/3)=1/2$.) \points{4}
+
+\bigskip
+
+We have $(a_n) = (1/2, -1/2, -1, -1/2, 1/2, 1, 1/2, -1/2, -1, -1/2, 1/2, 1, \ldots )$, so
+\[
+S = \{1,-1, 1/2, -1/2\}.
+\]
+
+\bigskip
+
+ \item What are the values of $\limsup a_n$ and $\liminf a_n$?\points{2}
+ 
+ \bigskip
+ 
+ We have
+ \[
+ \limsup a_n = \sup S = 1,
+ \]
+ and
+ \[
+ \liminf a_n = \inf S = -1.
+ \]
+\end{enumerate}
+\newpage
+
+\item Use the $\epsilon-\delta$ definition of the limit to prove that $\displaystyle \lim_{x\to 2}\frac{x+1}{2x-1}=1$. \points{5}
+
+\bigskip
+
+Let $\epsilon>0$ be given, and take $\delta = \min\{1,\epsilon\}$. If $0<\abs{x-2}<\delta$, then we have
+\[
+\abs{x-2}<1 \Rightarrow -1<x-2<1 \Rightarrow 1<x<3 \Rightarrow 1<2x-1 < 5,
+\]
+so $\dfrac{1}{5}<\dfrac{1}{2x-1}<1$, and thus
+\[
+\abs{f(x)-L} = \Abs{\frac{x+1}{2x-1}-1} = \Abs{\frac{2-x}{2x-1}}<\abs{x-2}<\delta\leq\epsilon.
+\]
+
+\bigskip
+
+\item Use the $\epsilon-\delta$ definition of uniform continuity to prove that $f(x) = \dfrac{x}{x+1}$ is continuous on $[0,2]$.\points{5}
+
+\bigskip
+
+Let $\epsilon>0$ be given, and take $\delta=\epsilon$. Notice that if $x\in [0,2]$, then $1\leq x+1\leq 3$, so $0<\dfrac{1}{x+1}\leq 1$.
+
+If $\abs{x-y}<\delta$, then we have
+\[
+\abs{f(x)-f(y)}=\Abs{\frac{x}{x+1}-\frac{y}{y+1}} = \Abs{\frac{x-y}{(x+1)(y+1)}}<\abs{x-y}(1)(1)<\delta = \epsilon.
+\]
+
+\bigskip
+
+\newpage
+\item Decide whether or not the given function $f$ is uniformly continuous on its domain $D$. Justify your answer in each case with a suitable theorem.
+\begin{enumerate}
+ \item $f(x)=x^2+2x$ on $D=[0,3]$\points{2}
+
+\bigskip
+
+Since $f$ is a polynomial it is continuous on $D$, and since $D$ is compact, $f$ is uniformly continuous on $D$.
+
+\bigskip
+
+
+ \item $f(x)=1/x^2$ on $D=(0,1]$\points{2}
+
+\bigskip
+
+Since $\lim\limits_{x\to 0^+}f(x) = \infty$, $f$ is not bounded on $D$ and thus cannot be uniformly continuous on $D$.
+
+Also acceptable is to note that since $f(x)\to \infty$ as $x\to 0^+$, $f$ cannot be extended to a continuous function on $[0,1]$.
+
+\bigskip
+
+ \item $f(x)=\dfrac{1}{x}\sin^2x$ on $D=(0,\pi)$.\points{2}
+
+\bigskip
+
+Since $\dfrac{\sin^2 \pi}{\pi} = 0$ and
+\[
+\lim_{x\to 0^+}\frac{\sin^2x}{x} = \lim_{x\to 0^+}\left(\frac{\sin x}{x}\right)(\sin x) = (1)(0) = 0,
+\]
+we can extend $f$ to the continuous function $\tilde{f}$ on $[0,\pi]$ given by $\tilde{f}(x)=f(x)$ for $x\in (0,\pi)$ and $\tilde{f}(0)=\tilde{f}(\pi)=0$. Thus, $f$ is uniformly continuous on $(0,\pi)$.
+
+\bigskip
+
+\end{enumerate}
+\item Suppose $f:[a,b]\to \R$ is a continuous function.
+\begin{enumerate}
+ \item Is it possible for the range of $f$ to equal $[0,1]\cup [2,3]$? Why or why not? \points{2}
+
+\bigskip
+
+This is not possible, since if the range of $f$ contains 1 and 2, then by the Intermediate Value Theorem it must contain every $x\in (1,2)$, but the interval $(1,2)$ is not contained in the range of $f$.
+
+\bigskip
+
+ \item Is it possible for the range of $f$ to equal either $(0,1)$ or $[1,\infty)$? Why or why not? \points{2}
+ 
+ \bigskip
+ 
+ This is not possible, since if $f$ is continuous, then $f([a,b])$ must be compact, but neither $(0,1)$ nor $[1,\infty)$ are compact.
+\end{enumerate}
+\newpage
+
+\item Let $f(x)=\begin{cases} x^2 & \text{ if } x\in\Q\\ 0 & \text{ if } x\notin\Q\end{cases}$.
+\begin{enumerate}
+ \item Show that $f$ is discontinuous at every point $a\neq 0$.\points{4} (Hint: if $a$ is rational/irrational, consider a sequence of irrational/rational numbers converging to $a$.)
+
+\bigskip
+
+Suppose $a\in \Q$ and $a\neq 0$. Let $(a_n)$ be a sequence of irrational numbers converging to $a$. Then $a^2=f(a) = f(\lim a_n)$, but $\lim f(a_n) = \lim 0 =0\neq a^2$, so $f$ cannot be continuous at $a$.
+
+Similarly, if $a\notin \Q$, let $(a_n)$ be a sequence of rational numbers converging to $a$. Then $0=f(a)=f(\lim a_n)$, but $\lim f(a_n) = \lim a_n^2 = a^2\neq 0$, and again $f$ cannot be continuous at $a$.
+
+\bigskip
+
+ \item Prove that $f$ is differentiable (and hence continuous) at $x=0$. \points{4}
+
+\bigskip
+
+We note that for any $x\neq 0$, we have
+\[
+\Abs{\frac{f(x)-f(0)}{x-0}} = \Abs{\frac{f(x)}{x}}\leq \abs{x},
+\]
+since either $f(x)=0$ or $f(x)=x^2$. In either case, given $\epsilon>0$, if we choose $\delta=\epsilon$, then whenever $0<\abs{x}<\delta$ we have $\abs{f(x)/x}<\epsilon$, and thus $\displaystyle f'(0) = \lim_{x\to 0}\frac{f(x)}{x} = 0$ exists.
+
+
+\bigskip
+
+\end{enumerate}
+\item Prove that if $f'(x)\neq 0$ for all $x\in (a,b)$, then $f$ is either strictly increasing or strictly decreasing on $(a,b)$. \points{4} (Caution: $f'$ is not guaranteed to be continuous.)
+
+\bigskip
+
+If $f'(x)\neq 0$ on $(a,b)$, then we must either have $f'(x)>0$ for all $x\in (a,b)$ or $f'(x)<0$ for all $x\in (a,b)$, since if $f'$ is both positive and negative on $(a,b)$, then Darboux's theorem would guarantee the existence of some $c\in (a,b)$ such that $f'(c)=0$.
+
+If $f'(x)>0$ on $(a,b)$, then the Mean Value Theorem guarantees that $f$ is strictly increasing on $(a,b)$, as discussed in class; for if $x,y\in (a,b)$ with $x<y$, then there exists some $c\in (a,b)$ such that
+\[
+f(x)-f(y) = f'(c)(x-y)<0,
+\]
+since $f'(c)>0$ and $x-y<0$, and thus $f(x)<f(y)$. A similar argument shows that if $f'(x)<0$ on $(a,b)$, then $f$ is strictly decreasing on $(a,b)$.
+\end{enumerate}
+
+
+
+\end{document}

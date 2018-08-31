@@ -1,0 +1,165 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 1 Solutions}\rhead{September 14/15, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}     
+%\DeclareMathOperator{\arg}{arg}       
+\DeclareMathOperator{\cis}{cis}       
+                  
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+ \begin{enumerate}
+ \item  If $z=5-3i$ and $w=-2+4i$, compute the following:
+\begin{enumerate}
+ \item $z+w = (5-3i)+(-2+4i) = (5-2)+i(-3+4) = 3+i$
+
+\vspace{2cm}
+
+ \item $zw = (5-3i)(-2+4i) = -10+20i+6i-12i^2 = -10+26i-12(-1) = 2+26i$
+
+\vspace{2cm}
+
+ \item $z+\overline{z} = (5-3i) + \overline{(5-3i)} = (5-3i) + (5+3i) = 10$
+
+\vspace{2cm}
+
+ \item $\dfrac{z}{w^2}$
+
+\medskip
+
+First, we compute $w^2 = (-2+4i)^2 = (-2+4i)(-2+4i) = 4-8i-8i+16i^2 = 4+16(-1)-16i = -12-16i$. Thus
+\begin{align*}
+ \frac{z}{w^2} &= \frac{5-3i}{-12-16i} = \frac{5-3i}{-12-16i}\cdot \frac{-12+16i}{-12+16i}\\
+& = \frac{-60+80i+36i-48i^2}{(-12)^2-12(16i)+12(16i)-(16i)^2} = \frac{-60+48+116i}{144+256} = \frac{-12+116i}{400}\\
+& = -\frac{12}{400}+i\frac{116}{400} = -\frac{3}{100}+i\frac{29}{100}i.
+\end{align*}
+
+\end{enumerate}
+
+ \item Find all solutions (real or complex) to the following:
+\begin{enumerate}
+ \item $z^2+z+2=0$
+
+Using the quadratic equation, we have
+\[
+ z = \frac{-1\pm\sqrt{1^2-4(1)(2)}}{2(1)} = \frac{-1\pm\sqrt{-7}}{2} = -\frac{1}{2}+i\frac{\sqrt{7}}{2}.
+\]
+
+
+ \item $z^4-16=0$
+
+Factoring, we have
+\[
+ z^4-16 = (z^2+4)(z^2-4) = (z+2i)(z-2i)(z+2)(z-2)=0,
+\]
+so the solutions are $z=2, -2, 2i, -2i$.
+\end{enumerate}
+\newpage
+
+\item Convert the points $\left(3,\dfrac{2\pi}{3}\right)$, $\left(-4,\dfrac{-3\pi}{4}\right)$, and $\left(2, \dfrac{7\pi}{6}\right)$ from polar to rectangular coordinates.
+
+\medskip
+
+Cartesian coordinates are related to polar by $x=r\cos\theta, y=r\sin\theta$. For $r=3, \theta = \dfrac{2\pi}{3}$, we have
+\[
+ x=3\cos\left(\frac{2\pi}{3}\right) = 3\left(-\frac{1}{2}\right) = -\frac{3}{2}, y = 3\sin\left(\frac{2\pi}{3}\right) = 3\left(\frac{\sqrt{3}}{2}\right) = \frac{3\sqrt{3}}{2},
+\]
+so our point is $\left(-\frac{3}{2}, \frac{3\sqrt{3}}{2}\right)$. For $r=-4$, $\theta = -\dfrac{3\pi}{4}$, we have
+
+\[
+ x = -4\cos\left(-\frac{3\pi}{4}\right) = -4\left(-\frac{1}{\sqrt{2}}\right) = 2\sqrt{2}, y = -4\sin\left(-\frac{3\pi}{4}\right) = -4\left(-\frac{1}{\sqrt{2}}\right) = 2\sqrt{2},
+\]
+so the second point is $(2\sqrt{2},2\sqrt{2})$ in rectangular coordinates. For $r=2, \theta = \dfrac{7\pi}{6}$, we have
+\[
+ x = 2\cos\left(\frac{7\pi}{6}\right) = 2\left(-\frac{\sqrt{3}}{2}\right) = -\sqrt{3}, y = 2\sin\left(\frac{7\pi}{6}\right) = 2\left(-\frac{1}{2}\right) = -1,
+\]
+so the last point is given in rectangular coordinates by $(-\sqrt{3}, -1)$.
+
+\medskip
+
+\item Convert the points $(2,-2)$ and $(-3, \sqrt{3})$ from rectangular to polar coordinates.
+
+\medskip
+
+For the point $(2,-2)$, we have $r = \sqrt{2^2+(-2)^2} = \sqrt{8}$, and $\tan\theta = \dfrac{-2}{2} = -1$, which gives us a related angle of $\pi/4$. Since the point $(2,-2)$ is in the fourth quadrant, we take $\theta = -\frac{\pi}{4}$. (If you want to use $\theta$ between $0$ and $2\pi$ instead, then take $\theta = \dfrac{7\pi}{4}$.) Thus, we have the point $\left(\sqrt{8},-\dfrac{\pi}{4}\right)$.
+
+For the point $(3,-\sqrt{3})$, we have $r=\sqrt{(-3)^2+\sqrt{3}^2} = \sqrt{12}$, and $\tan\theta = \dfrac{-\sqrt{3}}{3}$, so the related angle is $\pi/6$. Since the point $(3,-\sqrt{3})$ is in the second quadrant, we take $\theta = \dfrac{5\pi}{6}$, and our point is given in polar coordinates by $\left(\sqrt{12},\frac{5\pi}{6}\right)$.
+
+\medskip
+ 
+ \item Let $z = 1+i\sqrt{3}$ and let $w = \sqrt{2}-i\sqrt{2}$. Compute the following:
+\begin{enumerate}
+ \item The polar forms of $z$ and $w$.
+
+\medskip
+
+We have $\abs{z} = \sqrt{1^2+\sqrt{3}^2} = \sqrt{4}=2$, and $\tan(\arg z) = \sqrt{3}$. Since $z$ is in the first quadrant, $\arg z = \dfrac{\pi}{3}$.
+
+Similarly, $\abs{w} = \sqrt{\sqrt{2}^2+(-\sqrt{2})^2} = \sqrt{4}=2$, and $\tan(\arg w) = -1$. Since $w$ is in the fourth quadrant, $\arg w = -\dfrac{\pi}{4}$.
+
+Thus, $z = 2e^{i\pi/3}$ and $w = 2e^{-i\pi/4}$. (Or $z=2\cis(\pi/3)$ and $w=2\cis(-\pi/4)$ if you prefer this notation.)
+
+
+ \item $z^2w$ 
+
+\medskip
+
+We have
+\[
+ z^2w = (2e^{i\pi/3})^2(2e^{-i\pi/4}) = 4e^{2i\pi/3}(2e^{-i\pi/4}) = 8e^{5i\pi/12},
+\]
+where we used the fact that $\dfrac{2\pi}{3}-\dfrac{\pi}{4} = \dfrac{8\pi}{12}-\dfrac{3\pi}{12} = \dfrac{5\pi}{2}$. In Cartesian coordinates,
+\[
+ z^2w = 8\cos\left(\frac{5\pi}{12}\right)+i \cdot 8\sin\left(\frac{5\pi}{12}\right).
+\]
+It is possible to work out the values above and verify that the result agrees with doing things the long way in Cartesian coordinates, but the above answer is sufficient.
+
+ \item $\dfrac{z^4}{w}$
+
+Here, we have
+\[
+ \frac{z^4}{w} = (2e^{i\pi/3})^4(2e^{-i\pi/4})^{-1} = 16e^{4i\pi/3}\left(\frac{1}{2}e^{i\pi/4}\right) = 8e^{19i\pi/12}.
+\]
+
+\vspace{2.25cm}
+
+
+
+\end{enumerate}
+
+ \end{enumerate}
+\end{document}

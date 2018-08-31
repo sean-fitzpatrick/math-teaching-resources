@@ -1,0 +1,117 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1560}\chead{Tutorial Assignment \# 5 Solutions}\rhead{May 25th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+ \begin{enumerate}
+ \item  Given $x=\arcsin(y)$, determine an expression for $\sin(2x)$ in terms of $y$. Your answer should not involve any trigonometric functions.
+
+\bigskip
+
+ Recall the trigonometric identity $\sin(2x) = 2\sin(x)\cos(x)$. With $x=\arcsin(y)$, we have $\sin(x) = \sin(\arcsin(y))=y$, and 
+\[
+ \cos(x) = \pm\sqrt{1-\sin^2(\arcsin(y))} = \pm\sqrt{1-y^2} = \sqrt{1-y^2}.
+\]
+Note that we have chosen the positive root since by definition $\arcsin(y)\in \left[-\frac{\pi}{2},\frac{\pi}{2}\right]$, and $\cos(x)\geq 0$ on this interval. Thus, we have
+\[
+ \sin(2x) = 2\sin(x)\cos(x) = 2y\sqrt{1-y^2}.
+\]
+
+\bigskip
+
+
+ 
+
+ \item  Compute the derivatives of $f(x) = \arcsin(x^2)$ and $g(x) = \arctan(e^x)$.
+
+\bigskip
+
+For $f'(x)$ we use the Chain Rule, with $u=x^2$, and the fact that $\frac{d}{du}\arcsin(u) = \frac{1}{\sqrt{1-u^2}}$ to get
+\[
+ f'(x) = \frac{1}{\sqrt{1-(x^2)^2}}\frac{d}{dx}(x^2) = \frac{2x}{\sqrt{1-x^4}}.
+\]
+
+\medskip
+
+For $g'(x)$ we use the Chain Rule with $u=e^x$, and the fact that $\frac{d}{du}\arctan(u) = \frac{1}{1+u^2}$ to get
+\[
+ g'(x) = \frac{1}{1+(e^x)^2}\frac{d}{dx}(e^x) = \frac{e^x}{1+e^(2x)}.
+\]
+
+\newpage
+
+
+
+ \item Use the Mean Value Theorem to prove that $\abs{\sin x - \sin y}\leq \abs{x-y}$ for all real numbers $x$ and $y$.
+
+\bigskip
+
+We choose any two real numbers $x$ and $y$. Note that if $x=y$, then both sides equal zero, and the result holds. We can thus assume that $x<y$, noting that the case $x>y$ is identical, with the roles of $x$ and $y$ reversed. Now, since $f(x) = \sin(x)$ is continuous on $[x,y]$, and differentiable on $(x,y)$, the Mean Value Theorem guarantees the existence of some number $c\in (x,y)$ such that
+\[
+ f'(c) = \frac{\sin(x)-\sin(y)}{x-y}.
+\]
+But we know that $f'(x) = \cos(x)$, and since $-1\leq \cos(x)\leq 1$ for all $x$, we can conclude that $\abs{\cos(c)}\leq 1$. If follows that
+\[
+ \abs{\frac{\sin(x)-\sin(y)}{x-y}} = \frac{\abs{\sin(x)-\sin(y)}}{\abs{x-y}}\leq 1
+\]
+for any $x,y\in \R$, and the result follows by multiplying both sides by $\abs{x-y}$.
+
+\bigskip
+
+ \item Find the absolute maximum and minimum values of $f(x)=x^4-x^3$ on $[-1,2]$.
+
+\bigskip
+
+Since $f$ is continuous on the closed interval $[-1,2]$, the Extreme Value Theorem guarantees the existence of both the absolute maximum and absolute minimum, which we know must occur at either one of the end points of the interval, or at a critical point. Since $f$ is differentiable everywhere, any critical points must occur where $f'(c)=0$. We find
+\[
+ f'(x) = 4x^3-3x^2 = x^2(4x-3),
+\]
+so $f'(x)=0$ for $x=0$ or for $x=3/4$. Both of these points lie within our interval so we compute the following values:
+\begin{align*}
+ f(-1) & = (-1)^4-(-1)^3 = 1+1=2\\
+ f(0) & = 0^4+0^3=0\\
+ f(3/4) & = \left(\frac{3}{4}\right)^4-\left(\frac{3}{4}\right)^3 = \left(\frac{3}{4}\right)^3\left(\frac{3}{4}-1\right) = \frac{27}{64}\left(-\frac{1}{4}\right) = -\frac{27}{256}\\
+ f(2) & = 2^4-2^3 = 16-8=8.
+\end{align*}
+Of these values, we see that the absolute maximum value is $f(2)=8$, and (since it's the only negative value) the absolute minimum value is $f(3/4) - -27/256$.
+
+\end{enumerate}
+
+\end{document}

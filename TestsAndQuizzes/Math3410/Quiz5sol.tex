@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 3410A}\chead{Quiz \# 5}\rhead{Friday, 27\textsuperscript{th} February, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\spn}{span}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+{\bf Name: Solutions}
+
+\bigskip
+
+Solve {\bf one} of the following two questions:
+ \begin{enumerate}
+ \item  Let $T\in \mathcal{L}(U,V)$ and $S\in \mathcal{L}(V,W)$ be invertible linear maps. Prove that $ST\in \mathcal{L}(U,W)$ is invertible, and show that $(ST)^{1-} = T^{-1}S^{-1}$.
+
+\bigskip
+
+{\bf Solution:} By defintion, $ST:U\to W$ is invertible if there exists a linear map $R:W\to U$ such that $(ST)R$ is the identity on $W$, and $R(ST)$ is the identity on $U$. If such a map $R$ exists, then we can furthermore conclude that $R=(ST)^{-1}$.
+
+We claim that $R=T^{-1}S^{-}$. To see this, note that
+\[
+ (ST)(T^{-1}S^{-1}) = S(TT^{-1})S^{-1} = S(I_V)S^{-1} = SS^{-1} = I_W,
+\]
+where $I_W$ denotes the identity on $W$, and $I_V$ denotes the identity on $V$. (Note that we can use either $SI_V = S$ or $I_VS^{-1}=S^{-1}$ above.) Similarly, we have
+\[
+ (T^{-1}S^{-1})(ST) = T^{-1}(S^{-1}S)T = T^{-1}(I_V)T = T^{-1}T = I_U.
+\]
+This proves both that $ST$ is invertible, and that $(ST)^{-1} = T^{-1}S^{-1}$.
+
+\bigskip
+
+ \item Let $T:\R^4\to \R^3$ be given by
+\[
+ T(w,x,y,z) = (3w-2x+z,x+3y-4z,w-x+y+z).
+\]
+ Compute the matrix of $T$ with respect to the bases
+\begin{align*}
+ B_4 &= \{(1,0,2,0),(0,3,0,1), (1, -2, 0, 0), (0,0,-1,1)\} \text{ of } \R^4, \text{ and }\\
+ B_3 &= \{(1,0,0),(0,1,0), (0,0,1)\} \text{ of } \R^3.
+\end{align*}
+
+\bigskip
+
+{\bf Solution:} We calculate the value of $T$ on the basis $B_4$ as follows:
+\begin{align*}
+ T(1,0,2,0) &= (3(1)-2(0)+0,0+3(2)-4(0), 1-0+2+0) = (3,6,3)\\
+ T(0,3,0,1) &= (3(0)-2(3)+1,3+3(0)-4(1),0-3+0+1) = (-5, -1, -2)\\
+ T(1,-2,0,0) &= (3(1)-2(-2)+0, -2+3(0)-4(0), 1-(-2)+0+0) = (7, -2, 3)\\
+ T(0,0,-1,1) &= (3(0)-2(0)+1,0+3(-1)-4(1), 0-0+(-1)+1) = (1, -7, 0).
+\end{align*}
+Therefore, the matrix of $T$ with respect to the bases $B_4$ and $B_3$ is given by
+\[
+ \mathcal{M}(T) = \begin{bmatrix}3&-5&7&1\\6&-1&-2&-7\\3&-2&3&0\end{bmatrix}.
+\]
+
+ \end{enumerate}
+{\bf Note:} In question 2, I asked you only to find the matrix $\mathcal{M}(T)$. You didn't have to verify that it was correct or use it to find the null space and range of $T$ or anything like that.
+
+If you did want to verify that your matrix was correct, there's a bit of work involved, since you'd have to find the matrix of $(w,x,y,z)\in\R^4$ with respect to the given basis. Supposing that you wanted to do this (noting again that this was {\bf not} necessary), you'd set
+\[
+ (w,x,y,z) = a(1,0,2,0)+b(0,3,0,1)+c(1,-2,0,0)+d(0,0,-1,1) = (a+c,3b-2c,2a-d,b+d)
+\]
+for some scalars $a,b,c,d$. This gives you a system of 4 equations in the 4 variables $a,b,c,d$. If you solve it, you find
+\begin{align*}
+ a & = -\frac{1}{2}w+\frac{1}{2}x+\frac{3}{4}y-\frac{3}{2}z\\
+ b & = w-\frac{1}{2}y+z\\
+ c & = \frac{3}{2}w-\frac{1}{2}x-\frac{3}{4}y+\frac{3}{2}z\\
+ d & = -w +\frac{1}{2}y.
+\end{align*}
+Thus, 
+\[
+\mathcal{M}(w,x,y,z) = \begin{bmatrix}-\frac{1}{2}w+\frac{1}{2}x+\frac{3}{4}y-\frac{3}{2}z\\w-\frac{1}{2}y+z\\\frac{3}{2}w-\frac{1}{2}x-\frac{3}{4}y+\frac{3}{2}z\\-w +\frac{1}{2}y\end{bmatrix},
+\]
+and you can verify that
+\[
+ \mathcal{M}(T)\mathcal{M}(w,x,y,z) = \begin{bmatrix}3&-5&7&1\\6&-1&-2&-7\\3&-2&3&0\end{bmatrix}\begin{bmatrix}-\frac{1}{2}w+\frac{1}{2}x+\frac{3}{4}y-\frac{3}{2}z\\w-\frac{1}{2}y+z\\\frac{3}{2}w-\frac{1}{2}x-\frac{3}{4}y+\frac{3}{2}z\\-w +\frac{1}{2}y\end{bmatrix} = \begin{bmatrix}3w-2x+z\\x+3y-4z\\2-x+y+z\end{bmatrix},
+\]
+which shows you that you got the right matrix (since the right-hand side is the matrix of $T(w,x,y,z)$ with respect to the standard basis of $\R^3$), but it's really more trouble than it's worth.
+
+One thing to be careful of, with respect to the above, is that if you did want to do a quick check to verify things, the elements of $\R^{4,1}$ corresponding to the basis vectors in $B_r$ are {\em not} $\begin{bmatrix}1\\0\\2\\0\end{bmatrix}, \begin{bmatrix}0\\3\\0\\1\end{bmatrix}, \begin{bmatrix}1\\-2\\0\\0\end{bmatrix}$, and $\begin{bmatrix}0\\0\\-1\\1\end{bmatrix}$ -- they're the vectors $\begin{bmatrix}1\\0\\0\\0\end{bmatrix}, \begin{bmatrix}0\\1\\0\\0\end{bmatrix}, \begin{bmatrix}0\\0\\1\\0\end{bmatrix}, \begin{bmatrix}0\\0\\0\\1\end{bmatrix}$, since
+\[
+ (1,0,2,0) = 1(1,0,2,0)+0(0,3,0,1)+0(1,-2,0,0)+0(0,0,-1,1),
+\]
+and so on.
+
+Finally, if you really did want to know about the null space and range, you can reduce the matrix $\mathcal{M}(T)$ to reduced row-echelon form, which gives
+\[
+ \mathcal{M}(T) \to \cdots \to \begin{bmatrix}1&0&0&-\frac{7}{18}\\0&1&0&\frac{5}{3}\\0&0&1&\frac{3}{2}.\end{bmatrix}
+\]
+We can then see that the $\mathcal{M}(T)\begin{bmatrix}a\\b\\c\\d\end{bmatrix} = \begin{bmatrix}0\\0\\0\end{bmatrix}$ if (setting $d=t$ to be our parameter)
+\[
+ \begin{bmatrix}a\\b\\c\\d\end{bmatrix} = t\begin{bmatrix}7/18\\-5/3\\-3/2\\1\end{bmatrix}
+\]
+If we replace $t$ with the parameter $s=t/18$, then we can use the vector $\begin{bmatrix}7\\-30\\-27\\18\end{bmatrix}$ as the basis for the null space of $\mathcal{M}(T)$. But we want the null space of the original linear transformation $T$. Converting back, we conclude that the vector
+\[
+ 7(1,0,2,0)-30(0,3,0,1)-27(1,-2,0,0)+18(0,0,-1,1) = (-20,-36,-4,-12)
+\]
+forms a basis for the null space of $T$. Simplifying slightly, we can multiply the above by the scalar $-1/2$, so if our computations are correct, we should have
+\[
+ \nul T = \spn\{(10,18,2,6)\}.
+\]
+Let's check to see if we're right:
+\[
+ T(10,18,2,6) = (0,0,0),
+\]
+which is what we should expect. Finally, a basis for the column space of $\mathcal{M}(T)$ is give by the first three columns of $\mathcal{M}(T)$, since these are the columns containing the leading ones in the row-echelon form. Therefore,
+\[
+ \col \mathcal{M}(T) = \spn\left\{\begin{bmatrix}3\\6\\3\end{bmatrix},\begin{bmatrix}-5\\-1\\-2\end{bmatrix},\begin{bmatrix}7\\-2\\3\end{bmatrix}\right\},
+\]
+so $\range T$ is given by the span of the corresponding vectors in $\R^3$:
+\[
+\range T = \spn\{(3,6,3), (-5,-1,-2), (7,-2,3)\}.
+\]
+Of course, these are three linearly independent vectors in $\R^3$, so we can conclude that $\range T = \R^3$, which tells us that $T$ is a surjection. (Of course, we could have also come to this conclusion with much less work by noting that $\dim \nul T = 1$, so
+\[
+\dim \range T = \dim \R^4 - \dim \nul T = 4-1 = 3,
+\]
+and if $\range T$ is a 3-dimensional subspace of $\R^3$, we must have $\range T = \R^3$.                                                                                                         
+                                                                                                             
+
+\end{document}

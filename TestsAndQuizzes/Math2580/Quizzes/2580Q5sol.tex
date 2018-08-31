@@ -1,0 +1,117 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+
+\title{Solutions to Quiz 5 Practice Problems\\Math 2580\\Spring 2016}
+\author{Sean Fitzpatrick}
+\date{January 26th, 2016}
+
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+ \item Let $f(x,y)=xy$ and suppose $x=g(t)$ and $y=h(t)$. Show that applying the chain rule to the derivative $
+\dfrac{d}{dt}f(g(t),h(t))= \dfrac{d}{dt}(g(t)h(t))$ produces the product rule for derivatives in one variable.
+
+\bigskip
+
+We have $f(g(t),h(t)) = g(t)h(t)$, so on the one hand $\dfrac{d}{dt}f(g(t),h(t)) = \dfrac{d}{dt}(g(t)h(t))$. On the other hand, 
+\[
+ \frac{d}{dt}(f(g(t),h(t)) = f_x(g(t),h(t))g'(t)+f_y(g(t),h(t))h'(t) = h(t)g'(t)+g(t)h'(t),
+\]
+since $\pd{f}{x}=y$ and $\pd{f}{y}=x$.
+
+\bigskip
+
+ \item Suppose an insect is flying through a room along the path
+ \[
+ r(t) = (e^t, t^2, \sin t),
+ \]
+ and that the temperature in the room is given by $T(x,y,z) = \sin(x)\cos(y)\sqrt{z}$. Find the rate $\dfrac{dT}{dt}$ at which the temperature experienced by the insect changes as it flies through the room.
+
+\bigskip
+
+Using the chain rule, we have
+\begin{align*}
+ \frac{dT}{dt} &= \pd{T}{x}x'(t)+\pd{T}{y}y'(t)+\pd{T}{z}z'(t)\\
+& = (\cos(x)\cos(y)\sqrt{z})e^t+(-\sin(x)\sin(y)\sqrt{z})(2t)+\left(\frac{\sin(x)\cos(y)}{2\sqrt{z}}\right)(\cos(t))\\
+& = \cos(e^t)\cos(t^2)\sqrt{\sin t}e^t-2t\sin(e^t)\sin(t^2)\sqrt{\sin t}+\frac{\sin(e^t)\cos(t^2)\cos(t)}{2\sqrt{\sin t}}.
+\end{align*}
+(In this case, Chain Rule is probably easier than first plugging in the functions of $t$ and using multiple applications of the product rule.)
+
+\bigskip
+
+ \item Consider the function $F:D\subseteq \R^2\to\R^2$, where $D=\{(u,v)|v\geq 1\}$, given by
+ \[
+ F(u,v) = \left(\sqrt[3]{uv},\sqrt[3]{\frac{u}{v^2}}\right).
+ \]
+ Calculate the derivative matrix $D_{(u,v)}f$ at a general point $(u,v)\in D$.
+ 
+\bigskip
+
+Using the definition of $D_{(u,v)}f$, we have
+\[
+ D_{(u,v)}f = \bbm \pd{x}{u} & \pd{x}{v}\\ & \\ \pd{y}{u} & \pd{y}{v}\ebm = \bbm \pd{u^{1/3}v^{1/3}}{u} & \pd{u^{1/3}v^{1/3}}{u} \\ & \\ \pd{u^{1/3}v^{-2/3}}{u} & \pd{u^{1/3}v^{-2/3}}{v} \ebm = \bbm \frac{1}{3}u^{-2/3}v^{1/3} & \frac{1}{3}u^{1/3}v^{-2/3}\\ \frac{1}{3}u^{-2/3}v^{-2/3} & -\frac{2}{3}u^{1/3}v^{-5/3}\ebm.
+\]
+ 
+ \item Let $g(x,y) = xy^2\cos(xy)$, where $x=\sqrt[3]{uv}$ and $y=\sqrt[3]{\dfrac{u}{v^2}}$. Compute $\dfrac{\partial g}{\partial u}$ and $\dfrac{\partial g}{\partial v}$ using the Chain Rule.
+ 
+\bigskip
+
+I'll give a solution using the product of derivative matrices, but you can also just write out the chain rule patterns in this case.
+
+The derivative matrix for $g$ is given by
+\[
+ D_{(x,y)}g = \bbm \pd{g}{x} & \pd{g}{y}\ebm = \bbm y^2\cos(xy)-xy^3\sin(xy) & 2xy\cos(xy)-x^2y^2\sin(xy)\ebm,
+\]
+so
+\begin{align*}
+ \bbm \pd{g}{u} & \pd{g}{v}\ebm & = \bbm \pd{g}{x} & \pd{g}{y}\ebm  \bbm \pd{x}{u} & \pd{x}{v}\\ & \\ \pd{y}{u} & \pd{y}{v}\ebm\\
+& = \bbm y^2\cos(xy)-xy^3\sin(xy) & 2xy\cos(xy)-x^2y^2\sin(xy)\ebm \bbm \frac{1}{3}u^{-2/3}v^{1/3} & \frac{1}{3}u^{1/3}v^{-2/3}\\ \frac{1}{3}u^{-2/3}v^{-2/3} & -\frac{2}{3}u^{1/3}v^{-5/3}\ebm.
+\end{align*}
+This product gives a $1\times 2$ row matrix whose first entry is
+\[
+ \pd{g}{u} = (y^2\cos(xy)-xy^3\sin(xy))(\frac{1}{3}u^{-2/3}v^{1/3})+(2xy\cos(xy)-x^2y^2\sin(xy))(\frac{1}{3}u^{-2/3}v^{-2/3}),
+\]
+and whose second entry is
+\[
+ \pd{g}{v} = (y^2\cos(xy)-xy^3\sin(xy))(\frac{1}{3}u^{1/3}v^{-2/3})+(2xy\cos(xy)-x^2y^2\sin(xy))(-\frac{2}{3}u^{1/3}v^{-5/3}).
+\]
+As a final step we should really write $x$ and $y$ in terms of $u$ and $v$ but this is tedious and not particularly enlightening.
+
+
+
+\bigskip
+
+ 
+ \item What is the {\bf gradient} of a continuously differentiable function $f:\R^3\to\R$? How is the gradient of $f$ related to the derivative $D_{(x,y,z)}f$?
+
+\bigskip
+
+The gradient of $f$ is a vector field whose value at $(x,y,z)$ is the vector $\nabla f(x,y,z) = \bbm f_x(x,y,z)\\f_y(x,y,z)\\f_z(x,y,z)\ebm$, and this is simply the transpose of the corresponding row matrix given by $D_{(x,y,z)}f$.
+
+\bigskip 
+ 
+ \item Calculate the gradient of the function $f(x,y)=3x^2-4xy$ at the point $(1,2)$.
+
+\bigskip
+
+We have $f_x(x,y) = 6x-4y$ and $f_y(x,y) = -4x$, so $f_x(1,2) = 6-8=-2$ and $f_y(x,y) = -4$. Thus, $\nabla f(1,2) = \bbm f_x(1,2)\\f_y(1,2)\ebm = \bbm -2\\-4\ebm$.
+\end{enumerate}
+
+\end{document}
+ 

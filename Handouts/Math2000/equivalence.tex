@@ -1,0 +1,114 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+
+%opening
+\title{Handout: Logical equivalence\\Math 2000B, Spring 2015}
+\author{Sean Fitzpatrick}
+
+\begin{document}
+
+\maketitle
+Here is a (by no means exhaustive) list of common logical equivalences that occur in mathematics.  Tautologies are denoted $T$, and contradictions are denoted $F$. Recall our basic definitions:
+\begin{enumerate}
+ \item $P\vee Q$ is the assertion that $P$ is true or $Q$ is true (or both).
+ \item $P\wedge Q$ is the assertion that $P$ and $Q$ are both true.
+ \item $P\to Q$ is the assertion that if $P$ is true, then $Q$ must be true.
+ \item $\neg P$ is the assertion that $P$ is not true.
+ \item $P\leftrightarrow Q$ is the assertion that $P\to Q$ and $Q\to P$.
+\end{enumerate}
+The equivalences below can be established either by working through the definition, or by using truth tables. For example, to prove that $\neg(P\vee Q)\equiv \neg P\wedge\neg Q$, one approach is to ask a question such as ``When is it not the case that $P\vee Q$ is true?'' Using the definition (or truth table) for $P\vee Q$, we see that the only case where $P\vee Q$ is false is if $P$ is false and $Q$ is false, which is when $\neg P\wedge \neg Q$ is true. Alternatively, we have the following truth table:
+\[
+ \begin{array}{|cc|c|c|cc|c|}
+\hline
+ P & Q & P\vee Q & \neg  (P\vee Q) & \neg P & \neg Q & \neg P\wedge \neg Q\\
+\hline
+ T & T & T & F & F & F & F\\
+ T & F & T & F & F & T & F\\
+ F & T & T & F & T & F & F\\
+ F & F & F & T & T & T & T\\
+\hline
+ \end{array}
+\]
+Comparing the columns for $\neg(P\vee Q)$ and $\neg P\wedge \neg Q$, we see that their truth values agree for all possible truth values of $P$ and $Q$, and conclude that the two statements are logically equivalent.
+\newpage
+\subsection*{List of basic equivalences}
+\begin{enumerate}
+\item Equivalences involving conditional statements
+\begin{enumerate}
+ \item $P\to Q\equiv \neg P\vee Q$
+ \item $\neg (P\to Q)\equiv P\wedge \neg Q$
+ \item $P\to Q\equiv \neg Q\to \neg P$
+\end{enumerate}
+\item Commutative properties
+\begin{enumerate}
+\item $P \vee Q \equiv Q\vee P$
+\item $P \wedge Q \equiv Q \wedge P$
+\end{enumerate}
+\item Associative properties
+\begin{enumerate}
+\item $(P\vee Q)\vee R \equiv P\vee (Q\vee R)$
+\item $(P\wedge Q)\wedge R \equiv P\wedge (Q\wedge R)$
+\end{enumerate}
+\item Distributive properties
+\begin{enumerate}
+\item $P\vee (Q\wedge R) \equiv (P\vee Q)\wedge (P\vee R)$
+\item $P\wedge (Q\vee R) \equiv (P\wedge Q)\vee (P\wedge R)$
+\end{enumerate} 
+\item Idempotent laws
+\begin{enumerate}
+\item $P \vee P \equiv P$
+\item $P\wedge P \equiv P$
+\end{enumerate}
+\item De Morgan's Laws
+\begin{enumerate}
+\item $\neg (P\vee Q)\equiv \neg P \wedge \neg Q$
+\item $\neg (P\wedge Q) \equiv \neg P \vee \neg Q$
+\end{enumerate}
+\item Law of the Excluded Middle
+\begin{enumerate}
+ \item $P\vee \neg P \equiv T$
+ \item $P\wedge \neg P \equiv F$
+\end{enumerate}
+\item Effect of Tautologies and Contradictions
+\begin{enumerate}
+ \item $P\vee T \equiv T$
+\item $P\wedge T \equiv P$
+\item $P\vee F\equiv P$
+\item $P\wedge F \equiv F$
+\end{enumerate}
+\end{enumerate}
+\subsection*{Order of operations}
+Just like in arithmetic, logical connectives have a conventions about the order in which they are applied, so that a compound statement may be read unambiguously in cases where parentheses have been omitted.  (In many cases, including {\em all} of the parentheses leads to a lot of clutter!)
+
+\bigskip
+
+\begin{tabular}{cc}
+ Connective & Precedence \\
+& \\
+$\neg$ & First\\
+$\wedge$ & Second\\
+$\vee$ & Third\\
+$\rightarrow$ & Fourth\\
+$\leftrightarrow$ & Fourth
+\end{tabular}
+
+\bigskip
+
+Note that implication ($\rightarrow$) and the biconditional ($\leftrightarrow$) have the same level of precedence.  Therefore, if any ambiguity is possible in a statement in which both appear, parentheses must be used.
+
+You might find it useful to compare the list of basic equivalences to the algebraic properties of numbers you're familiar with, such as the commutative and associative properties of addition. Later on we'll see that most of these equivalences have corresponding rules for set operations.
+
+The main reason for learning the basic equivalences is that it lets us establish more complicated ones without resorting to truth tables. For example, the equivalence 
+\[
+ (P\vee Q)\to R \equiv (P\to R)\wedge (Q\to R)
+\]
+can be used to justify ``proof by cases'': if $R$ follows from both $P$ and $Q$, then we only need to know that either $P$ or $Q$ is true to conclude that $R$ is true. Proving this with truth tables is possible, but you'll need 8 rows to account for all possibilities with three variables. Using the equivalences on the previous page, we can write
+\begin{align*}
+ (P\vee Q)\to R &\equiv \neg(P\vee Q)\vee R &\text{ (that first equivalence, which needs a name)}\\
+&\equiv (\neg P\wedge Q)\vee R &\text{ (de Morgan's laws)}\\
+&\equiv (\neg Q\vee R)\wedge (\neg Q\vee R) &\text{ (distributive laws)}\\
+&\equiv (P\to R)\wedge (Q\to R) &\text{ (that no-name equivalence again)}
+\end{align*}
+
+\end{document}

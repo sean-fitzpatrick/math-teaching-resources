@@ -1,0 +1,171 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2560}\chead{Worksheet \# 11 Solutions}\rhead{Thursday 7\textsuperscript{th} April, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+Here are solutions to some of the problems from the textbook that I recommended for yesterday's tutorial.
+
+\begin{itemize}
+ \item Section 3.5, \#26: We're given the alternating series $\di \sum_{i=0}^n\frac{(-1)^n}{n!} = \frac{1}{e}$ (this is the Maclaurin series for $f(x)=e^x$ evaluated at $x=-1$), and want to approximate the value of $1/e$ with an error less than $\varepsilon=0.0001$. The \textbf{Alternating Series Approximation Theorem} (Theorem 26 in the textbook) tells us that for an alternating series $\di\sum_{n=k}^\infty (-1)^na_n$, where $\{a_n\}$ is a positive, decreasing sequence with $\lim a_n = 0$ (that is, one for which the Alternating Series Test guarantees convergence of the series), the truncation error (that is, the error introduced by approximating the series by a partial sum) satisfies
+\[
+ \abs{\sum_{n=N+1}^\infty (-1)^na_n} = \abs{\sum_{n=k}^\infty(-1)^na_n - \sum_{n=k}^N(-1)^na_n} < a_{N+1}.
+\]
+So to ensure our approximation for $1/e$ has an error less than $0.0001$, we need to find the value of $N$ such that $a_{N+1}<0.0001$. We have the following values:
+\[
+ \begin{array}{|c|ccccccccc|}
+  \hline
+  n&0&1&2&3&4&5&6&7&8\\
+ n!&1&1&2&6&24&120&720&5040&40320\\
+\hline
+ \end{array}
+\]
+Seeing that $a_7 = \dfrac{1}{5760}\approx 0.000198>\varepsilon$, and $a_8 = \dfrac{1}{40320} \approx 0.0000248<\varepsilon$, we have the approximation
+\[
+ \frac{1}{e}\approx 1-1+\frac{1}{2}-\frac{1}{6}+\frac{1}{24}-\frac{1}{120}+\frac{1}{720}-\frac{1}{5040} \approx 0.3679
+\]
+to four decimal places, with an error of $\pm 0.0001$.
+\item Section 3.5, \#28: We take the same approach as above, for the series $\di \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} = \cos 1$, with a desired error of $\varepsilon=10^{-8}$. We again compute the values of $a_n$, beginning at $n=0$. We have:
+\[
+ \begin{array}{|c|ccccccc|}
+  \hline
+  n&0&1&2&3&4&5&6\\
+  (2n)!& 1&2&24&720&40320&3628800&479001600\\
+\hline
+\end{array}
+\]
+A quick check on the calculator tells us that $\dfrac{1}{10!} \approx 2.76 \times 10^{-7} >\varepsilon$, but $\dfrac{1}{12!} \approx 2.09\times 10^{-9}<\varepsilon$. Thus, we have the approximation
+\[
+ \cos 1 \approx 1-\frac{1}{2}+\frac{1}{24}-\frac{1}{720}+\frac{1}{40320}-\frac{1}{3628800} \approx 0.54030230
+\]
+to eight decimal places, with an error of $\pm 0.00000001$.
+
+\item Section 3.6, \#10: We're given the power series $\di \sum_{n=1}^\infty nx^n$. By the ratio test, this series converges if
+\[
+ \lim_{n\to \infty}\abs{\frac{(n+1)x^{n+1}}{nx^n}} = \lim_{n\to\infty}\frac{n+1}{n}\abs{x} = \abs{x}<1,
+\]
+so the radius of convergence is $r=1$. We are thus guaranteed convergence for $-1<x<1$, and to find the interval of convergence, we need to check the endpoints. In this case, we can see that the series $\sum n(-1)^n$ and $\sum n(1)^n$ both diverge, by the test for divergence, so the interval of convergence is $(-1,1)$.
+
+\item Section 3.6, \# 14: Our power series this time is $\di \sum_{n=0}^\infty\frac{(-1)^n(x-5)^n}{10^n}$. We have
+\[
+ \frac{a_{n+1}}{a_n} = \frac{(-1)^{n+1}(x-5)^{n+1}}{10^{n+1}}\cdot \frac{10^n}{(-1)^n(x-5)^n} = -\frac{x-5}{10},
+\]
+so $\di\lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} = \frac{1}{10}\abs{x-5}$, and since we need this limit to be less than 1, we must have $\abs{x-5}<10$, so our radius of convergence is $r=10$.
+
+The inequality $\abs{x-5}<10$ is equivalent to $-10<x-5<10$, so $-5<x<15$. When $x=-5$ we have the divergent series $\sum 1$, and when $x=15$ we have the divergent series $\sum (-1)^n$, so the interval of convergence is $(-5,15)$.
+
+\item Section 3.6, \#26: We define $\di f(x) = \sum_{n=1}^\infty \frac{x^n}{n}$, and wish to compute $f'(x)$ and $\int f(x)\,dx$. First, we check that by the ratio test, $f(x)$ has radius of convergence $r=1$, since
+\[
+ \lim_{n\to\infty}\abs{\frac{x^{n+1}}{n+1}\cdot\frac{n}{x^n}} = \abs{x},
+\]
+so we need $\abs{x}<1$. At the endpoints of the interval $(-1,1)$ we have the series $\di \sum \frac{(-1)^n}{n}$ at $x=-1$, which converges, by the alternating series test, and the harmonic series $\di \sum \frac{1}{n}$ at $x=1$, which diverges. The interval of convergence (i.e., domain) for $f(x)$ is therefore $[-1,1)$. To compute $f'(x)$, we have
+\[
+ f'(x) = \frac{d}{dx}\sum_{n=1}^\infty \frac{x^n}{n} = \sum_{n=1}^\infty \frac{1}{n}\frac{d}{dx}(x^n) = \sum_{n=1}^\infty x^{n-1} = \sum_{n=0}^\infty x^n.
+\]
+Notice that $f'(x)$ has the same radius of convergence as $f(x)$, but $f'(x)$ is not defined at $x=-1$: the interval of convergence here is $(-1,1)$, since $f'(x)$ is given by a geometric series, and therefore only converges for $\abs{x}<1$. Indeed, note further that we can use the geometric series formula to conclude that
+\[
+ f'(x) = \sum_{n=0}^\infty x^n = \frac{1}{1-x}.
+\]
+We can then work backwards to identify $f(x)$ by computing antiderivatives: we must have $f(x) = -\ln(1-x)+C$, and since $f(0) = 0$, $C=0$, so $f(x) = -\ln(1-x)$.
+
+Now, to compute $\int f(x)\,dx$, we have
+\[
+ \int f(x)\,dx = \int\left(\sum_{n=1}^\infty\frac{x^n}{n}\right)\,dx = \sum_{n=1}^\infty \frac{1}{n}\int x^n\,dx = \sum_{n=1}^\infty\frac{x^{n+1}}{n(n+1)}+C.
+\]
+You can check that once again the radius of convergence is $r=1$, but this time the interval of convergence is $[-1,1]$, since the series $\di\sum_{n=1}^\infty \frac{1^{n+1}}{n(n+1)}$ converges by comparison with the $p$-series $\di\sum\frac{1}{n^2}$.
+
+\item Section 3.5, \#34: Just for fun, let's use power series to solve a differential equation. (This particular equation is linear, so we can also solve it by other means.)
+
+Problem 34 asks us to solve the differential equation $y'=y+1$ with initial condition $y(0)=1$. To do so, we suppose that we have a power series representation $y = f(x) = \sum_{n=0}^\infty c_nx^n$ for the solutions. It follows that $y' = f'(x) = \sum_{n=1}^\infty nc_n x^{n-1}$, and plugging our series for $y$ and $y'$ into the differential equation, we have
+\[
+ \sum_{n=1}^\infty nc_n x^{n-1} = \sum_{n=0}^\infty c_n x^n + 1 .
+\]
+If we shift the index for the series on the left, we have
+\[
+ y' = \sum_{n=0}^\infty(n+1)c_{n+1}x^n = 1+\sum_{n=0}\infty c_nx^n.
+\]
+(We added one to the index on the left, but begin the sum at $n=0$ instead of $n=1$. You can write out the first few terms to verify that doing this doesn't change anything.)
+
+Now, if we bring the two series to one side and combine them, we have
+\[
+ \sum_{n=0}^\infty[(n+1)c_{n+1}-c_n]x^n = (c_1-c_0) + \sum_{n=1}^\infty[(n+1)c_{n+1}-c_n]x^n = 1,
+\]
+where we separated the constant ($n=0$) term from the sum on the left. Comparing left and right-hand sides, we must have
+\[
+ c_1-c_0 =1 \text{ and } (n+1)c_{n+1}-c_n = 0 \text{ for all } n\geq 1.
+\]
+Our initial condition is that $c_0 = y(0) = 1$, and the equation $c_1-c_0=1$ then tells us that $c_1=2$. From here, we determine our power series using the recursion formula
+\[
+ c_{n+1}=\frac{1}{n+1}c_n
+\]
+for $n\geq 1$, with initial value $c_1=2$. Thus, $c_2 = \frac{1}{2}c_1 = 1$, $c_3 = \frac{1}{3}c_2 = \frac{1}{3}$, $c_4 = \frac{1}{4}c_3 = \frac{1}{12}$, etc.
+
+\textbf{Exercise:} Solve the differential equation as a linear differential equation and show that the exact solution is $y = -1+2e^x$. Then verify that the Taylor series for this function agrees with the values of $c_n$ determined above.
+
+\item Section 3.8, \#8. We're asked for the Taylor series for $f(x)=1/x$, expanded about $c=1$. We first compute that
+\[
+ f'(x) = \frac{-1}{x^2}, \quad f''(x) = \frac{2}{x^3}, \quad f'''(x) = \frac{-6}{x^4}, \ldots
+\]
+and make the educated guess that $f^{(n)}(x) = \dfrac{(-1)^nn!}{x^{n+1}}$ for each natural number $n$. (A rigorous proof that this guess is correct requires mathematical induction.) We then have $f^{(n)}(1) = (-1)^nn!$, so the desired Taylor series is
+\[
+ \frac{1}{x} = \sum_{n=0}^\infty \frac{f^{(n)}(1)}{n!}(x-1)^n = \sum_{n=0}^\infty (-1)^n(x-1)^n = \sum_{n=0}^\infty (1-x)^n.
+\]
+You can check that this is valid for $\abs{x-1}<1$ (so $x\in (0,2)$) using the formula for the sum of a geometric series:
+\[
+ \sum_{n=0}^\infty (1-x)^n = \frac{1}{1-(1-x)} = \frac{1}{x}.
+\]
+
+\item Section 3.8, \# 28: We're asked to find a Taylor series expansion for $f(x) = \arctan(x/2)$. From Key Idea 18 in the textbook, we know that
+\[
+ \arctan x = \sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}
+\]
+for $x\in [-1,1]$, so if we substitute $x/2$ for $x$ on both sides of this equation, we find that for $x\in [-2,2]$, we have
+\[
+ \arctan(x/2) = \sum_{n=0}^\infty (-1)^n\frac{(x/2)^{2n+1}}{2n+1} = \sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{(2n+1)2^{2n+1}}.
+\]
+
+\end{itemize}
+
+
+
+
+
+
+\end{document}

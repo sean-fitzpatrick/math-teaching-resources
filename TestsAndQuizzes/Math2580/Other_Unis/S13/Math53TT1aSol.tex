@@ -1,0 +1,253 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 40}}
+\chead{MATH 53}\lhead{Test \# 1}\rhead{Friday, 15\textsuperscript{th} February, 2013}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\ivec}{\,\boldsymbol{\hat{\imath}}}
+\newcommand{\jvec}{\,\boldsymbol{\hat{\jmath}}}
+\newcommand{\kvec}{\,\boldsymbol{\hat{k}}}
+\DeclareMathOperator{\comp}{comp}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of California, Berkeley}\\
+Department of Mathematics\\
+15\textsuperscript{th} February, 2013, 12:10-12:55 pm\\
+{\bf MATH 53 - Test \#1}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{100pt}Solutions\hspace{200pt}}\\
+\skipline
+First Name:\underline{\hspace{100pt}The\hspace{225pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+\skipline
+Discussion Section: \underline{\hspace{307pt}}\\
+\skipline
+Name of GSI: \underline{\hspace{336pt}}\\
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ {\bf Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+There is a list of potentially useful formulas available on the last page of the exam.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 1 & \enspace\enspace\enspace\enspace\enspace\enspace/14\\
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/13\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/13\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/40\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+A
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item \begin{enumerate}
+\item Describe the motion of a particle whose position $(x(t),y(t))$ at time $t\in [0,2\pi]$ is given by $x=\cos t,\, y=\sin^2 t$. (In particular, what is the Cartesian equation of the curve?) \points{6}
+
+\bigskip
+
+We notice that $y=\sin^2 t = 1-\cos^2t = 1-x^2$, so that the particle travels along the parabola $y=1-x^2$, for $-1\leq x\leq 1$ (since $-1\leq \cos t\leq 1$ for all $t$).
+
+At time $t=0$ the particle begins at the point $(1,0)$, and then travels up towards the vertex $(0,1)$, which it reaches at time $t=\pi/2$. It then continues to the other end of the parabola at $(-1,0)$, which it reaches at time $t=\pi$, before turning around and travelling across the parabola again, returning to $(0,1)$ when $t=3\pi/2$, and getting back to the starting point $(1,0)$ when $t=2\pi$.
+
+\vspace{0.5in}
+
+\item Set up, but do not evaluate, the integral which computes the length of the curve from part (a). How does this compare to the distance travelled by the particle? \points{4}
+
+\bigskip
+
+We saw that the full length of the curve is travelled in the interval $0\leq t\leq \pi$, and thus, we have
+\[
+L = \int_0^\pi\sqrt{x'(t)^2+y'(t)^2} = \int_0^\pi\sqrt{\sin^2t+4\cos^2t\sin^2t}\,dt.
+\]
+This length is half of the total distance travelled by the particle.
+
+\vspace{0.5in}
+
+\end{enumerate}
+\item Find the equation of the tangent line to the curve represented by the vector-valued function $\mathbf{r}(t) = \langle t^5,t^4,t^3\rangle$ at the point $(1,1,1)$. \points{4}
+
+\bigskip
+
+First, we note that the point $(1,1,1)$ corresponds to $\mathbf{r}(1) = \langle 1,1,1\rangle$. The tangent vector at an arbitrary point is given by $\mathbf{r}'(t) = \langle 5t^4,4t^3,3t^2\rangle$, and thus in particular, we have $\mathbf{r}'(1) = \langle 5,4,3\rangle$. The equation of the tangent line is therefore
+\[
+\mathbf{r}(s) = \langle 1,1,1\rangle +s\langle 5,4,3\rangle,
+\]
+or $x=1+5s,\,y=1+4s,\, z=1+3s$. (Either parametric or vector form is sufficient; the parameter $s$ is used for the line instead of $t$ to avoid confusion, but using $t$ again is acceptable.)
+
+\newpage
+
+\item \begin{enumerate}
+\item Find the equation of the line of intersection of the planes given by the equations \points{8}
+\begin{align*}
+x - 2y + 3z & = -2\\
+2x + y - 4z & = 6.
+\end{align*}
+
+
+\bigskip
+
+Multiplying the first equation by $-2$ gives us $-2x+4y-6z=4$; adding this to the second gives $5y-10z=10$. We can thus solve for $y$ in terms of $z$, giving $y=2z+2$. Plugging this back into the first equation gives us
+\[
+x = -2+2y-3z = -2 +4z+4-3z = z+2.
+\]
+Thus, if we let $z=t$ be our parameter, we obtain the parametric equations $x=2+t,\,y=2+2t,z=t$ for the line.
+
+\vspace{1in}
+
+\item What is the cosine of the angle of intersection of the two planes in part (a)? \points{2}
+
+\bigskip
+
+The two planes have normal vectors $\mathbf{n}_1 = \langle 1,-2,3\rangle$ and $\mathbf{n}_2 = \langle 2,1,-4\rangle$. The angle between the planes is therefore given by
+\[
+\cos\theta = \frac{\mathbf{n}_1\dotp\mathbf{n}_2}{\len{\mathbf{n}_1}\len{\mathbf{n_2}}} = \frac{2-2-12}{\sqrt{1+4+9}\sqrt{4+1+16}} = \frac{-12}{\sqrt{14}\sqrt{21}}.
+\]
+(You can simplify the answer further, but it's not necessary.)
+
+\bigskip
+
+\item What is the distance from the plane $x-2y+3z=-2$ to the point $(3,-1,4)$? \points{3}
+
+\bigskip
+
+Assuming that you didn't bother to fill your brain with unnecessary distance formulas, we proceed as follows: we know that the point $(2,2,0)$ is on the plane from part (a), and thus a vector from the plane to the point is $\aaa = \langle 3-2, -1-2, 4-0\rangle =\langle 1, -3, 4\rangle$. The distance is then given by the length of the normal component of this vector; that is,
+\[
+d = \abs{\comp_{\mathbf{n}_1}\aaa} = \frac{\abs{\aaa\dotp\mathbf{n_1}}}{\len{\mathbf{n}_1}} = \frac{\abs{1+6+12}}{\sqrt{1+4+9}}=\frac{19}{\sqrt{14}}.
+\]
+
+\bigskip
+\end{enumerate}
+
+\newpage
+
+\item Find the area of the triangle $\Delta PQR$, for points $P(0,0,0),\, Q(1,2,-1),\, R(-2,3,2)$. \points{7}
+
+\bigskip
+
+The area of the triangle is given by $A = \dfrac{1}{2}\len{\overrightarrow{PQ}\times\overrightarrow{PR}}$. We have $\overrightarrow{PQ}=\langle 1,2,-1\rangle$ and $\overrightarrow{PR} = \langle -2,3,2\rangle$, which gives us
+\[
+\overrightarrow{PQ}\times\overrightarrow{PR} = \begin{vmatrix}
+\ivec &\jvec & \kvec\\ 1& 2 & -1\\ -2&3&2
+\end{vmatrix} = \langle 7,0,7\rangle.
+\]
+The area is thus $A=\dfrac{1}{2}\len{\langle 7,0,7\rangle} = \dfrac{7}{\sqrt{2}}$.
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+
+
+
+\item Let $\mathbf{a},\,\mathbf{b},\mathbf{c}$ be nonzero vectors in $\R^3$. For each of the following, prove the statement, or give an example showing that the statement is false: \points{6}
+\begin{enumerate}
+\item If $\aaa\dotp\bbb = \aaa\dotp\ccc$, then $\bbb=\ccc$.
+\item If $\aaa\times\bbb = \aaa\times\ccc$, then $\bbb=\ccc$.
+\item If $\aaa\dotp\bbb = \aaa\dotp\ccc$ and $\aaa\times\bbb = \aaa\times\ccc$, then $\bbb=\ccc$.
+
+
+\bigskip
+
+For part (a), let $\aaa = \ivec, \, \bbb = \jvec,$ and $\ccc = \kvec$. Then $\aaa\dotp\bbb = \aaa\dotp\ccc = 0$, but $\jvec\neq \kvec$, so the statement is false.
+
+For part (b), let $\aaa = \ivec,\, \bbb = \ivec$, and $\ccc = 2\ivec$. Then $\ccc\neq \bbb$, but $\aaa\times\bbb = \aaa\times\ccc = \mathbf{0}$, so the statement is false.
+
+For part (c), suppose that $\aaa\times\bbb=\aaa\times\ccc$. Since the cross product is distributive, this implies that $\aaa\times(\bbb-\ccc)=0$, which tells us that $\bbb-\ccc = k\aaa$ for some scalar $k$. (Either $\bbb=\ccc$, so $k=0$, or $\aaa$ is parallel to $\bbb-\ccc$.) If we also have that $\aaa\dotp\bbb = \aaa\dotp\ccc$, then it follows that 
+\[
+0 = \aaa\dotp(\bbb-\ccc) = \aaa\dotp (k\aaa) = k\len{\aaa}^2.
+\]
+Since $\aaa\neq \mathbf{0}$, we must have $k=0$, and thus $\bbb=\ccc$. 
+
+
+\end{enumerate}
+
+
+\end{enumerate}
+\newpage
+
+\begin{center}
+List of potentially useful formulas and facts:
+\end{center}
+
+In the following, assume $\aaa = \langle a_1,a_2,a_3\rangle$ and $\bbb = \langle b_1,b_2,b_3\rangle$ are constant vectors in $\R^3$, and $\mathbf{r}(t) = \langle x(t),y(t),z(t)\rangle$ is a vector-valued function with domain $[a,b]$.
+\begin{itemize}
+\item Length of a vector: $\lVert\aaa\rVert = \sqrt{a_1^2+a_2^2+a_3^2}$
+\item Dot product: $\aaa\dotp\bbb = a_1b_1+a_2b_2+a_3b_3 = \lVert\aaa\rVert\,\lVert\bbb\rVert\cos\theta$
+\item Cross product: $\aaa\times\bbb = \langle a_2b_3-a_3b_3,a_3b_1-a_1b_3,a_1b_2-a_2b_1\rangle$; $\lVert \aaa\times\bbb\rVert = \lVert\aaa\rVert\,\lVert\bbb\rVert\sin\theta$.
+\item Projections: $\operatorname{proj}_\aaa\bbb = \dfrac{\aaa\dotp\bbb}{\lVert\aaa\rVert}\left(\dfrac{\aaa}{\lVert\aaa\rVert}\right)$, $\operatorname{comp}_\aaa\bbb = \dfrac{\aaa\dotp\bbb}{\lVert\aaa\rVert}$.
+\item Planes: $ax+by+cz=d$, or $\mathbf{n}\dotp(\mathbf{r}-\mathbf{r}_0)=0$.
+\item Lines: $x=x_0+at,\, y=y_0+bt,\, z=z_0+ct$, or $\mathbf{r} = \mathbf{r}_0+t\mathbf{v}$.
+\item Quadric surfaces: there aren't any on the midterm, so you can relax and play with some vectors.
+\item Parametric area: $\displaystyle A = -\int_a^b y(t)x'(t)\, dt$ for a positively-oriented curve.
+\item Tangent vectors: For each $t_0\in [a,b]$, $\mathbf{r}(t)$ has tangent vector $\mathbf{r}'(t_0) = \langle x'(t_0),y'(t_0),z'(t_0)\rangle$.
+\item Parametric length: $\displaystyle L = \int_a^b\lVert\mathbf{r}'(t)\rVert\,dt$.
+\end{itemize}
+\begin{center}
+List of basic facts I hope were in fact entirely unnecessary to include:
+\end{center}
+\begin{itemize}
+\item $\sin^2\theta+\cos^2\theta = 1$
+\item $\displaystyle \frac{d}{dt}(t^n) = nt^{n-1},\, \frac{d}{dt}\sin t = \cos t,\, \frac{d}{dt}\cos t = -\sin t$
+\item $\dfrac{d}{dt}(f(t)g(t)) = f'(t)g(t)+f(t)g'(t)$
+\end{itemize}
+\end{document}

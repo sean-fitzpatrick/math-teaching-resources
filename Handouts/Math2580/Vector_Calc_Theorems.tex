@@ -1,0 +1,55 @@
+\documentclass[12pt,letterpaper]{amsart}
+\usepackage[latin1]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{mathabx}
+\usepackage[all,cmtip]{xy}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{rem}[theorem]{Remark}
+\newenvironment{remark}{\begin{rem}\rm}{\end{rem}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\D}{\mathbf{D}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\dotp}{\,\boldsymbol{\cdot}\,}
+
+\title{Diagram of vector calculus theorems}
+\author{Sean Fitzpatrick}
+\begin{document}
+\maketitle
+
+
+
+\[\xymatrixcolsep{5pc}
+\xymatrix{\{functions\} \ar[r]^{\nabla}_{f\mapsto \nabla f} \ar@{<->}[dd]_{\begin{matrix}
+f\\ \\ \mathbf{a}
+\end{matrix}}^{f(\mathbf{a})} & \{vector fields\} \ar[r]^{\nabla}_{\mathbf{F}\mapsto \nabla\times\mathbf{F}} \ar@{<->}[dd]_{\begin{matrix}
+\mathbf{F} \\ \\ C
+\end{matrix}}^{ \int_C\mathbf{F}\dotp d\mathbf{r}} & \{vector fields\} \ar[r]^{\nabla}_{\mathbf{G}\mapsto\nabla\dotp\mathbf{G}} \ar@{<->}[dd]_{\begin{matrix}
+\mathbf{G}\\ \\ S
+\end{matrix}}^{\iint_S\mathbf{G}\dotp d\mathbf{S}} & \{functions\} \ar@{<->}[dd]_{\begin{matrix}
+g\\ \\ E
+\end{matrix}}^{\iiint_E g\,dV}\\
+ & & & \\
+\{points\} & \{curves\} \ar[l]_{\partial} & \{surfaces\} \ar[l]_{\partial} & \{regions\} \ar[l]_{\partial}\\
+ 0 & 1 & 2 & 3}
+ \]
+ 
+ \medskip
+ 
+The numbers along the bottom indicate the dimension of the region of integration; the vertical arrows indicate how elements of the top row are paired with elements of the bottom row to obtain a number (via integration, except in dimension 0, where ``integration'' is just evaluation of a function at a point). The horizontal arrows in the top row tell us how the $\nabla$ operator takes us from one set to the next, and the horizontal arrows in the bottom row indicate the operation of taking the positively-oriented boundary. Notice that the ``boundary of a boundary'' is always empty --- for example, the boundary of a surface is a closed curve, which itself has no boundary, and along the top row, this corresponds to the two identities $\nabla\times (\nabla f)= \mathbf{0}$ and $\nabla\dotp(\nabla\times \mathbf{F})=0$.
+
+The three vector calculus theorems are encoded in this diagram as follows: there is a natural pairing in each column given by the vertical arrows. In each of the three squares, we decide that we instead want to combine an element from the top left corner, with one from the bottom right. This means we have to either move the element in the top left corner one column to the right (using $\nabla$), or move the element in the bottom right corner one column to the left (using $\partial$), and then combine along the vertical arrows. Each of the vector calculus theorems tells us that both ways are equivalent. For example, in the first square, we choose some function $f$ from the top left, and a curve $C$ from the bottom right. We can either take the gradient of $f$, and integrate along $C$, or take the boundary of $C$, and plug these points into $f$.
+
+When presented, with a line or surface integral, you always have the option of computing it directly (using a parameterization), or checking to see if one of the vector calculus theorems applies. For example, given a line integral $\int_C \mathbf{F}\dotp d\mathbf{r}$ (column 1), we can ask two questions:
+\begin{enumerate}
+\item Is $\mathbf{F}$ conservative? If so, $\mathbf{F}=\nabla f$ for some function $f$, and in the diagram above, the FTC for line integrals tells you that you can ``shift'' left, from column 1 to column 0, by taking the boundary of $C$.
+\item Is $C$ closed? If so, $C=\partial S$ for some surface $S$, and in the diagram above, Stokes' Theorem tells you that you can shift right, from column 1 to column 2, by taking the curl of $\mathbf{F}$.
+\end{enumerate}
+And of course, if the answer to both questions is yes, then we have to have $\int_C \mathbf{F}\dotp d\mathbf{r}=0$.
+\end{document}

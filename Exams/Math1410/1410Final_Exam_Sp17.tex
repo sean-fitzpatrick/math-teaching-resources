@@ -1,0 +1,327 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 100}}
+\chead{MATH 1410}\lhead{MAKEUP FINAL EXAM}\rhead{24th April, 2017}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\P}{\mathcal{P}}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\spn}{span}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+24th April, 2017, 9:00 am - 12:00 pm\\
+{\bf MATH 1410 - FINAL EXAM}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+\skipline
+Lecture Section (circle): \quad \textbf{A} (1:40 - 2:55 pm) \qquad \textbf{B} (10:50 am - 12:05 pm)
+
+
+\vspace{0.1in}
+
+
+\begin{quote}
+
+ 
+ Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page. Additional scrap paper may be requested if needed.
+ 
+ \bigskip
+ 
+ Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+\bigskip
+
+ \textbf{No external aids are permitted}, with the exception of a basic (non-scientific and non-graphing) calculator.
+\end{quote}
+
+
+\vspace{0.2in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/14\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 7 & \enspace\enspace\enspace\enspace\enspace\enspace/9\\
+\cline{1-2} 8 & \enspace\enspace\enspace\enspace\enspace\enspace/9\\
+\cline{1-2} 9 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 10 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 11 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/100\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item DEFINITIONS. (2 points each) Give the definition of the term in bold by completing the sentence. 
+
+\begin{enumerate}
+ \item Two vectors $\vec{v}$ and $\vec{w}$ are \textbf{orthogonal} if: 
+
+\vspace{1.3in}
+
+ \item A \textbf{linear combination} of vectors $\vec{v}_1, \vec{v}_2,\ldots, \vec{v}_k$ is any expression of the form:
+
+\vspace{1.3in}
+
+ \item The \textbf{trace} of an $n\times n$ matrix $A$ is given by:
+
+\vspace{1.3in}
+
+ \item An $n\times n$ matrix $A$ is \textbf{invertible} if:
+
+\vspace{1.3in}
+
+ \item We say that an $n\times n$ matrix $B$ is \textbf{similar} to an $n\times n$ matrix $A$ if:
+
+
+ 
+\end{enumerate}
+\newpage
+
+\item Given the complex numbers $z=3+5i$ and $w=-2+3i$, compute:
+\begin{enumerate}
+ \item $z+\overline{w}$ \points{2}
+
+\vspace{0.75in}
+
+ \item $z^2$ \points{2}
+
+\vspace{1.1in}
+
+ \item $\dfrac{z}{w}$ \points{3}
+
+\vspace{1.5in}
+
+\end{enumerate}
+
+\item Given the vectors $\vec{v} = \langle 2, -1, 5\rangle$ and $\vec{w} = \langle -3, 0, 2\rangle$, compute:
+\begin{enumerate}
+ \item $2\vec{v}-3\vec{w}$ \points{2}
+
+\vspace{0.9in}
+
+ \item $\vec{v}\dotp\vec{w}$ \points{2}
+
+\vspace{0.9in}
+
+ \item $\vec{v}\times\vec{w}$ \points{3}
+\end{enumerate}
+
+
+\newpage
+
+\item SHORT ANSWER -- More calculations. You don't have to show work, but it can earn you part marks if you do.
+
+\begin{enumerate}
+ \item Compute the determinant of the matrix $A = \bbm 1-i & 1+2i\\2-4i & 3+3i\ebm$. \points{3}
+
+\vspace{2in}
+
+ \item Assume $A$ and $B$ are $3\times 3$ matrices. Simplify the matrix product $(A^TBC)^{-1}(C^TA^{-1})^T$. \points{3}
+
+\vspace{1.5in}
+
+ \item Compute the matrix product $\bbm 3&-5\\-2&-1\ebm\bbm 4&2\\3&-6\ebm$. \points{3}
+
+\vspace{1.5in}
+
+ \item Determine if $x=2, y=-1, z=3$ is a solution to the system $\arraycolsep=2pt\begin{array}{ccccccc}x&-&3y&+&2z&=&5\\-2x&+&y&+&z&=&1\\x&+&3y&+&z&=&2\end{array}.$\points{3}
+
+\end{enumerate}
+\newpage
+
+\item SHORT(-ISH) ANSWSER --- Even more calculations:
+
+\begin{enumerate}
+ \item Determine the eigenvalues of the matrix $A=\bbm 3&2\\-1&1\ebm$\points{4}
+
+\vspace{2.5in}
+
+ \item Show that $\vec{x}_1 = \bbm 1\\1\\0\ebm$ and $\vec{x}_2=\bbm -1\\0\\1\ebm$ are eigenvectors of the matrix $A=\bbm 2&1&-1\\2&1&2\\1&-1&4\ebm$.\points{4}
+
+\vspace{2.5in}
+
+ \item Compute $T\left(\bbm 4\\-3\ebm\right)$, where $T:\R^2\to \R^2$ is a matrix transformation such that $T\left(\bbm 1\\0\ebm\right) = \bbm 2\\-1\ebm$ and $T\left(\bbm 0\\1\ebm\right) = \bbm 5\\-2\ebm$. \points{2}
+
+\end{enumerate}
+\newpage
+
+\item Given the matrix $A = \bbm 1&4\\1&-2\ebm$:
+\begin{enumerate}
+ \item Find the eigenvalues of $A$. \points{3}
+
+\vspace{2in}
+
+ \item For each eigenvalue found in part (a), determine a corresponding eigenvector. \points{6}
+
+\vspace{4.25in}
+
+ \item Determine a matrix $P$ such that $P^{-1}AP$ is a diagonal matrix, or explain why no such $P$ exists. \points{1} You do not have to verify that your matrix $P$ works (unless you want to).
+\end{enumerate}
+
+
+\newpage
+
+\item Compute the determinant of the matrix \points{6}
+\[
+ A = \bbm 1&2&-3&4\\-4&2&1&3\\3&0&0&-3\\2&0&-2&3\ebm
+\]
+
+\vspace{4.5in}
+
+\item Suppose that the matrix $B = \bbm 3&7&-2\\0&-2&5\\0&0&2\ebm$ is obtained from a matrix $A$ using the following row operations ($A_1, A_2, A_3$ represent intermediate steps):\points{3} 
+\[
+ A \xrightarrow{R_2+3R_3\to R_2} A_1 \xrightarrow{\frac{1}{3}R_2\to R_2} A_2 \xrightarrow{R_1\leftrightarrow R_3}A_3 \xrightarrow{R1-2R_2\to R_1} A_4=B.
+\]
+What is the determinant of $A$?
+\newpage
+
+\item Compute the inverse of the matrix $A = \bbm 1&-2&3\\2&-1&6\\-1&2&-2\ebm$.\points{6}
+
+\vspace{5in}
+
+ \item For which values of $x$ is the matrix $\bbm x&-2&x^2\\-x&2&3x\\-1&2x&2\ebm$ invertible? \points{3}
+
+
+\newpage
+
+\item 
+\begin{enumerate}
+ \item Determine the solution to the system \points{6}
+\[\arraycolsep=3pt
+ \begin{array}{ccccccccc}
+  x_1&-&2x_2&-&x_3&+&3x_4&=&1\\
+  2x_1&-&4x_2&+&x_3& & &=&5\\
+  -x_1&+&2x_2&-&2x_3&+&3x_4&=&-4
+ \end{array}
+\]
+ Write your answer in vector form.
+
+\vspace{5in}
+
+ \item Let $A = \bbm 1&-2&-1&3\\2&-4&1&0\\-1&2&-2&3\ebm$ be the coefficient matrix from part (a). Determine vectors $\vec{v}$ and $\vec{w}$ such that $\operatorname{null}(A)=\operatorname{span}\{\vec{v},\vec{w}\}$. \points{2}
+
+\textit{Hint:} $\vec{v}$ and $\vec{w}$ are solutions to the homogeneous system corresponding to the system in part (a).
+\end{enumerate}
+
+\newpage
+
+\item 
+\begin{enumerate}
+ \item Find an equation of the plane containing the points  $P=(0,1,2)$, $Q=(-1,2,1)$, and $R=(2,0,3)$. \points{4}
+
+\vspace{4in}
+
+ \item Determine the line of intersection of the planes $x+2y-3z=2$ and $-2x-3y+4z=1$. \points{4}
+\end{enumerate}
+
+
+\newpage
+
+
+ \item An $n\times n$ matrix is called \textbf{idempotent} if $A^2=A$.
+\begin{enumerate}
+ \item Show that $A=\bbm 1&0\\0&1\ebm$, $B= \bbm 1&1\\0&0\ebm$, and $C = \bbm 1/2&1/2\\1/2&1/2\ebm$ are all idempotent. \points{3}
+
+\vspace{3in}
+
+ \item Show that if an idempotent matrix is invertible, then it must be the identity matrix. \points{3}
+
+\vspace{2in}
+
+ \item Prove that if an $n\times n$ matrix $A$ is idempotent, then $I-2A$ is equal to its own inverse, where $I$ denotes the $n\times n$ identity matrix. \points{4}
+
+\vspace*{\fill}
+
+ \item \textbf{Bonus} (complete on next page): Prove that the only possible eigenvalues of an idempotent matrix are $\lambda = 0$ and $\lambda = 1$.\points{5}
+
+\end{enumerate}
+
+
+
+\newpage
+
+\noindent\textbf{Scrap page}: Extra space for the 13(b) bonus problem, or for rough work.
+
+\bigskip
+
+\noindent\textbf{Note}: The bonus problem will be graded strictly. Any solution involving an example, or that refers to the individual entries of the matrix, will receive no credit. Your solution, should you choose to provide one, should involve little more than the definitions of \textit{idempotent} and \textit{eigenvalue}.
+
+\vspace*{\fill}
+
+Additional problem for those who ignored my disclaimer about there being no solutions to past exams:
+
+\item Rick Astley is never gonna: \points{0}
+\begin{enumerate}
+ \item Give you up.
+ \item Let you down.
+ \item Desert you.
+ \item All of the above.
+\end{enumerate}
+
+\end{enumerate}
+\end{document}

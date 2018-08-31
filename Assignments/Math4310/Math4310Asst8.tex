@@ -1,0 +1,46 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+\newcommand{\T}{\mathcal{T}}
+\DeclareMathOperator{\Int}{Int}
+
+\title{Math 4310 Assignment \#8\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Friday, October 31st, by 5 pm.
+
+\bigskip
+
+Please submit solutions to the following problems (except where indicated). As usual, all the textbook exercises are recommended as practice problems if they don't appear as an assigned problem below.
+
+\begin{enumerate}
+\item Prove that any finite subset of a topological space is compact.
+\item Let $X$ be a set and let $\T_1, \T_2$ be two topologies on $X$, such that $\T_1\subseteq \T_2$.
+\begin{enumerate}
+ \item Prove that if $(X,\T_2)$ is compact, then $(X,\T_1)$ is compact.
+ \item Prove that if $(X,\T_1)$ is Hausdorff and $(X,\T_2)$ is compact, then $\T_1=\T_2$.
+\end{enumerate}
+ \item Prove that if $\{A_\alpha\}$ is any collection of compact subsets of a Hausdorff space $X$, then $\bigcap_\alpha A_\alpha$ is compact.
+ \item Prove that if $Y$ is compact, then the projection $\pi_X: X\times Y\to X$ is a closed map.
+ \item Prove the following theorem: Let $Y$ be a compact Hausdorff space, and let $f:X\to Y$ be a map. Then $f$ is continuous if and only if the graph of $f$, $\Gamma_f = \{(x,f(x)) : x\in X\}$ is closed in $X\times Y$.
+
+{\em Hint:} If $\Gamma_f$ is closed and $V$ is a neighbourhood of $f(x_0)$ in $Y$, then the intersection of $\Gamma_f$ and $X\times (Y\setminus V)$ is closed. Now apply the previous problem.
+\end{enumerate}
+\end{document}
+ 

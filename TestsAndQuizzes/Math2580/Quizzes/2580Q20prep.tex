@@ -1,0 +1,58 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\di}{\displaystyle}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\len}[1]{\left\lVert #1\right\rVert}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\F}{\mathbf{F}}
+
+\title{Practice for Quiz 20\\Math 2580\\Spring 2016}
+\author{Sean Fitzpatrick}
+\date{March 31st, 2016}
+
+\begin{document}
+ \maketitle
+
+If you can answer the following problems, you should be well-prepared for Quiz 20:
+
+
+
+\begin{enumerate}
+ \item Use Green's Theorem to evaluate the given line integral. Assume the orientation of the curve is positive, unless otherwise indicated.
+\begin{enumerate}
+ \item $\int_C x^2y^2\,dx+4xy^3\,dy$, where $C$ is the triangle with vertices $(0,0)$, $(1,3)$, and $(0,3)$.
+ \item $\int_C xe^{-2x}\,dx+(x^4+2x^2y^2)\,dy$, where $C$ is the boundary of the region between the circles $x^2+y^2=1$ and $x^2+y^2=4$.
+ \item $\int_C y^3\,dx-x^3\,dy$, where $C$ is the circle $x^2+y^2=4$.
+ \item $\int_C \F\dotp \,d\r$, where $\F(x,y) = \langle y^2\cos x, x^2+2y\sin x\rangle$ and $C$ is the trianglular path from $(0,0)$ to $(2,6)$ to $(2,0)$, and back to $(0,0)$.
+\end{enumerate}
+ \item Find a normal vector to the given parameterized surface at the given point:
+\begin{enumerate}
+ \item $x=2u$, $y=u^2+v$, $z=v^2$, at the point $(0,1,1)$.
+ \item $x=u^2-v^2$, $y=u+v$, $z=u^2+4v$, at the point $(-\frac{1}{4}, \frac{1}{2}, 2)$.
+\end{enumerate}
+Note: a surface in $\R^3$ is parameterized by a map $\Phi(u,v) = (x(u,v), y(u,v), z(u,v))$. The derivative of this map is $D_{(u,v)}\Phi = \begin{bmatrix} x_u & x_v\\y_u&y_v\\z_u&z_v\end{bmatrix} = [\Phi_u | \Phi_v]$, where 
+\begin{align*}
+ \Phi_u(u,v) &= \langle x_u(u,v), y_u(u,v), z_u(u,v)\rangle\\
+ \Phi_v(u,v) &= \langle x_v(u,v), y_v(u,v), z_v(u,v)\rangle\\
+\end{align*}
+are the partial derivatives of $\Phi$ with respect to $u$ and $v$, viewed as vectors. At a given point $\Phi(u_0,v_0)$ on the surface, the vectors $\Phi_u(u_0,v_0)$ and $\Phi_v(u_0,v_0)$ are both tangent to the surface. (Make sure you understand why!) Given two tangent vectors, you can use the cross product to get a normal vector.
+
+
+ \end{enumerate}
+
+\end{document}
+ 

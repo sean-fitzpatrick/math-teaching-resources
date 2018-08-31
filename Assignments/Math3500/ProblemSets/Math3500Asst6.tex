@@ -1,0 +1,95 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+%\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\ss}{\subseteq}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\title{Math 3500 Assignment \#6\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+ \item ({\bf Do not submit}) Let $f:D\to\R$ be continuous. For each of the following, prove the result, or give a counterexample.
+\begin{enumerate}
+ \item If $D$ is open, then $f(D)$ is open.
+
+ \item If $D$ is closed, then $f(D)$ is closed.
+
+ \item If $D$ is not open, then $f(D)$ is not open.
+
+
+ \item If $D$ is not closed, then $f(D)$ is not closed.
+
+
+
+ \item If $D$ is not compact, then $f(D)$ is not compact.
+
+
+ \item If $D$ is unbounded, then $f(D)$ is unbounded.
+
+
+ \item If $D$ is finite, then $f(D)$ is finite.
+
+ \item If $D$ is infinite, then $f(D)$ is infinite.
+
+
+ \item If $D$ is an interval, then $f(D)$ is an interval.
+
+
+ \item If $D$ is an interval that is not open, then $f(D)$ is an interval that is not open.
+
+
+
+\end{enumerate}
+(Note: this is problem 5.3.3 in the text, and there's a hint in the back.)
+\item \begin{enumerate}
+       \item Let $a\in\R$ and define $f:\R\to\R$ by $f(x)=\abs{x-a}$. Prove that $f$ is continuous.
+
+
+
+       \item Let $K$ be a nonempty compact subset of $\R$ and let $a\in\R$. We define the distance from $a$ to $K$ by
+\[
+ d(a,K) = \inf\{\abs{x-a} : x\in K\}.
+\]
+(The infimum exists since $\{\abs{x-a} : x\in K\}$ is bounded below by zero.) Prove that there exists a point $b\in K$ that is {\em closest} to $a$, in the sense that $\abs{b-a} = d(a,K)$.
+      \end{enumerate}
+
+\item Prove that if $f:[a,b]\to\R$ is continuous and $f(x)\in \Q$ for all $x\in [a,b]$, then $f$ is constant.
+
+
+\item Suppose $f$ is continuous on $[0,2]$, and $f(0)=f(2)$. Prove that there exist $x,y\in [0,2]$ with $\abs{y-x}=1$ and $f(x)=f(y)$.
+
+{\em Hint:} Consider $g(x)=f(x+1)-f(x)$ on $[0,1]$.
+\item Prove that each of the following functions is uniformly continuous on the specified set using the $\epsilon$-$\delta$ definition of uniform continuity:
+\begin{enumerate}
+ \item $f(x)=x^2$ on $[0,3]$
+ \item $g(x)=\dfrac{1}{x}$ on $[\frac{1}{2},\infty)$
+\end{enumerate}
+\item ({\bf Do not submit}) Prove that if $f$ is uniformly continuous on a bounded set $D\subseteq \R$, then $f$ is bounded on $D$.
+
+{\em Hint:} If $f$ is not bounded on $D$, you can find some sequence $(a_n)$ in $D$ with $\abs{f(a_n)}\geq n$ for all $n\in\N$. But since $D$ is bounded, $(a_n)$ is a bounded sequence and therefore has a convergent subsequence. We also know that if $f$ is uniformly continuous and $(x_n)$ is a Cauchy sequence, then $(f(x_n))$ is also a Cauchy sequence.
+
+\item Prove that $f(x)=\sin x$ is uniformly continous on $\R$.
+
+{\em Hint:} First use the Mean Value Theorem to prove that $\abs{\sin x-\sin y}\leq \abs{x-y}$ for all $x,y\in\R$.
+
+
+
+\end{enumerate}
+
+\end{document}
+ 

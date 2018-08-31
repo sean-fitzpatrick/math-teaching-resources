@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2580A}\chead{Quiz \# 15 Solutions}\rhead{Thursday, 10\textsuperscript{th} March, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bvm}{\begin{vmatrix}}
+\newcommand{\evm}{\end{vmatrix}}                   
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+
+
+\begin{document}
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+ \begin{enumerate}
+ \item Calculate the Jacobian of the transformation $T(\rho,\phi,\theta) = (\rho\sin\phi\cos\theta, \rho\sin\phi\sin\theta, \rho\cos\phi)$.
+
+\bigskip
+
+We have $x = \rho\sin\phi\cos\theta, y=\rho\sin\phi\sin\theta$, and $z=\rho\cos\phi$. To simplify the computation of the $3\times 3$ determinant below, we recall that (i) we can perform the cofactor expansion along any row or column, and (ii) if any row or column has a common factor, it can be removed from the determinant. For example, $\bvm ax & y\\az&w\evm = a\bvm x&y\\z&w\evm$. Our Jacobian is given as follows:
+\begin{align*}
+ J_T(\rho,\phi,\theta) & = \bvm x_\rho & x_\phi & x_\theta\\ y_\rho & y_\phi & y_\theta \\ z_\rho & z_\phi & z_\theta\evm\\
+& = \bvm \sin\phi\cos\theta & \rho \cos\phi\cos\theta & -\rho\sin\phi\sin\theta\\ \sin\phi\sin\theta & \rho\cos\phi\sin\theta & \rho\sin\phi\cos\theta\\ \cos\phi & -\rho\sin\phi & 0\evm\\
+& = \cos\phi\bvm \rho\cos\phi\cos\theta & -\rho\sin\phi\sin\theta\\ \rho\cos\phi\sin\theta & \rho\sin\phi\cos\theta\evm 
++ \rho\sin\phi\bvm \sin\phi\cos\theta  & -\rho\sin\phi\sin\theta\\ \sin\phi\sin\theta & \rho\sin\phi\cos\theta\evm\\
+& = \rho^2\cos^2\phi\sin\phi\bvm \cos\theta & -\sin\theta\\ \sin\theta & \cos\theta\evm + \rho^2\sin^3\phi\bvm \cos\theta & -\sin\theta\\ \sin\theta & \cos\theta\evm\\
+& = \rho^2\sin\phi(\cos^2\phi+\sin^2\phi)(\cos^2\theta+\sin^2\theta)\\
+& = \rho^2\sin\phi.
+\end{align*}
+
+
+ \item Surprise bonus review problem!! \\ Find the area of the parallelogram with vertices $(1,1), (3,2), (2,4), (4,5)$.
+
+Hint: choose two adjacent sides, represent them as vectors, and fit these into a $2\times 2$ determinant.
+
+\bigskip
+
+The points $(3,2)$ and $(2,4)$ are adjacent to the point $(1,1)$ in the parallelogram, with $(4,5)$ being the point opposite to $(1,1)$. The vectors $\vec{v} = \bbm 3-1\\2-1\ebm = \bbm 2\\1\ebm$ and $\vec{w} = \bbm 2-1\\4-1\ebm = \bbm 1\\3\ebm$ thus give us two adjacent sides of the parallelogram. The area of the parallelogram is therefore
+\[
+ A = \lvert \det(\vec{v}\vert \vec{w})\rvert = \left\lvert \det\bbm 1&3\\2&1\ebm \right\rvert = \lvert -5\rvert = 5.
+\]
+
+ 
+\end{enumerate}
+
+
+
+
+
+
+\end{document}

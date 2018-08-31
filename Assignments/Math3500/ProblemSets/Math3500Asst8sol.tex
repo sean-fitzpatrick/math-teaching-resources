@@ -1,0 +1,148 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+%\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\ss}{\subseteq}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\Abs}[1]{\left| #1\right|}
+
+\title{Math 3500 Assignment \#8\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+{\bf Due date}: Friday, November 21st, by 6 pm.
+
+
+\begin{enumerate}
+ \item Let $f$ be differentiable on some interval $(c,\infty)$ and suppose that $\lim\limits_{x\to\infty}[f(x)+f'(x)]=L$, where $L$ is finite. Prove that $\lim\limits_{x\to\infty}f(x)=L$ and $\lim\limits_{x\to\infty}f'(x)=0$.
+
+Hint: for all $x>c$, $f(x)=\dfrac{e^xf(x)}{e^x}$.
+
+\bigskip
+
+First, we note that if $\lim_{x\to\infty}f(x)=0$, then the same is true for $f'(x)$. Otherwise, suppose that $\lim_{x\to\infty}f(x)=L>0$ (the case $L<0$ is similar). Then there exists $N>0$ such that for all $x>N$, we have $f'(x)>L/2$. Choose some $x_0>N$ and let $y_0=f(x_0)$, and $g(x) = \frac{L}{2}(x-x_0)+y_0$. Then $f(x_0)=g(x_0)$ and $f'(x)>g'(x)=L/2$ for all $x\geq x_0$, which implies that $f(x)\geq g(x)$ for all $x\geq x_0$ (apply the Mean Value Theorem to $f(x)-g(x)$ on $[x_0,x]$). Since $g(x)\to\infty$ as $x\to \infty$, the same must be true of $f(x)$.
+
+Having established this fact, suppose that $\lim_{x\to \infty}(f(x)+f'(x))=L$. We now consider $\lim_{x\to\infty}f(x)$; note that if this limit is zero, then so is $\lim_{x\to\infty}f'(x)$ and we're done. If not, then then since both $f(x)e^x\to \infty$ and $e^x\to \infty$ as $x\to \infty$, by l'Hospital's rule we have
+\[
+\lim_{x\to\infty}f(x) = \lim_{x\to\infty}\frac{f(x)e^x}{e^x} = \lim_{x\to\infty}\frac{f'(x)e^x+f(x)e^x}{e^x} = \lim_{x\to\infty}(f(x)+f'(x)),
+\]
+from which the result follows.
+
+\bigskip
+
+ \item When we apply l'Hospital's rule to the limit $\displaystyle \lim_{x\to a}\frac{f(x)}{g(x)}$, we require that $g'(x)\neq 0$ near $x=a$. This exercise demonstrates the importance of that requirement: if l'Hospital's rule is applied carelessly, it's possible for the zeros of $g'$ to cancel the zeros of $f'$, leading to an incorrect result. Consider the functions $f,g:\R\to\R$ given by
+\[
+ f(x)=x+\cos x\sin x \quad g(x) =e^{\sin x}(x+\cos x\sin x).
+\]
+\begin{enumerate}
+ \item Show that $\lim\limits_{x\to\infty}f(x)=\lim\limits_{x\to\infty}g(x)=\infty$
+ 
+ \bigskip
+ 
+ Since $-1\leq \cos x\sin x\leq 1$ for all $x\in \R$, given any $N>0$ we can let $M=N+1$, and then whenever $x>M$ we have $f(x)=x+\cos x\sin x\geq x-1 >M-1=N$, and thus, $\lim_{x\to\infty}f(x)=\infty$.
+ 
+ Similarly, since $1/e\leq e^{\sin x}\leq e$ for all $x\in \R$, given any $N>0$ we can choose $M=eN+1$, and then whenever $x>M$ we have
+ \[
+ g(x) = e^{\sin x}(x +\cos x\sin x) \geq \frac{1}{e}(x-1)> \frac{1}{e}(M-1)=N,
+ \]
+ so $\lim_{x\to \infty}g(x)=\infty$.
+ 
+ \bigskip
+ 
+ \item Show that $f'(x)=2\cos^2x$ and $g'(x)=e^{\sin x}\cos x[2\cos x+f(x)]$
+ 
+ \bigskip
+ 
+This follows from basic rules of differentiation:
+\begin{align*}
+f'(x) &= 1-\sin^2x+\cos^2x = 2\cos^2x,\text{ and }\\
+g'(x) &= e^{\sin x}\cos x(x+\sin x\cos x) + e^{\sin x}(2\cos^2 x) = e^{\sin x}\cos x(f(x)+2\cos x).
+\end{align*}
+ 
+ \bigskip
+ 
+ \item Show $\dfrac{f'(x)}{g'(x)} = \dfrac{2e^{-\sin x}\cos x}{2\cos x+f(x)}$ if $\cos x\neq 0$ and $x>3$.
+ 
+ \bigskip
+ 
+ Whenever $x>3$, $f(x)=x+\sin x\cos x>3-1=2$, so $f(x)+2\cos x>2-2=0$. Thus, when $\cos x\neq 0$, $g'(x)\neq 0$ and we get
+ \[
+ \frac{f'(x)}{g'(x)} = \frac{2\cos^2 x}{e^{\sin x}\cos x(f(x)+2\cos x)} = \frac{2e^{-\sin x}\cos x}{2\cos x+f(x)},
+ \]
+ as required. 
+ 
+ \bigskip
+ 
+ \item Show that $\lim\limits_{x\to\infty}\dfrac{f'(x)}{g'(x)}=0$, and yet $\lim\limits_{x\to\infty}\dfrac{f(x)}{g(x)}$ does not exist.
+ 
+ \bigskip
+ 
+ The first limit follows from the fact that $2e^{-\sin x}\cos x$ is bounded and $f(x)\to \infty$ as $x\to \infty$. The second limit does not exist since $\dfrac{f(x)}{g(x)} = e^{\sin x}$, and if we consider the sequence $x_n = \pi(2n+1/2)$, $n=1,2,\ldots$, then $x_n\to\infty$ and $e^{\sin x_n} = e$ for all $n$, while if we take the sequence $y_n = \pi(2n+3/2)$, $n-1,2,\ldots$, then $y_n\to\infty$ and $e^{\sin y_n} = 1/e\neq e$ for all $n$.
+ 
+ {\em Note}: if you're worried about the fact that $\cos x=0$ for $x = \pi/2 + n\pi$, for all $n\in\N$, you can check that the limit of $f'(x)/g'(x)$ at each such point is zero, so one can redefine $f'/g'$ to be equal to zero at each such point. (This falls under the general adage that removable discontinuities don't affect a limit.)
+ 
+ \bigskip
+\end{enumerate}
+ \item Find a Taylor polynomial that approximates $f(x)=e^x$ to within 0.2 on the interval $[-2,2]$.
+ 
+ \bigskip
+ 
+ We have $f(x) = 1+x+\dfrac{x}{2}+\cdots + \frac{x^n}{n!}+R_n(x)$, where by the Lagrange form of the remainder, there exists some $t$ between 0 and $x$ such that
+ \[
+ R_n(x) = \frac{f^{(n+1)}(t)}{(n+1)!}x^{n+1}.
+ \]
+ Since $f^{(n+1)}(t) = e^t$ and we must have $x,t\in [-2,2]$, we have $\abs{f^{(n+1)}(t)}\leq e^2$ and $\abs{x}\leq 2$. It follows that $\abs{R_n(x)}\leq \dfrac{e^22^{n+1}}{(n+1)!}$. We then compute as follows (rounded to two decimal places):
+ \begin{center}
+ \begin{tabular}{|c|cccccc|}
+ \hline
+ $n$ & 1 & 2 & 3 & 4 & 5 & 6\\
+ $\dfrac{e^22^{n+1}}{(n+1)!}$ & 14.78 & 9.85 & 4.93 & 1.97 & 0.66 & 0.18\\
+ \hline
+ \end{tabular}
+ \end{center}
+ Thus, when $n=6$ we have $\abs{R_6(x)}<0.2$ for all $x\in[-2,2]$, so the polynomial
+ \[
+ P_{6,0,f}(x) = 1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\frac{x^4}{4!}+\frac{x^5}{5!}+\frac{x^6}{6!}
+ \]
+ will suffice.
+ 
+ \bigskip
+ 
+ \item Show that if $x\in [0,1]$, then
+\[
+ x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}\leq \ln(1+x) \leq x-\frac{x^2}{2}+\frac{x^3}{3}.
+\]
+
+\bigskip
+
+Using long division, we have
+\[
+\frac{1}{1+t} = 1-t+t^2-t^3+\cdots+(-1)^nt^n + \frac{(-1)^{n+1}t^{n+1}}{1+t}
+\]
+for each $n=1,2,\ldots$. Thus, we have
+\[
+\ln(1+x) =\int_0^1 \frac{1}{1+t}\,dt = x - \frac{x^2}{2} + \cdots + (-1)^n\frac{x^{n+1}}{n+1} + (-1)^{n+1}\int_0^x\frac{t^{n+1}}{1+t}\,dt.
+\]
+Thus, $\displaystyle x-x^2/2+x^3/3-x^4/4 = \ln(1+x) -(-1)^4\int_0^x\frac{t^{4}}{1+t}\,dt\leq \ln(1+x)$, since $\dfrac{t^{4}}{1+t}\geq 0$ on $[0,1]$. Similarly, $\displaystyle x-x^2x+x^3/3 = \ln(1+x)-(-1)^3\int_0^x\frac{t^3}{1+t}\,dt\geq \ln(1+x)$.
+
+
+
+
+
+\end{enumerate}
+
+\end{document}
+ 

@@ -1,0 +1,65 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbf{F}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\n}{\mathbf{n}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+
+\title{Math 2580 Assignment \#8\\University of Lethbridge, Spring 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Thursday, April 14th, by 3 pm.
+
+\bigskip
+
+Please provide solutions to the problems below, using the following guidelines:
+\begin{itemize}
+\item Your submitted assignment should be a {\bf good copy} -- figure out the problems first, and then write down organized solutions to each problem. 
+\item You should include a {\bf cover page} with the following information: the course number and title, the assignment number, your name, and a list of any resources you used or people you worked with.
+\item Since you have plenty of time to work on the problems, assignment solutions will be held to a higher standard than on a test. Your explanations should be clear enough that any of your classmates can understand your solutions.
+\item Group work is permitted, but copying is not. If you're not sure what the difference is, feel free to ask. If you get help solving a problem, you should (a) make sure you completely understand the solution, and (b) re-write the solution for your good copy by yourself, in your own words.
+\item Assignments can be submitted in class, or in the designated drop box on the 5th floor of University Hall, across from the Math Department office.
+\item Late assignments will not be accepted without prior permission.
+
+\end{itemize}
+\newpage
+
+
+\subsection*{Assigned problems}
+\begin{enumerate}
+\item Find the area of the portion of the hyperbolic paraboloid $z=xy$ that lies within the cylinder $x^2+y^2=4$.
+\item Evaluate the surface integral $\iint_S(x^2y+z^2)\,dS$, where $S$ is the portion of the cylinder $x^2+y^2=9$ that lies between the planes $z=0$ and $z=2$.
+\item Evaluate the surface integral of the vector field $\F(x,y,z) = \langle y, z-y, x\rangle$ over the tetrahedron with vertices $(0,0,0)$, $(1,0,0)$, $(0,1,0)$, and $(0,0,1)$.
+\item Use Stokes' theorem to calculate the integral of $\F(x,y,z) = xy\i+yz\j+xz\k$ around the triangle $C$ with vertices $(2,0,0)$, $(0,1,0)$, and $(0,0,3)$.\label{a}
+\item Calculate the line integral in Problem \ref{a} directly to verify that Stokes' theorem holds in this case. \label{b}
+\item Use Stokes' theorem to calculate the integral $\iint_S(\nabla\times \F)\dotp \n\,dS$, where $\F(x,y,z) = \r\times(\i+\j)$, and $S$ is the portion of the sphere $x^2+y^2+z^2=9$ where $x+y\geq 1$.
+
+\textbf{Note:} Here $\r = x\i+y\j+z\k$ in the definition of $\F$. You can try to use Stokes' theorem directly, and integrate $\F$ around the boundary of $S$, but for best results, use Stokes' theorem indirectly: by applying Stokes' theorem twice, you can replace the original surface $S$ by a simpler surface that shares the same boundary.
+
+\bigskip
+
+
+\end{enumerate}
+\textbf{Note:} The common answer for Problems \ref{a} and \ref{b} is $-\dfrac{25}{6}$. Once you've done both problems, you may end up asking yourself why anyone would use Stokes' theorem to compute this particular line integral. The answer is, despite the fact that Problem \ref{a} is taken directly from a textbook (without asking for the follow-up in Problem \ref{b}), they wouldn't. Any reasonable person would do the line integral, because in this case, it's the easier of the two. This problem only exists to make sure you've worked out all the subtleties of setting up the surface integral.
+
+
+\end{document}
+ 

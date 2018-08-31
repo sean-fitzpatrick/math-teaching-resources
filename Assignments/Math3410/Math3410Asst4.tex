@@ -1,0 +1,62 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\title{Math 3410 Assignment \#4\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Thursday, March 19, by 5 pm.
+
+\bigskip
+
+Please provide solutions to the problems below, using the usual guidelines. In particular, you should include a cover page and a reasonable good copy. Your cover page should reference any resources used to complete the assignment, including websites and people. 
+
+A couple of clarifications on these rules:
+\begin{itemize}
+\item Yes, if you're good at using Google you can find hints and maybe even solutions to some problems online. This is not forbidden, as long as you cite the websites used. If you find help online and you don't reference the website, you've committed plagiarism.
+\item Group work is allowed, and generally encouraged, as long as it's understood that group work implies that all members of the group contribute, and everyone still writes up their own good copy once you're done discussing the problems. If one person in your group is doing most of the work, and nobody is even checking to make sure that that person's work is correct, then you're not doing group work. You're copying. Copying assignments also counts as plagiarism. 
+\item Further to the last point, if you've received a warning from me about this in the past, for this course or otherwise, and you and a friend turn in identical assignments, you don't get another warning. You get a report to the Dean's Office. As long as you don't leave the assignment to the absolute last minute, the simple act of writing up your good copy on your own should introduce sufficient differences to avoid the issue. (We're really not asking the impossible here.)
+\end{itemize}
+\subsection*{Assigned problems}
+\begin{enumerate}
+ \item Suppose $V$ is finite-dimensional and $S,T\in\mathcal{L}(V)$. Prove that $ST$ and $TS$ have the same eigenvalues.
+ \item Suppose that $V$ is finite-dimensional, $T\in\mathcal{L}(V)$, and $v\in V$ with $v\neq 0$. Let $p$ be a nonzero polynomial of smallest degree such that $p(T)v=0$. Prove that every zero of $p$ is an eigenvalue of $T$.
+ \item Recall that the {\em Fibonacci sequence} $(F_1,F_2,\ldots)$ is defined recursively by $F_1=1, F_2=1$, and
+ \[
+ F_{n+2} = F_{n}+F_{n+1} \quad\text{ for }\quad n\geq 1.
+ \]
+ Define $T\in\mathcal{L}(\R^2)$ by $T(x,y) = (y,x+y)$.
+ \begin{enumerate}
+ \item Show that $T^n(0,1)=(F_n,F_{n+1})$ for each positive integer $n$.
+ \item Find the eigenvalues of $T$.
+ \item Find a basis of $\R^2$ consisting of eigenvectors of $T$.
+ \item Use the solution to part (c) to compute $T^n(0,1)$. Conclude that
+ \[
+ F_n = \frac{1}{\sqrt{5}}\left[\left(\frac{1+\sqrt{5}}{2}\right)^n-\left(\frac{1-\sqrt{5}}{2}\right)^n\right]
+ \]
+ for each positive integer $n$.
+ \item Use part (d) to conclude that for each positive integer $n$, the Fibonacci number $F_n$ is the integer that is closest to 
+ \[
+ \frac{1}{\sqrt{5}}\left(\frac{1+\sqrt{5}}{2}\right)^n.
+ \]
+ \end{enumerate}
+ \end{enumerate}
+ \subsection*{Recommended for extra practice}
+ The following three problems appear in Section 5.A. All three are closely related, and they also would have made good assignment problems. However, I've left them out due to the limited time available  to  those either writing the assignment, or grading it. Perhaps one of the problems will make an appearance elsewhere in the future.
+ \begin{enumerate}
+ \item Suppose $T\in\mathcal{L}(V)$ is such that every nonzero vector of $V$ is an eigenvector of $T$. Prove that $T$ is a scalar multiple of the identity operator.
+ \item Suppose $V$ is finite-dimensional and $T\in\mathcal{L}(V)$ is such that every subspace of $V$ of dimension $\dim V-1$ is invariant under $T$. Prove that $T$ is a scalar multiple of the identity operator.
+ \item Suppose $V$ is finite-dimensional with $\dim V\geq 3$ and $T\in\mathcal{L}(V)$ is such that every 2-dimensional subspace of $V$ is invariant under $T$. Prove that $T$ is a scalar multiple of the identity operator.
+ \end{enumerate}
+\end{document}
+ 

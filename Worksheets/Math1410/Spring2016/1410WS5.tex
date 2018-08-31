@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 5}\rhead{Tuesday, 9\textsuperscript{th} February, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newenvironment{aamatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|cc}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}   
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+         
+                  
+\begin{document}
+{\bf \large Name:} \hspace{2.5in} {\bf Tutorial time:}
+
+\bigskip
+
+{\bf Problem you want feedback on:}
+
+\bigskip
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+Please complete all problems below.
+ \begin{enumerate}
+ \item When you put the symbol ``='' between two objects on the page, what are you saying about the relationship between those objects?
+
+\vspace{0.5in}
+
+ \item Each of the augmented matrices below is in reduced row-echelon form. For each matrix, indicate the following:
+
+ \begin{enumerate}
+  \item The {\em rank} of the augmented matrix.
+  \item The number of variables in the corresponding system of equations.
+  \item The number of parameters needed to write down the general solution.
+  \item The general solution to the system, if any.
+\begin{multicols}{2}
+\begin{enumerate}
+ \item $\di \bam{3} 1&0&-2&4\\0&1&3&-5\\0&0&0&0\eam$
+
+\vspace{2in}
+
+ \item $\di \bam{4} 1&-3&0&4&2\\0&0&1&-3&7\\0&0&0&0&0\eam$
+ \item $\di \bam{3} 1&2&0&3\\0&0&1&4\\0&0&0&1\eam$
+
+\vspace{2in}
+
+ \item $\di \bam{4} 0&1&0&-1&4\\0&0&1&0&2\\0&0&0&0&0\eam$
+\end{enumerate}
+\end{multicols}
+ \end{enumerate}
+
+\newpage
+
+\item Determine the value(s) of $a$ such that the system of equations given by the augmented matrix below has no solution, one solution, or infinitely many solutions, if possible.
+\[
+\begin{amatrix}{3}
+a & 1 & 2 & 1 \\
+
+2 & 1 & 7 & 3 \\
+
+1 & 1 & 2 & 1 \\
+\end{amatrix}
+\]
+
+\vspace{3.75in}
+
+
+\item Find the basic solutions to the homogeneous system of equations
+\[
+ \begin{array}{ccccccccc}
+  x_1&-&2x_2&+&x_3&-&3x_4&=&0\\
+ 2x_1&+&x_2&-&4x_3&+&x_4&=&0\\
+ 3x_1&-&x_2&-&3x_3&-&2x_4&=&0
+ \end{array}
+\]
+
+
+
+ \end{enumerate}
+
+\end{document}

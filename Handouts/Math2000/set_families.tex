@@ -1,0 +1,126 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\N}{\mathbb{N}}
+%opening
+\title{Handout: Indexed families of sets\\Math 2000A, Fall 2014}
+\author{Sean Fitzpatrick}
+
+\begin{document}
+
+\maketitle
+
+In the textbook, we've defined the union and intersection of any pair of sets $A,B$ that are subsets of some universal set $\U$:
+\begin{align*}
+ A\cup B & = \{x\in \U : x\in A \text{ or } x\in B\}\\
+ A\cap B & = \{x\in \U : x\in A \text{ and } x\in B\}
+\end{align*}
+It's not too hard to see that we can extend these definitions to finite collections of sets. Given $A,B,C\subseteq \U$, we have that unions and intersections are associative:
+\begin{align*}
+ A\cup(B\cup C) & = (A\cup B)\cup C\\
+ A\cap(B\cap C) & = (A\cap B)\cap C
+\end{align*}
+That this is true follows from the associative properties for the logical operators $\vee$ and $\wedge$. For example,
+\begin{align*}
+ x\in A\cup (B\cup C) & \leftrightarrow x\in A \vee (x\in B\vee x\in C)\\
+&\leftrightarrow (x\in A\vee x\in B)\vee x\in C\\
+&\leftrightarrow x\in (A\cup B)\cup C.
+\end{align*}
+Thus, we can write $A\cup B\cup C$ and $A\cap B\cap C$ without ambiguity. One can show\footnote{A rigorous proof requires the method of {\em proof by induction}, which we'll encounter later in the course.} that this observation extends to unions and intersections of four or more sets as well: given sets $A_1,A_2,\ldots, A_n\subseteq \U$, we can write
+\[
+ A_1\cup A_2\cup \cdots \cup A_n \text{ and } A_1\cap A_2\cap \cdots \cap A_n
+\]
+without any confusion. However, it gets a bit awkward if we want to declare that $x\in A_1\cup A_2\cup\cdots \cup A_n$ means that $x\in A_1$, or $x\in A_2$, or $x\in A_3$, or ... or $x\in A_n$. A much more efficient way of expressing the same thing is to introduce {\em index notation}. (If you've taken Math 1410 or 1560 this should already be familiar to you.) If we let the {\bf index} $j$ represent any number between 1 and $n$, then we can say
+\[
+ x\in A_1\cup A_2\cup\cdots\cup A_n \text{ if and only if } x\in A_j \text{ for some } j\in\{1,2,\ldots, n\}.
+\]
+Now, the eagle-eyed among you may have spotted a quantifier in that last assertion: saying that $x\in A_j$ for some $j$ is the same as saying that there exists $j\in\{1,\ldots, n\}$ such that $x\in A_j$.
+Next, we add some notation: we denote the union of $A_1,\ldots, A_n$ by 
+\[
+A_1\cup A_2\cup \cdots \cup A_n =  \bigcup_{j=1}^n A_j.
+\]
+Those of you who have seen summation notation (which should include anyone who has taken 1410 or 1560) will notice the similarity to an expression such as $\displaystyle \sum_{j=1}^na_j = a_1+a_2+\cdots +a_n$. Combining this notation with the quantifier we noticed above, we can make the following {\bf definition}:
+\[
+ \bigcup_{j=1}^n A_j = \{x\in\U \,|\, \exists j\in\{1,2,\ldots, n\}: x\in A_j\}
+\]
+Similarly, for intersections, saying that $x\in A_1$, and $x\in A_2$, and ..., $x=\in A_n$ is the same as saying that $x\in A_j$ for all $j\in\{1,\ldots, n\}$, and so we define
+\[
+ \bigcap_{j=1}^nA_j = \{x\in\U\,|\, \forall j\in\{1,2,\ldots, n\}, x\in A_j\}.
+\]
+With this notation, we can state and prove results like de Morgan's laws and the distributive laws for finite collections of sets.
+\begin{theorem}
+ Let $\{A_1,A_2,\ldots, A_n\}$ be a finite collection of subsets of some universal set $\U$, and let $B\subseteq \U$ be any other subset. Then we have:
+\begin{align}
+ \left(\bigcup_{j=1}^n A_j\right)^c &= \bigcap_{j=1}^n A_j^c\\
+ \left(\bigcap_{j=1}^n A_j\right)^c &= \bigcup_{j=1}^n A_j^c\\
+ B\cap\left(\bigcup_{j=1}^n A_j\right) &= \bigcup_{j=1}^n(B\cap A_j)\\
+ B\cup\left(\bigcap_{j=1}^n A_j\right) &= \bigcap_{j=1}^n(B\cup A_j)
+\end{align}
+\end{theorem}
+The proof is left as an exercise; we'll state and prove more general results below that will contain these results as special cases anyway.
+
+Next, we decide that we're feeling good about our new notation, and see no particular reason to stop at finitely many sets. The next step is to consider {\em countable} collections of sets; that is, we consider collections of the form
+\[
+ \mathcal{A} = \{A_n:n\in\N\} = \{A_1,A_2,A_3,\ldots\}.
+\]
+We can then similarly define
+\begin{align*}
+ \bigcup_{n=1}^\infty A_n &= \{x\in\U : x\in A_n \text{ for some } n\in\N\}\\
+ \bigcap_{n=1}^\infty A_n & =\{x\in\U : x\in A_n \text{ for all } n\in\N\}.
+\end{align*}
+For example, let $A_n = \{-n, -n+1, \ldots, -1, 0, 1, 2, \ldots, n-1, n\}$. Then $\bigcup_{n=1}^\infty A_n = \mathbb{Z}$ and $\bigcap_{n=1}^\infty A_n = \{-1,0,1\}$.
+
+\noindent{\bf Remark}: With an infinite number of sets some care is required. For example, we could take $A_n$ to be the open interval $A_n = (0,1/n)$. Since $0<\frac{1}{n+1}<\frac{1}{n}$ for each $n\in\N$, we see that $A_{n+1}\subseteq A_n$ for each $n$. For a finite intersection we would have
+\[
+ \bigcap_{j=1}^n (0,1/j) = (0,1/n), 
+\]
+since each interval is contained in the one before it, so the intersection consists of the last one, which is the smallest. But with infinitely many sets, there is no `last' set, and in fact, one can prove that the intersection $\bigcap_{n=1}^\infty A_n$ is the empty set!
+
+Finally, it's possible to define {\bf arbitrary unions and intersections}: we let 
+\[
+\mathcal{A} = \{A_\beta : \beta\in I\}, 
+\]
+where each $A_\beta$ is a subset of some universal set $\U$, and $I$ is what is known as an {\bf index set}: it is the set of allowed values for the index $\beta$. For example, we could take $I=\{1,2,\ldots, n\}$, and we're in the situation of finite unions and intersections described above, or we could take $I=\N$ and we'd be talking about countable unions and intersections. But there are many situations where we need to allow $I$ to be an even larger set; for example, $I$ could be the set of all real numbers or something even more exotic. Generalizing the definitions above, we define:
+\begin{align*}
+ \bigcup_{\alpha\in I}A_\alpha & = \{x\in\U : x\in A_\beta \text{ for some }\beta\in I\}\\
+ \bigcap_{\alpha\in I}A_\alpha & = \{x\in\U : x\in A_\beta \text{ for all } \beta\in I\}.
+\end{align*}
+Although arbirtary unions and intersections appear (and indeed, can be) quite complicated, most proofs involving them are just as simple as in the case of the union or intersection of two sets - the main difference being that we have to work with quantifiers. For example, we can prove the following:
+\begin{theorem}
+ Let $\mathcal{A} = \{A_\beta : \beta\in I\}$ be any collection of subsets of some universal set $\U$, and let $B\subseteq \U$ be any subset. Then the following generalized de Morgan's and distributive laws hold:
+\begin{align}
+ \left(\bigcup_{\alpha\in I}A_\alpha\right)^c &= \bigcap_{\alpha\in I}A_\alpha^c\\
+ \left(\bigcap_{\alpha\in I}A_\alpha\right)^c &= \bigcup_{\alpha\in I}A_\alpha^c\label{a}\\
+ B\cap\left(\bigcup_{\alpha\in I}A_\alpha\right) &= \bigcup_{\alpha\in I}(B\cap A_\alpha)\label{b}\\
+ B\cup\left(\bigcap_{\alpha\in I}A_\alpha\right) &= \bigcap_{\alpha\in I}(B\cup A_\alpha)
+\end{align}
+\end{theorem}
+We'll prove equations \eqref{a} and \eqref{b}; the other two are included as practice problems for Quiz 5.
+\begin{proof}[Proof of \eqref{a}]
+ Suppose that $x\in \left(\bigcap_{\alpha\in I}A_\alpha\right)^c$. Then $x\notin \bigcap_{\alpha\in I}A_\alpha$, so there must be some $\beta\in I$ such that $x\notin A_\beta$, which means that $x\in A_\beta^c$. Thus, there is some $\beta\in I$ such that $x\in A_\beta^c$, so $x\in \bigcup_{\alpha\in I}A_\alpha^c$, which tells us that $\left(\bigcap_{\alpha\in I}A_\alpha\right)^c\subseteq \bigcup_{\alpha\in I}A_\alpha^c$.
+
+ Conversely, suppose that $x\in \bigcup_{\alpha\in I}A_\alpha^c$. Then there is some $\beta\in I$ such that $x\in A_\beta^c$, which means that $x\notin A_\beta$. But if $x\notin A_\beta$, then it cannot be true that $x\in A_\alpha$ for all $\alpha\in I$, so $x\notin \bigcap_{\alpha\in I}A_\alpha$. It follows that $x\in\left(\bigcap_{\alpha\in I}A_\alpha\right)^c$, so $\bigcup_{\alpha\in I}A_\alpha^c\subseteq \left(\bigcap_{\alpha\in I}A_\alpha\right)^c$.
+
+ Since we have shown that $\left(\bigcap_{\alpha\in I}A_\alpha\right)^c\subseteq \bigcup_{\alpha\in I}A_\alpha^c$ and that $\bigcup_{\alpha\in I}A_\alpha^c\subseteq \left(\bigcap_{\alpha\in I}A_\alpha\right)^c$, the result follows.
+\end{proof}
+\begin{proof}[Proof of \eqref{b}]
+ Suppose that $x\in B\cap\left(\bigcup_{\alpha\in I}A_\alpha\right)$. Then $x\in B$ and $x\in \bigcup_{\alpha\in I}A_\alpha$. Since $x\in \bigcup_{\alpha\in I}A_\alpha$, there must be some $\beta\in I$ such that $x\in A_\beta$. Thus, we can conclude that $x\in B$ and $x\in A_\beta$, which means that $x\in B\cap A_\beta$. Since there is some $\beta\in I$ such that $x\in B\cap A_\beta$, it follows that $x\in \bigcup_{\alpha\in I}(B\cap A_\alpha)$.
+
+ Conversely, suppose that $x\in \bigcup_{\alpha\in I}(B\cap A_\alpha)$. Then for some $\beta\in I$ we have $x\in B\cap A_\beta$, and thus $x\in B$ and $x\in A_\beta$. Since $x\in A_\beta$ we can conclude that $x\in \bigcup_{\alpha\in I}A_\alpha$ (why?), and thus we have that $x\in B$ and $x\in \bigcup_{\alpha\in I}A_\alpha$, which means that $x\in B\cap \left(\bigcup_{\alpha\in I}A_\alpha\right)$. 
+
+ Since $x\in B\cap\left(\bigcup_{\alpha\in I}A_\alpha\right)$ if and only if $x\in \bigcup_{\alpha\in I}(B\cap A_\alpha)$, the two sets must be equal.
+\end{proof}
+Note: we didn't say so explicitly in the course of the proof, but note that along the way, we also proved the following:
+\begin{itemize}
+ \item For any $\beta\in I$, $A_\beta\subseteq \bigcup_{\alpha\in I}A_\alpha$
+ \item For any $\beta\in I$, $\bigcap_{\alpha\in I}A_\alpha \subseteq A_\beta$.
+\end{itemize}
+As an exercise, you should verify these two facts for yourself.
+
+
+\end{document}

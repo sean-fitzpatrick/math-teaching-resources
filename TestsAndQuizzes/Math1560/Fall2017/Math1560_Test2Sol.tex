@@ -1,0 +1,179 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.5in,bottom=1.25in,left=0.75in,right=0.75in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{vwcol}
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{}
+\chead{MATH 1560}\lhead{Test \#2 Solutions}\rhead{October 3rd, 2017}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\P}{\mathcal{P}}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\spn}{span}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+
+\begin{document}
+
+
+ \begin{enumerate}
+ \item  Evaluate the limit: \points{3}\\
+ \\
+\begin{align*}  \lim_{x\to \infty}\,\frac{5+2x-3x^3}{5x^3-4x^2+7}&= \lim_{x\to\infty}\,\frac{x^3(5/x^3+2/x^2-3)}{x^3(5-4/x+7/x^3)}\\
+& =\lim_{x\to \infty}\frac{5/x^3+2/x^2-3}{5-4/x+7/x^3}\\
+& = \frac{0+0-3}{5+0+0} = -\frac{3}{5}.
+\end{align*}
+ 
+ \bigskip
+ 
+ \item Is the function \points{3}
+ \[
+ f(x) = \begin{cases} 5x-x^2, & \text{ if } x<2\\ 4x-2, & \text{ if } x\geq 2\end{cases}
+ \]
+ continuous at $x=2$? Why or why not? 
+ 
+\bigskip
+
+By definition, $f$ is continuous at 2 if $\di \lim_{x\to 2}f(x) = f(2)$.
+
+From the formula for $f(x)$ we see that $f(2) =4(2)-2=6$. For the limit, we must consider left and right hand limits. For the left-hand limit, we have
+\[
+\lim_{x\to 2^-}f(x) = \lim_{x\to 2^-}(5x-x^2) = 5(2)-2^2 = 6.
+\]
+For the right-hand limit,
+\[
+\lim_{x\to 2^+}f(x) = \lim_{x\to 2^+}(4x-2) = 4(2)-2 = 6.
+\]
+Since the left and right hand limits are equal, we can conclude that
+\[
+\lim_{x\to 2}f(x) = 6 = f(2),
+\]
+and thus $f$ is continuous at 2.
+
+\bigskip
+ 
+ \item Let $f(x) = \sqrt{x^2+1}$. Write down, but do not evaluate, a limit that computes $f'(0)$ \textit{according to the definition of the derivative}. \points{2}
+ 
+\bigskip
+
+The derivative at a point $x=a$ is defined by 
+\[
+f'(a) = \lim_{h\to 0}\frac{f(a+h)-f(a)}{h}.
+\]
+In our case, $a=0$, and $f(x) = \sqrt{x^2+1}$, so $f(0+h) = f(h) = \sqrt{h^2+1}$, while $f(0) = \sqrt{0^2+1}=1$. Thus, we have
+\[
+f'(0) = \lim_{x\to 0}\frac{\sqrt{h^2+1}-1}{h}.
+\]
+
+\item Compute $f'(x)$ for each function $f(x)$ below. You do \textbf{not} need to simplify your answers.
+\begin{enumerate}
+\item $f(x) = 4x^5-2x^3+\sqrt{2}x-3^4$\points{2}
+
+\bigskip
+
+\[
+f'(x) = 20x^4-6x^2+\sqrt{2}.
+\]
+
+\bigskip
+
+\item $f(x) = x^3\sin(x)$ \points{2}
+
+\bigskip
+
+\[
+f'(x) = \frac{d}{dx}(x^3)\cdot \sin(x) + x^3\frac{d}{dx}(\sin(x)) = 3x^2\sin(x)+x^3\cos(x).
+\]
+
+\bigskip
+
+\item $f(x) = \dfrac{x^3-\sqrt{x}}{x^2}$ \points{3}
+
+\bigskip
+
+Notice that we can simplify the function first. Dividing each term in the numerator by $x^2$, we have 
+\[
+f(x) = \frac{x^3}{x^2}-\frac{x^{1/2}}{x^2} = x-x^{-3/2}.
+\]
+Thus,
+\[
+f'(x) = 1+\frac{3}{2}x^{-5/2}.
+\]
+If you didn't notice this, then the quotient rule gives
+\[
+f'(x) = \frac{\frac{d}{dx}(x^3-\sqrt{x})\cdot x^2 - (x^3-\sqrt{x})\frac{d}{dx}(x^2)}{(x^2)^2} = \frac{(3x^2-\frac{1}{2}x^{-1/2})x^2-(x^3-\sqrt{x})(2x)}{x^4}.
+\]
+
+\item $\di f(x) = e^{\sqrt{x^2+1}}$ \points{3}
+
+\bigskip
+
+We have $f(x) = g(h(k(x)))$ with $g(x)=e^x$, $h(x) = \sqrt{x}$, and $k(x)=x^2+1$. The Chain Rule gives us
+\begin{align*}
+f'(x) &= g'(h(k(x)))\frac{d}{dx}(h(k(x)))=g'(h(k(x)))h'(k(x))k'(x)\\
+& = e^{\sqrt{x^2+1}}(\frac{1}{2}(x^2+1)^{-1/2})(2x).
+\end{align*}
+If you prefer the Leibniz notation, $y=e^u$, where $u=\sqrt{v}$ and $v=x^2+1$, and
+\begin{align*}
+\frac{dy}{dx} &= \frac{dy}{du}\frac{du}{dv}\frac{dv}{dx}\\
+ & = e^u(\frac{1}{2}v^{-1/2})(2x)\\
+ & = e^{\sqrt{x^2+1}}(\frac{1}{2}(x^2+1)^{-1/2})(2x).
+\end{align*}
+\end{enumerate}
+
+\newpage
+
+\item (Extra group question!) Suppose $f$ and $g$ are continuous functions on an interval $[a,b]$, and you know that $f(a)<g(a)$, and $f(b)>g(b)$. \points{2}
+
+Show that there must be some number $c\in (a,b)$ such that $f(c)=g(c)$.
+
+\medskip
+
+\textit{Hint:} Apply the Intermediate Value Theorem to $h(x)=f(x)-g(x)$. Be sure to justify your work.
+
+\bigskip
+
+Following the hint, we let $h(x)=f(x)-g(x)$. Since $h$ is the difference of two continuous functions, we know that $h$ is continuous on $[a,b]$ as well. Since $f(a)<g(a)$, we see that 
+\[
+h(a) = f(a)-g(a)<0,
+\]
+while
+\[
+h(b) = f(b)-g(b)>0,
+\]
+since $f(b)>g(b)$. Since $h$ is continuous on $[a,b]$, and $h(a)<0$ while $h(b)>0$, it follows from the Intermediate Value Theorem that there must exist some $c\in (a,b)$ such that 
+\[
+h(c) = 0 = f(c)-g(c),
+\]
+and thus $f(c)=g(c)$, as required.
+\end{enumerate}
+\end{document}

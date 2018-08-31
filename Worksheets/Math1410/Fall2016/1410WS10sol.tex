@@ -1,0 +1,158 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 10 Solutions}\rhead{November 23/24, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}   
+\newcommand{\bvm}{\begin{vmatrix}}
+\newcommand{\evm}{\end{vmatrix}} 
+
+               
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+ \begin{enumerate}
+\item Compute the transpose, trace, and determinant of each of the matrices below:
+\[
+ A = \bbm 2 & -1 & 3\\0&4&-4\\3&2&-5\ebm \quad \quad \quad B = \bbm -1&-1&1&0\\2&1&1&3\\0&1&1&2\\1&3&-1&2\ebm
+\]
+
+\bigskip
+
+For the matrix $A$, we have $A^T = \bbm 2&0&3\\-1&4&2\\3&-4&-5\ebm$, $\operatorname{tr}(A) = 2+4-5=1$, and
+\[
+ \det(A) = 2\bvm 4&-4\\2&-5\evm - 0 + 3\bvm -1&3\\4&-4\evm = 2(-20+8)+3(4-12) = 2(-12)+3(-8)=-48,
+\]
+using cofactor expansion along the first column of $A$.
+
+\medskip
+
+For the matrix $B$, we have $B^T = \bbm 1&2&0&1\\-1&1&1&3\\1&1&1&-1\\0&3&2&2\ebm$, $\operatorname{tr}(B) = -1+1+1+2=3$, and
+
+\begin{align*}
+ \det(B) = \bvm -1&-1&1&0\\2&1&1&3\\0&1&1&2\\1&3&-1&2\evm &= \bvm -1&-1&1&0\\0&-1&3&3\\0&1&1&2\\0&2&0&2\evm \tag{$R_2+2R_1\to R_2$ and $R_4+R_1\to R_4$}\\
+ & = \bvm -1&-1&1&0\\0&-1&3&3\\0&0&4&5\\0&0&6&8\evm \tag{$R_3+R_2\to R_3$ and $R_4+2R_2 \to R_4$}
+\end{align*}
+At this point there are two options for proceeding. One is to apply an additional row operation: using $R_4 - \dfrac{3}{2}R_3\to R_4$, we obtain (noting that $8-\frac{3}{2}(5) = \frac{16}{2}-\frac{15}{2}=\frac{1}{2}$)
+\[
+ \det(B) = \bvm -1&-1&1&0\\0&-1&3&3\\0&0&4&5\\0&0&0&\frac{1}{2}\evm = (-1)(-1)(4)\left(\frac{1}{2}\right) = 2,
+\]
+since the determinant of an upper-triangular matrix is given by the product of its diagonal entries. If you don't like the idea of adding a fractional multiple of one row to another, we can also finish the determinant using cofactor expansion:
+\[
+ \det(B) = \bvm -1&-1&1&0\\0&-1&3&3\\0&0&4&5\\0&0&6&8\evm = (-1)\bvm -1&3&3\\0&4&5\\0&0&6&8\evm = (-1)(-1)\bvm 4&5\\6&8\evm = +1(4(8)-5(6))=2,
+\]
+where at each step we have used cofactor expanion along the first column, exploiting the fact that we need not consider the cofactors that will be multiplied by zero in the expansion.
+
+\newpage
+
+\item Let $A$ be a $3\times 3$ matrix such that $\det A = 4$. Compute the determinant of the following matrices:
+\begin{enumerate}
+ \item $B=EA$, where $E$ is the elementary matrix $E=\bbm 3&0&0\\0&1&0\\0&0&1\ebm$
+
+\medskip
+
+Since $EA$ is obtained from $A$ by multiplying Row 1 of $A$ by 3, we know that $\det(EA) = 3\det(A) = 3(4)=12$.
+
+\medskip
+
+ \item The matrix $C$ obtained by switching rows 2 and 3 of $A$.
+
+\medskip
+
+Since switching any two rows in a determinant changes the sign of the determinant, we have $\det(C) = -\det(A) = -4$.
+
+\medskip
+
+ \item The matrix $2A$.
+
+\medskip
+
+We know that if we multiply \textit{one} row of $A$ by a constant, we must multiply the value of the determinant by that same constant. Since multiplying $A$ by the scalar 2 multiplies \textit{every} row of $A$ by 2, and there are three rows in $A$, we must have $\det(2A) = 2^3\det(A) = 8(4)=32$.
+\end{enumerate}
+
+\medskip
+
+\item Let $A = \bbm 1&0&-2\\0&3&6\\-1&2&5\ebm$ and $B = \bbm 0&4&-1\\2&3&2\\1&3&-1\ebm$.\\Compute (use scrap paper for more space, or a computer, if needed):
+\begin{enumerate}
+ \item $\det(A)$ and $\det(B)$.
+
+\begin{align*}
+ \det(A) &= \bvm 1&0&-2\\0&3&6\\-1&2&5\evm = \bvm 1&0&-2\\0&3&6\\0&2&3\evm = 1(-1)^{1+1}\bvm 3&6\\2&3\evm = 9-12=-3.\\
+ \det(B) & = \bvm 0&4&-1\\2&3&2\\1&3&-1\evm = \bvm 0&4&-1\\0&-3&4\\1&3&-1\evm = 1(-1)^{1+3}\bvm 4&-1\\-3&4\evm = 16-3=13.
+\end{align*}
+
+
+ \item The matrices $AB$ and $BA$, and their determinants.
+
+\[
+ AB = \bbm 1&0&-2\\0&3&6\\-1&2&5\ebm\bbm 0&4&-1\\2&3&2\\1&3&-1\ebm=\bbm -2&-2&1\\12&27&0\\9&17&0\ebm,
+\]
+so
+\[
+ \det(AB) = (1)(-1)^{3+1}\bvm 12&27\\9&17\evm = 12(17)-27(9) = -39 = (-3)(13).
+\]
+\newpage
+\[
+ BA = \bbm 0&4&-1\\2&3&2\\1&3&-1\ebm\bbm 1&0&-2\\0&3&6\\-1&2&5\ebm=\bbm 1&10&19\\0&13&24\\2&7&11\ebm,
+\]
+so
+\[
+ \det(BA) = \bvm 1&10&19\\0&13&24\\0&-13&-27\evm = \bvm 13&24\\-13&-27\evm = 13(-27)-24(-13) = (13)(-3)=-39.
+\]
+Notice that the determinant of the product is equal to the product of the determinants.
+
+
+ \item The inverse of $A$, and its determinant.
+
+\medskip
+
+We find that $A^{-1} = \bbm -1&\frac{4}{3}&-2\\2&-1&2\\-1&\frac{2}{3}&-1\ebm$, and (using Row 1 to create zeros in the first column):
+\[
+ \det(A^{-1}) = \bvm -1&\frac{4}{3}&-2\\0&\frac{5}{3}&-2\\0&-\frac{2}{3}&1\evm = (-1)\left(\frac{5}{3}(1)-(-2)\left(-\frac{2}{3}\right)\right) = -\frac{1}{3}.
+\]
+Notice that $\det(A^{-1}) = \dfrac{1}{\det(A)}$.
+
+\end{enumerate}
+
+
+ \end{enumerate}
+\end{document}

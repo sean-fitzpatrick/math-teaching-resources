@@ -1,0 +1,79 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\Vert}
+
+\title{Math 3500 Exercise Sheet}
+\date{17 September, 2014}
+
+
+\begin{document}
+\maketitle
+
+We will work on some of the following exercises in class. Those not done in class are recommended as homework problems.
+\begin{enumerate}
+ \item For each of the subsets of $\R$ below, determine the following:
+ \begin{enumerate}
+  \item Is the set open? closed? compact?
+  \item What are the interior points? boundary points? accumulation points? isolated points?
+  \item What is the boundary? What is the closure?
+ \end{enumerate}
+\[
+\text{(i)} (0,1)\quad \text{(ii)} (0,1)\cup (1,2) \quad \text{(iii)} \left\{\frac{n}{n+1} : n\in\N\right\}\quad \text{(iv)} \R\setminus \Q \quad \text{(v)} \{1,2,7\}\cup(7,10]
+\]
+\item Prove that if $\{K_\alpha\}$ is a collection of compact sets, then $\bigcap K_\alpha$ is compact.
+\item Prove that a closed subset of a compact set is compact.
+
+{\em Hint}: Let $K$ be compact and let $F\subseteq K$ be closed in $\R$. If $\{U_\alpha\}$ is any open cover of $F$, explain why $\{U_\alpha\}\cup\{\R\setminus F\}$ must be an open cover of $K$. Now use the fact that $K$ is compact.
+
+\item Prove that any closed interval $[a,b]$ is compact.
+
+{\em Hint}: Use proof by contradiction, and the following steps: 
+\begin{enumerate}
+\item Let $I_0=[a,b]$ and suppose there exists an open cover $\{U_\alpha\}$ of $I_0$ for which there is no finite subcover. Then divide the interval in half: at least one of the two intervals $[a,(a+b)/2]$ and $[(a+b)/2,b]$ cannot be covered by finitely many of the $U_\alpha$ (why?). Call this interval $I_1$.
+\item Explain how to repeat the procedure in part (a) to obtain a sequence of intervals $I_1, I_2, I_3, \ldots$ such that each $I_n$ cannot be covered by finitely many of the $U_\alpha$.
+\item Note that there must be some point $x_0\in \R$ such that $x\in I_n$ for all $n\in \N$. (Sub-hint: Nested Intervals Theorem)
+\item Since the collection $\{U_\alpha\}$ covers $[a,b]$ and $x_0\in [a,b]$, we must have $x_0\in U_{\beta}$ for some open set $U_{\beta}$. Explain why there must exist some $r>0$ such that $(x_0-r,x_0+r)$ is contained in $U_{\beta}$.
+\item Notice that each interval $I_n$ has length $(b-a)/2^n$. Explain why this means that we must have $I_n\subseteq U_{\beta}$ for some $n\in \N$.
+\item Explain why the result from part (e) results in a contradiction.
+\end{enumerate}
+\item Prove that any closed and bounded subset of $\R$ is compact.
+
+{\em Hint}: Use the results from problems 3 and 4.
+
+\item Prove that any compact subset of $\R$ is bounded.
+
+\item Pove that any compact subset $K$ of $\R$ is closed.
+
+{\em Hint}: Prove that the complement $K^c=\R\setminus K$ is open: if $p\in K$ and $q\notin K$, let $N_p$ and $N_q$ be neighbourhoods of $p$ and $q$, respectively, each with radius less than $\abs{p-q}/2$ (so that they don't overlap). Since $\{N_p\}_{p\in K}$ is an open cover of $K$, there exist finitely many points $p_1,\ldots, p_k\in K$ such that
+\[
+ K\subseteq N_{p_1}\cup N_{p_2}\cup \cdots \cup N_{p_n},
+\]
+and such that each $N_{p_k}$ has radius $\epsilon_k<\abs{p_k-q}/2$, for $k=1,\ldots, n$. Now, what can you say about the set
+\[
+ U = N_{\epsilon_1}(q)\cap N_{\epsilon_2}(q)\cap\cdots \cap N_{\epsilon_n}(q)?
+\]
+Note: see the text for an alternative proof, using the fact that if $K$ is not closed, then there must exist a limit point of $K$ that does not belong to $K$.
+\item Combining problems 5, 6, and 7, conclude that the {\em Heine-Borel Theorem} is true: a subset of $\R$ is compact if and only if it is closed and bounded.
+\item We have one big theorem left, the Bolzano-Weierstrass theorem. This theorem says that if $B\subseteq \R$ is a bounded, infinite subset, then $B$ has a limit point. We definitely won't have time to get to this one, so here's a proof. (Another one is in the textbook.)
+
+{\bf Proof}: Suppose that $B\subseteq \R$ is bounded and infinite. Since $B$ is bounded, there exists an interval $[a,b]$ with $B\subseteq [a,b]$. By problem 4, $[a,b]$ is compact, so it suffices to prove:
+
+{\em Lemma}: an infinite subset $B$ of a compact set $K$ has a limit point in $K$.
+
+{\bf Proof of lemma}: if no $k\in K$ is a limit point of $B$, then each $k\in K$ has a neighbourhood $N_k$ that contains at most one point of $B$ (the point $k$ itself, if $k\in K$). Since $B$ is infinite, no finite subcollection of $\{N_k\}$ can cover $B$, and since $B\subseteq K$, that means that $\{N_k\}_{k\in K}$ is an open cover of $K$ with no finite subcover, which contradicts the assumption that $K$ is compact.
+\item There's a bit of room left, so here's a practice problem: define the distance from a point $x\in\R$ to a {\em set} $A\subseteq \R$ by $d(x,A) = \inf\{\abs{x-a}:a\in A\}$. Prove that $x\in\partial A$ if and only if $d(x,A)=0$ and $d(x,\R\setminus A)=0$.
+\end{enumerate}
+ 
+\end{document}
+ 

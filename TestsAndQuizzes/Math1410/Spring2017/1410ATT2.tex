@@ -1,0 +1,226 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 50}}
+\chead{MATH 1410A}\lhead{Test \# 2}\rhead{Tuesday, 14\textsuperscript{th} March, 2017}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\ivec}{\,\boldsymbol{\hat{\imath}}}
+\newcommand{\jvec}{\,\boldsymbol{\hat{\jmath}}}
+\newcommand{\kvec}{\,\boldsymbol{\hat{k}}}
+\newcommand{\bvm}{\begin{vmatrix}}
+\newcommand{\evm}{\end{vmatrix}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\DeclareMathOperator{\comp}{comp}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+14\textsuperscript{th} March, 2017, 1:40 - 2:55 pm\\
+{\bf MATH 1410A - Test \#2}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{353pt}}\\
+\skipline
+First Name:\underline{\hspace{350pt}}\\
+\skipline
+Student Number:\underline{\hspace{323pt}}\\
+\skipline
+Tutorial Time: \underline{\hspace{320pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+  Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+To earn partial credit, you must show your work. Correct answers without adequate justification in most cases do not receive full marks.
+
+\bigskip
+
+{\bf No external aids are allowed, with the exception of a 5-function calculator.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Problem&Grade\\
+\hline \hline
+\cline{1-2} 1 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/9\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/9\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/5\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/6\\
+\cline{1-2} 7 & \enspace\enspace\enspace\enspace\enspace\enspace/5\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/50\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+ \item Complete the following definitions:
+\begin{enumerate}
+ \item The \textbf{null space} of an $m\times n$ matrix $A$ is the set $\operatorname{null}(A)$ defined by\points{2}
+
+\begin{flalign*}
+ \operatorname{null}(A)= & \phantom{text} &\\
+\end{flalign*}
+
+\vspace{0.5in}
+
+ \item A set of vectors $\{\vec{v}_1,\vec{v}_2,\ldots, \vec{v}_k\}$ is \textbf{linearly dependent} if:\points{2}
+
+\vspace{1.75in}
+
+ \item A set $S\subseteq \R^n$ is a \textbf{subspace} if: \points{2}
+
+\vspace{2.5in}
+
+ \item The \textbf{span} of the vectors $\vec{v}_1, \vec{v}_2,\ldots, \vec{v}_k$ is the set: \points{2}
+\begin{flalign*}
+ \operatorname{span}\{\vec{v}_1, \vec{v}_2,\ldots, \vec{v}_k\} = & & \\
+\end{flalign*}
+
+\end{enumerate}
+
+\newpage
+
+\item Perform the computations as indicated:
+\begin{enumerate}
+ \item Simplify the following linear combination (write it as a single vector): \points{3}
+\begin{flalign*}
+ 4\bbm 2\\-1\\3\ebm - 2 \bbm 1\\0\\3\ebm + 3\bbm 0\\5\\-2\ebm = & & \\
+\end{flalign*}
+
+\vspace{1.5in}
+
+\item Compute $T\left(\bbm 2\\-3\ebm\right)$ for the matrix transformation $T\left(\bbm x\\y\ebm\right) = \bbm 4&-2\\-3&1\ebm\bbm x\\y\ebm$.\points{3}
+
+\vspace{2in}
+
+\item Verify that $x=2, y=-3, z=1$ is a solution to the system \points{3}
+$\arraycolsep=2pt
+ \begin{array}{ccccccc}
+  2x&-&y&+&3z&=&10\\
+  -x&+&2y&+&5z&=&-3\\
+ 5x&+&2y&-&4z&=&0
+ \end{array}
+$
+
+
+\end{enumerate}
+\newpage
+
+\item Each of the matrices below is in row-echelon form, and represents a system of linear equations in the variables $x$, $y$, and $z$. If the system has no solution, explain why. If it does, determine the solution using either back substitution, or by finding the reduced row-echelon form of the matrix.\points{9}
+\begin{enumerate}
+ \item $\begin{amatrix}{3}1&-2&1&4\\0&1&-1&2\\0&0&1&0\end{amatrix}$ 
+
+\vspace{2.25in}
+
+ \item $\begin{amatrix}{3}1&3&0&2\\0&1&-3&5\\0&0&0&0\end{amatrix}$ 
+
+\vspace{2.25in}
+
+ \item $\begin{amatrix}{3}1&5&-4&2\\0&0&1&-3\\0&0&0&1\end{amatrix}$ 
+\end{enumerate}
+
+\newpage
+
+\item Given the matrices $A = \bbm 2&-3&4\\-1&0&5\ebm$ and $B = \bbm 5&-2\\1&-1\\0&4\ebm$, compute:
+\begin{enumerate}
+ \item $AB$ \points{4}
+
+\vspace{3.5in}
+
+ \item $BA$ \points{4}
+\end{enumerate}
+
+\newpage
+
+\item Let $T:\R^3\to \R^3$ be a matrix transformation such that
+ \[T\left(\bbm 1\\-1\\2\ebm\right) = \bbm 9\\-1\\-4\ebm \quad \text{ and } \quad T\left(\bbm 1\\2\\-3\ebm\right) = \bbm -9\\1\\7\ebm.\]
+\begin{enumerate}
+ \item What is the value of $T\left(3\bbm 1\\-1\\2\ebm+2\bbm 1\\2\\-3\ebm\right)$? \points{3}
+
+\vspace{3in}
+
+ \item Given that $T\left(\bbm 1\\0\\0\ebm\right) = \bbm 2\\-1\\0\ebm$, $T\left(\bbm 0\\1\\0\ebm\right) = \bbm -1\\4\\2\ebm$, and $T\left(\bbm 0\\0\\1\ebm\right) = \bbm 3\\2\\-1\ebm$, determine a matrix $A$ such that $T(\vec{x}) = A\vec{x}$ for any vector $\vec{x}\in\R^3$. \points{2}
+\end{enumerate}
+
+\newpage
+
+\item Solve the following system of linear equations, if possible: \points{6}
+\[\arraycolsep=2pt
+ \begin{array}{ccccccccc}
+  x_1&+&2x_2&-&x_3&+&x_4&=&3\\
+ -3x_1&-&6x_2&+&2x_3&-&x_4&=&-7\\
+ 2x_1&+&4x_2&-&x_3& & &=&4
+ \end{array}
+\]
+
+\newpage
+
+\item Solve \textbf{one} of the following two problems. \points{5}
+\begin{enumerate}
+ \item Let $A$ be an $m\times n$ matrix and consider the set $\operatorname{null}(A) = \{\vec{x}\in \R^n \,|\, A\vec{x} = \vec{0}\}$. Prove that $\operatorname{null}(A)$ is a subspace of $\R^n$.
+
+\item Determine whether or not the vectors $\vec{v}_1 = \bbm 1\\-3\\2\ebm$, $\vec{v}_2 = \bbm 2\\-5\\4\ebm$, and $\vec{v}_3 = \bbm 1\\-5\\2\ebm$ are linearly independent. 
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}

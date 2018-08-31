@@ -1,0 +1,150 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=0.85in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 2565 - Tutorial \#2}\\
+Thursday, January 18
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+
+\vspace{1cm}
+
+Last Name:\underline{\hspace{351pt}}
+%Student Number:\underline{\hspace{322pt}}\\
+%\skipline
+
+
+
+\vspace{1cm}
+
+\begin{quote}
+Print your name clearly in the space above. 
+
+\medskip
+
+Complete the problems on the back of this page to the best of your ability. If there is a problem you especially desire feedback on, please indicate this. 
+
+\medskip
+
+It is recommended that you work out the details on scrap paper before writing your solutions on the worksheet.
+\end{quote}
+
+\vspace{2cm}
+
+
+Additional practice (don't include your solutions here):
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\di \int \sin^5(x)\cos^6(x)\,dx$
+
+ \item $\di \int \sin(x)\sin(2x)\,dx$
+
+  \item $\di \int \sqrt{9-x^2}\,dx$
+
+ \item $\di \int \frac{8}{\sqrt{x^2+2}}\,dx$
+
+ \item $\di \int \frac{1-\tan^2(x)}{\sec^2(x)}\,dx$
+ 
+ \item $\di \int \frac{dx}{\cos(x)-1}\,dx$
+\end{enumerate}  
+\end{multicols}
+
+
+\newpage
+%\thispagestyle{empty}
+Evaluate the following integrals.
+  \begin{enumerate}
+  \item $\di \int \tan^4(x)\sec^6(x)\,dx$
+ 
+ \vspace{1.5in}
+ 
+ \item  $\di \int \tan^3(x)\sec^5(x)\,dx$
+ 
+ \vspace{1.75in}
+ 
+ \item $\di \int \sin(8x)\cos(5x)\,dx$
+ 
+ \vspace{1.75in}
+ 
+ \item $\di \int_0^{\pi/6}\sqrt{1+\cos(2x)}\,dx$
+ 
+ 
+ 
+ \pagebreak
+ 
+ \item $\di \int \frac{5x^2}{\sqrt{x^2-10}}\,dx$, using a secant substitution.
+ 
+ \vspace{1.75in}
+ 
+\item  $\di \int \frac{5x^2}{\sqrt{x^2-10}}\,dx$, using a hyperbolic substitution.
+
+\vspace{1.75in}
+
+  \end{enumerate}
+
+Discussion problem (no submission required):
+
+Prove the following formulas, where $m$ and $n$ are integers:
+\begin{align*}
+\frac{1}{\pi}\int_{-\pi}^\pi\sin(mx)\cos(nx)\,dx & = 0\\
+\frac{1}{\pi}\int_{-\pi}^\pi\sin(mx)\sin(nx)\,dx & = \begin{cases}0, & \text{ if } m\neq n\\1, & \text{ if } m=n\end{cases}\\
+\frac{1}{\pi}\int_{-\pi}^\pi\cos(mx)\cos(nx)\,dx & = \begin{cases}0, & \text{ if } m\neq n\\1, & \text{ if } m=n\end{cases}
+\end{align*}
+
+\medskip
+
+Suppose a function $f$ can be written as a \textit{finite Fourier series}
+\[
+f(x) = \frac{1}{2}a_0+\sum_{n=1}^N a_n\sin(nx)+\sum_{m=1}^M b_m\cos(mx).
+\]
+
+Show that the coefficients $a_n$ ($n=0,\ldots, N$) and $b_m$ ($m=1,\ldots, M$) are given by
+\[
+a_0 = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\,dx, a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)\,dx, (i=1,\ldots, N), b_m = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(mx)\,dx.
+\]
+\end{document}

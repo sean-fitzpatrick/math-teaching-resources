@@ -1,0 +1,487 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+%\input quizstyle.tex
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\addtolength{\headheight}{\baselineskip}
+
+\lhead{{\bf Date:} Thursday, May 31st }
+\chead{{\bf Time:} 7:10 pm}
+\rhead{MAT232HF}
+\cfoot{Page \thepage \ of \pageref{LastPage}}
+\rfoot{{\bf Total Marks:} 60}
+
+%Redefine the plain page style in fancyhdr package
+\fancypagestyle{plain}{%  
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{Page \thepage \ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}}
+
+\newcounter{probnum}
+\newcounter{subprobnum}
+
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\nll}{null}
+\DeclareMathOperator{\tr}{tr}
+
+\newenvironment{problems}{
+\begin{list}{\arabic{probnum}.}{\usecounter{probnum}}
+}{
+\end{list}
+}
+
+\newenvironment{subproblem}{ % start for subprob
+\begin{list}{ % first arg for list
+(\alph{subprobnum})
+}{ % second arg for list
+\usecounter{subprobnum}
+\setlength{\topsep}{0in}
+} % end of list def
+}{ % end for subprob
+\end{list}
+}
+
+\newcommand{\skipline}{\vspace{12pt}}
+%\input local.tex
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\newcommand{\sol}{\noindent {\bf Solution:  }}
+
+\begin{document}
+\thispagestyle{plain}
+%Supresses the headers on the front page
+
+\centerline {\bf University of Toronto at Mississauga}
+\medskip
+\centerline {\bf Mid-Term Exam}
+\medskip
+\centerline {\bf MAT232HF}
+\centerline {\bf Calculus of Several Variables}
+\medskip
+\centerline {Instructor: Sean Fitzpatrick}
+\centerline {Duration: 110 minutes}
+\bigskip
+\bigskip
+
+\noindent {\bf NO AIDS ALLOWED.} \hfill {\bf Total: 60 marks}
+\vglue .25truein
+\begin{tabular}{ll}
+Family Name: &\underline{SOLUTIONS \hspace{3.48in}} \\
+   &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[15pt]
+Given Name(s): &\underline{THE \hspace{4.1in}} \\
+    &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[15pt]
+Please sign here: &\underbar {\hskip 4.5in}\\
+[25pt]
+Student ID Number: &\underbar {\hskip 4.5in}\\
+\end{tabular}
+\bigskip
+
+
+%\vspace{1in}
+\begin{quote}
+{\large \bf You may not use calculators, cell phones, or PDAs during
+the exam.  Partial credit will be given for partially correct work.
+Please read through the entire test before starting, and take note of
+how many points each question is worth.  Please put a box around your
+solutions so that the grader may find them easily.  }
+\end{quote}
+
+\vspace{.25in}
+\begin{center}
+\begin{tabular}{|l|r|}
+\hline \hline
+\multicolumn{2}{|c|}
+{\rule[-3mm]{0mm}{8mm}
+FOR MARKER'S USE ONLY} \\
+\hline
+Problem 1: & \hspace{.5in}  /11 \\ [3pt]
+\hline
+Problem 2: & \hspace{.5in}  /10 \\ [3pt]
+\hline
+Problem 3: & \hspace{.5in}  /8 \\ [3pt]
+\hline
+Problem 4: & \hspace{.5in}  /15 \\ [3pt]
+\hline
+Problem 5: & \hspace{.5in}  /10 \\ [3pt]
+\hline
+Problem 6: & \hspace{.5in}  /6 \\ [3pt]
+\hline
+\hline 
+{\rule[-3mm]{0mm}{8mm} TOTAL:}  & /60  \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+\vglue1pt
+%vglue adds space between headers and text
+
+\begin{problems}
+\item   \begin{subproblem}
+	\item Sketch the conic section $4y^2 - 9x^2 - 18x -8y = 41$ 
+\marginpar{[3]}
+
+\skipline
+\sol We first complete the square in both $x$ and $y$, obtaining
+\begin{equation*}
+4(y-1)^2 - 9(x+1)^2 = 36.
+\end{equation*}
+Dividing through by 36, we obtain the standard form of a hyperbola,
+\begin{equation*}
+\frac{-(x-1)^2}{2^2} + \frac{(y-1)^2}{3^2}=1.
+\end{equation*}
+We see that the hyperbola has centre $(-1,1)$, and asymptotes $y-1 = \pm 
+3/2 (x+1)$, and that $y=1$ is impossible, while $x=-1$ gives $y-1=\pm 3$, 
+so the 
+hyperbola opens vertically, with vertices $(-1,4)$ and $(-1,-2)$.
+
+Your sketch should convey this information, and look roughly like a 
+hyperbola.
+\vspace{.25in}
+	\item Sketch the parametric curve $x(t) =
+3+2\cos t$, $y(t) = 5-3\sin t$, $t\in [0,2\pi]$. \marginpar{[4]}
+
+\skipline
+\sol We sketch the curve by first eliminating the parameter $t$.  Since we 
+know that $\sin^2 t + \cos^2 t = 1$, we solve for $\sin t$ and $\cos t$, 
+getting
+\begin{equation*}
+\cos t = \frac{x-3}{2},\quad \sin t = \frac{5-y}{3}.
+\end{equation*}
+Thus, we get that
+\begin{equation*}
+1 = \sin^2 t + \cos^2 t = \left(\frac{y-5}{3}\right)^2 + 
+\left(\frac{x-3}{2}\right)^2,
+\end{equation*}
+or $\frac{(x-3)^2}{2^2} + \frac{(y-5)^2)}{3^2} = 1$, which is the equation 
+of an ellipse, with centre $(3,5)$, and vertices $(3,2), (3, 8), (5,5), 
+(1,5)$.
+
+Since $\sin t$ and $\cos t$ both have period $2\pi$, we see that we get 
+the entire ellipse for $t\in [0,2\pi]$.
+
+\newpage
+\vglue1pt
+	\item Identify the traces of the surface $9x^2 + 4z^2
+- 36y^2-36=0$ in each of the co-ordinate planes.  Then, sketch the 
+surface. \marginpar{[4]}
+
+\skipline
+\sol The trace in the $yz$-plane ($x=0$) is the curve $4z^2-36y^2-36 = 0$, 
+or $\frac{z^2}{3^2}-y^2 = 1$, which is a hyperbola.
+
+Similarly, the trace in the $xz$-plane ($y=0$) is the ellipse 
+$\frac{x^2}{2^2}+\frac{z^2}{3^2}=1$, and the trace in the $xy$-plane 
+($z=0$) is the hyperbola $\frac{x^2}{3^2}-y^2 = 1$.
+
+The surface is the hyperboloid of one sheet given by 
+$\frac{x^2}{4}-y^2+\frac{z^2}{9}=1$ which has its axis in the $y$ 
+direction (that is, it opens outward along the $y$-axis) and centre at the 
+origin.  Your sketch should look roughly like figure 12.7.17 of the 
+textbook, but turned on its side to line up with the $y$-axis.
+
+	\end{subproblem}
+
+\newpage
+\vglue1pt
+
+\item Let $\vec{u}$ and $\vec{v}$ be non-zero vectors such that $|\vec{u}
++ \vec{v}| = |\vec{u} - \vec{v}|$.
+	\begin{subproblem}
+	\item What can you conclude about the parallelogram spanned by
+$\vec{u}$ and $\vec{v}$?\marginpar{[2]}
+
+\skipline
+\sol If we sketch the parallelogram in question, we see that its diagonals 
+are the vectors $\vec{u}+\vec{v}$ and $\vec{u}-\vec{v}$.  Since the 
+lengths 
+of these two vectors are equal, we have a parallelogram whose diagonals 
+are of equal length; that is, a rectangle.
+\vspace{.6in}
+	\item Show that $\vec{u}\cdot\vec{v} = 0$.\marginpar{[3]}
+
+\skipline
+\sol Recall that $\vec{u}\cdot\vec{v} = |\vec{u}||\vec{v}|\cos\theta$, 
+where $\theta$ is the angle between the two vectors.  Since these vectors 
+form the sides of a rectangle, we must have $\theta = \pi/2$, so that 
+$\cos\theta = 0$.  Thus, $\vec{u}\cdot\vec{v}=0$.
+
+Alternatively, this can be shown algebraically, using techniques similar 
+to those used in part (c) below.
+\vspace{.7in}
+	\item Prove the paralleogram law: $|\vec{u}-\vec{v}|^2 +
+|\vec{u}+\vec{v}|^2 = 2|\vec{u}|^2 + 2|\vec{v}|^2$.\marginpar{[5]}
+
+\skipline
+\sol Recall that for any vector $\vec{a}$, we have that $|\vec{a}|^2 = 
+\vec{a}\cdot\vec{a}$.  Thus, we have:
+\begin{align*}
+|\vec{u}-\vec{v}|^2 + |\vec{u}+\vec{v}|^2 &= 
+(\vec{u}-\vec{v})\cdot(\vec{u}-\vec{v}) + 
+(\vec{u}+\vec{v})\cdot(\vec{u}+\vec{v})\\
+&=(\vec{u}\cdot\vec{u} - \vec{u}\cdot\vec{v} - \vec{v}\cdot\vec{u} + 
+\vec{v}\cdot\vec{v}) + (\vec{u}\cdot\vec{u} 
++ \vec{u}\cdot\vec{v} + \vec{v}\cdot\vec{u} + \vec{v}\cdot\vec{v})\\
+&= |\vec{u}|^2 - 2\vec{u}\cdot\vec{v} + |\vec{v}|^2 + |\vec{u}|^2 + 
+2\vec{u}\cdot\vec{v} + |\vec{v}|^2\\
+&= 2|\vec{u}|^2 + 2|\vec{v}|^2.
+\end{align*}
+
+	\end{subproblem}
+\newpage
+\vglue1pt
+\item Determine whether or not the following sets of points lie on the
+same line.  If they do, give the vector equation of the line.  If not,
+give the equation of the plane containing them.
+	\begin{subproblem}
+	\item $P = (0, -2, 4)$, $Q = (1, -3, 5)$, $R = (4, -6, 8)$
+\marginpar{[4]}
+
+\skipline
+\sol We see that $\overrightarrow{PQ} = <1-0, -3-(-2), 5-4> = <1,-1,1>$, 
+while 
+similarly $\overrightarrow{QR} =  <3, -3, 3> = 3\overrightarrow{PQ}$.  
+Thus the two vectors are 
+parallel, and so the points $P,Q,R$ must all lie on the same line.
+
+To get the equation of the line we need a point and a vector in the 
+direction of the line.  The point $P$ and the vector $\overrightarrow{PQ}$ 
+fit that 
+description, so the equation of the line is
+\begin{equation*}
+\vec{r} = <x,y,z> = <0,-2,4> + t<1, -1, 1>.
+\end{equation*}
+\vspace{.5in}
+	\item $P = (1, 1, 1)$, $Q = (3, -2, 3)$, $R = (3, 4, 6)$.
+\marginpar{[4]}
+
+\skipline
+\sol In this case, we find $\overrightarrow{PQ} = <2, -3, 2>$, and 
+$\overrightarrow{QR} = <0, 6, 
+3>$, and these two vectors are clearly not parallel.  Thus the points do 
+not lie on the same line, and therefore define a plane.
+
+We can give the equation of the plane using a point on the plane ($P$ will 
+do) and a normal vector.  The obvious candidate for normal vector is
+\begin{align*}
+\vec{n} = \overrightarrow{PQ}\times\overrightarrow{QR} &= \begin{vmatrix} 
+\hat{\imath} & 
+\hat{\jmath} & \hat{k}\\ 2&-3&2\\0&6&3\end{vmatrix}\\
+&=\hat{\imath}(-3\cdot 3-2\cdot 6)-\hat{\jmath}(2\cdot 3-2\cdot 0) 
++\hat{k}(2\cdot 6 - (-3)\cdot 0)\\
+&= -21\hat{\imath}-6\hat{\jmath}+12\hat{k}.
+\end{align*}
+Thus, the equation of the plane is
+\begin{equation*}
+-21(x-1)-6(y-1)+12(z-1) = 0.
+\end{equation*}
+
+	\end{subproblem}
+\newpage
+\vglue1pt
+\item \begin{subproblem}
+	\item Find all first-order partial derivatives 
+of the following functions:\marginpar{[8]}
+	\begin{enumerate}
+		\item $f(x,y) = e^2e^{xy}$.
+
+\skipline
+\sol We have 
+\begin{equation*}
+f_x(x,y) = \frac{\partial}{\partial x}(e^2e^{xy}) = 
+ye^2e^{xy},
+\end{equation*}
+and
+\begin{equation*}
+f_y(x,y) = \frac{\partial}{\partial y}(e^2e^{xy}) = 
+xe^2e^{xy}.
+\end{equation*}
+\vspace{.3in}
+                \item $h(x,y,z) = x^2y^3z^4$.
+
+\skipline
+\sol We have
+\begin{equation*}
+h_x(x,y,z) = 2xy^3z^4,
+\end{equation*}
+
+\begin{equation*}
+h_y(x,y,z) = 3x^2y^2z^4,
+\end{equation*}
+and
+\begin{equation*}
+h_z(x,y,z) = 4x^2y^3z^3.
+\end{equation*}
+\vspace{.3in}
+                \item $k(x,y,z) = z\sin(x-y)$.
+\skipline
+\sol We have
+\begin{equation*}
+k_x(x,y,z) = z\cos(x-y),
+\end{equation*}
+
+\begin{equation*}
+k_y(x,y,z) = -z\cos(x-y),
+\end{equation*}
+and
+\begin{equation*}
+k_z(x,y,z) = \sin(x-y).
+\end{equation*}
+	\end{enumerate}
+\newpage
+\vglue1pt
+	\item Verify that $f_{xy} = f_{yx}$ for $f(x,y) = xye^{-xy}$.
+\marginpar{[4]}
+
+\skipline
+\sol The first partial derivatives are
+\begin{equation*}
+f_x(x,y) = ye^{-xy}-xy^2e^{-xy},
+\end{equation*}
+and
+\begin{equation*}
+f_y(x,y) = xe^{-xy}-x^2ye^{-xy}.
+\end{equation*}
+The mixed partials are therefore
+\begin{align*}
+f_{xy}(x,y) &= \frac{\partial}{\partial y}f_x(x,y)\\
+&= e^{-xy}-xye^{-xy}-2xye^{-xy}+x^2y^2e^{-xy},
+\end{align*}
+while
+\begin{align*}
+f_{yx}(x,y) &= \frac{\partial}{\partial x}f_y(x,y)\\
+&=  e^{-xy} - xye^{-xy}-2xye^{-xy} + x^2y^2e^{-xy}\\
+&= f_{xy}(x,y).
+\end{align*}
+
+	\item Can there exist a continuous function $f(x,y)$
+such that $f_x(x,y) = \cos^2(xy)$ and $f_y(x,y) = \sin^2(xy)$?  Why? 
+\marginpar{[3]}
+
+\skipline
+\sol We see that both first-order partial derivatives of $f$ are 
+continuous, and all of the second-order partial derivatives would be as 
+well.  However, we can check that we would have $f_{xy}(x,y) = 
+-2y\cos(xy)\sin(xy)$, while $f_{yx}(x,y) = 2x\sin(xy)\cos(xy)$.
+
+Therefore, no such continuous function $f$ can exist, for if $f$ were a 
+continuous function with continuous first and second order partial 
+derivatives, then its mixed partial derivatives $f_{xy}$ and $f_{yx}$ 
+would have to be the same.
+
+\end{subproblem}
+\newpage
+\vglue1pt
+
+\item Find and classify the critical points of the function 
+\marginpar{[6]}
+\begin{equation*} f(x,y) = 2x^3 + y^3 - 3x^2 -12x-3y \end{equation*}
+
+\skipline
+\sol The first partial derivatives of $f(x,y)$ are 
+\begin{equation*}
+f_x(x,y) = 6x^2 - 6x -12\quad \mbox{and}\quad f_y(x,y) = 3y^2-3,
+\end{equation*}
+and since these are continuous everywhere, the critical points of $f$ will 
+be those points where both derivatives are zero:
+
+If $f_x(x,y) = 6(x^2-x-2) = 6(x-2)(x+1) = 0$, then $x=2$, or $x=-1$, and 
+if 
+$f_y(x,y) = 3(y^2-1) = 3(y+1)(y-1) = 0$, then $y=1$ or $y=-1$, so the 
+critical points of $f(x,y)$ are $(2,1)$, $(2,-1)$, $(-1,1)$ and $(-1,-1)$.
+
+The second order partial derivatives of $f(x,y)$ are
+\begin{equation*}
+f_{xx}(x,y) = 12x-6,\quad f_{xy}(x,y) = f_{yx}(x,y) = 
+0\quad\mbox{and}\quad f_{yy}(x,y) = 6y.
+\end{equation*}
+
+At the point $(2,1)$ we have $A=f_{xx}(2,1) = 18$, $B=f_{xy}(2,1)=0$, 
+$C=f_{yy}(x,y)(2,1) = 6$, and $\Delta = AC-B^2 = 108$
+
+Since $A>0$ and $\Delta>0$, $f(x,y)$ has a local minimum at $(2,1)$.
+
+\skipline
+
+Similarly, at the point $(2,-1)$ we have $A=18$, $B=0$, $C=-6$, and 
+$\Delta = -108$.  Since $\Delta<0$ the critical point is neither a local 
+maximum nor a local minimum.
+
+\skipline
+
+At $(-1,1)$ we have $A=-18$, $B=0$, $C=6$ and $\Delta = -108$.  Since 
+$\Delta<0$, the critical point is neither a local maximum nor a local 
+minimum.
+
+\skipline
+
+Finally, at $(-1,-1)$ we have $A=-18$, $B=0$, $C=-6$ and $\Delta = 108$.  
+Since $A<0$ and $\Delta>0$, $f(x,y)$ has a local maximum at the point 
+$(-1,-1)$.
+
+
+\newpage
+\vglue1pt
+
+\item Evaluate the limit
+\begin{equation*} \lim_{(x,y)\rightarrow
+(0,0)}\frac{xy^2}{(x^2+y^2)^{3/2}} \end{equation*}
+as $(x,y)$ approaches the origin along:
+        \begin{subproblem}
+        \item the $x$-axis.\marginpar{[1]}
+
+\skipline
+\sol Along the $x$-axis we have $y=0$, so the limit becomes
+\begin{equation*}
+\lim_{x\rightarrow 0} \frac{x\cdot 0}{(0^2+y^2)^{3/2}} = 0.
+\end{equation*}
+\vspace{.75in}
+        \item the line $y=mx$. \marginpar{[2]}
+
+\skipline
+\sol Substituting $y=mx$, and noting that if $x\rightarrow 0$, so does 
+$y$, the limit becomes
+\begin{equation*}
+\lim_{x\rightarrow 0}\frac{x(mx)^2}{(x^2+(mx)^2)^{3/2}} = 
+\lim_{x\rightarrow 0}\frac{m^2x^3}{((1+m^2)x^2)^{3/2}} = 
+\frac{m^2}{(1+m^2)^{3/2}}.
+\end{equation*}
+\vspace{.5in}
+        \item the path $\vec{r}(t) = \frac{1}{t}\hat{\imath} + \frac{\sin
+t}{t}\hat{\jmath}$, $t>0$. \marginpar{[3]}
+        
+\skipline
+\sol We need the path defined by $\vec{r}(t)$ to approach the origin 
+$(0,0)$; that is, for $x(t)\rightarrow 0$ and $y(t)\rightarrow 0$.  
+For the given functions, this happens as $t\rightarrow \infty$.  
+
+Thus, along the given path our limit becomes
+\begin{equation*}
+\lim_{t\rightarrow\infty}\frac{(\frac{1}{t})(\frac{\sin t}{t})^2}{\left( 
+(\frac{1}{t})^2 + (\frac{\sin t}{t})^2\right)^{3/2}} = 
+\lim_{t\rightarrow\infty}\frac{\sin^2 t}{(1+\sin^2 t)^{3/2}},
+\end{equation*}
+and this limit does not exist, since there arbitrarily large values of $t$ 
+at which the expression is equal to either $0$ or $\frac{1}{2\sqrt{2}}$.
+
+\end{subproblem}
+\newpage
+\vglue1pt
+Extra space for rough work. Do {\bf not} tear out this page.
+\end{problems}
+\end{document}
+\newpage
+

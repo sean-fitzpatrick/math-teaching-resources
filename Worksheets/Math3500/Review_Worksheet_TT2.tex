@@ -1,0 +1,204 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\Vert}
+
+\title{Term Test 2 Review Sheet}
+%\date{1 October, 2014}
+
+
+\begin{document}
+\maketitle
+
+The second term test takes place on Monday, the 10th of November. The test will cover Sections 4.4, 5.1-5.4, 6.1, and 6.2.
+
+\subsection*{Section 4.4: Subsequences}
+Main definitions and results:
+\begin{itemize}
+ \item Let $(a_n)$ be a given sequence. A {\bf subsequence} of $(a_n)$ is a sequence of the form $b_k = a_{n_k}$, where $(n_k)$ is a strictly increasing sequence of natural numbers. For example, given any sequence $(a_n)$ we can form the subsequences $(a_{2k})$ and $(a_{2k+1})$ corresponding to whether $n$ is even or odd, respectively.
+ \item The {\bf Bolzano-Weierstrass} theorem for sequences states that every {\em bounded} sequence has a convergent subsequence. (This is equivalent to the earlier version of the Bolzano-Weierstrass theorem, which stated that any bounded infinite subset of $\R$ has a limit point.)
+ \item A {\bf subsequential limit} of a sequence $(a_n)$ is a limit of some convergent subsequence of $(a_n)$. For example, the sequence $a_n = (-1)^n$ does not converge, but it has two subsequential limits: $1=\lim (-1)^{2k}$, and $-1=\lim (-1)^{2k+1}$.
+ \item For any bounded sequence $(a_n)$, let $S$ denote the set of subsequential limits. We define
+\begin{align*}
+ \limsup a_n & = \sup S = \lim_{n\to\infty}\left(\sup\{a_1,\ldots, a_n\}\right)\\
+ \liminf a_n & = \inf S = \lim_{n\to\infty}\left(\inf\{a_1,\ldots, a_n\}\right).
+\end{align*}
+ \item A sequence $(a_n)$ converges if and only if $\limsup a_n=\liminf a_n$, which is if and only if every subsequence of $(a_n)$ converges to the same value.
+ \item Another important fact that we didn't discuss (and you're not responsible for) is that every sequence $(a_n)$ has a monotone subsequence. If $(a_n)$ is not bounded, it must admit a monotone subsequence that is not bounded. When $(a_n)$ admits an unbounded increasing subsequence, it's conventional to define $\limsup a_n = \infty$, and if $(a_n)$ admits an unbounded decreasing subsequence, we would define $\liminf a_n = -\infty$.
+\end{itemize}
+
+\noindent Exercises:
+\begin{enumerate}
+ \item For each sequence $(a_n)$, calculate the set $S$ of subsequential limits, $\limsup a_n$, and $\liminf a_n$:
+\begin{enumerate}
+ \item $\displaystyle (a_n) = \left(0,\frac{1}{2},\frac{2}{3},\frac{1}{4},\frac{4}{5},\frac{1}{6},\frac{6}{7},\ldots\right)$
+ \item $\displaystyle a_n = \sin\left(\frac{n\pi}{6}\right)$
+ \item $\displaystyle (a_n) = \left(1,1,\frac{1}{2},1,\frac{1}{2},\frac{1}{3},1,\frac{1}{2},\frac{1}{3},\frac{1}{4},1,\ldots\right)$
+\end{enumerate}
+ \item Suppose that $f:[0,1]\to\R$ is continuous. Prove that the sequence $\left(f(1/n)\right)$ has a convergent subsequence. (You'll need a result from Section 5.3 for this problem.)
+\end{enumerate}
+
+\subsection*{Section 5.1: Limits}
+Main definitions and results:
+\begin{itemize}
+ \item Let $f:D\to \R$ be a function, and let $a$ be a limit point of $D$. We say that $L$ is a {\bf limit} of $f$ as $x$ approaches $a$ if for every $\epsilon>0$ there exists some $\delta>0$ such that whenever $x\in D$ and $0<\abs{x-a}<\delta$ we have $\abs{f(x)-L}<\epsilon$.
+
+Recall that $a$ needs to be a limit point of $D$ so that we can consider values of $f(x)$ for $x\in D$ arbitrarily close to, but not equal to, $a$.
+ \item If $f:D\to\R$ has a limit at $x=a$, then this limit has to be unique. Thus, we can unambiguously talk about {\em the} limit of $f$ as $x$ approaches $a$, and write $\lim\limits_{x\to a}f(x)=L$.
+ \item In terms of sequences, $\lim\limits_{x\to a}f(x)=L$ if and only if for every sequence $(a_n)$ with $a_n\to a$ we have $f(a_n)\to L$.
+ \item A corollary of the above is that if there exists a sequence $(a_n)$ converging to $a$ for which $f(a_n)$ does not converge, then $\lim\limits_{x\to a}f(x)$ does not exist.
+ \item The {\bf limit laws} tell us how to take limits of sums, products, and quotients: if $\lim\limits_{x\to a}f(x)=L$ and $\lim\limits_{x\to a}g(x)=M$, then
+\begin{itemize}
+ \item $\displaystyle \lim_{x\to a}(kf(x)) = kL$, for any $k\in \R$
+ \item $\displaystyle \lim_{x\to a}(f(x)+g(x)) = L+M$
+ \item $\displaystyle \lim_{x\to a}(f(x)g(x)) = LM$
+ \item $\displaystyle \lim_{x\to a}\left(\frac{f(x)}{g(x)}\right) = \frac{L}{M}$, if $M\neq 0$.
+\end{itemize}
+
+\end{itemize}
+
+\noindent Exercises:
+\begin{enumerate}
+ \item Use the definition of the limit to verify the following:
+\begin{enumerate}
+ \item $\displaystyle \lim_{x\to 2}(x^2+1)=5$
+ \item $\displaystyle \lim_{x\to -1}\frac{x+1}{x-1}=0$
+ \item $\displaystyle \lim_{x\to 0}\frac{x^2}{\abs{x}}=0$
+\end{enumerate}
+
+\end{enumerate}
+\subsection*{Section 5.2: Continuity}
+Main definitions and results:
+\begin{itemize}
+ \item A function $f:D\to\R$ is {\em continuous} at a point $a\in D$ if for every $\epsilon>0$ there exists some $\delta>0$ such that if $x\in D$ and $\abs{x-a}<\delta$, then $\abs{f(x)-f(a)}<\epsilon$. If $f$ is continuous at $a$ for all $a\in D$, we say that $f$ is continuous {\bf on} $D$.
+
+Note: Unlike for limits, we require $a\in D$, but we do not require that $a$ is a limit point of $D$. Thus, a function $f$ is automatically continuous at every isolated point in its domain.
+ \item Given $f:D\to\R$, if $a\in D$ is a limit point of $D$, then the following are equivalent:
+\begin{enumerate}
+ \item $f$ is continuous at $x=a$.
+ \item $\displaystyle \lim_{x\to a}f(x) = f(a)$
+ \item For every sequence $(a_n)$ with $a_n\to a$, we have $f(a_n)\to f(a)$.
+ \item For every open neighbourhood $V$ of $f(a)$, there exists an open neighbourhood $U$ of $a$ such that $f(U)\subseteq V$.
+ \end{enumerate}
+(Note: the last item is equivalent to continuity even if $a$ is not a limit point of $D$.)
+\item A function $f$ is continuous on its domain $D$ if and only if for every open subset $V$ of $\R$, there exists an open subset $U$ such that $f^{-1}(V) = D\cap U$.
+\item The sum, product, and quotient* of continuous functions is continuous. *Whenever the functio in the denominator is nonzero.
+\item If $f$ is continuous at $x=a$ and $g$ is continuous at $y=f(a)$, then $g\circ f$ is continuous at $x=a$.
+\end{itemize}
+
+\noindent Exercises:
+
+\begin{enumerate}
+ \item Use the definition of continuity to prove that $f(x)=\frac{1}{x}$ is continuous at $x=1$.
+ \item Let $f(x)=\begin{cases} x & \text{ if } x\in \Q\\ 0 & \text{ if } x\notin \Q\end{cases}.$ 
+\begin{enumerate}
+ \item Prove that $f$ is continuous at 0.
+ \item Prove that $f$ is discontinuous at every other point. (Hint: if $a\in \Q$, let $(a_n)$ be a sequence of irrational numbers converging to $a$, and vice-versa.)
+\end{enumerate}
+ \item Prove that if $f$ is continuous on $(a,b)$ and $f(r)=0$ for all $r\in\Q$, then $f(x)=0$ for all $x\in (a,b)$.
+\end{enumerate}
+\subsection*{Section 5.3: Properties of continuous functions}
+
+Main definitions and results:
+\begin{itemize}
+ \item If $f:D\to \R$ is continuous, and $D$ is compact, then $f(D)$ is compact.
+ \item Corollary: if $f$ is continuous on a compact set $D$, then $f$ is bounded on $D$.
+ \item Corollary ({\bf Extreme Value Theorem}): if $f$ is continuous on a compact set $D$, (in particular if $D=[a,b]$) then there exist $x_1,x_2\in D$ such that $f(x_1)=\min\{f(x)|x\in D\}$ and $f(x_2) = \max\{f(x)|x\in D\}$; that is, $f(x_1)\leq f(x)\leq f(x_2)$ for all $x\in D$.
+ \item A function $f:D\to\R$ has the {\bf intermediate value property} on $D$ if for any $a,b\in D$ and $k\in \R$ such that $f(a)<k<f(b)$ (or $f(b)<k<f(a)$), there exists some $c\in D$ such that $f(c)=k$.
+ \item ({\bf Intermediate Value Theorem}) If $f:[a,b]\to \R$ is continuous, then $f$ has the intermediate value property on $[a,b]$.
+\end{itemize}
+
+\noindent Exercises:
+\begin{enumerate}
+ \item Prove that the equation $\cos x = x$ has a solution in $[0,\pi]$.
+ \item Let $S$ be a set and let $(x_n)$ be a sequence in $S$ converging to some point $x\notin S$. Prove that there exists an unbounded continuous function defined on $S$.
+ \item Which of the following functions can't possibly be continuous? Why?
+\begin{enumerate}
+ \item $f:(0,1)\to \R$ with $f((0,1)) = (-1,0)\cup (1,2)$
+ \item $f:[0,1]\to \R$ with $f([0,1]) = [-4,100]$
+ \item $f:[0,1]\to \R$ with $f([0,1]) = (0,1]$
+\end{enumerate}
+
+\end{enumerate}
+\subsection*{Section 5.4: Uniform continuity}
+Main definitions and results:
+\begin{itemize}
+ \item A function $f:D\to\R$ is {\bf uniformly continuous} on $D$ if for every $\epsilon>0$ there exists a $\delta>0$ such that for any $x,y\in D$, if $\abs{x-y}<\delta$, then $\abs{f(x)-f(y)}<\epsilon$.
+
+Note that the choice of $\delta$ depends only on $\epsilon$ and must work for all of $D$ - it cannot depend on the values of a particular $x$ and $y$. On the other hand, if $f$ is merely continuous on $D$, then for every $\epsilon>0$ {\bf and} for every $x\in D$, there exists a $\delta>0$ (depending now on $\epsilon$ {\em and} $x$) such that for any $y\in D$, if $\abs{x-y}<\delta$, then $\abs{f(x)-f(y)}<\epsilon$.
+ \item If $f:D\to \R$ is continuous and $D$ is compact, then $f$ is uniformly continuous on $D$.
+ \item If $f:D\to \R$ is uniformly continuous and $(a_n)$ is a Cauchy sequence in $D$, then $(f(a_n))$ is a Cauchy sequence.
+ \item A function $f:(a,b)\to \R$ is uniformly continuous if and only if it can be extended to a continuous function on $[a,b]$.
+\end{itemize}
+
+\noindent Exercises:
+\begin{enumerate}
+ \item Which of the following functions are continuous on the given set? Justify your answers.
+\begin{enumerate}
+ \item $f(x)=x\sin(1/x)$ on $[1,2]$
+ \item $f(x)=x\sin(1/x)$ on $(0,1)$
+ \item $f(x)=x^2+4$ on $[0,10]$
+ \item $f(x)=\dfrac{x+2}{x-1}$ on $(2,3)$
+ \item $f(x)=\dfrac{x+2}{x-1}$ on $(1,2)$
+\end{enumerate}
+ \item Use the defintion of uniform continuity to prove that $f(x) = x^2+x-3$ is uniformly continuous on $[1,3]$.
+\end{enumerate}
+\subsection*{Section 6.1: The derivative}
+Main definitions and results:
+\begin{itemize}
+ \item Let $f:I\to\R$ be a function, where $I$ is an interval, and let $a\in I$. We say that $f$ is {\bf differentiable} at $a$ if the limit $\displaystyle \lim_{x\to a}\frac{f(x)-f(a)}{x-a}$ exists. The value of this limit is called the {\bf derivative} of $f$ at $a$ and denoted by $f'(a)$.
+ \item By computing $f'(x)$ for each $x\in I$ where it exists, we get a new function $f'$ defined on the set of all $x\in I$ such that $f$ is differentiable.
+ \item If $f$ is differentiable at $x=a$, then $f$ is continuous at $x=a$. The converse is {\bf not} true.
+ \item We have the constant, power, sum, product, quotient, and chain rules just as in Math 1560.
+ \item {\bf Fermat's theorem} tells us that if $f$ has a maximum or minimum at a point $c$ on the interior of an interval $I$ (i.e. $c$ is not an endpoint of $I$), then $f'(c)=0$.
+ \item {\bf Darboux's theorem} tells us that if $f$ is differentiable on $I$, then $f'$ satisfies the intermediate value property on $I$. Thus, although $f'$ is not guaranteed to be continuous, any discontinuity of $f'$ cannot be a jump or removable discontinuity.
+\end{itemize}
+
+\noindent Exercises:
+\begin{enumerate}
+ \item Use the definition of the derivative to determine whether or not $f$ is differentiable at $x=0$, where
+\begin{enumerate}
+ \item $f(x) = \begin{cases} 2x & \text{ if } x\geq 0\\ x^2-1 & \text{ if } x<0\end{cases}$
+ \item $f(x) = \begin{cases} 3x+1 & \text{ if } x\geq 0 \\ 1-x^2 & \text{ if } x<0\end{cases}$
+ \item $f(x) = \begin{cases} x^2 & \text{ if } x\in \Q \\ 0 & \text{ if } x\notin \Q\end{cases}$
+\end{enumerate}
+
+ \item Prove that the derivative of an even function is an odd function.
+\end{enumerate}
+\subsection*{Section 6.2: The Mean Value Theorem}
+Main definitions and results:
+\begin{itemize}
+ \item {\bf Rolle's Theorem} states the following: if $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, and $f(a)=f(b)$, then there exists some $c\in (a,b)$ such that $f'(c)=0$.
+ \item The {\bf Mean Value Theorem} states that if $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then there exists some $c\in (a,b)$ such that
+\[
+ f'(c) = \frac{f(b)-f(a)}{b-a}.
+\]
+ \item Consequences of the Mean Value Theorem include the following: if $f'(x)=0$ for all $x\in I$, then $f$ is constant on $I$. If $f'(x)=g'(x)$ for all $x\in I$, then $f(x)=g(x)+C$ for some $C\in\R$. If $f'(x)>0$ for all $x\in I$, then $f$ is strictly increasing on $I$.
+\end{itemize}
+
+\noindent Exercises:
+\begin{enumerate}
+ \item Prove that $f(x)=x^5+2x$ has exactly one real root.
+ \item Recall that $f$ is a {\em contraction mapping} if there exists some $c\in (0,1)$ such that $\abs{f(x)-f(y)}\leq c\abs{x-y}$ for all $x,y\in\R$. Prove that if $\abs{f'(x)}<1$ on $\R$, then $f$ is a contraction mapping.
+ \item Let $f(x)$ and $g(x)$ be differentiable on $\R$. Show that if $f(0)=g(0)$ and $f'(x)\leq g'(x)$ for all $x\geq 0$, then $f(x)\leq g(x)$ for all $x\geq 0$.
+\end{enumerate}
+
+
+
+
+
+
+
+ 
+\end{document}
+ 

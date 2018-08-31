@@ -1,0 +1,330 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 50}}
+\chead{MATH 2000A}\lhead{Midterm}\rhead{Thursday, 16\textsuperscript{th} October, 2014}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\input twocolpf
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+16\textsuperscript{th} October, 2014, 12:15-1:30 pm\\
+{\bf Math 2000A - Midterm}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{50pt}{\bf SOLUTIONS}\hspace{50pt}}\\
+\skipline
+First Name:\underline{\hspace{50pt}{\bf THE}\hspace{100pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ Record your answers below each question in the space provided.    {\bf Left-hand pages may be used as scrap paper for rough work.}  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+The value of each problem is indicated in the left-hand margins. The value of a problem does not always indicate the amount of work required to do the problem.
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/11\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/11\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/50\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item For each of the following sentences, decide whether or not it is an assertion. If it is, indicate whether it is true or false, and why. If it is not, explain why.
+\begin{enumerate}
+\item The number 4 is an even integer. \points{2}
+
+
+\bigskip
+
+\noindent{\bf Solution}: This is a true assertion, since $4=2(2)$.
+
+\bigskip
+
+
+\item For each integer $n$, $n^2-1$ is a prime number.\points{2}
+
+
+\bigskip
+
+\noindent{\bf Solution}: This is a false assertion, since $3^1-1=8$ is not prime.
+
+\bigskip
+
+
+\item There exists some $x\in\R$ such that $x+y=3$. \points{2}
+
+
+\bigskip
+
+\noindent{\bf Solution}: This is not an assertion, since the variable $y$ is not specified. (We don't know if this is suppose to hold for all $y$, for some $y$, or for a particular $y$.)
+
+\bigskip
+
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+\item Define the {\bf union} of two sets $A$ and $B$.\points{2}
+
+
+\bigskip
+
+\noindent{\bf Solution}: Suppose that $A$ and $B$ are subsets of a universal set $U$. We define the union of $A$ and $B$ by
+\[
+ A\cup B = \{x\in U | x\in A \text{ or } x\in B\}.
+\]
+
+
+\bigskip
+
+
+\item What is the Law of the Excluded Middle?\points{2}
+
+\bigskip
+
+\noindent{\bf Solution}: The Law of the Excluded Middle is the observation that for any assertion $P$, $P\vee \neg P$ is always a tautology, and $P\wedge \neg P$ is always a contradiction.
+
+\bigskip
+
+\end{enumerate}
+\newpage
+
+\item For the following problems, you do {\bf not} need to show your work.
+\begin{enumerate}
+\item If $A = \{n\in\Z : n=2k \text{ for some } k\in\Z\}$ and $B = \{n\in\Z : n=3k \text{ for some } k\in\Z\}$, what is $A\cap B$? \points{2}
+
+
+\bigskip
+
+\noindent{\bf Solution}: We have $x\in A\cap B$ if $x\in A$ and $x\in B$, which means $x$ is a multiple of 2 and $x$ is a multiple of $3$. It follows that $x$ must be a multiple of 6. Thus, $A\cap B = \{n\in\Z : n=6k \text{ for some } k\in\Z\}$.
+
+\bigskip
+
+
+\item If $A= \Z$ and $B=\N$, what is $A\setminus B$?\points{2}
+
+
+\bigskip
+
+\noindent{\bf Solution}: Since $A = \{\ldots, -2, -1, 0, 1, 2, \ldots, \}$ and $B = \{1,2,3,\ldots\}$, 
+\[
+A\setminus B = \{0,-1,-2,-3,\ldots\}.
+\]
+(Unless your definition of $\N$ included 0, in which case $A\setminus B = \{-1, -2, -3, \ldots\}$.)
+
+\bigskip
+
+
+\item What is the contrapositive of the statement ``If $p$ is a prime number, then $p=2$ or $p$ is an odd number.'' ?\points{2}
+
+
+\bigskip
+
+\noindent{\bf Solution}: If $p\neq 2$ and $p$ is even, then $p$ is not a prime number.
+
+(It's also acceptable to write ``not odd'' instead of ``even''.)
+
+\bigskip
+
+
+\item If $A_n = \{1,n,2n\}$ for $n=1,2,3,\ldots$, what is $\displaystyle \bigcup_{n=2}^4 A_n$? \points{2}
+
+
+\bigskip
+
+\noindent{\bf Solution}: We have
+\[
+ \bigcup_{n=2}^4 A_n=A_2\cup A_3\cup A_4 = \{1,2,4\}\cup \{1,3,6\}\cup\{1,4,8\} = \{1,2,3,4,6,8\}.
+\]
+
+
+\bigskip
+
+
+\item What is the negation of the statement ``For all $n\in\Z$, there exists some $m\in \Z$ such that $m>n$.''? \points{2}
+
+
+\bigskip
+
+\noindent{\bf Solution}: There exists some $n\in\Z$ such that for all $m\in\Z$, $m\leq n$.
+
+(The symbolic answer $\exists n\in\Z : \forall  m\in\Z, m\leq n$ is also acceptable.)
+
+\bigskip
+
+
+\end{enumerate}
+\newpage
+
+\item Prove the following logical equivalence: $(P\vee Q)\to R\equiv (P\to R)\wedge (Q\to R)$. \points{4}\\ Formal justification of each step is not required.
+
+
+\bigskip
+
+\noindent{\bf Solution}:  Using known equivalences, we proceed as follows:
+\begin{align*}
+ (P\vee Q)\to R &\equiv \neg(P\vee Q)\vee R\\
+&\equiv (\neg P\wedge \neg Q)\vee R\\
+&\equiv (\neg P\vee R)\wedge (\neg Q\vee R)\\
+&\equiv (P\to R)\wedge (Q\to R)
+\end{align*}
+(The first and last equivalences follow from writing $A\to B$ as $\neg A\vee B$; the second is one of de Morgan's laws, and the third is one of the distributive laws. You earn full credit for the work above without the justifications.)
+
+\bigskip
+
+
+\item Give a two-column proof of the following deduction: $(P\vee \neg Q)\to \neg R, Q\to P; \therefore \neg R$ \points{7}
+
+
+\bigskip
+
+\noindent{\bf Solution}:
+\twocolpf{
+\pfline{1}{(P\eor \enot Q)\eif \enot R}{Hypothesis}
+\pfline{2}{Q\eif P}{Hypothesis}
+\hypend
+\subproof{
+\pfline{3}{Q}{Assumption}
+\pfline{4}{P}{\IfElim{2}{3}}
+\pfline{5}{P\eor \enot Q}{\OrIntro{4}}
+\pfline{6}{\enot R}{\IfElim{1}{5}}
+}
+\pfline{7}{Q\eif \enot R}{\IfIntro{3}{6}}
+\subproof{
+\pfline{8}{\enot Q}{Assumption}
+\pfline{9}{P\eor \enot Q}{\OrIntro{8}}
+\pfline{10}{\neg R}{\IfElim{1}{9}}
+}
+\pfline{11}{\neg Q\eif \neg R}{\IfIntro{8}{10}}
+\pfline{12}{Q\eor \neg Q}{Tautology (Law of the Excluded Middle)}
+\pfline{13}{\enot R}{\Cases{7}{11}{12}}
+}
+Also acceptable: Notice that $Q\to P\equiv \neg Q\vee P \equiv P\vee \neg Q$, so the second hypothesis can be written as $P\vee \neg Q$, and then jump directly to $\neg R$ by applying $\to$-elimination to the hypotheses.
+
+\newpage
+
+\item Are the following propositions true or false? Justify your conclusion with a proof or counterexample.
+\begin{enumerate}
+\item For $a,b,c\in Z$, if $a|bc$, then $a|b$ or $a|c$.\points{3}
+
+
+\bigskip
+
+\noindent{\bf Solution}: This is false. If we let $a=6$, $b=3$, and $c=4$, then $bc=12$, so $a|bc$, but 6 does not divide 3 or 4.
+
+\bigskip
+
+
+\item For any subsets $A$ and $B$ of some universal set $U$, $(A\cup B)\setminus A = B\setminus A$. \points{4}
+
+
+\bigskip
+
+\noindent{\bf Solution}: This is true, which can be seen as follows:
+\[
+ (A\cup B)\setminus A = (A\cup B)\cap A^c = (A\cap A^c)\cup (B\cap A^c) = \emptyset\cup (B\setminus A) = B\setminus A.
+\]
+
+
+\bigskip
+
+
+\item For any subsets $A$, $B$, and $C$ of some universal set $U$, if $A\cup C\subseteq B\cup C$, then $A\subseteq B$. \points{4}
+
+\bigskip
+
+\noindent{\bf Solution}: This is false. For example, take $A=\{1\}$, $B=\{2\}$, and $C=\{1,2\}$. Then $A\cup C = \{1,2\}$ and $B\cup C = \{1,2\}$, so $A\cup C\subseteq B\cup C$, since the two sets are equal, but $A\nsubseteq B$, since $1\in A$ and $1\notin B$.
+
+\bigskip
+
+\end{enumerate}
+\newpage
+
+\item Prove the following assertion: For any integer $n$, if $n^2-1$ is even, then $n^2-1$ is divisible by 4. \points{4}
+
+
+\bigskip
+
+\noindent{\bf Solution}: Let $n$ be an integer, and suppose that $n^2-1$ is even. Then there exists some $k\in\Z$ such that $n^2-1=2k$, so $n^2=2k+1$ is odd. It follows that $n$ is odd, since if $n$ were even, then $n^2$ would be even as well. Thus $n=2l+1$ for some $l\in\Z$. This gives us
+\[
+ n^2-1 = (2l+1)^2-1 = 4l^2+4l+1-1 = 4(l^2+l).
+\]
+Since $l^2+l$ must also be an integer if $l$ is an integer, we see that $4|(n^2-1)$, which is what we needed to show.
+
+\bigskip
+
+
+
+\item Let $I$ be a nonempty index set, and $\mathcal{A} = \{A_\beta : \beta \in I\}$ be an indexed family of sets. Prove that if $A_\beta\subseteq B$ for all $\beta\in I$, then $\di\bigcup_{\beta\in I}A_\beta\subseteq B$.\points{4}
+
+\bigskip
+
+\noindent{\bf Solution}: Let $\mathcal{A}=\{A_\beta:\beta\in I\}$ as given, and suppose that $A_\beta\subseteq B$ for all $\beta\in I$. If $x\in \bigcup_{\beta\in I}A_\beta$, then $x\in A_\alpha$ for some $\alpha\in I$. By assumption, $A_\alpha\in B$, so $x\in B$. Since we've shown that $x\in B$ for any $x\in\bigcup_{\beta\in I}A_\beta$, it follows that $\bigcup_{\beta\in I}A_\beta \subseteq B$.
+
+\bigskip
+
+\end{enumerate}
+
+
+
+\end{document}

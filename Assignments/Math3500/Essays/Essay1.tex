@@ -1,0 +1,128 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+%\usepackage[dvips]{hyperref}
+\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\title{Essay Assignment \#1: The Real Numbers\\Math 3500A Analysis I\\University of Lethbridge, Fall 2014}
+\date{}
+
+\begin{document}
+\maketitle
+
+ {\bf Due date:} Friday, the 26\textsuperscript{th} of September, by 6:00 pm.
+
+\bigskip
+
+The real number system $\R$ is characterized as an ordered field that contains the rational numbers $\Q$ as a subfield, and satisfies the {\em completeness axiom}: every non-empty set of real numbers that is bounded above has a least upper bound. This is the key property of the real number system that makes calculus possible --  without it, we run into problems with limits, and without limits, we don't have derivatives, integrals, sequences, series, etc. Since so much relies on the special properties of $\R$, one thing that we must be absolutely sure of is that such a number system exists! In introductory courses we rely on geometric intuition, identifying $\R$ with the ``real line''. The picture is a useful one: the left-to-right orientation of the number line aligns with the ordering of our field, and the topology of $\R$ (to be discussed when we cover Chapter 5 of the text) is encoded too: the geometric distance between points agrees with the distance formula $d=\lvert x-y\rvert$.
+
+One of the outcomes of a course in analysis is to realize that sometimes our geometric intuition can let us down: we can't picture a function that does not have a limit at any point, or a function that is continuous everywhere, but differentiable nowhere, and yet such functions exist. If we want to feel like we've really given a rigorous treatment to calculus, then we need to start by convincing ourselves that the set $\R$, with its desired properties, really exists.
+
+How is this done? You've probably seen some ``existence'' proofs -- for example, using the Intermediate Value Theorem to prove that a polynomial has a root -- where we know that the answer is out there, even if we can't say exactly what it is. This sort of proof tends to take place within the context of a given, pre-existing set. (There exists some $x\in\R$ such that...) Here, we want to prove existence of the set itself -- we want to invent a new context. To proceed in this case, we're going to need to explicitly construct the real numbers. So, we start with what we have -- the rational numbers -- and use these as building blocks to construct $\R$.
+
+
+ One method for constructing $\R$ from $\Q$ is due to Georg Cantor, and uses Cauchy sequences. That is, we try to define $\R$ as the set of all Cauchy sequences of rational numbers. For example the real number $\sqrt{2}$ could be represented by the Cauchy sequence $\{1,1.4,1.41,1.414,1.4142,\ldots\}$. This works, but there are two issues: circularity (Can we discuss limits of sequences before we've constructed $\R$? Yes, as it turns out, but you have to be careful.) and well-definedness. The latter issue arises because many different sequences can have the same limit; for example, the sequences $0,0.9, 0.99, 0.999,\ldots$ and $1,1.0,1.00,1.000,\ldots$. (This, by the way, is something that still confuses people with regard to decimal expansions.) Cantor's solution was to use {\em equivalence classes} of Cauchy sequences. This does provide a construction of $\R$, but checking that all the required properties are satisfied is a bit of a challenge. To get around some of these issues, we're going to take a different approach to the construction of $\R$ due to Richard Dedekind that uses certain {\em subsets} of $\Q$.
+
+\bigskip
+
+{\bf The assignment:} You are going to explain how to create the set of real numbers, using $\Q$ as your construction material, via the method of {\em Dedekind cuts}. I'll guide you through the construction, by asking a sequence of questions below. Your job is to answer each question, and then put your answers together in paragraph form. If you've answered all the questions using complete sentences, the end result should be an essay on the construction of $\R$ that's a few pages long. Your final draft can be typed, or, if you find that inputting math symbols on your word processor is too tedious, neatly\footnote{That is, legible, and free of crossing out, scribbling, etc.} hand-written in pen. (Another option is to type the text and leave space to write in any math symbols.)
+
+You're allowed to discuss the problems with other students or with me, and you're allowed to research the material online. (It's standard enough that a Google search will turn up plenty of resources.) However, you {\bf must disclose} all resources used, whether human, online, or in a textbook. In other words, cite your sources. You should conclude your assignment with either a list of sources used, or a declaration that you worked everything out completely independently if you choose to do so. (I don't really recommend the latter approach.)
+
+The finished product should be readable as a self-contained report on Dedekind cuts. Therefore, in addition to the solutions to the exercises below, you should include all relevant contextual information, most of which I've provided for you. (For example, it would be very strange to submit a report on Dedekind cuts that did not contain a definition of what these objects are, so you should include the definition, even though I'm giving it to you.)
+
+
+
+\begin{enumerate}
+\item Show that the set $\Q$ fails the completeness axiom by considering the set 
+\[
+A=\{x\in\Q \,|\, x^2-2<0\}.
+\]
+That is, show that $A$ is bounded above, but does not have a {\em rational} least upper bound.
+\end{enumerate}
+We define a {\bf Dedekind cut} (named after Richard Dedekind, 1831-1916) to be a set $A\subseteq \Q$ of rational numbers such that
+\begin{enumerate}[\hspace{12pt}(i)]
+ \item $A$ is non-empty and $A\neq \Q$. ($A$ has to have something, but it can't have everything.)
+ \item If $r\in A$, then $q\in A$ for every rational number $q<r$. (This means each cut $A$ can be pictured as all the rational points on the number line to the {\em left} of some point. Note that the point in question is not claimed to be rational itself.)
+ \item $A$ does not have a maximum. That is, if $r\in A$, then there exists $s\in A$ with $r<s$. (If this seems odd, think of open intervals: for any $x\in (a,b)$ it is always possible to find some $y$ with $x<y<b$. Just be careful to keep in mind here that we're talking about sets of {\em rational} numbers, whereas intervals are sets of real numbers.)
+\end{enumerate}
+One way to think about this definition is to picture $\Q$ as all the rational points on the number line, and then ``cutting'' the line at some point (which may or may not be rational). The resulting subset is what remains when you throw away the cut point (if it's rational) and everything to the right of that point.
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item Show that for any $r\in \Q$, the set $A_r = \{t\in \Q\,|\, t<r\}$ is a Dedekind cut.
+
+\item Are the following sets cuts? Why or why not?
+\begin{enumerate}
+ \item $R = \{t\in\Q\,|\, t\leq 2\}$
+ \item $S = \{t\in\Q\,|\, t^2<2 \text{ or } t<0\}$
+ \item $T = \{t\in\Q\,|\, t^2\leq 2 \text{ or } t<0\}$
+\end{enumerate}
+
+\item Let $A$ be a cut. Show that if $r\in A$ and $s\notin A$, then $r<s$.
+
+\end{enumerate}
+You've probably guessed what's coming next: we define the set $\R$ of real numbers to be the set of all Dedekind cuts $A\subseteq \Q$ --- which is weird, right? This is not how we think of real numbers -- we're more used to thinking in terms of Cantor's definition. But, although this definition is less intuitive, it turns out to be easier to work with, and all we want in the end is to prove that it's possible to construct a set with the properties that are required of the real numbers. Thus, to claim that we have a definition of $\R$, we need to check that what we get is a field, that is ordered, satisfies the completeness axiom, and contains a copy of $\Q$ as a subfield.
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item Let $A,B\in \R$ be cuts, and define $A+B = \{a+b\,|\, a\in A \text{ and } b\in B\}$. Verify that $A+B=B+A$ for any cuts $A$ and $B$. You can leave associativity as an exercise.
+\item Explain how to define a Dedekind cut $O$ that represents the zero element $0\in\R$. (Hint: 0 is rational -- see Problem \#2.) Verify that the cut $O$ you defined satisfies $A+O=A$ for any other cut $A$.
+\item Given a cut $A\in\R$, verify that the set 
+\[
+-A = \{r\in \Q\,|\, \text{ there exists } t\notin A \text{ such that } t<-r\}
+\]
+is also a cut.
+\end{enumerate}
+Once you've verified that $-A$ is a cut, choose any $a\in A$, and $b\in -A$. By the definition of $-A$ there must exist some $c\notin A$ with $c<-b$ (or equivalently, $b<-c$). Since $c\notin A$, we know that $a<c$ from Problem \#4. Putting this together, we have that $a+b < a-c < 0$.
+\begin{enumerate}
+\setcounter{enumi}{7}
+\item Using the argument provided above, explain why our definition of $-A$ determines an additive inverse.
+\end{enumerate}
+We'll avoid multiplication for the moment and discuss ordering. Defining an order on the set of all Dedekind cuts is simple:
+\[
+ \text{We say that } A\leq B \text{ if and only if } A\subseteq B.
+\]
+From the point of view of Problem \#4, this ordering should make sense. 
+\begin{enumerate}
+\setcounter{enumi}{8}
+\item Verify that the above indeed defines an ordering on $\R$. In other words, for cuts $A, B, C$, check that
+\begin{enumerate}
+ \item Either $A\leq B$ or $B\leq A$.
+ \item If $A\leq B$ and $B\leq A$, then $A=B$.
+ \item If $A\leq B$ and $B\leq C$, then $A\leq C$.
+\end{enumerate}
+\end{enumerate}
+To verify that we in fact have an {\em ordered field}, we should also confirm that for any cuts $A,B,C$, if $B\leq C$, then $A+B\leq A+C$, and if $A,B\geq O$, then $AB\geq O$. You can skip the verification of these two facts -- after all, we haven't even defined $AB$ yet! We next should define multiplication, and then check that the remaining field axioms are satisfied, but you don't have to do so -- multiplication turns out to be a bit more complicated and you've got enough work to do already.
+
+Given cuts $A,B\in\R$, the product $AB$ is defined in several cases. If $A\geq O$ and $B\geq O$, then we set
+\[
+ AB = \{ab\,|\, a\in A \text{ and } b\in B,\, a,b\geq 0\}\cup\{t\in\Q\,|\, t<0\}.
+\]
+The other cases are handled using the definition of the additive inverse above. If $A\geq O$ and $B<0$, we set $AB = -[A(-B)]$, and so on.
+
+\bigskip
+
+Finally, we need to deal with completeness. Suppose $\mathcal{A}\in\R$ is a set of Dedekind cuts that is nonempty and bounded above (i.e., there exists a cut $B$ such that $A\leq B$ for all $A\in\mathcal{A}$). Define the set $S$ to be the {\em union} of all the sets $A\in\mathcal{A}$:
+\[
+ S = \bigcup_{A\in\mathcal{A}}A.
+\]
+\begin{enumerate}
+\setcounter{enumi}{9}
+\item Verify that $S$ as defined above is a cut, and that $S$ is the least upper bound of $\mathcal{A}$.
+\end{enumerate}
+
+
+We've now established that the set $\R$ of Dedekind cuts is a complete, ordered field. (Well, we would have, if we'd checked the multiplication and distribution axioms, and the other two ordered field properties. But you probably did that at home anyway, right?) We're almost done. What's missing? The real numbers are supposed to contain $\Q$ as a subfield. Can we claim that as well? It would seem not -- a rational number on its own is not a cut. But we can show that the set of cuts contains an {\em isomorphic copy} of $\Q$, which really is good enough. Which cuts represent $\Q$? We already ran into them above: these are the sets $A_r = \{q\in\Q\,|\, q<r\}$. You already verified that these are cuts, so all that's left to check is that for any $r,s\in \Q$ we have $A_r+A_s = A_{r+s}$, and that $(A_r)(A_s) = A_{rs}$, so that addition and multiplication of rational cuts corresponds to addition and multiplication of rational numbers. You can leave this last part as an exercise for the reader.
+
+
+
+
+
+
+\end{document}
+ 

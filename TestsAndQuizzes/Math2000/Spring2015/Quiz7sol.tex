@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000B}\chead{Quiz \# 7}\rhead{Thursday, 12\textsuperscript{th} March, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\renewcommand{\div}[2]{#1\, |\,#2}
+
+\begin{document}
+{\bf Name: Solutions}
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+\bigskip
+
+\begin{enumerate}
+ \item If $A=\{1,2,4\}$ and $B=\{2,3,5\}$, compute
+\begin{enumerate}
+ \item $A\cup B = \{1,2,3,4,5\}$\points{1}
+
+\vspace{0.5in}
+
+ \item $A\cap B = \{2\}$ \points{1}
+
+\vspace{0.5in}
+
+ \item $A\setminus B = \{1,4\}$ \points{1}
+
+\vspace{0.5in}
+\end{enumerate}
+\item Let $A, B$, and $C$ be subsets of some universal set $U$. Prove that if $A\subseteq B$, then\\
+ $A\cap C\subseteq B\cap C$. \points{4}
+
+\bigskip
+
+{\bf Proof:} Suppose that $A\subseteq B$, and let $x\in A\cap C$. Since $x\in A\cap C$, $x\in A$ and $x\in C$. Since $x\in A$ and $A\subseteq B$, $x\in B$. Thus $x\in B$ and $x\in C$, which shows that $x\in B\cap C$. Thus, it follows that $A\cap C\subseteq B\cap C$.
+
+\bigskip
+
+\item Is it true that if $A\cap C\subseteq B\cap C$, then $A\subseteq B$? Give a suitable proof or counterexample. \points{3}
+
+\bigskip
+
+This is false. For example, consider $A=\{1,2\}$, $B=\{2,3\}$, and $C=\{2\}$. Then $A\nsubseteq B$, since $1\in A$ but $1\notin B$, but $A\cap C = \{2\}$ and $B\cap C=\{2\}$, and $\{2\}\subseteq \{2\}$.
+\end{enumerate}
+
+
+\end{document}

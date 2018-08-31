@@ -1,0 +1,255 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+%\usepackage{hyperref}
+\usepackage{footmisc}
+
+%\theoremstyle{theorem}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{problem}{Problem}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+
+\title{A sample solution to Writing Assignment \#1}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\textbf{Note:} Since the majority of the class chose to write about Pythagorean triples, and since I don't have time to do complete write-ups on both topics, I've chosen to provide an example of a completed assignment only for the topic of Pythagorean triples. If you chose to write about least upper bounds and have questions about your work, feel free to drop by my office.
+
+\vspace{0.5in}
+
+Although classical geometry (in the tradition of Euclid) has become less common in grade school classrooms in the last decade, one result that most people remain familiar with is the \textit{Pythagorean theorem}; most likely this is due to its utility in defining distance in the Cartesian coordinate system all students encounter when graphing functions. Let's recall the statement of the theorem:
+\begin{theorem}
+ For any right-angled triangle, we have
+\[
+ a^2+b^2=c^2,
+\]
+where $a$ and $b$ denote the lengths of the two sides adjacent to the right angle, and $c$ denotes the length of the hypotenuse.
+\end{theorem}
+Most students have extensive experience using this theorem to determine the length of one side of a right-angled triangle when given the other two.\footnote{Curiously enough, this common problem is a fairly useless exercise in basic arithmetic. The theorem finds much more practical use -- by carpenters, builders, etc. -- in determining whether or not a given angle is a right angle by measuring distances.} In most cases, the result of this exercise is an irrational number. For example, if the two sides adjacent the right angle both have length one, the length of the hypotenuse will be $\sqrt{2}$. 
+
+However, there are some lucky cases in which the lengths of all three sides of a right-angled triangle are integers; most people are well aware of the so-called ``3-4-5'' triangle, where $a=3$, $b=4$, and $a^2+b^2 = 3^2+4^2=25=5^2$, so $c=5$. Any such set of numbers is called a \textit{Pythagorean triple}:
+\begin{definition}
+ A triple of natural numbers $(a,b,c)$ with $a<b<c$ is called a \textbf{Pythagorean triple} if $a^2+b^2=c^2$ \cite{Su}.
+\end{definition}
+One thing that is easily noticed is that once we have one Pythagorean triple, it can be used to generate infinitely many others:
+\begin{prop}
+ Suppose that $(a,b,c)$ is a Pythagorean triple. Then for any $k\in\mathbb{N}$, $(ka,kb,kc)$ is also a Pythagorean triple.
+\end{prop}
+\begin{proof}
+ Suppose that $(a,b,c)$ is a triple, so that $a^2+b^2=c^2$. Then we have that
+\[
+ (ka)^2+(kb)^2 = k^2a^2+k^2b^2=k^2(a^2+b^2) = k^2c^2 = (kc)^2.
+\]
+\end{proof}
+Those triples which cannot be obtained as a multiple of another triple are often viewed as more fundamental. We call a Pythagorean triple $(a,b,c)$ \textbf{primitive} if the integers $a,b,c$ have no common factors. \cite{WP} One example of a primitive triple was already given above: the triple $(3,4,5)$. By considering all possible combinations of $a,b\in\{1,2,3\}$, we can quickly see that there are no other triples consisting of smaller numbers. Interestingly enough, $(3,4,5)$ is also the only triple consisting of consecutive integers:
+\begin{prop}
+ The only Pythagorean triple consisting of consecutive integers is $(3,4,5)$.
+\end{prop}
+\begin{proof}
+ Suppose that we have consecutive integers $n,n+1,n+2$ such that $n^2+(n+1)^2=(n+2)^2$. Expanding both sides of this equation gives us
+\[
+ n^2+n^2+2n+1 = n^2+4n+4,
+\]
+and simplifying this, we see that we must have $n^2-2n-3=0$. The left-hand side factors, giving us $(n-3)(n+1)=0$, so the only possibilities are $n=3$ or $n=-1$. We cannot have $n=-1$ since it is not a natural number, and this leaves us with $n=3$, and thus $n+1=4$ and $n+2=5$, as required.
+\end{proof}
+Although this is the only triple consisting of consecutive integers, it turns out that there are many Pythagorean triples where two of the three integers are consecutive. Such triples are called \textbf{twin Pythagorean triples}. \cite{MW} There are two types of twin triple: those of the form $m, m+k, m+(k+1)$, where $m,k\in\mathbb{N}$, and those of the form $m,m+1,m+k$, where $k>1$. For example, the triple $5,12,13$ is a twin Pythagorean triple of the first type, with $m=5$ and $k=7$, since $5^2+12^2 = 25+144 = 169 = 13^2$. In fact, it is the only Pythagorean triple of the form $m,m+7,m+8$:
+\begin{prop}
+ If $m,m+7,m+8$ is a Pythagorean triple, then $m=5$.
+\end{prop}
+\begin{proof}
+ Suppose $m,m+7,m+8$ is a triple. Then $m^2+(m+7)^2=(m+8)^2$. Expanding and simplifying, we have
+\begin{align*}
+ m^2 &+ m^2+14m+49 = m^2+16m+64\\
+ m^2 &-2m-15 = 0\\
+ (m& +3)(m-5)=0.
+\end{align*}
+Again, we reject the solution $m=-3$ since we must have $m>0$, which leaves us with $m=5$, and the triple $5,12,13$.
+\end{proof}
+It should be noted, however, that not all values of $k$ produce a triple. For example, if we take $k=11$, we would be looking for a triple of the form $m,m+11,m+12$.
+\begin{prop}
+ There is no Pythagorean triple of the form $m, m+11, m+12$.
+\end{prop}
+\begin{proof}
+ We proceed as above: if such a triple exists, then we would have to have $m^2+(m+11)^2=(m+12)^2$ for some $m\in\mathbb{N}$. However, if we expand and simplify this equation, we obtain the quadratic equation $m^2-2m-23=0$. Since the discriminant $(-2)^2-4(1)(-23) = 96$ is not a perfect square, we know that the quadratic equation will not return an integer solution to this equation, and thus no solution with $m$ a natural number is possible.
+\end{proof}
+Now, we might ask ourselves whether there are other twin Pythagorean triples of this first type.\footnote{I don't think anybody who submitted a paper asked themselves this question, but it was the first thing that came to mind for me. It's how I ended up searching online and finding the reference \cite{MW} -- it's the first time I recall encountering the ``twin'' triple terminology.} For simplicity, let $n=m+k$. Then a triple of the form $m, m+k, m+k+1$ can be written as $m,n,n+1$. If this is a triple, then we must have
+\[
+ m^2+n^2 = (n+1)^2 = n^2+2n+1,
+\]
+which simplifies to give $m^2=2n+1$. Thus, a minimum requirement is that $m^2$ is odd, which tells us that $m$ must be odd as well, as we've seen in class many times. This leads to the following:
+\begin{prop}
+ For any $k\geq 1$, let $m=2k+1$, and let $n=2k^2+2k$. Then $m,n,n+1$ is a twin Pythagorean triple of the first type given above.
+\end{prop}
+\begin{proof}
+ Let $k\geq 1$ be given, and let $m=2k+1$ and $n=2k^2+2k$. Then we have
+\begin{align*}
+ m^2+n^2 & = (2k+1)^2 + (2k^2+2k)^2\\
+ & = 4k^2+4k+1 +4k^4+8k^3+4k^2\\
+ & = 4k^4+8k^3+8k^2+4k+1\\
+ & = (2k^2+2k+1)^2\\
+ & = (n+1)^2.
+\end{align*}
+\end{proof}
+Here is a table with the first five odd squares (greater than one) and the corresponding Pythagorean triples:
+\begin{center}
+\begin{tabular}{|c|ccc|}
+\hline
+ $k$&$m$&$n$&$n+1$\\
+\hline
+1&3&4&5\\
+2&5&12&13\\
+3&7&24&25\\
+4&9&40&41\\
+5&11&60&61\\
+\hline
+\end{tabular}
+\end{center}
+In each case, one can easily verify that the given triples are Pythagorean. For example, $9^2+40^2 = 1681 = 41^2$.
+
+The twin Pythagorean triples of the second type are much harder to analyze, and the general results are beyond the scope of this paper. For a discussion, see \cite{MW}. After $3,4,5$, the next two such triples are $20,21,29$ and $119, 120, 169$. (It may seem unlikely that the sum of squares of two consecutive integers will be itself a perfect square, but there are in fact infinitely many twin Pythagorean triples of this second type as well.)
+
+Of course, not all Pythagorean triples are twin triples; for example, $6,8,10$ is a triple. This triple is not primitive, however, since it's a multiple of the $3,4,5$ triple. An example of a primitive non-twin triple is $8,15,17$. From \cite{Tsm}, we can provide the following list of all Pythagorean triples $a,b,c$ with $c<100$:
+
+\begin{minipage}{\textwidth}
+\begin{center}
+ \begin{tabular}{cccc}
+  $3,4,5$ & $6,8,10$\footnote{\label{1} Multiple of $3,4,5$} & $5,12,13$ & $9,12,15$\textsuperscript{\ref{1}}\\
+  $8,15,17$ & $12,16,20$\textsuperscript{\ref{1}} & $7,24,25$ & $15,20,25$\textsuperscript{\ref{1}}\\
+  $10,24,26$\footnote{\label{2} Multiple of $5,12,13$} & $20,21,29$ & $18,24,30$\textsuperscript{\ref{1}} & $16,30,34$\footnote{\label{3} Multiple of $8,15,17$}\\
+  $21,28,35$\textsuperscript{\ref{1}} & $12,35,37$ & $15,36,39$\textsuperscript{\ref{2}} & $24,32,40$\textsuperscript{\ref{1}}\\
+  $9,40,41$ & $27,36,45$\textsuperscript{\ref{1}} & $14,48,50$\footnote{\label{4} Multiple of $7,24,25$} & $30,40,50$\textsuperscript{\ref{1}}\\
+  $24,45,51$\textsuperscript{\ref{3}} & $20,48,52$\textsuperscript{\ref{2}} & $28,45,53$ & $33,44,55$\textsuperscript{\ref{1}}\\
+  $40,42,58$\footnote{\label{5} Multiple of $20,21,29$} & $36,48,60$\textsuperscript{\ref{1}} & $11,60,61$ & $16,63,65$\\
+  $25,60,65$\textsuperscript{\ref{2}} & $33,56,65$ & $39,52,65$\textsuperscript{\ref{1}} & $32,62,68$\textsuperscript{\ref{3}}\\
+  $42,56,70$\textsuperscript{\ref{1}} & $48,55,73$ & $24,70,74$\footnote{\label{6} Multiple of $12,35,37$} & $21,72,75$\textsuperscript{\ref{4}}\\
+  $45,60,75$\textsuperscript{\ref{1}} & $45,60,75$\textsuperscript{\ref{2}} & $48,64,80$\textsuperscript{\ref{1}} & $18,80,82$\footnote{\label{7} Multiple of $9,40,41$}\\
+  $13,84,85$ & $36,77,85$ & $40,75,85$\textsuperscript{\ref{3}} & $51,68,85$\textsuperscript{\ref{1}}\\
+  $60,63,87$\textsuperscript{\ref{5}} & $39,80,89$ & $54,72,90$\textsuperscript{\ref{1}} & $35,84,91$\textsuperscript{\ref{2}}\\
+  $57,76,95$\textsuperscript{\ref{1}} & $65,72,97$
+ \end{tabular}
+\end{center}
+\end{minipage}
+
+\bigskip
+
+Let us look at the non-primitive triples in the above table. We note that there are all the twin triples mentioned above, along with one more of the first type: $13,84,85$, which corresponds to $k=6$. There are also several triples where $b$ and $c$ have a difference of only two: $8,15,17$, $12,35,37$, and $16,63,65$. (The non-primitive triples $6,8,10$, $10,24,26$, and $14,48,50$ are also of this type.) We note that each of these triples follows a distinct pattern.
+
+First, we note that each of the primitive triples contains exactly one even number, while the non-primitive triples consist of entirely even numbers. In fact, no triple $a,b,c$ can consist of all odd integers, since if $a$ and $b$ are odd, then $c^2$, and thus $c$, must be even. In fact, either $a$ or $b$ must always be even.\footnote{See Exercise 15 in Section 3.3 of \cite{Su}.} To see this, suppose that $a$ and $b$ are odd, and $a^2+b^2=c^2$. As we just mentioned, it follows that $c$ must be even. So suppose that $a=2k+1$ $b=2l+1$, and $c=2m$, for some $k,l,m\in\mathbb{N}$. The equation $a^2+b^2=c^2$ then becomes
+\[
+ (2k+1)^2+(2l+1)^2=(2m)^2 \quad \text{ which gives } 4(k^2+l^2+k+l-m^2) = 2,
+\]
+implying that $4|2$, which is false. Thus, either $a$ or $b$ must be odd.\footnote{This wasn't the only other problem in Sundstrom involving Pythagorean triples, by the way. See also Section 3.6 Exercises 8 and 9 (and also 14).}
+
+Let us write $a=2m$ for the smallest even number in each of the triples above where $b$ and $c$ differ by two. For example, in the triple $8,15,17$, we have $a=8$, so $m=4$. Looking at the other two numbers in the triple, we see that $15 = 16-1 = 4^2-1$ and $17 = 16+1 = 4^2+1$, so our triple can be written in the form $2m,m^2-1,m^2+1$, where $m=4$. In fact, the same is true of the other five triples, as shown in the following table:
+\begin{center}
+ \begin{tabular}{|c|ccc|}
+  \hline
+ $m$ & $2m$ & $m^2-1$ & $m^2+1$\\
+\hline
+ 3 & 6 & 8 & 10\\
+ 4 & 8 & 15 & 17\\
+ 5 & 10 & 24 & 26\\
+ 6 & 12 & 35 & 37\\
+ 7 & 14 & 48 & 50\\
+ 8 & 16 & 63 & 65\\
+\hline
+ \end{tabular}
+\end{center}
+We note that when $m=2$, we obtain the triple $4,3,5$, which is effectively the Pythagorean triple $3,4,5$, with the order of 3 and 4 reversed. (Since our definition of a Pythagorean triple required $a<b<c$, we can't \textit{quite} claim that $2m,m^2-1,m^2+1$ is a Pythagorean triple when $m=2$.) However, the discussion above leads us to the following:
+\begin{theorem}\label{t1}
+ For all $m\geq 3$, $2m,m^2-1,m^2+1$ is a Pythagorean triple.
+\end{theorem}
+Indeed, we can see that the result holds for $m=9$ and $m=10$, giving us the triples $18, 80, 82$ and $20,99,101$, respectively. (The former is on our list above; the latter is the first primitive triple $a,b,c$ with $c>100$.) Let us now show that the result holds in general.
+\begin{proof}[Proof of Theorem \ref{t1}]
+ Let $m$ be an integer, with $m\geq 3$. Then we have $6\leq 2m<m^2-1<m^2+1$, and
+\begin{align*}
+ (2m)^2+(m^2-1)^2 & = 4m^2 + m^4-2m^2+1\\
+ & = m^4+2m^2+1\\
+ & = (m^2+1)^2.
+\end{align*}
+\end{proof}
+Finally, we note that in our list above, there were several primitive Pythagorean triples that were neither twin triples, nor triples of the form given by Theorem \ref{t1} above. These were the triples $28,45,53$, $33,56,65$, $48,55,73$, $36,77,85$, $39,80,89$, and $65,72,97$. To generate these triples (and, in fact, all primitive triples) we need the following result (see \cite{WP}):
+\begin{theorem}[Euclid's Formula]
+ For any pair of positive integers $m$ and $n$ with $m>n$, the integers $a=m^2-n^2$, $b=2mn$, and $c=m^2+n^2$ define a Pythagorean triple.\footnote{Assuming $m^2-n^2<2mn$. If $2mn<m^2-n^2$, we reverse the roles of $a$ and $b$.} Moreover, this triple is primitive if and only if $m$ and $n$ have no common factor greater than one, and $m-n$ is odd.\footnote{If $m-n$ is even, then $a$, $b$, and $c$ will all be even, so $a,b,c$ is not a primitive triple; however, in this case, $\frac{a}{2},\frac{b}{2},\frac{c}{2}$ will be primitive.}
+
+ Conversely, if $a,b,c$ is a Pythagorean triple, then there exist natural numbers $m$ and $n$, with $m>n$, such that $a=m^2-n^2$, $b=2mn$, and $c=m^2+n^2$.
+\end{theorem}
+Note that when $n=1$, we recover all of the Pythagorean triples given by Theorem\ref{t1} above. Moreover, we can quickly check that the remaining triples above are all generated by Euclid's formula.\footnote{Euclid's formula doesn't directly generate \textit{every} Pythagorean triple, but it generates all the primitive ones, so every triple either comes from Euclid's formula, or is a multiple of one that does.} The results are summarized in the following table:
+\begin{center}
+ \begin{tabular}{|cc|ccc|}
+  \hline
+ $m$ & $n$ & $m^2-n^2$ & $2mn$ & $m^2+n^2$\\
+\hline
+ 7 & 2 & 45 & 28 & 53\\
+ 7 & 4 & 33 & 56 & 65\\
+ 8 & 3 & 55 & 48 & 73\\
+ 9 & 2 & 77 & 36 & 85\\
+ 8 & 5 & 39 & 80 & 89\\
+ 9 & 4 & 65 & 72 & 97\\
+\hline
+ \end{tabular}
+\end{center}
+For the proof of this result, we also refer to \cite{WP}, and the references therein. (For brevity we will omit the proof that $m^2-n^2, 2mn, m^2+n^2$ is primitive if and only if $m-n$ is odd and $m$ and $n$ have no common factors greater than one.)
+\begin{proof}
+ First, we show that $m^2-n^2,2mn,m^2+n^2$ is a Pythagorean triple. We have:
+\begin{align*}
+ (m^2-n^2)^2+(2mn)^2 &= m^4-2m^2n^2+n^4 + 4m^2n^2\\
+&=m^4+2m^2n^2+n^4\\
+&=(m^2+n^2)^2.
+\end{align*}
+Thus, if $a=m^2-n^2$, $b=2mn$, and $c=m^2+n^2$, then $a^2+b^2=c^2$. (As noted above, we may have $a>b$ in some cases, but we can simply switch the places of $a$ and $b$ when this happens.)
+
+Conversely, suppose that $a,b,c$ is a Pythagorean triple, so $a^2+b^2=c^2$. We rearrange this equation to give 
+\[
+c^2-a^2=(c-a)(c+a)=b^2. 
+\]
+We rearrange this to give $\dfrac{c+a}{b} = \dfrac{b}{c-a}$. Since $\dfrac{c+a}{b}$ is rational, we set
+\[
+ \frac{c+a}{b} = \frac{m}{n},
+\]
+where $m$ and $n$ are natural numbers, and $\dfrac{m}{n}$ is in lowest terms. We now note that
+\[
+ \frac{c-a}{b} = \frac{1}{b/(c-a)} = \frac{1}{(c+a)/b} = \frac{1}{m/n} = \frac{n}{m}.
+\]
+This gives us the pair of equations
+\begin{align*}
+ \frac{c}{b}+\frac{a}{b} &= \frac{m}{n}\\
+ \frac{c}{b}-\frac{a}{b} & = \frac{n}{m}.
+\end{align*}
+Adding these equations gives $\dfrac{2c}{b} = \dfrac{m}{n}+\dfrac{n}{m} = \dfrac{m^2+n^2}{mn}$, so $\dfrac{c}{b} = \dfrac{m^2+n^2}{2mn}$. Similarly, subtracting the equations gives us $\dfrac{a}{b} = \dfrac{m^2-n^2}{2mn}$. Now, if we assume that the triple $a,b,c$ is primitive, then the fractions $\dfrac{a}{b}$ and $\dfrac{c}{b}$ are in lowest terms, since $a$, $b$, and $c$ have no common factors. We already assumed that the fraction $\dfrac{m}{n}$ was in lowest terms, so $m$ and $n$ have no common factors. If we assume that $m-n$ is odd, so that either $m$ is even and $n$ is odd, or vice-versa, then $m^2-n^2$ is odd. This implies that the fraction $\dfrac{m^2-n^2}{2mn}$ is in lowest terms, since the numerator is odd, while the denominator is even, so they cannot share a common factor of 2. To see that there are no other common factors, suppose $p$ is a prime factor of $m$, so that $m=pk$ for some $k\in\mathbb{N}$. Then $m^2-n^2 = p^2k^2-n^2$, and if this is divisible by $p$, we would have $p^2k^2-n^2 = pl$ for some $l\in\mathbb{N}$, and thus $n^2 = p(pk^2-l)$, implying that $p|n^2$, from which it follows\footnote{This is a special case of \textit{Euclid's Lemma}: see Chapter 8 in \cite{Su}.} that $p|n$,  but we assumed that $m$ and $n$ have no non-trivial common factors.
+
+Now (and only now) that we know the equalities $\dfrac{a}{b}=\dfrac{m^2-n^2}{2mn}$ and $\dfrac{c}{b} = \dfrac{m^2+n^2}{2mn}$ involve fractions \textit{in lowest terms}, we can equate numerators and denominators, giving $a=m^2-n^2$, $b=2mn$, and $c=m^2+n^2$, as required.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+\begin{thebibliography}{9}
+ \bibitem{Su} Sundstrom, Ted. \textit{Mathematical Reasoning: Writing and Proof}, Version 2.0. Allendale, MI, June 2014.
+ \bibitem{Tsm} \textit{Integer lists: Pythagorean triples}. http://www.tsm-resources.com/alists/trip.html.
+ \bibitem{MW} Weisstein, Eric. \textit{Wolfram Mathworld: Twin Pythagorean Triple} http://mathworld.wolfram.com/TwinPythagoreanTriple.html
+ \bibitem{WP} \textit{Wikipedia: Pythagorean Triple}. https://en.wikipedia.org/wiki/Pythagorean\_triple
+\end{thebibliography}
+
+\end{document}
+ 

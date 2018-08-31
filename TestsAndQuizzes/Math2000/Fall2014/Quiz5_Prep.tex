@@ -1,0 +1,80 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{Practice Problems for Quiz 5\\Math 2000A}
+\date{}
+\begin{document}
+ \maketitle
+\vspace{-0.5in}
+
+Quiz \#5 will take place in class on Thursday, October 9th. (This is the last quiz before the midterm!) 
+
+\begin{enumerate}
+ \item Determine the negations of the definitions for the union, intersection, and difference of sets, in order to complete the following sentences:
+\begin{enumerate}
+ \item $x\notin A\cup B$ if and only if ...
+ \item $x\notin A\cap B$ if and only if ...
+ \item $x\notin A\setminus B$ if and only if ...
+\end{enumerate}
+ \item Let $P,Q,R$ and $S$ be subsets of some universal set $U$. Assume that $(P\setminus Q)\subseteq (R\cap S)$.
+\begin{enumerate}
+ \item Complete the following sentence: For all $x\in U$, if $x\in (P\setminus Q)$, then ...
+ \item Write a useful negation of the sentence in part (a).
+ \item Write the contrapositive of the sentence in part (a).
+\end{enumerate}
+ \item Let $A = \{x\in\R : x^2<4\}$ and $B = \{x\in\R : x<2\}$.
+ \begin{enumerate}
+  \item Is $A\subseteq B$? Justify your conclusion with a suitable proof or counterexample.
+  \item Is $B\subseteq A$? Justify your conclusion with a suitable proof or counterexample.
+ \end{enumerate}
+ \item Prove the following proposition: For all subsets $A$ and $B$ of some universal set $U$, $A\subseteq B$, if and only if $B^c\subseteq A^c$, where $A^c,B^c$ denote the complements of $A$ and $B$, respectively.
+ \item Let $A,B,C$, and $D$ be subsets of some universal set $U$. For each of the following propositions, either prove that it is true, or show that it is false by giving a counterexample:
+\begin{enumerate}
+ \item If $A\subseteq B$ and $C\subseteq D$, and $A$ and $C$ are disjoint, then $B$ and $D$ are disjoint.
+ \item If $A\subseteq B$ and $C\subseteq D$, and $B$ and $D$ are disjoint, then $A$ and $C$ are disjoint.
+\end{enumerate}
+(Recall that two sets $U$ and $V$ are disjoint if $U\cap V=\emptyset$.)
+ \item Determine whether the following biconditional statements are true or false. If a statement is found to be false, indicate whether one direction or the other (either the ``if'' part, or the ``only if'' part) is true. 
+\begin{enumerate}
+ \item For all subsets $A$ and $B$ of some universal set $U$, $A\subseteq B$ if and only if $A\cap B^c=\emptyset$.
+ \item For all subsets $A$ and $B$ of some universal set $U$, $A\subseteq B$ if and only if $A\cup B=B$.
+ \item For all subsets $A,B,C$ of some universal set $U$, $A\subseteq B\cup C$ if and only if $A\subseteq B$ or $A\subseteq C$.
+\end{enumerate}
+ \item Prove the following set equalities:
+\[
+ A\setminus \emptyset = A\quad (A^c)^c = A\quad A\cup (B\cap C) = (A\cup B)\cap(A\cup C)\quad (A\cap B)^c = A^c\cup B^c
+\]
+ \item Prove or disprove (via counterexample) the following set equalities:
+\begin{enumerate}
+ \item $A\setminus (A\cap B^c) = A\cap B$
+ \item $(A^c\cup B)^c\cap A = A\setminus B$
+ \item $(A\cup B)\setminus A = B\setminus A$
+ \item $(A\cup B)\setminus (A\cap B) = (A\setminus B)\cup (B\setminus A)$
+\end{enumerate}
+ \item For each natural number $n$, let $A_n = \{n,n+1,n+2,n+3\}$. Determine the elements of the following sets:
+\[
+ \bigcap_{j=1}^3 A_j\quad \bigcup_{k=3}^7 A_k\quad A_9\cap\left(\bigcup_{n=3}^7A_n\right)\quad \bigcup_{i=3}^7(A_9\cap A_i)
+\]
+ \item Let $I$ be a nonempty indexing set, and let $\mathcal{A} = \{A_\beta:\beta\in I\}$ be an indexed family of sets.
+\begin{enumerate}
+ \item Prove that for each $\beta\in I$, $\displaystyle A_\beta \subseteq \bigcup_{\alpha\in I}A_\alpha$.
+ \item Prove that $\displaystyle \left(\bigcup_{\gamma\in I}A_\gamma\right)^c = \bigcap_{\gamma\in I}A_\gamma^c$.
+ \item Prove that for any set $B$, $\displaystyle B\cup \left(\bigcap_{\beta\in I}A_\beta\right) = \bigcap_{\beta\in I}(B\cup A_\beta)$.
+\end{enumerate}
+
+\end{enumerate}
+
+
+\end{document}
+ 

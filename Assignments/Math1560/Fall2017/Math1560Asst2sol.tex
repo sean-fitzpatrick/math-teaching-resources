@@ -1,0 +1,154 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\di}{\displaystyle}
+\title{Math 1560 Assignment \#2 Solutions\\University of Lethbridge, Fall 2017}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+\item Consider the function 
+\[
+f(x)=\begin{cases}x^3\sin\left(\frac{1}{x}\right), & \text{ if } x\neq 0\\0, &\text{ if } x=0\end{cases}.
+\]
+
+Show that $f$ is differentiable at $x=0$, and find $f'(0)$.
+
+\medskip
+
+\textbf{Solution:} By definition of the derivative, we have
+\begin{align*}
+f'(0) & = \lim_{h\to 0}\frac{f(h)-f(0)}{h}\\
+& = \lim_{h\to 0}\frac{h^3\sin(\frac{1}{h})-0}{h} \tag{Note that $f(0)=0$}\\
+& = \lim_{h\to 0}h^2\sin\left(\frac{1}{h}\right). \tag{Since $\frac{h^3}{h}=h^2$ for $h\neq 0$}
+\end{align*}
+
+Since the range of the sine function is $[-1,1]$, we have
+\[
+-1\leq \sin\left(\frac{1}{h}\right)\leq 1
+\]
+for any $h\neq 0$. Since $h^2>0$ for all $h\neq 0$, we can multiply across the inequality, giving us
+\[
+-h^2\leq h^2\sin\left(\frac{1}{h}\right)\leq h^2.
+\]
+Since $\di \lim_{h\to 0}(-h^2) = \lim_{h\to 0}(h^2) = 0$, it follows from the Squeeze Theorem that
+\[
+f'(0) = \lim_{h\to 0}h^2\sin\left(\frac{1}{h}\right) = 0.
+\]
+
+\pagebreak
+
+\item Let $f$ and $g$ be differentiable functions, and let $h(x)=f(x)g(x)$. We know from the product rule that
+\[
+h'(x) = f'(x)g(x)+f(x)g'(x).
+\]
+\begin{enumerate}
+\item Compute $h''(x)$ (in terms of $f$ and $g$ and their derivatives) and simplify.
+
+\medskip
+
+\textbf{Solution:} To compute $h''(x)$ we take the derivative of $h'(x)$:
+\begin{align*}
+h''(x) & = \frac{d}{dx}(h'(x)) = \frac{d}{dx}(f'(x)g(x)+f(x)g'(x))\\
+& = (f''(x)g(x)+f'(x)g'(x)) + (f'(x)g'(x)+f(x)g''(x))\\
+& = f''(x)g(x) +2f'(x)g'(x)+f(x)g''(x).
+\end{align*}
+
+\item Compute $h'''(x)$ (in terms of $f$ and $g$ and their derivatives) and simplify.
+
+\medskip
+
+\textbf{Solution:} To compute $h'''(x)$, we take the derivative of our result for $h''(x)$ above:
+\begin{align*}
+h'''(x) & = \frac{d}{dx}(h''(x))  = \frac{d}{dx}(f''(x)g(x) +2f'(x)g'(x)+f(x)g''(x))\\
+ & = (f'''(x)g(x) +f''(x)g'(x))+2(f''(x)g'(x)+f'(x)g''(x))\\
+ & \quad\quad\quad +(f'(x)g''(x)+f(x)g'''(x))\\
+ & = f'''(x)g(x)+3f''(x)g'(x)+3f'(x)g''(x)+f(x)g'''(x).
+\end{align*}
+
+\item (Do not submit an answer to this part) Can you guess a general product rule formula for the $n^{\text{th}}$ derivative of $h(x)$?
+
+\medskip
+
+\textbf{Solution:} (In case you were curious, but not curious enough to look it up) If you know the binomial formula, you might notice a familiar pattern:
+\begin{align*}
+(a+b)^1 & = a + b \\
+(a+b)^2 & = a^2+2ab+b^2 \\
+(a+b)^3 & = a^3+3a^2b+3ab^2+b^3 \\
+\vdots & \quad \quad \vdots 
+\end{align*}
+\begin{align*}
+(fg)'(x) & = f'(x)g(x)+f(x)g'(x)\\
+(fg)''(x) & = f''(x)g(x)+2f'(x)g'(x)+f(x)g''(x)\\
+(fg)'''(x) &= f'''(x)g(x)+3f''(x)g'(x)+3f'(x)g''(x)+f(x)g'''(x)\\
+\vdots & \quad \quad \vdots 
+\end{align*}
+Notice how the coefficients are the same in each case, for $n=1,2,3$: the binomial coefficients $\binom{n}{k}$ appearing in Pascal's Triangle. It turns out that this pattern does indeed continue:
+\[
+(a+b)^n = a^n+na^{n-1}b+\binom{n}{2}a^{n-2}b^2+\cdots + nab^{n-1}+b^n = \sum_{k=0}^n \binom{n}{k}a^{n-k}b^k,
+\]
+and
+\begin{align*}
+(fg)^{(n)}(x) &= f^{(n)}(x)g(x)+nf^{(n-1)}(x)g(x)+\binom{n}{k}f^{(n-2}(x)g''(x)+\cdots\\
+& \hspace{2.3in} + nf'(x)g^{(n-1)}(x)+f(x)g^{(n)}(x)\\
+& = \sum_{k=0}^n\binom{n}{k}f^{(n-k)}(x)g^{(k)}(x),
+\end{align*}
+where $f^{(n)}(x)$ denotes the $n^\textrm{th}$ derivative of $f$ (and $f^{(0)}(x) = f(x)$).
+
+This result is often known as Leibniz's Rule or Leibniz's Identity.
+\end{enumerate}
+
+\bigskip
+
+\item Two curves are said to be \textit{orthogonal} if, at each point of intersection, they meet at a right angle. Show that the ellipse $3x^2+2y^2=5$ and the curve $y^3=x^2$ are orthogonal.
+
+Hint: The curves intersect at the points $(1,1)$ and $(-1,1)$.
+
+\medskip
+
+\textbf{Solution:} For the ellipse, we find
+\begin{align*}
+\frac{d}{dx}(3x^2+2y^2) & = \frac{d}{dx}(5)\\
+6x+4y\frac{dy}{dx} & = 0
+\end{align*}
+using implicit differentiation. Solving for $\dfrac{dy}{dx}$, we find $\dfrac{dy}{dx} = -\dfrac{3x}{2y}$.
+
+For the second curve, implicit differentiation gives us
+\[
+3y^2\frac{dy}{dx} = 2x, \,\text{ so } \, \dfrac{dy}{dx} = \dfrac{2x}{3y^2}.
+\]
+
+
+
+According to the hint, we need to check two points of intersection. At $(1,1)$, we put $x=1, y=1$ into the expression for $\dfrac{dy}{dx}$ for each curve. For the ellipse,
+\[
+m_1 = \left.\frac{dy}{dx}\right|_{\substack{x=1\\y=1}} = -\frac{3(1)}{2(1)} = -\frac{3}{2}.
+\]
+For the second curve, 
+\[
+m_2 = \left.\frac{dy}{dx}\right|_{\substack{x=1\\y=1}} = \frac{2(1)}{3(1)^2} = \frac{2}{3}.
+\]
+
+Since $m_1m_2 = -1$, the two curves intersect orthogonally at $(1,1)$. At the point of intersection $(-1,1)$, we put $x=-1$ and $y=1$, giving us
+\[
+m_1 = -\frac{3(-1)}{2(1)} = \frac{3}{2} \text{ and } m_2 = \frac{2(-1)}{3(1)^2} = -\frac{2}{3},
+\]
+and again we see that $m_1m_2=-1$, as required.
+ \end{enumerate}
+
+\end{document}
+ 

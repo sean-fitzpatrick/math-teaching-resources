@@ -1,0 +1,101 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\modd}[3]{#1\equiv #2 \pmod{#3}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\title{Practice Problems for Quiz 10\\Math 2000A}
+\date{}
+\begin{document}
+ \maketitle
+\vspace{-0.5in}
+
+Quiz \#10 will take place in class on Thursday, November 20th. 
+As usual, solving the problems on this sheet will significantly improve your chances of getting a high score on the quiz.
+
+{\bf Note to help session tutors}: It's 100\% OK for you to help my students solve these questions.
+\begin{enumerate}
+\item Let $A$ be a subset of some universal set $U$. Prove that for any $x\in U$, $A\times\{x\}\approx A$.
+
+(Recall that $A\approx B$ means there exists a bijection $f:A\to B$. Note that $A$ is not assumed finite in this problem.)
+
+\item Recall that we defined the notation $\N_k = \{1,2,\ldots, k\}$ for each $k\in\N$.
+\begin{enumerate}
+ \item Prove that if $k\leq l$, then there is a one-to-one function $f:\N_k\to\N_l$.
+ \item Prove that if $A$ and $B$ are finite sets and $\abs{A}\leq \abs{B}$, then there is a one-to-one function $f:A\to B$.
+\end{enumerate}
+\item Prove the following:
+\begin{enumerate}
+ \item If $k\geq l$, then there exists an onto function $f:\N_k\to\N_l$.
+ \item If $A$ and $B$ are finite sets and $\abs{A}\geq \abs{B}$, then there exists an onto function $f:A\to B$.
+\end{enumerate}
+
+\item Prove that each of the following sets is countably infinite:
+\begin{enumerate}
+ \item $\{n\in \Z : 5|n\}$
+ \item $\{m\in \Z : \modd{m}{2}{3}\}$.
+ \item $\N\setminus\{4,5,6\}$.
+\end{enumerate}
+\item Prove that if $A$ is countably infinite, then $A\approx B$ for some proper subset $B\subseteq A$. 
+
+(Hint: let $f:\N\to A$ be a bijection and note that there are many proper subsets $C\subseteq \N$ with $C\approx\N$.)
+\item Let $A$ and $B$ be subsets of some universal set $U$.
+\begin{enumerate}
+ \item Prove that $A\cap B$, $A\setminus B$, and $B\setminus A$ are disjoint.
+ \item Prove that $A = (A\cap B)\cup (A\setminus B)$.
+ \item Prove that $A\cup B = (A\setminus B)\cup (A\cap B) \cup (B\setminus A)$
+ \item Prove that $\abs{A\cup B} = \abs{A}+\abs{B}-\abs{A\cap B}$
+ \item Prove that $\abs{A\cup B\cup C} = \abs{A}+\abs{B}+\abs{C}-\abs{A\cap B}-\abs{B\cap C}-\abs{A\cap C} + \abs{A\cap B\cap C}$.
+
+(Hint for part (e): use the fact that $A\cup B\cup C = A\cup (B\cup C)$, and part (d).)
+\end{enumerate}
+\item If $A$ and $B$ are finite sets, then $\abs{A\times B} = \abs{A}\cdot\abs{B}$. It's possible to show that this result extends to products of finitely many sets: if $A_1, A_2, \ldots, A_n$ are finite sets, then
+\[
+ \abs{A_1\times A_2\times \cdots \times A_n} = \abs{A_1}\cdot \abs{A_2}\cdot \cdots \cdot \abs{A_n},
+\]
+where the product $A_1\times A_2\times \cdots \times A_n$ is defined as the set of ``ordered $n$-tuples''
+\[
+ A_1\times A_2\times \cdots \times A_n = \{(a_1,a_2,\ldots, a_n) | a_i\in A_i \text{ for } i=1,2,\ldots, n\}.
+\]
+This is a basic counting technique known as the {\em Multiplication Principle}. It can be re-phrased as follows:
+
+Suppose an experiment consists of selecting $n$ objects in order, such that
+\begin{itemize}
+ \item The first object can be selected in $m_1$ different ways.
+ \item For each selction of the first object, the second object can be selected in $m_2$ different ways.
+ \item Once the first two objects have been chosen, the third object can be selected in $m_3$ different ways.
+\[
+ \vdots\hspace{2in}\vdots\hspace{2in}\vdots
+\]
+ \item Once the first $n-1$ objects have been selected, the last object can be chosen in $m_n$ different ways.
+\end{itemize}
+Then the total number of different outcomes for the experiment (that is, the total number of ways of choosing the $n$ objects) is equal to $m_1\cdot m_2\cdot\cdots\cdot m_n$.
+
+Based on the above discussion, determine how many ways a sequence of four cards can be chosen from a standard deck of 52 cards if
+\begin{enumerate}
+ \item Each card is returned to the deck once it's been chosen.
+ \item Each card is removed from the deck once it's been chosen.
+\end{enumerate}
+\item Suppose that every student at University X has a first name, middle name, and last name. How many students must the university have to guarantee that at least two students have the same set of three initials?
+\item Prove the strong form of the Pigeonhole Principle: Let $n$, $r$, and $d$ be positive integers.  If $n(r-1)+d$ objects are placed into $n$ boxes, then some box contains at least $r$ objects.
+
+Hint: Use proof by contradiction, and the multiplication principle. If each of the $n$ boxes contains at most $r-1$ objects, then how many objects are there in total?
+\item Suppose that in a class of $n$ students, the average on a test exceeded 70\%. Prove that there was some student whose grade was at least 71\%. (Use the result of the previous problem.)
+
+\end{enumerate}
+
+
+
+\end{document}
+ 

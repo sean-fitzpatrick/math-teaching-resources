@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2560}\chead{Worksheet \# 9}\rhead{Thursday 24\textsuperscript{th} March, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+The problems on this worksheet are for in-class practice during tutorial. You are free to collaborate and to ask for help. They don't count for course credit, but it's a good idea to make sure you know how to do everything before you leave tutorial -- similar problems may show up on a test or assignment.
+
+\begin{enumerate}
+ \item Solve the following separable differential equations:
+\begin{enumerate}
+ \item $xy' = y+2x^2y$, where $y(1)=1$.
+ \item $\dfrac{dy}{dx} = \dfrac{x^2+1}{y^2+1}$, where $y(0)=1$. (Give an implicit solution.)
+ \item $(4y+yx^2)\,dy - (2x+xy^2)\,dx = 0$
+\end{enumerate}
+ \item Solve the following linear differential equations. State an interval on which the general solution is defined.
+\begin{enumerate}
+ \item $\dfrac{dy}{dx}+y=e^{3x}$
+ \item $(1+x^2)\,dy+(xy+x^3+x)\,dx = 0$
+ \item $(1-x^3)\dfrac{dy}{dx}=3x^2y$
+ \item $(x^2+x)\,dy+(xy+x^3+x)\,dx = 0$
+ \item $\cos x\dfrac{dy}{dx}+y\sin x =1$
+\end{enumerate}
+\item Determine whether the sequence converges or diverges. If it converges, give the limit.
+\begin{enumerate}
+ \item $a_n = (-1)^n\dfrac{n}{n^2+1}$
+ \item $a_n = (-1)^n\dfrac{2n+1}{3n+4}$
+ \item $a_n = \dfrac{n-1}{n}-\dfrac{n}{n-1}$
+ \item $a_n = \dfrac{4n}{\sqrt{9n^2+4}}$
+ \item $a_n = 1-\dfrac{1}{n}$
+ \item The sequence $\{a_n\}$ defined by $a_1=1$ and $a_{n+1} = 3-\dfrac{1}{a_n}$ for all $n\geq 1$. (You may assume that the sequence converges. If you want to actually \textit{show} that it coverges, feel free to ask me how.
+ \item The sequence $\{a_n\}$ defined by $a_1 = \sqrt{2}$ and $a_{n+1} = \sqrt{2+a_n}$ for all $n\geq 1$. (Again, you may assume that the sequence converges.)
+\end{enumerate}
+
+
+
+\end{enumerate}
+
+
+
+
+
+\end{document}

@@ -1,0 +1,239 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\title{Math 3410 Assignment \#6 Solutions\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+\item Suppose $T\in\L(V)$ is normal. Prove that $\nul T^k=\nul T$ for every positive integer $k$.
+
+\bigskip
+
+We know that $\nul T\subseteq \nul T^k$ for any operator $T$, normal or not, since if $Tv=0$, then $T^nv = T^{n-1}(Tv) = T^{n-1}(0)=0$.
+
+We will now show that $v\in\nul T^{k}\Rightarrow v\in\nul T^{k-1}$ for any $k\geq 2$. Applying this result inductively will show that
+\[
+ \nul T^k \subseteq \nul T^{k-1} \subseteq \cdots \subseteq \nul T.
+\]
+Let $k\geq 2$ be an integer, and suppose that $v\in \nul T^k$, so $T^kv=0$. We know that for a normal operator $\len{Tu}=\len{T^*u}$ for any $u\in V$, so in particular we have
+\[
+ 0=\len{T^kv} = \len{T(T^{k-1}v)}=\len{T^*(T^{k-1}v)},
+\]
+so $T^*(T^{k-1}v)=0$. This implies that $T^{k-1}v\in \nul T^*$, and since $T^{k-1}v=T(T^{k-2}v)$, we have $T^{k-1}v\in \range T$ as well. But $\nul T^*=(\range T)^\bot$, so we have
+\[
+ T^{k-1}v\in \nul T^*\cap \range T = \{0\},
+\]
+which shows that $T^{k-1}v=0$, so $\nul T^k\subseteq \nul T^{k-1}$, and the result follows.
+
+
+\bigskip
+
+
+\item Suppose $V$ is a complex inner product space and $T\in\L(V)$ is a normal operator such that $T^9=T^8$. Prove that $T$ is self-adjoint and $T^2=T$.
+
+\bigskip
+
+Suppose that $T$ is normal and that $T^9=T^8$. By the complex spectral theorem, there exists an orthonormal basis $B=\{e_1,\ldots, e_n\}$ of eigenvectors of $T$: we have $Te_j=\lambda_je_j$ for some $\lambda_j\in\C$, for all $j=1,\ldots, n$. Thus, for each $j$ we have
+\[
+ \lambda^9_je_j = T^9e_j = T^8e_j = \lambda^8_j,
+\]
+and thus $\lambda_j^9=\lambda^8_j$, which implies that $\lambda_j=0$ or $\lambda_j=1$. Since the only eigenvalues of $T$ are 0 and 1, which are real, $T$ must be self-adjoint. (To see this, note that since $T$ is normal, 
+\[
+T^*e_j = \overline{\lambda_j}e_j = \lambda_je_j = Te_j 
+\]
+for all $j=1,\ldots, n$, which implies that $T^*=T$. Finally, since $0^2=0$ and $1^2=1$, we have
+\[
+ T^2e_j = \lambda_j^2e_j = \lambda_je_j = Te_j
+\]
+for all $j=1,\ldots, n$, from which it follows that $T^2=T$.
+
+{\bf Note:} Using results from Chapter 8, we could also argue as follows:
+
+Since $T^9=T^8$, we have $T^9-T^8 = T^8(T-I)=0$. Thus, $p(T)=0$, where $p(z)=z^8(z-1)$, which implies that $p(z)$ is a multiple of the minimal polynomial of $T$, and thus the only possible eigenvalues of $T$ are 0 and 1.
+
+\bigskip
+
+\item Suppose $T\in \L(V)$, $m$ is a positive integer, and $v\in V$ is such that $T^{m-1}v\neq 0$ but $T^mv=0$. Prove that the vectors $v, Tv, T^2v,\ldots, T^{m-1}v$ are linearly independent.
+
+\bigskip
+
+Suppose that we have
+\[
+ c_0v+c_1Tv+\cdots + c_{m-1}T^{m-1}v=0
+\]
+for some $c_0,c_1,\ldots, c_{m-1}\in\mathbb{F}$, with $T,v$ as above. Applying $T^{m-1}$ to both sides of the above equation gives
+\[
+ c_0T^{m-1}v+c_1T^mv+\cdots c_{m-1}T^{2m-2}v=0.
+\]
+Since $T^mv=T^{m+1}v=\cdots =T^{2m-2}v=0$, this gives us $c_0T^{m-1}v=0$. Since we're assuming that $T^{m-1}v\neq 0$, we must have $c_0=0$, leaving us with
+\[
+ c_1Tv + c_2T^2v+\cdots + c_{m-1}T^{m-1}v=0.
+\]
+Proceeding as above, we can apply $T^{m-2}$ to both sides of the equation to obtain $c_1=0$, and so on, eventually showing that all of the $c_j$ must be zero, from which the result follows.
+
+\bigskip
+
+\item Determine all possible Jordan Canonical Forms for a linear transformation with characteristic polynomial $(x-2)^3(x-3)^2$. Find the corresponding minimal polynomial for each JCF.
+
+\bigskip
+
+The characteristic polynomial is of degree 5, which tells us that the matrix of $T$ must be a $5\times 5$ matrix, with eigenvalues $\lambda=2$, of multiplicity 3, and $\lambda=3$, of multiplicity 2. This tells us that the JFC of $T$ will have three 2s on the main diagonal, and two 3s. We now recall that the minimal polynomial must be of the form $m_T(x)=(x-2)^k(x-3)^l$, where $1\leq k\leq 3, 1\leq l\leq 2$, and the powers $k$ and $l$ tell us the size of the largest Jordan block for the respective eigenvalues. We thus obtain the following six possible Jordan Canonical Forms, with their respective minimal polynomials:
+\[
+ \begin{array}{cc}
+  \text{Jordan Canonical Form}&\text{Minimal Polynomial}\\
+\hline
+\\
+\begin{bmatrix}
+ 2&0&0&0&0\\
+ 0&2&0&0&0\\
+ 0&0&2&0&0\\
+ 0&0&0&3&0\\
+ 0&0&0&0&3
+\end{bmatrix}& m_t(x) = (x-2)(x-3)\\
+\\
+\begin{bmatrix}
+ 2&0&0&0&0\\
+ 0&2&1&0&0\\
+ 0&0&2&0&0\\
+ 0&0&0&3&0\\
+ 0&0&0&0&3
+\end{bmatrix}& m_t(x) = (x-2)^2(x-3)\\
+\\
+\begin{bmatrix}
+ 2&1&0&0&0\\
+ 0&2&1&0&0\\
+ 0&0&2&0&0\\
+ 0&0&0&3&0\\
+ 0&0&0&0&3
+\end{bmatrix}& m_t(x) = (x-2)^3(x-3)\\
+\\
+\begin{bmatrix}
+ 2&0&0&0&0\\
+ 0&2&0&0&0\\
+ 0&0&2&0&0\\
+ 0&0&0&3&1\\
+ 0&0&0&0&3
+\end{bmatrix}& m_t(x) = (x-2)(x-3)^2\\
+\\
+\begin{bmatrix}
+ 2&0&0&0&0\\
+ 0&2&1&0&0\\
+ 0&0&2&0&0\\
+ 0&0&0&3&1\\
+ 0&0&0&0&3
+\end{bmatrix}& m_t(x) = (x-2)^2(x-3)^2\\
+\\
+\begin{bmatrix}
+ 2&1&0&0&0\\
+ 0&2&1&0&0\\
+ 0&0&2&0&0\\
+ 0&0&0&3&1\\
+ 0&0&0&0&3
+\end{bmatrix}& m_t(x) = (x-2)^3(x-3)^2\\
+ \end{array}
+\]
+Note that for the second and fifth entries above, it is also acceptable to have a $2\times 2$ Jordan block for $\lambda = 2$ followed by a $1\times 1$ block, rather than $1\times 1$ followed by $2\times 2$, as above.
+\end{enumerate}
+\newpage
+{\bf Alternate Quiz Problem}: For the matrix below, find the characteristic and minimal polynomials, a Jordan basis, and the Jordan Canonical Form:
+\[
+ A = \begin{bmatrix}1&1&1&1\\0&2&2&0\\0&0&2&0\\-1&1&0&3\end{bmatrix}
+\]
+
+The characteristic polynomial is given by
+\begin{align*}
+ c_A(x) = \det(xI_4-A) &= \begin{vmatrix}x-1&-1&-1&-1\\0&x-2&-2&0\\0&0&x-2&0\\1&-1&0&x-3\end{vmatrix}\\
+&=(x-2)\begin{vmatrix}x-1&-1&-1\\0&x-2&0\\1&-1&x-3\end{vmatrix} \text{ (expanding along row 3)}\\
+&=(x-2)^2\begin{vmatrix}x-1&-1\\1&x-3\end{vmatrix} \text{ (expanding along row 2)}\\
+&=(x-2)^2(x^2-4x+4)=(x-2)^4.
+\end{align*}
+Thus, $A$ has the single eigenvalue $\lambda=2$, with multiplicity 4.
+
+If we wanted to, we could find immediately find the minimal polynomial of $A$ by noting that
+\[
+ A-2I = \begin{bmatrix}-1&1&1&1\\0&0&2&0\\0&0&0&0\\-1&1&0&1\end{bmatrix}\neq 0, (A-2I)^2 = \begin{bmatrix}
+             0&0&-1&0\\0&0&0&0\\0&0&0&0\\0&0&-1&0
+            \end{bmatrix}\neq 0, \text{ while } (A-2I)^3 = 0,
+\]
+so $m_A(x) = (x-2)^3$. We thus expect a $3\times 3$ Jordan block in the JCF of $A$, which suggests that we should find two eigenvectors and two generalized eigenvectors. Let's confirm that this is the case. We begin with eigenvalues:
+\[
+ A-2I = \begin{bmatrix}-1&1&1&1\\0&0&2&0\\0&0&0&0\\-1&1&0&1\end{bmatrix} \text{ has RREF } \begin{bmatrix}1&-1&0&-1\\0&0&1&0\\0&0&0&0\\0&0&0&0\end{bmatrix},
+\]
+from which we see that the general solution to $(A-2I)X=0$ is
+\[
+ X = \begin{bmatrix}s+t\\s\\0\\t\end{bmatrix} = s\begin{bmatrix}1\\1\\0\\0\end{bmatrix} + t\begin{bmatrix}1\\0\\0\\1\end{bmatrix},
+\]
+so $E(2,A) = \operatorname{span}(X_1,X_2)$, where $X_1 = \begin{bmatrix}1\\1\\0\\0\end{bmatrix}$ and $X_2 = \begin{bmatrix}1\\0\\0\\1\end{bmatrix}$.
+
+We now look for generalized eigenvectors. We expect to find generalized eigenvectors $Y\in\nul(A-2I)^2$ and $Z\in\nul (A-2I)^3$, since $m_A(x)=(x-2)^3$. To obtain the proper Jordan Canonical Form, we want $Y\in\nul(A-2I)^2$ to satisfy $(A-2I)Y=X_2$. (Also, one can check that the system $(A-2I)Y=X_1$ is inconsistent. The system $(A-2I)Y=X_2$ has augmented matrix
+\[
+ \begin{amatrix}{4}
+  -1&1&1&1&1\\0&0&2&0&0\\0&0&0&0&0\\-1&1&0&1&1
+ \end{amatrix} \text{ which has RREF }
+\begin{amatrix}{4}
+ 1&-1&0&1&-1\\0&0&1&0&0\\0&0&0&0&0\\0&0&0&0&0
+\end{amatrix},
+\]
+and this gives us the general solution
+\[
+ Y = \begin{bmatrix}-1+s+t\\s\\0\\t\end{bmatrix} = \begin{bmatrix}-1\\0\\0\\0\end{bmatrix}+sX_1+tX_2.
+\]
+Ordinarily at this state we would set $s=t=0$ to obtain $Y$, but we will find that doing so leads to an inconsistent system at the next step. Instead, we write $Y=\begin{bmatrix}-1+u+v\\u\\0\\v\end{bmatrix}$, with $u$ and $v$ to be determined.
+
+Finally, we want to find $Z\in\nul(Z-2I)^3$ such that $(A-2I)^2Z=Y$. This leads to the augmented matrix
+\[
+ \begin{amatrix}{4}
+  -1&1&1&1&-1+u+v\\
+  0&0&2&0&u\\
+  0&0&0&0&0\\
+  -1&1&0&1&v
+ \end{amatrix} \text{ which has RREF }
+\begin{amatrix}{4}
+ 1&-1&0&1&1-u/2-v\\
+ 0&0&1&0&u/2\\
+0&0&0&0&1-u/2\\
+0&0&0&0&0
+\end{amatrix}.
+\]
+The third row in the reduced row-echelon form above tells us that for a consistent system, we must set $u=2$, while we're free to set $v$ to any value we like. For convenience, we set $v=0$. The values $u=2$ and $v=0$ then give us $Y=\begin{bmatrix}1\\2\\0\\0\end{bmatrix}$, and in the augmented matrix above, plugging in $u=2$ and $v=0$ gives the general solution
+\[
+ Z = \begin{bmatrix}s+t\\s\\1\\t\end{bmatrix} = \begin{bmatrix}0\\0\\1\\0\end{bmatrix}+sX_1+tX_2.
+\]
+Setting $s=t=0$ gives us a particular value for $Z$, and the Jordan basis
+\[
+ B = \left\{\begin{bmatrix}1\\1\\0\\0\end{bmatrix},\begin{bmatrix}1\\0\\0\\1\end{bmatrix},\begin{bmatrix}1\\2\\0\\0\end{bmatrix},\begin{bmatrix}0\\0\\1\\0\end{bmatrix}\right\},
+\]
+and the Jordan Canonical Form of $A$ with respect to this basis is
+\[
+ \mathrm{JCF}(A) = \begin{bmatrix}
+                    2&0&0&0\\0&2&1&0\\0&0&2&1\\0&0&0&2
+                   \end{bmatrix}.
+\]
+
+
+
+
+\end{document}
+ 

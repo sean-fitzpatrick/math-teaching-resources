@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 3410A}\chead{Quiz \# 7 Solutions}\rhead{Friday, 13\textsuperscript{th} March, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\nul}{null}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+{\bf Name: Solutions}
+
+\bigskip
+
+
+ \begin{enumerate}
+ \item Suppose $T\in\mathcal{L}(V)$ and $(T-2I)(T-3I)(T-4I)=0$. Suppose $\lambda$ is an eigenvalue of $T$. Prove that $\lambda =2$ or $\lambda =3$ or $\lambda=4$.\points{5}
+
+{\em Hint:} Compute $(T-2I)(T-3I)(T-4I)v$, where $v$ is an eigenvector with eigenvalue $\lambda$.
+
+\bigskip
+
+Suppose that $\lambda$ is an eigenvalue of $T$. Thus, $Tv=\lambda v$ for some $v\neq 0$. Then we have that
+\[
+ (T-4I)v = Tv-4v = \lambda v-4v = (\lambda-4)v.
+\]
+Thus, 
+\[
+ (T-3I)(T-4I)v = (T-3I)[(\lambda-4)v] = (\lambda-4)(T-3I)v = (\lambda -4)(\lambda -3)v,
+\]
+and repeating this process one more time, we get
+\[
+ 0 = (T-2I)(T-3I)(T-4I)v = (\lambda-4)(\lambda-3)(\lambda-2)v,
+\]
+and since $v\neq 0$, we must have $(\lambda-4)(\lambda-3)(\lambda-2)=0$. Since this is a product of scalars equal to zero, one of the terms in the product must be zero, and it follows that $\lambda$ must equal one of 2, 3, or 4.
+
+\bigskip
+
+ \item Suppose $T\in\mathcal{L}(V)$ is invertible. Prove that $E(\lambda, T)=E(\frac{1}{\lambda},T^{-1})$ for every $\lambda\in\mathbb{F}$ with $\lambda\neq 0$.\points{5}
+
+{\em Reminder:} the eigenspace $E(\lambda, T)$ is defined to be $\nul(T-\lambda I)$.
+
+\bigskip
+
+Suppose that $v\in E(\lambda, T)$ for some $\lambda\neq 0$. Then $(T-\lambda I)v=0$, so we must have $Tv=\lambda v$. Since $T$ is invertible and $\lambda\neq 0$, we have that
+\[
+ Tv=\lambda v \Rightarrow v=T^{-1}(\lambda v) = \lambda T^{-1}v \Rightarrow T^{-1}v = \frac{1}{\lambda}v.
+\]
+Thus, $\left(T^{-1}-\dfrac{1}{\lambda}I\right)v = 0$, which shows that $v\in E(\frac{1}{\lambda}, T^{-1})$, and therefore $E(\lambda, T)\subseteq E(\frac{1}{\lambda},T^{-1})$.
+
+The proof that $E(\frac{1}{\lambda},T^{-1})\subseteq E(\lambda, T)$ is identical, and obtained by reversing the steps above, so the result follows.
+ \end{enumerate}
+\end{document}

@@ -1,0 +1,217 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\spn}{span}
+
+\title{Math 1410 Assignment \#5 Solutions\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+\item Let $A$ be an $m\times n$ matrix. Let $\R^n$ and $\R^m$ denote the spaces of $n\times 1$ and $m\times 1$ column vectors, respectively. We define the {\em null space} of $A$ by
+\[
+ \nul A = \{\vec{x}\in\R^n \,|\, A\vec{x}=\vec{0}\}.
+\]
+That is, $\nul A$ is the set of all vectors $\vec{x}$ such that $A\vec{x}=\vec{0}$, which can also be thought of as the set of all solutions $\vec{x}$ to the homogeneous system of linear equations $A\vec{x}=\vec{0}$. 
+\begin{enumerate}
+ \item Show that $\nul A$ is a subspace of $\R^n$.
+
+\bigskip
+
+Let $\vec{0}$ denote the zero vector in $\R^n$. Since $A\vec{0}=\vec{0}$ for any $m\times n$ matrix $A$, we have that $\vec{0}\in \nul A$.
+
+If $\vec{x},\vec{y}\in \nul A$, then $A\vec{x}=\vec{0}$ and $A\vec{y}=\vec{0}$; therefore, for any $a,b\in \R$,
+\[
+ A(a\vec{x}+b\vec{y}) = a(A\vec{x})+b(A\vec{y}) = a\vec{0}=b\vec{0}=\vec{0},
+\]
+so $a\vec{x}+b\vec{y}\in\nul A$, and it follows that $\nul A$ is a subspace of $\R^n$.
+
+\bigskip
+
+ \item If $A = \begin{bmatrix}
+                1&-2&1&1\\-1&2&0&1\\2&-4&1&0
+               \end{bmatrix}$, find a basis for $\nul A$.
+
+The reduced row-echelon form of $A$ is given by
+\[
+ R = \begin{bmatrix} 1&-2&0&1\\0&0&1&2\\0&0&0&0\end{bmatrix}.
+\]
+Thus, the general solution to the equation $A\vec{x}=\vec{0}$ is given by 
+\[
+ \vec{x} = \begin{bmatrix}2s+t\\s\\-2t\\t\end{bmatrix} = s\begin{bmatrix}2\\1\\0\\0\end{bmatrix}+t\begin{bmatrix}1\\0\\-2\\1\end{bmatrix}.
+\]
+It follows that any element of $\nul A$ can be written as a linear combination of the vectors $\vec{u}=\begin{bmatrix}2&1&0&0\end{bmatrix}^T$ and $\vec{v}=\begin{bmatrix}1&0&-2&1\end{bmatrix}^T$, so $B=\{\vec{u},\vec{v}\}$ is a basis for $\nul A$.
+
+\bigskip
+
+\end{enumerate}
+\item 
+\begin{enumerate}
+ \item Compute the norm of the complex numbers
+\begin{align*}
+ \vec{u} & = \langle 1+i, 2-3i\rangle\\
+ \vec{z} & = \langle 1, 1-i, -2, i\rangle\\
+ \vec{w} & = \langle 1-i, 1+i, 1, 3-4i\rangle
+\end{align*}
+
+\bigskip
+
+We have
+\begin{align*}
+ \len{\vec{u}}&=\sqrt{(1^1+1^2)+(2^2+(-3)^2)}=\sqrt{15}.\\
+ \len{\vec{v}}&=\sqrt{(1^2+0^2)+(1^2+(-1)^2)+((-2)^2+0^2)+(0^2+1^2)} = \sqrt{8}\\
+ \len{\vec{w}}&=\sqrt{(1^2+(-1)^2)+(1^2+1^2)+(1^2+0^2)+(3^2+(-4)^2)} = \sqrt{30}.
+\end{align*}
+
+
+\bigskip
+
+ \item Determine whether or not the following pairs of complex vectors are orthogonal:
+\begin{align*}
+ \vec{z} = \langle 4, -3i,2+i\rangle & \text{ and } \vec{w} = \langle i, 2, 2-4i\rangle\\
+ \vec{z} = \langle i, -i, 2+i\rangle &\text{ and } \vec{w} = \langle i, i, 2-i\rangle\\
+ \vec{z} = \langle 1, 1, i, i\rangle & \text{ and } \vec{w} = \langle 1, i, -i, 1\rangle
+\end{align*}
+
+\bigskip
+
+For the first pair, we have
+\[
+ \vec{z}\dotp\vec{w}=4(-i)-3i(2)+(2+i)(2+4i) = -4i-6i+(4-4+8i+2i)=0,
+\]
+so this pair is orthogonal. For the second pair, we find
+\[
+ \vec{z}\dotp\vec{w}=i(-i)-i(-i)+(2+i)(2+i) = 1-1+(4-1+2i+2i) = 3+4i\neq 0,
+\]
+so this pair is not orthogonal. Finally, for the last pair, we get
+\[
+ \vec{z}\dotp\vec{w} = 1(1)+1(-i)+i(i)+i(1) = 1-i-1+i=0,
+\]
+so this pair is orthogonal.
+
+\end{enumerate}
+
+\bigskip
+
+\item In each case, decide whether the matrix $A$ is diagonalizable. If so, find a matrix $P$ such that $P^{-1}AP$ is diagonal:
+\begin{enumerate}
+ \item $A=\begin{bmatrix}
+           3&0&6\\0&-3&0\\5&0&2
+          \end{bmatrix}$
+
+\bigskip
+
+We find that
+\begin{align*}
+ c_A(x) &= \begin{vmatrix}x-3&0&-6\\0&x+3&0\\-5&0&x-2\end{vmatrix}\\
+&=(x+3)\begin{vmatrix}x-3&-6\\-5&x-2\end{vmatrix}\\
+&=(x+3)(x^2-5x-24)=(x+3)^2(x-8).
+\end{align*}
+Since the eigenvalue $\lambda = -3$ has multiplicity 2, we first compute the eigenspace $E(-3,A)$. We find that
+\[
+ A+3I = \begin{bmatrix}6&0&6\\0&0&0\\5&0&5\end{bmatrix},
+\]
+which reduces to the row-echelon form $\begin{bmatrix}1&0&1\\0&0&0\\0&0&0\end{bmatrix}$. Thus, we have
+\[
+ E(-3,A) = \nul(A+3I) = \left\{\begin{bmatrix}-t\\s\\t\end{bmatrix}\,|\, s,t\in\R\right\} = \spn\left\{\begin{bmatrix}-1\\0\\1\end{bmatrix},\begin{bmatrix}0\\1\\0\end{bmatrix}\right\}.
+\]
+Since $\dim E(-3,A) = 2$ matches the multiplicity of $\lambda = -3$, we know that we can diagonalize: we have the two independent eigenvectors $X_1 = \begin{bmatrix}-1&0&1\end{bmatrix}^T$ and $X_2=\begin{bmatrix}0&1&0\end{bmatrix}^T$. To find the matrix $P$, we need to also find an eigenvector corresponding to the eigenvalue $\lambda = 8$. Since
+\[
+ A-8I = \begin{bmatrix}-5&0&6\\0&5&0\\5&0&-6\end{bmatrix} \xrightarrow[]{\text{row reduce}} \begin{bmatrix}1&0&-6/5\\0&1&0\\0&0&0\end{bmatrix},
+\]
+we see that $(A-8I)X=0$ for $X=\begin{bmatrix}\dfrac{6}{5}t\\0\\t\end{bmatrix} = \dfrac{t}{5}\begin{bmatrix}6\\0\\5\end{bmatrix}$, an eigenvector for $\lambda=8$ is given by $X_3 = \begin{bmatrix}6&0&5\end{bmatrix}^T$. Arranging our three eigenvectors as columns of a matrix, we find the matrix
+\[
+ P = \begin{bmatrix}-1&0&6\\0&1&0\\1&0&5\end{bmatrix}.
+\]
+
+
+ \item $A=\begin{bmatrix}
+           4&0&0\\0&2&2\\2&3&1
+          \end{bmatrix}$
+
+\bigskip
+
+In this case, 
+\[
+ c_A(x) = \begin{vmatrix}x-4&0&0\\0&x-2&-2\\-2&-3&x-1\end{vmatrix} = (x-4)^2(x+1),
+\]
+so the eigenvalues of $A$ are $\lambda =4$, with multiplicity 2, and $\lambda = -1$, with multiplicity 1. We begin with the repeated eigenvalue: since
+\[
+ A-4I = \begin{bmatrix}0&0&0\\0&-2&2\\2&3&-3\end{bmatrix}\xrightarrow[]{\text{row reduce}}
+\begin{bmatrix}1&0&-3\\0&1&1\\0&0&0\end{bmatrix}
+\]
+we see that $A-4I$ has rank 2, and thus the dimension of $\nul(A-4I)$ will be equal to 1, so $\dim E(4,A)=1<2$, which means that $A$ cannot be diagonalized.
+\end{enumerate}
+
+\bigskip
+
+\item ({\bf Bonus}) Prove the following: Let $A$ be any $n\times n$ matrix, and let $p(x)$ be a polynomial. Recall that if $p(x)=a_0+a_1x+a_2x^2+\cdots + a_kx^k$, then
+\[
+ p(A) = a_0I_n + a_1A + a_2A^2+\cdots + a_kA^k.
+\]
+\begin{enumerate}
+ \item Supppose that $\vec{x}$ is an eigenvector of $A$ with eigenvalue $\lambda$. Prove that
+\[
+ p(A)\vec{x} = p(\lambda)\vec{x},
+\]
+where $p(\lambda)$ denotes the scalar obtained by subsituting $x=\lambda$ in the polynomial $p(x)$.
+
+\bigskip
+
+Suppose that $A\vec{x}=\lambda\vec{x}$. It follows that
+\[
+ A^n\vec{x} = A^{n-1}(A\vec{x}) = A^{n-1}(\lambda \vec{x}) = \lambda A^{n-1}\vec{x} = \lambda^2A^{n-2}\vec{x} = \cdots = \lambda^n\vec{x}, 
+\]
+and therefore
+\begin{align*}
+ p(A)\vec{x}&= (a_0I_n+a_1A+\cdots + a_kA^k)\vec{x}\\
+& = a_0\vec{x}+a_1(A\vec{x})+\cdots + a_k(A^k\vec{x})\\
+&=a_0\vec{x}+a_1\lambda\vec{x}+\cdots + a_k\lambda^k\vec{x}\\
+&=(a_0+a_1\lambda+\cdots+a_k\lambda^k)\vec{x} = p(\lambda)\vec{x},
+\end{align*}
+as required.
+
+
+ \item Prove that if $A$ is diagonalizable, then the Cayley-Hamilton theorem holds: we have $c_A(A)=0$, where $A$ is the characteristic polynomial of $A$.
+
+\bigskip
+
+If $A$ can be diagonalized, then every vector $\vec{x}$ in $\R^n$ can be written as
+\[
+ \vec{x} = c_1\vec{x}_1+c_2\vec{x}_2+\cdots +c_n\vec{x}_n,
+\]
+where $c_1,\ldots, c_n$ are scalars, and $\vec{x}_1,\ldots, \vec{x}_n$ are eigenvectors with eigenvalues $\lambda_1,\ldots, \lambda_n$, respectively. Note that for each $\lambda_i$, we have $c_A(\lambda_i)=0$. It follows that for any vector $\vec{x}$ in $\R^n$, we have
+\begin{align*}
+ c_A(A)\vec{x}&=c_A(A)(c_1\vec{x}_1+\cdots +c_n\vec{x}_n)\\
+& = c_1(c_A(A)\vec{x_1})+\cdots + c_n(c_A(A)\vec{x}_n)\\
+& = c_1(c_A(\lambda_1)\vec{x_1})+\cdots + c_n(c_A(\lambda_n)\vec{x}_n)\\
+& = c_1(0\vec{x}_1)+\cdots + c_n(0\vec{x}_n) = 0.
+\end{align*}
+Since $\vec{x}$ was arbitrary, it must be the case that $c_A(A)=0$.
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+
+\end{document}
+ 

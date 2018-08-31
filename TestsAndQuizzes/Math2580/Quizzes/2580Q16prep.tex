@@ -1,0 +1,56 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\di}{\displaystyle}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\len}[1]{\left\lVert #1\right\rVert}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\F}{\mathbf{F}}
+
+\title{Practice for Quiz 16\\Math 2580\\Spring 2016}
+\author{Sean Fitzpatrick}
+\date{March 22nd, 2016}
+
+\begin{document}
+ \maketitle
+
+Problems from Quiz 16 will be a review of material from Math 2570, and some basic problems from 18.1.
+
+If you can answer the following problems, you should be well-prepared for Quiz 16:
+
+
+
+\begin{enumerate}
+ \item Calculate the derivative of the following vector-valued functions:
+\begin{enumerate}
+ \item $\r(t) = \langle t^2, t^3, t^4\rangle$
+ \item $\r(t) = \langle \sin(t), e^{3t}, \cos(2t)\rangle$.
+ \item $\r(t) = \langle \sin(t^2), \ln(t^2+1)\rangle$.
+\end{enumerate}
+ \item Calculate $\len{\r'(t)}$ for the vector-valued functions in problem 1. (Note that if $\r(t)$ is interpreted as position with respect to time, then $\r'(t)$ is velocity, and $\len{\r'(t)}$ is speed.
+ \item Show that $\dfrac{d}{dt}\len{\r(t)}^2 = 2\r(t)\dotp r'(t)$. 
+ \item Determine a vector-valued function $\r(t)$ and an interval $[a,b]$ that parameterize the line segment from $(1,2,0)$ to $(4,-3,2)$.
+ \item Evaluate $\di \int_a^b \F(\r(t))\dotp r'(t)\,dt$ for the vector field $\F$ and curve $\r$ given by
+\begin{enumerate}
+ \item $\F(x,y) = x^2\i -xy\j$, and $\r(t) = \sin(t)\i+\cos(t)\j$, $a=0$, $b=\pi$.
+ \item $\F(x,y,z) = \langle xy^2, xyz, yz^2\rangle$, $\r(t) = \langle t, t^2, 4t\rangle$, $a=0$, $t=1$.
+\end{enumerate}
+
+
+ \end{enumerate}
+
+\end{document}
+ 

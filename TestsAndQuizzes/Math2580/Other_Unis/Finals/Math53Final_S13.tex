@@ -1,0 +1,250 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in, letterpaper]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{enumerate}
+%\input quizstyle.tex
+
+%\reversemarginpar
+
+\pagestyle{fancy}
+\addtolength{\headheight}{\baselineskip}
+
+\lhead{{\bf Date:} May 15$^{\text{th}}$, 2013 }
+\chead{{\bf Time:} 3:00-6:00 pm}
+\rhead{MATH 53}
+\cfoot{Page \thepage \ of \pageref{LastPage}}
+\rfoot{{\bf Total Marks:} 100}
+
+%Redefine the plain page style in fancyhdr package
+\fancypagestyle{plain}{%  
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{Page \thepage \ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}}
+
+\newcounter{probnum}
+\newcounter{subprobnum}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\S}{\mathbf{S}}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\newcommand{\di}{\displaystyle}
+\newcommand{\F}{\mathbf{F}}
+\newcommand{\G}{\mathbf{G}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\nll}{null}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\Div}{div}
+
+
+\newenvironment{problems}{
+\begin{list}{\arabic{probnum}.}{\usecounter{probnum}}
+}{
+\end{list}
+}
+
+\newenvironment{subproblem}{ % start for subprob
+\begin{list}{ % first arg for list
+(\alph{subprobnum})
+}{ % second arg for list
+\usecounter{subprobnum}
+\setlength{\topsep}{0in}
+} % end of list def
+}{ % end for subprob
+\end{list}
+}
+
+\newcommand{\skipline}{\vspace{12pt}}
+%\input local.tex
+%\renewcommand{\labelenumi}{(\roman{enumi})}
+
+\begin{document}
+\thispagestyle{plain}
+%Supresses the headers on the front page
+
+\centerline {\bf University of California, Berkeley}
+
+\bigskip
+
+\centerline {FINAL EXAMINATION, Spring 2013}
+\centerline {DURATION: $3$ hours}
+
+\medskip
+
+\centerline {Department of Mathematics}
+
+\medskip
+
+\centerline {{\bf MATH 53 LEC 002} Multivariable Calculus}
+ 
+\medskip
+
+\centerline {Examiner: Sean Fitzpatrick}
+
+\bigskip
+
+\bigskip
+
+\begin{tabular}{ll}
+Family Name: &\underbar {\hskip 4.2in} \\
+   &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[12pt]
+Given Name(s): &\underbar {\hskip 4.2in} \\
+    &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[12pt]
+Please sign here: &\underbar {\hskip 4.2in}\\
+[12pt]
+Student ID Number: &\underbar {\hskip 4.2in}\\
+[12pt]
+Discussion section: &\underbar {\hskip 4.2in}\\
+[12pt]
+Name of GSI: &\underbar {\hskip 4.2in}
+\end{tabular}
+\bigskip
+
+
+\vspace{.15in}
+\begin{quote}
+{\large  No aids, electronic or otherwise, are permitted, with the exception of the formula sheet provided with your exam.  
+Partial credit will be given for partially correct work. 
+Please read through the entire exam before beginning, and take note of
+how many points each question is worth.}
+\end{quote}
+\begin{center}
+{\bf Good Luck!}
+\end{center}
+\vspace{.25in}
+
+\begin{center}
+\begin{tabular}{|l|r|}
+\hline
+\multicolumn{2}{|c|}
+{\rule[-3mm]{0mm}{8mm}
+FOR GRADER'S USE ONLY} \\
+\hline
+Problem 1: & \hspace{.5in}  /12 \\ [3pt]
+\hline
+Problem 2: & \hspace{.5in}  /14 \\ [3pt]
+\hline
+Problem 3: & \hspace{.5in}  /12 \\ [3pt]
+\hline
+Problem 4: & \hspace{.5in}  /12 \\ [3pt]
+\hline
+Problem 5: & \hspace{.5in}  /12 \\ [3pt]
+\hline
+Problem 6: & \hspace{.5in}  /14 \\ [3pt]
+\hline
+Problem 7: & \hspace{.5in}  /12 \\ [3pt]
+\hline
+Problem 8: & \hspace{.5in}  /12 \\ [3pt]
+\hline
+\hline 
+  {\rule[-3mm]{0mm}{8mm} TOTAL:}  & /100  \\
+\hline
+\end{tabular}
+\end{center}
+
+
+%\newpage
+%\vglue1pt
+%vglue adds space between headers and text
+
+\begin{enumerate}
+\item For parts (a)-(c), let $f(x,y,z) = x^3\sin (yz)$.
+\begin{enumerate}
+\item Compute the gradient of $f$. \points{3}
+
+\vspace{2in}
+
+\item Compute the directional derivative of $f$ at the point $(2,1,0)$, in the direction of $\mathbf{v} = \langle -2,1,2\rangle$.\points{3}
+
+\vspace{2in}
+
+\item Compute $\di \pd{f}{u}$ and $\di \pd{f}{v}$ if $x = u^2$, $y=v^2$, and $z=u+v$.\points{6}
+Your answer should be entirely in terms of $u$ and $v$ but does not have to be simplified.
+\end{enumerate}
+\newpage
+
+\item \begin{enumerate}
+\item What is the geometric meaning of the Lagrange multiplier equations\\ $\nabla f(x,y) = \lambda \nabla g(x,y)$?\points{3}
+
+\vspace{1.5in}
+
+\item Find the maximum and minimum of $f(x,y)=x^2-y^2$ subject to the constraint $x^2/9+y^2/4=1$. \points{7}
+
+\vspace{3in}
+
+\item Show how your answer from (b) illustrates part (a) by sketching the constraint curve from (b), along with a contour plot of $f$ that includes the level curves corresponding to the maximum and minimum values. \points{4}
+\end{enumerate}
+\newpage
+
+\item Evaluate the following double integrals by either reversing the order of integration, or converting to polar coordinates.
+\begin{enumerate}
+\item $\di \int_0^4\int_{\sqrt{x}}^2\frac{1}{y^3+1}\,dy\,dx$ \points{6}
+
+\vspace*{3.75in}
+
+\item $\di \int_0^1\int_y^{\sqrt{2-y^2}}(x+y)\,dx\,dy$ \points{6}
+\end{enumerate}
+\newpage
+
+\item \begin{enumerate}
+\item Find the equation of the tangent line to the curve of intersection of the paraboloid $x=y^2+z^2$ with the ellipsoid $x^2+4y^2+z^2=9$ at the point $(2,1,1)$.\points{6}
+
+{\em Hint}: You don't need to find the curve itself in order to determine the tangent line.
+
+\vspace{3.75in}
+
+\item Let $C$ denote the set of points in the intersection of two smooth level surfaces $f(x,y,z)=c$ and $g(x,y,z)=d$. In general, $C$ may not be a smooth curve. \points{6}
+
+What condition on $f$ and $g$ (or the corresponding surfaces) will guarantee that $C$ is a smooth curve?
+\end{enumerate}
+\newpage
+
+\item Evaluate the integral $\di \iint_D xy\,dA$, where $D$ is the region in the first quadrant bounded by the circles $x^2+y^2=4$ and $x^2+y^2=9$, and the hyperbolas $x^2-y^2=1$ and $x^2-y^2=4$. \points{12}
+
+{\em Hint:} Use an appropriate change of variables. You might find it especially convenient in this problem to use the fact that the Jacobians for a transformation and its inverse are related by $J_T(u,v) = \dfrac{1}{J_{T^{-1}}(x(u,v),y(u,v))}$.
+
+\newpage
+
+\item Let $f(x,y,z)$ be a continuously differentiable function, and let $\F(x,y,z)$ be a continuously differentiable vector field.
+\begin{enumerate}
+\item Show that $\nabla (f^n) = nf^{n-1}\nabla f$. (Here $f^n$ denotes $f$ raised to the power of $n$.)\points{5}
+
+\vspace*{2.5in}
+
+\item Show that $\nabla\dotp (f\F) = \nabla f\dotp \F+f\nabla\dotp \F$. \points{5}
+
+\vspace*{2.5in}
+
+\item Show that $\nabla\dotp (\rho^n\r)=(n+3)\rho^n$, where $\r(x,y,z) = \langle x,y,z\rangle$ and $\rho(x,y,z) = \sqrt{x^2+y^2+z^2} = \lVert\r(x,y,z)\rVert$. \points{4}
+\end{enumerate}
+
+\newpage
+
+\item Let $E$ be the region in $\R^3$ bounded by the sphere $S$ given by $x^2+y^2+z^2=R^2$, and let $\F$ be the vector field defined in problem 6(c), for $n\geq 0$. 
+Verify the Divergence Theorem by computing both $\iint_S \F\dotp\,d\S$ and $\iiint_E (\nabla\dotp\F)\,dV$ and confirming that they're equal. \points{12}
+
+\newpage
+
+\item A hot air balloon known as the TARDIS (for Tethered Aerial Release Developed In Style) has the shape of the surface $S$ given by the part of ellipsoid $2x^2+2y^2+z^2=9$ with $-1\leq z\leq 3$. The hot gases that the balloon uses to fly have a velocity vector field given by $\mathbf{v} = \nabla\times \F$, where $\F(x,y,z) = \langle -y, x, xy+z^2\rangle$. The rate at which the gases escape from the balloon is equal to the flux of $\mathbf{v}$ across the surface of the balloon, given by $\di \iint_S \mathbf{v}\dotp\,d\S$. 
+ 
+Sketch the surface\footnote{If you can't figure out how to do the problem, I'll award 3/12 for a correct sketch of the surface $S$, together with the basket underneath and at least one person inside.}, and then use Stokes' Theorem to calculate the rate at which the gases escape from the balloon. \points{12}
+\end{enumerate}
+\end{document}
+
+

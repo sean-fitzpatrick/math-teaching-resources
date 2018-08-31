@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2560}\chead{Worksheet \# 11}\rhead{Thursday 7\textsuperscript{th} April, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+\subsubsection*{Reminders}
+The \textbf{ratio test} tells us that a series $\di\sum_{n=1}^\infty a_n$ converges if $\di\lim_{n\to\infty}\left\lvert \frac{a_{n+1}}{a_n}\right\rvert <1$, diverges if this limit is greater than 1, and is inconclusive if the limit equals 1. For a power series $\sum a_n x_n$, this tells us that we need
+\[
+ \lim_{n\to\infty}\left\lvert \frac{a_{n+1}x^{n+1}}{a_nx^n}\right\rvert = \abs{x}\lim_{n\to \infty}\left\lvert\frac{a_{n+1}}{a_n}\right\rvert <1,
+\]
+which we can use to get the \textbf{radius of convergence}. To get the corresponding \textbf{interval of convergence}, you also need to test the endpoints of the interval to see if they need to be included. Often at one of the two endpoints you need to use the \textbf{alternating series test}: if $\di \sum_{n=1}^\infty(-1)^na_n$ is an alternating series where $\{a_n\}$ is a positive \textbf{decreasing} sequence and $\di\lim_{n\to\infty}a_n = 0$, then this alternating series converges. Note that this tells us that while the harmonic series $\sum \dfrac{1}{n}$ diverges, the alternating series $\sum \frac{(-1)^n}{n}$ converges.
+
+Another useful fact for alternating series is the \textbf{alternating series approximation theorem}: we have
+\[
+ \left\lvert \sum_{n=1}^\infty (-1)^na_n-\sum_{n=1}^N(-1)^na_n\right\rvert < a_{N+1}.
+\]
+
+This can often be used to estimate the error in truncating an alternating power series, like we see for $\sin x$ or $\cos x$. Another approximation result is Taylor's Theorem. If we can recognize our power series as a Taylor series for some function $f(x)$, then we have
+\[
+ \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n - \sum_{n=1}^N\frac{f^{(n)}(a)}{n!}(x-a)^n = R_N(x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x-c)^{n+1},
+\]
+where $c$ is some number in the interval of convergence for the Taylor series for $f(x)$.
+
+
+
+\subsubsection*{Problems (from the textbook)}
+
+\begin{itemize}
+ \item Section 3.5, 25-28.
+ \item Section 3.6, 6-18 (even), 26, 30, 32, 34.
+ \item Section 3.8, 8, 10, 12, 18, 20, 22, 26, 28, 32.
+\end{itemize}
+
+
+
+
+
+\end{document}

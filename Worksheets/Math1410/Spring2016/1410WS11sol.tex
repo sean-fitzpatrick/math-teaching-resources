@@ -1,0 +1,244 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.75in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 11 Solutions}\rhead{Tuesday, 5\textsuperscript{th} April, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newenvironment{aamatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|*{#1}{c}@{}}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}   
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+\newcommand{\bvm}{\begin{vmatrix}}
+\newcommand{\evm}{\end{vmatrix}}
+         
+                  
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+ \begin{enumerate}
+  \item For the following matrices, find (i) the characteristic polynomial, (ii) the eigenvalues of the matrix, and (iii) the corresponding eigenvectors.
+\begin{multicols}{3}
+
+\begin{enumerate}
+  \item $A = \bbm 3& 1&2\\0&2&-4\\0& -1&-1\ebm$
+  \item $B = \bbm 3 & 1 & 2\\0& 2 & 1\\0& 0& 2\ebm$
+  \item $C = \bbm 0&1&1\\1&0&1\\1&1&0\ebm$
+ \end{enumerate}
+\end{multicols}
+
+\bigskip
+
+For the matrix $A$, we have the characteristic polynomial
+\begin{align*}
+ \det(A-xI) & = \bvm 3-x & 1 & 2\\0 & 2-x&-4\\0 & -1 & -1-x\evm = (3-x)\bvm 2-x&-4\\-1&-1-x\evm\\
+& = (3-x)((2-x)(-1-x)-4) = (3-x)(x^2-x-6) = -(x-3)^2(x+2).
+\end{align*}
+The eigenvalues of $A$ are the zeros of the characteristic polynomial, so we have $\lambda = 3$ (with multiplicity 2) and $\lambda = -2$ as eigenvalues.
+
+For the $\lambda =3$ eigenvalue, we have
+\[
+ A-3I = \bbm 0&1&2\\0&-1&-4\\0&-1&-4\ebm \longrightarrow \bbm 0&1&0\\0&0&1\\0&0&0\ebm
+\]
+\textbf{Note:} I've skipped directly to the reduced row-echelon form (which I'll do for all the eigenvectors, to keep the solutions to a reasonable length). You should make sure that you're able to obtain the same RREF in each case.
+
+From the RREF of $A-3I$, we can see that the solution to $(A-3I)X = 0$ is given by $X = \bbm t&0&0\ebm^T$, and setting $t=1$ gives us the eigenvector $\bbm 1&0&0\ebm^T$ for corresponding to $\lambda=3$.
+
+For the $\lambda = -2$ eigenvalue, we have
+\[
+ A-(-2I) = A+2I = \bbm 5&1&2\\0&4&-4\\0&-1&1\ebm \longrightarrow \bbm 1&0&3/5\\0&1&-1\\0&0&0\ebm,
+\]
+so the general solution to $(A+2I)X=0$ is $X = \bbm -3/5t &t&t\ebm^T$. If we take $t=5$ we can avoid fractions (although there's nothing wrong with letting $t=1$), and this gives us the eigenvector $\bbm -3&5&5\ebm^T$ corresponding to $\lambda = -2$.
+
+\bigskip
+
+\bigskip
+
+The matrix $B$ is triangular, so we can immediately conclude that $B$ has characteristic polynomial $\det(B-xI) = -(x-3)(x-2)^2$ and eigenvalues $\lambda =2$ (multiplicity 2) and $\lambda=3$.
+
+For the $\lambda=3$ eigenvalue, we have
+\[
+ A-3I = \bbm 0&1&2\\0&-1&1\\0&0&-1\ebm \longrightarrow \bbm 0&1&0\\0&0&1\\0&0&0\ebm,
+\]
+so as with the previous problem, the eigenevector corresponding to $\lambda = 3$ is $\bbm 1&0&0\ebm^T$.
+
+For the $\lambda=2$ eigenvalue, we have
+\[
+ A-2I = \bbm 1&1&2\\0&0&1\\0&0&0\ebm \longrightarrow \bbm 1&1&0\\0&0&1\\0&0&0\ebm,
+\]
+so the general solution to $(A-2I)X=0$ is $X=\bbm -t&t&0\ebm^T$. Setting $t=-1$ (why not?), we get $\bbm 1&-1&0\ebm^T$ for the eigenvector corresponding to $\lambda=2$.
+
+\bigskip
+
+\bigskip
+
+For the matrix $C$, we have the characteristic polynomial
+\begin{align*}
+ \det(C-xI) & = \bvm -x&1&1\\1&-x&1\\1&1&-x\evm = -x\bvm -x&1\\1&-x\evm -1\bvm 1&1\\1&-x\evm+1\bvm 1&-x\\1&1\evm\\
+& = -x(x^2-1)-(-x-1)+(1+x) = -x(x-1)(x+1)+(x+1)+(x+1)\\
+& = (x+1)(-x^2+x+2) = -(x+1)^2(x-2).
+\end{align*}
+The eigenvalues of $C$ are therefore $\lambda = -1$ (multiplicity 2) and $\lambda =2$.
+
+For $\lambda = -1$, we have
+\[
+ A-(-1)I = A+I = \bbm 1&1&1\\1&1&1\\1&1&1\ebm \longrightarrow \bbm 1&1&1\\0&0&0\\0&0&0\ebm. 
+\]
+In this case, we see that the equation $(A+I)X=0$ has a two-parameter general solution 
+\[
+ X = \bbm -s-t\\s\\t\ebm = s\bbm -1\\1\\0\ebm + t\bbm -1\\0\\1\ebm,
+\]
+so we get two eigenvectors associated to $\lambda = -1$, given by the basic solutions $\bbm -1&1&0\ebm^T$ and $\bbm -1&0&1\ebm^T$ above.
+
+For $\lambda = 2$, we have
+\[
+ A-2I = \bbm -2&1&1\\1&-2&1\\1&1&-2\ebm \longrightarrow \bbm 1&0&-1\\0&1&-1\\0&0&0\ebm,
+\]
+so the general solution to the equation $(A-2I)X=0$ is $X=\bbm t&t&t\ebm^T$, giving us (with $t=1$) the eigenvector $\bbm 1&1&1\ebm^T$ corresponding to $\lambda =2$.
+
+
+\item For each of the matrices in problem 1, find an invertible matrix $P$ such that $P^{-1}AP$ is diagonal, or explain why no such $P$ exists. (You don't have to compute $P^{-1}$, unless you want to make sure you did everything correctly.)
+%\item Suppose that the $n\times n$ matrix $A$ is diagonalizable, and we know that $\lambda^3 = 5\lambda$ for every eigenvalue $\lambda$ of $A$. Prove that $A^3=5A$.
+
+\bigskip
+
+Of the three matrices, both $A$ and $B$ have $\lambda=3$ as an eigenvalue of multiplicity 2, but there is only one eigenevector assoicated to this eigenvalue in each case. Since there are only two independent eigenvectors overall for each matrix, there are not enough to form the matrix $P$, which, when it exists, is the $3\times 3$ matrix whose columns are the eigenevectors of the given matrix.
+
+For the matrix $C$, there are two eigenevectors associated to the repeated eigenvalue $\lambda = -1$, so in this case, the matrix $P$ exists. We can let
+\[
+ P = \bbm -1&-1&1\\1&0&1\\1&0&1\ebm,
+\]
+noting that the columns of $P$ are the three eigenvectors we found above for $C$. If you did decide to compute the inverse of $P$, you should obtain
+\[
+ P^{-1} = \frac{1}{3}\bbm -1&2&-1\\-1&-1&2\\1&1&1\ebm,
+\]
+and you can verify that
+\[
+ P^{-1}CP = \frac{1}{3}\bbm -1&2&-1\\-1&-1&2\\1&1&1\ebm\bbm 0&1&1\\1&0&1\\1&1&0\ebm\bbm -1&-1&1\\1&0&1\\1&0&1\ebm = \bbm -1&0&0\\0&-1&0\\0&0&2\ebm,
+\]
+as expected.
+%\textit{Hint:} since $A$ is diagonalizable, there exists a diagonal matrix $D$ and an invertible matrix $P$ such that $A=PDP^{-1}$.
+
+\item An $n\times n$ matrix $A$ is called \textbf{orthogonal} if $A^T=A^{-1}$ (that is, $A^TA=I$).
+\begin{enumerate}
+ \item Show that the matrix $A=\bbm -1/3&2/3&2/3\\2/3&-1/3&2/3\\2/3&2/3&-1/3\ebm$ is orthogonal. 
+
+\bigskip
+
+Notice that in this case $A$ is not only orthogonal, it is also symmetric: $A^T=A$. We then have
+\[
+ A^TA = A^2 = \bbm -1/3&2/3&2/3\\2/3&-1/3&2/3\\2/3&2/3&-1/3\ebm\bbm -1/3&2/3&2/3\\2/3&-1/3&2/3\\2/3&2/3&-1/3\ebm=\bbm 1&0&0\\0&1&0\\0&0&1\ebm,
+\]
+so $A^{-1} = A^T = A$. 
+
+By the way, a matrix $A$ with the property that $A^2 = I$ is called \textit{idempotent}. Any idempotent matrix is its own inverse. (Actually, in general, a matrix is \textit{idempotent of degree $k$} if $A^k=I$ for some natural number $k$, and $k$ is the smallest number with this property. In this case, $A^{-1} = A^{k-1}$.)
+
+ \item Prove that a matrix $A$ is orthogonal if and only if the columns of $A$ form an orthonormal set of vectors. (That is, the columns $C_1,\ldots, C_n$ of $A$ satisfy $\len{C_i}=1$ for each $i=1,\ldots, n$, and $C_i\dotp C_j = 0$ for each $i\neq j$.) 
+
+\bigskip
+
+Letting $C_1, \ldots, C_n$ denote the columns of $A$, we can write $A = \bbm C_1&\cdots & C_n\ebm$, and then $A^T = \bbm C_1^T\\\vdots \\C_n^T\ebm$. (That is, the rows of $A^T$ are given by transposing the columns of $A$.) We then have
+\[
+ A^TA = \bbm C_1^T\\\vdots \\C_n^T\ebm\bbm C_1&\cdots & C_n\ebm = \bbm C_1^TC_1 & C_1^TC_2 & \cdots & C_1^TC_n\\C_2^TC_1 & C_2^TC_2 & \cdots & C_2^TC_n\\\vdots & \vdots & \ddots & \vdots \\C_n^TC_1 & C_n^TC_2 & \cdots & C_n^TC_n\ebm.
+\]
+Now, if $A$ is orthogonal, then $A^TA = I$, so we must have $C_i^TC_i = C_i\dotp C_i = 1$ for each $i=1,\ldots, n$, and $C_i^TC_j = C_i\dotp C_j = 0$ for all $i\neq j$, and thus the columns of $A$ form an orthonormal set of vectors. Conversely, if the columns of $A$ are orthonormal, then we immediately obtain $A^TA=I$ from the above, so $A$ is orthogonal.
+
+\end{enumerate}
+
+\item (\textbf{Bonus fun:}) An $n\times n$ matrix $A$ is called \textit{symmetric} if $A^T=A$. An important theorem in linear algebra, called the \textit{Spectral Theorem}, guarantees that every symmetric matrix $A$ can be ``orthongonally diagonalized'', meaning that there exists an \textbf{orthogonal} matrix $P$ such that $P^TAP = D$ is diagonal. (Note from the previous problem that $P^T=P^{-1}$.)
+\begin{enumerate}
+ \item Show that the matrix $A = \bbm 3&0&0\\0&2&2\\0&2&5\ebm$ is symmetric.
+
+\bigskip
+
+We simply check that $A^T=A$, which you can readily verify.
+
+ \item It is possible to prove that eigenvectors corresponding to \textbf{distinct} eigenvalues of a symmetric matrix are orthogonal. Use this fact to find an orthogonal matrix $P$ such that $P^TAP$ is diagonal.
+
+\bigskip
+
+We begin by finding the eigenvalues and eigenvectors of $A$. The characteristic polynomial is
+\[
+ \det(A-xI) = \bvm 3-x&0&0\\0&2-x&2\\0&2&5-x\evm = (3-x)((2-x)(5-x)-4) = -(x-3)(x-1)(x-6),
+\]
+so there are three distinct eigenvalues, $\lambda_1 = 1, \lambda_2=3$, and $\lambda_3=6$. The corresponding eigenvectors are (exercise)
+\[
+ X_1 = \bbm 0\\2\\-1\ebm, X_2 = \bbm 1\\0\\0\ebm, \text{ and }  X_3 = \bbm 0\\1\\2\ebm.
+\]
+The above eigenvectors are all mutually orthogonal (check this), but they're not all unit vectors: we need to normalize $X_1$ and $X_3$. This yields the matrix
+\[
+ P = \bbm 0&1&0\\2/\sqrt{5}&0&1/\sqrt{5}\\-1/\sqrt{5}&0&2/\sqrt{5}\ebm.
+\]
+I'll leave it for you to verify that $P^T=P^{-1}$, and that $P^TAP=\bbm 1&0&0\\0&3&0\\0&0&6\ebm$.
+
+ \item Show that the matrix $C$ from problem 1(c) is also symmetric. You should have found that $C$ had only two eigenvalues: $\lambda =2$, and $\lambda = -1$ (which is repeated). Letting $X$ denote the eigenevector corresponding to $\lambda=2$, and letting $Y_1, Y_2$ denote the eigenevectors corresponding to $\lambda = -1$, show that $X$ is orthogonal to both $Y_1$ and $Y_2$.
+
+\bigskip
+
+Verifying that $C$ is symmetric is again straightforward, and we have 
+\[
+ X\dotp Y_1 = \bbm 1\\1\\1\ebm \dotp \bbm -1\\0\\1\ebm = -1+0+1=0, \text{ and } X\dotp Y_2 = \bbm 1\\1\\1\ebm\dotp\bbm 0\\-1\\1\ebm = 0-1+1=0,
+\]
+so $X$ is indeed orthogonal to both $Y_1$ and $Y_2$. 
+ \item Chances are the two eigenvectors $Y_1$ and $Y_2$ corresponding to $\lambda = -1$ were not themselves orthogonal. Can you replace $Y_2$ by an eigenvector for $\lambda = -1$ that \textbf{is} orthogonal to $Y_1$? (\textit{Hint:} projection.)
+
+\bigskip
+
+We first check that $Y_1\dotp Y_2 = 1$, so $Y_1$ and $Y_2$ are not othogonal. Let us now define
+\[
+ Y_3 = Y_2- \proj_{Y_1}Y_2 = \bbm 0\\-1\\1\ebm - \dfrac{1}{2}\bbm -1\\0\\1\ebm = \bbm 1/2\\-1\\1/2\ebm.
+\]
+Notice that we now have $Y_3\dotp Y_1 = 0$ (recall that the calculation above is exactly the orthogonal decomposition construction from the first chapter). Moreover, it is still the case that $X\dotp Y_3 = 0$, so now the vectors $X, Y_1, Y_3$ form an orthogonal set. 
+
+Finally, notice that $Y_3$ is still an eigenvector for $C$ corresponding to $\lambda = -1$, since it's a linear combination of the basic eigenvectors $Y_1$ and $Y_2$. ($Y_3$ is the solution given by taking $s=-1/2$ and $t=1$ in the general solution.) If we take the corresponding unit vectors, we have the orthonormal basis of eigenevectors given by
+\[
+ \hat{X} = \frac{1}{\sqrt{3}}\bbm 1\\1\\1\ebm, \hat{Y}_1 = \frac{1}{\sqrt{2}}\bbm -1\\0\\1\ebm, \hat{Y}_3= \frac{1}{\sqrt{6}}\bbm 1\\-2\\1\ebm,
+\]
+and from here we can proceed as above to construct the orthogonal matrix $P$ whose columns are all eigenvectors of $C$.
+\end{enumerate}
+
+ \end{enumerate}
+
+
+\end{document}

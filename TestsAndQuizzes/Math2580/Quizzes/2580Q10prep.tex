@@ -1,0 +1,59 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\di}{\displaystyle}
+
+\title{Practice for Quiz 10\\Math 2580\\Spring 2016}
+\author{Sean Fitzpatrick}
+\date{February 23rd, 2016}
+
+\begin{document}
+ \maketitle
+
+If you can answer the following problems, you should be well-prepared for Quiz 10:
+
+
+
+\begin{enumerate}
+ \item Find the following antiderivatives:
+\begin{multicols}{2}
+\begin{enumerate}
+ \item $\di \int e^{3x}\,dx$
+ \item $\di \int \cos(x)\,dx$
+ \item $\di \int \frac{2x}{1+x^2}\,dx$
+ \item $\di \int x\sin(x)\,dx$
+ \item $\di \int \sin^2(x)\,dx$
+ \item $\di \int \frac{1}{\sqrt{4-x^2}}\,dx$
+\end{enumerate}
+\end{multicols}
+ \item Sketch the following rectangles in $\R^2$:\label{a}
+\begin{multicols}{2}
+\begin{enumerate}
+ \item $[-1,2]\times [0,2]$
+ \item $[1,4]\times [-1,1]$
+\end{enumerate}
+\end{multicols}
+ \item For each of the rectangles from Problem \ref{a}, determine uniform partitions $x_0<x_1<x_2<x_3$ of the $x$-interval into three sub-intervals and $y_0<y_1<y_2$ of the $y$-interval into two sub-intervals. Use these partitions to divide the given rectangle into six sub-rectangles $R_{ij}$, with $1\leq i\leq 3$ and $1\leq j\leq 2$. 
+ \item Sketch each of the subsets of $\R^2$ below and express them as both a Type 1 region and a Type 2 region:
+\begin{enumerate}
+ \item The region bounded by the coordinate axes and the line $x+y=1$.
+ \item The region bounded by the curves $y=\sqrt{x}$, $y=0$, and $x=4$.
+\end{enumerate}
+Note: a region is called a Type 1 region (or ``vertically simple'') if it lies between the graphs of two functions $y=f_1(x)$ and $y=f_2(x)$. (So $f_1(x)\leq y\leq f_2(x)$, where $a\leq x\leq b$.) A region is a Type 2 region (or ``horizontally simple'') if it lies between the graphs of two functions $x=g_1(y)$ and $x=g_2(y)$. (So $g_1(y)\leq x\leq g_2(y)$, where $c\leq y\leq 2$.)
+ \end{enumerate}
+
+\end{document}
+ 

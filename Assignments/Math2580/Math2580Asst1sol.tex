@@ -1,0 +1,117 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\title{Math 2580 Assignment \#1 Solutions\\University of Lethbridge, Spring 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+ \item Each of the equations below describes a quadric surface. Identify (as an ellipsoid, hyperboloid, etc.) and sketch each surface.
+\begin{enumerate}
+ \item $\dfrac{x^2}{4}+\dfrac{y^2}{9}+z^2=1$.
+ 
+ \bigskip
+ 
+ This is an ellipsoid centred at the origin, with $-2\leq x\leq 2$, $-3\leq y\leq 3$, and $-1\leq z\leq 1$. Anything that looks more or less like a rugby ball with the correct dimensions is acceptable.
+ 
+ \item $x^2+z^2=1-2y^2$
+
+\bigskip
+ 
+ Rearranging gives the equation $x^2+2y^2+z^2=1$, so this is another ellipsoid with $-1\leq x,z\leq 1$ and $-1/\sqrt{2}\leq y\leq 1/\sqrt{2}$.
+ 
+ 
+ \item $z+y^2=2x^2$.
+
+\bigskip
+ 
+ This equation can be rewritten as $z=2x^2-y^2$, so this is a hyperbolic paraboloid (saddle surface). These guys are hard to draw, so any reasonable attempt is acceptable. The 2 in front of the $x$ means it's squished a bit in the $x$ direction, but not by any amount that can reasonably be reflected in your sketch.
+ 
+\end{enumerate}
+
+
+\item Consider the function $f:\R^2\to \R$ defined by
+\[
+ f(x,y) = \begin{cases}
+           \dfrac{xy(x^2-y^2)}{x^2+y^2}, & \text{ if } (x,y)\neq (0,0)\\ 0, & \text{ if } (x,y)=(0,0).
+          \end{cases}
+\]
+\begin{enumerate}
+ \item Compute $f_x$ and $f_y$ for $(x,y)\neq (0,0)$.
+ 
+ \bigskip
+ 
+ For $(x,y)\neq (0,0)$ we have
+ \begin{align*}
+ f_x(x,y) & = \frac{\partial}{\partial x}\left(\frac{x^3y-xy^3}{x^2+y^2}\right)\\
+ & = \frac{(3x^2y-y^3)(x^2+y^2)-2x(x^3y-xy^3)}{(x^2+y^2)^2}\\
+ & = \frac{x^4y+4x^2y^3-y^5}{(x^2+y^2)^2},
+ \end{align*}
+ and
+ \begin{align*}
+ f_y(x,y) & =  \frac{\partial}{\partial y}\left(\frac{x^3y-xy^3}{x^2+y^2}\right)\\
+ & = \frac{(x^3-3xy^2)(x^2+y^2)-2y(x^3y-xy^3)}{(x^2+y^2)^2}\\
+ & = \frac{x^5-4x^3y^2-xy^4}{(x^2+y^2)^2}.
+ \end{align*}
+ 
+ \item Show that $f_x(0,0)=f_y(0,0)=0$.
+ 
+ \bigskip
+ 
+ Using the limit definitions of $f_x$ and $f_y$, we have
+\[
+ f_x(0,0)  = \lim_{h\to 0}\frac{f(h,0)-f(0,0)}{h} = \lim_{h\to 0}\frac{0-0}{h}=0,
+\]
+and similarly, $f_y(0,0)=0$.
+
+ \item Show that $f_x(0,y)=-y$ when $y\neq 0$. \label{a}
+ 
+ \bigskip
+ 
+ Plugging in $x=0$ to our solution from part (a), we have
+ \[
+ f_x(0,y) = \frac{-y^5}{(y^2)^2} = -y.
+ \]
+ 
+ \item What is $f_y(x,0)$ when $x\neq 0$? \label{b}
+ 
+ \bigskip
+ 
+ Using the same argument as in part \ref{a}, we have $f_y(x,0) = \dfrac{x^5}{x^4}=x$.
+ 
+ \item Show that $f_{yx}(0,0)=1$ and $f_{xy}(0,0)=-1$. (You'll need to use limits again.)
+ 
+ \bigskip
+ 
+ Since $f_{yx}$ is the partial derivative of $f_y$ with respect to $x$, using our result from part \ref{b} we have
+ \[
+ f_{yx}(0,0) = \lim_{h\to 0}\frac{f_y(h,0)-f_y(0,0)}{h} = \lim_{h\to 0}\frac{h-0}{h} = 1.
+ \]
+ Similarly, $f_{xy}$ is the partial derivative of $f_x$ with respect to $y$, so using the result from \ref{a},
+ \[
+ f_{xy}(0,0) = \lim_{h\to 0}\frac{f_x(0,h)-f_x(0,0)}{h} = \lim_{h\to 0}\frac{-h-0}{h} = -1.
+ \]
+ 
+ \item Why does this not contradict the theorem about equality of mixed partials?
+ 
+ \bigskip
+ 
+ Clairaut's Theorem only guarantees equality of mixed second-order partial derivatives at a point if all second-order partial derivatives exist and are continuous on an open disc containing that point. Since $f_{xy}(0,0)\neq f_{yx}(0,0)$, it must be the case that these derivatives are not continuous at $(0,0)$. Checking this is a lot of work though: we'd have to compute $f_{xy}(x,y)$ and $f_{yx}(x,y)$ (and the other two second-order derivatives) for $(x,y)\neq (0,0)$ and show that either the limit of these functions does not exist as $(x,y)\to (0,0)$, or that the limits exist, but are not equal to $-1$ and $1$, respectively.
+ 
+ If we believe Clairaut's Theorem to be true (and it is), then since the conclusion of the theorem failed in this case, it must be true that the hypothesis failed as well.
+\end{enumerate}
+
+ \end{enumerate}
+\end{document}
+ 

@@ -1,0 +1,170 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 40}}
+\chead{MATH 53}\lhead{Test \# 1}\rhead{Friday, 15\textsuperscript{th} February, 2013}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of California, Berkeley}\\
+Department of Mathematics\\
+15\textsuperscript{th} February, 2013, 12:10-12:55 pm\\
+{\bf MATH 53 - Test \#1}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+\skipline
+Discussion Section: \underline{\hspace{307pt}}\\
+\skipline
+Name of GSI: \underline{\hspace{336pt}}\\
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ {\bf Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+There is a list of potentially useful formulas available on the last page of the exam.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 1 & \enspace\enspace\enspace\enspace\enspace\enspace/14\\
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/13\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/13\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/40\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+B
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item \begin{enumerate}
+\item Describe the motion of a particle whose position $(x(t),y(t))$ at time $t\in [-\pi,\pi]$ is given by $x=\cos^2 t,\, y=\sin t$. (In particular, what is the Cartesian equation of the curve?) \points{6}
+
+\vspace{3in}
+
+\item Set up, but do not evaluate, the integral which computes the length of the curve from part (a). How does this compare to the distance travelled by the particle? \points{4}
+
+\vspace{2.5in}
+
+\end{enumerate}
+\item Find the equation of the tangent line to the curve represented by the vector-valued function $\mathbf{r}(t) = \langle t^3+t,t^2+1,5-t^4\rangle$ at the point $(2,2,4)$ \points{4}
+
+\newpage
+
+\item \begin{enumerate}
+\item Find the equation of the line of intersection of the planes given by the equations \points{8}
+\begin{align*}
+3x - y + 4z & = 4\\
+x + 2y - z & = -1.
+\end{align*}
+
+
+\vspace*{4in}
+
+\item What is the cosine of the angle of intersection of the two planes in part (a)? \points{2}
+
+\vspace{1.5in}
+
+\item What is the distance from the plane $3x-y+4z=4$ to the point $(-2,3,1)$? \points{3}
+
+\end{enumerate}
+
+\newpage
+
+\item Find the area of the triangle $\Delta PQR$, for points $P(0,0,0),\, Q(0,-1,1),\, R(2,4,-2)$. \points{7}
+
+\vspace{3in}
+
+
+
+
+
+\item Let $\mathbf{a},\,\mathbf{b},\mathbf{c}$ be nonzero vectors in $\R^3$. For each of the following, prove the statement, or give an example showing that the statement is false: \points{6}
+\begin{enumerate}
+\item If $\aaa\dotp\bbb = \aaa\dotp\ccc$, then $\bbb=\ccc$.
+\item If $\aaa\times\bbb = \aaa\times\ccc$, then $\bbb=\ccc$.
+\item If $\aaa\dotp\bbb = \aaa\dotp\ccc$ and $\aaa\times\bbb = \aaa\times\ccc$, then $\bbb=\ccc$.
+
+\end{enumerate}
+
+\end{enumerate}
+\newpage
+
+\begin{center}
+List of potentially useful formulas and facts:
+\end{center}
+
+In the following, assume $\aaa = \langle a_1,a_2,a_3\rangle$ and $\bbb = \langle b_1,b_2,b_3\rangle$ are constant vectors in $\R^3$, and $\mathbf{r}(t) = \langle x(t),y(t),z(t)\rangle$ is a vector-valued function with domain $[a,b]$.
+\begin{itemize}
+\item Length of a vector: $\lVert\aaa\rVert = \sqrt{a_1^2+a_2^2+a_3^2}$
+\item Dot product: $\aaa\dotp\bbb = a_1b_1+a_2b_2+a_3b_3 = \lVert\aaa\rVert\,\lVert\bbb\rVert\cos\theta$
+\item Cross product: $\aaa\times\bbb = \langle a_2b_3-a_3b_3,a_3b_1-a_1b_3,a_1b_2-a_2b_1\rangle$; $\lVert \aaa\times\bbb\rVert = \lVert\aaa\rVert\,\lVert\bbb\rVert\sin\theta$.
+\item Projections: $\operatorname{proj}_\aaa\bbb = \dfrac{\aaa\dotp\bbb}{\lVert\aaa\rVert}\left(\dfrac{\aaa}{\lVert\aaa\rVert}\right)$, $\operatorname{comp}_\aaa\bbb = \dfrac{\aaa\dotp\bbb}{\lVert\aaa\rVert}$.
+\item Planes: $ax+by+cz=d$, or $\mathbf{n}\dotp(\mathbf{r}-\mathbf{r}_0)=0$.
+\item Lines: $x=x_0+at,\, y=y_0+bt,\, z=z_0+ct$, or $\mathbf{r} = \mathbf{r}_0+t\mathbf{v}$.
+\item Quadric surfaces: there aren't any on the midterm, so you can relax and play with some vectors.
+\item Parametric area: $\displaystyle A = -\int_a^b y(t)x'(t)\, dt$ for a positively-oriented curve.
+\item Tangent vectors: For each $t_0\in [a,b]$, $\mathbf{r}(t)$ has tangent vector $\mathbf{r}'(t_0) = \langle x'(t_0),y'(t_0),z'(t_0)\rangle$.
+\item Parametric length: $\displaystyle L = \int_a^b\lVert\mathbf{r}'(t)\rVert\,dt$.
+\end{itemize}
+\begin{center}
+List of basic facts I hope were in fact entirely unnecessary to include:
+\end{center}
+\begin{itemize}
+\item $\sin^2\theta+\cos^2\theta = 1$
+\item $\displaystyle \frac{d}{dt}(t^n) = nt^{n-1},\, \frac{d}{dt}\sin t = \cos t,\, \frac{d}{dt}\cos t = -\sin t$
+\item $\dfrac{d}{dt}(f(t)g(t)) = f'(t)g(t)+f(t)g'(t)$
+\end{itemize}
+\end{document}

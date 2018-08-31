@@ -1,0 +1,78 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\Abs}[1]{\left| #1 \right|}
+\newcommand{\len}[1]{\lVert #1\Vert}
+
+\title{Math 3500 Exercise Sheet}
+\date{15 October, 2014}
+
+
+\begin{document}
+\maketitle
+
+This week is all about practice with $\epsilon$-$\delta$ limit proofs. Let's recall the definition:
+
+\noindent{\bf Definition}: Let $f:D\to \R$ be a function, and let $a$ be a limit point of $D\subseteq \R$. We say that $L$ is a {\bf limit} of $f$ at $a$ if for every $\epsilon>0$ there exists some $\delta>0$ such that for any $x\in D$, if $0<\abs{x-a}<\delta$, then $\abs{f(x)-L}<\epsilon$.
+
+We showed in class that limits are unique, so when the above definition is satisifed, we can say that $L$ is {\em the} limit of $f$ at $a$, and write $\displaystyle \lim_{x\to a}f(x)=L$. Note that the condition $0<\abs{x-a}<\delta$ means that $x\in (a-\delta, a)\cup (a,a+\delta)$ (we're not allowing $x=a$), and we're requiring that $f(x)$ lands in the interval $(L-\epsilon,L+\epsilon)$.
+
+{\bf Example}: Prove that $\lim_{x\to 2}\left(\dfrac{x}{x+2}\right) = \dfrac{1}{2}$.
+
+Our proof will begin with ``Let $\epsilon >0$ be given, and let $\delta = \ldots$'', similarly to how we began our limit proofs for sequences. The trick is to figure out what $\delta$ should be. We begin with some rough work:
+\[
+ \abs{f(x)-L}  = \Abs{\frac{x}{x+2}-\frac{1}{2}} = \Abs{\frac{2x-(x+2)}{2(x+2)}} = \Abs{\frac{x-2}{2x+4}}.
+\]
+ Now, $\abs{x-2}$ is the thing we have control over: we can choose $\delta$ to be whatever we want, and then take $\abs{x-2}<\delta$. So we can make the above difference small by making $\abs{x-2}$ small, but we have to make sure that the denominator doesn't end up making things too big. We usually do this by trying a test value for $\delta$, and to keep the arithmetic simple, a common choice is $\delta=1$. If $\abs{x-2}<1$, we get $-1<x-2<1$, so $1<x<3$. We need to deal with the $2x+4$ in the denominator, so we note
+\[
+ 1<x<3 \,\Rightarrow\, 2<2x<6  \,\Rightarrow\, 6<2x+4<10  \,\Rightarrow\, \frac{1}{10}<\frac{1}{2x+4}<\frac{1}{6}.
+\]
+Note that shrinking $\delta$ will shrink the allowed range for $x$, which will in turn shrink the range of values for $1/(2x+4)$. Thus, we can use this estimate by making sure that $\delta$ is no bigger than 1. Now, with $\delta\leq 1$ we can ensure that
+\[
+ \Abs{\frac{x-2}{2x+4}} = \abs{x-2}\Abs{\frac{1}{2x+4}}<\abs{x-2}\left(\frac{1}{6}\right),
+\]
+and since we want this to be less than $\epsilon$, and $\abs{x-2}<\delta$, we just need to make sure that $\delta$ is no bigger than $6\epsilon$. Since we need to guarantee simultaneously that $\delta\leq 1$ and $\delta\leq 6\epsilon$, this tells us that we should take $\delta = \min\{1,6\epsilon\}$. With all this rough work done, we can assemble our proof:
+
+\noindent{\bf Proof}: Let $\epsilon>0$ be given, and take $\delta = \min\{1,6\epsilon\}$. Suppose that $\abs{x-2}<\delta$. Since $\delta\leq 1$, we have $1<x<3$, and thus $6<2x+4<10$, which gives us
+\[
+ \abs{f(x)-L}  = \Abs{\frac{x}{x+2}-\frac{1}{2}} = \Abs{\frac{2x-(x+2)}{2(x+2)}} = \Abs{\frac{x-2}{2x+4}} < \frac{\abs{x-2}}{6} <\frac{\delta}{6}\leq\frac{6\epsilon}{6}=\epsilon.
+\]
+\noindent {\bf Remark}: Since we require $a$ to be a limit point of $D$ in the defintion of the limit, we can find a sequence $(a_n)$ with each $a_n\in D$, and $a_n\neq a$ for all $n\in \N$, such that $a_n\to a$. One can show (see Theorem 5.1.8 in the textbook) that
+\[
+ \lim_{x\to a}f(x) = L \text{ if and only if } f(a_n) \to L \text{ for any such sequence } (a_n).
+\]
+A useful consequence of this fact is that if we can find a sequence $(a_n)$ with $a_n\to a$ such that $f(a_n)$ does not converge, then $f$ cannot have a limit at $a$. For example, if $f(x)=\sin(1/x)$ and $a_n = 2/(n\pi)$, then $a_n\to 0$ but $f(a_n) = \sin(n\pi/2)$, which gives the alternating sequence $(f(a_n) = (1, 0, -1 , 0, 1, 0, -1, 0,\ldots)$ which does not converge. It follows that $\lim_{x\to 0}\sin(1/x)$ does not exist.
+
+\subsection*{Problems}
+\begin{enumerate}
+ \item Show that $\displaystyle\lim_{x\to a}k = k$ and $\displaystyle\lim_{x\to a}x = a$ for any $a,k\in\R$.
+
+ \item Prove that each limit is correct using the definition of the limit:
+\begin{enumerate}
+ \item $\displaystyle\lim_{x\to 3}x^2=9$
+ \item $\displaystyle\lim_{x\to 1}\frac{x^2-1}{x-1} = 2$. (Hint: since we require $0<\abs{x-1}$, you know that $x\neq 1$, and this will let you simplify the function.)
+ \item $\displaystyle\lim_{x\to -1}(x^2-2x+1) = 4$.
+ \item $\displaystyle\lim_{x\to -3}\frac{2x-1}{x+4} = -7$. (Note: you'll need a test value for $\delta$ as in the example above, but letting $\delta=1$ will let $x+4$ get close to zero, preventing you from getting the bound that you need. How can you correct this?)
+\end{enumerate}
+\item Prove the {\bf limit laws}: Let $f:D\to \R$ and $g:D\to \R$ be functions, and let $a$ be a limit point of $D$. Suppose that $\lim_{x\to a}f(x)=L$ and $\lim_{x\to a}g(x) = M$. Then:
+\begin{enumerate}
+ \item For any $k\in\R$, $\displaystyle\lim_{x\to a}(kf(x)) = kL$.
+ \item $\displaystyle\lim_{x\to a}(f(x)+g(x)) = L+M$
+ \item $\displaystyle\lim_{x\to a}(f(x)g(x)) = LM$
+ \item If $g(x)\neq 0$ for all $x\in D$ and $M\neq 0$, then $\displaystyle\lim_{x\to a}\left(\dfrac{f(x)}{g(x)}\right) = \dfrac{L}{M}$.
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
+ 

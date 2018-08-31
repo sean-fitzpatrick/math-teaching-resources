@@ -1,0 +1,221 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+%\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\ss}{\subseteq}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\Abs}[1]{\left| #1\right|}
+
+\title{Math 3500 Assignment \#7 Solutions\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+
+\begin{enumerate}
+ \item Construct an example of a function $f:\R\to\R$ that is differentiable at exactly one point. (It might help to recall that we've seen an example of a function that is continuous at only one point.)
+ 
+ \bigskip
+ 
+ Let $f(x)=\begin{cases} x^2, & \text{ if } x\in \Q\\ 0, & \text{ if } x\notin \Q\end{cases}$. For any $a\neq 0$, let $(a_n)$ be a sequence converging to $a$. If $a\in \Q$, we can take each $a_n$ irrational, and then $a^2=f(a) = f(\lim a_n)\neq 0$, but $\lim f(a_n) = 0$. Similarly, if $a\notin \Q$, we can take each $a_n$ rational, and then $0 = f(a) = f(\lim a_n)$, but $\lim f(a_n) = \lim a_n^2 = a^2\neq 0$. It follows that $f$ is not continuous at any $a\neq 0$, so $f$ cannot be differentiable at any $a\neq 0$.
+ 
+ However, we claim that $f'(0)$ exists. To see this, note that
+ \[
+ \frac{f(x)-f(0)}{x-0} = \frac{f(x)}{x} = \begin{cases} x, & \text{ if } x\in \Q, x\neq 0\\ 0, & \text{ if } x\notin \Q\end{cases}.
+ \]
+ Thus, for each $x\neq 0$, $\left|\dfrac{f(x)}{x}\right|\leq \abs{x}$, and thus $\displaystyle f'(0)=\lim_{x\to 0}\frac{f(x)}{x}=0$ exists.
+ 
+ \bigskip
+ 
+ \item ({\bf Do not submit)} Let $f_a(x) = \begin{cases} x^a, & \text{ if } x> 0\\ 0, & \text{ if } x\leq 0\end{cases}$, where $a$ is some real number.
+\begin{enumerate}
+ \item For which values of $a$ is $f$ continuous at 0?
+ 
+ \bigskip
+ 
+ For $a>0$ we have $\lim\limits_{x\to 0^+}x^a = 0$, so $f_a$ is continuous at 0. If $a=0$, then $f_a(x)=1$ for $x>0$, so $f$ cannot be continuous at $0$, and if $a<0$, then $\lim_{x\to 0^+}f_a(x) = \infty$, so $f$ cannot be continuous at 0.
+ 
+ \bigskip
+ 
+
+ \item For which values of $a$ is $f$ differentiable at 0? In these cases, is $f'$ continuous?
+ 
+ \bigskip
+ 
+ We only need to consider $a>0$ since we know that $f$ is not continuous at 0 for $a\leq 0$. The derivative is given by
+ \[
+ f'(0) = \lim_{x\to 0}\frac{f(x)-f(0)}{x-0} = \lim_{x\to 0}g(x),
+ \]
+ where $g(x) = x^{a-1}$ for $x>0$, and $g(x)=0$ for $x<0$. For this limit to exist, we need $a>1$, in which case we have $f'(0)=0$, using the same argument as in part (a). Now, for all values of $a$ we have $f'(x)=0$ for $x<0$, and $f'(x) = ax^{a-1}$, from which we see that $f'$ is indeed continuous for $a>1$, since $ax^{a-1}\to 0$ as $x\to 0^+$.
+ 
+ \bigskip
+ 
+ \item For which values of $a$ is $f$ twice differentiable at 0?
+ 
+ For $a>1$ we have $f'(x) = \begin{cases} ax^{a-1}, & \text{ if } x>0\\ 0, & \text{ if } x\leq 0\end{cases}$. The same argument used in parts (a) and (b) tells us that $f$ will be twice differentiable at 0 if $a>2$.
+ 
+ \bigskip
+ 
+\end{enumerate}
+\item Prove Leibniz's rule: for any $n\in\N$, $\displaystyle (fg)^{(n)}(a) = \sum_{k=0}^n {n \choose k}f^{(k)}(a)g^{(n-k)}(a)$, provided that $f$ and $g$ are both $n$ times differentiable at $a$. (The notation $h^{(n)}$ indicates the $n^{th}$ derivative of $h$, so $h^{(0)}=h, h^{(1)} = h', h^{(2)} = h''$, etc.) 
+
+\bigskip
+
+When $n=1$, we have $(fg)'(a) = f'(a)g(a)+f(a)g'(a)$, by the product rule, so the result holds in this case. Suppose that for some $n\geq 1$ we have
+\begin{align*}
+(fg)^{(n)}(a) &= \sum_{k=0}^n {n \choose k}f^{(k)}(a)g^{(n-k)}(a)\\
+& = f^{(n)}(a)g(a)+nf^{(n-1)}(a)g'(a)+\cdots + nf'(a)g^{(n-1)}(a)+f(a)g^{(n)}(a).
+\end{align*}
+Then we have
+\begin{align*}
+(fg)^{(n+1)}(a) & = ((fg)^{(n)})'(a)\\
+& = \left(\sum_{k=0}^n {n \choose k}f^{(k)}(a)g^{(n-k)}\right)'(a)\\
+& = \sum_{k=0}^n {n\choose k}\left(f^{(k)}(a)g^{(n-k+1)}(a)+f^{(k+1)}(a)g^{(n-k)}(a)\right)\\
+& = f(a)g^{(n+1)}(a) +f'(a)g^{(n)}(a)\\
+&\quad \quad + \sum_{k=1}^{n-1} {n\choose k}(f^{(k)}(a)g^{(n-k+1)}(a)+f^{(k+1)}(a)g^{(n-k)}(a))\\
+&\quad \quad \quad \quad + f^{(n+1)}(a)g(a)+f^{(n)}(a)g'(a)\\
+& = f(a)g^{(n+1)}(a) + \left(\sum_{k=1}^{n-1} {n\choose k}(f^{(k)}(a)g^{(n-k+1)}(a)+f^{(n)}(a)g'(a)\right)\\
+& \quad \quad +\left(\sum_{k=1}^{n-1}f^{(k+1)}(a)g^{(n-k)}(a))+f'(a)g^{(n)}(a)\right) + f^{(n+1)}(a)g(a)\\
+& = f(a)g^{(n+1)}(a) + \sum_{k=1}^n{n\choose k}f^{(k)}(a)g^{(n+1-k)}(a)\\
+&\quad \quad  + \sum_{k=0}^{n-1}{n\choose k}f^{(k+1)}(a)g^{(n-k)}(a) + f^{(n+1)}(a)g(a)\\
+& = f(a)g^{(n+1)}(a) + \sum_{k=1}^n{n\choose k}f^{(k)}(a)g^{(n+1-k)}(a)\\
+&\quad \quad  + \sum_{k=1}^n{n\choose k-1}f^{(k)}(a)g^{(n+1-k)}(a) + f^{(n+1)}(a)g(a)\\
+& = f(a)g^{(n+1)}(a) + \sum_{k=1}^n\left({n\choose k}+{n\choose k-1}\right)f^{(k)}(a)g^{(n+1-k)}(a)+ f^{(n+1)}(a)g(a)\\
+& = f(a)g^{(n+1)}(a) + \sum_{k=1}^n{n+1\choose k}f^{(k)}(a)g^{(n+1-k)}(a)+ f^{(n+1)}(a)g(a)\\
+& = \sum_{k=0}^{n+1}{n+1\choose k}f^{(k)}(a)g^{(n+1-k)}(a).
+\end{align*}
+Thus, the result holds for all $n\in\N$ by induction.
+
+\bigskip
+
+\item A function $f:A\to\R$ is called a {\bf Lipschitz} function if there exists some $M>0$ such that
+\[
+ \Abs{\frac{f(x)-f(y)}{x-y}}\leq M
+\]
+for all $x,y\in A$.
+\begin{enumerate}
+ \item Prove that any Lipschitz function is uniformly continuous on its domain.
+ 
+ \bigskip
+ 
+ Suppose that $\displaystyle \Abs{\frac{f(x)-f(y)}{x-y}}\leq M$ for all $x,y\in A$, for some $M>0$. Given any $\epsilon>0$, take $\delta = \epsilon/M$. Then whenever $x,y\in A$ and $\abs{x-y}<\delta$, we have
+ \[
+ \abs{f(x)-f(y)}\leq M\abs{x-y} <M\delta = \epsilon.
+ \]
+ Thus, $f$ is uniformly continuous on $A$.
+ 
+ \bigskip
+ 
+ \item Prove that if $f$ is differentiable on a closed interval $[a,b]$ and $f'$ is continuous on $[a,b]$, then $f$ is Lipschitz on $[a,b]$.
+ 
+ \bigskip
+ 
+ Suppose $f'$ is continuous on $[a,b]$. Then by the Extreme Value Theorem, $f'$ is bounded on $[a,b]$, so there exists some $M>0$ such that $\abs{f'(x)}\leq M$ for all $x\in [a,b]$. Now, choose any $x,y\in [a,b]$ with $x<y$. Then $f$ is differentiable on $[x,y]$ and thus continuous on $[x,y]$, so by the Mean Value Theorem there exists some $c\in (a,b)$ such that
+ \[
+ \Abs{\frac{f(x)-f(y)}{x-y}} = \abs{f'(c)}\leq M.
+ \]
+ Thus, $f$ is Lipschitz on $[a,b]$.
+  
+ \bigskip
+ 
+\end{enumerate}
+ \item Prove that if $f$ is differentiable on an interval $I$ and $f'(x)\neq 1$ for all $x\in I$, then $f$ has at most one fixed point on $I$ (that is, there is at most one $x_0\in I$ such that $f(x_0)=x_0$).
+ 
+ \bigskip
+ 
+Suppose $f$ has more than one fixed point; say $f(x_1)=x_1$ and $f(x_2)=x_2$ for some $x_1,x_2\in I$ with $x_1<x_2$. Since $f$ is differentiable on $I$, $f$ is continuous on $[x,y]\subseteq I$ and differentiable on $(x,y)$. Then by the Mean Value Theorem there must exist some $c\in (x_1,x_2)$ such that
+\[
+f'(c) = \frac{f(x_2)-f(x_1)}{x_2-x_1} = \frac{x_2-x_1}{x_2-x_1} = 1,
+\]
+and the result follows by taking the contrapositive.
+
+\bigskip
+
+ \item Let $f$ be defined on $\R$ and suppose that $\abs{f(x)-f(y)}\leq (x-y)^2$ for all $x,y\in\R$. Prove that $f$ must be a constant function.
+ 
+ \bigskip
+ 
+ If $\abs{f(x)-f(y)}\leq (x-y)^2$ for all $x,y\in\R$, then for any $a\in \R$ we have
+ \[
+ \Abs{\frac{f(x)-f(a)}{x-a}}\leq \abs{x-a},
+ \]
+ from which it follows that $f'(a)=0$, since for any $\epsilon>0$, if $\abs{x-a}<\delta=\epsilon$, we have
+ \[
+ \Abs{\frac{f(x)-f(a)}{x-a} - 0} \leq \abs{x-a} <\epsilon.
+ \]
+ Since $f'(x)=0$ for all $x\in \R$, it follows that $f$ must be constant.
+ 
+ \bigskip
+ 
+ \item ({\bf Do not submit}) Recall that a function $f:(a,b)\to\R$ is {\em increasing} on $(a,b)$ if $f(x)\leq f(y)$ whenever $x<y$ in $(a,b)$.
+\begin{enumerate}
+ \item Show that if $f$ is differentiable on $(a,b)$ then $f$ is increasing on $(a,b)$ if and only if $f'(x)\geq 0$ for all $x\in (a,b)$.
+ 
+ \bigskip
+ 
+ If $f$ is differentiable on $(a,b)$, and $f'(x)\geq 0$ on $(a,b)$, then by the Mean Value Theorem, for any $x,y\in (a,b)$ with $x<y$ there exists some $c\in (x,y)$ such that
+ \[
+ f(y)-f(x) = f'(c)(y-x) \geq 0,
+ \]
+ so $f(x)\leq f(y)$, and $f$ is increasing. Conversely, suppose that $f$ is differentiable and increasing on $(a,b)$. Then for all $x,y\in (a,b)$ with $x\neq y$ we have $\dfrac{f(x)-f(y)}{x-y}>0$, since $x<y$ if and only if $f(x)<f(y)$. It follows that $f'(x)\geq 0$.
+ 
+ \bigskip
+ 
+ \item Show that the function
+\[
+ g(x) = \begin{cases} x/2+x^2\sin(1/x) & \text{ if } x\neq 0 \\ 0 & \text{ if } x=0\end{cases}
+\]
+is differentiable on $\R$ and satisfies $g'(0)>0$.
+
+\bigskip
+
+For $x\neq 0$ we can compute $g'(x)$ using rules of differentiation. We have:
+\[
+g'(x) = \frac{1}{2} + 2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right).
+\]
+At $x=0$ we find $g'(0)$ using the definition of the derivative:
+\[
+g'(0) = \lim_{x\to 0}\frac{x/2+x^2\sin(1/x)-0}{x-0} = \lim_{x\to 0}\left(\frac{1}{2}+x\sin\left(\frac{1}{x}\right)\right) = \frac{1}{2}>0.
+\]
+
+\bigskip
+
+ \item Show that $g$ is {\em not} increasing on any open interval containing 0.
+ 
+ \bigskip
+ 
+ For any $x>0$ we can find some $n\in\N$ such that  $0<\dfrac{2}{(4n+1)\pi}<\dfrac{2}{(4n-1)\pi}<x$. We then have
+ \[
+g\left(\frac{2}{(4n+1)\pi}\right) = \frac{4n\pi+\pi+4}{(4n+1)^2}>\frac{4n\pi-\pi-4}{(4n-1)^2} = g\left(\frac{2}{(4n-1)\pi}\right),
+ \]
+ so $g$ cannot be increasing on $(0,x)$, and thus not on any open interval containing 0. (Of course one still must verify that the inequality above is valid. It is, but it's a bit of a mess to check.)
+ 
+ \bigskip
+ 
+ \item Why do your results from (b) and (c) not contradict your result in part (a)?
+
+ \bigskip
+ 
+ In part (a) we only showed that $g'(0)>0$ at the {\em point} 0. To guarantee that $g$ is increasing, we'd need to show that $g'(x)>0$ on an {\em interval} containing 0.
+\end{enumerate}
+ 
+
+
+
+
+\end{enumerate}
+
+\end{document}
+ 

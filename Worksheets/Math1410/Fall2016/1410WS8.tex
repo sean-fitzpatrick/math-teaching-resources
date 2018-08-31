@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 8}\rhead{November 2/3, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}   
+                 
+\begin{document}
+{\bf \large Name:} \hspace{2.5in} {\bf Tutorial day and time:}
+
+\bigskip
+
+{\bf Select {\bf one} {\em completed} problem for feedback:}
+
+\bigskip
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+ \begin{enumerate}
+\item Determine the rank of each of the following matrices:
+\begin{multicols}{2}
+\begin{enumerate}
+ \item $A = \bbm 2&-3&1&4\\-1&3&5&-7\\1&0&6&-3\ebm$
+
+
+
+ \item $B = \bbm 2&6\\5&-3\\3&2\ebm$
+
+
+
+\end{enumerate}
+\end{multicols}
+
+\vspace{2.5in}
+
+\item Determine the basic solutions of the homogeneous system of equations
+\[
+ \begin{array}{ccccccccc}
+  2x_1&-&3x_2& &   &-&4x_4&=&0\\
+  -x_1&+&2x_2&-&x_3&+&3x_4&=&0\\
+  3x_1&-&4x_2&-&x_3&-&5x_4&=&0
+ \end{array}
+\]
+\newpage
+
+\item Determine whether or not the vectors
+\[
+ \vec{v}_1 = \bbm 2\\-1\\3\ebm, \vec{v}_2 = \bbm 0\\1\\-4\ebm, \quad \text{ and } \quad \vec{v}_3 = \bbm 3\\-1\\5\ebm
+\]
+are linearly independent.
+
+\vspace{3in}
+
+\item Determine whether or not $\vec{w}\in \operatorname{span}\{\vec{v}_1,\vec{v}_2, \vec{v}_3\}$, where
+\[
+ \vec{v}_1 = \bbm 1\\0\\2\\-1\ebm, \vec{v}_2 = \bbm 2\\1\\0\\-3\ebm, \vec{v}_3 = \bbm -2\\0\\-4\\1\ebm, \quad \text{ and } \quad \vec{w} = \bbm 2\\3\\-8\\6\ebm.
+\]
+
+
+ \end{enumerate}
+\end{document}

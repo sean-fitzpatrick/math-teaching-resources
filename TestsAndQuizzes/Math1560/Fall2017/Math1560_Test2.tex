@@ -1,0 +1,127 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.35in,bottom=0.75in,left=0.75in,right=0.75in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{vwcol}
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 18}}
+\lhead{\hspace*{2.2in}\underline{MATH 1560: Test 2}}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+\renewcommand{\headrulewidth}{0in}
+\headheight 20pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\P}{\mathcal{P}}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\spn}{span}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+3 October, 2017\\
+{\bf MATH 1560 - Test \#2 -- Individual Stage}\\
+Examiner: Sean Fitzpatrick
+\end{center}
+%\skipline \skipline \skipline \noindent \skipline
+%Last Name:\underline{\hspace{350pt}}\\
+%\skipline
+%First Name:\underline{\hspace{348pt}}\\
+%\skipline
+%Student Number:\underline{\hspace{322pt}}\\
+%\skipline
+
+
+
+\vspace{0.1in}
+
+\vspace*{\fill}
+
+\begin{quote}
+Print your name and student number clearly in the space above. You may remove this cover page, and use the back for scrap paper. If you want any work on the back of this page to be graded, you must clearly indicate this on the page containing the corresponding question.
+
+\medskip
+
+Answer the questions in the space provided. Show all work and necessary justification. Partial credit may be awarded for partially correct work.
+ 
+\medskip
+
+No outside aids are permitted, with the exception of a basic calculator. 
+\end{quote}
+
+
+
+\newpage
+
+This page left intentionally blank. You may use this page for rough work.
+\newpage
+
+ \begin{enumerate}
+ \item  Evaluate the limit: \points{3}\\
+ \\
+$\di  \lim_{x\to \infty}\,\frac{5+2x-3x^3}{5x^3-4x^2+7}=$
+ 
+ 
+ \vspace{2in}
+ 
+ \item Is the function \points{3}
+ \[
+ f(x) = \begin{cases} 5x-x^2, & \text{ if } x<2\\ 4x-2, & \text{ if } x\geq 2\end{cases}
+ \]
+ continuous at $x=2$? Why or why not? 
+ 
+ \vspace{3in}
+ 
+ \item Let $f(x) = \sqrt{x^2+1}$. Write down, but do not evaluate, a limit that computes $f'(0)$ \textit{according to the definition of the derivative}. \points{2}
+ 
+\newpage
+
+\item Compute $f'(x)$ for each function $f(x)$ below. You do \textbf{not} need to simplify your answers.
+\begin{enumerate}
+\item $f(x) = 4x^5-2x^3+\sqrt{2}x-3^4$\points{2}
+
+\vspace{1.5in}
+
+\item $f(x) = x^3\sin(x)$ \points{2}
+
+\vspace{1.75in}
+
+\item $f(x) = \dfrac{x^3-\sqrt{x}}{x^2}$ \points{3}
+
+\vspace{2in}
+
+\item $\di f(x) = e^{\sqrt{x^2+1}}$ \points{3}
+\end{enumerate}
+\end{enumerate}
+\end{document}

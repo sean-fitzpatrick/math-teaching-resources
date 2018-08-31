@@ -1,0 +1,173 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.35in,bottom=0.75in,left=0.75in,right=0.75in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{vwcol}
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}%\rfoot{{\bf Total Points: 18}}
+\lhead{\hspace*{2.2in}\underline{MATH 1560: Test 5 Solutions}}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+\renewcommand{\headrulewidth}{0in}
+\headheight 20pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\P}{\mathcal{P}}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\spn}{span}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+%\thispagestyle{plain}
+%\skipline \skipline \skipline \noindent \skipline
+%Last Name:\underline{\hspace{350pt}}\\
+%\skipline
+%First Name:\underline{\hspace{348pt}}\\
+%\skipline
+%Student Number:\underline{\hspace{322pt}}\\
+%\skipline
+
+
+
+ \begin{enumerate}
+ \item 
+ \begin{enumerate}
+ \item A box with a square base and no lid is required to hold a volume of $500 \text{ cm}^3$. What are the dimensions of the box that uses the least amount of material? Be sure to confirm that your answer is the minimum.
+ 
+ \medskip
+ 
+Let $x$ denote the length of either side of the base of the box, and let $y$ denote the height. The volume and surface area of the box are then given by
+\begin{align*}
+V & = x^2y\\
+S & = x^2+4xy.
+\end{align*}
+We're given the constraint $V=500=x^2y$. Solving for $y$ and substituting into $S$, we find:
+\[
+S(x) = x^2+4x\left(\frac{500}{x^2}\right) = x^2 + \frac{2000}{x}.
+\]
+To minimize the amount of material used, we need to minimize $S(x)$. We note that $x\in (0,
+\infty)$ and that $S\to\infty$ as $x\to 0$ and $x\to \infty$, so if there is a minimum, it must occur at a critical point. We find
+\[
+S'(x) = 2x-\frac{2000}{x^2} = \frac{2(x^3-1000)}{x^2} = \frac{2(x-10)(x^2+10x+100)}{x^2}.
+\]
+Our only critical number is $x=10$. We note that $S''(x)=2+\frac{4000}{x^3}$, so $S''(10)=2+4=6>0$, confirming that we have a local minimum when $x=10$, using the second derivative test. (One can also construct a sign diagram for $S'(x)$ and use the first derivative test.)
+
+When $x=10$ we have $y=500/10^2 = 5$, so the desired dimensions are $10\times 10\times 5$.
+
+\medskip
+
+
+ \item A farmer has 60 metres of fencing. She plans to construct a rectangular pen, using a barn for one of the four sides. Given that the barn is 40 metres long, what is the largest area she can fence? Be sure to confirm that your answer is the maximum.
+ 
+ \medskip
+ 
+Let the dimensions of the pen be $x$ and $y$, where $x$ is the length of the side parallel to the barn. Since the length of the pen cannot exceed that of the barn, we must have $0\leq x\leq 40$. The amount of fencing required is
+\[
+x+2y = 60,
+\]
+so $x=60-2y$, and the area of the pen is given by
+\[
+A(y) = xy = (60-2y)y = 60y-2y^2.
+\]
+Note that (using the constraint $x+2y=60$) when $x=0$, $y=30$, and when $x=40$, $y=10$. Thus, we have $y\in [10,30]$.
+
+We check that $A(10) = 40(10)=400$, and $A(30) = 0(30)=0$. We now look for critical numbers.
+\[
+A'(y) = 60-4y=4(15-y),
+\]
+so the only critical number is $y=15$, which is in our domain, so we compute
+\[
+A(15) = (60-30)(15)=30(15)=450.
+\]
+Since $A(15)>A(10)>A(30)$, we conclude that $A(15)=450$ is the largest possible area.
+ \end{enumerate}
+ 
+ \newpage
+ 
+ 
+ \item Determine the linear approximation to $f(x)=x^6$ at $a=1$. Use your approximation to estimate the value of $(1.02)^6$. 
+ 
+ \medskip
+ 
+ For $f(x)=x^6$ we have $f'(x)=6x^5$, so $f(1)=1$ and $f'(1)=6$. The linear approximation at $a=1$ is therefore
+ \[
+ L(x) = f(1)+f'(1)(x-1) = 1+6(x-1).
+ \]
+ When $x=1.02$, we have
+ \[
+ (1.02)^6 = f(1.02)\approx L(1.02) = 1+6(1.02-1)=1+6(0.02) = 1+0.12=1.12.
+ \]
+ 
+ \medskip
+ 
+ \item Calculate the indicated Taylor polynomials. (Use Page 2 to compute derivatives if needed.)
+ \begin{enumerate}
+ \item For $f(x)= \sin(2x)$, degree 5, about $a=0$. 
+ \medskip
+ 
+ We have, using the Chain Rule for our derivatives,
+ \begin{multline*}
+ f(x)=\sin(2x), f'(x) = 2\cos(2x), f''(x) = -4\sin(2x), f^{(3)}(x) = -8\cos(2x),\\ f^{(4)}(x) = 16\sin(2x), f^{(5)}(x) = 32\cos(2x),
+ \end{multline*}
+ so
+ \[
+ f(0)=0, f'(0)=2, f''(0) = 0, f^{(3)}(0) = -8, f^{(4)}(0)=0, \text{ and } f^{(5)}(0) = 32.
+ \]
+ The desired Taylor polynomial is thus
+ \[
+ p_5(x) = 2x-\frac{8}{3!}x^3 +\frac{32}{5!}x^5 = (2x)-\frac{(2x)^3}{3!}+\frac{(2x)^5}{5!}.
+ \]
+ You might find it interesting to notice that this is the same result that we would obtain by replacing $x$ by $2x$ in the Taylor polynomial for $\cos(x)$.
+ 
+ \medskip
+ 
+ 
+ \item For $g(x) = \dfrac{1}{x^2}$, degree 3, about $a=1$. 
+ 
+ \medskip
+ 
+ Our derivatives are given by:
+ \[
+ g(x) = x^{-2}, g'(x) = -2x^{-3}, g''(x) = 6x^{-4}, g'''(x) = -24x^{-5},
+ \]
+ so
+ \[
+ g(1) = 1, g'(1)=-2, g''(1) = 6, \text{ and } g'''(1) = -24.
+ \]
+ This gives us the Taylor polynomial
+ \begin{align*}
+ p_3(x) &= 1-2(x-1)+\frac{6}{2!}(x-1)^2-\frac{24}{3!}(x-1)^3\\
+ & = 1-2(x-1)+3(x-1)^2-4(x-1)^3.
+ \end{align*}
+ (Can you guess what the pattern is if we wanted a Taylor polynomial of higher degree?)
+ \end{enumerate}
+\end{enumerate}
+\end{document}

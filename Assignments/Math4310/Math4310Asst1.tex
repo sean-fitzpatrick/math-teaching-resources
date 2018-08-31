@@ -1,0 +1,103 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+
+\title{Math 4310 Assignment \#1\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Friday, September 12, by 5 pm.
+
+\bigskip
+
+\subsection*{Practice Problems (do not submit)}
+From Sutherland: 3.1, 3.3, 3.5, 3.6, 3.9, 4.1, 4.4, 4.9, 4.13, all from Chapter 5.
+
+Other problems:
+\begin{enumerate}
+ \item Let $f:A\to B$ be given and let $\{X_\alpha\}_{\alpha\in I}$ be an indexed family of subsets of $A$. Prove:
+\begin{enumerate}
+ \item $f(\bigcup_{\alpha\in I}X_\alpha) = \bigcup_{\alpha\in I}f(X_\alpha)$
+ \item $f(\bigcap_{\alpha\in I} X_\alpha)\subseteq \bigcap_{\alpha\in I}f(X_\alpha)$ 
+ \item If $f:A\to B$ is one-to-one, then $f(\bigcap_{\alpha\in I} X_\alpha)= \bigcap_{\alpha\in I}f(X_\alpha)$
+\end{enumerate}
+ \item Let $f:A\to B$ be given and let $\{Y_\alpha\}_{\alpha\in I}$ be an indexed family of subsets of $B$. Prove:
+\begin{enumerate}
+ \item $f^{-1}(\bigcup_{\alpha\in I} Y_\alpha) = \bigcup_{\alpha\in I} f^{-1}(Y_{\alpha})$
+ \item $f^{-1}(\bigcap_{\alpha\in I}Y_\alpha) = \bigcap_{\alpha\in I}f^{-1}(Y_\alpha)$
+ \item If $X$ is a subset of $B$, then $f^{-1}(X^c) = (f^{-1}(X))^c$, where $X^c = B\setminus X$ denotes the complement of $X$ in $B$ (and similarly $(f^{-1}(X))^c$ denotes the complement of $f^{-1}(X)$ in $A$).
+ \item If $X$ is a subset of $A$ and $Y$ is a subset of $B$, then $f(X\cap f^{-1}(Y)) = f(X)\cap Y$.
+\end{enumerate}
+ \item Let $A$ be the set of all functions $f:[a,b]\to\R$ that are continuous on $[a,b]$. Let $B$ be the subset of $A$ consisting of all the functions possessing a continuous derivative on $[a,b]$. Let $C$ be the subset of $B$ consisting of all functions whose value at $a$ is 0. Let $d:B\to A$ be the correspondence that associates with each function in $B$ its derivative. Is the function $d$ invertible?
+
+To each $f\in A$, let $h(f)$ be the function defined by $(h(f))(x) = \int_a^x f(t)\,dt$, for $x\in [a,b]$. Verify that $h:A\to C$. Find the function $g:C\to A$ such that these two functions are inverses of each other.
+ \item Let $m,n$ be positive integers. Let $X$ be a set with $m$ distinct elements and $Y$ a set with $n$ distinct elements. How many distinct functions are there from $X$ to $Y$? Let $A$ be a subset of $X$ with $r$ distinct elements, with $0\leq r\leq m$, and $f:A\to Y$. In how many distinct ways can we extend $f$ to a function defined on all of $X$?
+ \item Prove that $(\R^n,d'')$ is a metric space, where the function $d''$ is defined by the correspondence
+\[
+d''(\x,\y) = \sum_{i=1}^n\abs{x_i-y_i},
+\]
+for $\x=(x_1,\ldots, x_n),\y=(y_1,\ldots y_n)\in\R^n$. In $(\R^2,d'')$ determine the shape and position of the set of points $\x$ such that $d(\x,\y)\leq 1$ for a given point $\y\in\R^2$.
+ \item Let $(X_i,d_i)$, $(Y_i,d_i')$, $i=1,\ldots, n$ be metric spaces. Let $f_i:X_i\to Y_i$ be continuous functions with respect to the given metrics. Let $X=\prod_{i=1}^nX_i$ and $Y=\prod_{i=1}^nY_i$, and make $X$ and $Y$ into metric spaces as in the previous problem. Prove that the function $F:X\to Y$ defined by
+\[
+ F(x_1,\ldots, x_n) = (f_1(x_1),\ldots, f_n(x_n))
+\]
+is continuous.
+ \item Let $\delta(x,y)$ be a real-valued function on $X\times X$ for some set $X$, and suppose that for all $x,y,z\in X$ we have
+\begin{enumerate}[(i)]
+ \item $\delta(x,y)\geq 0$ and $\delta(x,y)=0$ if and only if $x=y$.
+ \item $\delta(x,y)\leq \delta(x,z)+\delta(y,z)$.
+\end{enumerate}
+Deduce that, in addition, $\delta(x,y)=\delta(y,x)$, and thus that $\delta(x,y)\leq \delta(x,z)+\delta(z,y)$.
+ \item If $d$ is a metric on a set $X$, show that $d_1(x,y) = \dfrac{d(x,y)}{1+d{x,y}}$ and $d_2(x,y)=\min\{d(x,y),1\}$ are also metrics on $X$.
+\end{enumerate}
+\subsection*{Assigned problems (to be submitted)}
+\begin{enumerate}
+ \item Let $A$ be a set and let $E\subseteq A$. The function $\chi_E:A\to\{0,1\}$ defined by
+\[
+ \chi_E(x) = \begin{cases}1, & \text{ if } x\in E\\ 0, & \text{ if } x\notin E\end{cases}
+\]
+is called the {\em characteristic function} of $E$. Let $E$ and $F$ be subsets of $A$.
+\begin{enumerate}
+ \item Show that $\chi_{E\cap F} = \chi_E\cdot \chi_F$, where $\chi_E\cdot\chi_F(x) = \chi_E(x)\chi_F(x)$.
+ \item Show that $\chi_{E\cup F} = \chi_E+\chi_F-\chi_{E\cap F}$.
+ \item Find a similar expression for $\chi_{E\cup F\cup G}$
+\end{enumerate}
+\item Let $X$ denote the set of all continuous functions $f:[a,b]\to\R$, and let $X'$ denote the set of all bounded functions $f:[a,b]\to\R$. (Note: by the Extreme Value Theorem, $X\subseteq X'$.)
+\begin{enumerate}
+ \item For $f,g\in X$, define $d(f,g) = \int_a^b\abs{f(t)-g(t)}\,dt$. Using appropriate theorems from calculus, prove that $(X,d)$ is a metric space.
+ \item For $f,g\in X'$, define $d'(f,g) = \sup_{x\in [a,b]}(\abs{f(x)-g(x)})$. Prove that $(X',d')$ is a metric space.
+ \item Since $X\subseteq X'$, the metric $d'$ defines a metric on $X$ by restriction. Compare the two metrics $d$ and $d'$ on $X$.
+\end{enumerate}
+ \item Given metric spaces $X_1,\ldots, X_n$ with metrics $d_1,\ldots, d_n$ respectively, let $X = \prod_{i=1}^nX_i$. Then the function $d:X\times X\to \R$ defined by 
+\[
+ d(\x,\y) = \max_{1\leq i\leq n}\{d_i(x_i,y_i)\}.
+\]
+makes $(X,d)$ into a metric space. Let $d$ continue to denote the metric on $\R^n$ defined by this result, where each $d_i$ is the usual absolute value metric on $\R$, let $d'$ be the standard Euclidean metric on $\R^n$, and let $d''$ be the metric defined in problem \#5 from the practice problems above. Prove that for each pair of points $\x,\y\in\R^n$, we have
+\begin{align*}
+ d(\x,\y)&\leq d'(\x,\y)\leq \sqrt{n}\cdot d(\x,\y),\\
+ d(\x,\y)&\leq d''(\x,\y)\leq n\cdot d(\x,\y).
+\end{align*}
+ \item Define a function $d:\R^2\times\R^2\to \R$ by
+\[
+ d(x,y) = \begin{cases}
+           \len{x-y}, & \text{ if } \x=c\y \text{ for some } c\in\R\\
+           \len{\x}+\len{y} & \text{ otherwise}
+          \end{cases}
+\]
+Verify that $d$ defines a metric on $\R^2$, and describe the open balls $B^d_a(\x) = \{\y\in\R^2 \,|\, d(\x,\y)<a\}$ with respect to this metric. (Hint: if you get stuck, this metic is known as the ``Paris Metro'' metric. This should let you find help online -- but cite your sources! Once you figure it out, take a look at a map of the Paris subway system to understand where the name comes from.)
+\end{enumerate}
+\end{document}
+ 

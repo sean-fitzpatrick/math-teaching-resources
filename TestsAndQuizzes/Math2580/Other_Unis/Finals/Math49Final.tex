@@ -1,0 +1,202 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in, letterpaper]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{enumerate}
+%\input quizstyle.tex
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\addtolength{\headheight}{\baselineskip}
+
+\lhead{{\bf Date:} 14$^{\text{th}}$ December, 2012 }
+\chead{{\bf Time:} 11:30-1:30 pm}
+\rhead{MATH 53}
+\cfoot{Page \thepage \ of \pageref{LastPage}}
+\rfoot{{\bf Total Marks:} 60}
+
+%Redefine the plain page style in fancyhdr package
+\fancypagestyle{plain}{%  
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{Page \thepage \ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}}
+
+\newcounter{probnum}
+\newcounter{subprobnum}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\S}{\mathbf{S}}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\dotp}{\,\boldsymbol{\cdot}\,}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\newcommand{\di}{\displaystyle}
+\newcommand{\F}{\mathbf{F}}
+
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\nll}{null}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\Div}{div}
+
+
+\newenvironment{problems}{
+\begin{list}{\arabic{probnum}.}{\usecounter{probnum}}
+}{
+\end{list}
+}
+
+\newenvironment{subproblem}{ % start for subprob
+\begin{list}{ % first arg for list
+(\alph{subprobnum})
+}{ % second arg for list
+\usecounter{subprobnum}
+\setlength{\topsep}{0in}
+} % end of list def
+}{ % end for subprob
+\end{list}
+}
+
+\newcommand{\skipline}{\vspace{12pt}}
+%\input local.tex
+%\renewcommand{\labelenumi}{(\roman{enumi})}
+
+\begin{document}
+\thispagestyle{plain}
+%Supresses the headers on the front page
+
+\centerline {\bf University of California, Berkeley}
+
+\bigskip
+
+\centerline {FINAL EXAMINATION, Spring 2012}
+\centerline {DURATION: $3$ hours}
+
+\medskip
+
+\centerline {Department of Mathematics}
+
+\medskip
+
+\centerline {{\bf MATH 49} Multivariable Calculus Equivalency}
+ 
+\medskip
+
+\centerline {Examiner: Sean Fitzpatrick}
+
+\bigskip
+
+\noindent {\bf Total: 60 points}
+\vglue .25truein
+\begin{tabular}{ll}
+Family Name: &\underbar {\hskip 4.2in} \\
+   &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[15pt]
+Given Name(s): &\underbar {\hskip 4.2in} \\
+    &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[15pt]
+Please sign here: &\underbar {\hskip 4.2in}\\
+[25pt]
+Student ID Number: &\underbar {\hskip 4.2in}\\
+\end{tabular}
+\bigskip
+
+
+\vspace{.15in}
+\begin{quote}
+{\large  No aids, electronic or otherwise, are permitted, with the exception of the formula sheet provided with your exam.  
+Partial credit will be given for partially correct work. 
+Please read through the entire exam before beginning, and take note of
+how many points each question is worth.}
+\end{quote}
+\begin{center}
+{\bf Good Luck!}
+\end{center}
+\vspace{.25in}
+
+\begin{center}
+\begin{tabular}{|l|r|}
+\hline
+\multicolumn{2}{|c|}
+{\rule[-3mm]{0mm}{8mm}
+FOR GRADER'S USE ONLY} \\
+\hline
+Problem 1: & \hspace{.5in}  /8 \\ [3pt]
+\hline
+Problem 2: & \hspace{.5in}  /10 \\ [3pt]
+\hline
+Problem 3: & \hspace{.5in}  /12 \\ [3pt]
+\hline
+Problem 4: & \hspace{.5in}  /8 \\ [3pt]
+\hline
+Problem 5: & \hspace{.5in}  /12 \\ [3pt]
+\hline
+Problem 6: & \hspace{.5in}  /10 \\ [3pt]
+\hline
+
+\hline 
+  {\rule[-3mm]{0mm}{8mm} TOTAL:}  & /60  \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\newpage
+%\vglue1pt
+%vglue adds space between headers and text
+
+\begin{enumerate}
+\item Evaluate the line integral $\di \int_C \F\dotp d\r$, where $\F(x,y,z) = \langle 2x, x+y, y+3z\rangle$, and $C$ is the straight line segment from $(1,0,2)$ to $(3,-4,4)$. \points{8}
+
+\newpage
+
+
+\item Consider the vector field $\F(x,y,z) = \langle y^2,axy+z^3,byz^2\rangle$, where $a$ and $b$ are constants.
+\begin{enumerate}
+\item Find values of $a$ and $b$ such that $\F$ is a conservative vector field, and then find a potential function $f(x,y,z)$ such that $\nabla f(x,y,z) = \F(x,y,z)$. \points{6}
+
+\vspace{4in}
+
+\item Compute $\di \int_C \F\dotp d\r$, where $C$ is the line segment between the points $(1,2,0)$ and $(2,-1,3)$
+using the values of $a$ and $b$ found in part (a). \points{4}
+\end{enumerate}
+\newpage
+
+\item Let $S$ be the parametric surface given by $\r(u,v)=\langle u\cos v, u\sin v, v\rangle$, for $u\in [0,2]$ and $v\in [-\pi,\pi]$. ($S$ is a ``spiral ramp''.)
+\begin{enumerate}
+\item Find an equation for the tangent plane to $S$ at the point $(0,1,\pi/2)$. \points{6}
+
+\vspace{3.5in}
+
+\item Find the surface area of $S$. \points{6}
+\end{enumerate}
+\newpage
+
+\item Use Stokes' Theorem to evaluate $\di \iint_S \curl\F\dotp d\S$, where $\F(x,y,z) = \langle-y,x,-2\rangle$, and $S$ is the surface of the cone $z=\sqrt{x^2+y^2}$, for $1\leq z\leq 4$, oriented towards the $xy$-plane. \points{8}
+
+\newpage
+
+\item Verify that the Divergence Theorem is true for the vector field $\F(x,y,z) = \langle x^2, xy, z\rangle$ and the solid $E$ bounded by the paraboloid $z=4-x^2-y^2$ and the $xy$-plane. \points{12}
+
+\newpage
+
+\item  Prove {\em Gauss' Law}: Let $\F$ be the vector field $\F = \dfrac{\r}{\lVert\r\rVert^3}$, where $\r(x,y,z) = \langle x,y,z\rangle$. Let $E$ be any closed, bounded region in $\R^3$ with piecewise-smooth boundary $S$, oriented by the outward-pointing unit normal vector, such that $S$ does not pass through the origin. Then\points{10}
+\[
+\iint_S \F\dotp \,d\S = \begin{cases} 4\pi, & \text{ if } 0\in E\\ 0, & \text{ if } 0\neq E\end{cases},
+\]
+Hint: Calculate $\iint_S \F\dotp d\S=\iint_S \F\dotp \mathbf{n}\,dS$ directly for the sphere $x^2+y^2+z^2=a^2$. Then use the Divergence Theorem.
+\end{enumerate}
+
+
+\end{document}
+
+

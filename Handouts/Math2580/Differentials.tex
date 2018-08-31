@@ -1,0 +1,177 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[margin=0.75 in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\di}{\displaystyle}
+\newcommand{\F}{\mathbf{F}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+%opening
+\title{What's the Differential?}
+\author{Sean Fitzpatrick}
+
+\begin{document}
+
+\maketitle
+
+As we've seen in class, the line integral of a vector field $\F=\langle P,Q,R\rangle$ over an oriented smooth curve $C$ in $\R^3$ is given by
+\[
+\int_C \F\dotp\,d\r = \int_a^b\F(\r(t))\dotp \r'(t)\,dt,
+\]
+where $\r(t)$, $t\in [a,b]$ is any parameterization of $C$ compatible with the orientation. (That is $\r(a)$ is the initial point, $\r(b)$ is the final point, and since $C$ is smooth, we can require that $\r'(t)\neq 0$ for all $t\in(a,b)$.) If $C$ is only piecewise smooth, say $C=C_1+C_2+\cdots +C_k$, with each of the $C_i$ smooth, we define
+\[
+\int_C\F\dotp\,d\r = \sum_{i=1}^k\int_{C_i}\F\dotp\,d\r.
+\]
+Another way of writing the above integral is in {\em differential form}: since $dx = x'(t)\,dt$, with similar results for $dy$ and $dz$, we see that 
+\[
+\F(\r(t))\dotp\r'(t)\,dt = P(\r(t))x'(t)\,dt + Q(\r(t))y'(t)\,dt + R(\r(t))z'(t)\,dt = P\,dx+Q\,dy+R\,dz,
+\]
+so we can also write our line integral as $\di \int_C P\,dx+Q\,dy+R\,dz$; this is the differential form of the integral. It is sometimes convenient to treat the integrand as an object in its own right: we write
+\[
+\alpha_\F = P\,dx+Q\,dy+R\,dz,
+\]
+where the subscript $\F$ reminds us that $\alpha_\F$ came from the vector field $\F$. Such an object is called a differential 1-form, or sometimes a ``work form'', since integrating $\alpha_\F$ along a curve $C$ computes the work done by $\F$ along $C$ in the case that $\F$ is interpreted as a force. We note that $\alpha_\F$ looks like a differential $df = f_x\,dx+f_y\,dy+f_z\,dz$, but is not necessarily a differential, since $df$ is the work form of the gradient vector field $\nabla f$, and we know that not all vector fields are gradients. However, when it is the case that $\F=\nabla f$ is conservative, the fundamental theorem of calculus for line integrals tells us that
+\[
+\int_C \nabla f\dotp \,d\r = \int_C \alpha_{\nabla f} = \int_C df = f(\mathbf{b})-f(\mathbf{a}),
+\]
+where $\mathbf{a}$ and $\mathbf{b}$ are the initial and final points of $C$, respectively.
+
+Now lets move to surface integrals. We saw in class that a surface integral can also be put into a differential form. Let $S$ be an oriented, smooth surface (again, we can extend to the piecewise smooth case by summing over smooth components, so it's enough to understand the smooth case), and let $\F$ be a vector field defined on $S$. The integral of $\F$ over $S$ is given by
+\[
+\iint_S \F\dotp\, d\mathbf{S} = \iint_D \F(\r(u,v))\dotp\N(u,v)\,du\,dv,
+\]
+where $\r(u,v)$, with $(u,v)\in D$ is any parameterization of $S$ that respects the orientation of $S$, and $\N(u,v) = \r_u(u,v)\times r_v(u,v)$ is the normal vector with respect to this parameterization. (The requirement that $\r(u,v)$ respect the orientation is given by requiring that $\N(u,v)\neq\mathbf{0}$ for all $(u,v)\in D$, except possibly on the boundary of $D$, and that $\N(u,v)$ points in the direction corresponding to the choice of orientation.)
+
+The normal vector can be written in the form
+\[
+\N(u,v) = \left<\frac{\partial(y,z)}{\partial(u,v)},\frac{\partial(z,x)}{\partial (u,v)},\frac{\partial (x,y)}{\partial (u,v)}\right>,
+\]
+where $\di \pd{(y,z)}{(u,v)} = \pd{y}{u}\pd{z}{v}-\pd{y}{v}\pd{z}{u}$, etc. are the two-by-two Jacobians corresponding to any choice of two of the three variables $x,\,y,\,z$. Notice how we cycle through the variables from one component to the next: $x$-component, $(y,z)$; $y$-component, $(z,x)$; $z$-component, $(x,y)$. The ordering is important here, because changing the order of the two variables in any of these Jacobians introduces a minus sign: since we want to keep track of orientation, we do {\em not} take the absolute value.
+
+Now, the change of variables formula suggests that $\di dy\,dz = \pd{(y,z)}{(u,v)}\,du\,dv$, etc., so we write
+\begin{align*}
+\F(\r(u,v))\dotp\N(u,v)\,du\,dv &= P(\r(u,v))\pd{(y,z)}{(u,v)}\,du\,dv+Q(\r(u,v))\pd{(z,x)}{(u,v)}\,du\,dv\\ &\hspace{2.3in}+R(\r(u,v))\pd{(x,y)}{(u,v)}\,du\,dv\\
+& = P\,dy\,dz+Q\,dz\,dx+R\,dx\,dy,
+\end{align*}
+giving us the differential form for the a surface integral:
+\[
+\iint_S\F\dotp\,d\mathbf{S} = \iint_S P\,dy\,dz+Q\,dz\,dx+R\,dx\,dy.
+\]
+Notice that we still have the cyclic ordering: $x$-component of $\F$ integrated with respect to $y$ and $z$, etc. It can be useful to think of the surface integral in terms of projections onto the coordinate plane. For example, at any point where the $x$-component of the normal vector is non-zero, the surface will look locally like a graph $x=g(y,z)$ (yes, this is the implicit function theorem again!) and we can think of projecting the surface onto the $yz$-plane and integrating with respect to $y$ and $z$. (Since the normal vector to the $yz$-plane is $\hat{\boldsymbol{\imath}}$, only the $\hat{\boldsymbol{\imath}}$ component of $\F$ contributes to this part of the integral. 
+
+The form $\phi_\F = P\,dy\,dz+Q\,dz\,dx+R\,dx\,dy$ associated to the vector field $\F$ is called a differential 2-form, or a ``flux form'', since integrating $\phi_\F$ over a surface $S$ computes the flux of $\F$ across $S$. We now want to find a connection between 1-forms and 2-forms similar to the connection between 1-forms and functions. That is, we want to define what it means to compute the {\em differential} of a 1-form $\alpha_\F$, in such a way that the result is a 2-form. (By the way, for the sake of completeness, we can also refer to functions as ``0-forms'' - for $k=0,1,2$, a $k$-form is something where each term contains the product of $k$ basic differentials $dx,\,dy,\,dz$; before we're done, we'll also run into 3-forms, which involve the product $dx\,dy\,dz$.)
+
+Given a 1-form $\alpha_\F$ associated to a vector field $\F = \langle P,Q,R\rangle$, we define the differential $d\alpha_\F$ according to the following rules:
+\begin{enumerate}
+\item The differential $d$ is distributive: $d(P\,dx+Q\,dy+R\,dz) = d(P\,dx)+d(Q\,dy)+d(R\,dz)$.
+\item For a single term like $P\,dx$, we take the differential of $P$ and multiply by $dx$:
+\[
+d(P\,dx) = (dP)\,dx = (P_x\,dx+P_y\,dy+P_z\,dz)\,dx.
+\]
+We now need to specify rules for multiplying differentials:
+\item Multiplication of differentials is distributive:
+\[
+(df+dg)\,dh = df\,dh+dg\,dh.
+\]
+\item The product of any differential with itself is zero: $df\,df = 0$.
+\item Changing the order of multiplication introduces a minus sign\footnote{This is not quite the same as changing the order of integration in a double integral. There, we are interested in computing the integral of a scalar-valued function with respect to area, but here we are computing a surface integral, where it is important to keep track of orientation.} (just like in the cross product): $df\,dg = -dg\,df$.
+\end{enumerate}
+We can use these rules to simplify the differential of a general 1-form $\alpha_\F$, as follows:
+\begin{align*}
+d\alpha_\F & = d(P\,dx+Q\,dy+R\,dz)\\
+& = (dP)\,dx+(dQ)\,dy+(dR)\,dz \text{ (by rule 1)}\\
+& = (P_x\,dx+P_y\,dy+P_z\,dz)\,dx+(Q_x\,dx+Q_y\,dy+Q_z\,dz)\,dy\\
+&\hspace{2.5in}+(R_x\,dx+R_y\,dy+R_z\,dz)\,dz \text{ (by rule 2)}\\
+& = (P_x\,dx\,dx+P_y\,dy\,dx+P_z\,dz\,dx)+(Q_x\,dx\,dy+Q_y\,dy\,dy+Q_z\,dz\,dy)\\
+&\hspace{2.8in}+(R_x\,dx\,dz+R_y\,dy\,dz+R_z\,dz\,dz) \text{ (by rule 3)}\\
+& = 0-P_y\,dx\,dy+P_z\,dz\,dx + Q_x\,dx\,dy+0-Q_z\,dy\,dz -R_x\,dz\,dx+R_y\,dy\,dz+0 \text{ (by rules 4 and 5)}\\
+& = (R_y-Q_z)\,dy\,dz+(P_z-R_x)\,dz\,dx+(Q_x-P_y)\,dx\,dy \text{ (using rule 3 again to collect like terms)}.
+\end{align*}
+Thus, we find that the differential of the work form $\alpha_\F$ is the flux form  $\phi_\mathbf{G}$, where 
+\[
+\mathbf{G} = \langle R_y-Q_z,P_z-R_x,Q_x-P_y\rangle.
+\]
+But this is just the curl of $\F$! We have $d\alpha_\F = \phi_{\nabla\times\F}$. Now consider Stokes' Theorem, which tells us that if $S$ is a piecewise-smooth surface with positively-oriented boundary $C=\partial S$, and $\F$ is a $C^1$ vector field on an open set containing $S$, then
+\[
+\iint_S (\nabla\times \F)\dotp\,d\mathbf{S} = \int_C \F\dotp\,d\r.
+\]
+Let's translate this into differential form language. We let 
+\[
+\alpha_\F = \F\dotp\,d\r = P\,dx+Q\,dy+R\,dz,
+\]
+which gives us
+\[
+d\alpha_\F = \phi_{\nabla\times\F} = (\nabla\times\F)\dotp\,d\mathbf{S},
+\]
+so that Stokes' Theorem becomes
+\[
+\iint_S d\alpha_\F = \int_{\partial S} \alpha_F.
+\]
+We can think of the double surface integral as cancelling with the differential to leave us with the single line integral over the boundary of our surface. But this is exactly the same as what we do in the FTC for line integrals:
+\[
+\int_C df = f(\mathbf{b})-f(\mathbf{a}).
+\]
+Here the boundary consists of only two points, so there is no integration left to do, but nonetheless, integration eliminates our differential and moves us to the boundary, which is the same as what happens in Stokes' Theorem.
+
+But wait, there's more! Suppose we apply the same rules for computing differentials to a flux form $\phi_\F$. We would then have
+\begin{align*}
+d\phi_\F & = d(P\,dy\,dz+Q\,dz\,dx+R\,dx\,dy)\\
+& = (dP)\,dy\,dz+(dQ)\,dz\,dx+(dR)\,dx\,dy\\
+& = (P_x\,dx+P_y\,dy+P_z\,dz)\,dy\,dz+(Q_x\,dx+Q_y\,dy+Q_z\,dz)\,dz\,dx\\
+&\hspace{2.5in}+(R_x\,dx+R_y\,dy+R_z\,dz)\,dx\,dy.
+\end{align*}
+At this point we again want to simplify, so we expand using the distributive property. For products of three differentials, we need to add one more rule: multiplication is associative, so $(df\,dg)\,dh = df\,(dg\,dh)$, which lets us write $df\,dg\,dh$ without ambiguity. Now we once again use rule 4, which states that multiplying a differential by itself gives zero. Thus, for the term involving derivatives of $P$, we have the term $P_x\,dx\,dy\,dz$, along with $P_y\,dy\,(dy\,dz) = P_y\,(dy\,dy)\,dz = 0$, and (using rule 5 as well)
+\[
+P_z\,dz\,(dy\,dz) = P_z\,(dz\,dy)\,dz = -P_z\,(dy\,dz)\,dz = -P_z\,dy\,(dz\,dz) = 0.
+\]
+So any time we see a repeated differential (even if there are other differentials in between) we get zero. Also, we notice that (using rule 5)
+\[
+dx\,dy\,dz = dy\,dz\,dx = dz\,dx\,dy,
+\]
+since each term is obtained from the next by swapping differentials {\em twice}, and $(-1)^2 = 1$. This leaves us with the final result that
+\[
+d\phi_\F = (P_x+Q_y+R_z)\,dx\,dy\,dz = (\nabla\dotp\F)\,dx\,dy\,dz.
+\]
+Now, the Divergence Theorem tells us that if $E\subseteq\R^3$ is any closed, bounded region, and $S = \partial E$ is the boundary of $E$, with the outward orientation, then
+\[
+\iiint_E (\nabla\dotp \F)\,dx\,dy\,dz = \iint_S \F\dotp\,d\mathbf{S}.
+\]
+Translated into differential form, this becomes
+\[
+\iiint_E d\phi_\F = \iint_{\partial E} \phi_\F,
+\]
+so that once again, we eliminate the differential by moving to the boundary. I'll leave it as an exercise for the interested reader to check that if the same sort of reasoning is applied to the differential form $P\,dx+Q\,dy$ in $\R^2$, then the result is Green's Theorem.
+
+A couple of parting remarks: all of this comes from a much more general theory that works in any number of dimensions. This is useful since the vector calculus theorems covered in our course only work in $\R^3$: since the curl depends on the cross product, for example, and this is only defined in $\R^3$, we can't move beyond three dimensions using the language of vector calculus. One of the basic results from this general theory is the fact that ``$d^2=0$'': for a $k$-form $\omega$ in $n$ dimensions, we always have $d(d\omega)=0$ in three dimensions this identity yields two results:
+\begin{itemize}
+\item If $\omega = f$ is a function, then $d(df)=0$ corresponds to $\nabla\times(\nabla f=0)$.
+\item If $\omega = \alpha_\F$ is a 1-form, then $d(d\alpha_\F)$ corresponds to $\nabla\dotp(\nabla\times\F)=0$.
+\end{itemize}
+Also, now that we know how to multiply differentials, results like the change of variables formula are a piece of cake: suppose that $(x,y) = T(u,v)$, so that $x=x(u,v)$ and $y=y(u,v)$. This gives us
+\begin{align*}
+dx & = \pd{x}{u}\,du+\pd{x}{v}\,dv\\
+dy & = \pd{y}{u}\,du+\pd{y}{v}\,dv,
+\end{align*}
+so
+\begin{align*}
+dx\,dy &= \left(\pd{x}{u}\,du+\pd{x}{v}\,dv\right)\left(\pd{y}{u}\,du+\pd{y}{v}\,dv\right)\\
+& = \left(\pd{x}{u}\pd{y}{v}-\pd{x}{v}\pd{y}{u}\right)\,du\,dv\\
+& = J_T(u,v)\,du\,dv,
+\end{align*}
+where we've used the distributive property, and the fact that $du\,du=dv\,dv=0$ and $dv\,du = -du\,dv$. So, our rules for multiplying differentials are a bit mysterious, but they give us the Jacobian for free. A similar calculation produces the same result in three variables, but as you might expect, the calculation gets a lot messier.
+
+\end{document}

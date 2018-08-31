@@ -1,0 +1,242 @@
+\documentclass[11pt,t]{beamer}
+\usetheme{Malmoe}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pgfpages}
+\pgfpagesuselayout{resize to}[letterpaper,landscape,border shrink=5mm]
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\DeclareMathOperator{\rank}{rank}
+\newcommand{\R}{\mathbb{R}}
+%\geometry{landscape,paper=letterpaper}
+\beamertemplatenavigationsymbolsempty
+\date{}
+\author{Math 1410 Linear Algebra}
+\title{Matrix multiplication and inverses}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+%\date{} 
+%\subject{} 
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+
+%\begin{frame}
+%\tableofcontents
+%\end{frame}
+\section{Matrix multiplication: Special cases}
+\begin{frame}\frametitle{Row times column}
+1. $A = \begin{bmatrix}a_1&a_2&\cdots & a_n\end{bmatrix}$, $B=\begin{bmatrix}b_1\\b_2\\\vdots \\ b_n\end{bmatrix}$.
+
+\end{frame}
+\begin{frame}\frametitle{Digression: summation notation}
+Last example: had product $AB = a_1b_1+a_2b_2+\cdots+a_nb_n$.
+
+Shorten the sum using \alert{summation notation}:
+\[
+a_1b_1+a_2b_2+\cdots + a_nb_n = \sum_{i=1}^n a_ib_i
+\]
+In general, $\displaystyle \sum_{j=1}^n c_j = c_1+c_2+\cdots + c_n$. Examples:
+\begin{enumerate}
+\item $\displaystyle \sum_{i=1}^6 i$
+\item $\displaystyle \sum_{j=2}^4 2^j$
+\end{enumerate}
+\end{frame}
+\begin{frame}\frametitle{Matrix times column}
+2. $A = \begin{bmatrix}a_{11}&a_{12}&\cdots & a_{1n}\\a_{21}&a_{22}&\cdots &a_{2n}\\
+\vdots & \vdots & \ddots &\vdots\\a_{m1}&a_{m2}&\cdots &a_{mn}\end{bmatrix}$, $B=\begin{bmatrix}b_1\\b_2\\\vdots \\ b_n\end{bmatrix}$
+\end{frame}
+\begin{frame}\frametitle{Row times matrix}
+3.$A = \begin{bmatrix}a_1&a_2&\cdots & a_n\end{bmatrix}$, $B=\begin{bmatrix}b_{11}&b_{12}&\cdots & b_{1k}\\b_{21}&b_{22}&\cdots &b_{2k}\\\vdots & \vdots & \ddots & \vdots\\b_{n1}&b_{n2}&\cdots &b_{nk}\end{bmatrix}$
+
+\end{frame}
+\section{Matrix multiplication: Definition and examples}
+\begin{frame}\frametitle{Definition of $AB$}
+Generalize from previous cases: to form the product $AB$, multiply the \alert{rows} of $A$ by the \alert{columns} of $B$.
+\begin{itemize}
+\item Size matters: if $A$ is size $m\times n$, $B$ must be size $n\times p$.
+
+\medskip
+
+\item The product $AB$ will be size $m\times p$.
+
+\medskip
+
+\item The $(i,j)$-entry of $AB$ is given by multiplying the\\
+\alert{$i^{th}$ row of $A$} by the \alert{$j^{th}$ column of $B$}
+\end{itemize}
+\begin{definition}
+The \alert{product} $AB$ of the $m\times n$ matrix $A$ and the $n\times p$ matrix $B$ is the matrix $AB = [c_{ij}]_{m\times p}$, where
+\[
+c_{ij} = \sum_{k=1}^na_{ik}b_{kj} = a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots + a_{in}b_{nj}.
+\]
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Basic examples}
+Let $A = \begin{bmatrix}2&-1&3\\4&-3&5\end{bmatrix}$, $B = \begin{bmatrix}2&0\\-3&1\end{bmatrix}$, $C=\begin{bmatrix}3&-4\\1&0\\-2&6\end{bmatrix}$.
+
+Which products are defined?
+\[
+AB \quad BA \quad AC \quad CA \quad BC \quad CB
+\]
+What size are they? What are their entries?
+\end{frame}
+\begin{frame}\frametitle{Example}
+Let $A = \begin{bmatrix}
+2&-1\\3&0
+\end{bmatrix}$ and $B = \begin{bmatrix}-1&0&3\\0&2&4\end{bmatrix}$. Suppose we are given a matrix $X$ such that $AX=B$.
+
+(a) What size is $X$?
+
+\bigskip
+
+(b) What are the entries of $X$?
+
+\bigskip
+
+(c) Can you answer the problem if you're told instead that $XA=B$? What if $BX=A$?
+\end{frame}
+\begin{frame}\frametitle{Properties of matrix multiplication}
+\begin{itemize}
+\item Multiplication is \alert{not commutative}: $AB\neq BA$ in general.
+\item Given $A_{m\times n}$, $B_{n\times p}$, $C_{n\times p}$, 
+\[A(B+C) = AB+AC.\]
+\item Given $A_{m\times n}$, $B_{m\times n}$, $C_{n\times p}$, 
+\[(A+B)C = AC+BC.\]
+\item Given $A_{m\times n}$, $B_{n\times p}$ and $c\in\mathbb{R}$, 
+\[A(cB) = (cA)B = c(AB).\]
+\item Given $A_{m\times n}$, $B_{n\times p}$ and $C_{p\times q}$, 
+\[A(BC)=(AB)C.\] 
+\item Given $A_{m\times n}$ and $B_{n\times p}$, 
+\[(AB)^T = B^TA^T.\]
+\end{itemize}
+\end{frame}
+\begin{frame}\frametitle{Special matrices}
+\begin{itemize}
+\item Zero matrix:
+
+\vspace{1in}
+
+\item Identity matrix:
+
+\end{itemize}
+
+\end{frame}
+
+\section{Matrix Inverses}
+\begin{frame}\frametitle{Mutliplicative inverses of real numbers}
+Recall two basic facts about real numbers:
+\begin{enumerate}
+\item For any real number $a\in\R$, $1\cdot a = a\cdot 1 = a$.
+\item For any non-zero real number $a\in \R$, $a\neq 0$, the \alert{reciprocal} $a^{-1} = \dfrac{1}{a}$ satisfies
+\[
+\frac{1}{a}\cdot a = a\cdot\frac{1}{a} = 1.
+\]
+
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}\frametitle{Matrix inverses}
+\begin{definition}
+Let $A$ be an $n\times n$ \alert{square} matrix. We say that $A$ is \alert{invertible} if there exists an $n\times n$ matrix $B$ such that
+\[
+AB = BA = I_n.
+\]
+We call $B$ the \alert{inverse} of $A$ and write $B=A^{-1}$.
+\end{definition}
+
+\bigskip
+
+Example: the inverse of $A = \begin{bmatrix}2&1\\3&2\end{bmatrix}$ is $A^{-1} = \begin{bmatrix}2&-1\\-3&2\end{bmatrix}$.
+\end{frame}
+\begin{frame}\frametitle{Not all matrices are invertible}
+If $A=0$, then $AB=0$ for any matrix $B$, so $A$ is not invertible.
+
+What if $A\neq 0$? It's still not guaranteed. Consider $A = \begin{bmatrix}
+1&-2\\-2&4
+\end{bmatrix}$.
+\end{frame}
+\begin{frame}\frametitle{Cancellation}
+ For \alert{numbers}, if $ab=ac$ and $a\neq 0$, we have $b=c$. For \alert{matrices}, this may not be the case.
+\begin{example}
+ If $A = \begin{bmatrix}1&2\\2&4\end{bmatrix}, B = \begin{bmatrix}1&1\\2&3\end{bmatrix}$, and $C = \begin{bmatrix}3&3\\1&2\end{bmatrix}$, compute $AB$ and $AC$.
+\end{example}
+ However, if $A$ is \alert{invertible} and $AB=AC$, then we have $B=C$.
+\end{frame}
+
+\begin{frame}\frametitle{Properties of the inverse}
+\begin{itemize}
+\item Inverses are unique: if $A$ is invertible and there exist matrices $B$ and $C$ such that $AB=BA=I_n$ and $AC=CA=I_n$, then $B=C$.
+
+
+
+\vspace{0.5in}
+
+\item If $A$ and $B$ are invertible $n\times n$ matrices, then so is $AB$, and
+\[
+(AB)^{-1} = B^{-1}A^{-1}.
+\]
+\end{itemize}
+\end{frame}
+\begin{frame}\frametitle{More properties}
+If $A$ is an invertible $n\times n$ matrix, then,
+\begin{itemize}
+\item $(A^{-1})^{-1} = A$
+
+\vspace{0.75in}
+
+\item $(A^T)^{-1} = (A^{-1})^T$.
+\end{itemize}
+\end{frame}
+\begin{frame}\frametitle{Computing the inverse}
+Given an $n\times n$ matrix $A$, how do we
+
+(a) Determine if $A$ is invertible?
+
+(b) Find the inverse of $A$?
+
+\bigskip
+
+To answer both, need to solve (if possible) $AB=I_n$.
+
+Example: Given $A = \begin{bmatrix}2&-1\\3&3\end{bmatrix}$, let $B = \begin{bmatrix}b_{11}&b_{12}\\b_{21}&b_{22}\end{bmatrix}$.
+\end{frame}
+\begin{frame}\frametitle{Algorithm for finding $A^{-1}$}
+Given an $n\times n$ matrix $A$, we can find $A^{-1}$ (if it exists) as follows:
+\begin{enumerate}
+\item Form the $n\times 2n$ augmented matrix $(A|I_n)$.
+\item Use elementary row operations (as usual) to reduce $(A|I_n)$ to reduced row-echelon form. 
+\item If a row $\begin{bmatrix}0&0&0&|&a&b&c\end{bmatrix}$ appears, \alert{stop}: $A$ is not invertible.
+\item If not, the RREF will be of the form $(I_n|A^{-1})$.
+\end{enumerate}
+
+\bigskip
+
+\alert{Consequence}: An $n\times n$ matrix $A$ is invertible if (and only if) $\rank A = n$.
+\end{frame}
+\begin{frame}\frametitle{Examples}
+\[
+A = \begin{bmatrix}2&-3\\4&3\end{bmatrix} \quad B = \begin{bmatrix}1 & -2 & 3\\2 & 0 & -4\\-1&-6&17\end{bmatrix}
+\]
+
+\end{frame}
+\begin{frame}\frametitle{Systems of equations}
+Can use inverses to solve system $AX=B$ of $n$ equations in $n$ variables. (So $A$ is $n\times n$.)
+
+If $A$ is invertible, then $X = A^{-1}(AX) = A^{-1}B$.
+
+\vspace{1in}
+
+\alert{Warning}: This method is not useful in practice. The process of (a) finding $A^{-1}$ and (b) computing $A^{-1}B$ takes roughly twice as much work as the Gaussian algorithm.
+\end{frame}
+\end{document}

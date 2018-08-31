@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2560}\chead{Worksheet \# 1}\rhead{Thursday 21\textsuperscript{st} January, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+The problems on this worksheet are for in-class practice during tutorial. You are free to collaborate and to ask for help. They don't count for course credit, but it's a good idea to make sure you know how to do everything before you leave tutorial -- similar problems may show up on a test or assignment.
+
+\bigskip
+
+Evaluate the following integrals:
+\begin{multicols}{2}
+ \begin{enumerate}
+ \item  $\di \int \frac{e^{\sqrt{x}}}{\sqrt{x}}\,dx$
+
+ \item $\di \int \frac{\frac{1}{x}+1}{x^2}\,dx$
+
+ \item The substitution for the last integral should have been clear. Note that the numerator can be written as $\frac{x+1}{x}$, so the whole integral can be re-written as $\di \int \frac{x+1}{x^3}\,dx$. Do you still want to do the integral by substitution, or is there a ``better way''? Do your answers agree?
+
+ \item $\di \int \tan^2(x)\sec^2(x)\,dx$
+
+ \item $\di \int \tan^2(x)\,dx$
+
+ \item $\di \int_0^1 2x(1-x^2)^4\,dx$
+
+ \item $\di \int x^3e^x\,dx$
+ 
+ \item $\di \int e^{2x}\sin(3x)\,dx$
+
+ \item $\di \int x\sec^2(x)\,dx$
+
+ \item $\di \int x\sqrt{x-2}\,dx$. (Try this once using substitution, and again using integration by parts.)
+
+ \item $\di \int e^{\ln x}\,dx$. (With a bit of work you can do this by substituting $u=\ln x$ and noting that $x=e^u$. Why is this a bad idea?)
+
+ \item $\di \int \sin^5(x)\cos^6(x)\,dx$
+
+ \item $\di \int \sin(x)\sin(2x)\,dx$
+
+ \item $\di \int \sec^3(x)\,dx$. 
+
+ \item $\di \int \sec^5(x)\,dx$
+
+ \item $\di \int \sqrt{9-x^2}\,dx$
+
+ \item $\di \int \frac{8}{\sqrt{x^2+2}}\,dx$
+
+ \item $\di \int \frac{5x^2}{\sqrt{x^2-10}}\,dx$. (This can be done with a secant substitution, but you might want to try hyperbolic functions instead.)
+
+ \end{enumerate}
+\end{multicols}
+\end{document}

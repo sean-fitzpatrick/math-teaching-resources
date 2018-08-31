@@ -1,0 +1,131 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1560}\chead{Test \# 5 Solutions}\rhead{June 15th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+ \begin{enumerate}
+ \item  Calculate the degree 3 Taylor polynomials, centred at $a=0$, for the following functions:
+\begin{enumerate}
+ \item $f(x) = \ln(x+1)$ \points{3}
+
+\medskip
+
+We have $f(x)=\ln(x+1)$, $f'(x) = (x+1)^{-1}$, $f''(x) = -1(x+1)^{-2}$, and $f'''(x)=2(x+1)^{-3}$. Thus,
+\begin{align*}
+ p_3(x) & = f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3\\
+        & = 0+x-\frac{1}{2}x^2+\frac{2}{6}x^3 \\& = x-\frac{1}{2}x^2+\frac{1}{3}x^3.
+\end{align*}
+
+\medskip
+
+ \item $g(x) = e^{2x}$ \points{3}
+
+\medskip
+
+We note that, using the Chain Rule, $\dfrac{d}{dx}(e^{2x}) = e^{2x}\dfrac{d}{dx}(2x) = 2e^{2x}$. Using this result repeatedly, we find
+\[
+ g(x)=e^{2x}, g'(x)=2e^{2x}, g''(x) = 4e^{2x}, \text{ and } g'''(x) = 8e^{2x}.
+\]
+Our Taylor polynomial is therefore
+\begin{align*}
+ p_3(x)& = f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3\\
+       & = 1+2x+\frac{4}{2}x^2+\frac{8}{6}x^3\\
+       & = 1+2x+2x^2+\frac{4}{3}x^3.
+\end{align*}
+
+\bigskip
+
+\end{enumerate}
+
+\item Let $f(x) = 2x^3+\sin(x)-\dfrac{1}{\sqrt{1-x^2}}$. \points{2}\\
+Determine the antiderivative $F(x)$ of $f(x)$ such that $F(0)=7$. 
+
+\bigskip
+
+The most general antiderivative is given by $F(x) = \frac{2x^4}{4}-\cos(x)-\arcsin(x)+C$. The requirement that $F(0)=7$ gives us
+\[
+ F(0) = 7 = \frac{0^4}{2}-\cos(0)-\arcsin(0)+C = -1+C,
+\]
+so we must have $C=8$, and thus,
+\[
+ F(x) = \frac{x^4}{2}-\cos(x)-\arcsin(x)+8.
+\]
+
+\newpage
+
+\item Estimate the area under the graph of $f(x) = \dfrac{x}{x^2+1}$ between $x=1$ and $x=4$ using 3 rectangles of equal width, if the height of each rectangle is computed using the left endpoint of each interval. \points{3}
+
+\bigskip
+
+With 3 rectangles, we have $\Delta x = \dfrac{4-1}{3} = 1$. Our partition points are thus $x_0=1, x_1=2, x_2=3$, and $x_3=4$, and the first three of these are our left endpoints. This gives us the approximation
+\begin{align*}
+ \sum_{i=1}^3f(x_{i-1})\Delta x &= f(1)(1) +f(2)(1)+f(3)(1)\\
+ & = \frac{1}{1^2+1}+\frac{2}{2^2+1}+\frac{3}{3^2+1}\\
+ & = \frac{1}{2}+\frac{2}{5}+\frac{3}{10} = \frac{12}{10} = \frac{6}{5} = 1.2.
+\end{align*}
+
+\bigskip
+
+\item Compute the derivative of $\di f(x) = x\int_1^{x} \sin(t^3+1)\,dt$. \points{2}
+
+\bigskip
+
+Using the product rule and Part I of the Fundamental Theorem of Calculus, we have
+\[
+ f'(x) = (1)\int_1^x\sin(t^3+1)\,dt + x\sin(x^3+1).
+\]
+
+\bigskip
+
+\item Evaluate the integral $\di \int_0^4 \left(2x+\frac{1}{\sqrt{x}}\right)\,dx$. \points{3}
+
+\bigskip
+
+An antiderivative of $f(x)=2x+x^{-1/2}$ is given by $F(x)=x^2+\frac{x^{1/2}}{1/2} = x^2+2\sqrt{x}$, so by Part II of the Fundamental Theorem of Calculus, we have
+\[
+ \int_0^4f(x)\,dx = F(4)-F(0) = 4^2+2\sqrt{4}-(0^2+2\sqrt{0}) = 20.
+\]
+
+\end{enumerate}
+
+
+
+
+\end{document}

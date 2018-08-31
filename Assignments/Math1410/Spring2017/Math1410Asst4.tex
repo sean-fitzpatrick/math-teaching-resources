@@ -1,0 +1,61 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+\DeclareMathOperator{\proj}{proj}
+
+\title{Math 1410 Assignment \#4\\University of Lethbridge, Spring 2017}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} {\bf Thursday}, March 23rd, by 4 pm.
+
+\bigskip
+
+Please review the {\bf Guidelines for preparing your assignments} before submitting your work. You can find these guidelines, along with the required cover page, in the Assignments section on our Moodle site.
+
+
+
+\subsection*{Assigned problems}
+\begin{enumerate}
+\item Determine the null space and column space of the matrix $A = \bbm 2&-3&1&4\\-1&2&2&-3\\1&0&8&-1\ebm$.
+
+
+\item Factor the matrix $A = \bbm 1&-2&3\\2&-3&1\\-1&2&4\ebm$ as a product of elementary matrices.
+
+\item For each statement below, either prove the statement or give a counterexample showing that it is false.
+\begin{enumerate}
+ \item If $A$ and $B$ are both invertible, then $A+B$ is invertible.
+ \item If $AB=I$, then $AB=BA$.
+ \item If $AB=B$ for some matrix $B\neq 0$, then $A$ is invertible. 
+ \item If $A^3$ is invertible, then $A$ is invertible.
+\end{enumerate}
+
+\item Let $A$ be a non-zero $n\times n$ matrix, and let $I$ be the $n\times n$ identity matrix.
+\begin{enumerate}
+ \item Show that if $A^2=0$, then $(I-A)^{-1} = I+A$.
+ \item Show that if $A^3=0$, then $(I-A)^{-1} = I+A+A^2$.
+ \item Find the inverse of $B = \bbm 1&3&-2\\0&1&4\\0&0&1\ebm$.
+ \item Given that $A\neq 0, A^2\neq 0, \ldots, A^{n-1}\neq 0$ but $A^n=0$, determine a formula for $(I-A)^{-1}$, and show that your answer is correct.
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}
+ 

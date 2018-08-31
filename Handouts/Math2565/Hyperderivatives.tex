@@ -1,0 +1,121 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arctanh}{arctanh}
+
+\newcommand{\R}{\mathbb{R}}
+\title{Derivatives of hyperbolic functions and their inverses}	
+\author{Sean Fitzpatrick}
+\begin{document}
+\maketitle
+
+Recall that the hyperbolic functions $\sinh(x)$ and $\cosh(x)$ are defined by
+\[
+\sinh(x) = \frac{e^x-e^{-x}}{2} \quad \text{ and } \quad \cosh(x) = \frac{e^x+e^{-x}}{2}.
+\]
+We can then define $\tanh(x) = \dfrac{\sinh(x)}{\cosh(x)}$, and hyperbolic analogues of the secant, cosecant, and cotangent functions are similarly defined.
+
+Much like the trigonometric functions, the hyperbolic functions satisfy basic identities. The most fundamental of these is
+\[
+\cosh^2(t)-\sinh^2(t) = 1,
+\]
+which tells us that for each $t\in \R$, $(\cosh(t),\sinh(t))$ defines a point on the hyperbola $x^2-y^2=1$.\footnote{Since we clearly have $\cosh(t)>0$ for all $t\in\R$, the pair $(\cosh(t),\sinh(t))$ defines a point on the branch of the hyperbola $x^2-y^2=1$ with $x>0$. For the branch where $x<0$, we must use $-\cosh(t)$ for the $x$-coordinate.}
+
+Other identities include the addition formulas
+\begin{align*}
+\sinh(s+t) &= \sinh(s)\cosh(t)+\cosh(s)\sinh(t)\\
+\cosh(s+t) &= \cosh(s)\cosh(t)+\sinh(s)\sinh(t)
+\end{align*}
+and the double angle formulas
+\begin{align*}
+\sinh(2t) & = 2\sinh(t)\cosh(t)\\
+\cosh(2t) & = \cosh^2(t)+\sinh^2(t).
+\end{align*}
+The derivatives of the hyperbolic functions are straight-forward to compute, using their definitions in terms of exponential functions.
+
+We find (exercise):
+\begin{align*}
+\frac{d}{dx}(\sinh(x)) & = \cosh(x)\\
+\frac{d}{dx}(\cosh(x)) & = \sinh(x)
+\end{align*}
+Notice that, unlike the trigonometric functions, we don't have to worry about signs.
+
+Similarly, we can use the quotient rule to find that
+\[
+\frac{d}{dx}(\tanh(x)) = \frac{d}{dx}\left(\frac{\sinh(x)}{\cosh(x)}\right) = \frac{\cos^2(x)-\sinh^2(x)}{\cosh^2(x)} = \frac{1}{\cosh^2(x)} = \operatorname{sech}^2(x).
+\]
+
+As with the trigonometric functions, we can also determine inverses for the hyperbolic functions, as well as their derivatives. Unlike the trigonometric functions, we can actually express these inverses in terms of other known functions.
+
+Moreover, notice that $f(x) = \sinh(x)$ is one-to-one, so $f^{-1}(x) = \arcsinh(x)$ is in fact globally defined. Determining the derivative is actually more straightforward than finding an expression for the function itself.
+
+If we let $y=\arcsinh(x)$, then $\sinh(y) = x$. Taking the derivative of both sides of this last equation with respect to $x$, we have:
+\[
+\cosh(y)\frac{dy}{dx} = 1 \quad \text{ so } (f^{-1})'(x) = \frac{dy}{dx} = \frac{1}{\cosh(y)}.
+\]
+Now, since $\cosh^2(y)-\sinh^2(y)=1$, and since $\cosh(y)>0$ for all values of $y$, we find that
+\[
+\cosh(y) = \sqrt{\sinh^2(y)+1} = \sqrt{x^2+1}.
+\]
+Thus, we conclude that $\dfrac{d}{dx}(\arcsinh(x)) = \dfrac{1}{\sqrt{x^2+1}}$.
+
+Now, can we find an alternative expression for $\arcsinh(x)$?
+
+Working from $x=\sinh(y)$, we find $x= \dfrac{e^{y}-e^{-y}}{2}$, so
+\[
+2x = e^y-e^{-y} = \frac{e^{2y}-1}{e^y}.
+\]
+Multiplying by $e^y$, noting that $e^{2y} = (e^y)^2$, and rearranging, we get
+\[
+(e^y)^2-2xe^y-1=0.
+\]
+From the quadratic formula, we get
+\[
+e^y = \frac{2x\pm\sqrt{4x^2+4}}{2} = x\pm\sqrt{x^2+1}.
+\]
+Since $e^y>0$ and $x-\sqrt{x^2+1}<0$, we discard the negative root, giving us $e^y = x+\sqrt{x^2+1}$, and thus
+\[
+y = \arcsinh(x) = \ln(x+\sqrt{x^2+1}).
+\]
+
+Now for a fun exercise: if $\arcsinh(x) = \ln(x+\sqrt{x^2+1})$, the derivatives of both sides must agree. We found above that
+\[
+\frac{d}{dx}(\arcsinh(x)) = \frac{1}{\sqrt{x^2+1}}.
+\]
+On the other hand,
+\[
+\frac{d}{dx}(\ln(x+\sqrt{x^2+1})) = \frac{1}{x+\sqrt{x^2+1}}\left(1+\frac{x}{\sqrt{x^2+1}}\right).
+\]
+Can you show that these two results are in fact the same?
+
+The function $\cosh(x)$ is not one-to-one, so when we define $\arccosh(x)$, we restrict the domain of $\cosh(x)$ (and hence, the range of $\arccosh(x)$) to $[0,\infty)$.
+
+One can similarly show that
+\[
+\arccosh(x) = \ln(x + \sqrt{x^2-1}).
+\]
+(Since the range of $\cosh(x)$ is $[1,\infty)$, the function $\arccosh(x)$ is only defined for $x\geq 1$, and thus we do not have to worry about taking the log of a negative number in the above expression.)\footnote{Another concern comes up when we do the substitution $x=a\cosh(t)$ in an integral, where $a>0$. Usually this is done to simplify the expression
+\[
+\sqrt{x^2-a^2} = \sqrt{a^2\cosh^2(t)-a^2} = a\sqrt{\sinh^2(t)}.
+\]
+Do we need to write $\lvert\sinh(t)\rvert$ for this last expression, or can we drop the absolute value? It is probably better to think of our substitution not as $x=a\cosh(t)$, but as $t=\arccosh(x/a)$. From the above definition of $\arccosh(x)$, we see that we must have $t\geq 0$, and thus $\sinh(t)\geq 0$ as well, making the absolute value unnecessary.}
+
+
+Finally, since the function $\tanh(x)$ is one-to-one and has range $(-1,1)$, we can define the function $\arctanh(x)$, which has domain $(-1,1)$, range $(-\infty,\infty)$, and can be expressed as
+\[
+\arctanh(x) = \frac{1}{2}\ln\left(\frac{1+x}{1-x}\right).
+\]
+To compute the derivative, we use the fact that $(f^{-1})'(x) = \dfrac{1}{f'(f^{-1}(x))}$. We know from above that the derivative of $\tanh(x)$ is $\operatorname{sech}^2(x)$.
+
+Moreover, from $\cosh^2(x)-\sinh^2(x)=1$, we can derive the identity $1-\tanh^2(x) = \operatorname{sech}^2(x)$, so that
+\[
+\operatorname{sech}^2(\arctanh(x)) = 1-\tanh^2(\arctanh(x))=1-x^2.
+\]
+Thus, we have that $\frac{d}{dx}(\arctanh(x)) = \dfrac{1}{1-x^2}$, where $-1<x<1$.
+\end{document}

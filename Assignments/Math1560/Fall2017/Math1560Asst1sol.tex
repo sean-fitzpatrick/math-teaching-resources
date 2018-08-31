@@ -1,0 +1,110 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\di}{\displaystyle}
+\title{Math 1560 Assignment \#1 Solutions\\University of Lethbridge, Fall 2017}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+\item Evaluate the following limits:
+\begin{enumerate}
+\item $\di \lim_{x\to \infty}(\sqrt{9x^2+x}-3x)$
+
+This limit has the indeterminate form $\infty-\infty$, so we investigate algebraically:
+\begin{align*}
+\lim_{x\to \infty}(\sqrt{9x^2+x}-3x) & = \lim_{x\to \infty}(\sqrt{9x^2+x}-3x)\cdot\frac{(\sqrt{9x^2+x}+3x)}{(\sqrt{9x^2+x}+3x)}\\
+& = \lim_{x\to \infty}\frac{(9x^2+x)-9x^2}{\sqrt{9x^2+x}+3x}\\
+& = \lim_{x\to \infty}\frac{x}{\sqrt{x^2(9+1/x)}+3x}\\
+\intertext{At this point, we note that since $x\to \infty$, $x>0$, and thus $\sqrt{x^2}=x$, allowing us to factor out an $x$ from the denominator. Proceeding, we find:}
+\lim_{x\to \infty}(\sqrt{9x^2+x}-3x) & = \lim_{x\to\infty}\frac{x\cdot 1}{x(\sqrt{9+1/x}+3)}\\
+& = \lim_{x\to\infty}\frac{1}{\sqrt{9+1/x}+3}\\
+& = \frac{1}{\sqrt{9}+3}=\frac{1}{6},
+\end{align*}
+since $1/x\to 0$ as $x\to \infty$.
+
+\item $\di \lim_{x\to -\infty}(\sqrt{9x^2+x}-3x)$
+
+In this case, $x\to -\infty$, so in particular, $x$ is negative. If we look at the two parts of our function, the square root is always positive, and for $x<0$, $-3x>0$, so when $x$ is negative, both parts of the function are positive, and both approach $\infty$ as $x\to \infty$. 
+
+Thus, there is no indeterminate form in this case: both halves of the function are approaching $+\infty$, so
+\[
+\lim_{x\to -\infty}(\sqrt{9x^2+x}-3x)=\infty.
+\]
+\end{enumerate}
+
+\bigskip
+
+\item 
+\begin{enumerate}
+\item Show that the function $g(x)=\abs{x}$ is continuous on $\R$.
+
+We recall that the absolute value function is defined by
+\[
+\abs{x} = \begin{cases} x, & \text{ if } x\geq 0\\-x, & \text{ if } x<0.\end{cases}
+\]
+At any point $a>0$, we see that $g(x)$ is continuous at $a$, since $g(x)=x$ for $x>a$, and any polynomial function is continuous. Similarly, $g$ is continuous at $a$ for any $a<0$.
+
+It remains to be shown that $g$ is continuous at 0. From the definition we see that $g(0)=\abs{0}=0$; we need to show that the limit of $g$ as $x\to 0$ is also 0. We consider left- and right-hand limits:
+\begin{align*}
+\lim_{x\to 0^-}\abs{x} & = \lim_{x\to 0^-}(-x)\tag{Since $x<0$}\\
+& = 0 \tag{By direct subsitution}\\
+\lim_{x\to 0^+}\abs{x} & = \lim_{x\to 0^+}(x) \tag{Since $x>0$}\\
+& = 0 \tag{By direct subsitution}
+\end{align*} 
+Since the left- and right-hand limits both equal zero, we have that
+\[
+\lim_{x\to 0}\abs{x} = 0 = \abs{0},
+\]
+and thus our function is continuous at 0, and therefore on all of $\R$.
+
+\item Show that if $f$ is a continuous function, then so is $\abs{f}$.
+
+Let $f$ be a continuous function, and let $g(x)=\abs{x}$. Then $g\circ f = \abs{f}$, since $g(f(x)) = \abs{f(x)}$ for any $x$ in the domain of $f$. It follows that $\abs{f}$ is continuous, since it is the composition of two continuous functions.
+
+\item Give a counterexample showing that the converse to part (b) is false. That is, find a function $f$ such that $\abs{f}$ is continuous, but $f$ is not.
+
+Consider the function
+\[
+f(x) = \begin{cases} 1, & \text{ if } x\geq 0\\-1, & \text{ if } x<0.\end{cases}
+\]
+We immediately see that $f$ has a jump discontinuity at 0, since $\di \lim_{x\to 0^-}f(x) = -1$, but $\di \lim_{x\to 0^+}f(x)=1$.
+
+However, since $\abs{-1}=1$, we see that for any $x\in \R$, $\abs{f(x)} = 1$, so $\abs{f}$ is a constant function, and we know that every constant function is continuous.
+\end{enumerate}
+
+\newpage
+
+ \item Show that $\di \lim_{x\to 0}f(x)=0$, where
+ \[
+ f(x) = \begin{cases}x^2, &\text{ if } x \text{ is rational}\\ 0, & \text{ if } x \text{ is irrational}.\end{cases}
+ \]
+ 
+ Let $x$ be any real number. We know that $f(x)=0$ or $f(x)=x^2$, depending on whether $x$ is rational or irrational. Since $x^2\geq 0$ for all $x\in \R$, we see that
+ \[
+ 0\leq f(x)\leq x^2
+ \]
+ for any real number $x$. Since
+ \[
+ \lim_{x\to 0}(0) = 0 = \lim_{x\to 0}x^2,
+ \]
+ it follows from the Squeeze Theorem that $\di \lim_{x\to 0}f(x)=0$.
+ 
+ \end{enumerate}
+
+\end{document}
+ 

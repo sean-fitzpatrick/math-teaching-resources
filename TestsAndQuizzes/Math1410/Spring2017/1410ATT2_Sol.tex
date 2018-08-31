@@ -1,0 +1,385 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 50}}
+\chead{MATH 1410A}\lhead{Test \# 2}\rhead{Tuesday, 14\textsuperscript{th} March, 2017}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\ivec}{\,\boldsymbol{\hat{\imath}}}
+\newcommand{\jvec}{\,\boldsymbol{\hat{\jmath}}}
+\newcommand{\kvec}{\,\boldsymbol{\hat{k}}}
+\newcommand{\bvm}{\begin{vmatrix}}
+\newcommand{\evm}{\end{vmatrix}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\DeclareMathOperator{\comp}{comp}
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+14\textsuperscript{th} March, 2017, 1:40 - 2:55 pm\\
+{\bf MATH 1410A - Test \#2}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{50pt}{\bf Solutions}\hspace{248pt}}\\
+\skipline
+First Name:\underline{\hspace{50pt}{\bf The}\hspace{275pt}}\\
+\skipline
+Student Number:\underline{\hspace{323pt}}\\
+\skipline
+Tutorial Time: \underline{\hspace{320pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+  Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+To earn partial credit, you must show your work. Correct answers without adequate justification in most cases do not receive full marks.
+
+\bigskip
+
+{\bf No external aids are allowed, with the exception of a 5-function calculator.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Problem&Grade\\
+\hline \hline
+\cline{1-2} 1 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/9\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/9\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/5\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/6\\
+\cline{1-2} 7 & \enspace\enspace\enspace\enspace\enspace\enspace/5\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/50\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+ \item Complete the following definitions:
+\begin{enumerate}
+ \item The \textbf{null space} of an $m\times n$ matrix $A$ is the set $\operatorname{null}(A)$ defined by\points{2}
+
+\begin{flalign*}
+ \operatorname{null}(A)= & \{\vec{x}\in\R^n \,|\, A\vec{x}=\vec{0}\}. &\\
+\end{flalign*}
+
+\vspace{0.5in}
+
+ \item A set of vectors $\{\vec{v}_1,\vec{v}_2,\ldots, \vec{v}_k\}$ is \textbf{linearly dependent} if:\points{2}
+
+\medskip
+
+Either: one of the vectors $\vec{v}_i$ can be written as a linear combination of the others
+
+\medskip
+
+or: there exist scalars $c_1,c_2,\ldots, c_k\in\R$, not all equal to zero, such that
+\[
+ c_1\vec{v}_1+c_2\vec{v}_2+\cdots +c_k\vec{v}_k = \vec{0}.
+\]
+
+\medskip
+
+ \item A set $S\subseteq \R^n$ is a \textbf{subspace} if: \points{2}
+
+\medskip
+
+the following three conditions hold:
+\begin{enumerate}
+ \item $S$ is non-empty (also acceptable: $\vec{0}\in S$)
+ \item $S$ is closed under addition (if $\vec{x},\vec{y}\in S$, then $\vec{x}+\vec{y}\in S$)
+ \item $S$ is closed under scalar multiplication (if $\vec{x}\in S$ and $c\in \R$, then $c\vec{x}\in S$).
+\end{enumerate}
+
+\medskip
+
+ \item The \textbf{span} of the vectors $\vec{v}_1, \vec{v}_2,\ldots, \vec{v}_k$ is the set: \points{2}
+\begin{flalign*}
+ \operatorname{span}\{\vec{v}_1, \vec{v}_2,\ldots, \vec{v}_k\} = & \{c_1\vec{v}_1+c_2\vec{v}_2+\cdots +c_k\vec{v}_k \,|\, c_1,c_2,\ldots, c_k\in\R\}& \\
+\end{flalign*}
+
+\end{enumerate}
+
+\newpage
+
+\item Perform the computations as indicated:
+\begin{enumerate}
+ \item Simplify the following linear combination (write it as a single vector): \points{3}
+\begin{flalign*}
+ 4\bbm 2\\-1\\3\ebm - 2 \bbm 1\\0\\3\ebm + 3\bbm 0\\5\\-2\ebm = & \bbm 6\\11\\0\ebm& \\
+\end{flalign*}
+
+\vspace{1.5in}
+
+\item Compute $T\left(\bbm 2\\-3\ebm\right)$ for the matrix transformation $T\left(\bbm x\\y\ebm\right) = \bbm 4&-2\\-3&1\ebm\bbm x\\y\ebm$.\points{3}
+
+\bigskip
+
+\[
+ T\left(\bbm 2\\-3\ebm\right)=\bbm 4&-2\\-3&1\ebm\bbm 2\\-3\ebm = \bbm 14\\-9\ebm
+\]
+
+\bigskip
+
+\item Verify that $x=2, y=-3, z=1$ is a solution to the system \points{3}
+$\arraycolsep=2pt
+ \begin{array}{ccccccc}
+  2x&-&y&+&3z&=&10\\
+  -x&+&2y&+&5z&=&-3\\
+ 5x&+&2y&-&4z&=&0
+ \end{array}
+$
+
+\bigskip
+
+We check that
+\begin{align*}
+ 2(2)-(-3)+3(1) &= 4+3+3=10,\\
+ -(2)+2(-3)+5(1) & = -2-6+5 = -3, \quad\text{ and}\\
+ 5(2)+2(-3)-4(1) &= 10-6-4=0.
+\end{align*}
+Since the given values satisfy all three equations, this is a solution.
+
+\end{enumerate}
+\newpage
+
+\item Each of the matrices below is in row-echelon form, and represents a system of linear equations in the variables $x$, $y$, and $z$. If the system has no solution, explain why. If it does, determine the solution using either back substitution, or by finding the reduced row-echelon form of the matrix.\points{9}
+\begin{enumerate}
+ \item $\begin{amatrix}{3}1&-2&1&4\\0&1&-1&2\\0&0&1&0\end{amatrix}$ 
+
+\bigskip
+
+Using back-substitution: from Row 3 we have $z=0$. Row 2 gives us the equation $y-z=2$. Putting $z=0$ yields $y=2$. Finally, Row 1 gives us the equation $x-2y+z=4$. Putting $y=2$ and $z=0$ in this equation, we have $x-4=4$, so $x=8$. Our solution is therefore
+\[
+ x=8, \quad y=2, \quad z=0.
+\]
+
+\bigskip
+
+ \item $\begin{amatrix}{3}1&3&0&2\\0&1&-3&5\\0&0&0&0\end{amatrix}$ 
+
+\bigskip
+
+Here, we see that $x$ and $y$ are leading variables, while $z$ is free. To more easily solve for $x$ and $y$ in terms of $z$, we proceed to reduced row-echelon form. To create a zero above the leading 1 in the second column, we perform the row operation $R_1-3R_2\to R_1$, giving us the matrix
+\[
+ \begin{amatrix}{3}
+  1&0&9&-13\\0&1&-3&5\\0&0&0&0
+ \end{amatrix}.
+\]
+This matrix is in reduced row echelon form, and we read off the solution
+\[
+ x = -13 - 9z, \quad y = 5 + 3z, \quad z \text{ is free.}
+\]
+
+\bigskip
+
+ \item $\begin{amatrix}{3}1&5&-4&2\\0&0&1&-3\\0&0&0&1\end{amatrix}$ 
+
+\bigskip
+
+Here, the third row corresponds to the equation $0x+0y+0z=1$, which asserts that $0=1$, regardless of the values of $x$, $y$, and $z$. Since it is impossible to satisfy this condition, there is no solution to the system.
+\end{enumerate}
+
+\newpage
+
+\item Given the matrices $A = \bbm 2&-3&4\\-1&0&5\ebm$ and $B = \bbm 5&-2\\1&-1\\0&4\ebm$, compute:
+\begin{enumerate}
+ \item $AB$ \points{4}
+
+\bigskip
+
+\begin{align*}
+ AB &= \bbm 2&-3&4\\-1&0&5\ebm\bbm 5&-2\\1&-1\\0&4\ebm\\& = \bbm 2(5)-3(1)+4(0) & 2(-2)-3(-1)+4(4)\\-1(5)+0(1)+5(0) & -1(-2)+0(-1)+5(4)\ebm\\& = \bbm 7&15\\-5&22\ebm.
+\end{align*}
+
+\bigskip
+
+ \item $BA$ \points{4}
+
+\bigskip
+
+\begin{align*}
+ BA &= \bbm 5&-2\\1&-1\\0&4\ebm\bbm 2&-3&4\\-1&0&5\ebm \\&= \bbm 5(2)-2(-1)&5(-3)-2(0) & 5(4)-2(5)\\1(2)-1(-1)&1(-3)-1(0)&1(4)-1(5)\\0(2)+4(-1)&0(-3)+4(0)&0(4)+4(5)\ebm\\& = \bbm 12&-15&10\\3&-3&-1\\-4&0&20\ebm.
+\end{align*}
+
+\end{enumerate}
+
+\newpage
+
+\item Let $T:\R^3\to \R^3$ be a matrix transformation such that
+ \[T\left(\bbm 1\\-1\\2\ebm\right) = \bbm 9\\-1\\-4\ebm \quad \text{ and } \quad T\left(\bbm 1\\2\\-3\ebm\right) = \bbm -9\\1\\7\ebm.\]
+\begin{enumerate}
+ \item What is the value of $T\left(3\bbm 1\\-1\\2\ebm+2\bbm 1\\2\\-3\ebm\right)$? \points{3}
+
+\bigskip
+
+\begin{align*}
+ T\left(3\bbm 1\\-1\\2\ebm+2\bbm 1\\2\\-3\ebm\right)& = 2T\left(\bbm 1\\-1\\2\ebm\right)+2T\left(\bbm 1\\2\\-3\ebm\right)\\
+ & = 3\bbm 9\\-1\\-4\ebm+2\bbm-9\\1\\7\ebm\\
+ & = \bbm 9\\-1\\2\ebm.
+\end{align*}
+
+\bigskip
+
+ \item Given that $T\left(\bbm 1\\0\\0\ebm\right) = \bbm 2\\-1\\0\ebm$, $T\left(\bbm 0\\1\\0\ebm\right) = \bbm -1\\4\\2\ebm$, and $T\left(\bbm 0\\0\\1\ebm\right) = \bbm 3\\2\\-1\ebm$, determine a matrix $A$ such that $T(\vec{x}) = A\vec{x}$ for any vector $\vec{x}\in\R^3$. \points{2}
+
+\bigskip
+
+Since the columns of $A$ are given by $T(\hat{\imath})$, $T(\hat{\jmath})$, and $T(\hat{k})$ respectively, we can immediately conclude that
+\[
+ A = \bbm 2&-1&3\\-1&4&2\\0&2&-1\ebm.
+\]
+
+\end{enumerate}
+
+\newpage
+
+\item Solve the following system of linear equations, if possible: \points{6}
+\[\arraycolsep=2pt
+ \begin{array}{ccccccccc}
+  x_1&+&2x_2&-&x_3&+&x_4&=&3\\
+ -3x_1&-&6x_2&+&2x_3&-&x_4&=&-7\\
+ 2x_1&+&4x_2&-&x_3& & &=&4
+ \end{array}
+\]
+
+\bigskip
+
+We set up the corresponding augmented matrix and reduce, as follows:
+
+\begin{align*}
+ \bam{4}1&2&-1&1&3\\-3&-6&2&-1&-7\\2&4&-1&0&4\eam \xrightarrow[R_3-2R_1\to R_3]{R_2+3R_1\to R_2} &\bam{4}1&2&-1&1&3\\0&0&-1&2&2\\0&0&1&-2&-2\eam\\
+\xrightarrow{R_3+R_2\to R_3} &\bam{4}1&2&-1&1&3\\0&0&-1&2&2\\0&0&0&0&0\eam\\
+\xrightarrow{-R_1\to R_1} &\bam{4}1&2&-1&1&3\\0&0&1&-2&-2\\0&0&0&0&0\eam\\
+\xrightarrow{R_1+R_2\to R_1}&\bam{4}1&2&0&1&-1\\0&0&1&-2&-2\\0&0&0&0&0\eam
+\end{align*}
+This last matrix is in reduced row-echelon form. From here, we see that the variables $x_2$ and $x_4$ are free; solving for $x_1$ and $x_3$ using rows 1 and 2, respectively, we have
+\begin{align*}
+ x_1&=1-2x_2+x_4\\
+ x_2&\text{ is free}\\
+ x_3&=-2+2x_4\\
+ x_4&\text{ is free}
+\end{align*}
+
+\medskip
+
+If we (optionally) want to verify our solution, we can check that
+\begin{align*}
+ x_1+2x_2-x_3+x_4 &= (1-2x_2+x_4)+2x_2-(-2+2x_4)+x_4 = 3\\
+-3x_1-6x_2+2x_3-x_4 &= -3(1-2x_2+x_4)-6x_2+2(-2+2x_4)+x_4 = -7\\
+2x_1+4x_2-x_3 & = 2(1-2x_2+x_4)+4x_2-(-2+2x_4) = 4,
+\end{align*}
+as required.
+
+\newpage
+
+\item Solve \textbf{one} of the following two problems. \points{5}
+\begin{enumerate}
+ \item Let $A$ be an $m\times n$ matrix and consider the set $\operatorname{null}(A) = \{\vec{x}\in \R^n \,|\, A\vec{x} = \vec{0}\}$. Prove that $\operatorname{null}(A)$ is a subspace of $\R^n$.
+
+\bigskip
+
+We note that $\operatorname{null}(A)$ is non-empty, since $A\vec{0} = \vec{0}$, giving us $\vec{0}\in\operatorname{null}(A)$.
+
+Now, suppose that $\vec{x}\in\operatorname{null}(A)$ and $\vec{y}\in\operatorname{null}(A)$, so that $A\vec{x}=A\vec{y}=\vec{0}$. Then we have
+\[
+ A(\vec{x}+\vec{y}) = A\vec{x}+A\vec{y} = \vec{0}+\vec{0} = \vec{0},
+\]
+showing that $\vec{x}+\vec{y}\in\operatorname{null}(A)$. Since $\vec{x}$ and $\vec{y}$ were arbirtrary elements of $\operatorname{null}(A)$, we see that $\operatorname{null}(A)$ is closed under addition.
+
+Finally, let $c\in\R$ be any scalar, and choose $\vec{x}\in\operatorname{null}(A)$ as above. Then
+\[
+ A(c\vec{x}) = c(A\vec{x}) = c\vec{0} = \vec{0},
+\]
+showing that $c\vec{x}\in\operatorname{null}(A)$, and thus $\operatorname{null}(A)$ is closed under scalar multiplication. It follows from the definition of a subspace of $\R^n$ that $\operatorname{null}(A)$ is a subspace.
+
+\bigskip
+
+
+\item Determine whether or not the vectors $\vec{v}_1 = \bbm 1\\-3\\2\ebm$, $\vec{v}_2 = \bbm 2\\-5\\4\ebm$, and $\vec{v}_3 = \bbm 1\\-5\\2\ebm$ are linearly independent. 
+
+\bigskip
+
+The given vectors are linearly independent if the only scalars $c_1, c_2, c_3$ such that $c_1\vec{v}_1+c_2\vec{v}_2+c_3\vec{v}_3=\vec{0}$ are $c_1=0, c_2=0, c_3=0$. We have
+\[
+ c_1\vec{v}_1+c_2\vec{v}_2+c_3\vec{v}_3 = \bbm c_1+2c_2+c_3\\-3c_1-5c_2-5c_3\\2c_1+4c_2+2c_3\ebm = \bbm 0\\0\\0\ebm,
+\]
+giving us the homogeneous system of equations $\arraycolsep=2pt\begin{array}{ccccccc}
+                                                     c_1&+&2c_2&+&c_3&=&0\\-3c_1&-&5c_2&-&5c_3&=&0\\2c_1&+&4c_2&+&2c_3&=&0
+                                                   \end{array}$. We solve as usual by reducing the corresponding augmented matrix, as follows:
+\[
+ \bam{3}1&2&1&0\\-3&-5&-5&0\\2&4&2&0\eam \xrightarrow[R_3-2R_1\to R_3]{R_2+3R_1\to R_2} \bam{3}1&2&1&0\\0&1&-2&0\\0&0&0&0\eam.
+\]
+
+The matrix on the right is already in row-echelon form, and we can see that the variable $c_3$ is free, meaning that there exist infinitely many non-trivial solutions to the system. Indeed, we have
+\begin{align*}
+ c_1& =-2c_2-c_3= -5c_3\\
+ c_2& = 2c_3\\
+ c_3& \text{ is free}
+\end{align*}
+Choosing any non-zero value for $c_3$ gives us a non-trivial linear combination; for example, setting $c_3=1$ gives $c_1=-4$ and $c_2=3$, and we can verify that $ -5\vec{v}_1+2\vec{v}_2+\vec{v}_3\vec{0}$.
+
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}

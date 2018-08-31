@@ -1,0 +1,64 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\title{Math 3410 Assignment \#5\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Thursday, April 2nd, by 5 pm.
+
+\bigskip
+
+Please provide solutions to the problems below, using the usual guidelines. In particular, you should include a cover page and a reasonable good copy. Your cover page should reference any resources used to complete the assignment, including websites and people. The rules about how you're not supposed to cheat on your assignment remain the same as for previous assignments. In particular, you must {\bf cite all sources}.
+\subsection*{Assigned problems}
+Before you begin, type the following phrases into Google\footnote{Or some other search engine of your choice. I hear there's something called Bing?}, and read the first one or two websites that come up: ``orthogonal diagonalization'', ``positive-definite matrix'', ``principal axes theorem'', ``self-adjoint operator''.
+
+For the purposes of this assignment, $\R^n$ (or $\C^n$) will denote the vector space of $n\times 1$ column vectors, and we will work with $n\times n$ matrices rather then operators.
+\begin{enumerate}
+ \item Recall that an $n\times n$ (real) matrix is {\em symmetric} if $A^T=A$. Suppose that $A$ is symmetric, and $\lambda_1$ and $\lambda_2$ are distinct eigenvalues of $A$ with corresponding eigenvectors $v_1$ and $v_2$. Prove that $v_1$ and $v_2$ are orthogonal with respect to the standard dot product on $\R^n$.
+
+{\em Hint:} First show that if $A$ is symmetric, then $x\boldsymbol{\cdot}(Ay) = (Ax)\boldsymbol{\cdot}y$ for any $x,y\in\R^n$. (Recall that $x\boldsymbol{\cdot}y = y^Tx$.)
+ 
+ \item ({\bf Do not submit}) Recall that an $n\times n$ matrix $P$ is {\em orthogonal} if $P^T = P^{-1}$. Prove that the columns of $P$ form an orthonormal basis of $\R^n$.
+ 
+One can prove that every symmetric matrix $A$ can be {\em orthogonally diagonalized}; that is, there exists an orthogonal matrix $P$ such that $PAP^T=D$ is diagonal. Using this result, solve the following problem:
+
+ \item ({\bf Do not submit}) An $n\times n$ matrix $A$ is called {\em positive-definite} if $X^TAX> 0$ for all non-zero $X\in \R^n$. Prove that a symmetric matrix $A$ is positive-definite if and only if every eigenvalue of $A$ is positive.
+ 
+ \item Let $A$ be a symmetric, positive-definite matrix. Prove that $\langle X,Y\rangle = Y^TAX$ defines an inner product on $\R^n$.
+ 
+ \item A {\em quadratic form} on $\R^n$ is an expression of the form
+ \[
+ q(x_1,\ldots, x_n) = \sum_{i\leq j}a_{ij}x_ix_j.
+ \]
+ For example, $q(x,y) = 2x^2-3xy+y^2$ and $q(x,y,z) = x^2+xy+2yz-xz$ are quadratic forms. There is a one-to-one correspondence between quadratic forms and symmetric matrices. If $A$ is symmetric, we can define a quadratic form by
+ \[
+ q(X) = X^TAX, \text{ where } X = \begin{bmatrix}
+ x_1\\x_2\\\vdots\\x_n
+ \end{bmatrix}.
+ \]
+ \begin{enumerate}
+ \item For the quadratic form $q(x,y)=5x^2-4xy+5y^2$ find a symmetric matrix $A$ such that $q(x,y)=\begin{bmatrix}x&y\end{bmatrix}A\begin{bmatrix}x\\y\end{bmatrix}$.
+ \item Diagonalize the matrix $A$ from part (a).
+ \item Identify the equation $5x^2-4xy+4y^2=1$ as a conic section, and sketch its graph.
+ \end{enumerate}
+ \item ({\em In which bonus marks may be awarded}) If $A = [a_{ij}]$ is a matrix with complex entries, we define the complex conjugate of $A$ by $\overline{A} = [\overline{a_{ij}}]$, and the {\em Hermitian conjugate} by $A^\dagger = (\overline{A})^T$. A complex $n\times n$ matrix $A$ is {\em Hermitian} if $A^\dagger = A$, and {\em unitary} if $A^\dagger =A^{-1}$.
+ \begin{enumerate}
+ \item For a 10\% bonus on the assignment, prove that the eigenvalues of a Hermitian matrix are real.
+ 
+ As in the real case, one can prove that if $A$ is a Hermitian matrix, then there exists a unitary matrix $P$ such that $PAP^\dagger$ is diagonal.
+ \item For a 20\% bonus on problems 1 and 4 above, submit solutions for the vector space $\C^n$ {\bf instead} of solutions for the original problems for $\R^n$. (Replace ``symmetric'' by ``Hermitian'', and transpose  by Hermitian conjugate.)  You will need to explain how to define a positive-definite matrix in the complex setting.
+ \end{enumerate}
+ \end{enumerate}
+\end{document}
+ 

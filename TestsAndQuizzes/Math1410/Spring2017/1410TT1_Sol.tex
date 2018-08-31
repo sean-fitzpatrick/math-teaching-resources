@@ -1,0 +1,386 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 60}}
+\chead{MATH 1410A}\lhead{Test \# 1}\rhead{Tuesday, 7\textsuperscript{th} February, 2017}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\ivec}{\,\boldsymbol{\hat{\imath}}}
+\newcommand{\jvec}{\,\boldsymbol{\hat{\jmath}}}
+\newcommand{\kvec}{\,\boldsymbol{\hat{k}}}
+\newcommand{\bvm}{\begin{vmatrix}}
+\newcommand{\evm}{\end{vmatrix}}
+
+\DeclareMathOperator{\comp}{comp}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+7\textsuperscript{th} February, 2017, 1:45 - 2:55 pm\\
+{\bf MATH 1410A - Test \#1}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{50pt}{\bf Solutions}\hspace{248pt}}\\
+\skipline
+First Name:\underline{\hspace{50pt}{\bf The}\hspace{275pt}}\\
+\skipline
+Student Number:\underline{\hspace{323pt}}\\
+\skipline
+Tutorial Time: \underline{\hspace{320pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+  Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+To earn partial credit, you must show your work. Correct answers without adequate justification in most cases do not receive full marks.
+
+\bigskip
+
+{\bf No external aids are allowed, with the exception of a 5-function calculator.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/60\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+ \item True/False problems: for each statement below, indicate if it is true or false. If it is true, explain why. If it is false, give an example where the statement fails to hold. (Remember that ``true'' means true \textbf{in general}. A statement is false if it fails in even one case.) 
+
+ \begin{enumerate}
+  \item For any complex numbers $z$ and $w$, $\abs{z+w} = \abs{z}+\abs{w}$. \points{3}
+
+\bigskip
+
+{\bf False.} Consider $z=1=1+0i$ and $w=i=0+1i$. We have $\abs{z}+\abs{w} = 1+1 = 2$, but $z+w=1+i$, so $\abs{z+w} = \sqrt{1^2+1^2}=\sqrt{2}\neq 2$.
+
+\vspace{0.5in}
+
+ \item For any complex numbers $z$ and $w$, $\overline{z+w} = \overline{z} + \overline{w}$. \points{3}
+
+\bigskip
+
+{\bf True.} If $z=a+ib$ and $w=c+id$, then $z+w=(a+c)+i(b+d)$, so $\overline{z+w} = (a+c)-i(b+d)$.
+
+On the other hand, $\overline{z}+\overline{w} = (a-ib)+(c-id) = (a+c)+i(-b-d) = (a+c)-i(b+d) = \overline{z+w}$.
+
+\vspace{0.5in}
+
+ \item If $\vec{a}\dotp\vec{b}=0$ for two vectors $\vec{a},\vec{b}$ in $\R^2$, then either $\vec{a}=\vec{0}$, or $\vec{b}=\vec{0}$.\points{3}
+
+\bigskip
+
+{\bf False.} Consider $\vec{v} = \langle 1,0\rangle$ and $\vec{w} = \langle 0,1\rangle$. Then $\vec{v}\neq \vec{0}$ and $\vec{w}\neq \vec{0}$, but
+\[
+ \vec{v}\dotp\vec{w} = 1(0)+0(1) = 0.
+\]
+
+\vspace{0.5in}
+
+ \end{enumerate}
+
+ \item Define what it means for a vector $\vec{v}$ in $\R^3$ to be a \textbf{unit vector}.\points{3}
+
+\bigskip
+
+A vector $\vec{v}\in \R^3$ is a \underline{unit vector} provided that $\len{\vec{v}}=1$.
+\newpage
+
+\item Given the complex numbers $z=4+5i$ and $w=-2+3i$, compute the following. You do not need to explain your work.
+ \begin{enumerate}
+\item $z+w$ \points{2}
+
+\bigskip
+
+\[
+ z+w = (4+5i)+(-2+3i) = (4-2)+i(5+3) = 2+8i.
+\]
+
+\vspace{0.5in}
+
+\item $\overline{z}$ \points{2}
+
+\bigskip
+
+\[
+ \overline{z} = 4-5i.
+\]
+
+\vspace{0.5in}
+
+\item $\abs{w}$ \points{2}
+
+\bigskip
+
+\[
+ \abs{w} = \sqrt{(-2)^2+3^2} = \sqrt{13}.
+\]
+
+\vspace{0.5in}
+
+\item $zw$ \points{3}
+
+\bigskip
+
+\[
+ zw=(4+5i)(-2+3i) = -8+12i-10i+15i^2 = -23+2i \quad \text{ (since $i^2=-1$)}.
+\]
+
+\vspace{0.5in}
+
+\item $\dfrac{z}{w}$ \points{3}
+
+\bigskip
+
+\[
+ \frac{z}{w} = \frac{(4+5i)}{(-2+3i)}\cdot\frac{(-2-3i)}{(-2-3i)} = \frac{-8-12i-10i-15i^2}{(-2)^2+(-3)^2} = \frac{7}{13}-\frac{22}{13}i.
+\]
+
+\end{enumerate}
+
+\newpage
+
+\item Given the vectors $\vec{v} = \langle 4,3,-5\rangle$ and $\vec{w} = \langle -2,1,0\rangle$, compute the following. You do not need to explain your work.
+\begin{enumerate}
+ \item $2\vec{v}-5\vec{w}$  \points{2}
+
+\bigskip
+
+\[
+ 2\vec{v}-5\vec{w} = 2\langle 4,3,-5\rangle -5\langle -2,1,0\rangle = \langle 8,6,-10\rangle+\langle 10,-5,0\rangle = \langle 18,1,-10\rangle.
+\]
+
+\vspace{0.5in}
+  
+ \item $\len{\vec{v}}$ \points{2}
+
+\bigskip
+
+\[
+ \len{\vec{v}} = \sqrt{4^2+3^2+(-5)^2} = \sqrt{16+9+25} = \sqrt{50}.
+\]
+
+(If you don't like unreduced radicals, $\sqrt{50} = 5\sqrt{2}$.)
+
+\vspace{0.5in}
+
+ \item $\vec{v}\dotp\vec{w}$ \points{2}
+
+\bigskip
+
+\[
+ \vec{v}\dotp\vec{w} = 4(-2)+3(1)-5(0) = -8+3+0 = -5.
+\]
+
+\vspace{0.25in}
+
+ \item $\vec{v}\times \vec{w}$ \points{3}
+
+\bigskip
+
+\begin{align*}
+ \vec{v}\times\vec{w} &=\bvm \ivec & \jvec & \kvec\\ 4&3&-5\\-2&1&0\evm\\
+& = \bvm 3&-5\\1&0\evm\ivec - \bvm 4&-5\\-2&0\evm\jvec + \bvm 4&3\\-2&1\evm\kvec\\
+& = 5\ivec+10\jvec+10\kvec = \langle 5, 10, 10\rangle.
+\end{align*}
+
+\vspace{0.5in}
+
+ \item $\operatorname{proj}_{\vec{v}}\vec{w}$ \points{3}
+
+\bigskip
+
+Using the values $\vec{v}\dotp \vec{w} = -5$ and $\vec{v}\dotp \vec{v} = \len{\vec{v}}^2 = \sqrt{50}^2 = 50$ from above, we have
+
+\[
+ \operatorname{proj}_{\vec{v}}\vec{w} = \left(\frac{\vec{v}\dotp\vec{w}}{\vec{v}\dotp\vec{v}}\right)\vec{v} = \left(\frac{-5}{50}\right)\langle 4, 3, -5\rangle = \left\langle -\frac{2}{5}, -\frac{3}{10}, \frac{1}{2}\right\rangle.
+\]
+
+\end{enumerate}
+\newpage
+
+
+
+ \item \begin{enumerate}
+\item Convert the complex number $z=-1+\sqrt{3}\,i$ to polar form. \points{3}
+
+\bigskip
+
+We have $\abs{z} = \sqrt{(-1)^2+(\sqrt{3})^2} = \sqrt{1+3} = 2$; this gives us
+\[
+ z = 2\left(-\frac{1}{2}+\frac{\sqrt{3}}{2}\,i\right) = 2\left(\cos\left(\frac{2\pi}{3}\right)+i\sin\left(\frac{2\pi}{3}\right)\right) = 2e^{2\pi i/3}.
+\]
+
+\vspace{0.25in}
+
+\item Convert the complex number $w=4e^{i(\pi/4)}$ to rectangular form. \points{2}
+
+\bigskip
+
+We find
+
+\[
+ w = 4\left(\cos\left(\frac{\pi}{4}\right)+i\sin\left(\frac{\pi}{4}\right)\right) = 4\left(\frac{\sqrt{2}}{2}+i\frac{\sqrt{2}}{2}\right) = 2\sqrt{2}+2\sqrt{2}\,i.
+\]
+
+\vspace{0.25in}
+
+ \item Compute the value of $z^8$, where $z$ is as given in part (a).\points{4}\\
+ Express your answer in rectangular form. 
+
+
+\bigskip
+
+Using the polar form from part (a), we have
+
+\begin{align*}
+ z^8 & = (2e^{2\pi i/3})^8\\
+ & = 2^8e^{8(2\pi i/3)}\\
+ & = 2^8e^{16\pi i/3}\\
+ & = 2^8e^{4\pi i/3}\\
+ & = 2^8\left(-\frac{1}{2}-\frac{\sqrt{3}}{2}i\right)\\
+ & = -2^7-2^7\sqrt{3}\,i = -128-128\sqrt{3}\,i.
+\end{align*}
+
+Note that we used the fact that $\dfrac{16\pi}{3} = 4\pi + \dfrac{4\pi}{3}$ to determine that $z^8$ lies in the third quadrant.
+
+\bigskip
+
+ \item Compute the value of $\dfrac{z^2}{w^3}$, where $z$ and $w$ are as given in parts (a) and (b). \points{3}\\
+Express your answer in polar form. 
+
+\bigskip
+
+We have
+
+\[
+ \frac{z^2}{w^3} = \frac{(2e^{2\pi i/3})^2}{(4e^{\pi i/4})^3} = \frac{4e^{4\pi i/3}}{64e^{3\pi i/4}} = \frac{1}{16}e^{7\pi i/12},
+\]
+
+using the fact that $\dfrac{4\pi}{3} -\dfrac{3\pi}{4} = \dfrac{16\pi}{12} - \dfrac{9\pi}{12} = \dfrac{7\pi}{12}.$
+\end{enumerate}
+\newpage
+
+\item \begin{enumerate}
+\item Find the vector equation of the line $\ell$ that passes through the points $P=(3,2,-4)$ and $Q=(5,1,2)$. \points{3}
+
+\bigskip
+
+Since the $\ell$ passes through $P$ and $Q$, we can use the direction vector
+\[
+ \vec{v} = \overrightarrow{PQ} =\langle 5-3, 1-2, 2-(-4)\rangle = \langle 2, -1, 6\rangle.
+\]
+Using the point $P$ as our reference point, this gives us the equation
+\[
+ \langle x,y,z\rangle = \langle 3,2,-4\rangle + t\langle 2,-1,6\rangle.
+\]
+
+\bigskip
+
+
+\item Find the scalar equation of the plane $\mathcal{P}$ that passes through the points $A=(1,-2,4)$, $B=(3,0,5)$, and $C = (1,-1,2)$. \points{5}
+
+\bigskip
+
+Since the points $A, B, C$ all lie in the plane $\mathcal{P}$, we can conclude that the vectors
+\begin{align*}
+ \vec{v} & = \overrightarrow{AB} = \langle 3-1,0-(-2),5-4\rangle = \langle 2, 2, 1\rangle \quad \text{ and}\\
+ \vec{w} & = \overrightarrow{AC} = \langle 1-1, -1-(-2), 2-4\rangle = \langle 0, 1, -2\rangle
+\end{align*}
+are both parallel to $\mathcal{P}$. It follows that a normal vector for $\mathcal{P}$ is given by
+\[
+ \vec{n} = \vec{v}\times \vec{w} = \bvm \ivec & \jvec & \kvec\\ 2&2&1\\0&1&-2\evm = -5\ivec +4\jvec+2\kvec = \langle -5, 4, 2\rangle.
+\]
+
+Using the point $A$ as our reference point we can write the equation of our plane as
+\[
+ \langle -5, 4, 2\rangle \dotp \langle x-1, y+2, z-4\rangle = 0,
+\]
+or
+\[
+ -5x+4y+2z = -5.
+\]
+
+(You can verify that this is the correct equation by checking that the points $A$, $B$, and $C$ all satisfy the equation.
+
+\bigskip
+
+
+\item Find the point of intersection between the line $\ell$ and the plane $\mathcal{P}$ determined above. \points{4}
+
+\bigskip
+
+If $(x,y,z)$ is the point of intersection, then we must have $x=3+2t$, $y=2-t$, and $z=-4+6t$, using the equation of our line from part (a).
+
+If we substitute these values into the equation of our plane from part (b), we have
+\[
+ -5(3+2t)+4(2-t)+2(-4+6t) = -5.
+\]
+Simplifying the left-hand side, we have $-2t-15=-5$, so $2t = -10$, and thus $t=-5$. Putting $t=-5$ into the equation of our line gives us the point
+\[
+ (x,y,z) = (3-10, 2+5, -4-30) = (-7, 7, -34)
+\]
+on the line $\ell$, and since $-5(-7)+4(7)+2(-34) = 35+28-68 = -5$, the point $(-7, 7, -34)$ also lies on the plane $\mathcal{P}$, as required.
+
+\end{enumerate}
+
+
+\end{enumerate}
+\end{document}

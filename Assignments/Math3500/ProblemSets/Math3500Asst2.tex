@@ -1,0 +1,79 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\title{Math 3500 Assignment \#2\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Friday, September 19, by 6 pm.
+
+\bigskip
+
+Please submit solutions to the problems below. For this and the remaining assignments, you are responsible for attempting the exercises in your textbook as practice problems -- I won't be providing a list.
+
+Don't forget that you can use Piazza to discuss hints to assigned problems and share solutions to practice problems.
+
+\begin{enumerate}
+ \item Let $S$ and $T$ be nonempty bounded subsets of $\R$. 
+\begin{enumerate}
+ \item Prove that if $S\subseteq T$, then $\inf T\leq \inf S\leq \sup S\leq \sup T$.
+ \item Prove that $\sup S\cup T = \max\{\sup S, \sup T\}$. \\(Do not assume that $S\subseteq T$ for part (b).)
+\end{enumerate}
+ \item Let $\mathcal{B}[a,b]$ denote the set of all bounded functions defined on the interval $[a,b]$. (That is, for each $f\in \mathcal{B}[a,b]$, there exist constants $k,l\in\R$ such that $k\leq f(x)\leq l$ for all $x\in [a,b]$.) The {\em norm} of a function $f\in \mathcal{B}[a,b]$ is defined by
+\[
+ \lVert f\rVert = \sup\{\abs{f(x)} : x\in [a,b]\}.
+\]
+Prove that $\lVert f+g\rVert \leq \lVert f\rVert +\lVert g\rVert$ for any $f,g\in\mathcal{B}[a,b]$.
+
+{\em Hint:} we know that the absolute value function on $\R$ satisfies $\abs{f(x)+g(x)}\leq \abs{f(x)}+\abs{g(x)}$ for all $x$. The remainder of the proof consists mainly of following the two parts of the definition of a least upper bound to the desired conclusion.
+
+{\em Note:} one can check that the set of all bounded functions on an interval has the structure of a vector space, and a norm on a vector space is a generalization of the notion of the length of a vector in $\R^n$. Now you'll be ready in case anyone ever asks you how long a function is.
+
+\item Prove that if $A$ is any nonempty open subset of $\R$, then $A\cap \mathbb{Q}\neq \emptyset$.
+
+{\em Hint:} use the fact that $\mathbb{Q}$ is dense in $\R$.
+\newpage
+
+{\bf Note:} For problems 4-6, you only need to submit {\bf two} of the three problems -- you're allowed to skip one.
+
+\bigskip
+
+\item For any set $S\subseteq \R$, let $\overline{S}$ denote the intersection of all the closed sets containing $S$.
+\begin{enumerate}
+ \item Prove that $\overline{S}$ is a closed subset of $\R$.
+ \item Prove that $\overline{S}$ is the {\em smallest} closed set containing $S$. That is, show that $S\subseteq \overline{S}$, and if $C$ is any closed set containing $S$, then $\overline{S}\subseteq C$.
+ \item Prove that $\overline{S}$ is equal to the closure of $S$.
+ \item Prove that if $S$ is bounded, then $\overline{S}$ is bounded as well.
+\end{enumerate}
+
+\item The Nested Intervals Theorem (from the September 10th worksheet, and also mentioned on Piazza) states that if $\{A_n : n\in \mathbb{N}\}$ is a collection of closed bounded intervals (of the form $[a,b]$), and we have $A_{n+1}\subseteq A_n$ for all $n\in\mathbb{N}$, then the intersection $\bigcap A_n$ is nonempty.
+
+Show that the intervals $A_n$ need to be {\bf both} closed and bounded by giving examples where the theorem fails (that is, where $\bigcap A_n =\emptyset$), if
+\begin{enumerate}
+ \item The intervals $A_n$ are closed, but not bounded.
+ \item The intervals $A_n$ are bounded, but not closed.
+\end{enumerate}
+
+\item An important theorem regarding compact sets is that if $S\subseteq \R$ is compact, and $T$ is a closed subset of $S$, then $T$ is compact. Prove this fact using:
+\begin{enumerate}
+ \item The definition of compactness.
+ \item The Heine-Borel theorem.
+\end{enumerate}
+
+
+
+\end{enumerate}
+
+\end{document}
+ 

@@ -1,0 +1,205 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 100}}
+\chead{MATH 3500}\lhead{Practice Exam}\rhead{December, 2014}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+December 2014\\
+{\bf MATH 3500 - Practice Exam}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+\skipline
+
+\vspace{0.5in}
+
+
+\begin{quote}
+
+ 
+ {Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. }
+
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Problem&Grade\\
+\hline \hline
+\cline{1-2} 1 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 7 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 8 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 9 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 10 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/100\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item \begin{enumerate}
+       \item Find the supremum and infimum of the following sets, if they exist. If either one does not exist, explain why.\points{4}
+\[
+ A = \left\{(-1)^n\left(1+\frac{1}{n}\right):n\in\N\right\} \quad \quad B = \left\{\sin \frac{1}{x} : x\in (0,1]\right\}
+\]
+
+\vspace{3in}
+
+\item Let $D\subseteq \R$ be non-empty and suppose $f:D\to\R$ and $g:D\to \R$ are bounded functions.
+\begin{enumerate}
+ \item Prove that $\sup[(f+g)(D)] \leq \sup[f(D)]+\sup[g(D)]$. \points{4}
+
+\vspace{2.5in}
+
+ \item Give an example to show that the above inequality may be strict. \points{2}
+\end{enumerate}
+
+      \end{enumerate}
+\newpage
+\item \begin{enumerate}
+       \item For any non-empty subset $A\subseteq \R$, prove that $\partial A = \overline{A}\setminus A^\circ$, where $\partial A$ denotes the boundary of $A$, $A^\circ$ denotes the interior of $A$ and $\overline{A}$ denotes the closure of $A$. \points{5}
+
+\vspace{3.5in}
+
+       \item Give an example of a set $A\subseteq \R$ that has a limit point but does not contain a limit point. \points{2}
+
+\vspace{1.5in}
+
+       \item Prove that a closed subset of a compact set is compact. \points{3}
+      \end{enumerate}
+\newpage
+
+\item Prove that a point $x$ is a limit point of a set $S\subseteq \R$ if and only if there exists a sequence $(x_n)$ of points in $S\setminus \{x\}$ such that $\lim x_n = x$. \points{10}
+
+\newpage
+\item\begin{enumerate}
+\item Suppose $I_n = [a_n,b_n]$ is a nested sequence of intervals; that is, $I_{n+1}\subseteq I_n$ for all $n$. Prove that $\lim a_n$ and $\lim b_n$ both exist. \points{4}
+
+\vspace{3in}
+
+\item Prove that $\displaystyle \lim_{n\to \infty} \frac{n+1}{n} = 1$. \points{6}
+\end{enumerate}
+\newpage
+
+\item \begin{enumerate}
+       \item Define $f:\R\to\R$ by $\displaystyle f(x) = \begin{cases} x^2 + 6 & \text{ if } x\in \Q\\ 5x & \text{ if } x\notin \Q\end{cases}$. Prove that $f$ is continuous at $x=2$. \points{5}
+
+\vspace{4in}
+
+       \item Use the $\epsilon-\delta$ definition to prove that $f(x)=x^2+4$ is uniformly continuous on the interval $[1,3]$. \points{5}
+      \end{enumerate}
+\newpage
+
+\item \begin{enumerate}
+       \item Prove that any polynomial of odd degree has at least one real root. \points{6}
+
+\vspace{4in}
+
+       \item Prove that if $f$ is uniformly continuous on an interval $(a,b)$, then $f$ is bounded on $(a,b)$. \points{4}
+
+
+
+      \end{enumerate}
+\newpage
+\item \begin{enumerate}
+       \item Suppose that $f$ and $g$ are differentiable functions such that $f(a)=g(a)$ and $f'(x)< g'(x)$ for all $x\geq a$. Prove that $f(x)< g(x)$ for all $x\geq a$. \points{5}
+
+\vspace{4in}
+
+       \item Prove that if $n\geq 1$, then $(1+x)^n>1+nx$ for $x>0$. \points{5}
+\end{enumerate}
+
+\newpage
+\item  \begin{enumerate}
+       \item Let $f(x) = \begin{cases} x^2, \text{ if } x\geq 0\\ 0, \text{ if } x<0\end{cases}$. \points{5} Prove that $f$ is differentiable at $x=0$ and give a formula for $f'(x)$ for all $x\in\R$.
+
+\vspace{3.5in}
+
+       \item Prove that $f(x) = x^3+3x$ has exactly one root. \points{5}
+      \end{enumerate}
+\newpage
+
+\item Suppose that $f$ is integrable on $[a,b]$ and that $[c,d]\subseteq [a,b]$. Prove that $f$ is integrable on $[c,d]$. \points{10}
+
+\newpage
+
+ \item Find a function $g$ such that
+\begin{enumerate}
+ \item  $\displaystyle\int_0^x tg(t)\,dt = x+x^2$ \points{3}
+
+\vspace{2in}
+ 
+\item  $\displaystyle\int_0^{x^2} tg(t) \,dt = x+x^2$ \points{3}
+
+\vspace{2in}
+
+\item Suppose that $f$ is a differentiable function with $f(0)=0$ and $0<f'\leq 1$. Prove that for all $x\geq 0$ we have \points{4}
+\[
+ \int_0^x f^3\leq \left(\int_0^x f\right)^2.
+\]
+
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+
+
+\end{document}

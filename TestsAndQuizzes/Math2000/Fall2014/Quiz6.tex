@@ -1,0 +1,51 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000}\chead{Quiz \# 6}\rhead{Thursday, 23\textsuperscript{rd} October, 2014}
+\rfoot{Total: 10 points}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\modd}[3]{#1\equiv #2 \pmod{#3}}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+\noindent{{\bf Name and student number:}}
+
+ \begin{enumerate}
+ \item \begin{enumerate}
+ \item Prove that for each $a\in\Z$, $a\not\equiv 0\pmod{3}$ if and only if $\modd{a^2}{1}{3}$.\points{4}
+
+{\em Hint}: For any $a\in \Z$, we must have $\modd{a}{0}{3}$, $\modd{a}{1}{3}$, or $\modd{a}{2}{3}$. The first case will take care of one direction of the if and only if (by contrapositive) and the other two cases will take care of the other direction.
+
+\vspace{5in}
+
+ \item Prove that for each $n\in\N$, $\sqrt{3n+2}$ is not a natural number. \points{2}
+
+{\em Hint}: Use part (a).
+\end{enumerate}
+\newpage
+
+\item Let $A$ and $B$ be sets. Prove that if $S\subseteq A$, then $S\times B\subseteq A\times B$.\points{4}
+ \end{enumerate}
+\end{document}

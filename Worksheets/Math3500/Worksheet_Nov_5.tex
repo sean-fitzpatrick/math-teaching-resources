@@ -1,0 +1,95 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\Abs}[1]{\left| #1 \right|}
+\newcommand{\len}[1]{\lVert #1\Vert}
+
+\title{Math 3500 Exercise Sheet}
+\date{5 November, 2014}
+
+
+\begin{document}
+\maketitle
+
+This week we'll look at applications of the Mean Value Theorem, as well as the interpretation of the derivative as a linear approximation.
+\subsection*{The Mean Value Theorem}
+Recall that the Mean Value Theorem states the following: suppose $f:[a,b]\to \R$ is continuous on $[a,b]$ and differentiable on $(a,b)$. Then there exists some $c\in(a,b)$ such that
+\[
+ f'(c) = \frac{f(b)-f(a)}{b-a}.
+\]
+
+\begin{enumerate}
+ \item Prove that if $f'(x)=0$ for all $x$ in some interval $I$, then $f$ is constant on $I$.
+ \item Using the previous problem, show that $f'(x)=g'(x)$ on some interval $I$ if and only $f(x)=g(x)+C$ for some constant $C$, for all $x\in I$.
+ \item Recall that a function $f$ is {\bf increasing} on an interval $I$ if for any $x,y\in I$ with $x<y$ we have $f(x)\leq f(y)$. Prove that if $f'(x)\geq 0$ on $I$, then $f$ is increasing on $I$. Similarly show that if $f'(x)\leq 0$ on $I$, then $f$ is decreasing on $I$.
+
+{\bf Note}: The converse to this result is not necessarily true: it's possible to have an increasing or decreasing function $f$ on an interval $I$ that is not differentiable on all of $I$.
+ \item Prove {\em Cauchy's Mean Value Theorem}: if $f$ and $g$ are continuous on $[a,b]$ and differentiable on $(a,b)$, then there exists some $c\in (a,b)$ such that
+\[
+ [f(b)-f(a)]g'(c) = [g(b)-g(a)]f'(c).
+\]
+In the case that $g'(x)\neq 0$ on $[a,b]$ we can write $\dfrac{f'(c)}{g'(c)} = \dfrac{f(b)-f(a)}{g(b)-g(a)}$. We'll need this result to prove l'Hospital's rule.
+
+Hint: consider $h(x)=[f(b)-f(a)]g(x)-[g(b)-g(a)]f(x)$.
+
+\subsection*{Derivatives and linear approximations}
+Given a differentiable function $f:I\to \R$, we know that the tangent line to the graph $y=f(x)$ at $x=a$ is given by 
+\[
+ y = f(a) + f'(a)(x-a).
+\]
+The function $l(x)=f(a)+f'(a)(x-a)$ whose graph gives the tangent line is a {\em linear} function (it's of the form $l(x)=Ax+b$).
+\item Let $R(x) = f(x)-l(x)$, and prove that $\displaystyle \lim_{x\to a}\frac{R(x)}{\abs{x-a}} = 0$. The function $R(x)$ is the {\em remainder} once we subtract $l(x)$ from $f(x)$. This tells us that the difference between $f(x)$ and $l(x)$ goes to zero {\em faster} than $\abs{x-a}$ as $x\to a$. (One says that $R(x)$ is {\bf sublinear} near $x=a$.)
+\item Let $g(x)=Ax+b$ be any other linear function. Prove that if $f(x)-g(x)$ is sublinear near $x=a$, then $g(x)=l(x)$.
+
+Hint: First explain why you must have $g(a)=f(a)$.
+\item Given $f:(a,b)\to\R$ and $x\in (a,b)$, choose $\Delta x$ small enough that $x+\Delta x\in (a,b)$. We define the {\bf increment} of $f$ from $x$ to $x+\Delta x$ by
+\[
+ \Delta f = f(x+\Delta x)-f(x),
+\]
+and we define the {\bf differential} of $f$ at $x$ (with increment $\Delta x$) by
+\[
+ df = f'(x)\Delta x
+\]
+\begin{enumerate}
+ \item One often writes the differential of $f$ as $df = f'(x)dx$. Explain why we can write $dx = \Delta x$. (Consider the identity function.)
+ \item Explain why the approximation $\Delta f \approx df$ is valid. (Note that each measures the difference in $y$ values for nearby points on a particular graph.)
+ \item This approximation is very useful in applications. For example, it can be used to estimate the error in a calculuated quantity due to errors in measurement. For a particular example, use the differential to approximate the possible error in calculating the area of a square, if we measure each side to have a length of 10 cm with a possible error in measurement of 1 mm.
+\end{enumerate}
+\newpage
+\subsection*{Derivatives and montonic functions}
+A function $f:I\to\R$ is {\bf monotonic} if it is either increasing or decreasing on $I$. We say that $f$ is {\bf strictly increasing (decreasing)} if for all $x,y\in I$ with $x<y$ we have $f(x)<f(y)$ ($f(x)>f(y)$).
+\item Prove that if $f'(x)\neq 0$ on $I$, then $f$ is either strictly increasing or strictly decreasing. (Hint: use Darboux's Theorem.)
+It's possible to prove that if $f$ is monotonic on an interval $I=(a,b)$, then $\lim_{t\to x^+}f(t)$ and $\lim_{t\to x^-}f(t)$ exist at each $x\in I$. More precisely,
+\[
+ \sup\{f(t) : a<t<x\} = \lim_{t\to x^-}f(t)\leq f(x)\leq \lim_{t\to x^+}f(t) = \inf\{f(t) : x<t<b\}.
+\]
+Moreover, if $a<x<y<b$,then $\lim_{t\to x^+}f(t)\leq \lim_{t\to y^-}f(t)$. In particular, this tells us that a monotonic function can only have jump discontinuities. Proving this is not too difficult but the proof is a bit long and wouldn't leave us with time to work on other problems.
+\item (Bonus fun not really related to derivatives) Prove that if $f$ is monotonic, then the set of discontinuities of $f$ is at most countable. (Hint: if $f$ has a jump discontinuity at $x=a$ then there is a rational number $r(a)$ such that $\lim_{x\to a^-}f(x)<r(a)<\lim_{x\to a^+}f(x)$.)
+\item Prove that if $f:(a,b)\to \R$ is continuous and strictly increasing, then $f$ is one-to-one, the range of $f$ is an interval $(c,d)$, and $f^{-1}:(c,d)\to (a,b)$ is also continuous.
+\item Prove that if $f'(x)\neq 0$ on some interval $I$, then $f$ is one-to-one, $f^{-1}$ is differentiable on $f(I)$, and
+\[
+ f^{-1}(y) = \frac{1}{f'(x)} = \frac{1}{f'(f^{-1}(x))}
+\]
+for all $y=f(x)\in f(I)$.
+
+Hint: the previous problems tell us that $f$ must be either strictly increasing or strictly decreasing, and that $f^{-1}$ is continuous. Define $x=f^{-1}(y)$ and $\Delta x = f^{-1}(y+\Delta y)-x = \Delta f^{-1}$. Check that $\Delta y = \Delta f = f(x+\Delta x)-f(x)$. Note that since $f$ and $f^{-1}$ are one-to-one, $\Delta x = 0$ if and only if $\Delta y = 0$, and since $f$ and $f^{-1}$ are continuous, $\Delta x\to 0$ if and only if $\Delta y\to 0$. 
+
+
+
+
+\end{enumerate}
+
+
+\end{document}
+ 

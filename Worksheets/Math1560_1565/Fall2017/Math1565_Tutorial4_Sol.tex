@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=0.75in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, positioning, decorations.pathmorphing}
+
+%\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+\DeclareMathOperator{\dom}{dom}
+
+\begin{document}
+
+
+\begin{center}
+Math 1565 Tutorial \#4 Solutions
+\end{center}
+\begin{enumerate}
+ \item  Using \textbf{the definition of the derivative}, determine the equation of the line tangent to the curve $y=\dfrac{1}{\sqrt{x}}$ at the point $(4,\frac{1}{2})$.
+ 
+\bigskip
+
+By definition, we have
+\begin{align*}
+f'(4) & = \lim_{h\to 0}\frac{f(4+h)-f(4)}{h}\\
+& = \lim_{h\to 0}\frac{\frac{1}{\sqrt{4+h}}-\frac{1}{2}}{h}\\
+& = \lim_{h\to 0}\frac{2-\sqrt{4+h}}{2h\sqrt{4+h}}\\
+& = \lim_{h\to 0}\left(\frac{2-\sqrt{4+h}}{2h\sqrt{4+h}}\right)\left(\frac{2+\sqrt{4+h}}{2+\sqrt{4+h}}\right)\\
+& = \lim_{h\to 0}\frac{4-(4+h)}{2h\sqrt{4+h}(2+\sqrt{4+h})}\\
+& = \lim_{h\to 0}\frac{-1}{2\sqrt{4+h}(2+\sqrt{4+h})}\\
+& = \frac{-1}{2\sqrt{2}(2+\sqrt{2})} = -\frac{1}{16}.
+\end{align*}
+\end{enumerate}
+Since $f'(4)$ gives the slope of the tangent line, and it passes through the point $(4,1/2)$, we have the equation
+\[
+y-\frac{1}{2} = -\frac{1}{16}(x-4)
+\]
+for the line.
+\end{document}

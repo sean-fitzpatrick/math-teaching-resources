@@ -1,0 +1,114 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 3410A}\chead{Quiz \# 3}\rhead{Friday, 30\textsuperscript{th} January, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\DeclareMathOperator{\spn}{span}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+{\bf Name: Solutions}
+
+\bigskip
+
+Solve {\bf one} of the following two questions:
+ \begin{enumerate}
+ \item  Let $U = \{p\in \mathcal{P}_4(\R) : p(6)=0\}$.
+\begin{enumerate}
+ \item Find a basis for $U$. \points{2} (Hint: note that $p(x)=x-6$ is an element of $U$.)
+
+\bigskip
+
+Consider the polynomials $p_1(x)=x-6,\, p_2(x) = x^2-6x,\, p_3(x) = x^3-6x^2,\, p_4(x)=x^4-6x^3$. Since $x-6$ is a factor of each polynomial, we see that they are all elements of $U$. Moreover, if
+\begin{align*}
+ 0 & = c_1p_1(x)+c_2p_2(x)+c_3p_3(x)+c_4p_4(x)\\
+& = c_1(x-6)+c_2(x^2-6x)+c_3(x^3-6x^2)+c_4(x^4-6x^3)\\
+& = -6c_1+(c_1-6c_2)x+(c_2-6c_3)x^2+(c_3-6c_4)x^3+c_4x^4,
+\end{align*}
+then we must have $c_1=c_2=c_3=c_4=0$, so the set $B=\{p_1,p_2,p_3,p_4\}$ is linearly independent. Since $U$ is a proper subspace of $\mathcal{P}_4(\R)$ (since, for example, the polynomial $q(x)=1$ does not belong to $U$), we must have $\dim U\leq 4$, and since the set $B$ contains four linearly independent vectors, it must be a basis for $U$.
+
+\bigskip
+
+
+ \item Extend the basis in part (a) to a basis of $\mathcal{P}_4(\R)$.\points{4}
+
+\bigskip
+
+As noted above, the polynomial $q(x)=1$ does not belong to $U$, since $q(6)=1\neq 0$. It follows that $q$ is not in the span of $B$, and therefore the set $B' = \{p_1,p_2,p_3,p_4,q\}$ is linearly independent. Since $\dim \mathcal{P}_4(\R)=5$, $B'$ must be a basis.
+
+\bigskip
+
+ \item Find a subspace $W$ of $\mathcal{P}_4(\R)$ such that $U\oplus W = \mathcal{P}_4(\R)$. \points{4}
+
+\bigskip
+
+Let $W = \spn\{q\}$, where $q(x)=1$ as above. We must have $\mathcal{P}_4(\R) = U+W$, since any polynomial $p(x)\in \mathcal{P}_4(\R)$ can be written as
+\[
+ p(x) = c_1p_1(x)+c_2p_2(x)+c_3p_3(x)+c_4p_4(x)+c_5q(x) = u(x)+w(x),
+\]
+where $u(x)=c_1p_1(x)+c_2p_2(x)+c_3p_3(x)+c_4p_4(x)\in U$ and $w(x)=c_5q(x)\in W$, since $B'$ is a basis. Since $W$ is the subspace of constant polynomials, and the only constant polynomial that is equal to zero when $x=6$ is the zero polynomial, we must have $U\cap W=\{0\}$, and the result follows.
+\end{enumerate}
+
+\newpage
+
+\item Suppose $U$ and $W$ are subspaces of $V$ such that $V=U\oplus W$. Show that if $\{u_1,\ldots, u_m\}$ is a basis for $U$, and $\{w_1,\ldots, w_k\}$ is a basis for $W$, then \points{10}
+\[
+ \{u_1,\ldots, u_m,w_1,\ldots, w_k\}
+\]
+is a basis for $V$.
+
+\bigskip
+
+Let $v\in V$ be any vector. Since $V=U\oplus W$, we have in particular that $V=U+W$, so there exist vectors $u\in U$ and $w\in W$ such that
+\[
+ v=u+w.
+\]
+Since $\{u_1,\ldots, u_m\}$ is a basis for $U$, there exist scalars $a_1,\ldots, a_m$ such that
+\[
+ u=a_1u_1+\cdots +a_mu_m,
+\]
+and similarly, there exist scalars $b_1,\ldots, b_k$ such that
+\[
+ w = b_1w_1+\cdots +b_kw_k.
+\]
+It follows that $v$ can be written as
+\[
+ v= a_1u_1+\cdots + a_mu_m + b_1w_1+\cdots + b_kw_k.
+\]
+Since $v\in V$ was arbitary, we can conclude that the set $\{u_1,\ldots, u_m, w_1,\ldots, w_k\}$ spans $V$. It remains to show that the set is independent. Suppose we have
+\[
+ a_1u_1+\cdots + a_mu_m + b_1w_1+\cdots + b_kw_k=0
+\]
+for some scalars $a_1,\ldots, a_m,b_1,\ldots,b_k$. Then $0=u+w$, where $u=a_1u_1+\cdots +a_mu_m\in U$ and $w = b_1w_1+\cdots +b_kw_k\in W$. Since $V=U\oplus W$ is a direct sum, we know that the only way to write $0=u+w$ with $u\in U$ and $w\in W$ is if $u=w=0$.
+
+But if $u=0$, then $a_1=\cdots =a_m=0$, since $\{u_1,\ldots, u_m\}$ is a basis for $U$. Similarly, since $w=0$, we must have $b_1=\cdots=b_k=0$. Thus, the only linear combination equal to zero is the trivial combination, so the set is linearly independent, and therefore a basis for $V$.
+ \end{enumerate}
+\end{document}

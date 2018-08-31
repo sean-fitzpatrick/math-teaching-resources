@@ -1,0 +1,73 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+%\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\ss}{\subseteq}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\Abs}[1]{\left| #1\right|}
+
+\title{Math 3500 Assignment \#7\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+{\bf Due date}: Friday, November 7th, by 6 pm.
+
+\bigskip
+
+{\bf Reminder}: You're free to discuss these problems, and you should ask for help with any you don't understand. (Both office hours and Piazza are available for this purpose, and there are evening help sessions Tuesday, Wednesday and Thursday.) But keep in mind that getting help should involve making sure that you {\em understand} the solution. The assignments count towards your course grade, but ultimately, the main purpose of the assignments is to improve your understanding of the material in order to prepare you for the final exam.
+\begin{enumerate}
+ \item Construct an example of a function $f:\R\to\R$ that is differentiable at exactly one point. (It might help to recall that we've seen an example of a function that is continuous at only one point.)
+ \item ({\bf Do not submit)} Let $f_a(x) = \begin{cases} x^a, & \text{ if } x> 0\\ 0, & \text{ if } x\leq 0\end{cases}$, where $a$ is some real number.
+\begin{enumerate}
+ \item For which values of $a$ is $f$ continuous at 0?
+ \item For which values of $a$ is $f$ differentiable at 0? In these cases, is $f'$ continuous?
+ \item For which values of $a$ is $f$ twice differentiable at 0?
+\end{enumerate}
+\item Prove Leibniz's rule: for any $n\in\N$, $\displaystyle (fg)^{(n)}(a) = \sum_{i=0}^n {n \choose k}f^{(k)}(a)g^{(n-k)}(a)$, provided that $f$ and $g$ are both $n$ times differentiable at $a$. (The notation $h^{(n)}$ indicates the $n^{th}$ derivative of $h$, so $h^{(0)}=h, h^{(1)} = h', h^{(2)} = h''$, etc.) 
+
+Hint: use induction.
+\newpage
+\item A function $f:A\to\R$ is called a {\bf Lipschitz} function if there exists some $M>0$ such that
+\[
+ \Abs{\frac{f(x)-f(y)}{x-y}}\leq M
+\]
+for all $x,y\in A$.
+\begin{enumerate}
+ \item Prove that any Lipschitz function is uniformly continuous on its domain.
+ \item Prove that if $f$ is differentiable on a closed interval $[a,b]$ and $f'$ is continuous on $[a,b]$, then $f$ is Lipschitz on $[a,b]$.
+\end{enumerate}
+ \item Prove that if $f$ is differentiable on an interval $I$ and $f'(x)\neq 1$ for all $x\in I$, then $f$ has at most one fixed point on $I$ (that is, there is at most one $x_0\in I$ such that $f(x_0)=x_0$).
+ \item Let $f$ be defined on $\R$ and suppose that $\abs{f(x)-f(y)}\leq (x-y)^2$ for all $x,y\in\R$. Prove that $f$ must be a constant function.
+ \item ({\bf Do not submit}) Recall that a function $f:(a,b)\to\R$ is {\em increasing} on $(a,b)$ if $f(x)\leq f(y)$ whenever $x<y$ in $(a,b)$.
+\begin{enumerate}
+ \item Show that if $f$ is differentiable on $(a,b)$ then $f$ is increasing on $(a,b)$ if and only if $f'(x)\geq 0$ for all $x\in (a,b)$.
+ \item Show that the function
+\[
+ g(x) = \begin{cases} x/2+x^2\sin(1/x) & \text{ if } x\neq 0 \\ 0 & \text{ if } x=0\end{cases}
+\]
+is differentiable on $\R$ and satsifies $g'(0)>0$.
+ \item Show that $g$ is {\em not} increasing on any open interval containing 0.
+ \item Why do your results from (b) and (c) not contradict your result in part (a)?
+\end{enumerate}
+ 
+
+
+
+
+\end{enumerate}
+
+\end{document}
+ 

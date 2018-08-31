@@ -1,0 +1,62 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+
+\title{Practice for Quiz 3\\Math 2580\\Spring 2016}
+\author{Sean Fitzpatrick}
+\date{January 19th, 2016}
+
+\begin{document}
+ \maketitle
+Not on the quiz, but have a look at Figure 14.R.1 on p. 761 (Ch. 14 Review Exercises) in the Marsden-Weinstein text. It's a sketch of several level surfaces for the function $f(x,y,z)=x^2+y^2-z^2$. (This is what I was hoping to animate but it turns out this causes my software to choke.)
+
+\bigskip
+
+If you can answer the following problems, you should be well-prepared for Quiz 3:
+
+
+
+\begin{enumerate}
+ \item Express the partial derivative $f_y(x,y,z)$ as a limit.
+ \item Calculate all four second-order partial derivatives for the function $f(x,y) = \cos(xy^2)$. Verify that the mixed second-order partial derivatives are equal.
+ \item Give a convincing (but not rigorous -- no $\epsilon - \delta$) argument that
+\[
+ \lim_{(x,y)\to (0,0)}\frac{x^2y+y^3}{x^2+y^2} = 0.
+\]
+ \item Show that $\displaystyle \lim_{(x,y)\to (0,0)}\frac{xy^3}{x^2+y^6}$ does not exist.
+
+(Hint: find a curve through the origin such that the limit is not zero if you approach the origin along that curve.)
+
+
+\item Find the equation of the tangent plane to the graph $z=x^3+y^3-6xy$ at the point $(1,2,-3)$.
+\pagebreak
+\item In one variable we define the derivative by
+\[
+ f'(x) = \lim_{h\to 0}\frac{f(x+h)-f(x)}{h}.
+\]
+Suppose $f:D\subseteq \R^n\to \R$ is a function of $n$ variables. To simplify notation, let us use the vector $\mathbf{x}$ to stand for the point $(x_1,x_2,\ldots, x_n)$, and let the vector $\mathbf{h}$ represent the point $(h_1,h_2,\ldots, h_n)$. (The added bonus of using vectors is that $\mathbf{x}+\mathbf{h}$ makes sense!)
+
+We might be tempted to generalize the definition of the derivative to $n$ variables by writing a limit of the form
+\[
+ f'(\mathbf{x}) = \lim_{\mathbf{h}\to \mathbf{0}}\frac{f(\mathbf{x}+\mathbf{h})-f(\mathbf{x})}{\mathbf{h}}.
+\]
+What are two problems with attempting such a definition?
+
+Hint: one problem is with the denominator -- does that even make sense? For the other problem, think about taking partial derivatives. How often does the derivative with respect to $x$ equal the derivative with respect to $y$? With that in mind, how likely is it that the above limit exists?
+
+
+ 
+\end{enumerate}
+
+\end{document}
+ 

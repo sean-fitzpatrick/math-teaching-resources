@@ -1,0 +1,158 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\title{Math 1410 Assignment \#2 Solutions\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+
+\item Recall that an $n\times n$ matrix $A$ is {\bf symmetric} if $A^T=A$, and {\bf antisymmetric} if $A^T=-A$.
+\begin{enumerate}
+ \item Show that $B+B^T$ is symmetric for {\bf any} $n\times n$ matrix $B$.
+
+\bigskip
+
+\noindent {\bf Solution:} We have
+\[
+ (B+B^T)^T = B^T+(B^T)^T = B^T+B = B+B^T,
+\]
+so $B+B^T$ is symmetric.
+
+\bigskip
+
+ \item Show that $B-B^T$ is antisymmetric for {\bf any} $n\times n$ matrix $B$.
+
+\bigskip
+
+\noindent {\bf Solution:} As above, we have
+\[
+ (B-B^T)^T = B^T-(B^T)^T = B^T-B = -(B-B^T),
+\]
+which shows that $B-B^T$ is antisymmetric.
+
+\bigskip
+
+ \item Given an arbirary $n\times n$ matrix $B$, find a symmetric matrix $U$ and an antisymmetric matrix $V$ such that $B=U+V$.
+
+\bigskip
+
+\noindent {\bf Solution:} Since $(kA)^T = kA^t$ for any matrix $A$, it follows from parts (a) and (b) that 
+\[
+ U = \frac{1}{2}(B+B^T) \quad \text{ and } \quad V = \frac{1}{2}(B-B^T)
+\]
+are symmetric and anti-symmetric, respectively. Moreover, we have
+\[
+ U+V = \frac{1}{2}(B+B^T)+\frac{1}{2}(B-B^T) = B.
+\]
+
+
+\bigskip
+
+\end{enumerate}
+\item For each of the following statements, either explain why it is true, or give an example showing that it is false:
+\begin{enumerate}
+ \item If $A\neq 0$ is a square matrix, then $A$ is invertible.
+
+\bigskip
+
+\noindent {\bf Solution:} This is false. For example, the matrix $A=\begin{bmatrix}1&2\\1&2\end{bmatrix}$ is non-zero, but it is not invertible, since the row-echelon form of $A$ has a row of zeros.
+
+\bigskip
+
+ \item If $A$ and $B$ are both invertible, then $A+B$ is invertible.
+
+\bigskip
+
+\noindent {\bf Solution:} This is false. We know that $A=\begin{bmatrix}1&0\\0&1\end{bmatrix}$ and $B=\begin{bmatrix}-1&0\\0&-1\end{bmatrix}$ are both invertible (each one is its own inverse, as can easily be checked); however, $A+B = \begin{bmatrix}0&0\\0&0\end{bmatrix}$ is the zero matrix, which is not invertible.
+
+\bigskip
+
+ \item If $A$ and $B$ are both invertible, then $(A^{-1}B)^T$ is invertible.
+
+\bigskip
+
+\noindent {\bf Solution:} This is true. Since $A^{-1}$ and $B$ are both invertible, so is their product, $A^{-1}B$. Moreover, the property $(X^T)^{-1} = (X^{-1})^T$ proved in class shows that if $X$ is an invertible matrix, then so is $X^T$, so the result follows by setting $X=A^{-1}B$.
+
+
+\bigskip
+
+ \item If $A^4=3I_n$, then $A$ is invertible. (Hint: can you find a matrix $B$ such that $AB=I_n$?)
+
+\bigskip
+
+\noindent {\bf Solution:} Suppose $A^4=3I$. If we let $B= \frac{1}{3}A^3$, then we have
+\[
+ AB = A\left(\frac{1}{3}A^3\right) = \frac{1}{3}A(A^3) = \frac{1}{3}A^4 = \frac{1}{3}(3I)=I.
+\]
+Similarly, we can show that $BA=I$, and thus, by definition, $A$ is invertible, with $A^{-1}=B$.
+
+\bigskip
+
+\end{enumerate}
+\item Simplify the following matrix product:
+\[
+ B^{-1}(AB^T)^T(BA^{-1})A
+\]
+
+\bigskip
+
+\noindent {\bf Solution:} Using the identity $(CD)^T = D^TC^T$ with $C=A$ and $D=B^T$, we have
+\begin{align*}
+ B^{-1}(AB^T)^T(BA^{-1})A& = B^{-1}((B^T)^TA^T)B(A^{-1}A)\\
+& = (B^{-1}B)A^TB(I)\\
+& = IA^TB\\
+& = A^TB.
+\end{align*}
+
+{\bf Note:} The most common error here is to forget to reverse the order when taking the transpose. The second most common error, (which is usually caused by the first) is to forget that we can only cancel a matrix and its inverse when they're adjacent: $A^{-1}AB = B$, but $A^{-1}BA$ can't be simplified. With the matrix $B$ in the way, we can't cancel $A$ and $A^{-1}$.
+
+\bigskip
+
+\item Let $A$ and $B$ be $n\times n$ invertible matrices.
+\begin{enumerate}
+ \item Show that $A^{-1}+B^{-1} = A^{-1}(A+B)B^{-1}$.
+
+\bigskip
+
+\noindent{\bf Solution:} Using the associative and distributive properties of matrix multiplication, we have
+\begin{align*}
+ A^{-1}(A+B)B^{-1} & = [A^{-1}(A+B)]B^{-1}\\
+& = (A^{-1}A+A^{-1}B)B^{-1}\\
+& = (I+A^{-1}B)B^{-1}\\
+& = B^{-1}+A^{-1}BB^{-1}\\
+& = B^{-1}+A^{-1}I\\
+& = A^{-1}+B^{-1}.
+\end{align*}
+
+
+\bigskip
+
+ \item Show that {\bf if} $A+B$ is invertible, then $A^{-1}+B^{-1}$ is also invertible, and find a formula for $(A^{-1}+B^{-1})^{-1}$.
+
+\bigskip
+
+\noindent{\bf Solution:} From part (a) we know that $A^{-1}+B^{-1}$ can be written as the product $A^{-1}(A+B)B^{-1}$, and we're given that all three matrices in this product are invertible. Since the product of invertible matrices is invertible, it follows that $A^{-1}+B^{-1}$ is invertible, and
+\[
+ (A^{-1}+B^{-1})^{-1} = (A^{-1}(A+B)B^{-1})^{-1} = (B^{-1})^{-1}(A+B)^{-1}(A^{-1})^{-1} = B(A+B)^{-1}A.
+\]
+
+
+\end{enumerate}
+
+
+ \end{enumerate}
+\end{document}
+ 

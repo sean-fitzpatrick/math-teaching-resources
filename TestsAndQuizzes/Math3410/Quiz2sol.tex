@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 3410A}\chead{Quiz \# 2}\rhead{Friday, 23\textsuperscript{rd} January, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+{\bf Name: Solutions}
+ \begin{enumerate}
+ \item  Is $\R^2$ a subset of $\C^2$? Why or why not? \points{4}
+
+\bigskip
+
+Well, the answer here is yes, because I typed out the question wrong and wrote subset instead of subspace! Since any real number can be viewed as a complex number with imaginary part zero, given an ordered pair $(x,y)\in\R^2$ we have $(x,y) = (x+i,y+0i)\in \C^2$. So I accidentally gave you a much easier question.
+
+\medskip
+
+As for the more interesting question of whether or not $\R^2$ is a subspace (and the one you might have answered anyway, since it was problem 1.C.5, the answer is no. In spite of the fact that (a) $\R^2$ is a subset of $\C^2$, and (b) $\R^2$ is a vector space, it is not a subspace, since for $U\subseteq V$ to be a subspace of $V$, it must be a subspace {\em using the vector space operations of $V$}. Since $\C^2$ is a complex vector space, scalar multiplication means multiplication by {\em complex} scalars, and $\R^2$ is not closed with respect to this scalar multiplication. For example, $(1,2)\in\R^2$, but $i(1,2) = (i,2i)\notin\R^2$.
+
+
+
+\bigskip
+
+ \item Given that the set $\{1,x,x^2\}$ spans the vector space $V=P_2(\R)$, show that the set \points{6}
+\[
+ \{1-x,x-x^2,x^2\}
+\]
+also spans $V$.
+
+\bigskip
+
+This is basically 2.A.1, but with a particular vector space and particular vectors (and three vectors instead of four). To see this, let $p(x) = a+bx+cx^2$ be an arbitrary element in the span of $\{1,x,x^2\}$. Then
+\begin{align*}
+p(x)&=a+bx+cx^2\\
+&=a(1-x)+(a+b)x+cx^2\\
+&=a(1-x)+(a+b)(x-x^2)+(a+b+c)x^2,
+\end{align*}
+which shows that $p(x)$ is in the span of $\{1-x,x-x^2,x^2\}$.
+
+\medskip
+
+(The strategy here was to notice that the coefficient of $1-x$ had to be $a$, since this is the only vector where 1 appears. Writing $a(1-x)$, we see that there's an extra $-ax$ that we don't want, so we add $ax$ to cancel it, leaving us with $(a+b)x$ instead of $bx$. Now we repeat, replacing $x$ by $x-x^2$, and notice that this introduces an unwanted $-ax^2-bx^2$, that we eliminate by adjusting the coefficient of $x^2$.)
+ \end{enumerate}
+\end{document}

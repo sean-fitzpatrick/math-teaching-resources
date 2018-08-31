@@ -1,0 +1,71 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\title{Math 1410 Assignment \#1\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Friday, January 30, by 5 pm.
+
+\bigskip
+
+This is the first of five written assignments, intended to give you some practice writing out your solutions, and get feedback on your presentation. You will need to provide solutions to the problems below, using the following guidelines:
+\begin{itemize}
+\item Your submitted assignment should be a {\bf good copy} -- figure out the problems first, and then write down organized solutions to each problem. 
+\item A cover page is required. I'll provide a template on Moodle that you can use for this, so you know what to include.
+\item You need to explain your work for each problem. This means your answers should involve actual English words, organized into sentences. A page full of equations with no explanations will not receive full credit. (A good rule of thumb is to imagine your work needs to be read and understood by a classmate who doesn't know how to solve the problem, or to think about what would be useful to your future self when it's time to study for the final exam.)
+\item Group work is permitted, but copying is not. If you're not sure what the difference is, feel free to ask. If you get help solving a problem, you should (a) make sure you completely understand the solution, and (b) re-write the solution for your good copy by yourself, in your own words.
+\item Assignments should be submitted in the appropriate assignment drop box. The drop boxes are on the 5th floor of University Hall, section C, across from the administrative offices for the departments of Mathematics and Computer Science and Modern Languages. 
+\item Late assignments will not be accepted.
+
+\end{itemize}
+\newpage
+\subsection*{Assigned problems}
+\begin{enumerate}
+ \item You empty the change in your pockets to discover pennies, nickels, and dimes totalling \$1.05. If there are 17 coins in total, how many of each coin do you have?
+ 
+ \noindent {\em Note:} There are more variables than equations in this problem, but keep in mind that the number of each coin must be a {\em non-negative integer}. This will eliminate the possibility of infinitely many solutions.
+ 
+ \item We know that every homogeneous system of linear equations has a solution (the trivial solution). The main theorem on homogeneous systems states the following:
+ \begin{quotation}
+ If a homogeneous system of linear equations has more variables than equations, then it has a nontrivial solution. (In fact, it will have infinitely many solutions.)
+ \end{quotation}
+ Using this theorem,
+ \begin{enumerate}
+ \item Show that there is a line through any pair of points $(x_1,y_1)$ and $(x_2,y_2)$ in the plane.
+ \item Show that there is a plane through any three points $(x_1,y_1,z_1)$, $(x_2,y_2,z_2)$, and $(x_3,y_3,z_3)$ in space.
+ \end{enumerate}
+ \noindent {\em Hint \#1:} Every line in the plane has the equation $ax+by+c=0$ for some real numbers $a$, $b$, and $c$, and any plane in three-dimensional space has the equation $ax+by+cz+d=0$ for real numbers, $a,b,c,d$. \\
+ {\em Hint \#2:} Using the theorem above, it is not necessary to actually solve for the equation of the line/plane -- you just need to be able to explain why a solution exists.
+
+ \item Let $A = \begin{bmatrix} 1 & 1 & -1 \end{bmatrix}, B = \begin{bmatrix}
+ 0 & 1 & 2
+ \end{bmatrix}$, and $C = \begin{bmatrix}
+ 3 & 0  & 1
+ \end{bmatrix}$. Show that if 
+ \[
+ rA+sB+tC=\begin{bmatrix}
+ 0 & 0 & 0
+ \end{bmatrix}
+ \]
+ then we must have $r=s=t=0$. 
+ \item In each of the following, either explain why the statement is true, or give an example showing that it is false:
+ \begin{enumerate}
+ \item If $A$ is an $m\times n$ matrix where $m<n$, then $AX=B$ has a solution for every column $B$.
+ \item If $AX=B$ has a solution for some column $B$, then it has a solution for every column $B$.
+ \item If $X_1$ and $X_2$ are solutions to $AX=B$, then $X_1-X_2$ is a solution to $AX=0$.
+ \item If $AB=AC$ and $A\neq 0$, then $B=C$.
+ \item If $A\neq 0$, then $A^2\neq 0$.
+ \end{enumerate}
+ \end{enumerate}
+\end{document}
+ 

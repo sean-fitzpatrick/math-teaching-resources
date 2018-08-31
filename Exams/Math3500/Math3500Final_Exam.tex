@@ -1,0 +1,245 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 80}}
+\chead{MATH 3500}\lhead{FINAL EXAM}\rhead{10th December, 2014}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+10th December 2014, 9:00 am - 12:00 pm\\
+{\bf MATH 3500 - FINAL EXAM}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+\skipline
+
+\vspace{0.5in}
+
+
+\begin{quote}
+
+ 
+ Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+\bigskip
+
+For full credit, you must complete {\bf eight} of the nine problems on the exam, but you can attempt all nine problems. (Yes, a score above 100\% is possible.)
+
+\end{quote}
+
+
+\vspace{0.25in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Problem&Grade\\
+\hline \hline
+\cline{1-2} 1 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 7 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 8 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 9 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/80\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item Let $S$ and $T$ be nonempty subsets of $\R$ such that $s\leq t$ for all $s\in S$ and $t\in T$.
+\begin{enumerate}
+ \item Explain why $S$ is bounded above and $T$ is bounded below. \points{1}
+
+\vspace{1.25in}
+
+ \item Prove that $\sup S\leq \inf T$. \points{5}
+
+\vspace{3.5in}
+
+ \item Give an example of sets $S$ and $T$ as above with $S\cap T\neq \emptyset.$\points{2}
+
+\vspace{1.5in}
+
+ \item Give an example of sets $S$ and $T$ as above where $\sup S = \inf T$ but $S\cap T=\emptyset$. \points{2}
+
+      \end{enumerate}
+\newpage
+\item \begin{enumerate}
+       \item What is the set of all limit points of the set $A = \left\{\dfrac{1}{n}+\dfrac{1}{m} : n,m\in\N\right\}$? \points{4}\\ (A formal proof is not required.)
+
+\vspace{3in}
+
+       \item The closure $\overline{A}$ of a set $A$ is defined to be the union of $A$ and the set of limit points of $A$. \points{6} Prove that $\overline{A} = A\cup \partial A$, where $\partial A$ denotes the boundary of $A$.\\
+(Hint: any limit point of $A$ either belongs to $A$, or it doesn't.)
+
+      \end{enumerate}
+\newpage
+
+\item \begin{enumerate}
+\item Prove that the union of two open sets is open. \points{4}
+
+\vspace{3.25in}
+
+\item Prove that the intersection of two closed sets is closed. \points{3}\\
+
+
+\vspace{2.5in}
+
+\item Prove that the intersection of two compact sets is compact.\points{3}
+
+      \end{enumerate}
+
+\newpage
+
+\item Let $(x_n)$ be a sequence defined by $x_1=1$ and $x_{n+1} = \frac{1}{3}(x_n+1)$ for $n\geq 1$.
+\begin{enumerate}
+\item Find $x_2, x_3$, and $x_4$. \points{2}
+
+\vspace{1.25in}
+
+\item Use induction to prove $(x_n)$ is a decreasing sequence. \points{4}
+
+\vspace{2.75in}
+
+\item Argue that $(x_n)$ is a bounded sequence. (You can use induction, but it isn't necessary.) \points{2}
+
+\vspace{2in}
+
+\item Explain why $\lim x_n$ exists, and find $\lim x_n$. \points{2}
+
+\end{enumerate}
+\newpage
+
+\item \begin{enumerate}
+       \item Suppose that $f:[a,b]\to\R$ is continuous at $c\in [a,b]$, and $f(c)>0$. Prove that there exists an interval $I$ with $c\in I\subseteq [a,b]$ such that $f(x)>0$ for all $x\in I$.  \points{5}\\
+(Hint: use the definition of continuity and choose $\epsilon>0$ wisely.)
+
+\vspace{4in}
+
+       \item Prove (using the definition) that $f(x)=1/x$ is uniformly continuous on $[a,\infty)$ for any $a>0$. \points{5} Why do we know that $f$ cannot be uniformly continuous on $(0,\infty)$?
+      \end{enumerate}
+\newpage
+
+\item \begin{enumerate}
+       \item Prove that if $f:[a,b]\to\R$ is continuous, and $f(x)>0$ for all $x\in [a,b]$, then $1/f$ is bounded on $[a,b]$. \points{5}
+
+\vspace{4in}
+
+
+       \item Prove that for any continuous function $f:[0,1]\to[0,1]$ there exists a point $x\in [0,1]$ such that $f(x)=x$. \points{5}
+
+
+
+      \end{enumerate}
+\newpage
+\item \begin{enumerate}
+       \item Suppose that $f$ is differentiable on $\R$, and $f(0)=0$, $f(1)=1$, and $f(2)=1$. \points{5} Show that $f'(x) = 1/2$ for some $x\in (0,2)$.
+
+\vspace{3.5in}
+
+       \item For which values of $a$ is the function $f(x) = \begin{cases} x^a\sin(1/x) &\text{ if } x\neq 0\\ 0 &\text{ if } x=0\end{cases}$\\ differentiable at $x=0$?\points{5}
+
+      \end{enumerate}
+\newpage
+
+
+\newpage
+
+ \item Let $\displaystyle L(x) = \int_1^x \frac{1}{t}\,dt$, for $x>0$.
+\begin{enumerate}
+ \item Calculate $L'(x)$. \points{2}
+
+\vspace{1.5in}
+
+ \item Prove that $L$ is an increasing function. \points{3}
+
+\vspace{2in}
+
+\end{enumerate}
+
+ Since $L$ is increasing, it is one-to-one. Define a function $E:\R\to(0,\infty)$ by $E = L^{-1}$.
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item Prove that $E(0)=1$ and $E'(x) = E(x)$ for all $x\in\R$. \points{5}\\
+(Hint: use the Chain Rule, and the fact that $L(E(x))=x$ for all $x\in\R$.)
+
+\end{enumerate}
+\newpage
+
+\item Let $f$ and $g$ be bounded functions on $[a,b]$.
+\begin{enumerate}
+ \item Prove that for any partition $P$ of $[a,b]$, $U(f+g,P)\leq U(f,P)+U(g,P)$ \points{5}
+
+\vspace{3.5in}
+
+ \item Conclude that $U(f+g)\leq U(f)+U(g)$. \points{3} ($U(f) = \inf\{U(f,P) : P \text{ is a partition}\}$.)
+
+\vspace{2in}
+
+ \item Give an example where the above inequality is strict. \points{2}\\
+(Hint: $f$ and $g$ won't be integrable, since in that case $U(f+g)=U(f)+U(g)$.)
+\end{enumerate}
+
+
+\end{enumerate}
+\newpage
+
+
+This page was left intentionally blank for rough work. Please do not remove.
+
+
+
+
+
+
+\end{document}

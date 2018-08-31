@@ -1,0 +1,68 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+%\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\ss}{\subseteq}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\title{Math 3500 Assignment \#5\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date}: Friday, October 24, by 6 pm.
+
+\bigskip
+
+{\bf Reminder}: You're free to discuss these problems, and you should ask for help with any you don't understand. (Both office hours and Piazza are available for this purpose, and there are evening help sessions Tuesday, Wednesday and Thursday.) But keep in mind that getting help should involve making sure that you {\em understand} the solution. The assignments count towards your course grade, but ultimately, the main purpose of the assignments is to improve your understanding of the material in order to prepare you for the final exam.
+
+\begin{enumerate}
+ \item (The Contraction Mapping Theorem) Let $f$ be a function defined on all of $\R$, with the property that there exists some $c$ with $0<c<1$, such that for all $x, y\in \R$,
+\[
+ \abs{f(x)-f(y)}\leq c\abs{x-y}.
+\]
+\begin{enumerate}
+ \item Prove that $f$ is continuous on $\R$.
+ \item Choose any point $x\in\R$, and consider the sequence $(x,f(x),f(f(x)),\ldots)$. (That is, the sequence is defined recursively by $x_1=x$ and $x_{n+1}) = f(x_n)$ for $n\geq 1$.) Show that this sequence is a Cauchy sequence.
+ \item Since the sequence in part (b) is Cauchy, it converges. Let $y=\lim x_n$, and prove that $y$ is a {\em fixed point} of $f$. That is, prove that $f(y)=y$.
+ \item Show that $y=\lim x_n$ is the {\bf unique} fixed point of $f$.
+ \item Prove that if $z\in \R$ is any arbirary point, then the sequence $(z,f(z),f(f(z)),\ldots)$ still converges to $y$.
+\end{enumerate}
+\item ({\bf Do not submit}) Let $f$ and $g$ be functions defined on some domain $D\ss\R$, and suppose that both $f$ and $g$ are continuous at $a\in D$.
+\begin{enumerate}
+ \item Show that $\displaystyle \abs{f(x)} = \begin{cases}f(x) & \text{ if } f(x)\geq 0\\ -f(x) & \text{ if } f(x)<0\end{cases}$ is continuous at $a$.
+ \item Let $\max(f,g)(x) = \begin{cases} f(x) & \text{ if } f(x)\geq g(x)\\ g(x) & \text{ if } g(x)\geq f(x)\end{cases}$. Show that
+\[
+ \max(f,g) = \frac{1}{2}(f+g)+\frac{1}{2}\abs{f-g}.
+\]
+ \item Similarly define $\min(f,g)$ and show that $\min(f,g) = \dfrac{1}{2}(f+g)-\dfrac{1}{2}\abs{f-g}$.
+ \item Show that $\max(f,g)$ and $\min(f,g)$ are continuous. (Hint: an $\epsilon$-$\delta$ proof is not required.)
+\end{enumerate}
+
+\item Let $g(x)=\sqrt[3]{x}$.
+\begin{enumerate}
+ \item Show that $g$ is continuous at $c=0$.
+ \item Prove that $g$ is continuous at any point $c\neq 0$. (You might find the identity $a^3-b^3=(a-b)(a^2+ab+b^2)$ helpful.)
+\end{enumerate}
+ \item ({\bf Do not submit}) Explain why any function with domain $\Z\subseteq \R$ is necessarily continuous at every point in its domain.
+ \item Let $h:\R\to\R$ be continuous on $\R$, and let $K=\{x\in \R : h(x)=0\}$. Prove that $K$ is a closed subset of $\R$.
+ \item Show that if $f$ is continuous on $[a,b]$ and $f(x)>0$ for all $x\in [a,b]$, then $1/f$ is bounded on $[a,b]$.
+ \item ({\bf Do not submit}) Prove that $\cos x = x$ for some $x\in (0,\pi/2)$.
+ \item ({\bf Do not submit}) We say that a function $f$ satisfies the {\em intermediate value property} if it satisfies the conclusion of the Intermediate Value Theorem. Show that the function given by $f(x)=\sin (1/x)$ for $x\neq 0$ and $f(0)=0$ has the property, even though it is not continuous at $x=0$.
+
+
+\end{enumerate}
+
+\end{document}
+ 

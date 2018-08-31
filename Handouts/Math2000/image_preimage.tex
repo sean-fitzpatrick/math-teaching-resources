@@ -1,0 +1,116 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage[margin=1in]{geometry}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\di}{\displaystyle}
+%opening
+\title{Handout: Images and preimages for arbirary unions and intersections\\Math 2000, Fall 2015}
+\author{Sean Fitzpatrick}
+
+\begin{document}
+
+\maketitle
+
+Let $\A = \{A_\alpha : \alpha\in I\}$ be an indexed family of subsets of some set $X$, where $I$ is a nonempty index set. Recall that we define unions and intersections of families of sets by
+\begin{align*}
+ \bigcup_{\alpha\in I}A_\alpha &= \{x\in X : x\in A_{\alpha} \text{ for some } \alpha\in I\}\\
+ \bigcap_{\alpha\in I}A_\alpha &= \{x\in X : x\in A_{\alpha} \text{ for all } \alpha\in I\}.
+\end{align*}
+For example, if $I = \{1,2,\ldots, n\}$, then
+\[
+ \bigcup_{\alpha\in I}A_\alpha = \bigcup_{\alpha=1}^nA_\alpha = A_1\cup A_2\cup \cdots\cup A_n,
+\]
+and $x\in A_\alpha$ for some $\alpha\in\{1,2,\ldots, n\}$ means $x\in A_1$, or $x\in A_2$, or..., $x\in A_n$. A similar translation holds for intersections: $x\in \bigcap_{\alpha=1}^nA_\alpha$ means $x\in A_1$, and $x\in A_2$, and..., $x\in A_n$.
+
+Recall that for any function $f:X\to Y$ and subsets $A\subseteq X$ and $B\subseteq Y$, we define:
+\begin{align*}
+ f(A) &= \{f(a) | a\in A\}\subseteq B & &\text{(The \textbf{image} of $A$ under $f$)}\\
+ f^{-1}(B) &= \{a\in A | f(a)\in B\} \subseteq A & & \text{(The \textbf{preimage} of $B$ under $f$).}
+\end{align*}
+
+\noindent {\bf Theorem:} let $f:X\to Y$ be a function, and let $\A = \{A_\alpha : \alpha\in I\}$ be a nonempty family of subsets of $X$, and let $\B=\{B_\beta : \beta\in J\}$ be a nonempty family of subsets of $Y$. Then we have
+\begin{multicols}{2}
+\begin{enumerate}
+ \item $\di f\left(\bigcup_{\alpha\in I}A_\alpha\right) = \bigcup_{\alpha\in I}f(A_\alpha)$
+ \item $\di f\left(\bigcap_{\alpha\in I}A_\alpha\right) \subseteq \bigcap_{\alpha\in I}f(A_\alpha)$
+ \item $\di f^{-1}\left(\bigcup_{\beta\in J}B_\beta\right) = \bigcup_{\beta\in J}f^{-1}(B_\beta)$
+ \item $\di f^{-1}\left(\bigcap_{\beta\in J}B_\beta\right) = \bigcap_{\beta\in J}f^{-1}(B_\beta)$
+\end{enumerate}
+\end{multicols}
+The inclusion in (2) becomes an equality if $f$ is one-to-one. 
+\pagebreak
+
+Note that in the case where $\A = \{S,T\}$  and $\B = \{U,V\}$ consist of two subsets each, these results reduce to the ones given in class; namely,
+\begin{multicols}{2}
+\begin{enumerate}
+ \item $f(S\cup T) = f(S)\cup f(T)$
+ \item $f(S\cap T) \subseteq f(S)\cap f(T)$
+ \item $f^{-1}(U\cup V) = f^{-1}(U)\cup f^{-1}(V)$
+ \item $f^{-1}(U\cap V) = f^{-1}(U)\cap f^{-1}(V)$.
+\end{enumerate}
+\end{multicols}
+You're asked to prove some of these results in the practice problems for Quiz 9. Here, I'll include the proofs for the more general results above. Your proofs will be somewhat simpler, but similar, to these.
+
+\begin{enumerate}
+ \item $\di f\left(\bigcup_{\alpha\in I}A_\alpha\right) = \bigcup_{\alpha\in I}f(A_\alpha)$
+
+\begin{proof}
+ Let $y\in f\left(\bigcup_{\alpha\in I}A_\alpha\right)$. Then $y=f(x)$ for some $x\in \bigcup_{\alpha\in I}A_\alpha$. Since $x\in \bigcup_{\alpha\in I}A_\alpha$,  we must have $x\in A_\gamma$ for some $\gamma\in I$, and thus $y=f(x)\in f(A_\gamma)\subseteq \bigcup_{\alpha\in I}f(A_\alpha)$.
+
+ Conversely, suppose $y\in \bigcup_{\alpha\in I}f(A_\alpha)$. Then $y\in f(A_\gamma)$ for some $\gamma\in I$, so $y=f(x)$ for some $x\in A_\gamma\subseteq \bigcup_{\alpha\in I}A_\alpha$. Thus $x\in \bigcup_{\alpha\in I}A_\alpha$, so $y=f(x)\in f\left(\bigcup_{\alpha\in I}A_\alpha\right)$.
+
+ Thus, we have $f\left(\bigcup_{\alpha\in I}A_\alpha\right) \subseteq \bigcup_{\alpha\in I}f(A_\alpha)$ and $\bigcup_{\alpha\in I}f(A_\alpha)\subseteq f\left(\bigcup_{\alpha\in I}A_\alpha\right)$, and the result follows.
+\end{proof}
+
+ \item $\di f\left(\bigcap_{\alpha\in I}A_\alpha\right) \subseteq \bigcap_{\alpha\in I}f(A_\alpha)$
+
+\begin{proof}
+ Let $y\in f\left(\bigcap_{\alpha\in I}A_\alpha\right)$. Then $y=f(x)$ for some $x\in \bigcap_{\alpha\in I}A_\alpha$. Since $x\in \bigcap_{\alpha\in I}A_\alpha$, we have $x\in A_\alpha$ for all $\alpha\in I$. Thus, $y=f(x)\in f(A_\alpha)$ for all $\alpha\in I$, so $y\in \bigcap_{\alpha\in I}A_\alpha$.
+\end{proof}
+To see that the other inclusion is false in general, consider $f:\R\to\R$ given by $f(x)=x^2$, and let $S=[-2,-1]$ and $T=[1,2]$. Then $S\cap T=\emptyset$, so $f(S\cap T)=\emptyset$, but $f(S)\cap f(T) = [1,4]\cap [1,4]=[1,4]$.
+
+However, suppose that $f$ is one-to-one, and let $y\in \bigcap_{\alpha\in I}f(A_\alpha)$. Then $y\in f(A_\alpha)$ for each $\alpha\in I$, so for each $\alpha\in I$ there exists some $x_\alpha\in A_\alpha$ such that $f(x_\alpha)=y$. But $f$ is one-to-one, so we must have $x_\alpha=x_\beta = x$ for all $\alpha,\beta\in I$. Thus, there exists some $x\in \bigcap A_\alpha$ such that $y=f(x)$, and thus $y\in f\left(\bigcap A_\alpha\right)$.
+
+ \item $\di f^{-1}\left(\bigcup_{\beta\in J}B_\beta\right) = \bigcup_{\beta\in J}f^{-1}(B_\beta)$
+
+\begin{proof}
+ If $x\in f^{-1}\left(\bigcup_{\beta\in J}B_\beta\right)$, then $f(x)\in \bigcup_{\beta\in J}B_\beta$, so $f(x)\in B_\gamma$ for some $\gamma\in J$. Since $f(x)\in B_\gamma$, we have $x\in f^{-1}(B_\gamma)$ by definition of preimage. Since $f^{-1}(B_\beta)\subseteq \bigcup_{\beta\in J}f^{-1}(B_\beta)$, we have $x\in \bigcup_{\beta\in J}f^{-1}(B_\beta)$.
+
+ Conversely, suppose $x\in \bigcup_{\beta\in J}f^{-1}(B_\beta)$. Then $x\in f^{-1}(B_\gamma)$ for some $\gamma\in J$, so $f(x)\in B_\gamma$, and since $B_\gamma\subseteq\bigcup_{\beta\in J}(B_\beta)$, we have $f(x)\in \bigcup_{\beta\in J}B_\beta$, and thus $x\in f^{-1}\left(\bigcup_{\beta\in J}B_\beta\right)$.
+\end{proof}
+
+ \item $\di f^{-1}\left(\bigcap_{\beta\in J}B_\beta\right) = \bigcap_{\beta\in J}f^{-1}(B_\beta)$
+
+\begin{proof}
+ If $x\in f^{-1}\left(\bigcap_{\beta\in J}B_\beta\right)$, then $f(x)\in \bigcap_{\beta\in J}B_\beta$, so $f(x)\in B_\gamma$ for all $\gamma\in J$, and thus $x\in f^{-1}(B_\beta)$ for all $\gamma\in J$. Thus, we have $x\in \bigcap_{\beta\in J}f^{-1}(B_\beta)$.
+
+ Conversely, suppose $x\in \bigcap_{\beta\in J}f^{-1}(B_\beta)$. Then $x\in f^{-1}(B_\gamma)$ for all $\gamma\in J$, so $f(x)\in B_\gamma$, for all $\gamma\in J$ and thus $f(x)\in \bigcap_{\beta\in J}B_\beta$, so we have $x\in f^{-1}\left(\bigcap_{\beta\in J}B_\beta\right)$.
+\end{proof}
+
+\end{enumerate}
+Finally, we'll mention the two other properties given in class: given $f:A\to B$ and any subsets $S\subseteq A$ or $U\subseteq B$, we have
+\[
+ S\subseteq f^{-1}(f(S)) \quad \text{ and } \quad f(f^{-1}(U))\subseteq U
+\]
+There's nothing more to say here, since each of these properties only involves one set. If we consider the example $f:\R\to\R$ given by $f(x)=x^2$, let $S=[0,1]$ and $U=[-1,1]$. Then
+\[
+ f^{-1}(f(S)) = f^{-1}(f([0,1])) = f^{-1}([0,1]) = [-1,1],\text{ and } [0,1]\subseteq [-1,1],
+\]
+and
+\[
+ f(f^{-1}(U))=f(f^{-1}([-1,1])) = f([0,1]) = [0,1] \subseteq [-1,1].
+\]
+For the first inclusion in general, note that if $x\in S$, then $f(x)\in f(S)$, so $x\in f^{-1}(f(S)) = \{a\in A|f(a)\in f(S)\}$. If $f$ is one-to-one and $x\in f^{-1}(f(S))$, then $f(x)\in f(S)$, so there exists some $y\in S$ such that $f(y)=f(x)$, and thus $x=y$, since $f$ is one-to-one, so $x\in S$, and thus $S=f^{-1}(f(S))$ if $f$ is one-to-one.
+
+For the second inclusion, not that if $y\in f(f^{-1}(U))$ then $y=f(x)$ for some $x\in f^{-1}(U)$, and thus $y\in U$, since $x\in f^{-1}(U)$ if and only if $f(x)\in U$. If $f$ is onto and $y\in U$, then there exists some $x\in A$ such that $f(x)=y$. But $f(x)=y\in U$ means that $x\in f^{-1}(U)$, and thus $y=f(x)\in f(f^{-1}(U))$.
+
+\end{document}

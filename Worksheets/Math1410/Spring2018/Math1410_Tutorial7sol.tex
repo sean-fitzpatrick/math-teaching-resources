@@ -1,0 +1,303 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}      
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+{\bf MATH 1410 - Tutorial \#7 Solutions}
+\end{center}
+
+
+Additional practice: (\textbf{do not submit}).
+\begin{enumerate}
+\item Determine if the following sets of vectors are linearly independent:
+\begin{enumerate}
+\item $\left\{\bbm 3\\-2\\0\ebm, \bbm 1\\0\\-2\ebm, \bbm 0\\2\\-4\ebm\right\}$
+
+Consider the equation $x\bbm 1\\0\\-2\ebm+y \bbm 0\\2\\-4\ebm+z\bbm 3\\-2\\0\ebm=\bbm 0\\0\\0\ebm$, which is equivalent to the matrix equation
+\[
+\bbm 1&0&3\\0&2&-2\\-2&-4&3\ebm\bbm x\\y\\z\ebm = \bbm 0\\0\\0\ebm.
+\]
+(We changed the order of the vectors for convenience, since now we have a leading 1 in the $(1,1)$-entry of our matrix.) We know that this equation can be solved by reducing the corresponding augmented matrix:
+\[
+\bam{3} 1&0&3&0\\0&2&-2&0\\-2&-4&3&0\eam \xrightarrow[\frac12 R_2\to R_2]{R_3+2R_1\to R_3}\bam{3}1&0&3&0\\0&1&-1&0\\0&-4&9\eam\\
+\xrightarrow{R_3+4R_2\to R_3}\bam{3}1&0&3&0\\0&1&-1&0\\0&0&5&0\eam
+\]
+Dividing the last row by 5 puts us in row-echelon form, and since there is a leading 1 in each of the $x$, $y$, and $z$ columns, we know that the only solution is the unique solution $x=y=z=0$, and we can conclude that the vectors are linearly independent.
+
+\item $\left\{\bbm 1\\-4\\2\ebm, \bbm 2\\-3\\1\ebm, \bbm -1\\-6\\4\ebm\right\}$
+
+We look for solutions to the equation $x\bbm 1\\-4\\2\ebm+y \bbm 2\\-3\\1\ebm+z \bbm -1\\-6\\4\ebm = \bbm 0\\0\\0\ebm$. This corresponds to the system
+\[\arraycolsep1pt
+\begin{array}{ccccccc}
+x&+&2y&-&z&=&0\\
+-4x&-&3y&-&6z&=&0\\
+2x&+&y&+&4z&=&0
+\end{array},
+\]
+which we solve by reducing the corresponding augmented matrix, as usual:
+\begin{align*}
+\bam{3} 1&2&-1&0\\-4&-3&-6&0\\2&1&4&0\eam \xrightarrow[R_3-2R_1\to R_3]{R_2+4R_1\to R_2} &\bam{3} 1&2&-1&0\\0&5&-10&0\\0&-3&6&0\eam\\
+\xrightarrow{\frac15 R_2\to R_2}&\bam{3} 1&2&-1&0\\0&1&-2&0\\0&-3&6&0\eam\\
+\xrightarrow{R_3+3R_2\to R_3}&\bam{3} 1&2&-1&0\\0&1&-2&0\\0&0&0&0\eam\\
+\xrightarrow{R_1-2R_2\to R_1}&\bam{3} 1&0&3&0\\0&1&-2&0\\0&0&0&0\eam
+\end{align*}
+This time, we see that non-trivial solutions exist: we can take $x=-3z$ and $y=2z$, where $z$ can be any real number. In particular, if $z=1$, we find
+\[
+-3\bbm 1\\-4\\2\ebm+2 \bbm 2\\-3\\1\ebm+ \bbm -1\\-6\\4\ebm = \bbm 0\\0\\0\ebm.
+\]
+
+\end{enumerate}
+
+\item For each set of vectors in the previous problem, determine whether or not the vectors\\ $\vec{v} = \bbm 2\\-1\\3\ebm$ and $\vec{w} = \bbm -3\\2\\0\ebm$ belong to the span of the set.
+
+The first set of vectors is linearly independent, and any three linearly independent vectors in $\R^3$ span all of $\R^3$, so both $\vec{v}$ and $\vec{w}$ belong to the span. (Notice that no matter what numbers we put to the right of the vertical bar in the augmented matrix, we will have a unique solution.)
+
+I'll leave it as an exercise for you to determine what those unique solutions are.
+
+Since the second set of vectors is not linearly independent, a more careful inspection is needed. The equations
+\[
+x\bbm 1\\-4\\2\ebm+y \bbm 2\\-3\\1\ebm+z \bbm -1\\-6\\4\ebm = \bbm 2\\-1\\3\ebm \quad \text{ and } \quad x\bbm 1\\-4\\2\ebm+y \bbm 2\\-3\\1\ebm+z \bbm -1\\-6\\4\ebm=\bbm -3\\2\\0\ebm
+\]
+correspond to matrix equations 
+\[
+\bbm 1&2&-1\\-4&-3&-6\\2&1&4\ebm\bbm x\\y\\z\ebm=\bbm 2\\-1\\3\ebm \quad \text{ and } \quad \bbm 1&2&-1\\-4&-3&-6\\2&1&4\ebm\bbm x\\y\\z\ebm = \bbm -3\\2\\0\ebm.
+\]
+Since the coefficient matrix is the same for both, we can solve both equations simultaneously by adding a second column to the right of the vertical bar in our augmented matrix. We have
+\begin{align*}
+\left[\begin{array}{ccc|c|c}
+1&2&-1&2&-3\\
+-4&-3&-6&-1&2\\
+2&1&4&3&0
+\end{array}\right] \xrightarrow[R_3-2R_1\to R_3]{R_2+4R_1\to R_2}
+&\left[\begin{array}{ccc|c|c}
+1&2&-1&2&-3\\
+0&5&-10&7&-10\\
+0&-3&6&-1&6
+\end{array}\right]\\
+\xrightarrow{\frac15 R_2\to R_2}
+&\left[\begin{array}{ccc|c|c}
+1&2&-1&2&-3\\
+0&1&-2&7/5&-2\\
+0&-3&6&-1&6
+\end{array}\right]\\
+\xrightarrow{R_3+3R_2\to R_3}
+&\left[\begin{array}{ccc|c|c}
+1&2&-1&2&-3\\
+0&1&-2&7/5&-2\\
+0&0&0&16/5&0
+\end{array}\right]
+\end{align*}
+Looking at the first of the two constants columns, we see that there cannot be a solution using the vector $\vec{v}$ for the constants, so this vector is not in the span.
+
+The zero at the bottom of the right-most column tells us that we will be able to solve using the vector $\vec{w}$ for the constants. Indeed, if we drop the $\vec{v}$ column and continue, we have
+\[
+\bam{3}1&2&-1&-3\\
+0&1&-2&-2\\
+0&0&0&0\eam \xrightarrow{R_1-2R_2\to R_1} \bam{3}1&0&3&1\\0&1&-2&-2\\0&0&0&0\eam.
+\]
+From here, we find the solution $x=1-3z$ and $y=-2+2z$, where $z$ is free. Putting $z=0$, we get the solution $x=1$, $y=-2$, $z=0$, and we can confirm that
+\[\bbm 1\\-4\\2\ebm-2 \bbm 2\\-3\\1\ebm+0 \bbm -1\\-6\\4\ebm=\bbm -3\\2\\0\ebm.
+\]
+Note that if we put $z=t$ and input the general solution, we have
+\begin{align*}
+(1-3t)\bbm 1\\-4\\2\ebm+(-2+2t)\bbm 2\\-3\\1\ebm + t\bbm -1\\-6\\4\ebm & =  \bbm -3\\2\\0\ebm\\
+\left(\bbm 1\\-4\\2\ebm-2 \bbm 2\\-3\\1\ebm\right)+t\left(-3\bbm 1\\-4\\2\ebm+2\bbm 2\\-3\\1\ebm + 1\bbm -1\\-6\\4\ebm\right) & = \bbm -3\\2\\0\ebm\\
+\left(\bbm 1\\-4\\2\ebm-2 \bbm 2\\-3\\1\ebm\right)+t\bbm 0\\0\\0\ebm &= \bbm -3\\2\\0\ebm
+\end{align*}
+So we can make sense of why there are infinitely many solutions when there is a parameter: when testing for independence, we confirmed that 
+$
+-3\bbm 1\\-4\\2\ebm+2 \bbm 2\\-3\\1\ebm+ \bbm -1\\-6\\4\ebm = \bbm 0\\0\\0\ebm,
+$
+and this is precisely what is being multiplied by $t$. We can choose any value we want for $t$ because $t$ times the zero vector is still the zero vector, no matter what $t$ is!
+\end{enumerate}
+
+
+\newpage
+%\thispagestyle{empty}
+
+\textbf{Assigned problems}
+
+ \begin{enumerate}
+\item Let $\vec{u},\vec{v},\vec{w}$ be vectors in $\R^n$. Answer the following as precisely as possible:
+\begin{enumerate}
+\item What is a \textbf{linear combination} of $\vec{u}$, $\vec{v}$, and $\vec{w}$?
+
+A \textbf{linear combination} of $\vec{u},\vec{v},\vec{w}$ is any expression of the form $a\vec{u}+b\vec{v}+c\vec{w}$, where $a,b,c$ are scalars.
+
+\item What is the \textbf{span} of $\vec{u}$, $\vec{v}$, and $\vec{w}$?
+
+The \textbf{span} of $\vec{u},\vec{v},\vec{w}$ is the set of all linear combinations that can be formed from these vectors. That is,
+\[
+\operatorname{span}\{\vec{u},\vec{v},\vec{w}\} = \{a\vec{u}+b\vec{v}+c\vec{w}\,|\, a,b,c\in\R\}.
+\]
+
+\item What does it mean to say that $\{\vec{u},\vec{v},\vec{w}\}$ is linearly independent?
+
+The vectors $\vec{u},\vec{v},\vec{w}$ are \textbf{linearly independent} if the only solution to the equation
+\[
+x\vec{u}+y\vec{v}+z\vec{w}=\vec{0},
+\]
+for scalars $x,y,z$, is $x=y=z=0$.
+
+
+\end{enumerate}
+\item Find the basic solutions of the homogeneous system \hspace{24pt} $\arraycolsep1pt
+\begin{array}{ccccccccc}
+x&-&2y&+&z& & &=&0\\
+-2x&+&y&-&3z&-&w&=&0\\
+ & &3y&+&z&+&w&=&0
+\end{array}
+$.
+
+We set up our augmented matrix and reduce:
+\begin{align*}
+\bam{4}
+1&-2&1&0&0\\
+-2&1&-3&-1&0\\
+0&3&1&1&0
+\eam \xrightarrow{R_2+2R_1\to R_2}& 
+\bam{4}
+1&-2&1&0&0\\
+0&-3&-1&-1&0\\
+0&3&1&1&0
+\eam \xrightarrow{R_3+R_2\to R_3}
+\bam{4}
+1&-2&1&0&0\\
+0&-3&-1&-1&0\\
+0&0&0&0&0
+\eam\\
+\xrightarrow{-\frac13 R_2\to R_2}&
+\bam{4}
+1&-2&1&0&0\\
+0&1&1/3&1/3&0\\
+0&0&0&0&0
+\eam \xrightarrow{R_1+2R_2\to R_1}
+\bam{4}
+1&0&5/3&2/3&0\\
+0&1&1/3&1/3&0\\
+0&0&0&0&0
+\eam
+\end{align*}
+From here we see that $z$ and $w$ are free variables, while $x=-5/3z-2/3w$ and $y=-1/3z-1/3w$. In vector form, we have
+\[
+\bbm x\\y\\z\\w\ebm = \bbm -5/3z-2/3w\\-1/3z-1/3w\\z\\w\ebm = z\bbm-5/3\\-1/3\\1\\0\ebm + w\bbm -2/3\\-1/3\\0\\1\ebm,
+\]
+so our basic solutions are $\bbm-5/3\\-1/3\\1\\0\ebm$ and $\bbm -2/3\\-1/3\\0\\1\ebm$.
+
+\newpage
+
+\item The following problems can be answered without doing any computations (but be sure to justify your answer):
+\begin{enumerate}
+\item Is the set of vectors $\left\{\bbm 2\\-1\ebm, \bbm 1\\-3\ebm, \bbm 4\\7\ebm\right\}$ linearly independent?
+
+They can't be, since this is a set of three vectors in $\R^2$, and at most two vectors in $\R^2$ can be independent.
+
+\item Can the vectors $\left\{\bbm 1\\-1\\1\ebm, \bbm 2\\-2\\2\ebm, \bbm -3\\3\\-3\ebm\right\}$ span all of $\R^3$?
+
+No, they can't, since all three vectors are parallel, so they only span a line through the origin.
+
+\item Let $\vec{u}$ and $\vec{v}$ be vectors in $\R^3$. Will the set $\{\vec{u},\vec{v}, \vec{u}\times\vec{v}\}$ always be linearly independent? If not, what can go wrong?
+
+If $\vec{u}$ and $\vec{v}$ are parallel (or if either one is zero), then $\vec{u}\times \vec{v}=\vec{0}$, and any set containing the zero vector is linearly dependent. However, if $\vec{u}$ and $\vec{v}$ are non-zero, non-parallel vectors, then they span a plane, and we know that $\vec{u}\times \vec{v}$ is a normal vector for that plane, so it can't possibly lie in the plane, and in this case the vectors are independent.
+
+\end{enumerate}
+
+\item Let $\vec{u} = \bbm 1\\-2\\0\ebm$ and $\vec{v} = \bbm 0\\-1\\3\ebm$. Determine a nonzero vector $\vec{w}$ such that the set $\{\vec{u},\vec{v},\vec{w}\}$ is:
+\begin{enumerate}
+\item Linearly dependent: Any linear combination of $\vec{u}$ and $\vec{v}$ will do; for example, $\vec{w}=\vec{v}$, or $\vec{w}=2\vec{u}$, or $\vec{w}=2\vec{u}-3\vec{v}$.
+
+
+
+\item Linearly independent: Based on our answer for 3(c), taking $\vec{w}=\vec{u}\times \vec{v}$ should do the job. (Since $\vec{u}$ and $\vec{v}$ are not parallel, the set of all linear combinations $s\vec{u}+t\vec{v}$ is a plane. To get an independent set, we need to ensure that $\vec{w}$ is not a linear combination of $\vec{u}$ and $\vec{v}$, which means we can take any vector that does not lie in this plane. Since the cross product gives the normal vector, it certainly does not lie in the plane.)
+
+Of course, this is a trick that is specialized to $\R^3$. What if we didn't have this trick available? Well, we would need to ensure that $\vec{w}$ is not in the span of $\vec{u}$ and $\vec{v}$, which means that we need to guarantee that there are no solutions to the equation $x\vec{u}+y\vec{v}=\vec{w}$. Writing $\vec{w}=\bbm a\\b\\c\ebm$ we set up and reduce the corresponding augmented matrix:
+\[
+\bam{2}1&0&a\\-2&-1&b\\0&3&c\eam \xrightarrow{R_2+2R_1\to R_2} \bam{2} 1&0&a\\0&-1&b+2a\\0&3&c\eam\xrightarrow{R_3+3R_2\to R_3}\bam{2} 1&0&a\\0&-1&b+2a\\0&0&c+3b+6a\eam
+\]
+From here, we see that the system will be inconsistent, and thus, $\{\vec{u},\vec{v},\vec{w}\}$ is independent, as long as $6a+3b+c\neq 0$.
+
+(This, by the way, amounts to saying that $\vec{w}$ is not in the plane spanned by $\vec{u}$ and $\vec{v}$ --- if you compute $\vec{u}\times \vec{v}$ to get the normal vector, you'll find that $6x+3y+z=0$ is exactly the equation of the plane!)
+\end{enumerate}
+\newpage
+
+\item Show that the vectors $\bbm 1\\2\\-1\ebm, \bbm 0\\1\\-2\ebm, \bbm 3\\4\\1\ebm$ are linearly dependent.
+
+Linear dependence means that we can find a non-trivial solution to the vector equation
+\[
+x\bbm 1\\2\\-1\ebm+y \bbm 0\\1\\-2\ebm+z \bbm 3\\4\\1\ebm=\bbm 0\\0\\0\ebm.
+\]
+Combining the vectors on the left-hand side, we have
+\[
+\bbm x+0y+3z\\2x+y+4z\\-z-2y+z\ebm = \bbm 0\\0\\0\ebm,
+\]
+and equating components of our two vectors gives us a homogeneous system of three equations in three variables. We set up the augmented matrix for this system and reduce:
+\[
+\bam{3}1&0&3&0\\2&1&4&0\\-1&-2&1&0\eam \xrightarrow[R_3+R_1\to R_3]{R_2-2R_1\to R_2}\bam{3}1&0&3&0\\0&1&-2&0\\0&-2&4&0\eam \xrightarrow{R_3+2R_2\to R_3}\bam{3}1&0&3&0\\0&1&-2&0\\0&0&0&0\eam
+\]
+From here we can read off the general solution $x=-3t, y=2t, z=t$, where $t$ can be any real number. Since there is no restriction on $z=t$, we see that there do indeed exist non-trivial solutions, so the vectors are linearly dependent, as required.
+
+For example, setting $t=1$ gives $x=-3, y=2, z=1$, and we can easily confirm that 
+\[
+-3\bbm 1\\2\\-1\ebm+2 \bbm 0\\1\\-2\ebm+ \bbm 3\\4\\1\ebm=\bbm 0\\0\\0\ebm.
+\]
+
+\item Challenge: Determine a condition on  $a$, $b$, and $c$ that guarantees $\bbm a\\b\\c\ebm$ belongs to the span of the vectors in the previous problem.
+
+For a given $a,b,c$ we need to determine if there exist scalars $x,y,z$ such that
+\[x\bbm 1\\2\\-1\ebm+y \bbm 0\\1\\-2\ebm+z \bbm 3\\4\\1\ebm=\bbm a\\b\\c\ebm.\]
+This corresponds to a non-homogeneous system with the same left-hand sides as above, but $a,b,c$ replacing the zeros on the right. Since the left-hand sides are the same, we perform the same row operations on our augmented matrix as before:
+\[
+\bam{3}1&0&3&a\\2&1&4&b\\-1&-2&1&c\eam \xrightarrow[R_3+R_1\to R_3]{R_2-2R_1\to R_2}\bam{3}1&0&3&a\\0&1&-2&b-2a\\0&-2&4&c+a\eam \xrightarrow{R_3+2R_2\to R_3}\bam{3}1&0&3&a\\0&1&-2&b-2a\\0&0&0&c-3a+2b\eam
+\]
+Our system has no solution if the last entry in our matrix is non-zero; thus, the vector $\bbm a\\b\\c\ebm$ is in the span if and only if $c-3a+2b=0$.
+
+(As one might expect, if we replace $a,b,c$ with $x,y,z$, we get the equation $3x-2y-z=0$, and this is indeed the equation of the plane spanned by the vectors $\vec{u}$ and $\vec{v}$.)
+ \end{enumerate}
+ 
+\end{document}

@@ -1,0 +1,346 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage[cmtip, all]{xy}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\author{Sean Fitzpatrick}
+\title{Jordan Canonical Form}
+
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\jcf}{JCF}
+
+\begin{document}
+\maketitle
+
+Let $T\in\L(V)$ be a linear operator on a complex vector space $V$ of dimension $n$, and suppose that $\lambda_1,\lambda_2,\ldots, \lambda_m$ are the distinct eigenvalues of $T$. There are two polynomials associated with $T$ and its eigenvalues:
+
+\begin{enumerate}
+ \item The {\bf characteristic polynomial} $c_T(z)$, given by 
+\[
+ c_T(z)=(z-\lambda_1)^{k_1}(z-\lambda_2)^{k_2}\cdots(z-\lambda_m)^{k_m},
+\]
+where the numbers $k_1,\ldots, k_m\in\mathbb{N}$ are the {\bf multiplicities} of the eigenvalues, given by
+\[
+ k_j = \dim G(\lambda_j,T) = \dim \nul (T-\lambda_j I)^n.
+\]
+Here, $G(\lambda_j,T)$ is the generalized eigenspace of $T$ associated to the eigenvalue $\lambda_j$. Since 
+\[
+ V=G(\lambda_1,T)\oplus G(\lambda_2,T)\oplus\cdots\oplus G(\lambda_m,T),
+\]
+we have that $k_1+k_2+\cdots +k_m = n$, so the degree of the characteristic polynomial is equal to the dimension of $V$.
+
+ \item The {\bf minimal polynomial} $m_T(z)$, which is the {\bf unique} monic\footnote{A monic polynomial is one such that the coefficient of the highest power of $z$ is equal to 1.} polynomial of smallest degree such that $m_T(T)=0$.
+
+\end{enumerate}
+The main fact about the minimal polynomial is that the zeros of $m_T$ are precisely the eigenvalues of $T$. This means that $m_T$ can be written in the form\footnote{Recall that we're working over $\mathbb{C}$, so every polynomial can be completely factored.}
+\[
+ m_T(z) = (z-\lambda_1)^{l_1}(z-\lambda_2)^{l_2}\cdots (z-\lambda_m)^{l_m},
+\]
+for integers $l_1,\ldots, l_m\in \mathbb{N}$. Recall that the Cayley-Hamilton theorem tells us that $c_T(T)=0$, so the degree of $c_T$ has to be greater than or equal to $m_T$, and since both polynomials have the same zeros, it follows that the characteristic polynomial is always a multiple of the minimal polynomial. From this we can conclude that
+\[
+ 1\leq l_j\leq k_j \text{ for all } j=1,\ldots, m.
+\]
+\begin{definition}
+ We say that a matrix $A$ is in {\bf Jordan Canonical Form} if $A$ has block diagonal form
+\[
+ A=\begin{bmatrix}
+  A_1 &0&\cdots &0\\0&A_2&\cdots &0\\ \vdots & & \ddots & \vdots\\0&0&\cdots& A_m\end{bmatrix},
+ \]
+where each block $A_j$ (a {\bf Jordan block}) is of the form
+\[
+ A_j = \begin{bmatrix}
+        \lambda_j&1&0&\cdots & 0\\
+ 0&\lambda_j&1&\cdots & 0\\
+ \vdots& &&\ddots&\vdots\\
+0&0&\cdots&\lambda_j &1\\
+0&0&\cdots&0 &\lambda_j
+       \end{bmatrix}
+\]
+We say that a basis $B=\{v_1,v_2,\ldots, v_n\}$ for $V$ is a {\bf Jordan basis} if the matrix $\M(T)$ of $T$ with respect to $B$ is in Jordan Canonical Form.
+\end{definition}
+Note that the Jordan Canonical Form is unique, up to permutation of the Jordan blocks. Changing the order of the Jordan blocks amounts to changing the order in which we list the eigenvalues. Note however that it's possible to have Jordan blocks of different size for the same eigenvalue. For example, the matrix $A=\begin{bmatrix}2&0&0\\0&2&1\\0&0&2\end{bmatrix}$ has 2 as its only eigenvalue, and has one $1\times 1$ Jordan block and one $2\times 2$ Jordan block. Another acceptable Jordan Canonical Form for this matrix would be $\begin{bmatrix}2&1&0\\0&2&0\\0&0&2\end{bmatrix}$.
+
+\bigskip
+
+The relevance of the minimal polynomial for the Jordan Canonical Form is the following:
+\begin{quotation}
+ {\bf The powers $l_1,\ldots, l_m$ in the minimal polynomial tell us the size of the largest Jordan block for the corresponding eigenvalues $\lambda_1,\ldots, \lambda_m$.}
+\end{quotation}
+As a corollary of this, we have
+\begin{theorem}
+ An operator $T\in\L(V)$ is diagonalizable if and only if there are no repeated roots in the minimal polynomial of $T$.
+\end{theorem}
+You'll recall that a repeated root in the characteristic polynomial does not spell doom for the diagonalization of an operator. If an eigenvalue has multiplicity greater than one, we have to calculat the dimension of the eigenspace to determine whether it is equal to, or less than, the multiplicity.
+
+\begin{example}
+ Suppose that an operator $T$ has characteristic polynomial $c_T(z) = (z-1)^2(z-2)^4$ and minimal polynomial $m_T(z) = (z-1)(z-2)^2$. What are the possible Jordan Canonical Forms for $\M(T)$?
+
+\bigskip
+
+{\bf Solution:} We know that we must have two $1\times 1$ Jordan blocks for $\lambda=1$. For $\lambda=2$, there's actually some ambiguity: we could have two $2\times 2$ Jordan blocks, or one $2\times 2$ Jordan block and two $1\times 1$ Jordan blocks. Thus, there are two possible JCFs:
+\[
+ \M(T) = \begin{bmatrix}1&0&0&0&0&0\\
+          0&1&0&0&0&0\\
+          0&0&2&1&0&0\\
+          0&0&0&2&0&0\\
+          0&0&0&0&2&1\\
+          0&0&0&0&0&2
+         \end{bmatrix}
+\text{ or }
+\M(T) = \begin{bmatrix}1&0&0&0&0&0\\
+          0&1&0&0&0&0\\
+          0&0&2&0&0&0\\
+          0&0&0&2&0&0\\
+          0&0&0&0&2&1\\
+          0&0&0&0&0&2
+         \end{bmatrix}.
+\]
+\end{example}
+We'll now proceed with a couple of computational examples for finding the Jordan Canonical Form of a matrix. The basis for the algorithm is the following:
+\begin{theorem}
+ Suppose an operator $N\in\L(U)$ is nilpotent, where $U\subseteq V$ is a subspace of dimension $k$. If $u\in U$ is such that $N^{l-1}u\neq 0$ but $N^{l}u=0$, then the vectors
+\[
+ u, Nu, N^2u,\ldots, N^{l-1}u
+\]
+are linearly independent. 
+\end{theorem}
+It follows that we can form a basis for $U$ using the following steps:
+\begin{enumerate}
+ \item Choose some vector $u_1\neq 0$, and compute $Nu_1, N^2u_1,\ldots$ until you reach the first integer $l$ such that $N^lu_1=0$.
+ \item If $l=k$, the set $\{u_1,Nu_1,\ldots, N^{k-1}u_1\}$ forms a basis for $U$.
+ \item If $l<k$, choose some vector $u_2$ not in the span of the vectors above, and continue.
+\end{enumerate}
+Well, almost. What ends up happeing in practice is the following:
+\begin{enumerate}
+ \item Find a basis $\{x_1,\ldots, x_k\}$ for $\nul N$. If $N=0$, this is a basis for $U$ and you're done.
+ \item But chances are $N\neq 0$ or this problem wouldn't be very interesting. So we look for a vector $y\in U$ such that $Ny\in \nul N$, which implies that $N^2y=0$, so $y\in N^2$. We do this by solving the equation $Ny=x$, where $x=c_1x_1+\cdots +c_kx_k$ for some scalars $c_1,\ldots, c_k$.
+
+ Let's assume that we can solve $Ny=x_k$. If not, we simply change the basis for $\nul N$.
+ \item Having found $y$, we look for a vector $z\in U$ such that $Nz=y$, which implies that
+\[
+ N^3z = N^2y = Nx_k = 0,
+\]
+so $z\in \nul N^3$.
+ \item Continue until either you have enough vectors to form a basis for $U$, or you reach a step where $N^l=0$. If this happens, you need to go back to the beginning, and choose another vector in $\nul N$ that is not a multiple of the first, and repeat.
+\end{enumerate}
+OK, so how does this help? Imagine that $U=G(\lambda ,T)$ for some eigenvalue $\lambda$, and $N = (T-\lambda I)|_{G(\lambda,T)}$. If you find a basis as above, you'll have:
+\[
+ (T-\lambda I)x_1 = (T-\lambda I)x_2=\cdots = (T-\lambda I)x_k = 0,
+\]
+so 
+\[
+ Tx_1=\lambda x_1, Tx_2=\lambda x_2, \ldots, Tx_k=\lambda x_k,
+\]
+and then
+\[
+ (T-\lambda I)y = x_k, \text{ so } Ty = \lambda y + x_k,
+\]
+\[
+ (T-\lambda I)z = y, \text{ so } Tz = \lambda z+y,
+\]
+and so on. The matrix of $T|_U$ will then have the form of a Jordan block. To illustrate the procedure, we'll look at a pair of examples.
+\begin{example}
+ Find the Jordan Canonical Form of the matrix 
+$A = \begin{bmatrix}
+4&1&0&-1\\
+0&3&0&1\\
+0&0&4&0\\
+1&0&0&5
+\end{bmatrix}$.
+
+\bigskip
+
+{\bf Solution:} We first find the characteristic polynomial of $A$. We have
+\begin{align*}
+ c_A(x) &= \det(xI_4-A) = \begin{vmatrix}x-4&-1&0&1\\0&x-3&0&-1\\0&0&x-4&0\\-1&0&0&x-5\end{vmatrix}\\
+& = (x-4)\begin{vmatrix}x-4&-1&1\\0&x-3&-1\\-1&0&x-5\end{vmatrix}\\
+& = (x-4)[(x-4)(x-3)(x-5)-1(1-(x-3))]\\
+& = (x-4)(x-4)(x^2-8x+16)\\
+& = (x-4)^4.
+\end{align*}
+Thus, $A$ has only one eigenvalue, $\lambda = 4$, of multiplicity 4. We begin by finding the null space of $A-4I_4$. We have
+\[
+ A-4I = \begin{bmatrix}
+         0&1&0&-1\\0&-1&0&1\\0&0&0&0\\1&0&0&1
+        \end{bmatrix}\xrightarrow[]{\text{row reduction}}
+        \begin{bmatrix}
+         1&0&0&1\\0&1&0&-1\\0&0&0&0\\0&0&0&0
+        \end{bmatrix}
+\]
+and from this we can see that a general vector in the null space is of the form 
+\[
+X=\begin{bmatrix}-t\\t\\s\\t\end{bmatrix} = sX_1+tX_2, \text{ where } X_1 = \begin{bmatrix}0\\0\\1\\0\end{bmatrix} \text{ and } X_2 = \begin{bmatrix}-1\\1\\0\\1\end{bmatrix}.                                                                                 
+\]
+Thus, the eigenspace $E(4,A)=\spn\{X_1,X_2\}$ is two-dimensional, and since our matrix is $4\times 4$, we need to consider generalized eigenvectors. If $Y\in \nul (A-4I_4)^2$, then we must have
+\[
+ (A-4I_4)Y \in\nul (A-4I) = \{sX_1+tX_2 : s,t\in\R\}.
+\]
+(Note: I'm taking the parameters $s$ and $t$ to be real numbers, since in this case $c_A(x)$ factors completely over $\R$, so complex numbers aren't needed.)
+
+We immediately see that the system $(A-4I_4)Y=X_1$ is inconsistent, since $X_1$ has a non-zero entry in row 3, while the third row of $A-4I_4$ consists entirely of zeros. We then look for a solution to $(A-4I_4)Y=X_2$. This leads to the augmented matrix
+\[
+ \begin{amatrix}{4}
+  0&1&0&-1&-1\\0&-1&0&1&1\\0&0&0&0&0\\1&0&0&1&1
+ \end{amatrix}\xrightarrow[]{\text{row reduction}}
+ \begin{amatrix}{4}
+  1&0&0&1&1\\0&1&0&-1&-1\\0&0&0&0&0\\0&0&0&0&0
+ \end{amatrix}.
+\]
+The general solution to this system is given by
+\[
+ Y = \begin{bmatrix}1-t\\-1+t\\s\\t\end{bmatrix} = \begin{bmatrix}1\\-1\\0\\0\end{bmatrix}+sX_1+tX_2.
+\]
+Since we already have the vectors $X_1$ and $X_2$ in $E(4,\lambda)$, we set $s=t=0$ and obtain the new vector $Y=\begin{bmatrix}1&-1&0&0\end{bmatrix}^T$. At this stage, you may want to verify two things, to make sure that everything is working as expected:
+\begin{enumerate}
+ \item $(A-4I_4)^2Y=0$, so $Y\in \nul (A-4I_4)^2$, as expected.
+ \item $AY = 4Y+X_2$, so $Y$ is `almost' an eigenvector.
+\end{enumerate}
+We now have three vectors $X_1,X_2,Y$, but we need four for a basis of $\R^4$, so we move on to $\nul (A-4I_4)^3$. You can verify for yourself (or have Wolfram Alpha do it) that $(A-4I_4)^3=0$, so $A-4I_4$ is nilpotent, as expected, and thus the generalized eigenspace $G(4,\lambda)$ is all of $\R^4$. We could therefore take any vector not in the span of $X_1, X_2$, and $Y$, but with the JCF in mind we want $Z\in\nul(A-4I_4)^3$ to satisfy
+\[
+ (A-4I_4)Z=Y.
+\]
+This leads to the augmented matrix
+\[
+ \begin{amatrix}{4}
+  0&1&0&-1&1\\0&-1&0&1&1\\0&0&0&0&0\\1&0&0&1&0
+ \end{amatrix}\xrightarrow[]{\text{row reduction}}
+ \begin{amatrix}{4}
+  1&0&0&1&0\\0&1&0&-1&1\\0&0&0&0&0\\0&0&0&0&0
+ \end{amatrix},
+\]
+so we have the general solution
+\[
+ Z = \begin{bmatrix}-t\\1+t\\s\\t\end{bmatrix} = \begin{bmatrix}0\\1\\0\\0\end{bmatrix}+sX_1+tX_2.
+\]
+Setting $s=t=0$ again, we obtain $Z=\begin{bmatrix}0&1&0&0\end{bmatrix}^T$, and you can again check that $AZ = 4Z+Y$. The basis
+\[
+ B=\{X_1,X_2,Y,Z\}
+\]
+is then a Jordan Basis, and the JCF of $A$ is given by
+\[
+ \jcf(A) = \begin{bmatrix}4&0&0&0\\0&4&1&0\\0&0&4&1\\0&0&0&4\end{bmatrix}.
+\]
+Note: if $T:\R^4\to \R^4$ is the linear operator such that $\M(T)=A$ with respect to the standard basis of $\R^4$, then we have the following:
+\begin{align*}
+ TX_1 & = 4X_1 = 4X_1+0X_2+0Y+0Z\\
+ TX_2 & = 4X_2 = 0X_1+4X_2+0Y+0Z\\
+ TY & = 4Y+X_2 = 0X_1+X_2+4Y+0Z\\
+ TZ & = 4Z+Y = 0X_1+0X_2+Y+4Z,
+\end{align*}
+and it follows that the matrix of $T$ with respect to the basis $B$ of generalized eigenvectors is equal to the Jordan Canonical Form of $A$.
+
+Finally, we note that $(A-4I)^2\neq 0$, while $(A-4I)^3=0$. This tells us that the minimal polynomial of $A$ is $m_A(x)=(x-4)^3$, which you will note is of lower degree than the characteristic polynomial.
+\end{example}
+\begin{example}
+ Find the Jordan Canonical Form of the matrix 
+$A = \begin{bmatrix}
+      2&0&-1&0\\1&2&-1&-1\\0&0&2&0\\-2&0&2&4
+     \end{bmatrix}$.
+
+\bigskip
+
+{\bf Solution:} We first compute the characteristic polynomial. We have
+\begin{align*}
+ c_A(x) & = \det(xI_4-A) = \begin{vmatrix}x-2&0&1&0\\-1&x-2&1&1\\0&0&x-2&0\\2&0&-2&x-4\end{vmatrix}\\
+&=(x-2)\begin{vmatrix}x-2&0&0\\-1&x-2&1\\2&0&x-4\end{vmatrix}\\
+&=(x-2)^2\begin{vmatrix}x-2&1\\0&x-4\end{vmatrix}\\
+&=(x-2)^3(x-4),
+\end{align*}
+so in this case we have two eigenvalues: $\lambda=2$, of multiplicity 3, and $\lambda=4$, of multiplicity 1. We begin with the $\lambda=4$ eigenspace. We have
+\[
+ A-4I = \begin{bmatrix}
+         -2&0&-1&0\\1&-2&-1&-1\\0&0&-2&0\\-2&0&2&0
+        \end{bmatrix}\xrightarrow[]{\text{row reduction}}
+\begin{bmatrix}
+ 1&0&0&0\\0&2&0&1\\0&0&1&0\\0&0&0&0
+\end{bmatrix},
+\]
+from which we can see that $(A-4I)X=0$ if $X=\begin{bmatrix}0\\t\\0\\-2t\end{bmatrix}$, so
+\[
+ E(4,A)=\nul(A-4I) = \spn\left\{\begin{bmatrix}0\\1\\0\\-2\end{bmatrix}\right\}.
+\]
+From the characteristic polynomial, we should already expect that $E(4,A)=G(4,A)$, since $4$ is an eigenvalue of algebraic multiplicity 1. If you want to verify this, you can (optionally) compute $(A-4I)^2$ and verify that $\nul (A-4I)^2=\nul(A-4I)$, so there are no more (generalized) eigenvectors to be found for $\lambda =4$.
+
+Now we move on to $\lambda=2$. We have
+\[
+ A-2I = \begin{bmatrix}
+         0&0&-1&0\\1&0&-1&-1\\0&0&0&0\\-2&0&2&2
+        \end{bmatrix}\xrightarrow[]{\text{row reduction}}
+\begin{bmatrix}
+ 1&0&0&-1\\0&0&1&0\\0&0&0&0\\0&0&0&0
+\end{bmatrix},
+\]
+and thus $(A-2I)Y=0$ if $Y=\begin{bmatrix}t\\s\\0\\t\end{bmatrix}=s\begin{bmatrix}0\\1\\0\\0\end{bmatrix}+t\begin{bmatrix}1\\0\\0\\1\end{bmatrix}$, so we get
+\[
+ E(2,A) = \nul (A-2I) = \spn\{Y_1,Y_2\}, \text{ where } Y_1 = \begin{bmatrix}0\\1\\0\\0\end{bmatrix} \text{ and } Y_2 = \begin{bmatrix}1\\0\\0\\1\end{bmatrix}.
+\]
+In this case we expect to get one more generalized eigenvector, since we know that we have to have $V=G(2,A)\oplus G(4,A)$, and $G(4,A)$ is one-dimensional. For additional verification of this, you can (optionally) verify that
+\[
+ (A-2I)^2 = \begin{bmatrix}0&0&0&0\\2&0&-3&-2\\0&0&0&0\\-4&0&6&4\end{bmatrix},
+\]
+which has rank 1, and thus a 3-dimensional null space. We have two options for finding our fourth vector to complete our set of three eigenvectors to a basis. One is simply to compute $\nul(A-2I)^2$ directly. We can see that if $(A-2I)^2Z=0$, then
+\[
+ Z = \begin{bmatrix}3v+2w\\u\\2v\\2w\end{bmatrix}=u\begin{bmatrix}0\\1\\0\\0\end{bmatrix} +v\begin{bmatrix}3\\0\\2\\0\end{bmatrix}+w\begin{bmatrix}1\\0\\0\\1\end{bmatrix}=uY_1+2wY_2+v\begin{bmatrix}3\\0\\2\\0\end{bmatrix},
+\]
+so setting $u=w=0$ and $v=1$ gives us the new vector $Z=\begin{bmatrix}3&0&2&0\end{bmatrix}^T$. We then have to check that this vector is indeed part of a Jordan basis. We find that
+\[
+ AZ = \begin{bmatrix}4\\1\\4\\-2\end{bmatrix} = 2\begin{bmatrix}3\\0\\2\\0\end{bmatrix}+\begin{bmatrix}-2\\1\\0\\-2\end{bmatrix}.
+\]
+Hmm... what is that leftover vector? Well, with a bit of checking we can see that it's actually equal to $Y_1-2Y_2$. Thus, if we want a Jordan basis, we shouldn't take the basis $\{X,Y_1,Y_2,Z\}$, since the last column would contain the entries 0,1,-2,2, and we want 0,0,1,2. How do we fix this? Well, there's no rule forcing us to use the original $\lambda=2$ eigenvectors as the basis for $E(2,A)$. We can replace the basis $\{Y_1,Y_2\}$ by the basis $\{Y_1',Y_2'\}$, where $Y_1'=Y_1$, and $Y_2'=Y_2-2Y_1$. The basis $\{X,Y_1',Y_2',Z\}$ is then a Jordan basis, and the Jordan Canonical Form is given by
+\[
+ \jcf(A) = \begin{bmatrix}4&0&0&0\\0&2&0&0\\0&0&2&1\\0&0&0&2\end{bmatrix}.
+\]
+Now, you might (and probably should) feel a little unsatisfied with how we came up with the last vector $Z$. It seems like we got lucky (and to some extent, this is true). This method works in general, provided that you're willing to adjust the basis for the eigenspace. However, we can proceed as in the previous example instead, and then we'll see that the choices we made end up being forced on us.
+
+If we want a vector $Z\in G(2,A)=\nul (A-2I)^2$ (feel free to verify that $\nul(A-2I)^3=\nul(A-2I)^2$), then we should expect that
+\[
+ (A-2I)Z\in E(2,A) = \nul (A-2I),
+\]
+so we try to solve either $(A-2I)Z=Y_1$ or $(A-2I)Z=Y_2$. However, if we try this, we discover that both systems are inconsistent.\footnote{Whatever shall we do?} To get around this, we look for a general vector 
+\[
+Y=uY_1+vY_2=\begin{bmatrix}v\\u\\0\\v\end{bmatrix}
+\]
+such that $(A-2I)Z=Y$ has a solution. This leads to a system with augmented matrix
+\[
+ \begin{amatrix}{4}
+  0&0&-1&0&v\\1&0&-1&-1&u\\0&0&0&0&0\\-2&0&2&2&v
+ \end{amatrix}\xrightarrow[]{\text{ row reduction }}
+\begin{amatrix}{4}
+ 1&0&0&1&v-u\\0&0&1&0&-v\\0&0&0&0&v+2u\\0&0&0&0&0
+\end{amatrix},
+\]
+and from here we can see that there is a solution only if $2u+v=0$. Looking for the simplest solution, we set $u=1$ and $v=-2$, and that gives us the vector
+\[
+ Y = \begin{bmatrix}0\\1\\0\\0\end{bmatrix}-2\begin{bmatrix}1\\0\\0\\1\end{bmatrix} = \begin{bmatrix}-2\\1\\0\\-2\end{bmatrix},
+\]
+which is the same vector $Y_2'$ that we ended up with before. With those values for $u$ and $v$, we see the augmented matrix for the above system is
+\[
+ \begin{amatrix}{4}
+  1&0&0&-1&3\\0&0&1&0&2\\0&0&0&0&0\\0&0&0&0&0
+ \end{amatrix},
+\]
+and so the general solution is $Z=\begin{bmatrix}3\\0\\2\\0\end{bmatrix}+sY_1+tY_2$, and we end up with the same result as before, but note that we again have to change the basis for $E(2,A)$: we found that $(A-2I)Z=Y_2'$, so $AZ=2Z+Y_2'$, so our Jordan basis is again $B=\{X,Y_1,Y_2',Z\}$, and the JCF is as above. Finally, note that the minimal polynomial in this case is $m_A(x) = (x-2)^2(x-4)$, corresponding to the fact that the largest Jordan block for $\lambda =2$ is $2\times 2$.
+
+
+\end{example}
+
+
+\end{document}

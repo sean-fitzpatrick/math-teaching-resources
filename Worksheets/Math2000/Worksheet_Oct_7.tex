@@ -1,0 +1,53 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+%\usepackage[dvips]{hyperref}
+\newcommand{\divs}[2]{#1 \, | \, #2}
+\renewcommand{\cong}[3]{#1 \equiv #2 \pmod{#3}}
+
+%\author{Sean Fitzpatrick}
+%\date{2015-09-15}
+\title{Math 2000 Tutorial Worksheet}
+\begin{document}
+\maketitle
+
+ This week's tutorial will focus on proofs of conditional statements. Please discuss the following problems with your classmates:
+\begin{enumerate}
+ \item (Section 3.1 \#1) Prove each of the following statements:
+\begin{enumerate}
+ \item For all integers $a$, $b$, and $c$ with $a\neq 0$, if $\divs{a}{b}$ and $\divs{b}{c}$, then $\divs{a}{(b-c)}$.
+ \item For each $n\in\mathbb{Z}$, if $n$ is odd, then $n^3$ is odd.
+ \item For each integer $a$, if 4 divides $a-1$, then 4 divides $a^2-1$.
+\end{enumerate}
+(Hint: all three can be proved using previously established results.)
+
+\item (Section 3.1 \#3 (partial)) Determine if each of the following statements is true or false. If a statement is true, then write a formal proof of that statement, and if the statement is false, then provide a counterexample that shows it is false.
+\begin{enumerate}
+ \item For all integers $a$, $b$, and $c$, with $a\neq 0$, if $\divs{a}{b}$, then $\divs{a}{(bc)}$.
+ \item For all integers $a$ and $b$, with $a\neq 0$, if $\divs{6}{(ab)}$, then $\divs{6}{a}$ or $\divs{6}{b}$.
+\end{enumerate}
+\item (Section 3.1 \#8) Let $a$ and $b$ be integers. Prove that if $\cong{a}{7}{8}$ and $\cong{b}{3}{8}$, then
+\[
+ \text{(a) }\cong{a+b}{2}{8} \quad\quad\quad \text{ (b) } \cong{a\cdot b}{5}{8}.
+\]
+(You should try proving these in two ways: (i) directly, and (ii) using a known result from class.)
+
+\item Prove that for all integers $n$, $n$ is odd if and only if $n^3$ is odd.
+
+\item Prove that for all integers $x$, if $7x+9$ is even, then $x$ is odd. (Hint: use proof by contrapositive.)
+
+\item Prove that there exist integers $x$ and $y$ such that $2x-3y = 2$. (Hint: try a constructive proof.)
+
+\item If you've done all the above and there's still time, use proof by contradiction to prove that $\sqrt{18}$ is irrational. (See Section 3.3 \#4.)\\
+{\em Hint:} You may assume that $\sqrt{2}$ is irrational.
+\end{enumerate}
+
+\end{document}
+ 

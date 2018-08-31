@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000}\chead{Quiz \# 8}\rhead{Thursday, 6\textsuperscript{th} November, 2014}
+\rfoot{Total: 10 points}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\modd}[3]{#1\equiv #2 \pmod{#3}}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+\noindent{{\bf Name and student number:}}
+
+ \begin{enumerate}
+ \item Define functions $f:\R\to [1,\infty)$ and $g:[1,\infty)\to \R$ by $f(x)=x^2+1$ and $g(x)=\sqrt{x-1}$, respectively.
+\begin{enumerate}
+ \item Compute $f(g(x))$ for $x\geq 1$. \points{2}
+
+\vspace{2.5in}
+
+ \item Compute $g(f(x))$ for $x\in\R$. \points{2}
+
+\vspace{2.5in}
+
+ \item Is $g=f^{-1}$? Why or why not? \points{1}
+
+\end{enumerate}
+\newpage
+
+\item Construct an example of functions $f:A\to B$ and $g:B\to C$ such that $g$ and $g\circ f$ are onto, but $f$ is not. \points{3}
+
+\vspace{3in}
+
+\item Let $f:A\to B$ and $g:B\to C$ be functions. Prove that if $g\circ f :A\to C$ is onto, then $g$ onto. \points{2}
+ \end{enumerate}
+\end{document}

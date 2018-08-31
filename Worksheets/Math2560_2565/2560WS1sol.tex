@@ -1,0 +1,259 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2560}\chead{Worksheet \# 1 Solutions}\rhead{Thursday 21\textsuperscript{st} January, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+The problems on this worksheet are for in-class practice during tutorial. You are free to collaborate and to ask for help. They don't count for course credit, but it's a good idea to make sure you know how to do everything before you leave tutorial -- similar problems may show up on a test or assignment.
+
+\bigskip
+
+ \begin{enumerate}
+ \item  $\di \int \frac{e^{\sqrt{x}}}{\sqrt{x}}\,dx = 2\int e^u\,du = 2e^{\sqrt{x}}+C,$ using the $u$-subsitution $u=\sqrt{x}$; $du = \dfrac{1}{2\sqrt{x}}\,dx$.
+
+
+
+
+ \item $\di \int \frac{\frac{1}{x}+1}{x^2}\,dx = -\int u\,du = -\frac{u^2}{2} = -\frac{(\frac{1}{x}+1)^2}{2}+C$, using the $u$-substitution $u=\frac{1}{x}+1$; $du = \frac{-1}{x^2}dx$.
+
+ \item The substitution for the last integral should have been clear. Note that the numerator can be written as $\frac{x+1}{x}$, so the whole integral can be re-written as $\di \int \frac{x+1}{x^3}\,dx$. Do you still want to do the integral by substitution, or is there a ``better way''? Do your answers agree?
+
+\bigskip
+
+Dividing term-by-term, we get $\di\int\frac{x+1}{x^3}\,dx = \int(x^{-2}+x^{-3})\,dx = -x^{-1}-\frac{1}{2}x^{-2}+C$, which is arguably easier. The answers look different, but note that
+\[
+ -\frac{1}{2}\left(\frac{1}{x}+1\right)^2=-\frac{1}{2}\left(\frac{1}{x^2}+\frac{2}{x}+1\right) = -\frac{1}{2}x^{-2}-x^{-1}-\frac{1}{2},
+\]
+so the two answers are equal up to a constant (which is accounted for by the constant of integration).
+
+ \item $\di \int \tan^2(x)\sec^2(x)\,dx = \int u^2\,du = \frac{\tan^3(x)}{3}+C$, using the substitution $u=\tan(x)$; $du = \sec^2(x)\,dx$.
+
+ \item $\di \int \tan^2(x)\,dx = \int (\sec^2(x)-1)\,dx = \tan(x)-x+C$.
+
+ \item $\di \int_0^1 2x(1-x^2)^4\,dx = -\int_1^0 u^4\,du = \int_0^1 u^4\,du = \left.\frac{u^5}{5}\right|^1_0 = \frac{1}{5}$, using the subsitution $u=1-x^2$, $du = -2x\,dx$, and noting that if $x=0$, then $u=1-0^2=1$, and if $x=1$, then $u=1-1^2=0$.
+
+ \item $\di \int x^3e^x\,dx$. This integral can be done using integration by parts directly, or by applying a reduction formula similar to the one on your assignment. If we do it directly, we have
+\begin{align*}
+ \int x^3e^x\,dx &= x^3e^x - 3\int x^2e^x\,dx & & \text{using } u=x^3, du = 3x^2\,dx; dv = e^x\,dx, v = e^x\\
+& = x^3e^x -3\left(x^2e^x - 2\int xe^x\,dx\right) & & \text{using } u=x^2, du = 2x\,dx; dv = e^x\,dx, v=e^x\\
+& = x^3e^x-3x^2e^x+6\left(xe^x-\int e^x\, dx\right) & & \text{using } u=x, du = dx; dv = e^x\,dx, v=e^x\\
+& = x^3e^x-3x^2e^x+6xe^x-6e^x+C.
+\end{align*}
+
+ 
+ \item $\di \int e^{2x}\sin(3x)\,dx$. This integral requires integration by parts twice, and collecting terms after the second step. Taking $u=
+\sin(3x)$ and $dv = e^{2x}\,dx$, we get
+\begin{align*}
+ \int \sin(3x)e^{2x}\,dx &= \frac{1}{2}e^{2x}\sin(3x)-\frac{3}{2}\int \cos(3x)e^{2x}\,dx\\
+& = \frac{1}{2}e^{2x}\sin(3x)-\frac{3}{2}\left(\frac{1}{2}e^{2x}\cos(3x)-\frac{3}{2}\int (-\sin(3x))e^{2x}\right)\,dx\\
+& = \frac{1}{2}e^{2x}\sin(3x)-\frac{3}{4}e^{2x}\cos(3x) - \frac{9}{4}\int \sin(3x)e^{2x}\,dx.
+\end{align*}
+Bringing the last integral over to the left-hand side, we have
+\[
+ \left(1+\frac{9}{4}\right)\int e^{2x}\sin(3x)\,dx = \frac{1}{2}e^{2x}\sin(3x)-\frac{3}{4}e^{2x}\cos(3x),
+\]
+so dividing by $1+\frac{9}{4} =\frac{13}{4}$ and adding the constant of integration, we find
+\[
+ \int e^{2x}\sin(3x)\,dx = e^{2x}\left(\frac{2}{13}\sin(3x)-\frac{3}{13}\cos(3x)\right)+C.
+\]
+
+
+ \item $\di \int x\sec^2(x)\,dx = x\tan(x)-\int \tan(x)\,dx = x\tan(x)+\ln(\lvert \cos(x)\rvert)+C$ using integration by parts, with $u=x$ ($du=dx$) and $dv = \sec^2(x)\,dx$, so $v=\tan x$.\\
+ (Note that $\int\tan(x)\,dx = \ln(|\sec(x)|) = -\ln(|\cos(x)|)$.)
+
+ \item $\di \int x\sqrt{x-2}\,dx$. (Try this once using substitution, and again using integration by parts.)
+
+If we let $u=x-2$, then $du=dx$ and $x=u+2$, so
+\[
+ \int x\sqrt{x-2}\,dx = \int (u+2)\sqrt{u}\,du = \int (u^{3/2}+2u^{1/2})\,du = \frac{2}{5}(x-2)^{5/2}+\frac{4}{3}(x-2)^{3/2}+C.
+\]
+If we use integration by parts with $u=x$ and $dv = \sqrt{x-2}\,dx$, then $du=dx$ and $v = \frac{2}{3}(x-2)^{3/2}$, so
+\[
+ \int x\sqrt{x-2}\,dx = \frac{2}{3}x(x-2)^{3/2}-\frac{2}{3}\int (x-2)^{3/2}\,dx = \frac{2}{3}x(x-2)^{3/2}-\frac{2}{3}\left(\frac{2}{5}\right)(x-2)^{5/2}+C.
+\]
+Note that the two answers appear to be different. Are they? (They'd better not be!)
+
+ \item $\di \int e^{\ln x}\,dx$. (With a bit of work you can do this by substituting $u=\ln x$ and noting that $x=e^u$. Why is this a bad idea?)
+
+Substitution is a bad idea here because $e^{\ln x} = x$, and you know how to do $\int x\,dx$.
+\pagebreak
+ \item \begin{align*}
+\int \sin^5(x)\cos^6(x)\,dx &= \int \sin(x)(1-\cos^2(x))^2\cos^6(x)\,dx\\& = \int \sin(x)(\cos^6(x)-2\cos^8(x)+\cos^{10}(x))\,dx, 
+       \end{align*}
+so letting $u=\cos(x)$, we have $du =\sin (x)\,dx$        and the integral becomes
+\[
+ \int(-u^6+u^8-u^{10})\,dx = -\frac{u^7}{7}+\frac{u^9}{9}-\frac{u^{11}}{11} +c = -\frac{1}{7}\cos^7(x)+\frac{1}{9}\cos^9(x)-\frac{1}{11}\cos^{11}(x)+C.
+\]
+
+
+
+
+
+ \item $\di \int \sin(x)\sin(2x)\,dx = \int \sin(x)(2\sin(x)\cos(x))\,dx = 2\int \sin^2(x)\cos(x)\,dx = \frac{2}{3}\sin^{3}(x)+C$, using the $u$-substitution $u=\sin(x)$, $du = \sin(x)\,dx$.
+ 
+ (Could you do it by parts? Maybe. But why would you subject yourself to that when a quick application of a trig identity gives you a much easier integral?)
+
+ \item $\di \int \sec^3(x)\,dx$. This is another one of the ``integrate by parts twice and rearrange'' exercises. Notice that $\sec^3(x) = \sec^2(x)\sec(x)$, and since we know that $\sec^2(x)$ is the derivative of $\tan(x)$, we try integration by parts with $u=\sec(x)$ (so $du = \sec(x)\tan(x)\,dx$), and $dv = \sec^2(x)\,dx$ (so $v=\tan(x)$). This gives us
+\begin{align*}
+\int \sec^3(x)\,dx &= \sec(x)\tan(x)-\int \tan(x)(\sec(x)\tan(x))dx\\
+& = \sec(x)\tan(x) - \int \tan^2(x)\sec(x)\,dx\\
+& = \sec(x)\tan(x) - \int (\sec^2(x)-1)\sec(x)\,dx\\
+& = \sec(x)\tan(x) - \int \sec^3(x)\,dx + \int \sec(x)\,dx.
+\end{align*}
+At this point, we move the $\int \sec^3(x)\,dx$ from the right-hand side over to the left, giving us $2\int \sec^3(x)\,dx$ on the left. If we divide through by the 2, and remember that $\int \sec(x)\,dx = \ln\lvert \sec(x)+\tan(x)|+C$, we get
+\[
+\int \sec^3(x)\,dx = \frac{1}{2}\sec(x)\tan(x)+\frac{1}{2}\ln\lvert \sec(x)+\tan(x)\rvert +C.
+\]
+
+\item $\int \sec^4(x)\,dx$. Not on the worksheet, but I meant to include it. We're raising the secant function to a higher power, which might make you think things will be harder, but for $\sec(x)$, even powers are easy, and odd powers are hard. We have
+\[
+\int \sec^4(x)\,dx = \int (\tan^2(x)+1)\sec^2(x)\,dx = \int (u^2+1)\,du = \frac{1}{3}\tan^3(x)+\tan(x)+C,
+\]
+using the $u$-substitution $u=\tan(x)$.
+
+\pagebreak
+
+ \item $\di \int \sec^5(x)\,dx$. Just to drive home the point that odd powers are hard. We start out by writing $\sec^5(x) = \sec^3(x)\sec^2(x)$, and integrate by parts, with $u=\sec^3(x)$ (so $du = 3\sec^2(x)(\sec(x)\tan(x)\,dx = 3\sec^3(x)\tan(x)\,dx$), and $dv = \sec^2(x)\,dx$ (so $v=\tan(x)$). This gives
+ \begin{align*}
+ \int \sec^5(x)\,dx &= \tan(x)\sec^3(x) - \int \tan^2(x)\sec^3(x)\,dx\\
+ & = \tan(x)\sec^3(x) - \int (\sec^2(x)-1)\sec^3(x)\,dx\\
+ & = \tan(x)\sec^3(x) - \int \sec^5(x)\,dx +\int \sec^3(x)\,dx.
+ \end{align*}
+ At this point we see the reappearance of $\int\sec^5(x)\,dx$ on the right-hand side, with a minus sign, so we can move it over to the left, giving $2\int \sec^5(x)\,dx$. If we divide through by 2 and substitute in our answer for $\int \sec^3(x)\,dx$ above, we get
+ \[
+ \int \sec^5(x)\,dx = \frac{1}{2}\tan(x)\sec^3(x) + \frac{1}{4}\tan(x)\sec(x) +\frac{1}{4}\ln\abs{\tan(x)+\sec(x)}+C.
+ \]
+
+
+
+ \item $\di \int \sqrt{9-x^2}\,dx$. Here we use the trig substitution $x=3\sin\theta$, which gives us $dx = 3\cos\theta\,d\theta$, and $9-x^2 = 9-9\sin^2\theta = 9\cos^2\theta$, so $\sqrt{9-x^2} = 3\cos\theta$. Thus,
+ \begin{align*}
+ \int \sqrt{9-x^2}\,dx & = \int 9\cos^2\theta\,d\theta\\
+ & = \int \frac{9}{2}(1+\cos(2\theta))\,d\theta\\
+ & = \frac{9}{2}\theta + \frac{9}{4}\sin(2\theta)+C\\
+ & = \frac{9}{2}\theta + \frac{9}{2}\sin\theta\cos\theta.
+ \end{align*}
+ Now, we use the fact that $3\sin\theta = x$, so $\theta = \sin^{-1}(x/3)$, and $3\cos\theta = \sqrt{9-x^2}$ to substitute back in terms of $x$, giving us
+ \[
+ \int \sqrt{9-x^2}\,dx = \frac{9}{2}\sin^{-1}\left(\frac{\theta}{3}\right)+\frac{1}{2}x\sqrt{9-x^2}+C.
+ \]
+ 
+\pagebreak
+
+ \item $\di \int \frac{8}{\sqrt{x^2+2}}\,dx$. There are two options for this integral. We can either let $x=\sqrt{2}\tan\theta$, or $x=\sqrt{2}\sinh(t)$.
+ 
+ Taking the first option, we get $dx = \sqrt{2}\sec^2\theta\,d\theta$ and 
+ \[
+ \sqrt{x^2+2} = \sqrt{2\tan^2\theta+2} = \sqrt{2\sec^2\theta} = \sqrt{2}\sec\theta,
+ \]
+ so
+ \[
+ \int\frac{8}{\sqrt{x^2+2}}\,dx = \int \frac{8\sqrt{2}\sec^2\theta}{\sqrt{2}\sec\theta}\,d\theta = \int 8\sec\theta\,d\theta = 8\ln\abs{\sec\theta+\tan\theta}+C.
+ \]
+ Now, $\tan\theta = x/\sqrt{2}$, and $\sec\theta = \sqrt{x^2+2}/\sqrt{2}$, so this becomes
+ \[
+ \int\frac{8}{\sqrt{x^2+2}}\,dx = 8\ln\left\lvert \frac{\sqrt{x^2+2}+x}{\sqrt{2}}\right\rvert+C.
+ \]
+ (Note: using log laws, you can get rid of the $\sqrt{2}$ in the denominator --  you'll get a $-\ln\sqrt{2}$ term, which is a constant that can be absorbed into the constant of integration.)
+ 
+ \bigskip
+ 
+ If we take the second option, $x=\sqrt{2}\sinh(t)$, so $dx = \sqrt{2}\cosh(t)$, and 
+ \[
+ \sqrt{x^2+2} = \sqrt{2\sinh^2(t)+2} = \sqrt{2\cosh^2(t)} = \sqrt{2}\cosh(t).
+ \]
+ Thus,
+ \[
+ \int \frac{8}{\sqrt{x^2+2}}\,dx = \int \frac{8\sqrt{2}\cosh(t)}{\sqrt{2}}\cosh(t)\,dt = 8t+C = 8\sinh^{-1}(x/\sqrt{2})+C.
+ \]
+ 
+{\bf Exercise:} Can you show that the answers given by the two methods are equivalent? In other words, is it true that
+\[
+ \ln\left\lvert \frac{\sqrt{x^2+2}+x}{\sqrt{2}}\right\rvert=\sinh^{-1}(x/\sqrt{2})+C
+\]
+for some constant $C$? (If it is, then the derivative of either side should be equal.)
+
+ \item $\di \int \frac{5x^2}{\sqrt{x^2-10}}\,dx$. Again there are two options: a trig substitution and a hyperbolic substitution. The trig substitution is to let $x=\sqrt{10}\sec\theta$, so that $dx = \sqrt{10}\sec\theta\tan\theta\,d\theta$, and
+ \[
+ \sqrt{x^2-10} = \sqrt{10(\sec^2\theta-1)} = \sqrt{10\tan^2\theta} = \sqrt{10}\tan\theta.
+ \]
+ Thus,
+ \[
+ \int \frac{5x^2}{\sqrt{x^2-10}}\,dx = \int\frac{50\sec^2\theta}{\sqrt{10}\tan\theta}(\sqrt{10}\sec\theta\tan\theta)\,d\theta = \int 50\sec^3\theta\,d\theta.
+ \]
+ Uh oh... the dreaded $\sec^3\theta$ integral. Luckily we have the answer sitting above on this worksheet, so we can plug it in, giving us
+ \[
+ \int \frac{5x^2}{\sqrt{x^2-10}}\,dx = 25\sec\theta\tan\theta+25\ln\abs{\sec\theta+\tan\theta}+C,
+ \]
+ and we note that $\sec\theta = x/\sqrt{10}$ and $\tan\theta = \sqrt{x^2-10}/\sqrt{10}$, so
+ \[
+ \int \frac{5x^2}{\sqrt{x^2-10}}\,dx = \frac{5}{2}x\sqrt{x^2-10}+25\ln\abs{(x+\sqrt{x^2-10})/\sqrt{10}}+C.
+ \]
+ 
+ \bigskip
+ 
+ If we use a hyperbolic substitution instead, we take $x=\sqrt{10}\cosh(t)$, so $dx = \sqrt{10}\sinh(t)$, and
+ \[
+ \sqrt{x^2-10} = \sqrt{10(\cosh^2(t)-1)} = \sqrt{10\sinh^2(t)} = \sqrt{10}\sinh(t).
+ \]
+ Thus,
+ \[
+ \int \frac{5x^2}{\sqrt{x^2-10}}\,dx = \int \frac{50\cosh^2(t)}{\sqrt{10}\sinh(t)}(\sqrt{10})\sinh(t)\,dt = \int 50\cosh^2(t)\,dt.
+ \]
+ Now we have to know how to integrate $\cosh^2(t)$. If we recall how $\cosh(t)$ is defined, we have
+ \[
+ \cosh^2(t) = \left(\frac{e^t+e^{-t}}{2}\right)^2 = \frac{e^{2t}+e^{-2t}+2}{4}.
+ \]
+ So you could simply write $\cosh^2(t)$ in terms of exponentials as above, and integrate term-by-term. The other option is to notice that there's an identity sitting there: $\dfrac{e^{2t}+e^{-2t}}{4} = \frac{1}{2}\cosh(2t)$, so
+ \[
+ \int \cosh^2(t)\,dt = \int\left( \frac{1}{2}\cosh(2t)+\frac{1}{2}\right)\,dt = \frac{1}{4}\sinh(2t)+\frac{t}{2}+C.
+ \]
+ Finally, we have to substitute back in terms of $x$. Would it surprise you to learn that $\sinh(2t)=2\sinh(t)\cosh(t)$? Well, that turns out to be true. Since $\sinh(t) = \sqrt{x^2-10}/\sqrt{10}$ and $\cosh(t) = x/\sqrt{10}$, we get
+ \[
+ \int\cosh^2(t)\,dt = \frac{5}{2}x\sqrt{x^2-10}+25\cosh^{-1}(x/\sqrt{10})+C.
+ \]
+ The last thing you might be wondering is whether the two answers are the same. They certainly look different. It's a good exercise to see if you can show that
+ \[
+ \ln(x+\sqrt{x^2-10}) = \cosh^{-1}(x/\sqrt{10}) \text{ (up to a constant)}
+ \]
+ The easiest way to do that is to show that their derivatives are the same.
+ 
+
+ \end{enumerate}
+\end{document}

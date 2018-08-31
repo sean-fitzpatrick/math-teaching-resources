@@ -1,0 +1,218 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.75in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 10 Solutions}\rhead{Tuesday, 22\textsuperscript{nd} March, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newenvironment{abmatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c|c}
+}{%
+  \end{array}\right]
+}
+\newenvironment{aamatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|*{#1}{c}@{}}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}   
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+         
+                  
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+Please complete all problems below.
+ \begin{enumerate}
+  \item Let $S$ be the subspace of $\R^3$ spanned by the vectors
+\[
+ \vec{v}_1 = \bbm 1\\2\\0\ebm, \quad \vec{v}_2 = \bbm 3\\1\\-2\ebm, \quad \vec{v}_3 = \bbm -3\\4\\4\ebm.
+\]
+\begin{enumerate}
+ \item Determine if the vectors $\vec{a} = \bbm 1\\-8\\-4\ebm$ and $\vec{b}= \bbm 4\\3\\6\ebm$ belong to $S$. If either vector does belong to $S$, write it as a linear combination of the vectors $\vec{v}_1, \vec{v}_2, \vec{v}_3$.
+
+ \bigskip
+
+\noindent\textbf{Solution:} A vector $\vec{w}$ belongs to $S$ if and only if there exist scalars $x,y,z$ such that
+\[
+ \vec{w} = x\vec{v}_1+y\vec{v}_2+z\vec{v}_3 = x\bbm 1\\2\\0\ebm + y\bbm 3\\1\\-2\ebm + z\bbm -3\\4\\4\ebm = \bbm x+3y-3z\\2x+y+4z\\-2y+4z\ebm.
+\]
+Thus to determine if $\vec{a}$ belongs to $S$, we need to find out whether or not the system of equations
+\[
+ \begin{array}{ccccccc}
+  x&+&3y&-&3z&=&1\\
+ 2x&+&y&+&4z&=&-8\\
+ & -&2y&+&4z&=&-4
+ \end{array}
+\]
+has a solution. (We obtained this system by replacing $\vec{w}$ by $\vec{a}$ in the vector equation above and then equating components.) Determining whether or not $\vec{b}$ belongs to $S$ is the same, with the constants $1, -8, -4$ on the right-hand side (the components of $\vec{a}$) replaced by $4, 3, 6$ (the components of $\vec{b}$). To solve both systems, we proceed as usual by forming the augmented matrix and using row operations to reduce to row-echelon form. Since the matrix of coefficients is the same for both $\vec{a}$ and $\vec{b}$, we'll solve both systems simultaneously by adding a column on the right for each vector. We obtain:
+\begin{align*}
+ \begin{abmatrix}{3}
+  1&3&-3&1&4\\
+  2&1&4&-7&3\\
+  0&-2&4&-4&6
+ \end{abmatrix} &\xrightarrow{R_2\to R_2-2R_1}  \begin{abmatrix}{3}  1&3&-3&1&4\\0&-5&10&-10&-5\\0&-2&4&-4&6 \end{abmatrix}\\
+&\xrightarrow[R_3\to -\frac{1}{2}R_3]{R_2\to -\frac{1}{5}R_2} \begin{abmatrix}{3} 1&3&-3&1&4\\0&1&-2&2&1\\0&1&-2&2&-3\end{abmatrix}\\
+&\xrightarrow{R_3\to R_3-R_2}\begin{abmatrix}{3} 1&3&-3&1&4\\0&1&-2&2&1\\0&0&0&0&-4\end{abmatrix}\\
+&\xrightarrow{R_1\to R_1-3R_2}\begin{abmatrix}{3} 1&0&3&-5&1\\0&1&-2&2&1\\0&0&0&0&-4\end{abmatrix}.
+\end{align*}
+We see that there is no solution for the second system of equations corresponding to the vector $\vec{b}$, so $\vec{b}\notin S$. However, for the vector $\vec{a}$ we have infinitely many solutions, given by
+\[
+ x = -5-3t, \quad y = 2+2t, \quad z=t,
+\]
+where $t$ can be any real number. Thus, $\vec{a}\in S$, and to write $\vec{a}$ as a linear combination of $\vec{v}_1, \vec{v}_2, \vec{v}_3$, we can choose any particular value of $t$. Setting $t=0$ gives us $\vec{a} = -5\vec{v}_1+2\vec{v}_2$, and we can confirm that
+\[
+ -5\bbm 1\\2\\0\ebm + 2\bbm 3\\1\\-2\ebm = \bbm 1\\-8\\-4\ebm,
+\]
+as required.
+
+
+
+ \item Are the vectors $\vec{v}_1, \vec{v}_2, \vec{v}_3$ linearly independent? If not, determine a basis for $S$.
+
+\bigskip
+
+\noindent\textbf{Solution:} We have a theorem stating that if the vectors $\vec{v}_1, \vec{v}_2, \vec{v}_3$ are linearly independent, then any vector $\vec{w}$ in their span can be written \textbf{uniquely} as a linear combination of $\vec{v}_1, \vec{v}_2, \vec{v}_3$. However, we see above that $\vec{a}$ can be written in terms of these vectors in infinitely many ways, so these vectors cannot be linearly independent. (In other words, if these vectors \textit{were} linearly independent, then the solution to the system above would have been unique, but it wasn't.)
+
+To see this another way, note that if you plug in the general solution for $x,y,z$ (for the vector $\vec{a}$) into the linear combination and rearrange, you get
+\[
+ \vec{a} = (-5-3t)\vec{v}_1+(2+2t)\vec{v}_2 + t\vec{v}_3 = (-5\vec{v}_1+2\vec{v}_2) + t (-3\vec{v}_1+2\vec{v}_2+\vec{v}_3) = \vec{a}+t (-3\vec{v}_1+2\vec{v}_2+\vec{v}_3)
+\]
+Thus, we have $\vec{a}== \vec{a}+t (-3\vec{v}_1+2\vec{v}_2+\vec{v}_3)$ for any value of $t$, which suggests that $-3\vec{v}_1+2\vec{v}_2+\vec{v}_3=\vec{0}$, and indeed you can verify that this is the case. Now recall that the definition of linear independence says that the vectors $\vec{v}_1, \vec{v}_2, \vec{v}_3$ are linearly independent provided that the {\bf only} solution to
+\[
+ x\vec{v}_1+y\vec{v}_2+z\vec{v}_3 = \vec{0}
+\]
+is $x=0, y=0, z=0$, and we have the solution $x=-3, y=2, z=1$, so the vectors are not linearly independent. (Notice also a good reason for why we can choose any value of $t$ that we like in the solution for part (a): we're just adding a multiple of the zero vector, so of course it doesn't matter what the multiple is!)
+
+To determine a basis for $S$, we notice that for any vector $\vec{w}\in S$, since $\vec{v}_3 = 3\vec{v}_1-2\vec{v}_2$ (solving for $\vec{v}_3$ in $-3\vec{v}_1+2\vec{v}_2+\vec{v}_3=\vec{0}$), we have
+\[
+ \vec{w} = a\vec{v}_1+b\vec{v}_2+c\vec{v}_3 = a\vec{v}_1+b\vec{v}_2+c(3\vec{v}_1-2\vec{v}_2) = (a+3c)\vec{v}_1+(b-2c)\vec{v}_2,
+\]
+so the vectors $\vec{v}_1$ and $\vec{v}_2$ span the subspace $S$, and $\vec{v}_1, \vec{v}_2$ are linearly independent (for two vectors, it's sufficient that they are not scalar multiples of each other), so $\{\vec{v}_1,\vec{v}_2\}$ is a basis for $S$.
+\end{enumerate}
+
+\bigskip
+
+% \item Let $S = \operatorname{span}\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k\}$, where the vectors $\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k$ are linearly independent. Show that any vector $\vec{w}\in S$ can be written \textit{uniquely} as a linear combination of the $\vec{v}_j$.
+
+%\medskip
+
+%\textit{Hint:} Suppose that $\vec{v} = a_1\vec{v}_1+a_2\vec{v}_2+\cdots +a_k\vec{v}_k$ \textbf{and} $\vec{v} = b_1\vec{v}_1+b_2\vec{v}_2+\cdots +b_k\vec{v}_k$ for scalars $a_1,\ldots, a_k$ and $b_1,\ldots, b_k$. Use the definition of linear independence to show that $a_i=b_i$ for each $i=1,2,\ldots, k$.
+
+ \item Let $\vec{b}_1= \bbm 1\\2\\1\\0\ebm, \vec{b}_2 =  \bbm 1\\-1\\1\\3\ebm, \vec{b}_3 =  \bbm 2\\-1\\0\\-1\ebm$, and let $\vec{u} = \bbm 5\\2\\3\\2\ebm, \vec{v} = \bbm 3\\-2\\5\\1\ebm, \vec{w} = \bbm 1\\-1\\4\\3\ebm$.
+\begin{enumerate}
+ \item Show that $B=\{\vec{b}_1,\vec{b}_2,\vec{b}_3\}$ is an orthogonal set of vectors.
+ 
+\bigskip
+
+We have
+\begin{align*}
+ \vec{b}_1\dotp \vec{b}_2 &= 1(1)+2(-1)+1(1)+0(3) = 0\\
+ \vec{b}_1\dotp \vec{b}_3 &= 1(2)+2(-1)+1(0)+0(-1) = 0\\
+ \vec{b}_2\dotp \vec{b}_3 &= 1(2)-1(-1)+1(0)+3(-1) = 0,
+\end{align*}
+and none of the vectors in $B$ is the zero vector, so $B$ is an orthogonal set of vectors.
+
+ \item Write each the vectors $\vec{u}$, $\vec{v}$, $\vec{w}$ above as a linear combination of the vectors in $B$, or explain why it is impossible to do so.
+
+\bigskip
+
+Let $S$ be the subspace whose basis is $B$. We then have the orthogonal projection onto $S$ given by
+\[
+ \proj_S\vec{a} = \left(\frac{\vec{a}\dotp \vec{b}_1}{\len{\vec{b}_1}^2}\right)\vec{b}_1+\left(\frac{\vec{a}\dotp \vec{b}_2}{\len{\vec{b}_2}^2}\right)\vec{b}_2+\left(\frac{\vec{a}\dotp \vec{b}_3}{\len{\vec{b}_3}^2}\right)\vec{b}_3.
+\]
+for any vector $\vec{a}\in\R^4$. If $\vec{a}\in S$, then $\proj_S\vec{a} = \vec{a}$. If $\vec{a}\notin S$, then $\proj_S\vec{a}\neq \vec{a}$. (In fact, for $\vec{a}\notin S$, the projection will give you the vector $\vec{b}\in S$ such that $\len{\vec{b}-\vec{a}}$ is as small as possible.)
+
+We compute $\len{\vec{b}_1}^2 = 6, \len{\vec{b}_2}^2 = 12$, and $\len{\vec{b}_3}^2 = 6$. For the vector $\vec{u}$, we have
+\[
+\vec{u}\dotp\vec{b}_1 = 12, \quad \vec{u}\dotp\vec{b}_2 = 12, \quad \text{ and } \vec{u}\dotp\vec{b}_3 = 6,
+\]
+so
+\begin{align*}
+ \proj_S\vec{u} &= \left(\frac{\vec{u}\dotp \vec{b}_1}{\len{\vec{b}_1}^2}\right)\vec{b}_1+\left(\frac{\vec{u}\dotp \vec{b}_2}{\len{\vec{b}_2}^2}\right)\vec{b}_2+\left(\frac{\vec{u}\dotp \vec{b}_3}{\len{\vec{b}_3}^2}\right)\vec{b}_3\\
+& = \frac{12}{6}\bbm 1\\2\\1\\0\ebm+\frac{12}{12}\bbm 1\\-1\\1\\3\ebm +\frac{6}{6}\bbm 2\\-1\\0\\-1\ebm = \bbm 5\\2\\3\\2\ebm = \vec{u},
+\end{align*}
+Similarly, for $\vec{v}$ we find $\vec{v}\dotp \vec{b}_1 = 4$, $\vec{v}\dotp \vec{b}_2 = 13$, and $\vec{v}\dotp \vec{b}_3 = 7$, so
+\[
+ \proj_S\vec{v} = \frac{4}{6}\bbm 1\\2\\1\\0\ebm + \frac{13}{12}\bbm 1\\-1\\1\\3\ebm + \frac{7}{6}\bbm 2\\-1\\0\\-1\ebm = \bbm 49/12\\-11/12\\21/12\\25/12\ebm \neq \vec{v},
+\]
+so $\vec{v}\notin S$, and for $\vec{w}$, we find $\vec{w}\dotp \vec{b}_1 = 3$, $\vec{w}\dotp \vec{b}_2 = 15$, and $\vec{w}\dotp \vec{b}_3 = 0$, so
+\[
+ \proj_S\vec{w} = \frac{3}{6}\bbm 1\\2\\1\\0\ebm + \frac{15}{12}\bbm 1\\-1\\1\\3\ebm = \bbm 7/4\\-1/4\\7/4\\15/4\ebm \neq \vec{w},
+\]
+so $\vec{w}\notin S$. (This might seem like a lot of work, but the alternative is to set up a system of four equations in three variables and show that there is no solution.)
+\end{enumerate}
+\item Let $L_1, L_2$ be the lines through the origin with direction vectors $\vec{v} = \bbm 1\\-3\\1\ebm$ and $\vec{w} = \bbm 2\\1\\1\ebm$, respectively. 
+\begin{enumerate}
+ \item Verify that $L_1$ and $L_2$ are perpendicular.
+
+\bigskip
+
+Since $\vec{v}$ and $\vec{w}$ are the direction vectors for the lines, and $\vec{v}\dotp \vec{w} = 2-3+1 =0$, the lines are perpendicular.
+
+ \item Let $S$ be the plane through the origin containing the lines $L_1$ and $L_2$. (Note that planes through the origin are subspaces.) Find the point in $S$ that is closest to the point $P=(3,3,1)$ using orthogonal projection. 
+
+Since the plane passes through the origin, it is a subspace, and $\{\vec{v},\vec{w}\}$ is an orthogonal basis for the subspace. If we let $\vec{p}=\bbm 3&3&1\ebm^T$ denote the position vector for $P$, and let $\vec{q}$ denote the position vector for the point $Q$ in $S$ closest to $P$, then
+\[
+ \vec{q}=\proj_S\vec{p} = \left(\frac{\vec{p}\dotp\vec{v}}{\len{\vec{v}}^2}\right)\vec{v}+\left(\frac{\vec{p}\dotp\vec{w}}{\len{\vec{w}}^2}\right)\vec{w} = \frac{-5}{11}\bbm 1\\-3\\1\ebm +\frac{10}{6}\bbm 2\\1\\1\ebm = \frac{1}{33}\bbm 95\\100\\40\ebm,
+\]
+so $Q=(95/33, 100/33, 40/33)$ is the closest point to $P$ on the plane.
+\end{enumerate}
+Question for reflection: your other option for solving 3(b) is to use the cross product to find the normal vector, and then use the method for finding the shortest distance you learned in ealier in the course. Which do you prefer?
+
+\bigskip
+
+Your other option for solving this problem is to compute the normal vector $\vec{n} = \vec{v}\times \vec{w} = \bbm -4\\1\\7\ebm$. The vector $\overrightarrow{QP}$ is then given by
+\[
+ \overrightarrow{QP} = \proj_{\vec{n}}\vec{p} = -\frac{1}{33}\bbm -4\\1\\7\ebm,
+\]
+and thus $\vec{q} = \vec{p}-\overrightarrow{QP} = \bbm 3\\3\\1\ebm +\bbm -4/33\\1/33\\7/33\ebm = \bbm 95/33\\100/33\\40/33\ebm$.
+
+For this problem, both methods take about the same amount of work, but in higher dimensions, projection using an orthogonal basis is often the only way to proceed. (For example, if $S$ is a 2-dimensional subspace of $\R^4$, there is no normal vector, since there are two directions perpendicular to the plane, so only the first method is an option.)
+
+Challenge problem: what if the plane isn't through the origin? Can you still use orthogonal projection? If not, how can you modify the method?
+
+\bigskip
+
+If the plane doesn't pass through the origin, you can solve the problem for the parallel plane that \textit{does} pass through the origin, and then translate everything back to the original plane. (You have to be careful about how you do this though. Feel free to see me for details.)
+ \end{enumerate}
+
+
+\end{document}

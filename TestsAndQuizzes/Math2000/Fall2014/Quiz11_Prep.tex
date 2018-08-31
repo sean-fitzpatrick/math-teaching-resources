@@ -1,0 +1,67 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\modd}[3]{#1\equiv #2 \pmod{#3}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\title{Practice Problems for Quiz 11\\Math 2000A}
+\date{}
+\begin{document}
+ \maketitle
+\vspace{-0.5in}
+
+Quiz \#11 will take place in class on Thursday, November 27th. 
+As usual, solving the problems on this sheet will significantly improve your chances of getting a high score on the quiz.
+
+{\bf Note to help session tutors}: It's 100\% OK for you to help my students solve these questions.
+\begin{enumerate}
+\item Define a function $f:\N\times\N\to\N$ by
+\[
+f(m,n)=2^{m-1}(2n-1), \quad \text{ for all } (m,n)\in\N\times\N.                                            
+\]
+\begin{enumerate}
+ \item Prove that $f$ is one-to-one.
+
+{\em Hint}: If $f(m,n) = f(k,l)$, then there are three cases to consider: $m>k, m<k$, and $m=k$. In the first two cases, divide both sides by the smaller power of 2 to obtain a contradiction.
+ \item Prove that $f$ is onto. You may use without proof the fact that any $n\in\N$ can be written in the form $n=2^km$, where $m$ is an odd natural number and $k\geq 0$ is an integer.
+\end{enumerate}
+\item The previous problem shows that $\N\times\N\approx\N$. Use this fact to give an alternative proof that if $A$ and $B$ are countably infinite, then $A\times B$ is countably infinite.
+\item Let $C$ be the set of all infinite sequences consisting of 0s and 1s. Thus, $(0,1,0,1,0,1,\ldots)$ and $(1,1,1,1,\ldots)$ are elements of $C$, but $(0,1,2,0,1,2,\ldots)$ is not (since there is a 2 in the sequence). Show that $C$ is uncountable.
+
+{\em Hint}: Suppose $C$ is countable. Then there is a bijection $f:\N\to C$, so we can list the elements of $C$ according to
+\begin{align*}
+ f(1)& = (a_{11},a_{12},a_{13},\ldots)\\
+ f(2)& = (a_{21},a_{22},a_{23},\ldots)\\
+ f(3)& = (a_{31},a_{32},a_{33},\ldots)\\
+ \vdots & \quad \quad \vdots
+\end{align*}
+Now consider the sequence $(b_1,b_2,b_3,\ldots)$, where $b_i = 0$, if $a_{ii}=1$, and $b_i=1$, if $a_{ii}=0$. Argue that this sequence cannot appear anywhere on the list, so that the function $f$ cannot be onto, and therefore is not a bijection.
+
+\item Use mathematical induction to prove that for each $n\in\N$,
+\[
+ 1+5+9+\cdots+(4n-3)=n(2n-1).
+\]
+\item Use mathematical induction to prove each of the following:
+\begin{enumerate}
+ \item For each $n\in\N$, 3 divides $4^n-1$.
+ \item For each $n\in\N$, 6 divides $n^3-n$.
+\end{enumerate}
+\item Use mathematical induction to prove that the sum of the cubes of three consecutive natural numbers is divisible by 9.
+
+\end{enumerate}
+
+
+
+\end{document}
+ 

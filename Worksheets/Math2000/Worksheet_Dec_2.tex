@@ -1,0 +1,92 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+%\usepackage[dvips]{hyperref}
+\newcommand{\divs}[2]{#1 \, | \, #2}
+\renewcommand{\cong}[3]{#1 \equiv #2 \pmod{#3}}
+\newcommand{\R}[2]{#1 \, R \, #2}
+\renewcommand{\P}{\mathcal{P}}
+
+%\author{Sean Fitzpatrick}
+%\date{2015-09-15}
+\title{Math 2000 Tutorial Worksheet}
+\date{December 2nd, 2015}
+
+\begin{document}
+\maketitle
+
+ \begin{enumerate}
+  \item (Section 7.1 \#2) Let $A=\{a,b,c\}$ and let $R=\{(a,a), (a,c), (b,b), (b,c), (c,a), (c,b)\}$ define a relation on $A$. Are the following statements true or false? Explain.
+\begin{enumerate}
+ \item For each $x\in A$, $\R{x}{x}$.
+ \item For every $x,y\in A$, if $\R{x}{y}$, then $\R{y}{x}$.
+ \item For every $x,y,z\in A$, if $\R{x}{y}$ and $\R{y}{z}$, then $\R{x}{z}$.
+ \item $R$ is a function from $A$ to $A$.
+\end{enumerate}
+ \item (Section 7.1 \#4) Let $U$ be a nonempty set, and let $R$ be the ``subset relation'' on $\mathcal{P}(U)$. That is,\label{Qa}
+\[
+ R = \{(S,T)\in \P(U)\times\P(U) | S\subseteq T\}.
+\]
+\begin{enumerate}
+ \item Write the open sentence $(S,T)\in R$ using standard subset notation.
+ \item What is the domain of the relation $R$?
+ \item What is the range of the relation $R$?
+ \item Is $R$ a function from $\P(U)$ to $\P(U)$? Explain.
+\end{enumerate}
+ \item (Section 7.1\#5) Repeat parts (b)-(d) of Problem \ref{Qa} for the ``element of'' relation
+\[
+ R = \{(x,S)\in U\times \P(U) | x\in S\}.
+\]
+\item (Section 7.1 \#6 and 7) Let $S = \{(x,y)\in \mathbb{R}\times \mathbb{R} | x^2+y^2=100\}$.
+\begin{enumerate}
+ \item Determine the set of all values of $x$ such that $(x,6)\in S$, and determine the set of all values of $x$ such that $(x,9)\in S$.
+ \item Determine the domain and range of the relation $S$, and write each set using set builder notation.
+ \item Is the relation on $S$ a function from $\mathbb{R}$ to $\mathbb{R}$? Explain.
+ \item Since $S$ is a relation on $\mathbb{R}$, its elements can be graphed in the coordinate plane. Describe the graph of the relation $S$. Is the graph consistent with your answers in parts (a) - (c)? Explain.
+ \item Repeat parts (a) - (d) for the relation $T=\{(x,y)\in \mathbb{R}\times\mathbb{R} | y=\sqrt{100-x^2}\}$. What is the connection between the relations $S$ and $T$?
+\end{enumerate}
+\item (Section 7.1 \#8) Determine the domain and range of each of the following relations on $\mathbb{R}$ and sketch the graph of each relation.
+\begin{enumerate}
+ \item $R= \{(x,y)\in \mathbb{R}\times \mathbb{R} | x^2+y^2=100\}$
+ \item $S=\{(x,y)\in \mathbb{R}\times \mathbb{R} | y^2=x+10\}$
+ \item $T=\{(x,y)\in \mathbb{R}\times \mathbb{R} | \lvert x\rvert + \lvert y\rvert = 10\}$
+ \item $W=\{(x,y)\in \mathbb{R}\times \mathbb{R} | x^2=y^2\}$.
+\end{enumerate}
+ \item (Section 7.2 \#2) Let $A=\{a,b,c\}$. For each of the following, draw a directed graph that represents a relation on $A$ with the specified properties:
+\begin{enumerate}
+ \item A relation on $A$ that is symmetric but not transitive.
+ \item A relation on $A$ that is transitive but not symmetric.
+ \item A relation on $A$ that is symmetric and transitive but not reflexive.
+ \item A relation on $A$ that is not reflexive on $A$, is not symmetric, and is not transitive.
+ \item A relation on $A$, other than the identity relation, that is an equivalence relation on $A$.
+\end{enumerate}
+ \item (Section 7.2 \#5) A relation $R$ is defined on $\mathbb{Z}$ as follows: For all $a,b\in\mathbb{Z}$, $\R{a}{b}$ if and only if $\lvert a -b \rvert \leq 3$. Is $R$ an equivalence relation on $\mathbb{Z}$? If not, is $R$ reflexive? Symmetric? Transitive? Justify all conclusions.
+ \item (Section 7.2 \#9) Define the relation $\sim$ on $\mathbb{Q}$ as follows: For $a,b\in\mathbb{Q}$, $a\sim b$ if and only if $a-b\in\mathbb{Z}$.
+\begin{enumerate}
+ \item Show that $\sim$ is an equivalence relation. (See Progress Check 7.9.)
+ \item List four different elements of the set $C = \left\{x\in \mathbb{Q} \left| x\sim\dfrac{5}{7}\right.\right\}$.
+ \item Use set builder notation, without using the symbol $\sim$, to specify the set $C$.
+ \item use the roster method to specify the set $C$.
+\end{enumerate}
+ \item (Section 7.2 \#13) Let $\sim$ and $\approx$ be relations on $\mathbb{Z}$ defined as follows;
+\begin{itemize}
+ \item For $a,b\in\mathbb{Z}$, $a\sim b$ if and only if $2a+3b\equiv 0 \pmod{5}$.
+ \item For $a,b\in\mathbb{Z}$, $a\approx b$ if and only if $a+3b\equiv 0 \pmod{5}$.
+\end{itemize}
+\begin{enumerate}
+ \item Is $\sim$ an equivalence relation on $\mathbb{Z}$? If not, is this relation reflexive? Symmetric? Transitive?
+ \item Is $\approx$ an equivalence relation on $\mathbb{Z}$? If not, is this relation reflexive? Symmetric? Transitive?
+\end{enumerate}
+
+ \end{enumerate}
+
+
+\end{document}
+ 

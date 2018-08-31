@@ -1,0 +1,106 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000B}\chead{Quiz \# 12}\rhead{Thursday, 16\textsuperscript{th} April, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\renewcommand{\div}[2]{#1\, |\,#2}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+\bigskip
+
+
+\begin{enumerate}
+ \item ({\bf Bonus}) Write down your name (first and last.) \points{1}
+
+\bigskip
+
+The Solutions
+
+\bigskip
+
+Solve {\bf one} of the following two problems: (10 points for either)
+
+ \item Let $A=\{0,1,2,3,4,5,6,7,8\}$, and define an equivalence relation on $A$ by\points{10}
+\[
+ a\sim b \text{ if and only if } a^2\equiv b^2\pmod{9}.
+\]
+ Prove that $\sim$ is an equivalence relation on $A$, and determine the distinct equivalence classes of $\sim$.
+
+\bigskip
+
+We see that $\sim$ is reflexive, since $a^2\equiv a^2\pmod{9}$ for all $a\in A$. Whenever $a^2\equiv b^2\pmod{9}$, we know that $b^2\equiv a^2\pmod{9}$, and thus $a\sim b\to b\sim a$ for all $a,b\in A$, so $\sim$ is symmetric. Finally, if $a^2\equiv b^2\pmod{9}$ and $b^2\equiv c^2\pmod{9}$, then $a^2\equiv c^2\pmod{9}$, so if $a\sim b$ and $b\sim c$, then $a\sim c$, so $\sim$ is transitive. We conclude that $\sim$ is an equivalence relation.
+
+Since $3^2=9\equiv 0\pmod{9}$ and $6^2=36\equiv 0\pmod{9}$, we have $[0] = \{0,3,6\}$. Similarly, $1^2=1=0(9)+1$ and $8^2=64 = 9(9)+1$, so $1\sim 8$ and $[1]=\{1,8\}$. Since $2^2=4$ and $7^2=49=5(9)+4$, we have $[2]=\{2,7\}$, and since $4^2=16=(1)9+7$ and $5^2=25=2(9)+7$, we have $[4]=\{4,5\}$. Thus,
+\[
+ A = [0]\cup[1]\cup [2]\cup [4] = \{0,3,6\}\cup\{1,8\}\cup\{2,7\}\cup\{4,5\}
+\]
+gives a partition of $A$ into equivalence classes with respect to the relation $\sim$.
+
+\bigskip
+
+ \item Write down the modular arithmetic addition and multiplication tables for $\Z_7$.\points{10}
+
+We will write the elements of $\Z_7 = \{[0],[1],[2],[3],[4],[5],[6]\}$ without the square brackets for convenience. The tables are as follows:
+\end{enumerate}
+\begin{multicols}{2}
+ \[
+  \begin{array}{c|ccccccc}
+   \oplus& 0&1&2&3&4&5&6\\
+\hline
+0&0&1&2&3&4&5&6\\
+1&1&2&3&4&5&6&0\\
+2&2&3&4&5&6&0&1\\
+3&3&4&5&6&0&1&2\\
+4&4&5&6&0&1&2&3\\
+5&5&6&0&1&2&3&4\\
+6&6&0&1&2&3&4&5
+  \end{array}
+ \]
+
+\[
+ \begin{array}{c|ccccccc}
+  \odot&0&1&2&3&4&5&6\\
+\hline
+0&0&0&0&0&0&0&0\\
+1&0&1&2&3&4&5&6\\
+2&0&2&4&6&1&3&5\\
+3&0&3&6&2&5&1&4\\
+4&0&4&1&5&2&6&3\\
+5&0&5&3&1&6&4&2\\
+6&0&6&5&4&3&2&1
+ \end{array}
+\]
+
+\end{multicols}
+
+
+\end{document}

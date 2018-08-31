@@ -1,0 +1,141 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.25in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+{\bf MATH 1560 - Tutorial \#11 Solutions}
+\end{center}
+
+\begin{enumerate}
+\item Evaluate the definite integral:
+\begin{enumerate}
+\item $\di \int_0^{\pi/2}\cos(x)\,dx = \left.\sin(x)\right|_0^{\pi/2}=\sin(\pi/2)-\sin(0)=1-0=1.$
+
+\item $\di \int_0^2(x^3-2x+3)\,dx = \left.\frac{x^4}{4}-x^2+3x\right|_0^2=4-4+6-0+0-0=6.$
+
+
+\item $\di \int_0^3 x\sqrt{1+x}\,dx$
+
+Here, we let $u=1+x$, so $du=dx$, and when $x=0$, $u=1$, while when $x=1$, $u=4$. Notice also that $x=u-1$, so we get
+\begin{align*}
+\int_0^3x\sqrt{1+x}\,dx &= \int_1^4(u-1)\sqrt{u}\,du = \int_1^4 (u^{3/2}-u^{1/2})\,du\\
+& =\left.\frac25 u^{5/2}-\frac23 u^{3/2}\right|_1^4 = \left(\frac25(32)-\frac23(8)\right)-\left(\frac25(1)-\frac23(1)\right) =\frac{116}{15}.
+\end{align*}
+
+\item $\di \int_0^1 x^2\sin(x^3)\,dx = \left.-\frac13\cos(x^3)\right|_0^1 = \frac{1-\cos(1)}{3}.$
+
+The above treats the antiderivative as an ``immediate integral'' and then applies the Fundamental Theorem of Calculus. If you prefer to go through the process of substitution, we proceed as follows:
+
+First, we identify $u=x^3$ (since this is the ``inside'' function of a composition). Next, compute $du = 3x^2\,dx$, so that $x^2\,dx = \frac13\,du$. Finally, note that $0^3=0$ and $1^3=1$, so the limits of integration for $u$ are (conveniently) the same as the limits for $x$. Thus, we have
+\[
+\int_0^1 x^2\sin(x^3)\,dx = \int_0^1 \sin(u)\cdot \frac13 \,du = -\frac{\cos(u)}{3}|_0^1 = \frac{1-\cos(1)}{3},
+\]
+as before.
+\end{enumerate}
+
+\newpage
+
+\item Evaluate the integral $\di \int_0^2 \abs{2x-2}\,dx$.
+ 
+If you choose to graph $y=\abs{2x-2}$ for $0\leq x\leq 2$, you will find that you get two triangles, each with base 1 and height 2, so each has area 1, giving a total area under the curve of 2.
+
+To confirm analytically, note that $\abs{2x-2} = \begin{cases} 2x-2, &\text{ if } x\geq 1\\ 2-2x, &\text{ if } x<1\end{cases}$. Thus,
+\begin{align*}
+\int_0^2\abs{2x-2}\,dx &= \int_0^1\abs{2x-2}\,dx + \int_1^2\abs{2x-2}\,dx\\
+& = \int_0^1(2-2x)\,dx + \int_1^2(2x-2)\,dx\\
+& = [2x-x^2]_0^1 + [x^2-2x]_1^2\\
+& = (2-1-(0-0))+(4-4-(1-2))=1+1=2.
+\end{align*}
+In the first line above, we used a property of definite integrals to split the integral in two. In the next line, we used the fact that $2x-2\leq 0$ on $[0,1]$ and $2x-2\geq 0$ on $[1,2]$ to eliminate the absolute values.
+
+ \item Find the area between the curves $y= 2-x^2$ and $y=x^2$.
+
+Plotting the curves (which you should do, even though I haven't here... computer plots take time) we find that $y=2-x^2$ lies above $y=x^2$ for $-1\leq x\leq 1$, where $x=\pm 1$ are the two points where the curves intersect. The area is thus
+\[
+A = \int_{-1}^1(2-x^2-x^2)\,dx = \int_{-1}^1(2-2x^2)\,dx = \left. 2x-\frac23 x^3\right|_{-1}^1 = \frac{8}{3}.
+\]
+(Note: if you noticed from the graphs that the area is symmetric about the $y$-axis, or that the function to be integrated is even, you can apply a shortcut: $\di \int_{-1}^1(2-2x^2)\,dx = 2\int_0^1 (2-2x^2)\,dx$.
+
+\newpage
+
+\item Calculate the indicated Taylor polynomial:
+\begin{enumerate}
+\item Degree 5, for $f(x)=\cos(x)$, about $x=\pi/3$.
+
+Our general polynomial is
+\begin{multline*}
+P_5(x) = f(\pi/3)+f'(\pi/3)(x-\pi/3)+\frac{f''(\pi/3)}{2!}(x-\pi/3)^2+\frac{f'''(\pi/3)}{3!}(x-\pi/3)^3\\+\frac{f^{(4)}(\pi/3)}{4!}(x-\pi/3)^4+\frac{f^{(5)}(\pi/3)}{5!}(x-\pi/3)^5.
+\end{multline*}
+Next, we compute the needed derivatives and their values at $\pi/3$:
+\[
+\begin{array}{c|cccccc}
+n&0&1&2&3&4&5\\
+f^{(n)}(x)&\cos(x)&-\sin(x)&-\cos(x)&\sin(x)&\cos(x)&-\sin(x)\\
+f^{(n)}(\pi/3)&\frac12&-\frac{\sqrt{3}}{2}&-\frac12&\frac{\sqrt{3}}{2}&\frac12&-\frac{\sqrt{3}}{2}
+\end{array}
+\]
+Putting in these values, we get
+\[
+P_5(x) = \frac12-\frac{\sqrt{3}}{2}(x-\pi/3)-\frac{1}{2\cdot 2!}(x-\pi/3)^3+\frac{\sqrt{3}}{2\cdot 3!}(x-\pi/3)^3 +\frac{1}{2\cdot 4!}(x-\pi/3)^4-\frac{\sqrt{3}}{2\cdot 5!}(x-\pi/3)^5.
+\]
+
+\item Degree 2, for $f(x)=\sec(x)$, about $x=0$.
+\end{enumerate}
+
+Proceeding as above, we have $f'(x)=\sec(x)\tan(x)$ and $f''(x)=\sec(x)\tan^2(x)+\sec^3(x)$, so $f(0)=1$, $f'(0)=0$, and $f''(0)=1$, giving us
+\[
+P_2(x) = 1+\frac12 x^2.
+\]
+
+\item Use the degree 3 Maclaruin polynomial for $f(x)=\sin(x)$ to approximate the value of $\sin(1)$.
+
+The desired polynomial is $P_3(x) = x-\frac{1}{3!}x^3$, so our approximation is
+\[
+\sin(1)\approx P_3(1)=1-\frac{1}{6}(1^3) = \frac56 \approx 0.833333333.
+\]
+The calculator gives us $\sin(1) \approx 0.841470985$. Just for fun, if we add one more term, we get
+\[
+P_5(1) = 1-\frac16+\frac{1}{120} = \frac{101}{120} \approx 0.841666667,
+\]
+which isn't that far off.
+\end{enumerate}
+
+\end{document}

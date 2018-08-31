@@ -1,0 +1,128 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=0.8in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+\begin{center}
+\textbf{Math 1565 Tutorial \#6 Solutions}
+\end{center}
+
+\begin{enumerate}
+  \item State the domain and range of $f(x) = \cos^{-1}(x)$. 
+ 
+\bigskip
+
+The domain of $f$ is $[-1,1]$. The range of $f$ is $[0,\pi]$.
+
+\bigskip
+ 
+ 
+ \item Evaluate the following limits:
+ \begin{enumerate}
+ \item $\di \lim_{x\to 4}\frac{\sqrt{x}-2}{x^2-16} = \lim_{x\to 4}\frac{(\sqrt{x}-2)(\sqrt{x}+2)}{(x-4)(x+4)(\sqrt{x}+2)} = \lim_{x\to 4}\frac{1}{(x+4)(\sqrt{x}+2)}  = \frac{1}{32}. $ 
+ 
+ \vspace{1cm}
+ 
+ \item $\di \lim_{\theta\to 0}\frac{\tan(5x)}{\sin(3x)} = \lim_{\theta\to 0}\frac{\sin(5x)}{5x}\frac{3x}{\sin(3x)}\frac{1}{\cos(5x)}\frac{5}{3} = (1)(1)\frac{1}{1}\cdot\frac{5}{3}=\frac{5}{3}.$
+ \end{enumerate}
+ 
+ \vspace{1cm}
+ 
+ \item List all horizontal and vertical asymptotes for the function $f(x) = \dfrac{5x^3-4x+6}{x^3-4x}$. 
+
+\bigskip
+
+Since the degree of the top and bottom are the same, the horizontal asymptote can be found by comparing coefficients of top powers: we find $y=5$.
+
+The vertical asymptotes occur where the denominator is zero. Since $x^3-4x=x(x-2)(x+2)$ we have zeros at $x=0, 2, -2$. None of these are also zeros for the numerator, so $x=0$, $x=2$, and $x=-2$ are vertical asymptotes.
+
+\bigskip
+
+ \item Prove that there exists a real number $x$ such that $\cos(x)=x$. (Hint: IVT)
+ 
+ \bigskip
+ 
+Consider $f(x)=\cos(x)-x$. This is a continuous function, since it's the sum of continuous functions. We also note that $f(0)=1-0=1>0$, while $f(\pi/2) = 0-\pi/2 = -\pi/2 <0$.
+
+Thus, by the Intermediate Value Theorem, there must exist some $x\in (0,\pi/2)$ such that $f(x)=0$, and the result follows. 
+\newpage
+
+\item Given $f(x) = \dfrac{1}{x-3}$, determine $f'(2)$ \textbf{using the definition of the derivative}. 
+
+\bigskip
+
+We have
+\begin{align*}
+f'(2) & = \lim_{h\to 0}\frac{f(2+h)-f(2)}{h}\\
+& = \lim_{h\to 0}\frac{1}{h}\left(\frac{1}{(2+h)-3}-\frac{1}{2-3}\right)\\
+& = \lim_{h\to 0}\frac{1}{h}\left(\frac{1}{h-1}+1\right)\\
+& = \lim_{h\to 0}\frac{1}{h}\left(\frac{1+(h-1)}{h-1}\right)\\
+& = \lim_{h\to 0}\frac{1}{h-1} = -1.
+\end{align*}
+
+\bigskip
+
+\item Evaluate the derivatives of the following functions:
+\begin{enumerate}
+\item $f(x) = 4x^{11}-3x^{2/3}+5\ln(x)+e^\pi$
+
+\[
+f'(x) = 44x^{10}-2x^{-1/3}+\frac{5}{x}.
+\]
+
+\item $g(x) = e^{3x}\cos(5x)$
+
+\[
+g'(x) = 3e^{3x}\cos(5x)-5e^{3x}\sin(5x).
+\]
+
+\item $h(x) = \dfrac{x^5-4x^3}{x^2}$
+
+\medskip
+
+Since $h(x) = x^3-4x$, we have $h'(x) = 3x^2-4$. Or you can do it the hard way using the quotient rule.
+
+\medskip
+
+
+\item $k(x) = \sec(\ln(x^5+3x^2))$
+
+\[
+k'(x) = \sec(\ln(x^5+3x^2))\tan(\ln(x^5+3x^2))\cdot \frac{5x^4+6x}{x^5+3x^2}.
+\]
+
+\end{enumerate}
+\end{enumerate}
+\end{document}

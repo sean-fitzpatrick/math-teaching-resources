@@ -1,0 +1,273 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\P}{\mathcal{P}}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\spn}{span}
+\newcommand{\M}{\mathcal{M}}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+
+\title{Math 3410 Assignment \#3 Solutions\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+ \item Let $T:\P_3(\R)\to\P_5(\R)$ be the linear transformation given by
+\[
+ (Tp)(x) = (3-2x+x^2)p(x).
+\]
+\begin{enumerate}
+ \item Compute the matrix of $T$ with respect to the standard bases $\{1,x,x^2,x^3\}$ of $\P_3(\R)$ and $\{1,x,x^2,x^3,x^4,x^5\}$ of $\P_5(\R)$.
+
+\bigskip
+
+{\bf Solution:} Let $p_i(x)=x^i$, $i=0,1,2,3$ denote the standard basis elemenets of $\P_3(\R)$, and let $q_j(x)=x^j$, $j=0,1,2,3,4,5$ denote the standard basis elements of $\P_5(\R)$. We then compute
+\begin{align*}
+ (Tp_0)(x) &= (3-2x+x^2)(1) = 3q_0-2q_1+q_2\\
+ (Tp_1)(x) &= (3-2x+x^2)(x) = 3q_1-2q_2+q_3\\
+ (Tp_2)(x) &= (3-2x+x^2)(x^2) = 3q_2-2q_3+q_4\\
+ (Tp_3)(x) &= (3-2x+x^2)(x^3) = 3q_3-2q_4+q_5.
+\end{align*}
+It follows that the matrix of $T$ is given by
+\[
+ \M(T) = \bordermatrix{
+ & p_0 & p_1 & p_2 & p_3\cr
+q_0 & 3 & 0 & 0 & 0\cr
+q_1 & -2 & 3 & 0 & 0\cr
+q_2 & 1 & -2 & 3 & 0\cr
+q_3 & 0 & 1 & -2 & 3\cr
+q_4 & 0 & 0 & 1 & -2\cr
+q_5 & 0 & 0 & 0 & 1
+}.
+\]
+
+\bigskip
+
+ \item Find the null space and range of $T$.
+
+\bigskip
+
+{\bf Solution:} There are two ways to proceed. First we'll show how to solve the problem using the direct approach. Suppose $q(x) = b_0+b_1x+b_2x^2+b_3x^3+b_4x^4+b^5x^5$ belongs to $\range T$. Then there must exist scalars $a_0,a_1,a_2,a_3$ such that
+\[
+ \M(T)\begin{bmatrix}a_0\\a_1\\a_2\\a_3\end{bmatrix} = \begin{bmatrix}b_0\\b_1\\b_2\\b_3\\b_4\\b_5\end{bmatrix}.
+\]
+Finding the $a_i$ corresponds to reducing an augmented matrix as follows:
+\[
+ \begin{amatrix}{4}
+3&0&0&0&b_0\\
+-2&3&0&0&b_1\\
+1&-2&3&0&b_2\\
+0&1&-2&3&b_3\\
+0&0&1&-2&b_4\\
+0&0&0&1&b_5\\  
+ \end{amatrix}\to
+\begin{amatrix}{4}
+ 1&0&0&0&\frac{1}{3}b_0\\
+ 0&1&0&0&\frac{1}{3}b_1+\frac{2}{9}b_0\\
+ 0&0&1&0&\frac{1}{3}b_2+\frac{2}{9}b_1+\frac{1}{27}b_0\\
+ 0&0&0&1&\frac{1}{3}b_3+\frac{2}{9}b_2+\frac{1}{27}b_1-\frac{4}{81}b_0\\
+ 0&0&0&0&b_4+\frac{2}{3}b_3+\frac{1}{9}b_2-\frac{4}{27}b_1-\frac{11}{81}b_0\\
+ 0&0&0&0&b_5-\frac{1}{3}b_3-\frac{2}{9}b_2-\frac{1}{27}b_1+\frac{4}{81}b_0
+\end{amatrix}.
+\]
+From this we see that $\nul T = \{0\}$ (there is a leading one in every column, so if a solution exists, it must be unique; this also follows from the fact that if $p(x)q(x)=0$ for two polynomials $p$ and $q$, then $p(x)=0$ or $q(x)=0$). We also see that a solution exists if and only if
+\begin{align*}
+ b_4+\frac{2}{3}b_3+\frac{1}{9}b_2-\frac{4}{27}b_1-\frac{11}{81}b_0 & = 0 \text{ and}\\
+ b_5-\frac{1}{3}b_3-\frac{2}{9}b_2-\frac{1}{27}b_1+\frac{4}{81}b_0 & = 0,
+\end{align*}
+so the range consists of all polynomials $b_0+b_1x+b_2x^2+b_3x^3+b_4x^4+b_5x^5$ such that $b_4 = \frac{11}{81}b_0+\frac{4}{27}b_1-\frac{1}{9}b_2-\frac{2}{3}b_3$ and $b_5 = -\frac{4}{81}b_0+\frac{1}{27}b_1+\frac{2}{9}b_2+\frac{1}{3}b_3$.
+
+\bigskip
+
+At this point, you're probably thinking, ``there must be a better way!'' It turns out that there is. Using the handout posted on Moodle, the null space and range of $T$ correspond to the null space and column space of $\M(T)$. In that handout, we have the following theorem:
+\begin{quotation}
+ A basis for the column space of a matrix $A$ consists of those columns of $A$ for which there is a leading one in the corresponding column of the row-echelon form of $A$.
+\end{quotation}
+(Note that we don't take the columns with leading ones in the REF of $A$ - we take the corresponding columns in the original matrix of $A$.) Since every column of the row-echelon form of $\M(T)$ contains a leading one, it follows that the columns of $\M(T)$ correspond to a basis of $\range T$. Thus, we can also conclude that
+\[
+ \range T = \spn\{3-2x+x^2, 3x-2x^2+x^3, 3x^2-2x^3+x^4, 3x^3-2x^4+x^5\}.
+\]
+Of course, we could also conclude this immediately, since these basis vectors are just the image of the standard basis of $\P_3(\R)$ under $T$, and since $\null T=\{0\}$, we know two things:
+\begin{enumerate}
+ \item $\dim \range T = \dim \P_3(\R) = 4$.
+ \item $T$ is injective, and $\{p_0,p_1,p_2,p_3\}$ are basis vectors and therefore linearly independent in $\P_3(\R)$, so $Tp_0, Tp_1, Tp_2, Tp_3$ are linearly independent in $\P_5(\R)$, and therefore form a basis for $\range T$.
+\end{enumerate}
+
+
+
+\end{enumerate}
+ \item Let $T_1$ and $T_2$ be linear maps from $V$ ot $W$.
+\begin{enumerate}
+ \item Suppose that $W$ is finite-dimensional. Prove that $\nul T_1=\nul T_2$ if and only if there exists an invertible linear operator $S:W\to W$ such that $T_1=ST_2$.
+
+\bigskip
+
+{\bf Solution:} Suppose there exists an invertible linear operator $S:W\to W$ such that $T_1=ST_2$. If $v\in \nul T_1$, then $0 = T_1v = (ST_2)v = S(T_2v)$. Since $S$ is invertible, we have $\nul S = \{0\}$, and thus $T_2v=0$, so $v\in \nul T_2$. Similarly, if $v\in\nul T_2$, then $T_1v = (ST_2)v = S(T_2v) = S(0)=0$, so $v\in \nul T_1$.
+
+Conversely, suppose that $\nul T_1 = \nul T_2$, and that $\dim W=n$. Following the hint, let $\{w_1,\ldots, w_m\}$ be a basis for $\range T_1\subseteq W$, and choose vectors $v_1,\ldots, v_m\in V$ such that $T_1v_1=w_1,\ldots, T_1v_m=w_m$.
+
+Now, consider the vectors $u_1=T_2v_1,\ldots, u_m=T_2v_m$. We want to show that the vectors $u_1,\ldots, u_m$ are linearly independent. To that end, suppose that 
+\[
+ c_1u_1+\cdots + c_mu_m=0
+\]
+for some scalars $c_1,\ldots, c_m$. Then we have
+\[
+ 0 = c_1u_1+\cdots +c_mu_m = c_1T_2v_1+\cdots +c_mT_2u_m = T_2(c_1v_1+\cdots+c_mv_m).
+\]
+It follows that $c_1v_1+\cdots +c_mv_m\in \nul T_2$, but $\nul T_2 = \nul T_1$, which implies that
+\[
+ T_1(c_1v_1+\cdots + c_mv_m) = c_1Tv_1+\cdots+c_mTv_m = c_1w_1+\cdots +c_mw_m=0.
+\]
+But the vectors $w_1,\ldots, w_m$ are linearly independent, so we must have $c_1=0,\ldots, c_m=0$. Thus, the vectors $u_1,\ldots, u_m$ are linearly independent in $\range T_2$, which implies that $\dim\range T_2\geq m = \dim\range T_1$. (Any basis of $\range T_2$ is a spanning set, and therefore contains at least as many vectors as a linearly independent set.)
+
+Repeating the above argument with the roles of $T_1$ and $T_2$ exchanged, we see that $\dim \range T_1\geq \dim\range T_2$, and thus $\dim \range T_1 = \dim\range T_2$. It follows that $\range T_1$ is isomorphic to $\range T_2$. 
+
+From the above argument, we see that $\dim\range T_1 = \dim \range T_2$, but it also follows that if $v_1,\ldots, v_m$ are vectors in $V$ such that the vectors $w_1=T_1v_1,\ldots, w_m=T_1v_m$ form a basis for $\range T_1$, then $u_1=T_2v_1,\ldots, u_m=T_2v_m$ form a basis for $\range T_2$. Now note that since $\range T_1,\range T_2$ are subspaces of $W$, we can extend these bases to obtain two bases
+\begin{align*}
+ B_1 &= \{w_1,\ldots, w_m, x_1,\ldots, x_k\}\\
+ B_2 &= \{u_1,\ldots, u_m, y_1,\ldots, y_k\}
+\end{align*}
+of $W$. We now define a map $S:W\to W$ by defining it on the basis $B_2$ by
+\[
+ Su_1 = w_1, \ldots, Su_m=w_m, Sy_1=x_1,\ldots, Sy_k = x_k.
+\]
+The map $S$ is invertible, since it takes a basis to a basis. Moreover, for any $v\in V$, we have scalars $c_1,\ldots, c_m$ such that 
+\[
+ T_2v = c_1T_2v_1+\cdots + c_mT_2v_m = c_1u_1+\cdots + c_mu_m.
+\]
+Also note that if we write $v=v'+v''$, where $v'=c_1v_1+\cdots +c_mv_m$ and $v''\in \nul T_2=\nul T_1$, then
+\begin{align*}
+ (ST_2)v &= S(T_2v) = S(c_1u_1+\cdots +c_mu_m)\\
+& = c_1Su_1+\cdots +c_mSu_m\\
+& = c_1w_1+\cdots +c_mw_m\\
+& = c_1T_1v_1+\cdots + c_mT_1v_m\\
+& = T_1v'\\
+& = T_1(v'+v'')\\
+& = T_1v.
+\end{align*}
+
+
+\bigskip
+
+ \item Suppose that $V$ is finite-dimensional. Prove that $\range T_1=\range T_2$ if and only if there exists an invertible linear operator $S:V\to V$ such that $T_1=T_2S$.
+
+\bigskip
+
+{\bf Solution:} Suppose that there exists an invertible linear operator $S:V\to V$ such that $T_1=T_2S$. If $w\in \range T_1$, then there exists $v\in V$ such that $T_1v=w$. But then 
+\[
+ w=T_1v = (T_2S)v = T_2(Sv),
+\]
+which shows that $w\in \range T_2$. If $w\in \range T_2$, then $w=T_2v$ for some $v\in V$. If we let $v'=S^{-1}v$, then
+\[
+ T_1v' = (T_2S)v' = (T_2S)(S^{-1}v) = T_2(SS^{-1}v) = T_2v = w,
+\]
+so $w\in \range T_1$. Thus, $\range T_1=\range T_2$.
+
+Conversely, suppose that $\range T_1=\range T_2$. Since $V$ is finite-dimensional, we have that
+\[
+ \dim\nul T_1 = \dim V-\dim\range T_1 = \dim V-\dim\range T_2 = \dim\nul T_2.
+\]
+Moreover, we know that $\range T_1=\range T_2$ is finite-dimensional. Let $w_1,\ldots, w_k$ be a basis for this subspace of $W$, and choose\footnote{The vectors are not uniquely defined. For each $w_j$, any two vectors $u_j, u_j'$ such that $T_1u_j=T_1u_j'=w_j$ differ by an element of $\nul T_1$.} vectors $u_1,\ldots, u_k\in V$ and $v_1,\ldots, v_k\in V$ such that
+\[
+ T_1u_1=w_1=T_2v_1,\ldots, T_1u_k=w_k=T_2v_k.
+\]
+Recall (from an earlier exercise) that the sets $\{u_1,\ldots, u_k\}$ and $\{v_1,\ldots, v_k\}$ are linearly independent. If we let $U = \spn\{u_1,\ldots, u_k\}$, then $V=\nul T_1\oplus U$.
+
+(If this is not clear, note that for any $v\in V$, we have
+\[
+ T_1v = c_1w_1+\cdots+c_kw_k = c_1T_1u_1+\cdots+c_mT_1u_m = T_1(c_1u_1+\cdots+c_mu_m).
+\]
+Thus, $T_1v = T_1v'$, where $v'=c_1u_1+\cdots +c_mu_m\in U$. If $v'' = v-v'$, then $T_1v''=T_1v-T_1v' = 0$, so $v''\in\nul T_1$, and since the vectors $T_1u_i$ form a basis for $\range T_1$, we see that $\nul T_1\cap U = \{0\}$.)
+
+If we let $\{x_1,\ldots, x_m\}$ be a basis for $\nul T_1$, then
+\[
+ B_1 = \{u_1,\ldots, u_m, x_1,\ldots, x_k\}
+\]
+is a basis of $V$. Similarly, if $\{y_1,\ldots, y_m\}$ denotes a basis for $\nul T_2$ (and recall from above that $\dim \nul T_2 = \dim \nul T_1$), then
+\[
+ B_2 = \{v_1,\ldots, v_m,y_1,\ldots, y_k\}
+\]
+is also a basis of $V$. We now define a linear map $S:V\to V$ in terms of the basis $B_1$ by
+\[
+ Su_1=v_1,\ldots, Su_m=v_m,Sx_1=y_1,\ldots, Sx_k=y_k.
+\]
+Then $S$ is invertible, since it takes a basis to a basis. Given any $v\in V$, write
+\[
+ v = a_1u_1+\cdots + a_ku_k+b_1x_1+\cdots +b_mx_m.
+\]
+Then we have
+\begin{align*}
+ T_1v & = T_1(a_1u_1+\cdots + a_ku_k)+T_1(b_1x_1+\cdots + b_mx_m)\\
+& = a_1w_1+\cdots + a_kw_k + 0\\
+& = a_1T_2v_1+\cdots + a_kT_2w_k + T_2(b_1y_1+\cdots + b_my_m)\\
+& = T_2(a_1Su_1+\cdots +a_kSu_k)+T_2(b_1Sx_1+\cdots + b_mSx_m)\\
+& = T_2(S(a_1u_1+\cdots+a_ku_k+b_1x_1+\cdots + b_mx_m))\\
+& = T_2(Sv).
+\end{align*}
+
+
+
+\bigskip
+
+\end{enumerate}
+
+
+ \item Let $U\subseteq \mathbb{F}^\infty$ denote the vector space of sequences
+
+with ``finite support'': for each $x=(x_n)\in U$ there exists a natural number $N_x$ such that $x_i=0$ for all $i\geq N_x$. Thus, each $x\in U$ looks like
+\[
+ x = (x_1,x_2,x_3,\ldots, x_{N_x}, 0, 0, \ldots).
+\]
+Prove that the vector space $U$ is isomorphic to the vector space $\mathcal{P}(\mathbb{F})$ of all polynomials (of arbitrary degree) with coefficients in $\mathbb{F}$.
+
+\bigskip
+
+{\bf Solution:} We define a map $T:\P(\R)\to U$ as follows: for any element
+\[
+ p(x) = a_0+a_1x+a_2x^2+\cdots + a_nx^n
+\]
+of $\P(\R)$, we define
+\[
+ T(p(x)) = (a_0,a_1,a_2,\ldots, a_n,0,0,\ldots).
+\]
+This clearly defines a map from $\P(\R)$ to $U$. It is linear, since if $q(x) = b_0+b_1x+b_2x^2+\cdots + b_mx^m$,\footnote{Assume without loss of generality that $n\leq m$. If $m>n$ we can always reverse the roles of $p$ and $q$.} then
+\begin{align*}
+ T(p(x)+q(x)) & = T((a_0+b_0)+(a_1+b_1)x+\cdots + (a_n+b_n)x^n + b_{n+1}x^{n+1}+\cdots + b_mx^m)\\
+& = (a_0+b_0,a_1+b_1,\ldots, a_n+b_n, b_{n+1},\ldots, b_m,0,0,\ldots)\\
+& = (a_0,a_1,\ldots, a_n,0,0,\ldots)+(b_0,b_1,\ldots, b_m,0,0,\ldots)\\
+& = T(p(x))+T(q(x)),
+\end{align*}
+and for any scalar $c$,
+\begin{align*}
+ T(cp(x)) & = T(ca_0+ca_1x+\cdots + ca_nx^n)\\
+& = (ca_0,ca_1,\ldots, ca_n,0,0,\ldots)\\
+& = c(a_0,a_1,\ldots, a_n,0,0,\ldots)\\
+& = cT(p(x)).
+\end{align*}
+Thus $T:\P(\R)\to U$ is a linear map. It's clear that $T$ is injective, since if
+\[
+ T(p(x)) = (0,0,0,\ldots),
+\]
+we must have $p(x) = 0$ (since all the coefficients are zero), and $T$ is surjective, since given any element $u=(a_0,a_1,\ldots, a_N,0,0,\ldots)\in U$, we can let 
+\[
+ p(x) = a_0+a_1x+\cdots + a_Nx^N,
+\]
+and then $T(p(x)) = u$.
+ \end{enumerate}
+\end{document}
+ 

@@ -1,0 +1,82 @@
+ \documentclass{beamer}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{default}
+\usepackage{pgfpages}
+\pgfpagesuselayout{resize to}[letterpaper,landscape,border shrink=5mm]
+
+%\geometry{landscape,paper=letterpaper}
+\beamertemplatenavigationsymbolsempty
+\date{}
+\title{Chapter 1: Systems of Linear Equations\\Math 1410\\University of Lethbridge\\Spring 2015}
+\begin{document}
+\begin{frame}
+ \titlepage
+\end{frame}
+\begin{frame}\frametitle{Linear equations}
+ \begin{definition}
+  A \alert{linear equation} in $n$ variables $x_1, x_2, \ldots, x_n$ is an equation of the form
+\[
+ a_1x_1+a_2x_2+\cdots + a_nx_n = b,
+\]
+where $a_1,a_2,\ldots, a_n, b$ are constants (real numbers).
+ \end{definition}
+
+\bigskip
+
+Examples:
+
+\vspace{2in}
+
+\end{frame}
+\begin{frame}\frametitle{Systems of equations}
+ A \alert{system of equations} (linear or otherwise) is a collection of one or more equations for which we want to find all common solutions (if any).
+\begin{example}[A non-linear system]
+ Solve the system
+\begin{align*}
+ x^2+y^2 &= 5\\
+ x^2-y^2 &= 1
+\end{align*}
+\end{example}
+Solutions to non-linear systems can be very complicated (and even impossible to solve exactly). For linear systems (which we will study) there are systematic methods for solving them.
+\end{frame}
+\begin{frame}\frametitle{A ``biological'' example}
+ \begin{example}
+A biologist wants to feed rats a diet consisting of fish and meal so that the rats get 30 grams of protein and 20 grams of carbohydrate every day. If fish consists of 70\% protien and 10\% carbohydrate, while meal consists of 30\% protein and 60\% carbohydrate, how much of each food is needed every day?
+ \end{example}
+\vspace{2in}
+
+\end{frame}
+\begin{frame}\frametitle{Geometric solutions}
+ Linear equation in two dimensions:
+\[
+ ax+by = c
+\]
+
+\vspace{0.75in}
+
+ Linear equation in three dimensions:
+\[
+ ax+by+cz=d
+\]
+
+\vspace{0.5in}
+
+\end{frame}
+\begin{frame}\frametitle{Algebraic solutions}
+ A visual approach only works in two or three dimensions. (Realistically, it doesn't work that well in 3D either.)\\
+\begin{example}
+ Solve the system:
+\begin{align*}
+ 2x-3y& = 7\\
+ -x+4y& = 2
+\end{align*}
+
+\end{example}
+
+\bigskip
+
+ Some applied situations (economics, air traffic control) involve hundreds or even thousands of variables. In these cases, only algebraic (or numerical) methods will work.
+\end{frame}
+
+\end{document}

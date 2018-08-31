@@ -1,0 +1,123 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=0.85in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 1560 - Tutorial \#4}\\
+Monday, February 5
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+
+\vspace*{\fill}
+
+
+
+Some additional practice (copy these into your notes but do not submit anything):
+\begin{enumerate}
+\item Compute the derivatives of the following functions using the chain rule:
+\begin{multicols}{3}
+\begin{enumerate}
+\item $f(x) = \ln(\sqrt{x^4+3x^2})$
+\item $\di g(x) = \sin(e^{x^3})$
+\item $\di h(x) = e^{\sin(\sqrt{x^2+1})}$ 
+\end{enumerate}
+\end{multicols}
+
+\item Compute $\dfrac{dy}{dx}$ using implicit differentiation, if:
+\begin{multicols}{3}
+\begin{enumerate}
+\item $(x^2+y^2)^2=x^2-y^2$
+\item $\sqrt{xy}=x^2-3y$
+\item $x^3\sin(xy^2)=3$
+\end{enumerate}
+\end{multicols}
+
+\item Compute $f'(x)$ using logarithmic differentiation, if:
+\begin{multicols}{2}
+\begin{enumerate}
+\item $\di f(x)=(x^2+1)^x$
+\item $\di f(x)=\sqrt{\frac{e^{x^3}(x-4)^7}{(x^2+1)^3\sin^3(x)}}$
+\end{enumerate}
+\end{multicols}
+\end{enumerate}
+
+
+
+
+\newpage
+%\thispagestyle{empty}
+
+\vglue12pt
+
+  \begin{enumerate}
+    \item Compute the derivative of the following functions:
+    \begin{enumerate}
+    \item $f(x) = \tan(x^3+x)$
+    
+    \vspace{1.5in}
+    
+    \item $\di g(x) = \sqrt{e^{x^4}+1}$
+    \end{enumerate}
+
+    \vspace{1.5in}
+
+    \item Compute the \textbf{second} derivative of the following functions:
+    \begin{enumerate}
+    \item $f(x) = \tan(x^2)$
+    
+    \vspace{2in}
+    
+    \item $\di g(x) = e^{\sec(x)}$
+    \end{enumerate}
+\newpage
+ \vglue12pt
+  
+   \item Compute the derivative of $f(x) = \ln\left(\sqrt[3]{\dfrac{x^4(x-4)^5}{e^{3x+1}(x^2+1)^7}}\right)$. (First use log properties)
+  
+   \vspace{3.75in}
+   
+
+       
+    \item Use implicit differentiation to find the equation of the tangent line to the curve\\ $(x+y^3)^2=4x^2y$ at the point $(1,1)$.   
+  \end{enumerate}
+\end{document}

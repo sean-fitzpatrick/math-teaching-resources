@@ -1,0 +1,161 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.5in,bottom=1.25in,left=0.75in,right=0.75in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{vwcol}
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 100}}
+\chead{MATH 1560}\lhead{Test \#1}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\P}{\mathcal{P}}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\spn}{span}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+19 September, 2017\\
+{\bf MATH 1560 - Test \#1 -- Group Stage}\\
+Examiner: Sean Fitzpatrick
+\end{center}
+
+\skipline \skipline \skipline \noindent \skipline
+
+Record the names of your group members below. Groups must contain between 3 and 5 members. \\
+
+\textbf{Please print clearly.}
+
+\skipline
+
+\begin{enumerate}
+\item Last Name:\underline{\hspace{200pt}} \quad First Name:\underline{\hspace{140pt}}
+
+\skipline\skipline
+
+\item Last Name:\underline{\hspace{200pt}} \quad First Name:\underline{\hspace{140pt}}
+
+\skipline\skipline
+
+\item Last Name:\underline{\hspace{200pt}} \quad First Name:\underline{\hspace{140pt}}
+
+\skipline\skipline
+
+\item Last Name:\underline{\hspace{200pt}} \quad First Name:\underline{\hspace{140pt}}
+
+\skipline\skipline
+
+\item Last Name:\underline{\hspace{200pt}} \quad First Name:\underline{\hspace{140pt}}
+
+\end{enumerate}
+%\skipline
+%
+%\skipline
+%Student Number:\underline{\hspace{322pt}}\\
+%\skipline
+
+
+
+\vspace{0.1in}
+
+\vspace*{\fill}
+
+\begin{quote}
+Print your name and student number clearly in the space above. You may remove this cover page, and use the back for scrap paper. If you want any work on the back of this page to be graded, you must clearly indicate this on the page containing the corresponding question.
+
+\medskip
+
+Answer the questions in the space provided. Show all work and necessary justification. Partial credit may be awarded for partially correct work.
+ 
+\medskip
+
+No outside aids are permitted, with the exception of a basic calculator. 
+\end{quote}
+
+
+
+\newpage
+\thispagestyle{empty}
+
+This page left intentionally blank.
+
+\newpage
+
+\begin{enumerate}
+\item For each limit below, evaluate the limit, or explain why it does not exist. (If a limit is infinite, indicate whether the value is $+\infty$ or $-\infty$.)
+\begin{enumerate}
+ \item $\di \lim_{x\to 2}\frac{x+3}{x^2+1}$. \points{2}
+
+\vspace{1in}
+
+ \item $\di \lim_{x\to 2}\frac{x-2}{x^2-4}$. \points{2}
+
+\vspace{1in}
+
+ \item $\di \lim_{x \to 0}\frac{\sin(5x)}{x}$. \points{2}
+
+\vspace{1.5in}
+
+ \item $\di \lim_{x \to 0}\frac{x\sin(x)}{1-\cos(x)}$ \points{2}
+
+\vspace{1.5in}
+
+ \item $\di \lim_{x\to 1}\frac{x^2-5x+6}{x^2-1}$ \points{2}
+
+\end{enumerate}
+\newpage
+
+\item Compute the derivatives of the following functions:
+\begin{enumerate}
+ \item $\di f(x) = 3x^4-5x^2+\cos(x)+2\pi^3.$ \points{2}
+
+\vspace{1.5in}
+
+ \item $\di g(x) = e^x\tan(x)$ \points{3}
+
+\vspace{1.75in}
+
+ \item $\di h(x) = \frac{x^2+2x}{\sqrt{x}}$ \points{3}
+
+\vspace{2.25in}
+
+ \item $\di r(x) = \arcsin(x^3)$ \points{2}
+\end{enumerate}
+
+\end{enumerate}
+\end{document}

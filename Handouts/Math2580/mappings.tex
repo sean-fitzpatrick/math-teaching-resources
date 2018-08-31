@@ -1,0 +1,166 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}
+\newtheorem{rem}[theorem]{Remark}
+\newenvironment{remark}{\begin{rem}\rm}{\end{rem}}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{eg}[theorem]{Example}
+\newenvironment{example}{\begin{eg}\rm}{\end{eg}}
+\newtheorem{definition}[theorem]{Definition}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\D}{\mathbf{D}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\uu}{\mathbf{u}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\h}{\mathbf{h}}
+\newcommand{\aaa}{\mathbf{a}}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\len}[1]{\lVert #1\rVert}
+
+\title{Properties of mappings between subsets of $\R^n$}
+\author{Sean Fitzpatrick}
+\begin{document}
+\maketitle
+
+When we want to discuss a change of variables for a multiple integral, it becomes necessary to consider mappings (that is, functions) $T:D\subset \R^n\to E\subset \R^n$ used to define one set of variables in terms of another; for example, $(x,y,z) = T(u,v,w)$, where $(x,y,z)\in E$, $(u,v,w)\in D$, and each of the variables $x,y$ and $z$ is viewed as a function of the variables $u,v,w$. We can think of this as a vector-valued function
+\[
+\langle x,y,z\rangle = T(u,v,w) = \langle x(u,v,w),y(u,v,w),z(u,v,w)\rangle.
+\]
+Similar statements hold for $n=1$ or $n=2$ (or for that matter, $n>3$). Of course, if $n=1$ we just have $x=T(u)$ and there are no vectors involved. Since we want to discuss properties that apply to all such maps $T$ regardless of dimension, let's let $\x\in \R^n$ represent $x\in \R$, or $(x,y)\in \R^2$, or $(x,y,z)\in \R^3$, depending on the value of $n$, and let $\uu\in\R^n$ play the same role for $u$, $(u,v)$ or $(u,v,w)$, respectively.
+
+We will discuss properties such as being one-to-one or onto, differentiability, etc. Usually one-to-one functions are introduced in a single variable calculus course, but in case you haven't seen the definition before, it's included below. In each of the definitions below, we will assume that $T$ is a function whose domain is $D\subset \R^n$ and whose range is contained in $E\subset \R^n$, where $D$ and $E$ are closed and bounded.
+
+\begin{definition}
+We say that $T$ is {\bf one-to-one} if no two distinct elements $\uu_1,\uu_2\in D$ get mapped to the same value $\x\in E$. That is, if $T(\uu_1)=T(\uu_2)$, then $\uu_1=\uu_2$.
+\end{definition}
+Note that this is not the same as stating that $T$ is a function, which means that no single element $\uu\in D$ gets mapped to two different values $\x_1\neq \x_2\in E$. One-to-one functions usually come up in the context of inverse functions: since every $\uu\in D$ corresponds to a {\em unique} value $\x = T(\uu)$, we can define a function $T^{-1}$ by $T^{-1}(\x) = \uu$. However, notice that the range of $T$ might not be all of the set $E$. The range (or image) of $T$ is defined by
+\[
+\operatorname{range}(T) = T(D) = \{T(\uu)|\uu\in D\}.
+\]
+That is, $T(D)\subset E$ is the set of all $\x\in D$ such that $\x=T(\uu)$ for some $\uu\in D$. We would like to consider the situation where every point in $E$ corresponds to a unique point in $D$, and vice-versa. (This is often phrased as the statement that $T$ defines a ``one-to-one correspondence'' between $D$ and $E$.) The additional property required is the following:
+\begin{definition}
+We say that $T$ is {\bf onto} if $T(D) = E$; that is, if for each $\x\in E$ there exists a $\uu\in D$ such that $T(\uu)=\x$.
+\end{definition}
+If $T:D\to E$ is one-to-one and onto, then we can define the inverse mapping $T^{-1}:E\to D$ according to
+\[
+T^{-1}(\x) = \uu \quad\text{ if and only if }\quad \x = T(\uu).
+\]
+Notice that the onto condition guarantees that the domain of $T^{-1}$ is all of $E$. When considering a changes of variables for a multiple integral over a region $E$, we would ideally like to have a one-to-one and onto mapping from $D$ to $E$ to ensure that when we convert to an integral over $D$, each point in $E$ only gets ``counted once''. For example, consider the mapping $T(u,v)=(u^2,v)$ defined on $[-1,1]\times [0,1]$. (That is, $x=u^2$ with $-1\leq u\leq 1$ and $y=v$, with $0\leq v\leq 1$.) The image of $T$ is the square $[0,1]\times [0,1]$, but each point $(x,y)$ corresponds to two points $(\pm \sqrt{x},\sqrt{y})$ in $D$, so integrating over $D$ would be the same as integrating over $E$ {\em twice}!
+
+Next we want to consider integrability and differentiability. Recall that a vector-valued function
+\[
+\r(t) = \langle x(t),y(t),z(t)\rangle
+\]
+is continuous if and only if each of the component functions $x(t), y(t), z(t)$ is continuous, and similarly, $\r(t)$ is differentiable if and only if each of the component functions is differentiable, and 
+\[
+\r'(t) = \langle x'(t), y'(t), z'(t)\rangle.
+\]
+Similarly, a function $T:D\subset \R^n \to \R^n$ is continuous if and only if each of its components is continuous (as a function of several variables), and the partial derivatives of $T$ can be viewed as the vector-valued functions
+\begin{align*}
+\r_u(u,v,w) &= \frac{\partial T}{\partial u}(u,v,w) = \left<\frac{\partial x}{\partial u}(u,v,w),\frac{\partial y}{\partial u}(u,v,w),\frac{\partial y}{\partial u}(u,v,w)\right>,\\
+\r_v(u,v,w) &= \frac{\partial T}{\partial v}(u,v,w) = \left<\frac{\partial x}{\partial v}(u,v,w),\frac{\partial y}{\partial v}(u,v,w),\frac{\partial y}{\partial v}(u,v,w)\right>,\\
+\r_w(u,v,w) &= \frac{\partial T}{\partial w}(u,v,w) = \left<\frac{\partial x}{\partial w}(u,v,w),\frac{\partial y}{\partial w}(u,v,w),\frac{\partial y}{\partial w}(u,v,w)\right>,
+\end{align*}
+with similar formulas for $n=2$. (For $n=1$ we have only the single derivative $T'(u)$.) If each of the components of each of the partial derivatives is continuous (that is, if the partial derivative of each of the $\x$ variables with respect to each of the $\uu$ variables is continuous) we say that $T$ is $C^1$, or continuously differentiable.
+\begin{remark}
+Recall that a general function $f:D\subset \R^n\to\R^m$ is {\em differentiable} if
+\[
+\lim_{\h\to\mathbf{0}}\frac{\lVert f(\aaa+\h)-f(\aaa)-(D_\aaa f)\h\rVert}{\lVert\h\rVert}=0,
+\]
+where $D_\aaa f$ is the matrix of partial derivatives of $f$ at $\aaa$, and $(D_\aaa f)\h$ denotes matrix multiplication, with $\h$ viewed as a column vector. 
+
+If a function $T:D\subset\R^n\to E\subset \R^n$ is $C^1$, then as with real-valued functions, being continuously differentiable implies that $T$ is differentiable (in the sense of the above definition), and therefore continuous. The derivative of $T$ is then an $n\times n$ matrix. For example, when $n=2$, if $T(u,v) = (x(u,v), y(u,v)$, we get
+\[
+D_{(u,v)}T = \begin{bmatrix}
+\dfrac{\partial x}{\partial u}& \dfrac{\partial x}{\partial v}\\ & \\ \dfrac{\partial y}{\partial u}&\dfrac{\partial y}{\partial v}
+\end{bmatrix}.
+\]
+Notice that, while the gradients $\nabla x(u,v), \nabla y(u,v)$ make up the rows of the derivative matrix $D_\aaa T$, the {\em columns} of $D_\aaa T$ are the partial derivative vectors $\r_u$ and $\r_v$.
+\end{remark}
+Given our function $T:D\subset \R^n\to E\subset \R^n$, let us denote by $DT$ the matrix of partial derivatives, as in the remark above. Since the dimension of the domain and range are the same, $DT$ is a square ($n\times n$) matrix, so we can compute its determinant.
+\begin{definition}
+For any $C^1$ function $T:D\subset \R^n\to E\subset R^n$, the real-valued function $J_T:D\subset \R^n\to \R$ defined by
+\[
+J_T(\uu) = \det (D_{\uu}T)
+\]
+is called the {\bf Jacobian} of $T$. (For $n=1$ the Jacobian is simply $J_T(u)=T'(u)$.) The Jacobian is also denoted by
+\[
+J_T(u,v) = \left|\frac{\partial(x,y)}{\partial (u,v)}\right|\text{ if } n=2, \text{ or } J_T(u,v,w) = \left|\frac{\partial (x,y,z)}{\partial (u,v,w)}\right| \text{ if } n=3.
+\]
+\end{definition}
+\begin{remark}
+The latter notation is sometimes used for the derivative matrix: if $(x,y,z) = T(u,v,w)$, we write $D_{(u,v,w)}T = \dfrac{\partial (x,y,z)}{\partial (u,v,w)}$. The notation is intended to be reminiscent of the Leibnitz form of the chain rule. Recall that the general chain rule can be stated in terms of matrix multiplication: given maps $T:\R^n\to \R^m$ and $S:\R^k\to R^n$, the composition $T\circ S$ is defined, and
+\[
+ D_\aaa(T\circ S) = D_{S(\aaa)}T\cdot D_\aaa S = \dfrac{\partial (y_1,\ldots, y_m)}{\partial (x_1,\ldots, x_n)}\cdot\dfrac{\partial (x_1,\ldots, x_n)}{\partial (u_1,\ldots, u_k)}.
+\]
+This notation can also help us remember how area and volume elements transform under a change of variables:
+\[
+dx = \frac{dx}{du}du,\quad dx\,dy = \left|\frac{\partial(x,y)}{\partial (u,v)}\right|\,du\,dv,\quad dx\,dy\,dz = \left|\frac{\partial (x,y,z)}{\partial (u,v,w)}\right|\,du\,dv\,dw
+\]
+for a change of variables in single, double, and triple integrals, respectively. 
+
+The  observant reader might notice that the single integral is the only one where we do not take the absolute value of the Jacobian. This is because double and triple integrals do not have a property analogous to the one in a single integral which states that reversing the order of integration introduces a sign change. The sign of the Jacobian has to do with whether or not it reverses {\em orientation}, and double and triple integrals do not keep track of orientation. To do this, we need the added machinery of vector calculus, or more generally, differential forms.
+\end{remark}
+We can now give the definition of a {\em transformation}, which is the type of function used to define a change of variables. (Note that our definition below includes all the conditions needed for the change of variables formula, while Stewart uses ``transformation'' as a synonym for ``function'' in this context.)
+\begin{definition}
+Let $D$ and $E$ be closed, bounded subsets of $\R^n$. A function $T:D\subset \R^n\to E\subset \R^n$ is said to be a {\bf transformation} from $D$ onto $E$ if
+\begin{enumerate}
+\item $T$ is  $C^1$ on $D$; that is, all the partial derivatives in the matrix $DT$ exist and are continuous.
+\item $T$ is onto $E$.
+\item $T$ is one-to-one, except possibly on the boundary of $D$.
+\item $J_T(\uu)\neq 0$ for all $\uu\in D$, except possibly on the boundary of $D$.
+\end{enumerate}
+\end{definition}
+If we let $d\x$ denote either $dx$, $dA$, or $dV$, depending on whether $n=1,2$ or 3, and doing the same for  $d\uu$, the change of variables formula for a transformation $T:D\to E$ can be written as
+\[
+\int_E f(\x)d\x = \int_D f(T(\uu))\lvert J_T(\uu)\rvert d\uu,
+\]
+where the integral sign represents a single, double, or triple integral, depending on the value of $n$. Note that the properties required for $T$ to be a transformation tell us that every point of $E$ corresponds to a point in $D$, and integrating over $D$ is the same as integrating over $E$, once we account for the ``stretch factor'' of the transformation given by the Jacobian $J_T(\uu)$. A rigorous proof of the change of variables formula is very difficult, but we will give an argument in class similar to the one we considered for the polar and spherical coordinate transformations which, although not a complete proof, is at least a plausible explanation!
+
+\begin{remark}
+The general inverse function theorem, which is not stated in Stewart's text, (probably in part because the statement requires defining the matrix $DT$ of partial derivatives and explaining what the inverse of a matrix is), states that if $T:D\to E$ is one-to-one and onto, then $T^{-1}$ exists, and moreover, if $T$ is $C^1$ {\em and} $J_T(\uu)\neq 0$ for all $\uu\in D$, then $T^{-1}$ is {\em also} a $C^1$ function, and
+\[
+DT^{-1}(\x) = (DT(T(\x)))^{-1},
+\]
+where the $-1$ on the right-hand side denotes a matrix inverse\footnote{A basic result from linear algebra tells us that a matrix is invertible if and only if its determinant is non-zero.}. (Compare this to the result $(f^{-1})'(x) = \dfrac{1}{f'(f^{-1}(x))}$ in one variable.) A useful consequence of this is obtained by taking the determinant of both sides of the above equation:
+\[
+J_{T^{-1}}(\x) = \frac{1}{J_T(T^{-1}(\x))}.
+\]
+This result can come in handy in cases where it's easy to come up with the inverse mapping $\uu = T^{-1}(\x)$, but hard to solve for $\x$ in terms of $\uu$ to obtain $T$.
+\end{remark}
+
+We end with a theorem that can be very useful when trying to determine the transformation to use for a change of variables: the boundary of $E$ must correspond to the boundary of $D$. This is useful because we usually would like $D$ to be as simple as possible, ideally a rectangle (or box, if $n=3$). Since the sides of the rectangle are given by setting $u$ or $v$ equal to a constant, we look at the curves that define the boundary of $E$. If the boundary of $E$ can be expressed in terms of level curves for two functions $f(x,y)$ and $g(x,y)$, we can define $u=f(x,y)$ and $v=g(x,y)$, which allows us to define $T^{-1}(x,y) = (f(x,y),g(x,y))$. From there, we can try to compute $T$ from $T^{-1}$, which is a matter of solving for $x$ and $y$ in terms of $u$ and $v$.
+\begin{theorem}\label{theroem}
+Let $D,E\subset \R^n$ be closed, bounded regions. If $T:D\to E$ is a transformation, then the boundary of $E$ is the image under $T$ of the boundary of $D$; that is, if $T(\uu)=\x$ is on the boundary of $E$, then $\uu$ is on the boundary of $D$.
+\end{theorem}
+We will prove this result in the case that $T$ is one-to-one, with $J_T(\uu)\neq 0$, on all of $D$, including the boundary. Note that if this property fails on some portion on the boundary, this will not affect the integral. For example, if $n=2$, the boundary of $D$ consists of a finite union of continuous curves, so any portion of the boundary is a continuous curve, and we know that we can neglect the graphs of finitely many continuous curves when carrying out an integral. We begin by first proving a lemma:
+\begin{lemma}\label{lem}
+If $f:A\to B$ is a continuous, one-to-one, and onto mapping from $A$ to $B$ with continuous inverse $f^{-1}:B\to A$, then $f$ maps open sets to open sets. That is, if $U\subset A$ is an open subset of $A$, then the image $f(U) = \{f(\uu)\in B|\uu\in U\}$ is an open subset of $B$.
+\end{lemma}
+\begin{proof}
+Let $U\subset A$ be open, and let $\x\in f(U)$. We need to show that there exists some $\delta>0$ such that $N_\delta(\x) = \{\y\in A| \len{\x-\y}<\delta\}$ is a subset of $f(U)$. (By definition, $f(U)$ is open if each element of $f(U)$ has a $\delta$-neighbourhood completely contained in $f(U)$.) Since $f$ is one-to-one and onto, there exists a unique $\mathbf{v}=f^{-1}(\x)\in U$ such that $f(\mathbf{v})=\x$. (We must have $\mathbf{v}\in U$ since $f(\mathbf{v})\in f(U)$.) Since $U$ is open, there exists an $\epsilon>0$ such that $N_\epsilon(\mathbf{v})\subset U$.
+
+Now, since $f^{-1}$ is continuous, there exists a $\delta>0$ such that if $\y\in N_\delta(\x)$, then $f^{-1}(\y)\in N_\epsilon(\mathbf{v})$. But if $f^{-1}(\y)\in N_\epsilon\subset U$, then $f(f^{-1}(\y))=\y\in f(U)$, by definition of $f(U)$. Thus, $N_\delta(\x)\subset f(U)$, which is what we needed to show.
+\end{proof}
+Using the above lemma, we can now give a proof of our theorem:
+\begin{proof}[Proof of Theorem \ref{theroem}]
+Let $T:D\to E$ be the given transformation, which is one-to-one and onto, and such that $J_T(\uu)\neq 0$ for all $\uu\in D$. Since $T$ is one-to-one and onto, we can find an inverse function $T^{-1}:E\to D$. Since $T$ is $C^1$ and $J_T(\uu)\neq 0$ for all $\uu\in D$, the inverse function theorem tells us that $T^{-1}$ must be $C^1$ on $E$. Since $T$ and $T^{-1}$ are both $C^1$, they are differentiable and therefore continuous.
+
+Now, let $\x\in E$ be a boundary point. We need to show that $\x$ is the image of a boundary point in $D$. Recall that $\x$ is a boundary point if and only if every neighbourhood of $\x$ contains both points in $E$ and points not in $E$. Let $\uu=T^{-1}(\x)\in D$ be the element of $D$ that is mapped to $\x$ by $T$. For the sake of contradiction, suppose that $\uu$ is not a boundary point of $D$. Then since $\uu\in D$ it must be an interior point of $D$, and therefore, there exists some $\delta>0$ such that $N_\delta(\uu)\subset D$. (That is, there is a neighbourhood of $\uu$ that is completely contained in $D$.)
+
+However, since $T$ satisfies the conditions of Lemma \ref{lem}, we know that $T$ must map open sets to open sets. In particular, since $N_\delta(\uu)$ is an open subset of $D$, $T(N_\delta(\uu))$ must be an open subset of $E$. But since $\uu\in N_\delta(\uu)$, we must have $\x = T(\uu)\in T(N_\delta(\uu))$, and thus $T(N_\delta(\uu))$ is an open subset of $E$ that contains $\x$, which contradicts the fact that $\x$ is a boundary point. Thus, it must be the case that $\uu$ is a boundary point of $D$.
+\end{proof}
+Note that since $T^{-1}:E\to D$ is also a transformation with the same properties as $T$, the converse to this result is valid as well: if $\uu$ belongs to the boundary of $D$, then $T(\uu)$ belongs to the boundary of $E$.
+\end{document}

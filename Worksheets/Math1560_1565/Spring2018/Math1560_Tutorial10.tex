@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.25in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 1560 - Tutorial \#10}\\
+Monday, March 26
+\end{center}
+\skipline \ \noindent \skipline
+
+\vspace*{\fill}
+
+\textbf{Intermediate Value Theorem (zero version):} Suppose a function $f$ is continuous on $[a,b]$, and either (a) $f(a)<0$ and $f(b)>0$, or (b) $f(a)>0$ and $f(b)<0$. Then there exists some real number $c\in (a,b)$ such that $f(c)=0$.
+
+\bigskip
+
+\textit{Extra fun:} Apply Newton's method to the equation $x^2-a=0$ (where $a>0$) to derive the formula
+\[
+a_{n+1} = \frac12\left(x_n+\frac{a}{x_n}\right).
+\]
+This formula represents the algorithm used by ancient Babylonians to compute $\sqrt{a}$.
+
+\newpage
+%\thispagestyle{empty}
+
+
+\begin{enumerate}
+\item Consider the \textit{Intermediate Value Theorem} (IVT), which is stated on the reverse of this page.
+\begin{enumerate}
+\item Use the IVT to show that the equation $3x^4-8x^3+2=0$ has a solution on the interval $[2,3]$.
+
+\vspace{1in}
+
+\item Use Newton's method to find the solution, correct to six decimal places.
+
+\end{enumerate}
+
+\vspace{2.5in}
+
+\item Explain why Newton's Method doesn't work for finding a solution to the equation $x^3-3x+6-0$ if the initial approximation is $x_1=1$.
+
+\vspace{1in}
+
+\item Apply Newton's Method to the equation $1/x - a=0$ to derive the reciprocal algorithm $x_{n+1}=2x_n-ax_n^2$.
+
+(This algorithm is used by computers to compute reciprocals without dividing.)
+\end{enumerate}
+
+\end{document}

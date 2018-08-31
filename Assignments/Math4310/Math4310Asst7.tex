@@ -1,0 +1,50 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+\newcommand{\T}{\mathcal{T}}
+\DeclareMathOperator{\Int}{Int}
+
+\title{Math 4310 Assignment \#7\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Friday, October 24th, by 5 pm.
+
+\bigskip
+
+Please submit solutions to the following problems (except where indicated). As usual, all the textbook exercises are recommended as practice problems if they don't appear as an assigned problem below.
+
+\begin{enumerate}
+\item Let $A$ and $B$ be subsets of a topological space $X$. Suppose that $A$ is connected, and that $B$ is both open and closed in $X$. Prove that if $A\cap B\neq\emptyset$, then $A\subseteq B$.
+
+[Hint: if $A\nsubseteq B$, consider $U=A\cap B$ and $V=A\cap B^c$.]
+\item Show that if $X$ and $Y$ are connected topological spaces, then $X\times Y$ is connected.
+
+[Hint: suppose $f:X\times Y\to\{0,1\}$ is continuous and nonconstant. Then there are points $(x_0,y_0),(x_1,y_1)\in X\times Y$ with $f(x_0,y_0)=0$ and $f(x_1,y_1)=1$. Note that either $f(x_0,y_1)=0$ or $f(x_0,y_1)=1$. In the first case, consider the map $i_{y_1}:X\to X\times Y$ given by $i_{y_1}(x) = (x,y_1)$. In the second case, consider $i_{y_0}$.]
+\item Prove that a topological space $X$ is connected if and only if $\partial A\neq \emptyset$ for every proper nonempty subset $A\subseteq X$.
+
+[Hint: you might find it easier to prove the contrapositive in both directions, and you proved a result on an earlier assignment that will be helpful.]
+\item Prove that if $A$ and $B$ are path-connected subsets of a topological space $X$ and $A\cap B\neq \emptyset$, then $A\cup B$ is path-connected. Conclude that for any finite collection $\{A_1,\ldots, A_n\}$ of path connected subsets of $X$, with $A_i\cap A_j\neq \emptyset$,  $\bigcup_{i=1}^nA_i$ is path-connected.
+
+\item Give an example to show that the intersection of two connected subspaces need not be connected. (Consider $\R^2$.)
+\item Prove that the space $\mathcal{C}[0,1]$ of all continuous real-valued functions on $[0,1]$, equipped with the sup-norm metric $(d_\infty)$ is path-connected.
+
+[Hint: you can show the space is in fact convex.]
+\end{enumerate}
+\end{document}
+ 

@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.2in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 2565 - Tutorial \#8}\\
+Thursday, March 8
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+
+\vspace{1cm}
+
+Last Name:\underline{\hspace{351pt}}
+%Student Number:\underline{\hspace{322pt}}\\
+%\skipline
+
+
+
+\vspace*{\fill}
+
+There's already plenty of practice on the following pages, but if you want more, you can always go to the textbook.
+
+
+
+
+
+\newpage
+%\thispagestyle{empty}
+
+
+
+
+
+ \begin{enumerate}
+\item Use the ratio or root test to determine whether the series is convergent or divergent. (If the test is inconclusive, or impractical, determine converge with another test.)
+\begin{enumerate}
+\item $\di\sum_{n=1}^\infty n\left(\frac{3}{5}\right)^n$
+
+\vspace{1in}
+
+\item $\di\sum_{n=1}^\infty \frac{(2n)!}{(n!)^2}$
+
+\vspace{1in}
+
+\item $\di\sum_{n=2}^\infty\left(\frac{1}{n}-\frac{1}{n^2}\right)^n$
+
+\vspace{1in}
+
+\item $\di\sum_{n=1}^\infty\frac{5^n+n^4}{7^n+n^2}$
+
+\vspace{1in}
+
+\item $\di\sum_{n=1}^\infty\left(1+\frac{1}{n}\right)^{n^2}$
+\end{enumerate}
+\newpage
+
+\item Determine if the series converges conditionally, or absolutely, or not at all:
+\begin{enumerate}
+\item $\di\sum_{n=1}^\infty\frac{\sin(n\pi/3)}{1+n\sqrt{n}}$
+
+\vspace{1in}
+
+\item $\di\sum_{n=1}^\infty\frac{(-1)^n}{\sqrt{n}}$
+
+\vspace{1in}
+
+\item $\di\sum_{n=1}^\infty n\cos(\pi n)\sin(1/n)$
+\end{enumerate}
+
+\vspace{1.5in}
+
+\item One can show that $\di \pi = \sum_{n=0}^\infty \frac{4(-1)^n}{2n+1}$. What is the least value of $N$ such that the partial sum $\di S_N=\sum_{n=1}^N \frac{4(-1)^n}{2n+1}$ approximates the value of $\pi$, correct to 3 decimal places.
+
+
+\newpage
+
+\item For each series below, indicate whether it converges or diverges. Also indicate which convergence test you used, and why.
+\begin{enumerate}
+\item $\di \sum_{n=1}^\infty me^{-m}$
+
+\vspace{2in}
+
+\item $\di \sum_{n=1}\infty \frac{2(n^2+2)^{2018}}{3(n^3+n+3)^{2018}}$
+
+\vspace{2in}
+
+\item $\di \sum_{k=1}^\infty \frac{(k!)^k}{k^{4k}}$
+\end{enumerate}
+\end{enumerate}
+\end{document}

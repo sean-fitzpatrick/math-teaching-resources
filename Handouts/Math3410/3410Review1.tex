@@ -1,0 +1,122 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\newcommand{\F}{\mathbb{F}}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+
+\author{Sean Fitzpatrick}
+\title{Term Test 1 Review}
+\begin{document}
+\maketitle
+
+The first term test for Math 3410 takes place on Friday, February 13th. In terms of format, you can expect something along the following lines:
+\begin{itemize}
+\item Short answer: I'll have a few true/false style questions that test conceptual knowledge. In each case you'll have to provide a short reason for your answer.
+\item Definitions: I might ask you for a definition. This could be part of a long answer question, or it might show up on its own as a short answer problem.
+\item Computational questions: I'll include one or two questions that can be handled by procedural rather than theoretical knowledge. These problems could involve things like verifying that a set of vectors is linearly independent, or computing the null space of a linear transformation.
+\item Theoretical questions: These will be problems similar to some of the suggested homework problems from the textbook. Basically, short proofs involving the definitions and theorems we've covered.
+\item Choices: In some cases I may give you the option of choosing between a computational and a theoretical question. It will probably be the case that if you've studied the course material and spent time on the suggested homework, then the theoretical questions will take less time to solve, since most computational questions ultimately boil down to solving systems of equations. 
+\end{itemize}
+\subsection*{Things you should know}
+\subsubsection*{Definitions}
+\begin{itemize}
+\item Vector spaces: definition in terms of axioms, and basic examples.
+\item Subspaces: a subset $U\subseteq V$ of a vector space $V$ is a {\bf subspace} of $V$ if $U$ is itself a vector space, using the same addition and scalar multiplication as $V$.
+\item Intersection: the {\bf intersection} $U\cap W$ of two subspaces of a vector space $V$ is the usual set-theoretic intersection (\`a la Math 2000).
+\item Sum: the {\bf sum} of two subspaces $U$ and $W$ of a vector space $V$ is the set
+\[
+U+W = \{u+w\,|\,u\in U \text{ and } w\in W\}
+\]
+{\bf Note:} make sure you understand how to translate the statement $V=U+W$. Any equality of vector spaces is first and foremost an equality of sets. This means that $V\subseteq U+W$ and $U+W\subseteq V$. The latter inclusion is automatic: $U$ and $W$ are subsets of $V$, so $u\in U$ and $w\in W$ are in particular elements of $V$, and thus, so is $u+w$. The other inclusion, $V\subseteq U+W$, means that for any $v\in V$, there exist $u\in U$ and $w\in W$ such that $u+w=v$.
+\item Direct sum: we say that a vector space $V$ is the {\bf direct sum} of subspaces $U$ and $W$, and write $V=U\oplus W$, if $V=U+W$, and in addition, for any $v\in V$ there exist {\em unique} vectors $u\in U$ and $w\in W$ such that $v=u+w$.
+\item Linear combination: a {\bf linear combination} of vectors $v_1,\ldots, v_m$ in a vector space $V$ is any vector of the form
+\[
+v=c_1v_1+c_2v_2+\cdots+c_mv_m
+\]
+for scalars $c_1,\ldots, c_m\in\mathbb{F}$.
+\item Span: the {\bf span} of a set of vectors $\{v_1,\ldots, v_m\}$ in a vector space $V$ is the set of all possible linear combinations of those vectors:
+\[
+\spn\{v_1,\ldots, v_m\} = \{c_1v_1+c_2v_2+\cdots +c_mv_m\,|\, c_1,c_2,\ldots, c_m\in\F\}.
+\]
+{\bf Note:} it is very important that you understand the difference between a {\em set} of vectors $\{v_1,\ldots, v_m\}$, which contains only a finite number of vectors (the ones listed in the set), and the {\em span} of those vectors, which consists of an {\em infinite} number of vectors, since it includes all possible linear combinations of those vectors. The only exception is the span of the zero vector, since $c0=0$ for any scalar $c$. (We are always working over the fields $\F=\mathbb{R}$ or $\F=\mathbb{C}$, which are (uncountably) infinite, so as soon as you have a single non-zero vector $v$, the span of any set containing $v$ contains all vectors of the form $cv$, where $c$ is a scalar, and there are infinitely many scalars to choose from. The span of a finite set of vectors is finite only in the sense that it is finite-dimensional.)
+
+{\bf Note:} another translation note -- if we say $V=\spn\{v_1,v_2,\ldots, v_m\}$, we are saying that any vector $v\in V$ can be written as a linear combination of the vectors $v_1,\ldots, v_m$. In other words, $V=\spn\{v_1,v_2,\ldots, v_m\}$ if and only if for every $v\in V$ there exist scalars $c_1,c_2,\ldots, c_m$ such that
+\[
+v= c_1v_1+c_2v_2+\cdots +c_mv_m.
+\]
+\item Finite-dimensional: A vector space $V$ is {\bf finite-dimensional} if there exists a finite spanning set for $V$; that is, if $V=\spn\{v_1,\ldots, v_m\}$ for some finite set of vectors $v_1,\ldots, v_m$.
+\item Linear independence: we say that a set of vectors $\{v_1,\ldots, v_m\}$ in a vector space $V$ is {\bf linearly independent} if whenever $c_1v_1+c_2v_2+\cdots+c_mv_m=0$, we must have $c_1=0,c_2=0,\ldots, c_m=0$.
+
+If the vectors $v_1,\ldots, v_m$ are not linearly independent, we say that they are {\bf linearly dependent}. This means that we can take at least one of the scalars $c_1,\ldots, c_m$ to be non-zero, in which case it's possible to write the corresponding vector as a linear combination of the remaining vectors. For example, if $c_1\neq 0$, then we have
+\begin{align*}
+c_1cv_1+c_2v_2+\cdots +c_mv_m& = 0, \text{ therefore }\\
+c_1v_1 & = -c_2v_2-\cdots -c_mv_m, \text{ and dividing by $c_1\neq 0$ gives}\\
+v_1 & = -\frac{c_2}{c_1}v_2 - \cdots - \frac{c_m}{c_1}v_m.
+\end{align*}
+\item Basis: a set of vectors $B=\{v_1,\ldots, v_n\}$ is a {\bf basis} for a vector space $V$ if $\spn B=V$ and $B$ is linearly independent.
+\item Dimension: The {\bf dimension} of a finite-dimensional vector space $V$ is the number of vectors in any basis of $V$.
+\item Linear transformation: a function $T:V\to W$ from a vector space $V$ to a vector space $W$ is a {\bf linear transformation} if
+\begin{align*}
+T(u+v) & = T(u)+T(v) \text{ for any } u,v\in V\\
+T(cv) & = cT(v) \text{ for any } c\in \F, v\in V.
+\end{align*}
+\item The {\bf null space} of a linear transformation $T:V\to W$ is the set $\nul T = \{v\in V \,|\, T(v)=0\}\subseteq V$.
+\item The {\bf range} of a linear transformation $T$ is the set $\range T = \{T(v) \,|\, v\in V\}\subseteq W$. (This is just the usual definition of the range of a function.)
+\item A linear transformation $T$ is {\bf injective} (or one-to-one) if $T(u)=T(v)$ implies $u=v$ for any $u,v\in V$, and {\bf surjective} (or onto) if $\range T = W$.
+\end{itemize}
+\subsubsection*{Theorems}
+\begin{itemize}
+\item Subspace test: a subset $U\subseteq V$ is a subspace provided that $0\in U$, and $U$ is closed under both addition and scalar multiplication.
+\item The intersection $U\cap W$ of two subspaces is a subspace.
+\item The sum $U+W$ of two subspaces is a subspace.
+\item A sum $U+W$ is a direct sum if $U\cap W=\{0\}$, or equivalently, if whenever $0=u+w$, with $u\in U$ and $w\in W$, we have $u=w=0$.
+\item The span $\spn\{v_1,\ldots, v_m\}$ of any set of vectors $v_1,\ldots, v_m\in V$ is a subspace of $V$.
+\item If $\{v_1,\ldots, v_m\}$ is a linearly independent set in $V$ and $\{w_1,\ldots, w_n\}$ is a spanning set for $V$, then $m\leq n$. (The number of vectors in any independent set is always less than or equal to the number of vectors in a spanning set.)
+\item If $B=\{v_1,\ldots, v_n\}$ is a basis for a vector space $V$, then every $v\in V$ can be written {\bf uniquely} as a linear combination
+\[
+v=c_1v_1+c_2v_2+\cdots +c_nv_n.
+\]
+\item Any spanning set contains a basis: given $A=\{v_1,\ldots, v_m\}$, if $\spn A=V$, then there is some basis $B$ for $V$ with $B\subseteq A$.
+\item Any linearly independent set can be extended to a basis: given a linearly independent set $A=\{v_1,\ldots, v_m\}$, we can find vectors $w_1,\ldots, w_k$ not in the span of $A$ such that $B=\{v_1,\ldots, v_m,w_1,\ldots, w_k\}$ is a basis for $V$.
+
+{\bf Note:} In particular, this means that if $B_U=\{u_1,\ldots, u_m\}$ is a basis for a subspace $U\subseteq V$, then $B_U$ is linearly independent, and therefore can be extended to a basis $B_V = \{u_1,\ldots, u_m,w_1,\ldots, w_k\}$. Moreover, if we define $W=\spn\{w_1,\ldots, w_k\}$ to be the subspace of $V$ spanned by the vectors we used to extend $B_U$ to $B_V$, then $W$ is a complementary subspace to $U$, in the sense that $V=U\oplus W$.
+\item The number of vectors in any basis for a finite-dimensional vector space $V$ is the same. (Hence, dimension is well-defined.)
+\item If $U$ is a subspace of a finite-dimensional vector space $V$, then $U$ is finite-dimensional, and $\dim U\leq \dim V$.
+\item If $\dim V=n$, then any linearly independent set of $n$ vectors is a basis for $V$.
+\item If $\dim V = n$, then any spanning set of $n$ vectors is a basis for $V$.
+\item If $U_1$ and $U_2$ are subspaces of a finite-dimensional vector space $V$, then 
+\[
+\dim (U_1+U_2) = \dim U_1+\dim U_2-\dim(U_1\cap U_2).
+\]
+\item The null space of a linear transformation $T:V\to W$  is a subspace of $V$.
+\item The range of a linear transformation $T:V\to W$ is a subspace of $W$.
+\item A linear transformation $T:V\to W$ is one-to-one if and only if $\nul T = \{0\}$.
+\item If $V$ is finite-dimensional, then for any linear transformation $T:V\to W$,
+\[
+\dim V = \dim \nul T + \dim \range T.
+\]
+\end{itemize}
+\subsection*{Things you need to be able to do}
+\begin{itemize}
+\item Explain why a given set, equipped with an addition and scalar multiplication, is or is not a vector space.
+\item Use the vector space axioms to prove a general fact about vector spaces. (For example, that $0\cdot v = 0$ for any vector $v\in V$.)
+\item Decide whether or not a given subset of a vector space is a subspace.
+\item Determine whether a given vector space can be written as a sum of two subspaces, and decide whether or not the sum is direct.
+\item Determine whether or not a given set of vectors is linearly independent.
+
+{\bf Note:} The definition of independence is a conditional statement: {\bf if} $c_1v_1+\cdots, + c_mv_m=0$ for some scalars $c_1,\ldots, c_m$, {\bf then} $c_1=0,\ldots, c_m=0$. This means that your argument should begin with the line ``Suppose $c_1v_1+\cdots+c_mv_m=0$'' and end with ``therefore, $c_1=0,\ldots, c_m=0$''. (This is true for both computational and theoretical problems involving linear independence.)
+\item Determine whether a given vector $v\in V$ can be written as a linear combination of other vectors $v_1,\ldots, v_m$; that is, decide whether or not $v\in\spn\{v_1,\ldots, v_m\}$.
+\item Given a subspace $U\subseteq V$, (a) find a basis for $U$, (b) find vectors in $V$ that extend the basis for $U$ to a basis for $V$, and (c) find a complementary subspace $W$ such that $V=U\oplus W$, {\bf and} be able to give reasons to support your conclusions in (a), (b), and (c).
+\item Compute the null space and range of a linear transformation $T:V\to W$.
+\item Decide if a given linear transformation is injective or surjective.
+\item The suggested homework problems from the textbook. (Maybe start with the bold ones.)
+\item You should also make sure that you have learned from any mistakes you made on the quizzes so far.
+\end{itemize}
+\subsection*{Examples}
+I'll try to add a few computational examples on Piazza throughout the week. 
+\end{document}

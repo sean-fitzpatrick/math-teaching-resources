@@ -1,0 +1,93 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+\DeclareMathOperator{\proj}{proj}
+
+\title{Math 1410 Assignment \#3\\University of Lethbridge, Spring 2017}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} {\bf Thursday}, March 2nd, by 4 pm.
+
+\bigskip
+
+Please review the {\bf Guidelines for preparing your assignments} before submitting your work. You can find these guidelines, along with the required cover page, in the Assignments section on our Moodle site.
+
+
+
+\subsection*{Assigned problems}
+\begin{enumerate}
+\item For each of the following subsets $S$ of $\R^3$ (viewed as the vector space of $3\times 1$ column vectors), determine if $S$ is a subspace. If $S$ is a subspace, determine a set of vectors that spans $S$.
+\begin{enumerate}
+ \item $S = \left\{\left. \bbm x\\y\\z\ebm \,\right|\, 3x-4y+z=2\right\}$
+ \item $S = \left\{\left. \bbm 2u-3v\\u\\v-5u\ebm \,\right|\, u,v\in \R\right\}$
+ \item $S = \left\{\vec{v}\in\R^3 \,|\, \vec{v}\dotp \vec{w} =0\right\}$, where $\vec{w} = \bbm 3\\-1\\2\ebm$.
+\end{enumerate}
+
+\newpage
+
+\item A set of vectors $\mathcal{A} = \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k\}\subseteq \R^n$ is called \textbf{orthogonal} if $\vec{v}_i \neq \vec{0}$ for each $i=1,\ldots, k$, and if $\vec{v}_i\dotp \vec{v}_j = 0$ for all $i\neq j$. In other words, $\mathcal{A}$ is a set of non-zero, mutually orthogonal vectors: each vector in the set is orthogonal to all the others.
+
+\begin{enumerate}
+ \item Show that the set $\mathcal{A} = \left\{\bbm 1\\-2\\0\\1\ebm, \bbm 4\\1\\-1\\-2\ebm, \bbm 1\\1\\3\\1\ebm\right\}$ is an orthogonal subset of $\R^4$.
+ \item Prove that any orthogonal set of vectors is linearly independent.
+
+\textit{Hint:} Suppose you have a linear combination $c_1\vec{v}_1+c_2\vec{v}_2+\cdots + c_k\vec{v}_k = \vec{0}$. What do you get when you take the dot product of either side of this equation with $\vec{v}_1$? With $\vec{v}_2$? With $\vec{v}_i$?
+
+ \item Prove that if $\mathcal{A} = \{\vec{v}_1,\ldots, \vec{v}_k\}$ is an orthogonal set of vectors and $\vec{w}$ belongs to the span of $\mathcal{A}$, then
+\[
+ \vec{w} = \left(\frac{\vec{w}\dotp\vec{v}_1}{\vec{v}_1\dotp \vec{v}_1}\right)\vec{v}_1 + \left(\frac{\vec{w}\dotp\vec{v}_2}{\vec{v}_2\dotp\vec{v}_2}\right)\vec{v}_2+\cdots + \left(\frac{\vec{w}\dotp\vec{v}_k}{\vec{v}_k\dotp\vec{v}_k}\right)\vec{v}_k.
+\]
+This is called the \textit{Fourier decomposition theorem}.
+
+\textit{Hint:} Saying that $\vec{w}$ belongs to the span of $\mathcal{A}$ means that there are scalars $a_1,\ldots, a_k$ such that $\vec{w} = a_1\vec{v}_1+\cdots a_k\vec{v}_k$. By using appropriate dot products, as in part (b), determine the values of $a_1,\ldots, a_k$.
+
+ \item Let $\mathcal{A}$ be the orthogonal subset of $\R^4$ from part (a). Determine whether or not the following vectors belong to the span of $\mathcal{A}$:
+\[
+ \vec{a} = \bbm -4\\-7\\5\\8\ebm, \quad \vec{b} = \bbm 2\\3\\-5\\1\ebm.
+\]
+
+\textit{Hint:} Use part (c). If a vector $\vec{w}$ does not belong to the span of $\mathcal{A}$, then
+\[
+ \vec{w} \neq \left(\frac{\vec{w}\dotp\vec{v}_1}{\vec{v}_1\dotp \vec{v}_1}\right)\vec{v}_1 + \left(\frac{\vec{w}\dotp\vec{v}_2}{\vec{v}_2\dotp\vec{v}_2}\right)\vec{v}_2+\cdots + \left(\frac{\vec{w}\dotp\vec{v}_k}{\vec{v}_k\dotp\vec{v}_k}\right)\vec{v}_k.
+\]
+
+\end{enumerate}
+
+\newpage
+
+\item In the previous problem, we saw that if $\mathcal{A}$ is an orthogonal set of vectors, and $\vec{w}\in\operatorname{span}(\mathcal{A})$, then the $\vec{w}$ can be written in terms of the vectors in $\mathcal{A}$ using the Fourier decomposition theorem. If $\vec{w}$ is \textbf{not} in the span of $\mathcal{A}$, then the vector
+\[
+ \vec{v}=\left(\frac{\vec{w}\dotp\vec{v}_1}{\vec{v}_1\dotp \vec{v}_1}\right)\vec{v}_1 + \left(\frac{\vec{w}\dotp\vec{v}_2}{\vec{v}_2\dotp\vec{v}_2}\right)\vec{v}_2+\cdots + \left(\frac{\vec{w}\dotp\vec{v}_k}{\vec{v}_k\dotp\vec{v}_k}\right)\vec{v}_k.
+\]
+is called the \textbf{orthogonal projection} of $\vec{w}$ onto the subspace $U=\operatorname{span}(\mathcal{A})$, and dentoed by $\proj_U(\vec{w})$. In more advanced linear algebra courses, one proves that $\proj_U(\vec{w})$ is the element of $U$ that is \textit{closest} to $\vec{w}$, in the sense that $\len{\vec{w}-\proj_U(\vec{w})}$ is as small as possible.
+
+Consider the subspace $U\subseteq \R^3$ given by $U = \operatorname{span}\left\{\bbm 1\\2\\0\ebm, \bbm 2\\-1\\1\ebm\right\}$. Note that $U$ is a plane through the origin, and that the vectors $\vec{v} = \bbm 1\\2\\0\ebm$ and $\vec{w}=\bbm 2\\-1\\1\ebm$ are orthogonal.
+
+Determine the point $Q$ on the plane $U$ that is closest to the point $P=(3,-1,4)$ (and the distance from $P$ to $Q$):
+\begin{enumerate}
+ \item By computing the orthogonal projection of $\vec{p} = \bbm 3\\-1\\4\ebm$ onto $U$, as described above.
+ \item Using the method described in Example 54 (and the discussion that follows) in Section 3.6 of the textbook.
+\end{enumerate}
+
+\textbf{Note:} This method of orthogonal projection onto a subspace has a number of interesting applications to other areas of mathematics and to the sciences. In calculus, for an example, an infinite-dimensional version of this method is used to find a differentiable function that gives the ``best approximation'' to a badly-behaved function. The method of \textit{least squares approximation} used to find a ``best fit'' curve for a data set is also a consequence of orthogonal projection.
+\end{enumerate}
+
+\end{document}
+ 

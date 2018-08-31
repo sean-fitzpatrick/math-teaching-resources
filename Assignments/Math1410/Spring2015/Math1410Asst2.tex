@@ -1,0 +1,54 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\title{Math 1410 Assignment \#2\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} {\bf Wednesday}, February 4th, by 5 pm.
+
+\bigskip
+
+For instructions on completing this assignment, please see Assignment \#1.
+\subsection*{Assigned problems}
+\begin{enumerate}
+
+\item Recall that an $n\times n$ matrix $A$ is {\bf symmetric} if $A^T=A$, and {\bf antisymmetric} if $A^T=-A$.
+\begin{enumerate}
+ \item Show that $B+B^T$ is symmetric for {\bf any} $n\times n$ matrix $B$.
+ \item Show that $B-B^T$ is antisymmetric for {\bf any} $n\times n$ matrix $B$.
+ \item Given an arbirary $n\times n$ matrix $B$, find a symmetric matrix $U$ and an antisymmetric matrix $V$ such that $B=U+V$.
+\end{enumerate}
+\item For each of the following statements, either explain why it is true, or give an example showing that it is false:
+\begin{enumerate}
+ \item If $A\neq 0$ is a square matrix, then $A$ is invertible.
+ \item If $A$ and $B$ are both invertible, then $A+B$ is invertible.
+ \item If $A$ and $B$ are both invertible, then $(A^{-1}B)^T$ is invertible.
+ \item If $A^4=3I_n$, then $A$ is invertible. (Hint: can you find a matrix $B$ such that $AB=I_n$?)
+\end{enumerate}
+\item Simplify the following matrix product:
+\[
+ B^{-1}(AB^T)^T(BA^{-1})A
+\]
+\item Let $A$ and $B$ be $n\times n$ invertible matrices.
+\begin{enumerate}
+ \item Show that $A^{-1}+B^{-1} = A^{-1}(A+B)B^{-1}$.
+ \item Show that {\bf if} $A+B$ is invertible, then $A^{-1}+B^{-1}$ is also invertible, and find a formula for $(A^{-1}+B^{-1})^{-1}$.
+\end{enumerate}
+
+
+ \end{enumerate}
+\end{document}
+ 

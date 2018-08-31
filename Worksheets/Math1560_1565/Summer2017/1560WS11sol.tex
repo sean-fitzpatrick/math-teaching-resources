@@ -1,0 +1,144 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1560}\chead{Tutorial Assignment \# 11 Solutions}\rhead{June 15th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+\begin{enumerate}
+ \item Compute the following indefinite integrals (antiderivatives):
+
+\begin{enumerate}
+ \item \begin{align*}
+        \int \frac{1-\sin^2x}{\cos x}\,dx & = \int\frac{\cos^2(x)}{\cos(x)}\,dx\\
+					  & = \int \cos(x)\,dx = \sin(x)+C.
+       \end{align*}
+
+
+\bigskip
+
+ \item \begin{align*}
+        \int \frac{e^x+1}{e^x}\, dx & = \int\left(\frac{e^x}{e^x}+\frac{1}{e^x}\right)\,dx\\
+				    & = \int(1+e^{-x})\,dx\\
+				    & = x-e^{-x}+C.
+       \end{align*}
+
+Note: for the second term, we relied on the observation that the derivative of $e^{-x}$ is $-e^{-x}$. Without that observation, one can make the substitution $u=-x$, so $dx = -du$, and $\int e^{-x}\,dx = \int e^u(-du) = -e^u+C = e^{-x}+C$.
+
+\bigskip
+
+ \item $\di \int xe^{x^2}\,dx$
+
+\bigskip
+
+Here, we make the substitution $u=x^2$, so $du=2x\,dx$, or $x\,dx = \frac{1}{2}\,du$. Thus,
+\[
+ \int xe^{x^2}\,dx = \int \frac{1}{2}e^u\,du = \frac{1}{2}e^u+C = \frac{1}{2}e^{x^2}+C.
+\]
+
+\bigskip
+
+ \item $\di \int \frac{\sin(\sqrt{x})}{\sqrt{x}}\,dx$
+
+\bigskip
+
+If we make the substitution $u=\sqrt{x}$, then $du = \frac{1}{2\sqrt{x}}\,dx$, so $\frac{1}{\sqrt{x}}\,dx = 2\,du$. Thus,
+\[
+ \int\frac{\sin(\sqrt{x})}{\sqrt{x}}\,dx = \int \sin(u) (2\,du) = -2\cos(u)+C = -2\cos(\sqrt{x})+C.
+\]
+
+\end{enumerate}
+\newpage
+
+ \item Evaluate the following definite integrals. (In some cases there may be shortcuts...)
+\begin{enumerate}
+ \item $\di \int_3^3 x^3e^{\sin(x)}\sqrt{1+x^2}\,dx = 0,$
+
+since the upper and lower limits of integration are the same.
+
+\medskip
+
+ \item $\di \int_{-3}^3 x\cos(x^4+1)\,dx = 0,$
+
+since $f(x)=x\cos(x^4+1)$ satisfies 
+\[
+ f(-x) = (-x)\cos((-x)^4+1) = -x\cos(x^4+1)=-f(x),
+\]
+ meaning that $f(x)$ is an odd function. Since the limits of integration with respect to $x$ are symmetric, the integral is zero.
+
+\medskip
+
+
+ \item $\di \int_0^3 (x^2-3x+1)\,dx$
+
+\medskip 
+
+Using the power rule for antiderivatives, we have
+\[
+ \int_0^3 (x^2-3x+1)\,dx = \left.\left(\frac{x^3}{3}-3\frac{x^2}{2}+x\right)\right|_0^3 = \frac{27}{3}-\frac{27}{2}+3=0 = -\frac{3}{2}.
+\]
+
+\medskip
+
+ \item $\di \int_1^9 x\sqrt{x^2+1}\,dx$
+
+\medskip
+
+If we let $u=x^2+1$, then $du = 2x\,dx$, so $x\,dx = \frac{1}{2}\,du$. When $x=1$, $u=1^2+1=2$, and when $x=9$, $u=9^1+1=82$. Thus, we have
+\[
+ \int_1^9x\sqrt{x^2+1}\,dx = \int_2^{82}\sqrt{u}\frac{1}{2}\,du = \left.\frac{1}{3}u^{3/2}\right|_2^{82} = \frac{82^{3/2}-2^{3/2}}{3}.
+\]
+
+\medskip
+
+ \item $\di \int_0^1 e^x\sin(e^x)\,dx$
+
+\medskip
+
+ With $u=e^x$, we have $du=e^x\,dx$, and when $x=0$, $u=1$, and when $x=1$, $u=e$. Thus,
+\[
+ \int_0^1e^x\sin(e^x)\,dx = \int_1^e \sin(u)\,du = \left.(-\cos(u))\right|_1^e = \cos(1)-\cos(e).
+\]
+
+\end{enumerate}
+
+
+\end{enumerate}
+ 
+\end{document}

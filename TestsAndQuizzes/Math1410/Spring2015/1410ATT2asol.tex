@@ -1,0 +1,258 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 40}}
+\chead{MATH 1410A}\lhead{Test \# 2}\rhead{Friday, 20\textsuperscript{th} March, 2015}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\ivec}{\,\boldsymbol{\hat{\imath}}}
+\newcommand{\jvec}{\,\boldsymbol{\hat{\jmath}}}
+\newcommand{\kvec}{\,\boldsymbol{\hat{k}}}
+\DeclareMathOperator{\proj}{proj}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+20\textsuperscript{th} March, 2015, 10:00 - 10:50 am\\
+{\bf MATH 1410A - Test \#2}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{353pt}}\\
+\skipline
+First Name:\underline{\hspace{350pt}}\\
+\skipline
+Student Number:\underline{\hspace{323pt}}\\
+\skipline
+Tutorial Section: \underline{\hspace{320pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ {\bf Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments.
+
+\bigskip
+
+No external aids are allowed, with the exception of a 5-function calculator.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/5\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/5\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/40\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+A
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item SHORT ANSWER: For each of the questions below, please provide a short (one line) answer.
+ \begin{enumerate}
+\item Suppose $\det A = 4$ and the matrix $B$ is obtained from $A$ by  \points{2} first multiplying the first row of $A$ by 5, and then exchanging rows 1 and 3. What is $\det B$?
+
+\bigskip
+
+$\det B = -5\det A = -20$.
+
+\bigskip
+
+\item Let $A$ and $B$ be $3\times 3$ matrices. If $\det A=2$ and $\det B = -3$, what is the value of \points{2} $\det(2A^2B^TA^{-1})$?
+
+\bigskip
+
+$\det(2A^2B^TA^{-1}) = 2^3\abs{A}^2\abs{B}\left(\dfrac{1}{\abs{A}}\right) = 8\abs{A}\abs{B} = -48.$
+
+\bigskip
+
+\item Calculate the dot product of the vectors $\vec{u}=\begin{bmatrix}1&-2&4\end{bmatrix}^T$ and $\vec{v} = \begin{bmatrix}4&-2&3\end{bmatrix}^T$ \points{2}
+
+\bigskip
+
+$\vec{u}\dotp\vec{v} = 1(4)-2(-2)+4(3) = 20$.
+
+\bigskip
+
+
+\item Let $\vec{v}$ be a vector in $\R^n$. If $\len{\vec{v}}=3$ and $\vec{w} = -4\vec{v}$, what is $\len{\vec{w}}$? \points{2}
+
+\bigskip
+
+$\len{\vec{w}}=\len{-4\vec{v}} = \abs{-4}\len{\vec{v}} = 4(3)=12.$
+
+\bigskip
+
+\item Find $\vec{x}$, given that $\vec{u} = \begin{bmatrix}2&-1&3\end{bmatrix}^T$ and $\vec{v} = \begin{bmatrix}-4&7&5\end{bmatrix}^T$, and $3\vec{u}-2\vec{x}=\vec{v}$. \points{2}
+
+\bigskip
+
+$\vec{x} = \frac{1}{2}(3\vec{u}-\vec{v}) = \frac{3}{2}\vec{u}-\frac{1}{2}\vec{v} =  \begin{bmatrix} 5&-5&2\end{bmatrix}$
+
+\end{enumerate}
+\newpage
+
+\item Let $A = \begin{bmatrix}2&-1&0\\0&3&4\\-3&0&1\end{bmatrix}$.
+\begin{enumerate}
+ \item Compute $\det A$. \points{5}
+
+\bigskip
+
+By adding 2 times the second column to the first and then using cofactor expansion along the first row, we get
+
+\[
+ \det{A} = \begin{vmatrix}2&-1&0\\0&3&4\\-3&0&1\end{vmatrix} = \begin{vmatrix}0&-1&0\\6&3&4\\-3&0&1\end{vmatrix} = (-1)(-1)\begin{vmatrix}6&4\\-3&1\end{vmatrix} = 6+12=18.
+\]
+
+
+
+ \item Given the system of equations $\begin{bmatrix}2&-1&0\\0&3&4\\-3&0&1\end{bmatrix}\begin{bmatrix}x\\y\\z\end{bmatrix} =\begin{bmatrix}2\\-1\\3\end{bmatrix}$, use Cramer's rule to find the value of $y$, if possible. \points{5}
+
+\bigskip
+
+Cramer's rule tells us that $y = \dfrac{\abs{A_2}}{\abs{A}}$, where $A_2$ is obtained from $A$ by replacing the second column of $A$ by the right-hand side of the system. This gives us
+\[
+ \det{A_2} = \begin{vmatrix}2&2&0\\0&-1&4\\-3&3&1\end{vmatrix} = \begin{vmatrix}2&0&0\\0&-1&4\\3&6&1\end{vmatrix} = 2\begin{vmatrix}-1&4\\6&1\end{vmatrix} = 2(-1-24)=-50.
+\]
+Thus, $y=\dfrac{-50}{18} = -\dfrac{25}{9}$.
+\end{enumerate}
+
+
+\newpage
+
+\item \begin{enumerate}
+       \item Find a vector equation of the line in $\R^3$ that passes through the points $P=(2,-3,1)$ and $Q=(4,1,-2)$. \points{4}
+
+\bigskip
+
+A direction vector is $\vec{d} = \overrightarrow{PQ} = \begin{bmatrix} 2\\4\\-3\end{bmatrix}$, so an equation of the line is
+\[
+ \begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}2\\-3\\1\end{bmatrix}+t\begin{bmatrix}2\\4\\-3\end{bmatrix}.
+\]
+
+\bigskip
+
+       \item Let $L_1$ be the line through $P_1=(2,0,-1)$ with direction vector $\vec{d}_1 = \begin{bmatrix}-1&3&2\end{bmatrix}^T$, and let $L_2$ be the line through $P_2=(8,6,7)$ with direction vector $\vec{d}_2=\begin{bmatrix}-4&0&-2\end{bmatrix}^T$. Determine the point of intersection of $L_1$ and $L_2$, if any.\points{6}
+
+\bigskip
+
+For $L_1$ we have $x=2-s, y=3s, z=-1+2s$, and for $L_2$ we have $x=8-4t, y=6, z=7-2t$. If the lines intersect, we must have $2-s = 8-4t$, $3s=6$, and $-1+2s=7-2t$.
+
+The second of these equations gives us $s=2$. Putting this into the first equation gives $t=2$ as well. In the third equation, we verify that $-1+2(2)=3-7-2(2)$, so the two lines intersect.
+
+Putting $s=2$ into the parametric equations for $L_1$ gives $x=0, y=6, z=3$, so the point of intersection is $(0,6,3)$.
+      \end{enumerate}
+
+
+
+
+\newpage
+\item Find the shortest distance from the point $P=(3,2,-1)$ to the line $L$ given by the vector equation \points{5}
+\[
+\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}2\\1\\3\end{bmatrix} + t\begin{bmatrix}3\\-1\\-2\end{bmatrix}
+\]
+
+\bigskip
+
+We have the point $P_0=(2,1,3)$ on the line, and the direction vector $\vec{d}=\langle 3,-1,-2\rangle$. If $Q$ is the point on the line closest to $P$, then we have
+\[
+ \proj_{\vec{d}}\overrightarrow{P_0P}=\overrightarrow{P_0Q},
+\]
+and the shortest distance is given by $\len{\overrightarrow{QP}}=\len{\overrightarrow{P_0P}-\overrightarrow{P_0Q}}$. We find
+\[
+ \overrightarrow{P_0P} = \langle 1,1,-4\rangle,
+\]
+so
+\[
+ \overrightarrow{P_0Q} = \frac{\vec{d}\dotp\overrightarrow{P_0P}}{\len{\vec{d}}^2}\vec{d} = \frac{10}{14}\begin{bmatrix}3\\-1\\-2\end{bmatrix}=\begin{bmatrix}15/7\\-5/7\\-10/7\end{bmatrix}.
+\]
+Thus $\overrightarrow{QP} = \overrightarrow{P_0P}-\overrightarrow{P_0Q} = \begin{bmatrix}-8/7\\12/7\\18/7\end{bmatrix}$, which gives the distance
+\[
+ \len{\overrightarrow{QP}} = \sqrt{(-8/7)^2+(12/7)^2+(18/7)^2}.
+\]
+
+
+\newpage
+
+\item Consider the triangle in $\R^3$ with vertices $P=(2,0,-3)$, $Q=(5,-2,1)$, and $R=(7,5,3)$.
+\begin{enumerate}
+ \item Show that the triangle is a right-angled triangle. \points{3}
+
+\bigskip
+
+The vectors $\overrightarrow{QP}=\langle -3,2,-4\rangle$ and $\overrightarrow{QR} = \langle 2,7,2\rangle$ make up two of the three sides of the triangle, and
+\[
+ \overrightarrow{QP}\dotp\overrightarrow{QR} = -6+14-8 = 0
+\]
+which shows that these two sides are perpendicular, and thus the triangle is a right-angled triangle.
+
+\bigskip
+
+
+
+ \item Compute the lengths of the three sides of the triangle and verify that the Pythagorean theorem ($a^2+b^2=c^2$) holds. \points{2}
+
+ We have $\len{QP}^2 = (-3)^2+2^2+(-4)^2 = 29$ and $\len{QR}^2 = 2^2+7^2+2^2 = 57$, so $\len{QP}^2+\len{QR}^2 = 86$.
+
+ The remaining side is given by $\overrightarrow{PR}=\langle 5,5,6\rangle$, and we see that
+\[
+ \len{\overrightarrow{PR}}^2 = 5^2+5^2+6^2 = 86
+\]
+as well, so the Pythagorean theorem holds.
+
+
+\end{enumerate}
+ 
+\end{enumerate}
+\end{document}

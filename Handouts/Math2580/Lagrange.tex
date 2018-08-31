@@ -1,0 +1,89 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{rem}[theorem]{Remark}
+\newenvironment{remark}{\begin{rem}\rm}{\end{rem}}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{eg}[theorem]{Example}
+\newenvironment{example}{\begin{eg}\rm}{\end{eg}}
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\h}{\mathbf{h}}
+\renewcommand{\a}{\mathbf{a}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+%\DeclareMathOperator{\Hess}{Hess}
+\title{Examples with Lagrange multipliers}
+\author{Sean Fitzpatrick}
+\begin{document}
+\maketitle
+
+In class I started two examples with absolute maxima and minima, but didn't get much further than drawing some pictures. We were interested in the function $f(x,y)=x^2+4y^2$ on the regions $D_1$, given by the disc $x^2+y^2\leq 1$, and $D_2$, given by the rectangle $[-1,1]\times [-1,1]$.
+
+For both regions, we have a single critical point $(0,0)$ in the region, since $\nabla f(x,y) = \langle 2x, 8y\rangle$ vanishes only at this point, and $f(0,0)=0$ must be the absolute minimum, since $f(x,y)\geq 0$ for all $(x,y)$. We now show how to find the absolute maximum for each of the two regions.
+
+\section{The disc $D_1$}
+Since the absolute maximum does not occur at a critical point, it must occur on the boundary $x^2+y^2=1$. We therefore need to maximize the function $f(x,y)=x^2+4y^2$ subject to the constraint $x^2+y^2=1$. There are two options here. Actually, there are three. The first is to pretend we're in Math 1560, and we only know how to differentiate with respect to $x$. Then we might solve the constraint for $y^2=1-x^2$, and plug into the function, giving us $g(x)=x^2+4(1-x^2) = -3x^2+4$, so $g'(x)=-6x=0$ when $x=0$, and if $x=0$, then $y=\pm 1$. We then check that $f(0,1)=4=f(0,-1)$, so the absolute maximum of 4 occurs at both $(0,1)$ and $(0,-1)$.
+
+\bigskip
+
+The second method is to parameterize the boundary: setting $x=\cos(t)$ and $y=\sin(t)$, with $t\in [0,2\pi]$, we have
+\[
+ g(t) = f(\cos(t),\sin(t)) = \cos^2(t)+4\sin^2(t) = 1+3\sin^2(t),
+\]
+so $g'(t) = 6\sin(t)\cos(t) = 3\sin(2t) = 0$ if $2t = k\pi$ for some integer $k$. The possible solutions for $t\in [0,\pi]$ are $t=0,\pi/2, \pi, 3\pi/2$, giving us the points $(1,0), (0,1), (-1,0)$, and $(0,-1)$, respectively. We have $f(1,0) = f(-1,0)=1$ and $f(0,1)=f(0,-1)=4$, so the maximum value must be 4, as before.
+
+\bigskip
+
+The third method is to use Lagrange multipliers. Let $g(x,y)=x^2+y^2$, so that the boundary of $D_1$ is the level curve $g(x,y)=1$. We argued in class that if $M$ is the maximum value of $f(x,y)$ for points $(x,y)$ on the unit circle, then the level curve $f(x,y)=M$ must be tangent to the circle at some point. If two curves are tangent at a point of intersection $(a,b)$, then the normal vectors to their tangent lines must be parallel at that point. This yields the equation
+\[
+ \nabla f(a,b) = \lambda \nabla g(a,b),
+\]
+where $\lambda$ is some unknown scalar, called the Lagrange multiplier. (Recall that the gradients of each function define the normal vectors.) We have 
+\[
+ \nabla f(x,y) = \langle 2x, 8y\rangle \quad \text{ and } \quad \nabla g(x,y) = \langle 2x, 2y\rangle,
+\]
+so the requirement $\nabla f = \lambda \nabla g$, together with the constraint equation, give us the following system:
+\begin{align*}
+ 2x& = 2x\lambda\\
+ 8y& = 2y\lambda\\
+ x^2&+y^2 = 1
+\end{align*}
+The first equation yields two possibilities: either $x=0$, or $\lambda=1$. If $x=0$, then the equation $x^2+y^2=1$ gives us $y=\pm 1$, so we have the points $(0,1)$ and $(0,-1)$ to check. If $x\neq 0$ and $\lambda = 1$, then the second equation forces us to have $y=0$, and from $x^2+y^2=1$ we have $x=\pm 1$, giving us the points $(1,0)$ and $(-1,0)$, so we end up with the same four points as with the previous method.
+
+\bigskip
+
+{\bf Remark:} You might be wondering why the first method left out the two points $(1,0)$ and $(-1,0)$ obtained using the other two methods. (These points, by the way, correspond to the minimum value of $f(x,y)$ subject to the constraint $x^2+y^2=1$, so the first method would have failed to find the minimum.) The reason is that this method assumes we can write $y$ as a function of $x$ in order to replace $y$ by $x$ in the function and then differentiate. However, at the points $(1,0)$ and $(-1,0)$, it's impossible to solve the equation $x^2+y^2=1$ for $y$ as a function of $x$: implicit differentiation fails here. 
+
+The other side of the coin here is that if we had decided to instead solve for $x^2=1-y^2$ and plug into the function, giving $h(y) = 1+3y^2$, $h'(y)=6y$, and $y=0$ for the critical points. This time we find the points $(1,0)$ and $(-1,0)$ where the minimum value occurs, and completely miss the maximum!
+
+\section{The rectangle $D_1$}
+The square is harder in one sense, since its boundary is not a smooth curve: there is no single constraint equation we can apply to use either Math 1560 methods or Lagrange multipliers. The best we can do is to deal with each side of the square separately. (Fortunately, each of the sides is a simple curve.)
+
+\bigskip
+
+The top of the square is the line segement $y=1$, $-1\leq x\leq 1$. If we put $y=1$ into $f(x,y)$, we have $f(x,1) = x^2+4$. This time we have a minimum value at $(0,1)$ (the derivative of $g(x)=x^2+4$ is $2x$, which vanishes for  $x=0$), and a maximum value at the two endpoints: $f(\pm 1, 1) = 5$. The bottom of the square works out exactly the same, since $f(x,-1) = x^2+4 = f(x,1)$.
+
+Similarly, for the two sides we have $f(\pm 1, y) = 1+4y^2$, with $-1\leq y\leq 1$. There are minimum (constrained) values at the points $(\pm 1, 0)$, where $f(\pm 1,0)=1$, and the maximum value occurs at the endpoints: $f(\pm 1, 1)=5$.
+
+Not surprisingly, the maximum value occurs at the four corners of the square.
+
+\bigskip
+
+For this problem there's no much point in using Lagrange multipliers. The best you can say is that the normal vector to the level curve $f(x,y)=c$ should be either horizontal (if the maximum occurs on the left or right sides of the square) or vertical (if the maximum occurs at the top or bottom of the square), but this actually succeeds only in finding the minimum value along the boundary. The method fails here because the boundary maximum occurs at the corners of the square, and there is no tangent line to the constraint curve at these points.
+\end{document}

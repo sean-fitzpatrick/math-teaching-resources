@@ -1,0 +1,55 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000}\chead{Quiz \# 5}\rhead{Thursday, 9\textsuperscript{th} October, 2014}
+\rfoot{Total: 10 points}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+\noindent{{\bf Name and student number:} {\bf Solutions}}
+
+\bigskip
+
+ \begin{enumerate}
+ \item  Let $A$ and $B$ be subsets of some universal set $U$. \points{5} Prove that if $A\subseteq B$, then $B^c\subseteq A^c$.
+
+\bigskip
+
+\noindent {\bf Solution}: By definition, $A\subseteq B$ if and only if for all $x\in U$, $x\in A \to x\in B$. But this is if and only if for all all $x\in U$, $x\notin B\to x\notin A$, by taking the contrapositive. This in turn tells us that for all $x\in U$, $x\in B^c\to x\in A^c$ by definition of the complement of a set, and therefore $B^c\subseteq A^c$, by definition of the subset relation.
+
+\newpage
+
+\item  Prove the following assertion, or give a counterexample to show that it is false:\points{5}
+
+For any subsets $A$, $B$, $C$, and $D$ of some universal set $U$, if $A\subseteq C$ and $B\subseteq D$, and $A\cap B=\emptyset$, then $C\cap D=\emptyset$.
+(Here, $\emptyset$ denotes the empty set.)
+
+\bigskip
+
+\noindent {\bf Solution}: Consider the case where $A=\{1\}$, $B=\{2\}$, and $C=D=\{1,2\}$. Then $A\subseteq C$, $B\subseteq D$, and $A\cap B = \emptyset$, but $C\cap D = \{1,2\}\neq \emptyset$.
+\end{enumerate}
+\end{document}

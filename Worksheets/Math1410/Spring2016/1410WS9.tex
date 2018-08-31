@@ -1,0 +1,120 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.75in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 9}\rhead{Tuesday, 15\textsuperscript{th} March, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newenvironment{aamatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|*{#1}{c}@{}}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}   
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+         
+                  
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+Please complete all problems below.
+ \begin{enumerate}
+  \item Let $\vec{a} = \bbm 3\\-1\\2\ebm, \vec{b} = \bbm 0\\1\\-2\ebm, \vec{c} = \bbm 3\\0\\-1\ebm$.
+\begin{enumerate}
+ \item Calculate $\vec{a}\times\vec{b}$
+
+\vspace{24pt}
+
+ \item Find the area of the parallelogram spanned by the vectors $\vec{a}$ and $\vec{b}$.
+
+\vspace{24pt}
+
+ \item Calculate the volume of the parallelepiped spanned by the vectors $\vec{a},\vec{b},\vec{c}$.
+
+\vspace{36pt}
+
+
+ \end{enumerate}
+
+
+\item Find the equation of the plane that passes through the points $(2,1,3)$, $(3,-1,5)$, and $(1,2,-3)$.
+
+\vspace{24pt}
+
+\item Find the equation of the plane that contains the lines
+\[
+ \bbm x\\y\\z\ebm = \bbm 1\\1\\-2\ebm+s\bbm 1\\1\\1\ebm \quad \text{ and } \quad \bbm x\\y\\z\ebm = \bbm 0\\0\\2\ebm+t\bbm 1\\-1\\0\ebm.
+\]
+ 
+
+\vspace{24pt}
+
+\item Show that the shortest distance from a point $P$ to the line $L$ through $P_0$ with direction vector $\vec{d}$ is $\dfrac{\len{\overrightarrow{P_0P}\times\vec{d}}}{\len{\vec{d}}}$.
+
+\vspace{24pt}
+
+\item Let $T:\R^2\to \R^2$ be a linear transformation such that
+\[
+ T\left(\bbm 1\\0\ebm\right) = \bbm 2\\-3\ebm \quad\text{ and } \quad T\left(\bbm 0\\1\ebm\right) = \bbm 4\\-2\ebm.
+\]
+\begin{enumerate}
+ \item Find a matrix $A$ such that $T(\vec{x}) = A\vec{x}$ for all vectors $\vec{x}$ in $\R^2$.
+
+\bigskip
+
+ \item Describe the effect of $T$ on the square $0\leq x, y\leq 1$. What is the resulting region, and what is its area?
+\end{enumerate}
+ \end{enumerate}
+
+\newpage
+
+{\large \bf Name:}
+
+\vspace{24pt}
+
+{\large \bf Tutorial time:}
+
+\vspace{24pt}
+
+Please submit \textbf{one} \textit{completed} solution from the worksheet for feedback. 
+
+\textbf{Note:} Please recopy the question you are solving so we know which solution you're submitting.
+
+\end{document}

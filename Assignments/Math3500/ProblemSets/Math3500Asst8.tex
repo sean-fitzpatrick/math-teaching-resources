@@ -1,0 +1,58 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+%\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\ss}{\subseteq}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\Abs}[1]{\left| #1\right|}
+
+\title{Math 3500 Assignment \#8\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+{\bf Due date}: Friday, November 21st, by 6 pm.
+
+
+\begin{enumerate}
+ \item Let $f$ be differentiable on some interval $(c,\infty)$ and suppose that $\lim\limits_{x\to\infty}[f(x)+f'(x)]=L$, where $L$ is finite. Prove that $\lim\limits_{x\to\infty}f(x)=L$ and $\lim\limits_{x\to\infty}f'(x)=0$.
+
+Hint: for all $x>c$, $f(x)=\dfrac{e^xf(x)}{e^x}$.
+
+ \item When we apply l'Hospital's rule to the limit $\displaystyle \lim_{x\to a}\frac{f(x)}{g(x)}$, we require that $g'(x)\neq 0$ near $x=a$. This exercise demonstrates the importance of that requirement: if l'Hospital's rule is applied carelessly, it's possible for the zeros of $g'$ to cancel the zeros of $f'$, leading to an incorrect result. Consider the functions $f,g:\R\to\R$ given by
+\[
+ f(x)=x+\cos x\sin x \quad g(x) =e^{\sin x}(x+\cos x\sin x).
+\]
+\begin{enumerate}
+ \item Show that $\lim\limits_{x\to\infty}f(x)=\lim\limits_{x\to\infty}g(x)=\infty$
+ \item Show that $f'(x)=2\cos^2x$ and $g'(x)=e^{\sin x}\cos x[2\cos x+f(x)]$
+ \item Show $\dfrac{f'(x)}{g'(x)} = \dfrac{2e^{-\sin x}\cos x}{2\cos x+f(x)}$ if $\cos x\neq 0$ and $x>3$.
+ \item Show that $\lim\limits_{x\to\infty}\dfrac{f'(x)}{g'(x)}=0$, and yet $\lim\limits_{x\to\infty}\dfrac{f(x)}{g(x)}$ does not exist.
+\end{enumerate}
+ \item Find a Taylor polynomial that approximates $f(x)=e^x$ to within 0.2 on the interval $[-2,2]$.
+ \item Show that if $x\in [0,1]$, then
+\[
+ x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}\leq \ln(1+x) \leq x-\frac{x^2}{2}+\frac{x^3}{3}.
+\]
+
+
+
+
+
+
+\end{enumerate}
+
+\end{document}
+ 

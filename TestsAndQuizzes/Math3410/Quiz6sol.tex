@@ -1,0 +1,85 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 3410A}\chead{Quiz \# 6}\rhead{Friday, 6\textsuperscript{th} March, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\DeclareMathOperator{\range}{range}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+{\bf Name: Solutions}
+
+\bigskip
+
+Solve {\bf both} of the following two questions:
+ \begin{enumerate}
+ \item Suppose that $S,T\in\mathcal{L}(V)$ are such that $ST=TS$. Prove that $\range S$ is invariant under $T$. \points{5}
+
+\bigskip
+
+{\bf Solution:} Let $w\in\range S$. Then $w = Sv$ for some $v\in V$. Thus, assuming that $ST=TS$, we have
+\[
+ Tw = T(Sv) = S(Tv) \in\range S,
+\]
+which shows that $\range S$ is invariant under $T$.
+
+\bigskip
+
+ \item Let $T\in\mathcal{L}(\R^2)$ be defined by $T(x,y)=(-3y,x)$.
+\begin{enumerate}
+ \item What are the eigenvalues of $T$? \points{3}
+
+\bigskip
+
+{\bf Solution:} $\lambda$ is an eigenvalue of $T$ provided that $T(x,y)=(-3y,x)=\lambda (x,y)$ for some nonzero vector $v=(x,y)$. Thus, we must have $-3y = \lambda x$ and $x=\lambda y$, which gives us the system
+\begin{align*}
+\lambda x + 3y = 0\\
+ x - \lambda y = 0
+\end{align*}
+To have a non-trivial solution the second equation must be a multiple of the first equation.
+If we multiply the second equation by $\lambda$ we have $\lambda x - \lambda^2y=0$, which tells us that we must have
+\[
+ \lambda ^2 = -3.
+\]
+However, this is impossible if $\lambda$ is a real number, so $T$ does not have any real eigenvalues.
+
+\bigskip
+
+ 
+ \item Does your answer change if we view $T$ as an operator on $\C^2$ rather than $\R^2$? \points{2}
+
+\bigskip
+
+{\bf Solution:} Yes -- over the complex numbers, the argument above shows that we have the eigenvalues $\lambda = \pm i\sqrt{3}$.
+\end{enumerate}
+
+ \end{enumerate}
+\end{document}

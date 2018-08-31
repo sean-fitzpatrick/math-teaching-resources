@@ -1,0 +1,77 @@
+\documentclass[letterpaper,12pt]{amsart}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+                   
+\title{Math 1410 Assignment \#3\\University of Lethbridge, Fall 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} {\bf Thursday}, October 27th, by 4:30 pm.
+
+\bigskip
+
+Please review the {\bf Guidelines for preparing your assignments} before submitting your work. You can find these guidelines, along with the required cover page, in the Assignments section on our Moodle site.
+
+
+
+\subsection*{Assigned problems}
+\begin{enumerate}
+\item An $n\times n$ matrix $A$ is called \textbf{idempotent} if $A^2=A$, where $A^2 = AA$.
+
+\medskip
+
+\begin{enumerate}
+ \item Show that the following matrices are idempotent:
+\[
+ \bbm 1&0\\0&1\ebm,\quad \bbm 1&1\\0&0\ebm,\quad \frac{1}{2}\bbm 1&1\\1&1\ebm.
+\]
+
+ \item Let $I$ denote the $n\times n$ identity matrix. Show that if $A$ is idempotent, then so is $I-A$, and that $A(I-A)=0$.
+
+\medskip
+
+ \item Show that if $A$ is an $n\times n$ idempotent matirx and $B$ is any other $n\times n$ matrix, then
+\[
+ C = A+BA-ABA
+\]
+ is an idempotent matrix.
+ \end{enumerate}
+
+\bigskip
+
+ \item Determine the matrix $A$ such the matrix transformation $T\left(\bbm x\\y\ebm\right) = A\bbm x\\y\ebm$ perfoms the following transformations of the Cartesian plane, in order:
+\begin{itemize}
+ \item First, a vertical reflection across the $x$-axis.
+ \item Second, a horizontal reflection across the $y$-axis.
+ \item Third, a counter-clockwise rotation through an angle of $90^\circ$.
+\end{itemize}
+
+\bigskip
+
+\item In each of the following, either explain why the statement is true, or give an example showing that it is false:
+ \begin{enumerate}
+ \item If $A$ is an $m\times n$ matrix where $m<n$, then $AX=B$ has a solution for every column $B$.
+ \item If $AX=B$ has a solution for some column $B$, then it has a solution for every column $B$.
+ \item If $X_1$ and $X_2$ are solutions to $AX=B$, then $X_1-X_2$ is a solution to $AX=0$.
+ \item If $AB=AC$ and $A\neq 0$, then $B=C$.
+ \item If $A\neq 0$, then $A^2\neq 0$.
+ \end{enumerate}
+\end{enumerate}
+
+\end{document}
+ 

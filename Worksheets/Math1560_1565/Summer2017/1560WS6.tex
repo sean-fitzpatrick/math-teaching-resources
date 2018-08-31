@@ -1,0 +1,103 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1560}\chead{Tutorial Assignment \# 6}\rhead{June 1st, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+{\bf \large Name:} \hspace{2.5in} {\bf Tutorial time:}
+
+\bigskip
+
+\bigskip
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+ \begin{enumerate}
+  \item For each of the functions below, use the sign diagram of its derivative to find and classify any critical points.
+\begin{enumerate}
+ \item $f(x) = 2x^4-4x^2+6$
+
+\vspace{2.5in}
+
+ \item $g(x) = \dfrac{x^2}{1+x}$
+
+\vspace{2.5in}
+
+ \item $h(x) = x^{7/3}-7x^{1/3}$
+\end{enumerate}
+
+\newpage
+
+ \item For each function below, determine the intervals on which it is increasing/decreasing and concave up/concave down.\\
+(Note: these are the same functions as in the previous problem.)
+
+\begin{enumerate}
+ \item $f(x) = 2x^4-4x^2+6$
+
+\vspace{2.5in}
+
+ \item $g(x) = \dfrac{x^2}{1+x}$
+
+\vspace{2.5in}
+
+ \item $h(x) = x^{7/3}-7x^{1/3}$
+\end{enumerate}
+
+
+\newpage
+
+\textbf{Bonus challenge fun problem:}
+
+ \item Assume all functions below are differentiable on the interval $(-c,c)$ Using the Mean Value Theorem, show that:
+\begin{enumerate}
+ \item If $f(0)\geq 0$ and $f'(x)>0$ for all $x\in (0,c)$, then $f(x)>0$ for all $x\in (0,c)$.
+
+\vspace{3in}
+
+ \item If $f(0)>g(0)$ and $f'(x)>g'(x)$ for all $x\in (0,c)$, then $f(x)>g(x)$ for all $x\in (0,c)$.\\
+(Hint: apply part (a) to the function $h=f-g$.)
+
+\vspace{2in}
+
+ \item Let $n>1$ be an integer. Prove that $(1+x)^n>1+nx$ for all $x\in(0,\infty)$.
+\end{enumerate}
+
+\vspace*{\fill}
+
+(Note: the bonus is the fun you're having with this challenge!)
+\end{enumerate}
+
+\end{document}

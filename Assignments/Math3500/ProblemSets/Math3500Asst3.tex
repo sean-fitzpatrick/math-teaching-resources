@@ -1,0 +1,76 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+%\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\ss}{\subseteq}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\title{Math 3500 Assignment \#3\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Friday, October 3, by 6 pm.
+
+\bigskip
+
+On this assignment, {\bf I will grade problems 4, 5, and 6}. Problems 1, 2, and 3 are highly recommended for practice problems. (They also happen to be at about the right level for test questions.) If you want feedback on any of these problems, feel free to submit your solutions.
+
+Don't forget that you can use Piazza to discuss hints to assigned problems and share solutions to practice problems.
+
+\begin{enumerate}
+ \item Determine whether or not each of the following sequences $(x_n)$ converge. For those that do, find $\lim x_n$, and prove that $x_n\to x$ using the {\bf definition} of convergence (i.e. no limit theorems allowed). For those that do not converge, explain why there is no limit.
+\begin{enumerate}
+ \item $x_n = \dfrac{(-1)^n}{n}$
+ \item $x_n = (-1)^n(1-1/n)$
+ \item $x_n = \dfrac{3n+1}{2n+5}$
+ \item $x_n = \dfrac{n^2-n}{n^3+1}$
+\end{enumerate}
+\item Prove that the Squeeze Theorem holds for sequences: if $a_n\leq b_n\leq c_n$ for all $n\in \N$, and $a_n\to L$ and $c_n\to L$, then $b_n\to L$.
+ \item Prove that the convergence of $(a_n)$ implies the convergence of $(\abs{a_n})$. Is the converse true? Why or why not?
+ \item \begin{enumerate}
+        \item Let $(s_n)$ be a sequence such that $\abs{s_{n+1}-s_n}<2^{-n}$ for all $n\geq 1$. Prove that $(s_n)$ is a Cauchy sequence and hence convergent. 
+
+Hint: you may need the fact that $1+2^{-1}+\cdots + 2^{-k} <2$ for all $k\geq 1$.
+	\item Is the result in part (a) true if we only assume that $\abs{s_{n+1}-s_n}<1/n$ for all $n\geq 1$? (If not, can you find a counterexample?)
+       \end{enumerate}
+
+
+ \item Consider the following two definitions:
+
+(i) A sequence $(a_n)$ is {\em eventually} in a set $A\ss\R$ if there exists $N\in\N$ such that for all $n\geq N$, $a_n\in A$.
+
+(ii) A sequence $(a_n)$ is {\em frequently} in a set $A\ss\R$ if for every $N\in\N$ there exists an $n\geq N$ such that $a_n\in A$.
+
+\begin{enumerate}
+ \item Is the sequence $(-1)^n$ eventually or frequently in the set $A=\{1\}$?
+ \item Which definition is stronger? Does eventually imply frequently? Does frequently imply eventually?
+ \item Given $a\in \R$ and $A = N_\epsilon(a) = (a-\epsilon,a+\epsilon)$, which of the above two definitions could we use to give an alternative definition of convergence? Explain your answer.
+ \item Suppose an infinite number of terms in a sequence $(x_n)$ are equal to 3. Can we conclude that $(x_n)$ is eventually in the set $A=(2.9, 3.1)$? Is it frequently in $A$?
+ \item Let $(x_n)$ be a sequence and let $X=\{x_n\,|\, n\in \N\}$. Suppose that $x$ is a limit (accumulation) point of $X$. Can we conclude that $\lim x_n = x$? (If $A=N_\epsilon(x)$, is $(x_n)$ frequently in $A$, or eventually in $A$?)
+\end{enumerate}
+  \item Consider the sequence $(a_n)$ defined by $a_1 = \sqrt{2}$ and $a_{n+1} = \sqrt{2a_n}$ for all $n\geq 1$. (Thus, $(a_n)$ is the seqence $\sqrt{2},\sqrt{2\sqrt{2}},\sqrt{2\sqrt{2\sqrt{2}}},\ldots$.
+\begin{enumerate}
+ \item Prove that $(a_n)$ is an increasing seqence. (This is most easily done by induction.)
+ \item Prove that $(a_n)$ converges.
+ \item Prove that if $(a_n)$ converges, then $\lim a_n^2 = (\lim a_n)^2$. (Use known limit theorems.)
+ \item Explain why, if $(a_n)$ converges, then $\lim a_{n+1} = \lim a_n$.
+ \item Find the limit of the sequence $(a_n)$.
+\end{enumerate}
+Note: your solutions for parts (c) and (d) should work for an arbitrary convergent sequence. Part (e) refers to the sequence defined at the start of the problem.
+
+
+
+\end{enumerate}
+
+\end{document}
+ 

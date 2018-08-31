@@ -1,0 +1,163 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=0.8in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 1565 - Tutorial \#7 Solutions}\\
+\end{center}
+%\skipline \skipline \skipline \noindent \skipline
+%Last Name:\underline{\hspace{350pt}}\\
+%\skipline
+%First Name:\underline{\hspace{348pt}}\\
+%\skipline
+%Student Number:\underline{\hspace{322pt}}\\
+%\skipline
+\begin{enumerate}
+  \item Find the equation of the tangent line at the point $(1,1)$ for the curve \points{5}
+  \[
+  (x^2+y^2)^2=4xy.
+  \]
+ 
+ \medskip
+ 
+ \textbf{Solution:} Taking the derivative of both sides with respect to $x$, we obtain:
+ \[
+ 2(x^2+y^2)(2x+2y\frac{dy}{dx})=4y+4x\frac{dy}{dx}
+ \]
+ Since we are only interested in the value of $\frac{dy}{dx}$ at the point $(1,1)$, we set $x=1$ and $y=1$ in the above, obtaining
+ \[
+ 4(2+2\frac{dy}{dx})=4+4\frac{dy}{dx}.
+ \]
+ Solving for $\frac{dy}{dx}$, we find that our slope is 
+ \[
+ m=\frac{4-8}{8-4}=-1.
+ \]
+ The equation of the line is therefore $y-1=-1(x-1)$, or $y=-x+2$.
+ 
+ \medskip
+ 
+ If you solved first for $\frac{dy}{dx}$ in terms of $x$ and $y$, you should have found (after cancelling a lot of 4s)
+ \[
+ \frac{dy}{dx} = \frac{y-x^3-xy^2}{y^3+x^2y-x}.
+ \]
+ Putting $x=1$ and $y=1$ at this stage still returns a slope of $m=-1$.
+ 
+ \medskip
+ 
+ 
+ 
+ \item The function $f(x)=\dfrac{1}{x^2+1}$, with domain $[0,\infty)$, is one-to-one. \points{2} Compute the value of $(f^{-1})'(1/2)$.
+ 
+ Hint: It is not necessary to find $f^{-1}(x)$. Note that $f(1)=1/2$.
+ 
+\medskip
+
+\textbf{Solution:} We use the formula $(f^{-1})'(x) = \dfrac{1}{f'(f^{-1}(x))}$, with $f(x) = \dfrac{1}{x^2+1} = (x^2+1)^{-1}$.
+
+We find 
+\[
+f'(x) = -1(x^2+1)^{-2}(2x) = \frac{-2x}{(x^2+1)^2}.
+\]
+Since $f(1) = \frac{1}{2}$, we have $f^{-1}(1/2)=1$, and thus
+\[
+f'(f^{-1}(1/2)) = f'(1) = \frac{-2(1)}{(1^2+1)^2} = -\frac{1}{2}.
+\]
+We conclude that $(f^{-1})'(1/2) = \dfrac{1}{f'(1)} = -2$.
+
+\bigskip
+ 
+ \item Compute the derivative of $f(x) = \tan^{-1}(x^3)$, and $g(x) = \cosh^{-1}(x)$. (For $g(x)$, see handout.) \points{3}
+ 
+ \bigskip
+ 
+ For the derivative of $f(x)$, we use the known result $\dfrac{d}{du}(\tan^{-1}(u)) = \dfrac{1}{1+u^2}$ and the Chain Rule to obtain
+ \[
+ f'(x) = \frac{1}{1+(x^3)^2}\frac{d}{dx}(x^3) = \frac{3x^2}{1+x^6}.
+ \]
+ 
+ For the derivative of $g(x)$, there are two possible approaches. For the first approach, we let $y=g(x) = \cosh^{-1}(x)$, so that $\cosh(y)=x$. Taking the derivative of both sides of the equation $\cosh(y)=x$ with respect to $x$, we obtain
+ \[
+ \sinh(y)\frac{dy}{dx}  = 1, \quad \text{ so } \quad g'(x) = \frac{dy}{dx} = \frac{1}{\sinh(y)}.
+ \]
+ To express $g'(x)$ in terms of $x$, we note that
+ \[
+ \cosh^2(y)-\sinh^2(y) = 1,
+ \]
+ so $\sinh^2(y) = \cosh^2(y)-1 = x^2-1$. This gives us $\sinh(y) = \sqrt{x^2-1}$, so we find
+ \[
+ g'(x) = \frac{1}{\sqrt{x^2-1}}.
+ \]
+ 
+ Note: when we define $g(x) = \cosh^{-1}(x)$, we start with the function $h(x) = \cosh(x)$, restricted to $x\geq 0$, since $\cosh$ is not one-to-one if we also allow $x<0$. This gives us a domain of $[0,\infty)$ and range of $[1,\infty)$ for $h$, so the domain of $g(x)$ is $[1,\infty)$, and the range is $[0,\infty)$.
+
+Since $y=\cosh^{-1}(x)\geq 0$, we have $\sinh(y)\geq 0$, since $\sinh(t)\geq 0$ when $t\geq 0$. This is why we can take the positive square root above.
+
+\bigskip
+
+The alternative approach is to first derive (or look up) an explicit expression for $\cosh^{-1}(x)$ in terms of known functions.
+
+If $y=\cosh{^-1}(x)$, then $x = \cosh(y) = \dfrac{e^y+e^{-y}}{2}$.
+
+Multiplying this equation by $2e^y$ and rearranging, we obtain
+\[
+(e^y)^2-2xe^y+1=0,
+\]
+which is quadratic in $e^y$. The quadratic formula gives us
+\[
+e^y = \frac{2x\pm\sqrt{4x^2-4}}{2} = x\pm \sqrt{x^2-1}.
+\]
+Now, recall that given the domain and range of $g(x)$, we have $x\geq 1$ and $y\geq 0$, so $e^y\geq 1$. It's easy to check that the negative square root gives values between 0 and 1, so we take the positive square root, and then solve for $y$, giving us
+\[
+y=g(x) = \ln(x+\sqrt{x^2-1}).
+\]
+We can then find $g'(x)$ using the chain rule:
+\begin{align*}
+g'(x) & = \frac{1}{x+\sqrt{x^2-1}}\left(1+\frac{1}{2}(x^2-1)^{-1/2}(2x)\right)\\
+ & = \frac{1}{x+\sqrt{x^2-1}}\left(1+\frac{x}{\sqrt{x^2-1}}\right)\\
+ & = \frac{1}{x+\sqrt{x^2-1}}\left(\frac{\sqrt{x^2-1}+x}{\sqrt{x^2-1}}\right)\\
+ & = \frac{1}{\sqrt{x^2-1}},
+\end{align*}
+as before.
+ 
+\end{enumerate}
+\end{document}

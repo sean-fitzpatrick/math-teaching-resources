@@ -1,0 +1,148 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[margin=1 in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsthm}
+
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\n}{\mathbf{n}}
+\newcommand{\ivec}{\,\boldsymbol{\hat{\imath}}}
+\newcommand{\jvec}{\,\boldsymbol{\hat{\jmath}}}
+\newcommand{\kvec}{\,\boldsymbol{\hat{k}}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\inter}[1]{\overset{\,\,\,\circ}{#1}}
+\newcommand{\N}{\mathbb{N}}
+\DeclareMathOperator{\comp}{comp}
+
+\title{Points and Sets in $\mathbb{R}$: a guide to nomenclature\\Math 3500A\\University of Lethbridge\\Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+\maketitle
+
+We've introduced quite a bit of terminology in class that is necessary to make sense of various technical details later on, but which can be a bit daunting at first. Some of this terminology might be a bit more than we need for analysis on $\mathbb{R}$ -- it was developed in part to understand how to generalize basic concepts like open and closed intervals (and their endpoints) to more general spaces (such as higher dimensional spaces like $\mathbb{R}^n$ and other even more exotic situations) -- but getting the hang of this language, and having an intuitive notion of what all the terms mean, will make it much easier to discuss other topics as we move on in the course. Anyway, learning this stuff will be good for you in the long run, like some sort of mathematical broccoli.
+
+As you work through the definitions of the different types of points and sets below, it's a good idea to keep in mind a few of the more common examples of subsets of $\R$: open intervals $(a,b)$, closed intervals $[a,b]$, finite sets $\{a_1,a_2,\ldots, a_n\}$ (like $\{1,2,-3,4.5\}$, for example) sets that are infinite but `discrete', like $\mathbb{N} = \{1,2,3,\ldots\}$ or $\{1,1/2,1/3,\ldots\}$, and more complicated subsets like the rational numbers $\mathbb{Q}\in\R$. (The rationals are interesting because, in a sense that is made precise in later courses, they represent a vanishingly small fraction (pun intended) of all real numbers, and yet between any two real numbers, no matter how close together, there is a rational number.) For each type of set, ask yourself: is it open/closed/compact? What are the interior/boundary/limit points (if any)? What is the interior/boundary/closure of the set?
+
+The fundamental concept is that of an open neighbourhood: given a point $a\in \R$ and some $\epsilon>0$, a {\bf neighbourhood} (or $\epsilon$-neighbourhood, if we want to specify the radius) of a point $a\in\R$ is a set $N_\epsilon(a)$ given by
+\[
+N_\epsilon(a) = \{x\in\R : \abs{x-a}<\epsilon\}.
+\]
+In other words, it's the set of all points that are ``near'' to $a$, in the sense that their distance from $a$ is less than a specified amount (the positive real number $\epsilon$). As noted in class -- and as you should work out for yourself -- all such neighbourhoods are open intervals: we have
+\[
+N_\epsilon(a) = (a-\epsilon,a+\epsilon).
+\]
+\subsection*{Types of points related to a given set $A\subseteq \R$}
+Let $A\subseteq \R$ be a nonempty subset of $\R$. (Some of the definitions below will work for $A=\emptyset$, but they're not very interesting.) There are various types of points in $\R$ that are special in terms of how they relate to the given set $A$.
+\begin{itemize}
+\item An point $a\in \R$ is an {\bf interior point} of $A$ if there exists some $\epsilon>0$ such that $N_\epsilon(a)\subseteq A$. (Note that since $a\in N_\epsilon(a)$ for any $\epsilon>0$, any interior point of $A$ is also an element of $A$.)
+\item A point $b\in \R$ is a {\bf boundary point} of $A$ if for any $\epsilon>0$, the intersections $N_\epsilon(a)\cap A$ and $N_\epsilon(a)\cap(\R\setminus A)$ are both nonempty. In other words, any neighbourhood of a boundary point contains both points in $A$, and points not in $A$. 
+\item A point $a\in \R$ is a {\bf limit point} (or accumulation point) of a set $A\subseteq \R$ if every deleted neighbourhood $\dot{N}_\epsilon(a)$\footnote{Recall that for a {\bf deleted neighbourhood} we remove the centre point $a$: $\dot{N}_\epsilon(a) = N_\epsilon(a)\setminus\{a\}$.} we have $\dot{N}_{\epsilon}(a)\cap A \neq \emptyset$. Thus, every point of a limit point of $A$ contains some point of $A$ other than $a$ itself.
+
+{\em Aside:} A surprising fact about limit points: not only does every neighbourhood of a limit point of $A$ contain a point of $A$ other than $a$, it actually contains {\em infinitely many} points of $A$! If there were only finitely many points $a_1,a_2\ldots, a_n$, we could just choose $\epsilon$ to be the smallest number among $\abs{a-a_1},\abs{a-a_2},\ldots, \abs{a-a_n}$, and $N_\epsilon(a)\cap A$ would be empty. Limit points will become important soon when we study convergence of sequences.
+\item A point $a\in \R$ is an {\bf isolated point} of $A$ if $a\in A$ and $a$ is not a limit point of $A$.
+\end{itemize}
+{\bf Examples:} for a closed interval $[a,b]$, $a$ and $b$ are boundary points, and all other points (that is, the open interval $(a,b)$) are interior points. A set such as $\mathbb{N}\subseteq\R$ has {\em no} interior or limit points; in fact every point of $\mathbb{N}$ is an isolated point (and also a boundary point). Every element of the set $\{1,1/2, 1/3, \ldots\}$ is also an isolated point, but note that 0 is a limit point of the set.
+
+Notice that any boundary point is a limit point, but not all limit points are boundary points. (Interior points are also limit points.)
+
+\subsection*{Types of sets related to the types of points above}
+We will often need to consider the collection of all points of a given type related to a particular set. Many of these have names (and notations; be warned however that the notation is not standardized, and in many cases the notation used here will be different from that in the textbook):
+\begin{itemize}
+\item The {\bf interior} of a set $A\subseteq \R$, denoted $\inter{A}$, is defined to be the set of all interior points of $A$.
+\item The {\bf boundary} of a set $A\subseteq \R$, denoted $\partial A$, is defined to be the set of all boundary points of $A$.
+\item The {\bf closure} of a set $A\subseteq \R$, denoted $\overline{A}$, is defined to be the union of $A$ with the set of all limit points of $A$. That is, if $L(A)$ denotes the set of limit points of $A$, then $\overline{A}=A\cup L(A)$.
+\end{itemize}
+We noted above that the limit points of a set $A$ include the interior points and the boundary points. The interior points of $A$ always belong to $A$, but this is not necessarily true of the boundary points. It seems plausible that limit points must be of one type or the other; in fact, one can prove the following:
+
+{\bf Theorem:} The closure of any set $A\subseteq \R$ is given by $\overline{A} = A\cup \partial A$.
+
+In other words, the only limit points of a set $A$ that might not belong to $A$ are the boundary points.
+
+\subsection*{Other types of sets -  the important ones}
+There are three important types of sets that we will encounter on a regular basis: the open, closed, and compact sets.
+\begin{itemize}
+\item A set $A\subseteq \R$ is {\bf open} if every $a\in A$ has an $\epsilon$-neighbourhood contained in $A$. In other words, every point of an open set $A$ is an interior point; that is, $A$ is open if and only if $A = \inter{A}$.
+\item A set $A\subseteq \R$ is {\bf closed} if $\partial A\subseteq A$. That is, a closed set contains all its boundary points. Using the theorem above, this tells us that a set $A$ is closed if and only if $A=\overline{A}$.
+\item A set $A\subseteq \R$ is {\bf compact} if, whenever we have $A\subseteq \bigcup G_\alpha$, for some infinite collection of open sets $\{G_\alpha\}$, there are finitely many sets $G_{\alpha_1},G_{\alpha_2},\ldots, G_{\alpha_n}$ in the collection such that
+\[
+A\subseteq G_{\alpha_1}\cup G_{\alpha_2}\cup \cdots \cup G_{\alpha_n}.
+\]
+A collection of open sets that contains $A$ in the union of those open sets is called an {\em open cover} of $A$, and the choice of some finite number of those sets that still contains $A$ in their union is referred to as a {\em finite subcover}. In this language, we say that $A$ is compact if every open cover of $A$ admits a finite subcover.
+\end{itemize}
+Of the three, compactness is the hardest definition to understand, both in terms of its meaning, and why it might be important. For this course, the most important examples of compact sets are the closed intervals: we'll prove in class that every closed interval is compact, and we'll also encounter the famous\footnote{Among mathematicians} Heine-Borel theorem, which states that a subset of $\R$ is compact if and only if it is closed and bounded.
+
+Compact sets are much more general than closed intervals, however. For example, the Cantor set (Google it) is a compact subset of $\R$, but it is very far from being an interval. In fact, it has the amazing property of being uncountable (it has the same cardinality as $\R$), and yet {\em nowhere dense}: there are no interior points in the set, even after we take the closure. (Contrast this with a subset like $\mathbb{Q}$, which is countable -- it has the same cardinality as $\mathbb{N}$ --  and yet {\em dense}: the closure of $\mathbb{Q}$ in $\R$ is all of $\R$.)
+
+The definitions above for open set, closed set, interior, and closure, are not the only ones possible. There are several equivalent ones. For example, one can show that a set $A$ is closed if and only if its complement $\R\setminus A$ is open, and vice-versa. The interior of $A$ can be defined as the `largest' open subset of $\R$ that is contained in $A$, while the closure of $A$ is the `smallest' subset of $\R$ in which $A$ is contained. (Largest and smallest are defined here in terms of the partial ordering with respect to set inclusion.) You may encounter still other definitions of these terms. In every book, one of these is generally chosen to be the definition, and the others are then proved to be equivalent, and given as theorems. Which one you choose to be the `official' definition for each term is a matter of taste.
+
+\subsection*{Relationships among the definitions}
+The various types of sets and points we've considered have many equivalent definitions, depending on what property we wish to use to define them. Indeed, each of the terms {\em open set}, {\em closed set}, {\em closure of a set}, {\em interior of a set}, {\em boundary of a set} may be characterized in terms of any one of the others. (We could also add {\em neighbourhood} to our list, if we're willing to let a neighbourhood of a point $x$ be any open set containing $x$ and use $\epsilon$-neighbourhood to refer to the particular type of neighbourhood of the form $(x-\epsilon, x+\epsilon)$ we usually work with.
+
+For example, a set $U\subseteq \R$ is {\em open} if and only if
+\begin{itemize}
+ \item (in terms of closed sets) the complement $\R\setminus U$ is closed;
+ \item (in terms of the closure) $\overline{\R\setminus U} = \R\setminus U$;
+ \item (in terms of interior) $U=\inter{U}$;
+ \item (in terms of boundary) $\partial U \subseteq \R\setminus U$.
+\end{itemize}
+The {\em boundary} of $A\subseteq \R$ can be given by
+\begin{itemize}
+ \item $\partial A = \overline{A}\setminus \inter{A}$
+ \item $\partial A = \overline{A}\cap \overline{\R\setminus A}$
+\end{itemize}
+For another example, the {\em interior} of $A\subseteq \R$ is given by
+\begin{itemize}
+ \item (in terms of open sets) $\inter{A} = \bigcup_{U\in\mathcal{U}}U$, where $\mathcal{U}$ is the collection of all open sets $U\subseteq A$;
+ \item (in terms of closed sets) $\inter{A} = \left(\bigcap_{V\in\mathcal{V}}V\right)^c$, where $\mathcal{V}$ is the collection of all closed sets $V\subseteq A^c$;
+ \item (in terms of the closure) $\inter{A} = \left(\overline{R\setminus A}\right)^c$
+ \item (in terms of boundary) $\inter{A} = A\setminus \partial A$
+\end{itemize}
+For one more example, the {\em closure} of $A\subseteq \R$ is given by
+\begin{itemize}
+ \item (in terms of closed sets) $\overline{A} = \bigcap_{A\in\mathcal{F}}F$, where $\mathcal{F}$ is the collection of closed sets $F$ with $A\subseteq F$.
+ \item (in terms of interior) $\overline{A} = ((A^c)^\circ)^c$
+ \item (in terms of boundary) $\overline{A} = A\cup\partial A$
+ \item (in terms of limit points) $\overline{A} = A\cup A'$, where $A'$ denotes the set of limit points
+\end{itemize}
+It's useful to see why we have $\overline{A} = A\cup A' = A\cup \partial A$. The closure was defined in terms of limit points as $\overline{A} = A\cup A'$. Now, suppose $x\in \overline{A}$. There are two possibilities: $x\in A$ or $x\notin A$. If $x\in A$ then of course $x$ belongs to both $A\cup A'$ and $A\cup \partial A$.
+
+\noindent ({\bf Note}: if $x\in A$, $x$ could still be either a limit point or a boundary point. For example, any interior point of $A$ is an element of $A$ with a neighbourhood contained in $A$, say $N_\epsilon(x)\subseteq A$. Then for any other $\epsilon'$ we have that $N_\epsilon(x)\cap N_{\epsilon'}(x) = N_{\min\{\epsilon,\epsilon'\}}(x)$ (why?), so every neighbourhood of $x$ contains a point $a\in A$ with $a\neq x$, since every neighbourhood of $x$ contains {\em infinitely many} points of $A$. Thus, any interior point is a limit point. Another example would be when $A=[a,b]$, and either $x=a$ or $x=b$. Then $x\in A$ and $x$ is both a limit point and a boundary point.)
+
+Suppose that $x\in \overline{A}$ but $x\notin A$. If $x\in A'$, then every neighbourhood of $x$ contains some point $a\in A$, and it contains a point of $\R\setminus A$; namely, $x$. This shows that $x\in\partial A$. Conversely, suppose that $x\notin A$ and $x\in \partial A$. Then every neighbourhood of $x$ must contain some $a\in A$, and since $x\notin A$, $a\neq x$. Thus, $x\in A'$. This shows that we can define the closure either in terms of limit points or boundary points.
+
+\subsubsection*{Some examples}
+Let's consider two subsets of $\R$: $A=[0,1]$ and $B=\{1/n:n\in\N\}$. We'll look at the different types of points in each case.
+\begin{itemize}
+ \item Of interior points: the interior of $A$ is $\inter{A} = (0,1)$. This is intuitively clear, but we should make sure that we see why. Given $x\in \R$ with $0<x<1$, either $0<x\leq 1/2$ or $1/2\leq x<1$. In the first case, take $\epsilon = x/2$, and $0<x-\epsilon = x/2<x<x+\epsilon<3/4<1$, so $N_\epsilon(x)\subseteq (0,1)$, and in the second, we can similarly show that taking $\epsilon = (1-x)/2$ does the job.
+
+ However, the set $B$ has no interior points. Note that $B$ consists entirely of rational numbers. Since every interval contains irrational numbers, there can be no neighbourhood $N_\epsilon(1/n) = (1/n-\epsilon,1/n+\epsilon)$ contained in $B$. Thus, $\inter{B} = \emptyset$.
+ \item Of limit points: As showed earlier, any interior point is a limit point, so each $x\in (0,1)$ is a limit point of $A$. (Note that an interior point is an example of a limit point that is not a boundary point.) The end points of $[0,1]$ are also limit points. The only limit point of $B$ is $x=0$, since for any $\epsilon>0$ there exists $n\in\N$ such that $0<1/n<\epsilon$, so $1/n\in N_\epsilon(0) = (-\epsilon,\epsilon)$. For any other $x\in \R$ we can choose $\epsilon>0$ small enough that $N_\epsilon(x)$ contains no point from $B$. (Make sure you can picture why this is true.)
+ \item Of boundary points: The boundary of $A$ is $\partial A = \{0,1\}$. Note that no interior point can be a boundary point, since if there exists some $\epsilon>0$ with $N_\epsilon(x)\subseteq A$, then $N_\epsilon(x)\cap (\R\setminus A) = \emptyset$. Thus no point in $(0,1)$ can be a boundary point. We see that $0\in \partial A$ since for any $\epsilon>0$, $N_\epsilon(0) = (-\epsilon,\epsilon)$ contains some $a>0$ (namely, $\epsilon/2$), and some $a<0$ (namely, $-\epsilon/2$).
+
+ For $B$, we note that every $1/n\in B$ is a boundary point, for the same reason that no $1/n\in B$ can be an interior point: any interval containing $1/n$ contains an element of $B$ (namely, $1/n$), and some irrational number that does not belong to $B$. Moreover, 0 is also a boundary point of $B$, since every neighbourhood of 0 contains $0\in \R\setminus B$ and some element $1/n\in B$.
+ \item Of isolated points: The set $A$ has no isolated points. This is true of every interval. An isolated point is an element of $A$ that is not a limit point, and we noted above that every point of $A$ is a limit point. We also noted above that every $b\in B$ is not a limit point, so every element of $B$ is isolated.
+\end{itemize}
+{\bf Remark}: Note that an element of a set is isolated if it has a neighbourhood that contains no other elements of the set. If nobody else lived in your neighbourhood, you'd feel isolated, too. We noted in class that if $x$ is a limit point of a set $A$, then every neighbourhood of $x$ contains not just one element of $a$ not equal to $x$, but in fact infinitely many elements of $A$. For the set $B$ above, note that as soon as $1/n\in N_\epsilon(0)$, we have $1/k\in N_\epsilon(0)$ for all $k\geq n$.
+
+So to sum up: 
+\begin{itemize}
+ \item Every interior point is a limit point, and cannot be a boundary point or an isolated point.
+ \item A limit point can be either a boundary point or an interior point. If $x$ is a limit point of $A$, we can't conclude that $x\in A$ unless we know that $A$ is closed. If $x\in A$, $x$ could be either a boundary point (like the endpoints of an interval) or an interior point. If $x\notin A$, $x$ can only be a boundary point.
+ \item A boundary point can never be an interior point. If $x\in \partial A$ is a boundary point, we can have either $x\in A$ or $x\notin A$. If $x\notin A$, then $x$ must also be a limit point. If $x\in A$, $x$ might be a limit point (such as with the end points of a closed interval) or it might be an isolated point (like the elements of the set $B$ above).
+ \item Every isolated point is a boundary point. An isolated point cannot be a limit point (by definition), and it cannot be an interior point.
+\end{itemize}
+ 
+
+
+
+\end{document}

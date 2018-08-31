@@ -1,0 +1,161 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\Abs}[1]{\left| #1 \right|}
+\newcommand{\len}[1]{\lVert #1\Vert}
+
+\title{Math 3500 Exercise Sheet}
+\date{19 November, 2014}
+
+
+\begin{document}
+\maketitle
+
+Given a function $f:\to\R$ that is $n$ times differentiable, we can define the Taylor polynomials $P_{a,k,f}(x)$ for $0\leq k\leq n$ by
+\begin{align*}
+ P_{a,0,f}(x) &= f(a)\\
+ P_{a,1,f}(x) &= f(a)+f'(a)(x-a)\\
+ P_{a,2,f}(x) &= f(a)+f'(a)(x-a)+\frac{f''(a)}{2}(x-a)^2\\
+ \vdots \quad & \quad \quad \quad \vdots \\
+ P_{a,k,f}(x) &= f(a)+f'(a)(x-a)+\cdots+ \frac{f^{(k)}(a)}{k!}(x-a)^k\\
+ \vdots \quad & \quad \quad \quad \vdots \\
+ P_{a,n,f}(x) &= f(a)+f'(a)(x-a)+\cdots+ \frac{f^{(n)}(a)}{n!}(x-a)^n
+\end{align*}
+Each Taylor polynomial provides a succesively better approximation to the original function $f$ on $D$; this is expressed by
+\begin{theorem}
+ If $f:D\to\R$ is $n$ times differentiable at $x=a$, then
+\[
+ \lim_{x\to a}\frac{f(x)-P_{k,a,f}(x)}{(x-a)^k}=0
+\]
+for each $k\in\{0,1,\ldots, n\}$.
+\end{theorem}
+\noindent {\bf Exercise}: (a) Verify the above theorem. (b) Prove the following:
+\begin{theorem}
+ Suppose that $f'(a)=\cdots = f^{(n-1)}(a)=0$, and $f^n(a)\neq 0$.
+\begin{enumerate}
+ \item If $n$ is even and $f^{(n)}(a)>0$, then $f$ has a local minimum at $x=a$.
+ \item If $n$ is even and $f^{(n)}(a)<0$, then $f$ has a local maximum at $x=a$.
+ \item If $n$ is odd, $f$ has neither a local maximum nor a local minimum at $x=a$.
+\end{enumerate}
+\end{theorem}
+Note that the above result can be used in situations where the usual second derivative test fails. For example, we know that $f(x)=x^4$ has a local (and absolute) minimum at $x=0$, but $f'(0)=f''(0)=0$, so the second derivative test doesn't apply.
+
+Here's a sketch of the steps involved: first, you can assume $f(a)=0$ (otherwise, replace $f(x)$ by $g(x)=f(x)-f(a)$, whose graph is just a vertical shift of the graph of $f(x)$). Note the consequences of our assumptions on what the form of the Taylor polynomial for $f$ is, and substitute this into Theorem 1 to conclude that if $x$ is sufficiently close to $a$, then $\dfrac{f(x)}{(x-a)^n}$ has the same sign as $\dfrac{f^{(n)}(a)}{n!}$.
+
+You might think that Theorem 2 settles the question of maxima and minima, but one can still run into problems. For example, the function
+\[
+ f(x) = \begin{cases} e^{-1/x^2}, & x\neq 0\\ 0, & x=0\end{cases}
+\]
+has a local minimum at $x=0$ (graph it, or ask Wolfram Alpha to plot $e^{-1/x^2}$ for you). However, it's possible to prove that $f^{(k)}(0)=0$ for {\em all} $k\geq 0$, so Theorem 2 fails. (This function is an example of a ``non-analytic smooth function'': it has derivatives of all orders at every point, but it cannot be approximated by Taylor polynomials. There's a decent write-up of this phenomenon on Wikipedia. The existence of such functions turns out to be quite important.
+
+\noindent {\bf Exercise}: Prove the following:
+\begin{theorem}
+ Let $P$ and $Q$ be polynomials in $(x-a)$ of degree $\leq n$ and suppose that $P$ and $Q$ agree to order $n$ at $a$. Then $P=Q$.
+\end{theorem}
+As a result of this theorem, we have the result we came up with in class:
+\begin{theorem}
+ Let $f$ be $n$ times differentiable at $x=a$. Then $P=P_{n,a,f}$ is the {\bf unique} polynomial that equals $f$ up to order $n$ at $a$. That is, if we let $R(x)=f(x)-P(x)$ denote the remainder upon subtracting $P$ from $f$, then $P(x)=P_{n,a,f}$ if and only if
+\[
+ \lim_{x\to a}\frac{R(x)}{(x-a)^n}=0.
+\]
+\end{theorem}
+\noindent {\bf Exercise}: Uniqueness is important, because it tells us that different ways of obtaining a polynomial approximation to a function will always lead to the same result. Consider the following:
+\begin{enumerate}[(a)]
+ \item Use the definition of the Taylor polynomial to find the Taylor series for $f(x)=\cos x$ at $a=0$.
+ \item Attempt to use the definition of the Taylor polynomial to find the Taylor series for $g(x)=\arctan x$ at $a=0$. Give up once you've gotten as far as $g'''(0)$. (Recall that $g'(x) = 1/(1+x^2)$.)
+ \item Use long division (with remainder) to show that
+\[
+ \frac{1}{1+t^2} = 1-t^2+t^4-t^6+\cdots+(-1)^nt^{2n}+\frac{(-1)^{n+1}t^{2n+2}}{1+t^2}.
+\]
+ \item Recall that $\displaystyle \arctan x = \int_0^x\frac{1}{1+t^2}\,dt$, by the Fundamental Theorem of Calculus. (Pretend that we're one week in the future and we've seen the FTC already.)
+ \item Conclude that
+\[
+ \arctan x = x-\frac{x^3}{3}+\frac{x^5}{5}-\cdots + (-1)^n\frac{x^{2n+1}}{2n+1}+(-1)^{n+1}\int_0^x \frac{t^{2n+2}}{1+t^2}.
+\]
+ \item Use the fact that
+\[
+ \Abs{\int_0^x\frac{t^{2n+2}}{1+t^2}\,dt}\leq \Abs{\int_0^xt^{2n+2}\,dt} = \frac{\abs{x}^{2n+3}}{2n+3}
+\]
+to conclude that $\displaystyle \lim_{x\to 0}\frac{\displaystyle \int_0^x \frac{t^{2n+2}}{1+t^2}\,dt}{x^{2n+1}} = 0$, and that the Taylor polynomial for $\arctan$ at 0 is therefore given by
+\[
+ P_{2n+1,0}(x) = x-\frac{x^3}{3}+\frac{x^5}{5}-\cdots+(-1)^n\frac{x^{2n+1}}{2n+1}.
+\]
+
+\end{enumerate}
+Now, we'll restate Taylor's Theorem:
+\begin{theorem}
+ Suppose $f, f', f'', \ldots, f^{(n+1)}$ are defined on $(a,b)$ (where $a=-\infty$ or $b=\infty$ are allowed) and let $c\in (a,b)$. Then for each $x\neq c\in (a,b)$,
+\[
+ f(x) = P_{n,a,f}(x)+R_{n,a,f}(x), 
+\]
+where
+\[
+ (1) R_{n,a,f}(x)  = \frac{f^{(n+1)}(t)}{n!}(x-t)^n(x-a), \text{ for some } t \text{ between } x \text{ and } c
+\]
+(Cauchy's remainder formula),
+\[
+ (2) R_{n,a,f}(x)  = \frac{f^{(n+1)}(t)}{(n+1)!}(x-a)^{n+1}, \text{ for some } t \text{ between } x \text{ and } c
+\]
+(Lagrange's remainder formula), and if $f^{(n+1)}$ is integrable on $[a,x]$, (with $a\neq -\infty$), then
+\[
+ (3) R_{n,a,f}(x)  = \int_a^x \frac{f^{(n+1)}(t)}{n!}(x-t)^n\,dt
+\]
+(integral remainder formula).
+\end{theorem}
+I'll give a proof of the first two remainder formulas. The idea is to view $x$ as fixed, and $a=t$ as the variable. For each $t\in [a,x]$ we can write
+\[
+ f(x) = f(t)+f'(t)(x-t)+\cdots+\frac{f^{(n)}(t)}{n!}(x-t)^n+R_{n,t}(x)
+\]
+If we take the derivative of both sides with respect to $t$, we get
+\begin{align*}
+ 0 &= f'(t)+\left[-f'(t)+\frac{f''(t)}{1!}(x-t)\right]+\left[-\frac{f''(t)}{1!}(x-t)+\frac{f'''(t)}{2!}(x-t)^2\right]\\
+ &\quad\quad\quad +\cdots + \left[\frac{-f^{(n)}(t)}{(n-1)!}(x-t)^{n-1}+\frac{f^{(n+1)}(t)}{n!}(x-t)^n\right]+S'(t),
+\end{align*}
+where $S(t)=R_{n,t,f}(x)$. Now a miracle happens: almost everything cancels out, and we're left with
+\[
+ S'(t) = -\frac{f^{(n+1)}(t)}{n!}(x-t)^n.
+\]
+Now note that when $t=x$ we get $f(x)=f(x)+0+\cdots +0+S(x)$, so $S(x)=0$, and $S(a)=R_{n,a,f}(x)$ is our desired remainder. Applying the Mean Value Theorem to $S(t)$ on $[a,x]$ tells us that there is some $t\in (a,x)$ such that
+\[
+ \frac{S(x)-S(a)}{x-a}=S'(t)=\frac{-f^{(n+1)}(t)}{n!}(x-t)^n.
+\]
+Substituting $S(x)=0, S(a)=R_{n,a,f}(x)$ and rearranging gives Cauchy's remainder formula.
+
+Now we prove Lagrange's remainder formula (which ironically enough uses Cauchy's Mean Value Theorem): let $g(t)=(x-t)^{n+1}$. Note that $g(x)=0$ and $g(a)=(x-a)^{n+1}$. By Cauchy's MVT, there exists some $t\in (a,x)$ such that
+\[
+ \frac{S(x)-S(a)}{g(x)-g(a)}=\frac{S'(t)}{g'(t)} = \frac{-\dfrac{f^{(n+1)}(t)}{n!}(x-t)^n}{-(n+1)(x-t)^n},
+\]
+which gives $\dfrac{R_{n,a,f}(x)}{(x-a)^{n+1}}=\dfrac{f^{(n+1)}(t)}{(n+1)!}$, and rearranging gives Lagrange's formula.
+
+\bigskip
+
+Just for fun, let's end with a proof that Euler's constant $e$ is irrational. For any $n$, we know that
+\[
+ e = e^1 = 1+\frac{1}{1!}+\frac{1}{2!}+\cdots+\frac{1}{n!}+R_n, \text{ where } )<R_n<\frac{3}{(n+1)!}.
+\]
+If $e=a/b$ for some positive integers $a$ and $b$, choose $n>\max\{b,3\}$. Then
+\[
+ \frac{a}{b} = 1+\frac{1}{1!}+\frac{1}{2!}+\cdots+\frac{1}{n!}+R_n, \text{ so } \frac{n!a}{b} = n! +n! +\cdots + 1+n!R_n.
+\]
+Every term in the second equation above is an integer, except possibly $n!R_n$, so it must be an integer as well. But $0<R_n<3/(n+1)!$, so 
+\[
+ 0<n!R_n<\frac{3}{n+1}<\frac{3}{4}<1,
+\]
+which is impossible for an integer.
+\end{document}
+ 

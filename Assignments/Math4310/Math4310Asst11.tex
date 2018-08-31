@@ -1,0 +1,74 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\cla}[1]{\left[ #1\right]}
+\DeclareMathOperator{\Int}{Int}
+
+\title{Math 4310 Assignment \#11\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Friday, November 21st, by 5 pm.
+
+\bigskip
+
+Please submit solutions to the following problems (except where indicated). As usual, all the textbook exercises are recommended as practice problems if they don't appear as an assigned problem below.
+
+\begin{enumerate}
+\item \begin{enumerate}
+\item Let $\gamma: [0,1]\to X$ be a path, and let $\rho:[0,1]\to [0,1]$ be any continuous function such that $\rho(0)=0$ and $\rho(1)=1$. Prove that the paths $\gamma$ and $\gamma\circ \rho$ are homotopic.
+
+Hint: $\rho$ is itself a path from 0 to 1 in $[0,1]$, and all such paths are homotopic in $[0,1]$.
+\item Let $\alpha, \beta$, and $\gamma$ be loops based at a point $x_0\in X$. Write down explicit formulas for $\alpha\ast(\beta\ast\gamma)$ and $(\alpha\ast\beta)\ast\gamma$.
+\item Prove that $\cla{\alpha}\ast(\cla{\beta}\ast\cla{\gamma}) = (\cla{\alpha}\ast\cla{\beta})\ast\cla{\gamma}$.
+
+Hint: use (a), and try the map $\displaystyle \rho(s)=\begin{cases} s/2 & \text{ if } 0\leq s\leq 1/2\\ s-1/4 & \text{ if } 1/2\leq s\leq 3/4\\ 2s-1 & \text{ if } 3/4\leq s\leq 1\end{cases}$.
+
+Note: A similar approach can be used to verify the other group axioms as well. For example, let $e_{x_0}:[0,1]\to X$ be the constant map $e_{x_0}(s)=x_0$ for all $s\in [0,1]$, and let $\gamma:[0,1]\to X$ be a loop based at $x_0$. Let $e_0:[0,1]\to [0,1]$ be the constant map $e_0(t)=0$ for all $t\in [0,1]$, and let $i:[0,1]\to [0,1]$ be the identity map. Then $e_0\ast i:[0,1]\to [0,1]$ is homotopic to $i$, and 
+\[
+\gamma\circ(e_0\ast i) = (\gamma \circ e_0)\ast (\gamma \circ i) = e_{x_0}\ast \gamma.
+\]
+If $F$ is a homotopy from $e_0\ast i$ to $i$, then $\gamma\circ F$ is a homotopy from $e_{x_0}\ast \gamma$ to $\gamma\circ i = \gamma$. Thus, $\cla{e_{x_0}}\ast\cla{\gamma} = \cla{\gamma}$.
+
+
+(Here we used the fact that for any paths $\alpha$ and $\beta$ in a space $Y$ and a map $f:Y\to X$, $f\circ(\alpha\ast\beta) = (f\circ \alpha)\ast(f\circ \beta)$ since both are equal to the map given by $f(\alpha(2s))$ for $s\in [0,1/2]$ and $f(\beta(2s-1))$ for $s\in [1/2,1]$, and as mentioned in class, if $F$ is a homotopy from $\alpha$ to $\beta$ in $Y$, then $G=f\circ F$ is a homotopy from $f\circ \alpha$ to $f\circ \beta$ in $X$.)
+\end{enumerate}
+\item Let $X$ be a space and let $\alpha,\beta:[0,1]\to X$ be two paths from $x_0$ to $x_1$, for two points $x_0,x_1\in X$. These paths define isomorphisms $\varphi_\alpha,\varphi_\beta:\pi_1(X,x_0)\to \pi_1(X,x_1)$, but as noted in class, they may be different isomorphisms. Prove that the isomorphism $\varphi_\beta$ is the composition of $\varphi_\alpha$ with the inner automorphism of $\pi_1(X,x_1)$ induced by the element $\cla{\beta^{-1}\ast\alpha}$.
+\item Prove that the two isomorphisms in the previous problem are the same if and only if $\pi_1(X,x_0)$ is Abelian.
+\item Given spaces $X$ and $Y$, let $\cla{X,Y}$ denote the set of homotopy classes of maps $f:X\to Y$.
+\begin{enumerate}
+\item Let $I=[0,1]$. Show that for any space $X$, $\cla{X,I}$ contains a single element.
+\item Show that if $Y$ is path connected, then the set $\cla{I,Y}$ contains a single element.
+\end{enumerate}
+\item ({\bf Do not submit}) A space $X$ is called {\bf contractible} if the identity map $i_X:X\to X$ is homotopic to a constant map. (If $f$ is homotopic to a constant map, we say $f$ is {\bf nullhomotopic}.)
+\begin{enumerate}
+\item Show that $I$ and $\R$ are contractible.
+\item Show that a contractible space is path-connected.
+\item Show that if $Y$ is contractible, then for any set $X$, the set $\cla{X,Y}$ has a single element.
+\item Show that if $X$ is contractible and $Y$ is path-connected, then the set $\cla{X,Y}$ has a single element.
+\end{enumerate}
+\item Let $A\subseteq X$. Recall that a {\bf retraction} of $X$ onto $A$ is a continuous map $r:X\to A$ such that $r(a)=a$ for all $a\in A$. If $a_0\in A$, show that
+\[
+r_*:\pi_1(X,a_0)\to \pi_1(A,a_0)
+\]
+is a surjection.
+\end{enumerate}
+\end{document}
+ 

@@ -1,0 +1,87 @@
+\documentclass[letterpaper,12pt]{amsart}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\title{Math 1410 Assignment \#1\\University of Lethbridge, Fall 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} {\bf Thursday}, September 29th, by 5 pm.
+
+\bigskip
+
+Please review the {\bf Guidelines for preparing your assignments} before submitting your work. You can find these guidelines, along with the required cover page, in the Assignments section on our Moodle site.
+
+
+
+\subsection*{Assigned problems}
+\begin{enumerate}
+\item Show that for \textbf{any} complex numbers $z$ and $w$, with $w\neq 0$, the complex modulus satisfies
+\[
+ \left\lvert\frac{z}{w}\right\rvert = \frac{\abs{z}}{\abs{w}}.
+\]
+
+\medskip
+
+\textit{Hint:} See page 39 of the textbook for an outline of the argument you should use. On this same page you'll find the proof that $\abs{zw}=\abs{z}\cdot\abs{w}$, which might serve as a useful model for your own proof.
+
+\bigskip
+
+\item Compute the following complex roots, and plot them in the complex plane. \\(See Example 14 on page 47 of the text for guidance.)
+
+\medskip
+
+\begin{enumerate}
+ \item Find the three cube roots of $z=-125$.
+ \item Find the six 6th roots of $z=64$.
+
+\end{enumerate}
+
+\medskip
+
+\textit{Note:} The answers for 2(b) are in the back of the book. I'm more interested in seeing you work through the process than I am in the final answers.
+
+\bigskip
+
+\item Let $\vec{v}$ and $\vec{w}$ be vectors in $\R^3$. In each case, either explain why the statement is true (in general), or give an example showing that it is false:
+
+\medskip
+
+\begin{enumerate}
+ \item If $\len{\vec{v}-\vec{w}}=0$, then $\vec{v}=\vec{w}$.
+ \item If $\vec{v}=-\vec{v}$, then $\vec{v}=\vec{0}$.
+ \item If $\len{\vec{v}}=\len{\vec{w}}$, then $\vec{v}=\vec{w}$.
+ \item If $\len{\vec{v}}=\len{\vec{w}}$, then $\vec{v}=\pm\vec{w}$.
+ \item $\len{\vec{v}+\vec{w}} = \len{\vec{v}}+\len{\vec{w}}$.
+\end{enumerate}
+
+\bigskip
+
+\item Consider the triangle in $\R^3$ with vertices (corners) at the points 
+\[
+P=(2,0,-3),\, Q=(5,-2,1),\, \text{ and } R=(7,5,3). 
+\]
+ Show that this is a right-angled triangle
+
+\medskip
+
+\begin{enumerate}
+ \item Using dot products.
+ \item Using the Pythagorean Theorem.
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
+ 

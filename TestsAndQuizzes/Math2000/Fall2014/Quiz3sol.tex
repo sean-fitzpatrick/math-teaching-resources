@@ -1,0 +1,118 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000}\chead{Quiz \# 3}\rhead{Thursday, 2\textsuperscript{nd} October, 2014}
+\rfoot{Total: 10 points}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+\noindent{{\bf Name and student number:  Solutions}}
+
+ \begin{enumerate}
+ \item  Let $A = \{0,3,7\}$ and $B = \{1,2,3,5\}$ be subsets of the universal set $U = \{0,1,2,3,4,5,6,7,8\}$.
+\begin{enumerate}
+ \item What is $A\cup B$? \points{1}
+
+\bigskip
+
+{\bf Solution}: Since $A\cup B$ is the set of all elements of $U$ that belong to either $A$ or $B$, we have
+\[
+ A\cup B = \{0,3,7,1,2,5\}.
+\]
+
+\bigskip
+
+\item What are the complements $A^c$ and $B^c$? \points{1}
+
+\bigskip
+
+{\bf Solution}: The complement of a set $A\subseteq U$ consists of all elements of $U$ that do not belong to $A$. Thus, we have
+\[
+ A^c =\{1,2,4,5,6,8\}\quad\text{ and }\quad B^c = \{0,4,6,7,8\}.
+\]
+
+\bigskip
+
+\item What is the intersection $A^c\cap B^c$? \points{1}
+
+\bigskip
+
+{\bf Solution}: Since $x\in A^c\cap B^c$ if and only if $x\in A^c$ and $x\in B^c$, $A^c\cap B^c$ consists of all elements of $U$ that are common to the two sets $A^c$ and $B^c$ from part (b). Thus, we have
+\[
+ A^c\cap B^c = \{4,6,8\}.
+\]
+
+\bigskip
+
+\item What is the relationship between your answers in (a) and (c)? \points{1}
+
+\bigskip
+
+{\bf Solution}: We have that $A\cup B = \{0,1,2,3,5,7\}$ and $A^c\cap B^c = \{4,6,8\}$. Thus, $A^c\cap B^c$ consists of all the elements of $U$ that do not belong to $A\cup B$. In other words, $A^c\cap B^c = (A\cup B)^c$.
+
+\bigskip
+
+\item Give {\bf two} subsets of $U$ that are subsets of both $A$ and $B$. \points{1}
+
+\bigskip
+
+{\bf Solution}: We note that $A\cap B = \{3\}$, and thus $\{3\}$ is a subset of both $A$ and $B$. Another subset that is common to both is the empty set $\emptyset$, which is a subset of every set.
+
+\end{enumerate}
+\newpage
+
+\item Recall that one of de Morgan's laws for logic is that $\neg (P\vee Q) \equiv \neg P\wedge \neg Q$.
+\begin{enumerate}
+ \item What is the corresponding de Morgan's law for sets?\points{1}
+
+\bigskip
+
+{\bf Solution}: Let $A$ and $B$ be subsets of some universal set $U$, and let $x$ be some element of $U$. If we let $P$ represent the assertion $x\in A$, and $Q$ represent $x\in B$, then $P\vee Q$ is the assertion that $x\in A$ or $x\in B$, or in other words, $x\in A\cup B$. Thus, $\neg (P\vee Q)$ is the assertion $x\notin (A\cup B)$, or equivalently, $x\in (A\cup B)^c$.
+
+On the other hand, $\neg P\wedge \neg Q$ means $x\notin A$ and $x\notin B$, so $x\in A^c$ and $x\in B^c$, and thus $x\in A^c\cap B^c$ by definition of intersection. Since we are claiming that these two statements are equivalent, we must have $x\in (A\cup B)^c \leftrightarrow x\in A^c\cap B^c$, or $(A\cup B)^c = A^c\cap B^c$.
+
+ \bigskip
+
+ \item Prove that $(A\cup B)^c \subseteq A^c\cup B^c$ ($\overline{A\cup B}\subseteq \overline{A}\cap \overline{B}$ in the textbook notation). \points{3}
+
+Reminder: to prove $U\subseteq V$, assume that $x\in U$ and deduce $x\in V$. A two-column proof is acceptable but not required.
+
+\bigskip
+
+{\bf Solution}: Suppose that $x\in (A\cup B)^c$. Then $x\notin A\cup B$, so it is not the case that $x\in A$ or $x\in B$; that is, $x$ belongs to neither $A$ nor $B$, so $x\notin A$ and $x\notin B$. But this means that $x\in A^c$ and $x\in B^c$, so $x\in A^c\cap B^c$ as required.
+
+\bigskip
+
+ \item What remains to be proved in order to establish your claim in part (a)? \points{1}
+
+\bigskip
+
+{\bf Solution}: Since we've proved $(A\cup B)^c \subseteq A^c\cap B^c$, and two sets are equal if and only if each is a subset of the other, we still have to prove that $A^c\cap B^c$ is a subset of $(A\cup B)^c$.
+\end{enumerate}
+
+\end{enumerate}
+\end{document}

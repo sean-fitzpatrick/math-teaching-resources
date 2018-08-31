@@ -1,0 +1,90 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000}\chead{Quiz \# 7}\rhead{Thursday, 30\textsuperscript{th} October, 2014}
+\rfoot{Total: 10 points}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\modd}[3]{#1\equiv #2 \pmod{#3}}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+\noindent{{\bf Name and student number:} Solutions}
+
+ \begin{enumerate}
+ \item Let $A=\{a,b,c,d\}$, $B=\{a,b,c\}$, and $C=\{s,t,u,v\}$.
+\begin{enumerate}
+ \item Create a function $f:A\to C$ whose range is the set $\{u,v\}$, or explain why it is not possible to do so. \points{2}
+
+\bigskip
+
+\noindent {\bf Solution}: Such a function is given by $f(a)=u, f(b)=u, f(c)=u, f(d)=v$. (There are many other possibilities, of course.)
+
+\bigskip
+
+
+ \item Create a function $f:B\to C$ whose range is the entire set $C$, or explain why it is not possible to do so. \points{2}
+
+\bigskip
+
+\noindent {\bf Solution}: This is not possible. The set $\{f(a),f(b),f(c)\}$ can contain at most three elements of $C$, and $C$ contains 4 elements. To obtain the entire set $C$ we would have to assign some element of $B$ to more than one value, and then $f$ would not be a function.
+\end{enumerate}
+%\newpage
+\item In each part, you're given sets $A$ and $B$, and a function $f:A\to B$. Determine which functions are one-to-one.
+\begin{enumerate}
+ \item $A=\{1,2,3\}, B=\{1,2,3,4\}$, and $f(1)=3, f(2)=2, f(3)=1$.\points{1}
+
+\bigskip
+
+\noindent {\bf Solution}: This function is one-to-one by inspection: we can see that no value $f(x)$ appears twice.
+
+\bigskip
+
+ \item $A=B=\{1,2,3,4\}$, and $f(1)=2, f(2)=1, f(3)=2, f(4)=1$.\points{1}
+
+\bigskip
+
+\noindent{\bf Solution}: Since $f(1)=f(3)=2$ but $1\neq 3$, $f$ is not one-to-one.
+
+\bigskip
+
+
+ \item $A=B=\Z$, and $f(m)=-m$.\points{2}
+
+\bigskip
+
+\noindent {\bf Solution}: Suppose that $f(m)=f(n)$ for some $m,n\in\Z$. Then we have $-m=-n$, which after multiplying by $-1$ gives $m=n$. Thus, $f$ is one-to-one.
+
+\bigskip
+
+ \item $A=B=\N$, and $f(n)=n-1$ if $n$ is even, and $f(n)=n+1$, if $n$ is odd.\points{2}
+
+\bigskip
+
+\noindent {\bf Solution}: We note that for each $k\in \N$, $f(2k)=2k-1$ and $f(2k-1) = 2k$, so $f$ interchanges each consecutive pair of natural numbers: $f(1)=2$ and $f(2)=1$, $f(3)=4$ and $f(4)=3$, etc. It follows that $f$ is one-to-one.
+
+(Another way to see this is to note that for each $n\in\N$, $f(f(n))=n$, since if $n$ is even, then $n-1$ is odd, and $f(f(n))=f(n-1)=n-1+1=n$, with a similar result if $n$ is odd. If $f(n_1)=f(n_2)$ for some $n_1,n_2\in\N$, then since $f$ is a function, $n_1=f(f(n_1))=f(f(n_2))=n_2$.)
+\end{enumerate}
+ \end{enumerate}
+\end{document}

@@ -1,0 +1,152 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.25in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 1560 - Tutorial \#8}\\
+Monday, March 12
+\end{center}
+\skipline \ \noindent \skipline
+
+\vspace*{\fill}
+
+
+Some additional practice (discuss the answers but don't write anything down):
+\begin{enumerate}
+\item Find the dimensions of the rectangle of largest area that can be inscribed in an equilateral triangle of side length $L$, if one side of the rectangle must lie along  the base of the triangle.
+\item If $1200 \text{ m}^2$ of material are available to make a box with a square base and open top, find the largest possible volume of the box.
+\item A farmer wants to fence in an area of 1.5 million square feet in a rectangular field, and then divide the field in half with a fence parallel to one of the sides of the rectangle. How should he do this in order to minimize the cost of the fencing?
+\end{enumerate}
+
+
+
+
+\newpage
+%\thispagestyle{empty}
+
+
+\begin{enumerate}
+\item An animal sanctuary is building a rectangular enclosure to hold adorable bunnies. To save cost, they decide to build the enclosure next to an existing jaguar pen, allowing them to use the fence around the pen for one side of the rabbit enclosure.
+
+Given that the side of the jaguar pen to be shared is 30 m long, and that 50 m of fencing are available for the bunnies, what is the largest area that can be enclosed?
+
+Does your answer change if the side of the jaguar pen is only 20 m long?
+
+\vspace{3in}
+
+\item A fugitive from the law is attempting to reach his accomplice, who is waiting in an escape vehicle (a beige 1992 Ford Aerostar minivan) on the far side of a river.
+
+The river is 1 km wide, and the van is waiting 5 km downstream from where the fugitive has just jumped into the river. If the fugitive can swim at 3 km/h and run at 9 km/h, how far downstream is the point on the far bank that the fugitive should swim to in order to reach his accomplice as soon as possible?
+\end{enumerate}
+\newpage
+
+\begin{enumerate}
+\item Compute the following derivatives:
+\begin{enumerate}
+\item $\di\frac{d}{dx}(e^{2x}\tan(x^2))$
+
+\vspace{1cm}
+
+\item $\di\frac{d}{dx}(\sin^3(x^2+5x))$
+
+\vspace{1cm}
+
+\item $\di\frac{d}{dx}(1+x^2)^x$
+
+\vspace{1cm}
+
+\item $\di \frac{d}{dx}\sin((f(x)^4))$
+
+\vspace{0.75cm}
+
+\end{enumerate}
+
+\item Evaluate the following integrals:
+
+\begin{enumerate}
+\item $\di \int 2x\sin(x^2)\,dx$
+
+\vspace{1cm}
+
+\item $\di \int 5\sec^2(5x)e^{\tan(5x)}\,dx$
+
+\vspace{1cm}
+
+\item $\di \int (2e^{2x}\sin(x)+e^{2x}\cos(x))\,dx$
+
+\vspace{1cm}
+
+\item $\di \int \frac{1}{x\ln(x)}\,dx$
+
+\vspace{1cm}
+
+\item $\di \int \cos(\sin(\sin(\sin(x))))\cos(\sin(\sin(x)))\cos(\sin(x))\cos(x)\,dx$
+\end{enumerate}
+\newpage
+
+\item A helicopter is hovering above a lake when its engine fails. At what altitude was the helicopter hovering, if it hits the water 8 seconds later? Assume acceleration due to gravity is $10 \text{ m/s}^2$ downwards.
+
+\vspace{3in}
+
+\item Given $\di f(x) = x^3-\frac{3}{x}$,
+\begin{enumerate}
+\item Solve the equation $f'(x)=0$.
+
+\vspace{2.5cm}
+
+\item Find the intervals where $f$ is increasing/decreasing.
+
+\vspace{2cm}
+
+\item Find the coordinates of any local maxima or minima.
+
+\vspace{2cm}
+
+
+\item Find the intervals where $f$ is concave up/down.
+
+
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

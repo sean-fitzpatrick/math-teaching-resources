@@ -1,0 +1,119 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+
+\title{Math 2580 Assignment \#5 Solutions\\University of Lethbridge, Spring 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+\item  Find the volume of the solid that lies between the paraboloid $z=x^2+y^2$ and the sphere $x^2+y^2+z^2=2$.
+
+\bigskip
+
+The paraboloid and sphere intersect in the curve $x^2+y^2=1$, so our region of integration is given in cylindrical coordinates by $0\leq r\leq 1$, $0\leq \theta\leq 2\pi$, and $r^2\leq z\leq \sqrt{2-r^2}$. The volume is therefore
+\begin{align*}
+ V & = \int_0^{2\pi}\int_0^1\int_{r^2}^{\sqrt{2-r^2}} r\,dz\,dr\,d\theta\\
+ & = 2\pi\int_0^1 \left(r\sqrt{2-r^2}-r^3\right)\,dr\\
+ & = 2\pi\left.\left(-\frac{1}{3}(2-r^2)^{3/2}-\frac{1}{3}r^3\right)\right|_0^1\\
+ & = \frac{2\pi}{3}\left(2^{3/2}-2\right).
+\end{align*}
+
+\bigskip
+
+\item  Evaluate the integral $\di \int_{-3}^3\int_0^{\sqrt{9-x^2}}\int_0^{9-x^2-y^2}\sqrt{x^2+y^2}\, dz\,dy\,dx$ by converting to cylindrical coordinates.
+
+\bigskip
+
+The region of integration is bounded below by the half-disc $x^2+y^2\leq 9$, with $y\geq 0$ and below the paraboloid $z=9-x^2-y^2$. In cylindrical coordinates, this becomes $0\leq r\leq 3$, $0\leq \theta\leq \pi$ (since $y\geq 0$), and $0\leq z\leq 9-r^2$. Thus, we have
+\begin{align*}
+ \int_{-3}^3\int_0^{\sqrt{9-x^2}}\int_0^{9-x^2-y^2}\sqrt{x^2+y^2}\, dz\,dy\,dx & = \int_0^{\pi}\int_0^3\int_0^{9-r^2} r^2\,dz\,dr\,d\theta\\
+ & = \pi\int_0^3 r^2(9-r^2)\,dr\\
+ & = \pi\left(\left. 3r^3-\frac{1}{5}r^5\right|_0^3\right)\\
+ & = \frac{162\pi}{5}.
+\end{align*}
+
+
+\bigskip
+
+
+\item  Sketch the solid described by the inequalities $\rho\leq 2$, $\rho\leq \csc \phi$.
+
+\bigskip
+
+The inequality $\rho\leq 2$ gives us $x^2+y^2+z^2\leq 4$; that is, we are only considering points within the sphere of radius 2 centered at the origin. The inequality $\rho \leq \csc\phi$ gives us $\rho\leq\dfrac{1}{\sin\phi}$, which can be re-written as $\rho\sin\phi\leq 1$.
+
+\medskip
+
+{\bf Note:} when multiplying both sides of an inequality, don't forget that we must pay attention to the sign of thing we're multiplying by! To see that the above inequality is valid, note that spherical coordinates are defined with $\phi\in [0,\pi]$, and $\sin \phi\geq 0$ on this interval. (By the way, this is worth pointing out in the context of integration in spherical coordinates: we have $dV = \rho^2\sin\phi\, d\rho\, d\phi\, d\theta$. This wouldn't be a very good volume element if $\sin\phi$ were negative at some points!)
+
+\medskip
+
+Returning to the solution, we note that $\rho\sin\phi = x^2+y^2$, so we must have $x^2+y^2\leq 1$. This means that the points in our region must lie inside the sphere $x^2+y^2+z^2=4$ and the cylinder $x^2+y^2=1$. I'll skip the sketch in the solutions, but you should be able to picture the result: a cylindrical tube with spherical caps at the ends.
+
+\bigskip
+
+
+
+\item  Sketch the solid whose volume is given by the integral $\di \int_0^{2\pi}\int_{\pi/2}^\pi\int_1^2\rho^2\sin\phi\, d\rho\, d\phi\, d\theta$, and evaluate the integral.
+
+\bigskip
+
+Your sketch should show the region below the $xy$-plane that is between the spheres of radius 1 and 2, respectively. The integral is given by
+\begin{align*}
+ \int_0^{2\pi}\int_{\pi/2}^\pi\int_1^2\rho^2\sin\phi\, d\rho\, d\phi\, d\theta & = \frac{2\pi}{3}\int_{\pi/2}^\pi\left(2^3-1^3\right)\sin\phi\,d\phi\\
+ & = \frac{14\pi}{3}\left(\cos(\pi/2)-\cos(\pi)\right) = \frac{14\pi}{3}.
+\end{align*}
+(Note that this result can also be obtained by using the formula for a volume of a sphere and subtracting the volumes of the two hemispheres.)
+
+\bigskip
+
+
+\item  Evaluate $\iiint_E xyz\, dV$, where $E$ lies between the spheres $\rho =2$ and $\rho = 4$, and above the cone $\phi = \pi/3$.
+
+
+\bigskip
+
+Since the integrand is odd with respect to $x$ and the region of integration is symmetric under the substitution $x\mapsto -x$ (the same is true for $y$), the integral must be zero. However, if you still want to set up the integral, it's given by
+\[
+ \iiint_E xyz\, dV = \int_0^{2\pi}\int_0^{\pi/3}\int_2^4\rho^5\cos\theta\sin\theta\sin^3\phi\cos\phi\,d\rho\,d\phi\,d\theta.
+\]
+The integral over $\rho$ is just the power rule, and the integral over $\phi$ is a simple $u$-substitution. For $\theta$ we notice that $\sin\theta\cos\theta = \dfrac{1}{2}\sin 2\theta$, which will integrate to $-\dfrac{1}{4}\cos 2\theta$, and evaluating at $\theta = 0,2\pi$ will confirm that the result is zero.
+
+\bigskip
+
+
+\item  Evaluate the integral 
+\[
+\di \int_{-a}^a\int_{-\sqrt{a^2-y^2}}^{\sqrt{a^2-y^2}}\int_{-\sqrt{a^2-x^2-y^2}}^{\sqrt{a^2-x^2-y^2}}(x^2z+y^2z+z^3)\, dz\,dx\,dy
+\]
+by changing to spherical coordinates.
+
+
+\bigskip
+
+The integrand is $z(x^2+y^2+z^2) = \rho^3\cos\varphi$, and the limits of integration correspond to the region bounded by the sphere $x^2+y^2+z^2=a^2$. Thus, we obtain
+\begin{align*}
+\int_{-a}^a\int_{-\sqrt{a^2-y^2}}^{\sqrt{a^2-y^2}}\int_{-\sqrt{a^2-x^2-y^2}}^{\sqrt{a^2-x^2-y^2}}(x^2+y^2z+z^3)\, dz\,dx\,dy & = \int_0^{2\pi}\int_0^{\pi}\int_0^a \rho^3\cos\varphi\cdot \rho^2\sin\varphi \,d\rho\, d\varphi\, d\theta\\
+& = \frac{\pi a^6}{3}\int_0^{\pi}\sin\varphi\cos\varphi d\varphi = 0.
+\end{align*}
+(Of course, you could also have noticed that the integrand was odd with respect to $z$, and that the region of integration was symmetric, and obtained the result immediately!)
+
+
+\end{enumerate}
+
+
+
+\end{document}
+ 

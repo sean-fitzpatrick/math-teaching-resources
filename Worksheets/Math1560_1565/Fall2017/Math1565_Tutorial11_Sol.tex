@@ -1,0 +1,142 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=0.85in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+%\emph{University of Lethbridge}\\
+%Department of Mathematics and Computer Science\\
+MATH 1565 - Tutorial \#11 Solutions
+\end{center}
+%\skipline \skipline \skipline \noindent \skipline
+%Last Name:\underline{\hspace{350pt}}\\
+%\skipline
+%First Name:\underline{\hspace{348pt}}\\
+%\skipline
+%Student Number:\underline{\hspace{322pt}}\\
+%\skipline
+
+
+
+\begin{enumerate}
+  \item Calculate the following Taylor polynomials:
+  \begin{enumerate}
+  \item For $f(x)=e^{x^2}$, degree 4, about $x=0$. \points{4}
+  
+  We have $f(0)=e^0=1$, and
+  \begin{align*}
+  f'(x) & = 2xe^{x^2} & f'(0) & = 0\\
+  f''(x) &= 2e^{x^2}+4x^2e^{x^2} & f''(0) & = 2\\
+  f^{(3)}(x) &= 12xe^{x^2}+8x^3e^{x^2} & f^{(3)}(0) & = 0\\
+  f^{(4)}(x) &= 12e^{x^2}+48x^2e^{x^2} + 16x^4e^{x^2} & f^{(4)}(0) & = 12
+  \end{align*}
+  Thus,
+  \[
+  p_4(x) = f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\frac{f^{(3)}(0)}{3!}x^3+\frac{f^{(4)}(0)}{4!}x^4 = 1+x^2+\frac{1}{2}x^4.
+  \]
+  
+  \item For $g(u)=e^u$, degree 2, about $u=0$. \points{2}
+  
+  Since $g(u)=g'(u)=g''(u)=e^u$, we have $g(0)=g'(0)=g''(0)=1$, and
+  \[
+  p_2(u) = g(0)+g'(0)u+\frac{g''(0)}{2!}u^2 = 1+u+\frac{1}{2}u^2.
+  \]
+  
+  (What happens if you put $u=x^2$ in your answer for part (b)?)
+  
+  \medskip
+  
+  You didn't have to answer this part, but putting $u=x^2$ in your answer for (b) gives you the answer for (a), suggesting that the answer, for those of you who asked, is ``Yes, there is an easier way to do this.''
+  
+  \end{enumerate}
+  \item Calculate the following antiderivatives:
+  \begin{enumerate}
+  \item The antiderivative $F$ of $f(x) = \dfrac{1}{1+x^2}$ such that $F(1) = \pi$. \points{3}
+  
+\medskip
+
+We have $F(x) = \arctan(x)+C$ for some $C$. This gives us $\pi = F(1) = \arctan(1)+C=\frac{\pi}{4}+C$, so $C=\frac{3\pi}{4}$, and thus
+\[
+F(x) = \arctan(x)+\frac{3\pi}{4}.
+\]
+  
+  \item $\di \int (x^3-3\sqrt{x}+4)\,dx = \frac{1}{4}x^4-2x^{3/2}+4x+C.$\points{3}
+\end{enumerate}    
+  \newpage
+  
+  \item Estimate the area under $f(x) = 4-3x^2$, for $0\leq x\leq 1$, using 3 rectangles and:
+  \begin{enumerate}
+  \item Left endpoints. \points{3}
+  
+ \medskip
+ 
+ We have $\Delta x= \frac{1-0}{3} = \frac{1}{3}$, so our points are $x_0=0, x_1=\frac{1}{3}, x_2=\frac{2}{3}$, and $x_3 = 1$. Our left endpoints are $x_0, x_1, x_2$, so we have
+ \[
+ A\approx (f(0)+f(1/3)+f(2/3))(1/3) = (4+11/3+8/3)(1/3)=31/9 \approx 3.44.
+ \]
+  
+  \item Right endpoints. \points {3}
+  
+  Using the data from above, our right endpoints are $x_1,x_2, x_3$, and
+  \[
+  A\approx (f(1/3)+f(2/3)+f(1))(1/3) = (11/3+8/3+1)(1/3) = 22/9\approx 2.44.
+  \]
+  
+  \end{enumerate}
+
+\item Given that 
+\[
+\int_1^4 f(x)\,dx = 4, \int_1^6 f(x)\,dx = 7, \int_1^4 g(x)\,dx = -3, \text{ and } \int_4^6 g(x)\,dx = 1,
+\]
+compute:
+\begin{enumerate}
+\item $\di \int_4^6 f(x)\,dx = \int_1^6f(x)\,dx - \int_1^4 f(x)\,dx = 7-4=3$\points{2}
+
+
+
+\item $\di \int_1^6 (f(x)+g(x))\,dx$ \points{2}
+
+Since $\di \int_1^6g(x)\,dx=\int_1^4g(x)\,dx+\int_4^6g(x)\,dx = -3+1=-2$, we have
+\[
+\int_1^6 (f(x)+g(x))\,dx = \int_1^6 f(x)\,dx+\int_1^6 g(x)\,dx = 7+(-2)=5.
+\]
+\end{enumerate}
+\end{enumerate}
+\end{document}

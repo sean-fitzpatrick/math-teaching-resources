@@ -1,0 +1,89 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+\newcommand{\T}{\mathcal{T}}
+\DeclareMathOperator{\Int}{Int}
+
+\title{Math 4310 Assignment \#6 Solutions\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+\item Prove that any normed vector space is a metric space.
+
+\bigskip
+
+{\bf Solution}: Let $V$ be a vector space equipped with a norm $\len{\cdot}:V\to\R$, and define $d:V\times V\to\R$ by $d(x,y)=\len{x-y}$.
+\begin{itemize}
+ \item Since $\len{x}\geq 0$ for all $x\in V$, it follows that $d(x,y)\geq 0$ for all $x,y\in V$. Moreover, since $\len{x}=0$ if and only if $x=0$, we see that $d(x,y)=0$ if and only if $x=y$.
+ \item Since $\len{cx} = \abs{c}\len{x}$ for any $c\in\R$, it follows that 
+\[
+ d(y,x) = \len{y-x} = \len{(-1)(x-y)}=\abs{-1}\len{x-y}=d(x,y).
+\]
+ \item Since $\len{x+y}\leq \len{x}+\len{y}$ for all $x,y\in V$, it follows that for all $x,y,z\in V$ we have
+\[
+ d(x,y) = \len{x-y} = \len{x-z+z-y}\leq \len{x-z}+\len{z-y} = d(x,z)+d(z,y).
+\]
+Thus, $d$ defines a metric on $V$.
+\end{itemize}
+
+
+\item Let $X={l}^\infty$ denote the set of all {\em bounded} sequences of real numbers. (Thus, $x=(x_1,x_2,x_3,\ldots)\in X$ if there exists some $M\geq 0$ such that $\abs{x_i}\leq M$ for all $i=1,2,3,\ldots$.) Prove that $\len{x} = \sup\{\abs{x_n}:n\in\N\}$ defines a norm on $X$. 
+
+\bigskip
+
+{\bf Solution}: We first note that $X$ is a vector space. (I didn't require this verification in the problem but it should really be done.) If $x=(x_n)$ and $y=(y_n)$, we define the addition of sequences by $x+y = (x_n+y_n)$ and scalar multiplication by $cx = (cx_n)$. We see that $X$ is closed under these operations by usual properties of series. (In particular, the sum of absolutely convergent series is absolutely convergent by the triangle inequality and the comparison test.) It's clear that addition is commutative and associative, and that the zero element is given by $0=(0,0,0,\ldots)$, and additive inverses by $-x = (-x_n)$. I'll leave the remaining vector space axioms as an exercise.
+
+Let $x=(x_n)\in X$. Since $x$ is bounded, $\len{x}=\sup\{\abs{x_n}:n\in\N\}$ exists. Since $0\leq \abs{x_n}\leq \len{x}$ for any $n\in \N$, we see that $\len{x}\geq 0$. If $\len{x}=0$, then we have $0\leq \abs{x_n}\leq 0$ for all $n\in\N$, so $x_n=0$ for all $n\in \N$, which gives $x=0$. Given any $c\in \R$, we have
+\[
+ \len{cx} = \sup\{\abs{cx_n}:n\in\N\} = \sup\{\abs{c}\abs{x_n}:n\in\N\} = \abs{c}\sup\{\abs{x_n}:n\in\N\} = \abs{c}\len{x}.
+\]
+(Here we used the fact that $\sup\{ks:s\in S\} = k\sup S$ for any $k\geq 0$ and any bounded set $S$.)
+Finally, given $x,y\in X$, we note that for any $n\in \N$ we have
+\[
+ \abs{x_y+y_n}\leq \abs{x_n}+\abs{y_n}\leq \len{x}+\len{y}.
+\]
+Since $\len{x}+\len{y}$ is an upper bound for $\{x_n+y_n:n\in\N\}$, it follows that $\len{x+y}\leq \len{x}+\len{y}$, since $\len{x+y}$ is the least upper bound for this set.
+
+\item Let $A$ be a subset of a metric space $X$. An element $a\in A$ is called an {\em isolated point} of $A$ if there exists an $\epsilon>0$ such that $N_\epsilon(a)\cap A = \{a\}$. Prove that the closure of $A$ is equal to the disjoint union of the limit points of $A$ and the isolated points of $A$.
+
+\bigskip
+
+{\bf Solution}: Let $x\in \overline{A}$. Then for every $\epsilon>0$ there exists some $a\in A$ with $d(x,a)<\epsilon$. If we can choose $a\neq x$, for each $\epsilon>0$, then $x$ is a limit point of $A$. If not, then there exists some $\epsilon>0$ such that $N_\epsilon(x)$ contains no element of $a$ with $a\neq x$. It follows that we must have $x\in A$, and that $x$ is isolated. 
+
+\item Let $X$ be a topological space and $A\subseteq X$. Prove that $\overline{A} = X\setminus (X\setminus A)^\circ$. That is, the closure of $A$ is the complement of the interior of the complement of $A$.
+
+\bigskip
+
+{\bf Solution}: We note that $\overline{A} = X\setminus (X\setminus A)^\circ$ if and only if $X\setminus \overline{A} = (X\setminus A)^\circ$. Since $\overline{A}$ is closed, $X\setminus \overline{A}$ is open. Thus, $x\notin \overline{A}$ if and only if there exists some open set $U$ with $x\in U\subseteq X\setminus\overline{A}$, and this is if and only if $x\in (X\setminus A)^\circ$.
+
+\item Let $S$ be a subset of a topological space $X$, and let $S$ be given the subspace topology. Show that if $A$ is a relatively open subset of $S$, then $A\cap T$ is a relatively open subset of $S\cap T$ for any subset $T\subseteq X$.
+
+\bigskip
+
+{\bf Solution}: Suppose that $A$ is relatively open in $S$. Thus $A=S\cap U$ for some open set $U\subseteq X$. If $T\subseteq X$ is any other subset, then $A\cap T = (S\cap U)\cap T = (S\cap T)\cap U$, so $A\cap T$ is open in the subspace topology on $S\cap T$.
+
+\item Under what condition is a space $X$ with the cofinite topology a Hausdorff space?
+
+\bigskip
+
+{\bf Solution}: This is only possible if $X$ is finite. For $X$ finite, then for any $x\neq y$, $\{x\}$ and $\{y\}$ are disjoint open sets that contain $x$ and $y$, respectively. (The cofinite topology on a finite set coincides with the discrete topology, since the complement of any set will be finite.) If $X$ is infinite, then there are no nonempty disjoint open sets.
+
+\end{enumerate}
+\end{document}
+ 

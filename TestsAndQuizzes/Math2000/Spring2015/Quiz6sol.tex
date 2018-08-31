@@ -1,0 +1,74 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000B}\chead{Quiz \# 6}\rhead{Thursday, 26\textsuperscript{th} February, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\renewcommand{\div}[2]{#1\, |\,#2}
+
+\begin{document}
+{\bf Name: Solutions}
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+\bigskip
+
+
+Use mathematical induction to prove that for each natural number $n$,
+\[
+ 2+5+8+\cdots + (3n-1) = \frac{n(3n+1)}{2}.
+\]
+
+{\bf Hint:} Before you begin, you might want some rough work on the side where you plug both $n=k$ and $n=k+1$ into the equation above. That way, when you get to the induction step, you'll know (a) what to assume, and (b) what you need to prove.
+
+\bigskip
+
+{\bf Solution:} Let $P(n)$ represent the predicate
+\begin{equation}\label{1}
+ 2+5+\cdots + (3n-1) = \frac{n(3n+1)}{2}.
+\end{equation}
+When $n=1$, we see that $\dfrac{1(3(1)+1)}{2} = 2$, which shows that $P(1)$ (the base case) is true.
+
+Assume that for some $k\geq 1$, we know that $P(k)$ is true; that is, that
+\begin{equation}\label{2}
+ 2+5+\cdots + (3k-1) = \frac{k(3k+1)}{2}.
+\end{equation}
+We wish to show that $P(k)\to P(k+1)$. Note that if we set $n=k+1$ in \eqref{1}, we obtain
+\begin{equation}\label{3}
+ 2+5+\cdots + (3k+2) = \frac{(k+1)(3k+4)}{2}.
+\end{equation}
+Thus, we need to show that \eqref{3} can be obtained from \eqref{2}. To see this, note that if we add $3k+2 = 3(k+1)-1$ to both sides of \eqref{2}, then we obtained
+\begin{align*}
+2+5+\cdots + (3k-1) + (3k+2) &= \frac{k(3k+1)}{2}+(3k+2)\\
+& = \frac{3k^2+k+2(3k+2)}{2}\\
+& = \frac{3k^2+7k+4}{2}\\
+& = \frac{(k+1)(3k+4)}{2},
+\end{align*}
+which is what we needed to show. Thus, since $P(1)$ is true and $P(k)\to P(k+1)$ for all $k\geq 1$, it follows that $P(n)$ is true for all $n\in\mathbb{N}$, by induction.
+
+
+\end{document}

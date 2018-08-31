@@ -1,0 +1,445 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in, letterpaper]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{graphicx}
+%\input quizstyle.tex
+
+%\reversemarginpar
+
+\pagestyle{fancy}
+\addtolength{\headheight}{\baselineskip}
+
+\lhead{{\bf Date:} May 15$^{\text{th}}$, 2013 }
+\chead{{\bf Time:} 3:00-6:00 pm}
+\rhead{MATH 53}
+\cfoot{Page \thepage \ of \pageref{LastPage}}
+\rfoot{{\bf Total Marks:} 100}
+
+%Redefine the plain page style in fancyhdr package
+\fancypagestyle{plain}{%  
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{Page \thepage \ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}}
+
+\newcounter{probnum}
+\newcounter{subprobnum}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\S}{\mathbf{S}}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\newcommand{\di}{\displaystyle}
+\newcommand{\F}{\mathbf{F}}
+\newcommand{\G}{\mathbf{G}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\n}{\mathbf{n}}
+\newcommand{\kvec}{\hat{\mathbf{k}}}
+
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\nll}{null}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\Div}{div}
+
+
+\newenvironment{problems}{
+\begin{list}{\arabic{probnum}.}{\usecounter{probnum}}
+}{
+\end{list}
+}
+
+\newenvironment{subproblem}{ % start for subprob
+\begin{list}{ % first arg for list
+(\alph{subprobnum})
+}{ % second arg for list
+\usecounter{subprobnum}
+\setlength{\topsep}{0in}
+} % end of list def
+}{ % end for subprob
+\end{list}
+}
+
+\newcommand{\skipline}{\vspace{12pt}}
+%\input local.tex
+%\renewcommand{\labelenumi}{(\roman{enumi})}
+
+\begin{document}
+\thispagestyle{plain}
+%Supresses the headers on the front page
+
+\centerline {\bf University of California, Berkeley}
+
+\bigskip
+
+\centerline {FINAL EXAMINATION, Spring 2013}
+\centerline {DURATION: $3$ hours}
+
+\medskip
+
+\centerline {Department of Mathematics}
+
+\medskip
+
+\centerline {{\bf MATH 53 LEC 002} Multivariable Calculus}
+ 
+\medskip
+
+\centerline {Examiner: Sean Fitzpatrick}
+
+\bigskip
+
+\bigskip
+
+\begin{tabular}{ll}
+Family Name: &\underbar {\hskip 4.2in} \\
+   &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[12pt]
+Given Name(s): &\underbar {\hskip 4.2in} \\
+    &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[12pt]
+Please sign here: &\underbar {\hskip 4.2in}\\
+[12pt]
+Student ID Number: &\underbar {\hskip 4.2in}\\
+[12pt]
+Discussion section: &\underbar {\hskip 4.2in}\\
+[12pt]
+Name of GSI: &\underbar {\hskip 4.2in}
+\end{tabular}
+\bigskip
+
+
+\vspace{.15in}
+\begin{quote}
+{\large  No aids, electronic or otherwise, are permitted, with the exception of the formula sheet provided with your exam.  
+Partial credit will be given for partially correct work. 
+Please read through the entire exam before beginning, and take note of
+how many points each question is worth.}
+\end{quote}
+\begin{center}
+{\bf Good Luck!}
+\end{center}
+\vspace{.25in}
+
+\begin{center}
+\begin{tabular}{|l|r|}
+\hline
+\multicolumn{2}{|c|}
+{\rule[-3mm]{0mm}{8mm}
+FOR GRADER'S USE ONLY} \\
+\hline
+Problem 1: & \hspace{.5in}  /12 \\ [3pt]
+\hline
+Problem 2: & \hspace{.5in}  /14 \\ [3pt]
+\hline
+Problem 3: & \hspace{.5in}  /12 \\ [3pt]
+\hline
+Problem 4: & \hspace{.5in}  /12 \\ [3pt]
+\hline
+Problem 5: & \hspace{.5in}  /12 \\ [3pt]
+\hline
+Problem 6: & \hspace{.5in}  /14 \\ [3pt]
+\hline
+Problem 7: & \hspace{.5in}  /12 \\ [3pt]
+\hline
+Problem 8: & \hspace{.5in}  /12 \\ [3pt]
+\hline
+\hline 
+  {\rule[-3mm]{0mm}{8mm} TOTAL:}  & /100  \\
+\hline
+\end{tabular}
+\end{center}
+
+
+%\newpage
+%\vglue1pt
+%vglue adds space between headers and text
+
+\begin{enumerate}
+\item For parts (a)-(c), let $f(x,y,z) = x^3\sin (yz)$.
+\begin{enumerate}
+\item Compute the gradient of $f$. \points{3}
+
+\bigskip
+
+\begin{align*}
+\nabla f(x,y,z) & = \left<\pd{f}{x}(x,y,z),\pd{f}{y}(x,y,z), \pd{f}{z}(x,y,z)\right>\\
+& = \left<3x^2\sin(yz), x^3z\cos(yz), x^3y\cos(yz)\right>
+\end{align*}
+
+\bigskip
+
+\item Compute the directional derivative of $f$ at the point $(2,1,0)$, in the direction of $\mathbf{v} = \langle -2,1,2\rangle$.\points{3}
+
+\bigskip
+
+The gradient of $f$ at $(2,1,0)$ is $\nabla f(2,1,0) = \langle 0, 0, 8\rangle$, so
+\[
+D_{\mathbf{v}}f(2,1,0) = \frac{\nabla f(2,1,0)\dotp \mathbf{v}}{\len{\mathbf{v}}} = \frac{16}{3}.
+\]
+
+\bigskip
+
+\item Compute $\di \pd{f}{u}$ and $\di \pd{f}{v}$ if $x = u^2$, $y=v^2$, and $z=u+v$.\points{6}
+Your answer should be entirely in terms of $u$ and $v$ but does not have to be simplified.
+
+\bigskip
+
+\begin{align*}
+\pd{f}{u} & = \pd{f}{x}\pd{x}{u}+\pd{f}{y}\pd{y}{u}+\pd{f}{z}\pd{z}{u}\\
+& = 3(u^2)^2\sin(v^2(u+v))(2u)+0+(u^2)^3(v^2)\cos(v^2(u+v))(1)\\
+& \\
+\pd{f}{v} & = \pd{f}{x}\pd{x}{v}+\pd{f}{y}\pd{y}{v}+\pd{f}{z}\pd{z}{v}\\
+& = 0+(u^2)^3(u+v)\cos(v^2(u+v))(2v)+(u^2)^3(v^2)\cos(v^2(u+v))(1)
+\end{align*}
+\end{enumerate}
+\newpage
+
+\item \begin{enumerate}
+\item What is the geometric meaning of the Lagrange multiplier equations\\ $\nabla f(x,y) = \lambda \nabla g(x,y)$?\points{3}
+
+\bigskip
+
+The level curve $f(x,y)=c$, where $c$ is the maximum or minimum of $f(x,y)$ subject to the constraint $g(x,y)=k$ is tangent to the constraint curve $g(x,y)=k$ at their point of intersection, since the normal vectors to the two curves are parallel.
+
+\bigskip
+
+\item Find the maximum and minimum of $f(x,y)=x^2-y^2$ subject to the constraint $x^2/9+y^2/4=1$. \points{7}
+
+\bigskip
+
+The Lagrange multiplier equations give
+\[
+\nabla f(x,y) = \langle 2x, -2y\rangle = \lambda\langle 2x/9, y/2\rangle = \lambda g(x,y).
+\]
+Equating $x$ components gives $x=\lambda x/9$, so either $x=0$ or $\lambda =9$. If $x=0$ then the constraint equation gives $y = \pm 2$ and $f(0,\pm 2) = -4$.
+
+If $\lambda = 9$ then $-2y = 9y/2$, which implies that $y=0$, and the constraint equation gives $x=\pm 3$. 
+
+Since $f(\pm 3,0)=9$, this must be the maximum of $f$, while $f(0,\pm 2)$ is the minimum.
+
+\bigskip
+
+
+\item Show how your answer from (b) illustrates part (a) by sketching the constraint curve from (b), along with a contour plot of $f$ that includes the level curves corresponding to the maximum and minimum values. \points{4}
+
+\bigskip
+
+\begin{center}
+\includegraphics[width=4in]{Final_2c.pdf}
+\end{center}
+
+\bigskip
+
+\end{enumerate}
+\newpage
+
+\item Evaluate the following double integrals by either reversing the order of integration, or converting to polar coordinates.
+\begin{enumerate}
+\item $\di \int_0^4\int_{\sqrt{x}}^2\frac{1}{y^3+1}\,dy\,dx$ \points{6}
+
+\bigskip
+
+The region of integration is given as a Type I by $0\leq x\leq 4$ and $\sqrt{x}\leq y\leq 2$. As a Type II region, this is equivalent to $0\leq x\leq y^2$ and $0\leq y\leq 2$. (A sketch is recommended but not required if the limits are changed correctly. It's omitted here due to the annoyingness of producing it electronically.) Therefore, we have
+\begin{align*}
+\int_0^4\int_{\sqrt{x}}^2\frac{1}{y^3+1}\,dy\,dx & = \int_0^2\int_0^{y^2}\frac{1}{y^3+1}\,dx\,dy\\
+& = \int_0^2\frac{y^2}{y^3+1}\,dy\\
+& = \frac{1}{3}\int_1^9 \frac{1}{u}\,du \quad\text{ (with}u=y^3+1)\\
+& = \frac{\ln 9}{3}.
+\end{align*}
+
+\bigskip
+
+\item $\di \int_0^1\int_y^{\sqrt{2-y^2}}(x+y)\,dx\,dy$ \points{6}
+
+\bigskip
+
+The region of integration lies within the circle $x^2+y^2=2$, above the $x$-axis, and below the line $y=x$, which intersects the circle at the point $(1,1)$. (Again, sketch omitted for the same reasons; give a point if it's there, but don't deduct if there's no sketch but the conversion is done correctly.) In polar coordinates this region is described by $0\leq r\leq \sqrt{2}$ and $0\leq \theta\leq \pi/4$, so we have
+\begin{align*}
+\int_0^1\int_y^{\sqrt{2-y^2}}(x+y)\,dx\,dy & = \int_0^{\pi/4}\int_0^{\sqrt{2}}(r\cos\theta+r\sin\theta)r\,dr\,d\theta\\
+& = \int_0^{\pi/4} \frac{2\sqrt{2}}{3}(\cos\theta+\sin\theta)\,d\theta\\
+& = \frac{2\sqrt{2}}{3}(1/\sqrt{2}-0-(1/\sqrt{2}-1))\\
+& = \frac{2\sqrt{2}}{3}.
+\end{align*}
+\end{enumerate}
+\newpage
+
+\item \begin{enumerate}
+\item Find the equation of the tangent line to the curve of intersection of the paraboloid $x=y^2+z^2$ with the ellipsoid $x^2+4y^2+z^2=9$ at the point $(2,1,1)$.\points{6}
+
+{\em Hint}: You don't need to find the curve itself in order to determine the tangent line.
+
+\bigskip
+
+Since the curve of intersection lies in both surfaces, its tangent vector at $(2,1,1)$ must lie in the tangent planes to both surfaces at that point. Let $f(x,y,z) = x-y^2-z^2$ and let $g(x,y,z) = x^2+4y^2+z^2$. The paraboloid is then given by $f(x,y,z)=0$ and the ellipsoid by $g(x,y,z)=9$, so the tangent plane to the paraboloid at $(2,1,1)$ has normal vector
+\[
+\nabla f(2,1,1) = \langle 1, -2, -2\rangle,
+\]
+and the tangent plane to the ellipsoid at $(2,1,1)$ has normal vector 
+\[
+\nabla g(2,1,1) = \langle 4, 8, 2\rangle.
+\]
+The tangent vector to the curve must be orthogonal to both normal vectors, so we can take
+\[
+\vec{v} = \nabla f(2,1,1)\times \nabla g(2,1,1) = \langle 12, -10, 16\rangle,
+\]
+and thus, the line is given by
+\[
+\langle x,y,z\rangle = \langle 2,1,1\rangle + t\langle 12, -10, 16\rangle,
+\]
+for $t\in \R$.
+
+\bigskip
+
+\item Let $C$ denote the set of points in the intersection of two smooth level surfaces $f(x,y,z)=c$ and $g(x,y,z)=d$. In general, $C$ may not be a smooth curve. \points{6}
+
+What condition on $f$ and $g$ (or the corresponding surfaces) will guarantee that $C$ is a smooth curve?
+
+\bigskip
+
+Based on our solution to part (a), we note that a smooth curve must have a tangent line approximation at all points, and thus must have a non-zero tangent vector at all points. One way of guaranteeing this is to require that
+\[
+\nabla f(x,y,z)\times\nabla g(x,y,z)\neq \mathbf{0}
+\]
+for all $(x,y,z)\in C$; in other words, the two normal vectors cannot be parallel. In terms of the surfaces, this is the requirement that there are no points of intersection where the two surfaces are tangent to each other. 
+\end{enumerate}
+\newpage
+
+\item Evaluate the integral $\di \iint_D xy\,dA$, where $D$ is the region in the first quadrant bounded by the circles $x^2+y^2=4$ and $x^2+y^2=9$, and the hyperbolas $x^2-y^2=1$ and $x^2-y^2=4$. \points{12}
+
+{\em Hint:} Use an appropriate change of variables. You might find it especially convenient in this problem to use the fact that the Jacobians for a transformation and its inverse are related by $J_T(u,v) = \dfrac{1}{J_{T^{-1}}(x(u,v),y(u,v))}$.
+
+\bigskip
+
+The region $D$ is given by $4\leq x^2+y^2\leq 9$ and $1\leq x^2-y^2\leq 4$ (again, a sketch is worth points but not required if the remainder of the problem is done correctly), so we let $u=x^2+y^2$ and $v=x^2-y^2$. The region $D$ is then the image of the rectangle $R=[4,9]\times [1,4]$ under the transformation $T$ whose inverse is given by
+\[
+T^{-1}(x,y) = (x^2+y^2,x^2-y^2) = (u(x,y),v(x,y)).
+\]
+The Jacobian of the inverse transformation is
+\[
+J_{T^{-1}}(x,y) = \det\begin{pmatrix}
+u_x&u_y\\v_x&v_y
+\end{pmatrix} = \det\begin{pmatrix}
+2x&2y\\2x&-2y
+\end{pmatrix}=-8xy.
+\]
+Thus,
+\[
+J_T(u,v) = \frac{1}{J_{T^{-1}}(x(u,v),y(u,v))} = \frac{-1}{4x(u,v)y(u,v)},
+\]
+and so the change of variables formula gives us
+\[
+\iint_D xy\,dA = \int_1^4\int_4^9 x(u,v)y(u,v)\left|\frac{-1}{4x(u,v)y(u,v)}\right|\,du\,dv = \frac{1}{4}\int_1^4\int_4^9\,du\,dv = \frac{15}{8}.
+\]
+
+A correct solution that involves solving for $x$ and $y$ in terms of $u$ and $v$ is also acceptable (but quite a bit more complicated).
+
+\newpage
+
+\item Let $f(x,y,z)$ be a continuously differentiable function, and let $\F(x,y,z)$ be a continuously differentiable vector field.
+\begin{enumerate}
+\item Show that $\nabla (f^n) = nf^{n-1}\nabla f$. (Here $f^n$ denotes $f$ raised to the power of $n$.)\points{5}
+
+\bigskip
+
+We have $\pd{}{x}(f(x,y,z)^n) = nf(x,y,z)^{n-1}\pd{f}{x}(x,y,z)$, with similar results for $y$ and $z$, so
+\[
+\nabla (f^n) = \langle nf^{n-1}\pd{f}{x},nf^{n-1}\pd{f}{y},nf^{n-1}\pd{f}{z}\rangle = nf^{n-1}\nabla f.
+\]
+
+\bigskip
+
+\item Show that $\nabla\dotp (f\F) = \nabla f\dotp \F+f\nabla\dotp \F$. \points{5}
+
+\bigskip
+
+Let $\F = \langle P,Q,R\rangle$, so that $f\F = \langle fP, fQ, fR\rangle$. We then have
+\begin{align*}
+\nabla\dotp(f\F) & = \pd{fP}{x}+\pd{fQ}{y}+\pd{fR}{z}\\
+& = f_xP+fP_x+f_yQ+fQ_y+f_zR+fR_z\\
+& = \langle f_x,f_y,f_z\rangle\dotp \langle P,Q,R\rangle + f(P_x+Q_y+R_z)\\
+& = \nabla f\dotp \F + f\nabla\dotp \F.
+\end{align*}
+
+\bigskip
+
+\item Show that $\nabla\dotp (\rho^n\r)=(n+3)\rho^n$, where $\r(x,y,z) = \langle x,y,z\rangle$ and $\rho(x,y,z) = \sqrt{x^2+y^2+z^2} = \lVert\r(x,y,z)\rVert$. \points{4}
+
+\bigskip
+
+Since $\rho = (x^2+y^2+z^2)^{1/2}$, we have
+\[
+\nabla \rho = \frac{1}{2}(x^2+y^2+z^2)^{-1/2}\langle 2x, 2y, 2z\rangle = \frac{1}{\rho}\r.
+\]
+Thus, making use of parts (a) and (b), we have
+\begin{align*}
+\nabla\dotp (\rho^n\r) &= n\rho^{n-1}\nabla\rho\dotp \r + \rho^n\nabla \dotp \langle x,y,z\rangle\\
+& = n\rho^{n-2}\r\dotp\r + \rho^n(1+1+1)\\
+& = n\rho^n+3\rho^n = (n+3)\rho^n,
+\end{align*}
+since $\r\dotp\r = \rho^2$.
+\end{enumerate}
+
+\newpage
+
+\item Let $E$ be the region in $\R^3$ bounded by the sphere $S$ given by $x^2+y^2+z^2=R^2$, and let $\F$ be the vector field defined in problem 6(c), for $n\geq 0$. 
+Verify the Divergence Theorem by computing both $\iint_S \F\dotp\,d\S$ and $\iiint_E (\nabla\dotp\F)\,dV$ and confirming that they're equal. \points{12}
+
+\bigskip
+
+On the sphere $S$ given by $x^2+y^2+z^2=R^2$ we know that the outward-pointing unit normal vector is 
+\[
+\n(x,y,z) = \frac{1}{R}\langle x,y,z\rangle = \frac{\r}{R}.
+\]
+Also, on $S$, since $\rho=R$ is constant, we have $\F = R^n\r$. Thus, we have
+\[
+\iint_S\F\dotp\,d\S = \iint_S (\F\dotp \n)\,dS = \iint_S R^n\r\dotp\left(\frac{\r}{R}\right)\,dS = R^{n+1}\iint_S\,dS = 4\pi R^{n+3},
+\]
+since $\r\dotp\r = x^2+y^2+z^2=R^2$ on $S$, and the area of a sphere is given by $4\pi R^2$.
+
+\bigskip
+
+On the other hand, we know from 6(c) that the divergence of $\F$ is given by $\nabla \F = (n+3)\rho^n$, and in spherical coordinates $E$ is given by $0\leq \rho\leq R$, $0\leq \phi\leq \pi$ and $0\leq \theta\leq 2\pi$, so we have
+\[
+\iiint_E (\nabla\dotp\F)\,dV = \int_0^{2\pi}\int_0^\pi\int_0^R [(n+3)\rho^n]\rho^2\sin\phi\,d\rho\,d\phi\,d\theta = 4\pi \left.\frac{(n+3)\rho^{n+3}}{n+3}\right|_0^R = 4\pi R^{n+3},
+\]
+as before. Thus, the Divergence Theorem is verified.
+
+\newpage
+
+\item A hot air balloon known as the TARDIS (for Tethered Aerial Release Developed In Style) has the shape of the surface $S$ given by the part of ellipsoid $2x^2+2y^2+z^2=9$ with $-1\leq z\leq 3$. The hot gases that the balloon uses to fly have a velocity vector field given by $\mathbf{v} = \nabla\times \F$, where $\F(x,y,z) = \langle -y, x, xy+z^2\rangle$. The rate at which the gases escape from the balloon is equal to the flux of $\mathbf{v}$ across the surface of the balloon, given by $\di \iint_S \mathbf{v}\dotp\,d\S$, where $S$ is given the outward orientation (away from the $z$-axis). 
+ 
+Sketch the surface\footnote{If you can't figure out how to do the problem, I'll award 3/12 for a correct sketch of the surface $S$, together with the basket underneath and at least one person inside.}, and then use Stokes' Theorem to calculate the rate at which the gases escape from the balloon. \points{12}
+
+\bigskip
+
+The boundary of the ellipsoid is the circle $C$ given by $x^2+y^2=4$, with $z=-1$. Since $S$ is oriented outward, the positively-oriented boundary is given by the counter-clockwise orientation of $C$. We can either apply Stokes' Theorem directly, and compute $\int_C \F\dotp\,d\r$, or use Stokes' Theorem a second time and compute $\iint_D (\nabla\times\F)\dotp\kvec\,dA$, where $D$ is the disk $x^2+y^2\leq 4$, $z=-1$. 
+
+With the first approach we let $\r(t) = \langle 2\cos t, 2\sin t, -1\rangle$, so that $\r'(t) = \langle -2\sin t, 2\cos t, 0\rangle$, with $t\in [0,2\pi]$. We then have
+\begin{align*}
+\int_C\F\dotp\,d\r &= \int_0^{2\pi} \langle -2\sin t, 2\cos t, 4\sin t\cos t+1\rangle\dotp\langle -2\sin t, 2\cos t, 0\rangle\,dt\\
+& = \int_0^{2\pi} (4\cos^2t+4\sin^2t)\,dt\\
+& = \int_0^{2\pi}4\,dt = 8\pi.
+\end{align*}
+
+Alternatively, we compute that $\mathbf{v} = \nabla\times\F = \langle x, -y, 2\rangle$, so that
+\[
+\iint_S\mathbf{v}\dotp\,d\r = \iint_D\mathbf{v}\dotp\kvec\,dA = \iint_D (2)\,dA = 2\pi(2^2) = 8\pi.
+\]
+(Either solution is acceptable.)
+\end{enumerate}
+\end{document}
+
+

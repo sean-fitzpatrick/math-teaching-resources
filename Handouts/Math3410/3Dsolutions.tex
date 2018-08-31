@@ -1,0 +1,138 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+
+\newtheorem{theorem}{Theorem}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\author{Sean Fitzpatrick}
+\title{Some solutions from Section 3.D.}
+
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+
+\author{Sean Fitzpatrick}
+\begin{document}
+\maketitle
+
+{\bf Problem 3:} Suppose $V$ is finite dimensional, $U\subseteq V$ is a subspace, and $S\in\mathcal{U,V}$. Show that there exists an invertible operator $T\in\L(V)$ such that $T|_U = S$ if and only if $S$ is injective. (Here $T|_U$ denotes the restriction of $T$ to $U$. In other words, $Tu=Su$ for all $u\in U$.)
+
+\bigskip
+
+{\bf Solution:} First, note that if $U=V$, we can take $T=S$ and there is nothing to prove, so we will assume that $U$ is a proper subspace of $V$. If $T:V\to V$ is invertible, then in particular $T$ is injective. Thus, if $S=T|_U$, then whenever $Su_1=Su_2$ for some $u_1,u_2\in U$, we have $Tu_1=Su_1=Su_2=Tu_2$, and since $T$ is injective, $u_1=u_2$, which shows that $S$ is injective.
+
+Conversely, suppose that $S:U\to V$ is injective, and let $\{u_1,\ldots, u_k\}$ be a basis for $U$. We can extend this to a basis $\{u_1,\ldots, u_k,v_1,\ldots, v_l\}$ of $V$. We now note that since $S$ is injective, the set $\{Su_1,\ldots, Su_k\}$ is linearly independent, and therefore forms a basis for $\range S$. We extend this to a basis $\{Su_1,\ldots, Su_k,w_1,\ldots, w_l\}$ of $V$, and define $T:V\to V$ by
+\[
+Tu_1 = Su_1, \ldots, Tu_k=Su_k, Tv_1 = w_1, \ldots, Tv_l = w_l.
+\]
+Then $T$ is invertible, since it takes a basis to a basis, and since $T$ agrees with $S$ on a basis for $U$, we must have $Tu=Su$ for all $u\in U$.
+
+\bigskip
+
+{\bf Problem 7:} Suppose $V$ and $W$ are finite-dimensional and let $v\in V$. Let
+\[
+E = \{T\in\L(V,W) \,|\, Tv=0\}.
+\]
+Part (a) asks us to show that $E$ is a subspace of $\L(V,W)$. Checking this is straightforward using the subspace test: it's clear that the zero transformation $0:V\to W$ given by $0v=0$ for all $v\in V$ is an element, and if $T_1v=T_2v = 0$, then $(T_1+T_2)v = T_1v+T_2v = 0+0=0$, so $T_1+T_2\in E$, and for any scalar $c$, if $T\in E$, then $(cT)v = c(Tv)=c0=0$, so $cT\in V$.
+
+Part (b) asks us what the dimension of $E$ is, given that $v\neq 0$. We first have to recall that $\dim \L(V,W) = (\dim V)(\dim W)$ (see the text -- this follows from the fact that the map $T\to\M(T)$ that sends a linear map to its matrix in $\mathbb{F}^{m,n}$ is an isomorphism, and the space of $m\times n$ matrices is $mn$-dimensional).
+
+We claim that $\dim E = (\dim V - 1)(\dim W) = \dim\L(V,W)-\dim W$. There are two ways to see this. The first way is as follows: since $v\neq 0$, the set $\{v\}$ is a basis for $\spn\{v\}$. Thus, we can extend this to a basis $\{v,v_2,\ldots, v_n\}$ of $V$. Let $U\subseteq V$ be the subspace $U=\spn\{v_2,\ldots, v_n\}$; note that $\dim U=\dim V-1$. Now, consider the map
+\[
+\varphi:E\to \L(U,W)
+\]
+given by 
+\[
+(\varphi T)(c_2v_2+\cdots c_nv_n) = T(c_2v_2+\cdots +c_nv_n).
+\]
+We claim this is an isomorphism. First, if $\varphi T = 0$, then for any $w\in V$ we have 
+\[
+w = c_1v+c_2v_2+\cdots+c_nv_n
+\]
+for scalars $c_1,\ldots, c_n$, and thus
+\[
+Tw = c_1Tv + T(c_2v_2+\cdots + c_nv_n) = 0 + (\varphi T)(c_2v_2+\cdots + c_nv_n) = 0.
+\]
+Since $w\in V$ was arbitrary, $T=0$. This shows that $\nul\varphi = \{0\}$, so $\varphi$ is injective. Now, if $S:U\to W$ is any linear map, we can define $T:V\to W$ by
+\[
+T(c_1v+c_2v_2+\cdots + c_nv_n) = 0 + (\varphi T)(c_2v_2+\cdots +c_nv_n) = S(c_2v_2+\cdots + c_nv_n),
+\]
+which shows that $\varphi$ is surjective, and thus an isomorphism. Since $\dim \L(U,W) = (\dim V-1)(\dim W)$, the result follows.
+
+Another way to see this is to construct a basis $\{v,v_2,\ldots,v_n\}$ for $V$ as above, and notice that with respect to this basis, the matrix of any $T\in E$ is going to be of the form
+\[
+\M(T) = \begin{bmatrix}
+0&a_{12}&\cdots &a_{1n}\\
+0&a_{22}&\cdots &a_{2n}\\
+\vdots &\vdots &\ddots &\vdots\\
+0&a_{m2}&\cdots&a_{mn}
+\end{bmatrix},
+\]
+and then note that the dimension of the space of all $m\times n$ matrices with first column equal to zero is $m(n-1) = mn-m$.
+
+Note: when we were playing around with this in the help session we noted that if our vector $v$ was (say) $v=(1,2)$ for a transformation $T:\R^2\to\R^3$, and $Tv=0$, then we'd have
+\[
+\begin{bmatrix}
+a&b\\c&d\\e&f
+\end{bmatrix}\begin{bmatrix}1\\2\end{bmatrix} = \begin{bmatrix}
+0\\0\\0
+\end{bmatrix},
+\]
+which shows that our matrix must be of the form
+\[
+\begin{bmatrix}
+2a&-a\\
+2b&-b\\
+2c&-c
+\end{bmatrix},
+\]
+so there are three parameters $a,b,c$, giving $\dim E = 3 = 2(3)-3$ in this case. But you might be wondering where the column of zeros is. It's not there because the above matrix gives the matrix of $T$ with respect to the {\em standard basis} $\{(1,0),(0,1)\}$ of $T$. If we instead used a basis such as $\{(1,2),(2,1)\}$ that contains the given vector $v$ as the first basis element and computed the matrix of a given $T\in E$, then we'd get our column of zeros.
+
+\bigskip
+
+{\bf Problem 8:} Suppose $V$ is finite-dimensional and $T:V\to W$ is a surjective linear map of $V$ onto $W$. Prove that there is a subspace $U$ of $V$ such that $T|_U$ is an isomorphism of $U$ onto $W$.
+
+\bigskip
+
+{\bf Solution:} Recall from problem 3.B \#12 (which was on the second assignment) that we can choose a subspace $U\subseteq V$ such that $V=\nul T\oplus U$, and that $\range T = \{Tu : u\in U\} = \range T|_U=W$. Choosing such a subspace $U$, we know that $T|_U$ is still a surjection, and $T|_U$ is also injective, since if $Tu=0$ for some $u\in U$ then $u\in U\cap \nul T=\{0\}$, and thus $u=0$.
+
+\bigskip
+
+{\bf Problem 9:} Suppose $V$ is finite-dimensional and $S,T\in\L(V)$. Prove that $ST$ is invertible if and only if $S$ and $T$ are both invertible.
+
+\bigskip
+
+{\bf Solution:} If $S$ and $T$ are both invertible, then we know that $ST$ is invertible by problem 1 from 3.D (see also Quiz 5). Conversely, suppose that $ST$ is invertible. Then $ST$ must be a bijection. It follows that $T$ must be an injection and $S$ must be a surjection. (Recall from class on February 27th, or from Math 2000, that for {\em any} functions $f$ and $g$, if $f\circ g$ is injective, then $g$ is injective, and if $f\circ g$ is surjective, then $g$ is surjective.)
+
+But since $S$ and $T$ are operators on a finite-dimensional space, we know that being either injective or surjective is equivalent to being bijective, and thus invertible, so both $S$ and $T$ are invertible.
+
+{\bf Problem 10:} Suppose $V$ is finite-dimensional and $S, T\in\L(V)$. Prove that $ST=I$ if and only if $TS=I$.
+
+{\bf Solution:} We will prove that if $ST=I$, then $TS=I$. The converse follows by exchanging the roles of $S$ and $T$. Assuming that $ST=I$, we note that since $I$ is surjective, so is $S$, and thus $S$ is bijective, since $V$ is finite-dimensional. Thus, $S^{-1}$ exists, and
+\[
+TS = (S^{-1}S)TS = S^{-1}(ST)S = S^{-1}IS = S^{-1}S=I.
+\]
+
+\bigskip
+
+{\bf Problem 11:} Suppose $V$ is finite-dimensional and $S,T,U\in\L(V)$ such that $STU=I$. Show that $T$ is invertible and that $T^{-1}=US$.
+
+\bigskip
+
+{\bf Solution:} Suppose that $STU=S(TU)=I$. Since $I$ is a bijection, we can conclude that $TU$ is an injection, but since $TU\in\L(V)$ and $V$ is finite-dimensional, $TU$ is a bijection, and in particular a surjection, which implies that $T$ is surjective and thus invertible. Similar arguments show that $S$ and $U$ must also be invertible. Applying $S^{-1}$ on the left to both sides of $STU=I$, we have $TU=S^{-1}$, and if we apply $U^{-1}$ on the right to both sides of this equation, we get $T=S^{-1}U^{-1}$. Taking the inverse of both sides, we obtain
+\[
+T^{-1} = (S^{-1}U^{-1})^{-1} = (U^{-1})^{-1}(S^{-1})^{-1} = US,
+\]
+as required.
+\end{document}

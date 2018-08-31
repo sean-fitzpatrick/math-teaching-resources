@@ -1,0 +1,161 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\Vert}
+
+\title{Math 3500 Exercise Sheet}
+\date{1 October, 2014}
+
+
+\begin{document}
+\maketitle
+
+This week we'll go over the material for the first term test by section. The first two sections in Chapter 3 are mainly review, so we'll start with 3.3, the section on the real number system.
+
+\subsection*{Section 3.3: The Real Numbers}
+Main definitions and results:
+\begin{itemize}
+ \item A set $A\subseteq \R$ is {\bf bounded above} if there exists some $k\in\R$ such that $a\leq k$ for all $a\in A$. Any such real number $k$ is called an {\bf upper bound} for $A$. We say that $s$ is the {\bf least upper bound}, or {\bf supremum} of $A$, and write $s = \sup A$, if $s$ is an upper bound for $A$, and if $t$ is any other upper bound for $A$, then $s\leq t$.
+
+ Similarly, a set $A\subseteq \R$ is {\bf bounded below} if there exists some $k\in\R$ such that $a\geq k$ for all $a\in A$. Any such real number $k$ is called a {\bf lower bound} for $A$. We say that $s$ is the {\bf greatest lower bound}, or {\bf infimum} of $A$, and write $s = \inf A$, if $s$ is a lower bound for $A$, and if $t$ is any other lower bound for $A$, then $s\geq t$.
+ \item The {\bf completeness axiom} for $\R$ states that any nonempty set $A\subseteq \R$ that is bounded above has a least upper bound.
+ \item The {\bf Archimedean property} for $\R$ is the fact that the set $\N$ of natural numbers has no upper bound in $\R$. Equivalently, given any real number $x>0$, there exists some $n\in \N$ such that $1/n<x$.
+ \item The fact that the set $\Q$ of rational numbers is {\bf dense} in $\R$ is the statement that given any two real numbers $x,y\in\R$ with $x<y$, there exists some $q\in\Q$ such that $x<q<y$.
+\end{itemize}
+
+\noindent Exercises:
+\begin{enumerate}
+ \item Show that $\Q$ has the Archimedean property. (Given any rational number $a/b$ can you find a natural number larger than it?)
+ \item Prove that any nonempty subset of $\R$ that is bounded below has a greatest lower bound.
+ \item For each of the following sets, decide if it is bounded above/below. If so, find the supremum/infimum:
+\[
+ A = \{n\in\N : n^2<10\}\quad B = \{x\in\Q : \abs{x}<2\}\quad C = \{x\in\R : x^2<2x\}
+\]
+ \item Given subsets $A,B\subseteq \R$, let $A+B = \{a+b:a\in A \text{ and } b\in B\}$. Show that $\sup(A+B) = \sup A+\sup B$.
+\end{enumerate}
+\noindent{\bf Remark}: We showed that the Archimedean property for $\R$ follows from the completeness axiom, but it is not equivalent to it. In fact, it's possible to show that $\Q$ is Archimedean, but we know that $\Q$ is not complete.
+
+\subsection*{Section 3.4: Topology of $\R$}
+Main definitions and results:
+\begin{itemize}
+ \item For any $\epsilon>0$, the $\epsilon$-{\bf neighbourhood} of $x$ is the set
+\[
+ N_\epsilon(x) = \{y\in\R : \abs{x-y}<\epsilon\} = (x-\epsilon,x+\epsilon).
+\]
+ \item A point $x\in \R$ is an {\bf interior point} of a set $A\subseteq \R$ if there exists some $\epsilon>0$ such that $N_\epsilon(x)\subseteq A$. The set of all interior points is called the {\bf interior} of $A$, and is often denoted by $\overset{\,\,\circ}{A}$.
+ \item A point $x\in \R$ is a {\bf boundary point} of a set $A\subseteq \R$ if for every $\epsilon>0$, both $N_\epsilon(x)\cap A$ and $N_\epsilon(x)\cap(\R\setminus A)$ are nonempty. The set of all boundary points of $A$ is called the {\bf boundary} of $A$ and denoted by $\mathrm{bd} A$ or by $\partial A$.
+ \item A point $x\in \R$ is a {\bf limit point} (or accumulation point) of a set $A\subseteq \R$ if for every $\epsilon>0$, $N_\epsilon(x)$ contains some point $a\in A$, with $a\neq x$. The set of all limit points of $A$ is sometimes denoted by $A'$.
+ \item A point $a\in A$ is called an {\bf isolated point} of $A$ if $a\neq A'$.
+ \item A set $A\subseteq \R$ is {\bf open} if every $a\in A$ is an interior point of $A$.
+ \item A set $A\subseteq \R$ is {\bf closed} if $\R\setminus A$ is open, or equivalently, if $\partial A\subseteq A$.
+ \item The {\bf closure} of a set $A\subseteq \R$ is denoted $\overline{A}$ and defined by $\overline{A} = A\cup A'$. (It's also possible to show that $\overline{A} = A\cup\partial A$.
+\end{itemize}
+
+\noindent Exercises:
+\begin{enumerate}
+ \item Decide whether the following sets are open, closed, neither, or both:
+\[
+\text{(i) } \Q \quad \text{(ii) } \N \quad \text{(iii) }\{x : x^2>0\} \quad \text{(iv) } \bigcap_{n=1}^\infty (0,1/n)
+\]
+ \item Determine the interior, boundary, and limit points for the sets in problem 1.
+ \item If $S$ is a nonempty bounded set of real numbers and $m=\sup S$, is $m$ a boundary point of $S$? Why or why not?
+ \item If $S$ has both a maximum and a minimum, is $S$ necessarily closed? Why or why not?
+\end{enumerate}
+\subsection*{Section 3.5: Compact sets}
+Main definitions and results:
+\begin{itemize}
+ \item An {\bf open cover} of a set $A\subseteq \R$ is a collection of open sets $\mathcal{U} = \{U_\alpha\}_{\alpha\in I}$ such that $A\subseteq \bigcup_{\alpha\in I}U_\alpha$. A {\bf finite subcover} of an open cover of $A$ is a finite set $\{U_1,\ldots, U_n\}$ with $U_j\in\mathcal{U}$ for $1\leq j\leq n$ such that $A\subseteq U_1\cup\cdots\cup U_n$.
+ \item A set $A\subseteq \R$ is {\bf compact} if every open cover of $A$ admits a finite subcover.
+ \item The {\bf Heine-Borel theorem} states that a set $A\subseteq \R$ is compact if and only if $A$ is closed and bounded.
+ \item The {\bf Bolzano-Weierstrass theorem} states that any bounded, infinite subset of $\R$ has at least one limit point.
+ \item The {\bf nested intervals theorem} states that if $\{A_n : n\in\N\}$ is any collection of closed intervals such that $A_{n+1}\subseteq A_n$ for all $n\in\N$, then $\bigcap_{n=1}^\infty A_n$ is nonempty.
+\end{itemize}
+
+\noindent Exercises:
+
+\begin{enumerate}
+ \item Prove that the intersection of any collection of compact sets is compact.
+ \item Prove that if a set $A\subseteq\R$ is compact, then every infinite subset $B\subseteq A$ has a limit point contained in $A$.
+ \item Prove that if $A$ is compact, then $\sup A$ and $\inf A$ exist, and are elements of $A$.
+\end{enumerate}
+\subsection*{Section 4.1: Convergence of sequences}
+
+Main definitions and results:
+\begin{enumerate}
+ \item A {\bf sequence} is a function $f:\N\to \R$. We usually denote $f(n)$ by $a_n$ and the sequence by $(a_n)$.
+ \item A sequence $(a_n)$ {\bf converges} to $a\in \R$, if for every $\epsilon>0$ there exists some $N\in\N$ such that $\abs{a_n-a}<\epsilon$ for every $n\geq N$. We call $a$ the {\bf limit} of the sequence, and write $\lim a_n = a$ or $a_n\to a$.
+ \item If a sequence $(a_n)$ converges, then it is bounded. (That is, the set $\{a_n : n\in\N\}$ is bounded.)
+ \item If $\lim a_n$ exists, then it is unique.
+\end{enumerate}
+
+\noindent Exercises:
+\begin{enumerate}
+ \item Determine whether or not the following sequences converge. If a sequence does converge, find the limit and prove your result using the definition of convergence. If it does not converge, explain why.
+\[
+ a_n = \frac{\sin n}{n}\quad b_n = (-1)^n(1-1/n) \quad c_n = \frac{2n+1}{3n-1}
+\]
+ \item Show that if $\lim a_n = 0$ and $(b_n)$ is a bounded sequence, then $\lim(a_nb_n) = 0$.
+ \item Prove that a point $x\in\R$ is a limit point of a set $A$ if and only if there exists a sequence $(a_n)$ of points in $A\setminus\{a\}$ with $\lim a_n = a$.
+ \item Prove that a set $A\subseteq \R$ is closed if and only if for any sequence $(a_n)$ with $a_n\in A$ for all $N\in\N$ converges to some $a\in\R$, then $a\in A$.
+\end{enumerate}
+\subsection*{Section 4.2: Limit theorems}
+Main definitions and results:
+\begin{itemize}
+ \item Suppose that $(a_n)$ and $(b_n)$ are convergent sequences with $a_n\to a$ and $b_n\to b$. Then
+\begin{align*}
+ \lim &(a_n+b_n) = a+b\\
+ \lim &(ka_n) = ka, \text{ for any } k\in\R\\
+ \lim &(a_nb_n) = ab\\
+ \lim &(a_n/b_n) = a/b, \text{ provided that } b_n\neq 0 \text{ for all } n\in \N \text{ and } b\neq 0.
+\end{align*}
+ \item If $a_n\leq b_n$ for all $n\in\N$ and $a_n\to a$ and $b_n\to b$, then $a\leq b$. 
+ \item A sequnce $(a_n)$ {\bf diverges to} $\infty$ if for any $M\in\R$ there exists $N\in\N$ such that $a_n\geq M$ for all $n\geq \N$.
+\end{itemize}
+
+\noindent Exercises:
+\begin{enumerate}
+ \item Prove that $\displaystyle \lim_{n\to\infty}\left(\frac{1}{n}-\frac{1}{n+1}\right)=0$.
+ \item Let $(a_n)$ be a sequence of positive numbers. Prove that $\lim a_n = \infty$ if and only if $\lim (1/a_n) = 0$.
+\end{enumerate}
+\subsection*{Section 4.3: Monotone and Cauchy sequences}
+Main definitions and results:
+\begin{itemize}
+ \item A sequence $(a_n)$ is {\bf increasing} if $a_n\leq a_{n+1}$ for all $n\in\N$, and {\bf decreasing} if $a_n\geq a_{n+1}$ for all $n\in\N$. If a sequence is either increasing or decreasing, we say that it is a {\bf monotone} sequence.
+ \item The {\bf monotone convergence theorem} states that any monotone sequence converges if and only if it is bouded.
+ \item A sequence $(a_n)$ is a {\bf Cauchy sequence} if for every $\epsilon>0$ there exists some $N\in\N$ such that for all $n,m\geq N$ we have $\abs{a_n-a_m}<\epsilon$.
+ \item Any convergent sequence is a Cauchy sequence.
+ \item Any Cauchy sequence is bounded.
+ \item Any Cacuhy sequence converges.
+\end{itemize}
+
+\noindent Exercises:
+\begin{enumerate}
+ \item Prove that each sequence is monotone and bounded. Then find the limit.
+\begin{enumerate}
+ \item $a_1=1$ and $a_{n+1} = \frac{1}{5}(a_n+7)$ for all $n\geq 1$
+ \item $a_1=2$ and $a_{n+1} = \frac{1}{4}(2a_n+7)$ for all $n\geq 1$
+ \item $a_1=5$ and $a_{n+1} = \sqrt{4a_n+1}$ for all $n\geq 1$
+\end{enumerate}
+ \item A sequence $(a_n)$ is called {\em contractive} if there exists some constant $k\in (0,1)$ such that $\abs{a_{n+2}-a_{n+1}}\leq k\abs{a_{n+1}-a_n}$ for all $n\in\N$. Prove that any contractive sequence is a Cauchy sequence.
+\end{enumerate}
+
+
+
+
+
+
+
+
+ 
+\end{document}
+ 

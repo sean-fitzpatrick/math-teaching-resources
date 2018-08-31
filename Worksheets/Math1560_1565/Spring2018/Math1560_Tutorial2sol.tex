@@ -1,0 +1,180 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=0.85in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+{\bf MATH 1560 - Tutorial \#2 Solutions}\\
+Monday, January 22
+\end{center}
+
+
+\textbf{Additional practice:}
+\begin{enumerate}
+\item Use algebraic manipulation (if necessary) to evaluate:
+\begin{enumerate}
+\item $\di\lim_{x\to 2}\frac{x^2-4}{x^3-8} = \lim{_x\to 2}\frac{(x-2)(x+2)}{(x-2)(x^2+2x+4)}=\lim_{x\to 2}\frac{x+2}{x^2+2x+4} = \frac{2+2}{4+4+4}=\frac{1}{3}$
+\item $\di\lim_{x\to 1}\frac{x^2-1}{x^2+1} = 0$, by direct substitution. ($1^2-1=0$, but $1^2+1=2\neq 0$.)
+\item $\di\lim_{x\to 4}\frac{x-4}{\sqrt{x}-2} = \lim_{x\to 4}\frac{(\sqrt{x}-2)(\sqrt{x}+2)}{\sqrt{x}-2}=\lim_{x\to 4}(\sqrt{x}+2)=\sqrt{4}+2=4$.
+
+(In this last one I employed a trick: we can think of $x-4$ as a difference of squares, if we consider that $x=(\sqrt{x})^2$ for $x\geq 0$. The other approach to this problem is to rationalize:
+\[
+\frac{x-4}{\sqrt{x}-2}=\frac{(x-4)(\sqrt{x}+2)}{(\sqrt{x}-2)(\sqrt{x}+2)} = \frac{(x-4)(\sqrt{x}+2)}{x-4}=\sqrt{x}+2.
+\]
+\end{enumerate}
+
+
+\item Evaluate these limits involving trig functions:
+
+\begin{enumerate}
+\item $\di\lim_{x\to 0}\frac{\tan(2x)}{x}=\lim_{x\to 0}\frac{\sin(2x)}{x\cos(2x)} = \lim_{x\to 0}2\left(\frac{\sin(2x)}{2x}\right)\left(\frac{1}{\cos(2x)}\right) = 2(1)(1/1)=2.$
+\item $\di\lim_{x\to \pi/6}\frac{\sin(x)-\frac12}{x-\pi/6}$
+
+For this limit, we need a trick: let $t=x-\pi/6$, and notice that as $x\to \pi/6$, $t\to 0$. Note also that $x=t+\pi/6$. Making these substitutions, we get
+\[
+\lim_{x\to \pi/6}\frac{\sin(x)-\frac12}{x-\pi/6} = \lim_{t\to 0}\frac{\sin(y+\pi/6)-\frac12}{y}.
+\]
+Now we use the identity $\sin(a+b)=\sin(a)\cos(b)+\cos(a)\sin(b)$ to get
+\[
+\sin(y+\pi/6)-\frac12 = \sin(y)\cos(\pi/6)+\cos(y)\sin(\pi/6)-\frac12 = \frac{\sqrt{3}}{2}\sin(y)+\frac12(\cos(y)-1),
+\]
+since $\sin(\pi/6) = \frac12$ and $\cos(\pi/6)=\frac{\sqrt{3}}{2}$. Putting it all together,
+\[
+\lim_{x\to \pi/6}\frac{\sin(x)-\frac12}{x-\pi/6} = \lim_{y\to 0}\left(\frac{\sqrt{3}}{2}\left(\frac{\sin(y)}{y}\right)-\frac12\left(\frac{1-\cos(y)}{y}\right)\right)=\frac{\sqrt{3}}{2},
+\]
+since we know that $\di\lim_{y\to 0}\frac{\sin(y)}{y}=1$ and $\di \lim_{y\to 0}\frac{1-\cos(y)}{y}=0$.
+\item $\di\lim_{x\to \infty}\frac{\sin(x)}{x} = 0,$
+since $-1\leq \sin(x)\leq 1$ for all $x$, and $x\to \infty$. (For any given $x$, $\sin(x)/x$ is less in absolute value than $1/x$, which we know goes to zero.)
+\end{enumerate}
+
+\item Challenge problem: evaluate $\di\lim_{x\to 1}\frac{\sin(x-1)}{x^2-3x+2}$
+
+This actually isn't any tougher than the last one. We factor the bottom to get
+\[
+\lim_{x\to 1}\frac{\sin(x-1)}{(x-1)(x-2)}=\lim_{x\to 1}\frac{\sin(x-1)}{x-1}\frac{1}{x-2} = \lim_{y\to 0}\frac{\sin(y)}{y}\cdot \frac{1}{y-1} = 1\left(\frac{1}{-1}\right)=-1,
+\]
+using the substitution $y=x-1$. (Note that $y\to 0$ as $x\to 1$.)
+\end{enumerate}
+
+
+
+
+\textbf{Assigned problems}
+
+
+  \begin{enumerate}
+    \item $\di \lim_{x\to 3}\frac{x^2-9}{x^2-5x+6} = \lim_{x\to 3}\frac{(x-3)(x+3)}{(x-2)(x-3)} = \lim_{x\to 3}\frac{x+3}{x-2}=6.$
+    
+    \item We write the numerator as a single fraction over a common denominator and simplify. Note that $2-x=-1(x-2)$.
+    \begin{align*}
+    \lim_{x\to 2}\frac{\dfrac{1}{x}-\dfrac{1}{2}}{x-2} & = \lim_{x\to 2}\left(\frac1x-\frac12\right)\left(\frac{1}{x-2}\right)\\
+    & = \lim_{x\to 2}\left(\frac{2-x}{2x}\right)\left(\frac{1}{x-2}\right)\\
+    & = \lim_{x\to 2}\frac{-1}{2x} = -\frac14.
+    \end{align*} 
+    
+       
+    \item We rationalize by multiplying top and bottom by the conjugate $\sqrt{x^2+9}+5$, to obtain:
+    
+    \begin{align*} \lim_{x\to 4}\frac{\sqrt{x^2+9}-5}{x-4} &= \lim_{x\to 4}\frac{(\sqrt{x^2+9}-5)(\sqrt{x^2+9}+5)}{(x-4)(\sqrt{x^2+9}+5)} \tag{rationalize}\\
+    & = \lim_{x\to 4}\frac{x^2+9-25}{(x-4)(\sqrt{x^2+9}+5)} \tag{multiply out the difference of squares}\\
+    & = \lim_{x\to 4}\frac{(x-4)(x+4)}{(x-4)(\sqrt{x^2+9}+5)} \tag{factor $x^2+9-25=x^2-16$}\\
+    & = \lim_{x\to 4}\frac{x+4}{\sqrt{x^2+9}+5} = \frac{4+4}{\sqrt{16+9}+5}=\frac{8}{10}=\frac{4}{5}.
+   \end{align*}
+    
+    \item $\di\lim_{x\to 2^-}\frac{\abs{x-2}}{x-2}$
+    
+   Since we're dealing with a left-hand limit, we know that $x<2$. We also know that when $x<2$, $\abs{x-2}=-(x-2)$. Therefore,
+   \[
+   \lim_{x\to 2^-}\frac{\abs{x-2}}{x-2} = \lim_{x\to 2^-}\frac{-(x-2)}{x-2}=-1.
+   \]
+    
+    \item $\di \lim_{x\to 0}\frac{\sin(3x)}{\sin(5x)}$
+    
+  Recall that $\di \lim_{\theta\to 0}\frac{\sin\theta}{\theta} = 1 = \lim_{\theta\to 0}\frac{\theta}{\sin\theta}$. To exploit this, we multiply top and bottom by both $3x$ and $5x$, allowing us to re-write our limit as follows:
+  \begin{align*}
+  \lim_{x\to 0}\frac{\sin(3x)}{\sin(5x)} &= \lim_{x\to 0}\left(\frac{\sin(3x)}{3x}\right)\left(\frac{5x}{\sin(5x)}\right)\left(\frac{3x}{5x}\right)\\
+  & = \lim_{x\to 0}\left(\frac{\sin(3x)}{3x}\right)\lim_{x\to 0}\left(\frac{5x}{\sin(5x)}\right)\lim_{x\to 0}\left(\frac{3x}{5x}\right)\\
+  & = 1(1)(3/5)=\frac35.
+  \end{align*}
+    
+       
+    \item $\di \lim_{x\to\infty}\frac{2+x-4x^3}{3x^3-4x^2+1}$
+    
+   It is a general rule for rational functions that when the degree of the numerator is equal to that of the denominator, the limit is given by the ratio of the coefficients of the highest power terms. If you know this rule, you can immediately conclude that the limit must be $-4/3$.
+   
+   If you don't know this rule, you can proceed as follows:
+   \[
+   \lim_{x\to\infty}\frac{2+x-4x^3}{3x^3-4x^2+1}=\lim_{x\to \infty}\frac{x^3(2/x^3+1/x^2-4)}{x^3(3-4/x+1/x^3)}=\lim_{x\to \infty}\frac{2/x^3+1/x^2-4}{3-4/x+1/x^3}=\frac{0+0-4}{3-0-0}=-\frac43,
+   \]
+   since anything over a positive power of $x$ goes to zero as $x\to \infty$.
+    
+    \item The limits $\di\lim_{x\to 0^+}f(x)$ and $\di \lim_{x\to 2^-}f(x)$, given that $x^2\leq f(x)\leq 2x$ for $x\in [0,2]$.
+  
+
+This was a squeeze theorem problem. Since this wasn't covered in class in detail, you can ignore it. If you want to know the answer anyway, the Squeeze Theorem tells us that if we know $g(x)\leq f(x)\leq h(x)$ on some interval containing $a$, and we know that
+\[
+\lim_{x\to a}g(x) = \lim_{x\to a}h(x)=L,
+\]
+then $\di\lim_{x\to a}f(x)=L$ as well.
+
+In this case, we note that
+\[
+\lim_{x\to 0^+}(x^2) = \lim_{x\to 0^+}(2x)=0 \text{ and } \lim_{x\to 2^-}(x^2)=\lim_{x\to 2^-}(2x) = 4,
+\] 
+so we can conclude that $\di\lim_{x\to 0^+}f(x)=0$ and $\di \lim_{x\to 2^-}f(x)=4$ using the Squeeze Theorem.
+ 
+   
+   \item Suppose you know $\di\lim_{x\to a}f(x)=4$ and $\di \lim_{x\to a}g(x)=-3$. What can you say about
+   \[
+   \lim_{x\to a}(f(x)+g(x)), \quad\quad \lim_{x\to a}(f(x)g(x)),\quad \text{ and } \quad \lim_{x\to a} \frac{f(x)}{g(x)}?
+   \]
+   Using the limit laws, we have
+   \begin{align*}
+      \lim_{x\to a}(f(x)+g(x))&=\lim_{x\to a}f(x)+\lim_{x\to a}g(x)=4+(-3)=1\\
+      \lim_{x\to a}(f(x)g(x))&=\lim_{x\to a}f(x)\cdot\lim_{x\to a}g(x)=4(-3)=-12, \tag{and}\\
+      \lim_{x\to a}\frac{f(x)}{g(x)}&=\frac{\lim_{x\to a}f(x)}{\lim_{x\to a}g(x)}=\frac{4}{-3}=-4/3.
+      \end{align*}
+   What if $\di\lim_{x\to a}g(x)$ does not exist?
+   
+   If the limit of $g$ doesn't exist (but the limit of $f$ is still 4), then none of the above limits exist. In particular, the limit laws \textbf{do not} apply if one limit fails to exist.
+   
+   (Note that if we don't know anything about the limit of $f$ then we can't really conclude anything about these limits.)
+  \end{enumerate}
+\end{document}

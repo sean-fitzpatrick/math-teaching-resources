@@ -1,0 +1,83 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 3410A}\chead{Quiz \# 4}\rhead{Friday, 6\textsuperscript{th} February, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\range}{range}
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+{\bf Name: Solutions}
+
+\bigskip
+
+Solve {\bf one} of the following two questions:
+ \begin{enumerate}
+ \item  Suppose $T\in\mathcal{L}(V,W)$ and $v_1,v_2,\ldots, v_m$ are vectors in $V$ such that the vectors $Tv_1,Tv_2,\ldots, Tv_m$ are linearly independent in $W$. Prove that the vectors $v_1,\ldots, v_m$ are linearly independent in $V$. 
+
+\bigskip
+
+\noindent{\bf Solution:} Suppose that the vectors $Tv_1,\ldots, Tv_m$ are linearly independent. We want to show that the vectors $v_1,\ldots, v_m$ are linearly independent. Thus, we suppose that
+\[
+ c_1v_1+c_2v_2+\cdots + c_mv_m = 0
+\]
+for some scalars $c_1,c_2,\ldots, c_m\in\mathbb{F}$. We need to show that we're forced to take each of these scalars equal to zero. Since $T$ is a linear transformation, we know that $T(0)=0$. Therefore, we have
+\begin{align*}
+ 0& = T(0)\\
+ & = T(c_1v_1+c_2v_2+\cdots +c_mv_m) &\text{ (since  } c_1v_1+c_2v_2+\cdots + c_mv_m = 0)\\
+ & = c_1Tv_1+c_2Tv_2+\cdots +c_mTv_m &\text{ (since } T \text{ is a linear map)}
+\end{align*}
+But this means we have a linear combination of the vectors $Tv_1,\ldots, Tv_m$ equal to zero, and these vectors were assumed to be linearly independent. Thus, the only possibility is that each of the scalars is zero: $c_1=0,c_2=0,\ldots, c_m=0$. But this is what we needed to show. Therefore, the vectors $v_1,\ldots, v_m$ are linearly independent.
+
+
+\bigskip
+
+\item Suppose that the vectors $v_1,\ldots, v_m$ span the vector space $V$, and that $T:V\to W$ is a linear transformation. Prove that the vectors $Tv_1,\ldots, Tv_m$ span $\range T$.
+
+\bigskip
+
+\noindent{\bf Solution:} Suppose that $V=\spn\{v_1,\ldots, v_m\}$, and that $w\in \range T$. By definition, if $w\in \range T$, then there is some $v\in V$ such that $Tv=w$. Since we know that $V=\spn\{v_1,\ldots, v_m\}$ and $v\in V$, it follows that there exist scalars $c_1,\ldots, c_m\in\mathbb{F}$ such that
+\[
+ v = c_1v_1+c_2v_2+\cdots + c_mv_m.
+\]
+Using the linearity of $T$, this implies that
+\begin{align*}
+ w & = Tv\\
+ & = T(c_1v_1+c_2v_2+\cdots + c_mv_m)\\
+ & = c_1Tv_1+c_2Tv_2+\cdots +c_mTv_m.
+\end{align*}
+But this means that any $w\in\range T$ can be written as a linear combination of the vectors $Tv_1,Tv_2,\ldots, Tv_m$, which is exactly the definition of what it means to say that the vectors $Tv_1,Tv_2,\ldots, Tv_m$ span the range of $T$, so we're done.
+
+\bigskip
+
+ \end{enumerate}
+\end{document}

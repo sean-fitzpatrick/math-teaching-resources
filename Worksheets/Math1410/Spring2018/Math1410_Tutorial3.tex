@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=0.85in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}            
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 1410 - Tutorial \#3}\\
+Wednesday, January 31
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+
+\vspace*{\fill}
+
+
+Please answer the problems on the back of this page to the best of your ability. You are encouraged to use scrap paper to do calculations and organize your work, but all work to be graded must be done on this worksheet.
+
+\bigskip
+
+Additional practice: (\textbf{do not submit}).
+\begin{enumerate}
+\item Given $\vec{v}=\langle 3,-4,1\rangle$ and $\vec{w} = \langle -2,1,5\rangle$, compute:
+\begin{enumerate}
+\item $4\vec{v}-3\vec{w}$
+\item The vector $\vec{x}$ such that $-3\vec{v}+5\vec{x}=2\vec{w}$
+\item $\vec{v}\dotp (3\vec{w})$, $(3\vec{v})\dotp \vec{w}$, and $3(\vec{v}\dotp \vec{w})$
+\item $\proj_{\vec{v}}\vec{w}$ and $\proj_{\vec{w}}\vec{v}$
+\item Vectors $\vec{w}_{\parallel}$ and $\vec{w}_{\bot}$ such that $\vec{w}_{\parallel}$ is parallel to $\vec{v}$, $\vec{w}_{\bot}$ is orthogonal to $\vec{v}$, and $\vec{w}_{\parallel}+\vec{w}_{\bot}=\vec{w}$.
+\end{enumerate}
+\end{enumerate}
+
+\newpage
+%\thispagestyle{empty}
+
+  \begin{enumerate}
+    \item Let $\vec{v} = \langle 4,3\rangle$ and $\vec{w} = \langle 2,3\rangle$.
+    \begin{enumerate}
+    \item Compute $\proj_{\vec{v}}\vec{w}$ and $\proj_{\vec{w}}\vec{v}$.
+    \item Sketch $\vec{v}$, $\vec{w}$, $\proj_{\vec{v}}\vec{w}$, and $\proj_{\vec{w}}\vec{v}$ on one set of coordinate axes.
+    \end{enumerate}
+    
+    \vspace{4in}
+    
+    \item Show that for \textbf{any} vectors $\vec{u}$, $\vec{v}$, and $\vec{w}$ in $\R^2$,
+    \[
+    \vec{u}\dotp (\vec{v}+\vec{w}) = \vec{u}\dotp\vec{v}+\vec{u}\dotp \vec{w}.
+    \]
+    Then, illustrate the result with an example.
+    
+    
+    
+   
+\end{enumerate}
+  
+\end{document}

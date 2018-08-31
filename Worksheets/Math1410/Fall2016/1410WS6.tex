@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 6}\rhead{October 19/20, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+{\bf \large Name:} \hspace{2.5in} {\bf Tutorial day and time:}
+
+\bigskip
+
+{\bf Select {\bf one} {\em completed} problem for feedback:}
+
+\bigskip
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+ \begin{enumerate}
+ 
+\item For the matrices
+\[
+ A = \bbm 2&-3&3\\1&0&5\ebm, B = \bbm 2&0\\1&-4\ebm, C = \bbm 2&0\\-1&4\\3&2\ebm,
+\]
+determine which of the products $A^2, AB, AC, BA, B^2, BC, CA, CB, C^2$ are defined.\\
+Compute at least {\bf three} of the products that are defined.\\
+\\
+{\bf Note:} Matrix multiplication is an essential skill for the remainder of this course. I strongly recommend confirming that you're doing things correctly before you leave tutorial.
+
+\pagebreak
+
+\item Determine the matrix of the transformation $T:\R^4\to \R^3$ such that
+\[
+ T\left(\bbm 1\\0\\0\\0\ebm\right) = \bbm 2\\0\\1\ebm, T\left(\bbm 0\\1\\0\\0\ebm\right) = \bbm 0\\-1\\3\ebm, T\left(\bbm 0\\0\\1\\0\ebm\right) = \bbm 1\\7\\5\ebm, \text{ and } T\left(\bbm 0\\0\\0\\1\ebm\right) = \bbm 3\\-1\\4\ebm.
+\]
+
+
+\vspace{2in}
+
+\item Determine the matrix of the transformation $T:\R^2\to\R^2$ that performs the following operations, in order:  First, a horizontal stretch by a factor of 4. Second, a counter-clockwise rotation by $3\pi/4$.  Third, a reflection across the $x$-axis.
+
+\vspace{3.5in}
+
+\item For fun: Find a $2\times 2$ matrix $A$ such that $A^{12}$ is the identity matrix, but $A^k$ is not for $1\leq k\leq 11$. (Hint: rotation.)
+
+
+ \end{enumerate}
+\end{document}

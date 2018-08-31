@@ -1,0 +1,48 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+\newcommand{\T}{\mathcal{T}}
+\DeclareMathOperator{\Int}{Int}
+
+\title{Math 4310 Assignment \#8\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Friday, November 7th, by 5 pm.
+
+\bigskip
+
+Please submit solutions to the following problems (except where indicated). As usual, all the textbook exercises are recommended as practice problems if they don't appear as an assigned problem below.
+
+\begin{enumerate}
+\item Let $p:X\to Y$ be a quotient map, and let $A\subseteq X$ be a subspace. Show that the restricted map $q=p|_A:A\to p(A)$ need not be a quotient map. (Hint: consider the following example: $X=[0,1]\cup [2,3]$, $A=[0,1)\cup [2,3]$, and $p(x)=x$ for $x\in [0,1]$, and $p(x)=x-1$ for $x\in [2,3]$.)
+\item With the same terminology as the previous problem, show that if either $A$ is open in $X$ and $p$ is an open map, or $A$ is closed in $X$ and $p$ is a closed map, then $p_A:A\to p(A)$ is a quotient map.
+\item Let $X$ denote the quotient space obtained from $\R$ by identifying all of the integers to a single point.
+\begin{enumerate}
+ \item Explain why $X$ can be viewed as a countable union of circles that are all joined at a single point.
+ \item Let $Y$ be the union of the circles $(x-1/n)^2+y^2=1/n^2$, for $n\in \N$. (The space $Y$ is called the ``Hawaiian Earring''.) Show that $Y$ is {\em not} homeomorphic to $X$. (For a hint, see the first paragraph of the Wikipedia entry on the Hawaiian Earring.)
+\end{enumerate}
+ \item Let $f:X\to X'$ be a continuous function and suppose that we have partitions $\mathcal{P},\mathcal{P}'$ of $X$ and $X'$, respectively, such that if two points in $X$ lie in the same member of $\mathcal{P}$, then $f(x)$ and $f(x')$ lie in the same member of $\mathcal{P}'$. If $Y$ and $Y'$ are the quotient spaces of $X$ and $X'$ corresponding to the given partitions, show that $f$ induces a map $\tilde{f}:Y\to Y'$ and that if $f$ is a quotient map, then so is $\tilde{f}$.
+ \item \begin{enumerate}
+        \item Let $p:X\to Y$ be a continuous map. Show that if there is a continuous map $f:Y\to X$ such that $p\circ f$ equals the identity map of $Y$, then $p$ is a quotient map.
+        \item If $A\subseteq X$, a {\em retraction} of $X$ onto $A$ is a continuous map $r:X\to A$ such that $r(a)=a$ for all $a\in A$. Show that any retraction map is a quotient map.
+       \end{enumerate}
+
+\end{enumerate}
+\end{document}
+ 

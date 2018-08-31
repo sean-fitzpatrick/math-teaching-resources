@@ -1,0 +1,220 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arctanh}{arctanh}
+
+\newcommand{\R}{\mathbb{R}}
+\title{Mixing problems from Section 8.5}	
+\author{Sean Fitzpatrick}
+\begin{document}
+\maketitle
+
+A \textit{mixing problem} is a type of word problem leading to a first order linear differential equation (or system of such equations, in more complicated scenarios).
+
+In each such problem, an amount $x$ of some substance is dissolved or suspended in a liquid in some container, and ``well-mixed'' (a somewhat implausible simplifying assumption that means we can assume the concentration of our substance is uniform throughout the liquid.
+
+Generally one is given an initial amount or concentration, and rates at which liquid is flowing into, and out of, the container. The goal is to determine the amount $x$ as a function of $t$. An equation generally looks like the following:
+\[
+\frac{dx}{dt} = \{\text{concentration in}\}\times\{\text{rate of flow in}\} - \{\text{concentration out}\}\times\{\text{rate of flow out}\}.
+\]
+Typically, the concentration of the substance in the liquid coming in is constant, while the concentration coming out depends on the amount of substance in the container, and the volume of liquid, both of which could be variable: if $C_{out}$ denotes the concentration flowing out,
+\[
+C_{out}(t) = \frac{x(t)}{V(t)},
+\]
+where $V(t)$ is the volume of liquid in the container as a function of time. The two flow rates are also constant in most simpler problems. If $A$ is the flow rate in, $B$ is the flow rate out, and $C_{in}$ is the (fixed) concentration flowing in, we get
+\[
+x'(t)=C_{in}A-\frac{x(t)}{V(t)}B,
+\]
+which is a linear differential equation relating $x$ and $t$ (so we know how to solve it). The following examples are from the exercises in Section 8.5 of the textbook.
+
+\newpage
+
+\begin{itemize}
+\item \#6 Suppose there are two lakes located on a stream. Clean
+water flows into the first lake, then the water from the first
+lake flows into the second lake, and then water from the
+second lake flows further downstream. The in and out flow
+from each lake is 500 litres per hour. The first lake contains
+100 thousand litres of water and the second lake contains
+200 thousand litres of water. A truck with 500 kg of toxic
+substance crashes into the first lake. Assume that the water is being continually mixed perfectly by the stream. a)
+Find the concentration of toxic substance as a function of
+me in both lakes. b) When will the concentration in the
+first lake be below 0.001 kg per litre? c) When will the concentration in the second lake be maximal?
+
+\bigskip
+
+Let $x(t)$ denote the amount of toxic substance in the first lake as a function of $t$ (in hours), and let $y(t)$ denote the amount in the second lake. We solve for $x(t)$ first:
+
+We're given $x(0)=500$. There is no additional substance flowing into the first lake, so $C_{in}=0$. Since the volume of the lake is constant, the concentration in the first lake is $C_x = x(t)/(100000)$. The rate at which $x$ is changing is given by
+\[
+x'(t) = -(C_x \text{ kg/l})(500 \text{ l/h}) = -\frac{500}{100000}x(t) \text{ kg/h},
+\]
+so $x'(t) = -\frac{1}{200}x(t)$. This is a simple exponential decay equation, and we know the solution:
+\[
+x(t) = 500e^{-t/200}.
+\]
+Now, the toxic substance is flowing into the second lake at a rate of
+\[
+(500 \text{ l/h})(C_x \text{ kg/l}) = 500\left(\frac{1}{200}e^{-t/200}\right)=\frac52 e^{-t/200} \text{ kg/h}.
+\]
+The concentration in the second lake is $C_y = y(t)/(200000)$, so the substance is flowing out of the second lake at a rate of
+\[
+(500 \text{ l/h})(C_y \text{ kg/l}) = \frac{1}{400}y(t) \text{ kg/h}.
+\]
+The rate at which $y$ is changing is the difference of these two rates, so
+\[
+y'(t) = \frac52 e^{-t/200}-\frac{1}{400}y(t), \text{ or } y'(t) + \frac{1}{400}y(t) = \frac52 e^{-t/200}.
+\]
+This equation is linear in $y$, with integrating factor $P(t) = e^{t/400}$. We get
+\[
+\frac{d}{dt}(e^{t/400}y(t)) = e^{t/400}\left(y'(t)+\frac{1}{400}y(t)\right) = \frac52 e^{-t/200}\cdot e^{t/400} = \frac52 e^{-t/400}.
+\]
+Integrating, we get
+\[
+e^{t/400}y(t) = -1000e^{-t/400}+C.
+\]
+Putting $t=0$, and noting that $y(0)=0$, we get $0=-1000+C$, so $C=1000$. It follows that
+\[
+y(t) = (1000-1000e^{-t/400})e^{-t/400} = 1000e^{-t/400}-1000e^{-t/200}.
+\]
+
+\medskip
+
+To find when the concentration in the first lake will be less than 0.001 kg/l, we set
+\[
+0.001 = \frac{1}{1000} = C_x = \frac{x}{100000} = \frac{1}{200}e^{-t/200},
+\]
+so $e^{-t/200} = \frac{200}{1000} = 0.2$ Thus
+\[
+-\frac{t}{200} = \ln(0.2) = -\ln(5), \text{ so } t=200\ln(5).
+\]
+Thus, the concentration will be less than 0.001 kg/l after $200\ln(5)\approx 321.9$ hours, or a little under two weeks.
+
+\medskip
+
+When the concentration in the second lake reaches a maximum, we must have $y'(t)=0$. We find
+\[
+y'(t) = -\frac52 e^{-t/400}+5e^{-t/200} = \frac52 e^{-t/200}(2-e^{t/400}),
+\]
+so $y'(t)=0$ when $e^{t/400}=2$, or $t=400\ln(2)\approx 277.3$ hours. We note that $y'(t)$ changes from positive to negative at this critical point, so we indeed have a maximum. 
+
+\item \#8 Initially 5 grams of salt are dissolved in 20 litres of water.
+Brine with concentration of salt 2 grams of salt per litre is
+added at a rate of 3 litres a minute. The tank is mixed well
+and is drained at 3 litres a minute. How long does the process have to continue until there are 20 grams of salt in the
+tank?
+
+\bigskip
+
+Let $x(t)$ denote the amount of salt at time $t$. We have $x(0)=0$, and since the volume is a constant 20 l (the flow rate in equals the flow rate out), the concentration of salt in the tank is $C_x = x/20$. 
+
+Salt is flowing in at a rate of $(2\text{ g/l})\times (3\text{ l/min})=6\text{ g/min}$ and flowing out at a rate of $(C_x\text{ g/l})\times (3\text{ l/min}) = 3x/20\text{ g/min}$. Thus,
+\[
+x'(t) = 6-\frac{3x(t)}{20}, \text{ or } x'(t)+\frac{3}{20}x(t)=6.
+\]
+Multiplying both sides by the integrating factor $e^{3t/20}$, we get
+\[
+\frac{d}{dt}(e^{3t/20}x(t))=6e^{3t/20},
+\]
+so $e^{3t/20}x(t) = 40e^{3t/30}+C$. Since $x(0)=5$, we have $5=40+C$, so $C=-35$. Thus,
+\[
+x(t) = 40-35e^{-3t/30}.
+\]
+
+\medskip
+
+When there are 20 grams of salt in the tank, we have 
+\[
+x(t)=20=40-35e^{-3t/20},
+\]
+so $35e^{-3t/20}=20$, giving $e^{-3t/20}=\dfrac47$, so $t=\dfrac{20}{3}\ln\left(\frac{7}{4}\right)=\approx 3.73$ minutes.
+
+\item \#9 Initially a tank contains 10 litres of pure water. Brine of unknown (but constant) concentration of salt is flowing in at
+1 litre per minute. The water is mixed well and drained at 1
+litre per minute. In 20 minutes there are 15 grams of salt in
+the tank. What is the concentration of salt in the incoming
+brine?
+
+\bigskip
+
+Let $k$ be the incoming concentration of salt, in grams per litre, and let $x$ be the amount of salt in the tank, in grams. Then salt is entering the tank at a rate of $k$ grams per minute, and leaving at a rate of $x/10$ grams per minute, so
+\[
+x'(t)=k-\frac{x(t)}{10}, \text{ or } x'(t)+\frac{1}{10}x(t)=k.
+\]
+We multiply by the integrating factor $e^{t/10}$ and integrate, giving us
+\[
+e^{t/10}x(t) = 10ke^{t/10}+C.
+\]
+Since $x(0)=0$, we get $C=-10k$, and thus
+\[
+x(t) = 10k(1-e^{-t/10}).
+\]
+Given that $x(20)=15$, we have
+\[
+15 = 10k(1-e^{-2}), \text{ so } k = \frac{3}{2(1-e^{-2})}\approx 1.735 \text{ g/l}.
+\]
+
+\item \#12 Suppose a water tank is being pumped out at 3 L/min . The
+water tank starts at 10 L of clean water. Water containing a toxic
+substance is flowing into the tank at 2 L/min , with concentration $20t$ g/L at time $t$. When the tank is half empty, how
+many grams of toxic substance are in the tank (assuming
+perfect mixing)?
+
+\bigskip
+
+First, we find the volume as a function of $t$. We have $V(0)=10$, and water is flowing in at a rate of 2 L/min, but flowing out at a rate of 3 L/min, for a net rate of $-1$ L/min. Thus, $V(t) = 10-t$, with $t$ measured in minutes. 
+
+The concentration flowing in is given by $C_{in} = 20t$ g/L, so the substance is flowing in at a rate of $(20t \text{ g/L})\times (2 \text{ L/min}) = 40t \text{ g/min}$.
+
+The concentration in the tank (and hence, flowing out, given the perfect mixing) is $C_{out} = \dfrac{x(t)}{V(t)} = \dfrac{x(t)}{10-t}$. The substance is therefore flowing out at a rate of
+\[
+\left(\frac{x(t)}{10-t} \text{ g/L}\right)\times (3 \text{ L/min}) = \frac{3x(t)}{10-t} \text{ g/min}.
+\]
+Note that we must have $t<10$ to ensure a nonzero volume in the tank. This gives us
+\[
+x'(t) = 40t-\frac{3x(t)}{10-t}, \text{ or } x'(t)+\frac{3}{10-t}x(t) = 40t.
+\]
+The integrating factor is
+\[
+P(t) = e^{\int\frac{3}{10-t}\,dt} = e^{-3\ln(10-t)} = e^{\ln(10-t)^{-3}} = (10-t)^{-3}.
+\]
+Multiplying by $P(t)$ gives us
+\[
+\frac{1}{(10-t)^3}x'(t)+\frac{3}{(10-t)^4}x(t) = \frac{d}{dt}\left(\frac{1}{(10-t)^3}x(t)\right)= \frac{40t}{(10-t)^3}.
+\]
+Integrating, we get to use partial fractions (oh what fun!). We write
+\[
+\frac{40t}{(10-t)^3} = \frac{A}{(10-t)}+\frac{B}{(10-t)^2}+\frac{C}{(10-t)^3}.
+\]
+Multiplying both sides by $(10-t)^3$, this becomes
+\[
+A(10-t)^2+B(10-t)+C=40t.
+\]
+Putting $t=10$ immediately gives $C=400$. If we differentiate both sides of this equation with respect to $t$, we get
+\[
+-2A(10-t)-B=40.
+\]
+Putting $t=10$ this time gives us $B=-40$. Differentiating one more time, we get $2A=0$, so $A=0$. Thus,
+\[
+\frac{1}{(10-t)^3}x(t) = \int\left(\frac{400}{(10-t)^3}-\frac{40}{(10-t)^2}\right)\,dt
+ = \frac{200}{(10-t)^2}-\frac{40}{10-t}+C.
+\]
+We start with clean water, so $x(0)=0 = 2-4+C$. Setting $C=2$ and multiplying by $(10-t)^3$ we get
+\[
+x(t) = 200(10-t)-40(10-t)^2+2(10-t)^3.
+\]
+
+The tank will be half-empty when $5=V(t)=10-t$, or $t=5$, and we find
+\[
+x(5) = 200(5)-40(5)^2+2(5^3) = 250 \text{ g}.
+\]
+\end{itemize}
+
+\end{document}

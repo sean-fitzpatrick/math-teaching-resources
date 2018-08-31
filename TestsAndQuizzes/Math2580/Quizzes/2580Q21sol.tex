@@ -1,0 +1,93 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\di}{\displaystyle}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\len}[1]{\left\lVert #1\right\rVert}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\F}{\mathbf{F}}
+
+\title{Solutions to Quiz 20 Practice Problems\\Math 2580\\Spring 2016}
+\author{Sean Fitzpatrick}
+\date{March 31st, 2016}
+
+\begin{document}
+ \maketitle
+
+
+
+\begin{enumerate}
+ \item Use Green's Theorem to evaluate the given line integral. Assume the orientation of the curve is positive, unless otherwise indicated.
+\begin{enumerate}
+ \item $\int_C x^2y^2\,dx+4xy^3\,dy$, where $C$ is the triangle with vertices $(0,0)$, $(1,3)$, and $(0,3)$.
+
+\bigskip
+
+The curve $C$ bounds the triangular region $D$ described by $3x\leq y\leq 1$, for $0\leq x\leq 1$, so by Green's Theorem we have
+\[
+ \int_C x^2y^2\,dx + 4xy^3\,dy = \iint_D \left(\pd{4xy^3}{x}-\pd{x^2y^2}{y}\right)\,dA = \int_0^1\int_{3x}^1(4y^3-2x^2y)\,dy\,dx = \int_0^1(1-x^2-72x^4)\,dx = 1-\frac{1}{3}-\frac{72}{5}.
+\]
+
+ \item $\int_C xe^{-2x}\,dx+(x^4+2x^2y^2)\,dy$, where $C$ is the boundary of the region between the circles $x^2+y^2=1$ and $x^2+y^2=4$.
+
+\bigskip
+
+Here, our region is described best in polar coordinates as $1\leq r\leq 2$, with $0\leq \theta\leq 2\pi$. We have
+\[
+ \pd{x^4+2x^2y^2}{x}-\pd{xe^{-2x}}{y} = 4x^3+4xy^2 = 4x(x^2+y^2) = 4r^3\cos\theta
+\]
+in polar coordinates. Thus, by Green's Theorem we have
+\[
+ \int_C xe^{-2x}\,dx+(x^4+2x^2y^2)\,dy = \int_0^{2\pi}\int_1^2 4r^4\cos\theta \,dr\,d\theta = 0.
+\]
+Note: the fact that this integral is zero tells us that the integral around the circle $x^2+y^2=1$ is equal to the integral around the circle $x^2+y^2=4$, since $C$ consists of two circles, with positive orientation for the outer circle, and negative orientation for the inner circle.
+
+ \item $\int_C y^3\,dx-x^3\,dy$, where $C$ is the circle $x^2+y^2=4$.
+
+\bigskip
+
+We have $\pd{Q}{x}-\pd{P}{y} = -3x^2-3y^2 = -3r^2$, and $C$ bounds the region given in polar coordinates by $0\leq r\leq 2$, with $0\leq \theta \let 2\pi$. Thus, we have
+\[
+ \int_C y^3\,dx-x^3\,dy = \int_0^{2\pi}\int_0^2 (-3r^2)r\,dr\,d\theta = -\frac{3\pi}{2}.
+\]
+
+ \item $\int_C \F\dotp \,d\r$, where $\F(x,y) = \langle y^2\cos x, x^2+2y\sin x\rangle$ and $C$ is the trianglular path from $(0,0)$ to $(2,6)$ to $(2,0)$, and back to $(0,0)$.
+
+\bigskip
+
+First, we note that the given path is the negatively-oriented boundary of the region given by $0\leq x\leq 2$, $0\leq y\leq 3x$, so we have
+\[
+ \int_C \F\dotp \,d\r = -\iint_D\left(\pd{Q}{x}-\pd{P}{y}\right)\,dA = -\int_0^2\int_0^{3x}(2x)\,dy\,dx = -\int_0^2 6x^2\,dx = -16.
+\]
+
+\end{enumerate}
+ \item Find a normal vector to the given parameterized surface at the given point:
+\begin{enumerate}
+ \item $x=2u$, $y=u^2+v$, $z=v^2$, at the point $(0,1,1)$.
+ \item $x=u^2-v^2$, $y=u+v$, $z=u^2+4v$, at the point $(-\frac{1}{4}, \frac{1}{2}, 2)$.
+\end{enumerate}
+Note: a surface in $\R^3$ is parameterized by a map $\Phi(u,v) = (x(u,v), y(u,v), z(u,v))$. The derivative of this map is $D_{(u,v)}\Phi = \begin{bmatrix} x_u & x_v\\y_u&y_v\\z_u&z_v\end{bmatrix} = [\Phi_u | \Phi_v]$, where 
+\begin{align*}
+ \Phi_u(u,v) &= \langle x_u(u,v), y_u(u,v), z_u(u,v)\rangle\\
+ \Phi_v(u,v) &= \langle x_v(u,v), y_v(u,v), z_v(u,v)\rangle\\
+\end{align*}
+are the partial derivatives of $\Phi$ with respect to $u$ and $v$, viewed as vectors. At a given point $\Phi(u_0,v_0)$ on the surface, the vectors $\Phi_u(u_0,v_0)$ and $\Phi_v(u_0,v_0)$ are both tangent to the surface. (Make sure you understand why!) Given two tangent vectors, you can use the cross product to get a normal vector.
+
+
+ \end{enumerate}
+
+\end{document}
+ 

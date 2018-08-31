@@ -1,0 +1,172 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 40}}
+\chead{MATH 1410B}\lhead{Test \# 2}\rhead{Thursday, 19\textsuperscript{th} March, 2015}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\ivec}{\,\boldsymbol{\hat{\imath}}}
+\newcommand{\jvec}{\,\boldsymbol{\hat{\jmath}}}
+\newcommand{\kvec}{\,\boldsymbol{\hat{k}}}
+\DeclareMathOperator{\comp}{comp}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+19\textsuperscript{th} March, 2015, 10:55 - 11:45 am\\
+{\bf MATH 1410B - Test \#2}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{353pt}}\\
+\skipline
+First Name:\underline{\hspace{350pt}}\\
+\skipline
+Student Number:\underline{\hspace{323pt}}\\
+\skipline
+Tutorial Section: \underline{\hspace{320pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ {\bf Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments.
+
+\bigskip
+
+No external aids are allowed, with the exception of a 5-function calculator.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/5\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/5\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/40\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+A
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item SHORT ANSWER: For each of the questions below, please provide a short (one line) answer.
+ \begin{enumerate}
+\item Suppose $\det A = 4$ and the matrix $B$ is obtained from $A$ by  \points{2} first multiplying the first row of $A$ by 5, and then exchanging rows 1 and 3. What is $\det B$?
+
+\vspace{1.2in}
+
+\item Let $A$ and $B$ be $3\times 3$ matrices. If $\det A=2$ and $\det B = -3$, what is the value of \points{2} $\det(2A^2B^TA^{-1})$?
+
+\vspace{1.2in}
+
+\item Calculate the dot product of the vectors $\vec{u}=\begin{bmatrix}1&-2&4\end{bmatrix}^T$ and $\vec{v} = \begin{bmatrix}4&-2&3\end{bmatrix}^T$ \points{2}
+
+\vspace{1.2in}
+
+\item Let $\vec{v}$ be a vector in $\R^n$. If $\len{\vec{v}}=3$ and $\vec{w} = -4\vec{v}$, what is $\len{\vec{w}}$? \points{2}
+
+\vspace{1.2in}
+
+\item Find $\vec{x}$, given that $\vec{u} = \begin{bmatrix}2&-1&3\end{bmatrix}^T$ and $\vec{v} = \begin{bmatrix}-4&7&5\end{bmatrix}^T$, and $3\vec{u}-2\vec{x}=\vec{v}$. \points{2}
+
+\end{enumerate}
+\newpage
+
+\item Let $A = \begin{bmatrix}2&-1&0\\0&3&4\\-3&0&1\end{bmatrix}$.
+\begin{enumerate}
+ \item Compute $\det A$. \points{5}
+
+\vspace{3.5in}
+
+ \item Given the system of equations $\begin{bmatrix}2&-1&0\\0&3&4\\-3&0&1\end{bmatrix}\begin{bmatrix}x\\y\\z\end{bmatrix} =\begin{bmatrix}2\\-1\\3\end{bmatrix}$, use Cramer's rule to find the value of $y$, if possible. \points{5}
+\end{enumerate}
+
+
+\newpage
+
+\item \begin{enumerate}
+       \item Find a vector equation of the line in $\R^3$ that passes through the points $P=(2,-3,1)$ and $Q=(4,1,-2)$. \points{4}
+
+\vspace{2.5in}
+
+       \item Let $L_1$ be the line through $P_1=(2,0,-1)$ with direction vector $\vec{d}_1 = \begin{bmatrix}-1&3&2\end{bmatrix}^T$, and let $L_2$ be the line through $P_2=(8,6,7)$ with direction vector $\vec{d}_2=\begin{bmatrix}-4&0&-2\end{bmatrix}^T$. Determine the point of intersection of $L_1$ and $L_2$, if any.\points{6}
+      \end{enumerate}
+
+
+
+
+\newpage
+\item Find the shortest distance from the point $P=(3,2,-1)$ to the line $L$ given by the vector equation \points{5}
+\[
+\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}2\\1\\3\end{bmatrix} + t\begin{bmatrix}3\\-1\\-2\end{bmatrix}
+\]
+
+\newpage
+
+\item Consider the triangle in $\R^3$ with vertices $P=(2,0,-3)$, $Q=(5,-2,1)$, and $R=(7,5,3)$.
+\begin{enumerate}
+ \item Show that the triangle is a right-angled triangle. \points{3}
+
+{\em Hint:} Recall that if the dot product of two non-zero vectors is zero, then those vectors meet at a right angle.
+
+\vspace{4in}
+
+ \item Compute the lengths of the three sides of the triangle and verify that the Pythagorean theorem ($a^2+b^2=c^2$) holds. \points{2}
+
+
+
+
+\end{enumerate}
+ 
+\end{enumerate}
+\end{document}

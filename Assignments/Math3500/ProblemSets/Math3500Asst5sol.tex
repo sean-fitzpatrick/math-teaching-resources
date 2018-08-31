@@ -1,0 +1,234 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+%\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\ss}{\subseteq}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\title{Math 3500 Assignment \#5 Solutions\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+\begin{enumerate}
+ \item (The Contraction Mapping Theorem) Let $f$ be a function defined on all of $\R$, with the property that there exists some $c$ with $0<c<1$, such that for all $x, y\in \R$,
+\[
+ \abs{f(x)-f(y)}\leq c\abs{x-y}.
+\]
+\begin{enumerate}
+ \item Prove that $f$ is continuous on $\R$.
+
+\bigskip
+
+\noindent {\bf Solution}: Let $\epsilon>0$ be given and take $\delta=\epsilon$. Then, if $\abs{x-y}<\delta$, we have
+\[
+ \abs{f(x)-f(y)}\leq c\abs{x-y}<\abs{x-y}<\delta=\epsilon,
+\]
+since $0<c<1$.
+
+\bigskip
+
+ \item Choose any point $x\in\R$, and consider the sequence $(x,f(x),f(f(x)),\ldots)$. (That is, the sequence is defined recursively by $x_1=x$ and $x_{n+1}) = f(x_n)$ for $n\geq 1$.) Show that this sequence is a Cauchy sequence.
+
+\bigskip
+
+\noindent {\bf Solution}: Choose $x\in\R$, and let $K=\abs{f(x)-x}=\abs{x_2-x_1}$. We claim that for any $n\in\N$, $\abs{x_{n+1}-x_n} \leq c^{n-1}K$. The proof is by induction: for $n=1$, we have $\abs{x_2-x_1} = c^0 K$, so the result holds. If $\abs{x_{k+1}-x_k}\leq c^{k-1}K$ for some $k\geq 1$, then
+\[
+ \abs{x_{k+2}-x_{k+1}} =\abs{f(x_{k+1})-f(x_{k})} \leq c \abs{x_{k+1}-x_k} \leq c (c^{k-1}K) = c^kK,
+\]
+so the result holds for all $n\in\N$ by induction.
+
+Now, let $\epsilon>0$ be given, and choose $N\in\N$ sufficiently large that $c^{N-1}<\dfrac{(1-c)\epsilon}{K}$. (This is possible since $\lim c^N = 0$.) Then, if $m,n\geq N$, we have (assuming without loss of generality that $m=n+k$ for some $k\geq 1$)
+\begin{align*}
+ \abs{x_m-x_n} & = \abs{x_{n+k}-x_n}\\
+ & \leq \abs{x_{n+k}-x_{n+k-1}}+\abs{x_{n+k-1}-x_{n+k-2}}+\cdots + \abs{x_{n+1}-x_n}\\
+ & \leq c^{n-k-2}K + c^{n-k-3}K + \cdots + c^{n-1}K\\
+ & = Kc^{n-1}(1+c+\cdots + c^{k-1})\\
+ & < Kc^{n-1}(1+c+c^2+\cdots)\\
+ & = \frac{Kc^{n-1}}{1-c} \leq \frac{Kc^{N-1}}{1-c}< \epsilon.
+\end{align*}
+Thus, $(x_n)$ is Cauchy. (Note: we used the result proved above, together with the fact that $\sum_{j=0}^{k-1}c^j<\sum_{j=0}^\infty c^j = \frac{1}{1-c}$.)
+
+\bigskip
+
+ \item Since the sequence in part (b) is Cauchy, it converges. Let $y=\lim x_n$, and prove that $y$ is a {\em fixed point} of $f$. That is, prove that $f(y)=y$.
+
+\bigskip
+
+\noindent {\bf Solution}: Since $f$ is continuous and $(x_n)$ converges to $y$, we have
+\[
+ f(y) = f(\lim x_n) = \lim f(x_n) = \lim x_{n+1} = y.
+\]
+
+
+\bigskip
+
+ \item Show that $y=\lim x_n$ is the {\bf unique} fixed point of $f$.
+
+\bigskip 
+
+\noindent {\bf Solution}: Suppose $f(y_1)=y_1$ and $f(y_2)=y_2$ for some $y_1,y_2\in\R$. Then 
+\[
+ \abs{y_1-y_2} = \abs{f(y_1)-f(y_2)} \leq c\abs{y_1-y_2}.
+\]
+Thus, we must have $\abs{y_1-y_2}=0$ and $y_1=y_2$, or else we would have $c\geq 1$, which is not possible since $0<c<1$.
+
+\bigskip
+
+ \item Prove that if $z\in \R$ is any arbirary point, then the sequence $(z,f(z),f(f(z)),\ldots)$ still converges to $y$.
+
+\bigskip
+
+\noindent {\bf Solution}: If we choose some other point $z$, then the sequence $(f^n(z))$ will converge as above to some limit $w$, and the same argument already given would show that $f(w)=w$. Since we proved that the fixed point of $f$ is unique, we must have $w=y$.
+
+\bigskip
+
+\end{enumerate}
+\item ({\bf Do not submit}) Let $f$ and $g$ be functions defined on some domain $D\ss\R$, and suppose that both $f$ and $g$ are 
+continuous at $a\in D$.
+\begin{enumerate}
+ \item Show that $\displaystyle \abs{f(x)} = \begin{cases}f(x) & \text{ if } f(x)\geq 0\\ -f(x) & \text{ if } f(x)<0\end{cases}$ is continuous at $a$.
+
+\bigskip
+
+\noindent {\bf Solution}: Let $\epsilon>0$ be given. Since $f$ is continuous at $a$, there exists some $\delta>0$ such that if $\abs{x-a}<\delta$, then $\abs{f(x)-f(a)}<\epsilon$. If $f(a)\neq 0$ then we can choose $\delta$ small enough that $f(x)$ and $f(a)$ have the same sign when $\abs{x-a}<\delta$, and continuity of $\abs{f}$ follows from the continuity of $f$ (and $-f$).
+
+If $f(a)=0$, then
+\[
+ \abs{\abs{f(x)}-\abs{f(a)}} = \abs{f(x)} = \abs{f(x)-f(a)}<\epsilon.
+\]
+
+
+\bigskip
+
+ \item Let $\max(f,g)(x) = \begin{cases} f(x) & \text{ if } f(x)\geq g(x)\\ g(x) & \text{ if } g(x)\geq f(x)\end{cases}$. Show that
+\[
+ \max(f,g) = \frac{1}{2}(f+g)+\frac{1}{2}\abs{f-g}.
+\]
+
+\bigskip
+
+\noindent {\bf Solution}: Choose some $x\in D$. If $f(x)\geq g(x)$, then
+\[
+ \frac{1}{2}(f(x)+g(x))+\frac{1}{2}\abs{f(x)-g(x)} = \frac{1}{2}(f(x)+g(x))+\frac{1}{2}(f(x)-g(x)) = f(x)
+\]
+If $f(x)<g(x)$, then
+\[
+ \frac{1}{2}(f(x)+g(x))+\frac{1}{2}\abs{f(x)-g(x)} = \frac{1}{2}(f(x)-g(x))-\frac{1}{2}(f(x)-g(x)) = g(x).
+\]
+
+
+\bigskip
+
+ \item Similarly define $\min(f,g)$ and show that $\min(f,g) = \dfrac{1}{2}(f+g)-\dfrac{1}{2}\abs{f-g}$.
+
+\bigskip
+
+\noindent {\bf Solution}: I'll leave this as an easy exercise.
+
+\bigskip
+
+ \item Show that $\max(f,g)$ and $\min(f,g)$ are continuous. (Hint: an $\epsilon$-$\delta$ proof is not required.)
+
+\bigskip
+
+\noindent {\bf Solution}: Since $f$ and $g$ are continuous, so are $f+g$ and $f-g$. Since $f-g$ is continuous, so is $\abs{f-g}$ by part (a). The result now follows by parts (b) and (c).
+
+\bigskip
+
+\end{enumerate}
+
+\item Let $g(x)=\sqrt[3]{x}$.
+\begin{enumerate}
+ \item Show that $g$ is continuous at $c=0$.
+
+\bigskip
+
+\noindent {\bf Solution}: Let $\epsilon>0$ be given and choose $\delta=\epsilon^3$. Then if $\abs{x}<0$ we have
+\[
+ \abs{g(x)-g(0)} = \abs{x^{1/3}} = \abs{x}^{1/3}<\delta^{1/3} = \epsilon.
+\]
+
+
+\bigskip
+
+ \item Prove that $g$ is continuous at any point $c\neq 0$. (You might find the identity $a^3-b^3=(a-b)(a^2+ab+b^2)$ helpful.)
+
+\bigskip
+
+\noindent {\bf Solution}: Choose $c\in \R$ with $c\neq 0$, and let $\epsilon>0$ be given. Let $\delta = \min\left\{\dfrac{\abs{c}}{2},c^{2/3}\epsilon\right\}$. Suppose that $\abs{x-c}<\delta$. Notice that since $\abs{x-c}<\abs{c}/2$, $x\neq 0$ and $x$ and $c$ must have the same sign:
+\[
+ \abs{x-c}<\abs{c}/2 \quad \Leftrightarrow \quad c-\abs{c}/2 < x < c+\abs{c}/2,
+\]
+so if $c<0$, $3c/2<x<c/2$, and if $c>0$, $c/2<x<3c/2$. Thus $xc>0$, so $x^{2/3}+x^{1/3}c^{1/3}c^{2/3}>c^{2/3}>0$, and we have
+\[
+ \abs{x^{1/3}-c^{1/3}} = \frac{\abs{x-c}}{x^{2/3}+x^{1/3}c^{1/3}+c^{2/3}}<\frac{\abs{x-c}}{c^{2/3}}<\frac{\delta}{c^{2/3}}\leq \epsilon.
+\]
+
+
+\bigskip
+
+\end{enumerate}
+ \item ({\bf Do not submit}) Explain why any function with domain $\Z\subseteq \R$ is necessarily continuous at every point in its domain.
+
+\bigskip
+
+\noindent {\bf Solution}: If the domain of $f$ is $\Z$ then every point in the domain is an isolated point. If we take $\delta=1/2$ then $a\in \Z$ and $\abs{x-a}<\delta$ implies that $x=a$, so $\abs{f(x)-f(a)}=0<\epsilon$ for any $\epsilon>0$.
+
+\bigskip
+
+ \item Let $h:\R\to\R$ be continuous on $\R$, and let $K=\{x\in \R : h(x)=0\}$. Prove that $K$ is a closed subset of $\R$.
+
+\bigskip
+
+\noindent {\bf Solution}: We'll give two different proofs of this result:
+
+Option 1: The complement of $K$ is $K^c=\{x\in\R : h(x)\neq 0\} = h^{-1}((-\infty,0)\cup (0,\infty))$. Since $(-\infty,0)\cup (0,\infty)\ss\R$ is open and $h$ is continuous, $K^c$ is open and thus $K$ is closed. (Note that when the domain is all of $\R$, ``relatively open'' is the same thing as open.)
+
+Option 2: We know that $K$ is closed if and only if $K$ contains all of its limit points. Thus, let $a\in\R$ be a limit point of $K$ (if any exist). Then there exists a sequence $(x_n)$ in $K$ such that $x_n\to a$, and since $h$ is continuous on $\R$, we have
+\[
+ f(a) = f(\lim x_n) = \lim f(x_n) = \lim 0 = 0.
+\]
+Since $f(a)=0$, $a\in K$, and thus $K$ contains its limit points.
+
+\bigskip
+
+ \item Show that if $f$ is continuous on $[a,b]$ and $f(x)>0$ for all $x\in [a,b]$, then $1/f$ is bounded on $[a,b]$.
+
+\bigskip
+
+\noindent {\bf Solution}: Since $f$ is continuous on $[a,b]$, by the Extreme Value Theorem there exists some $y\in [a,b]$ such that $f(y)\leq f(x)$ for all $x\in [a,b]$. Since $f(y)>0$ by assumption, we have $1/f(x)\leq 1/f(y)$ for all $x\in [a,b]$, and thus $1/f$ is bounded on $[a,b]$.
+
+\bigskip
+
+ \item ({\bf Do not submit}) Prove that $\cos x = x$ for some $x\in (0,\pi/2)$.
+
+\bigskip
+
+\noindent {\bf Solution}: Consider the function $f(x) = \cos x - x$. We know that $f$ is continuous, since it's the difference of two continuous functions. Since $f(0) = \cos 0 -0 =1>0$ and $f(\pi/2) = \cos (\pi/2)-\pi/2 = -\pi/2 < 0$, by the Intermediate Value Theorem there exists some $c\in (0,\pi/2)$ such that $f(c)=0$, which gives $\cos c = c$, as required.
+
+\bigskip
+
+ \item ({\bf Do not submit}) We say that a function $f$ satisfies the {\em intermediate value property} if it satisfies the conclusion of the Intermediate Value Theorem. Show that the function given by $f(x)=\sin (1/x)$ for $x\neq 0$ and $f(0)=0$ has the property, even though it is not continuous at $x=0$.
+
+\bigskip
+
+\noindent {\bf Solution}: Let $x,y\in\R$. If $x$ and $y$ are both positive or both negative, then the result follows from the IVT since $f$ is continuous on $(0,\infty)$ and $(\infty,0)$. If $x<0$ and $y>0$ it's easy to see that $f$ takes on every value between -1 and 1 on $(x,y)$, since it oscillates infinitely often as we approach 0. In fact, choose $n\in\N$ such that $x<\dfrac{-1}{\pi/2+2n\pi}$ and $\dfrac{1}{\pi/2+2n\pi}>y$. Then $f$ takes on every value between -1 and 1 on $\left[\dfrac{-1}{\pi/2+2n\pi},\dfrac{-1}{3\pi/2+2n\pi}\right]$ and on $\left[\dfrac{1}{3\pi/2+2n\pi},\dfrac{1}{\pi/2+2n\pi}\right]$.
+
+\bigskip
+
+
+\end{enumerate}
+
+\end{document}
+ 

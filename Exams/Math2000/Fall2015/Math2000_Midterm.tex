@@ -1,0 +1,185 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 60}}
+\chead{MATH 2000B}\lhead{Midterm}\rhead{Tuesday, 3\textsuperscript{rd} March, 2015}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+3\textsuperscript{rd} March, 2015, 3:05-4:20 pm\\
+{\bf Math 2000B - Midterm}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ Record your answers below each question in the space provided.    {\bf Left-hand pages may be used as scrap paper for rough work.}  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+The value of each problem is indicated in the left-hand margins. The value of a problem does not always indicate the amount of work required to do the problem.
+
+Outside aids, including, but not limited to, cheat sheets, smart phones, laptops, spy cameras, drones, and telepathic communication, are not permitted. You can keep a calculator with you if it makes you feel better.
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 7 & \enspace\enspace\enspace\enspace\enspace\enspace/6\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/60\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item For each of the following sentences, decide whether or not it is an assertion. If it is, indicate whether it is true or false, and why.
+\begin{enumerate}
+\item The number 4 is an even integer. \points{2}
+
+\vspace{1.25in}
+
+\item For each integer $n$, $n^2-1$ is a prime number.\points{2}
+
+\vspace{1.25in}
+
+\item There exists some $x\in\R$ such that $x+y=3$. \points{2}
+
+\vspace{1in}
+\end{enumerate}
+
+\item For each conditional statement below, identify the hypothesis and conclusion, and indicate whether or not the statement is true or false.
+\begin{enumerate}
+\item If $3+5=10$, then $8<-3$. \points{2}
+
+\vspace{1.25in}
+
+\item The fact that $14=2(7)$ implies that 14 is an odd integer. \points{2}
+\end{enumerate}
+\newpage
+
+\item For the following problems, you do {\bf not} need to show your work.
+\begin{enumerate}
+\item List four integers $n$ such that $n\equiv 3 \pmod{7}$. \points{2}
+
+\vspace{1.25in}
+
+\item Give an example of a tautology and an example of a contradiction. Your example can be specific or symbolic (using $P$, $Q$, etc.)\points{2}
+
+\vspace{1.25in}
+
+\item What is the contrapositive of the statement ``If $p$ is a prime number, then $p=2$ or $p$ is an odd number''?\points{2}
+
+\vspace{1in}
+
+\item What does it mean to say that a subset of the integers is {\em inductive}? \points{2}
+
+\vspace{1.25in}
+
+\item What is the negation of the statement ``For all $m\in\Z$, there exists some $n\in \Z$ such that $2m-5n=7$''? \points{2}
+
+
+
+\end{enumerate}
+\newpage
+
+\item Prove the following logical equivalence: $(P\wedge Q)\to (R\vee S)\equiv (\neg R\wedge \neg S)\to (\neg P\vee \neg Q)$. \points{6}
+
+\vspace{3.5in}
+
+\item  Show that the syllogism $[(P\to Q)\wedge (Q\to R)]\to (P\to R)$ is a tautology. \points{6}
+
+\newpage
+
+\item Are the following propositions true or false? Justify your conclusion with a proof\footnote{Any true statements on this page can be proved using a direct proof of either the original statement or its contrapositive.} or counterexample.
+\begin{enumerate}
+\item For $a,b,c\in Z$, with $a\neq 0$, if $a|(bc)$, then $a|b$ or $a|c$.\points{4}
+
+\vspace{2in}
+
+\item For any $n\in \N$, if $n^3$ is even, then $n$ is even. \points{4}
+
+\vspace{2.5in}
+
+\item  For any $a,b\in\Z$, if $a\equiv 5\pmod{9}$ and $b\equiv 7\pmod{9}$, then $(a+b)\equiv 3\pmod{9}$.\points{4}
+
+\end{enumerate}
+\newpage
+
+\item Use proof by cases to prove the following proposition: For each $n\in\Z$, if $n\not\equiv 0\pmod{3}$, then $n^2\equiv 1\pmod{3}$. \points{5}\\
+Hint: The division algorithm gives three possible remainders when $n$ is divided by 3.
+
+\vspace{4in}
+
+
+\item Use proof by contradiction to prove the following proposition: For each $n\in \N$, $\sqrt{3n+2}$ is not a natural number. \points{5}\\
+Hint: The two problems on this page are related.
+
+\newpage
+
+\item Use mathematical induction to prove that for each natural number $n$, \points{6}
+\[
+1+3+5+\cdots + (2n-1) = n^2.
+\]
+\end{enumerate}
+
+
+
+\end{document}

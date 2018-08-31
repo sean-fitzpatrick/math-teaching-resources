@@ -1,0 +1,191 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[legalpaper,margin=1in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Marks: 40}}
+\chead{MATH2111}\lhead{Test \# 1}\rhead{Monday, 5\textsuperscript{th} October}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\begin{document}
+
+\author{Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{Mount Allison University}\\
+Department of Mathematics and Computer Science\\
+5\textsuperscript{th} October, 2009, 8:35-9:20 am\\
+{\bf MATH2111 - Test \#1}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{36pt}}\underline{SOLUTIONS}\underline{\hspace{240pt}}\\
+\skipline
+First Name:\underline{\hspace{36pt}}\underline{THE}\underline{\hspace{284pt}}\\
+\skipline
+Student Number:\underline{\hspace{321pt}}\\
+
+\vspace{2in}
+
+
+\begin{quote}
+ {\bf Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments.}
+\end{quote}
+
+\vspace{2in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|l|} \hline
+Q&Mark\\
+\hline \hline
+\cline{1-2} 1 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/30\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\newpage
+\begin{enumerate}
+\item Determine whether the following series converge or diverge.  In each case, state which test or theorem is being used.
+\begin{enumerate}
+\item $\di \sum_{n=1}^\infty \frac{n^2-2n}{n^3+3n+1}$\marginpar{[4]}
+
+\bigskip
+
+Using limit comparison with $b_n=\dfrac{1}{n}$, we see that
+\[
+\lim_{n\to\infty}\frac{\frac{n^2-2n}{n^3+3n+1}}{\frac{1}{n}} = \lim_{n\to\infty}\frac{n^3-2n}{n^3+3n+1}=\lim _{n\to\infty}\frac{1-\frac{2}{n^2}}{1+\frac{3}{n^2}+\frac{1}{n^3}}=1\neq 0,
+\]
+and since the harmonic series $\di \sum_{n=1}^\infty \frac{1}{n}$ diverges, the given series diverges as well.
+
+\vspace{1in}
+
+
+\item $\di \sum_{n=0}^\infty (-1)^n\frac{\ln n}{n^2}$\marginpar{[4]}
+
+\bigskip
+
+Here, we use the alternating series test.  Letting $f(x)=\dfrac{\ln x}{x^2}$, we see that $f(x)>0$ for $x>1$, and $f'(x)=\dfrac{1-2\ln x}{x^3}<0$ for $x>e^{1/2}$, so the sequence $a_n=f(n)$ is positive and decreasing for $n\geq 2$.
+Moreover,
+\[
+\lim_{x\to\infty}\frac{\ln x}{x^2} = \lim_{x\to\infty}\frac{1}{2x^2}=0,
+\]
+using l'Hoptial's rule, so $\lim\limits_{n\to\infty}a_n = 0$ as well.  Therefore, the series converges by the alternating series test.
+
+(It's also possible to show that the series converges absolutely but this is a bit trickier.)
+\vspace{1in}
+
+
+
+\item $\di \sum_{n=0}^\infty \frac{5^n}{3^{2n+1}}$\marginpar{[4]}
+
+\bigskip
+
+Here, we notice that
+\[
+\frac{5^n}{3^{2n+1}} = \frac{5^n}{3\cdot (3^2)^n} = \frac{1}{3}\left(\frac{5}{9}\right)^n,
+\]
+so the series is geometric with $r=5/9<1$, and therefore, the series converges.
+
+(You can also use either the ratio or root test to show $L=5/9<1$.)
+\end{enumerate}
+\newpage
+\item \begin{enumerate}
+\item Determine the radius and interval of convergence for the power series
+\marginpar{[4]}
+
+$\di\sum_{n=1}^\infty \frac{(-1)^n}{n2^n}(x+2)^n$
+
+\bigskip
+
+Letting $a_n = \dfrac{(-1)^n(x+2)^n}{n2^n}$, the ratio test gives
+\[
+\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right| = \lim_{n\to\infty}\left|\frac{(x+2)^{n+1}}{(n+1)2^{n+1}}\frac{n2^n}{(x+2)^n}\right| = \frac{|x+2|}{2}\lim_{n\to\infty}\frac{n}{n+1} = \frac{|x+2|}{2}.
+\]
+Since we need this limit to be less than 1, we must have $|x+2|<2$, so the radius of convergence is $R=2$.
+
+Now, $|x+2|<2 \Leftrightarrow -2<x+2<2 \Leftrightarrow -4<x<0$, so for the interval of convergence, we have to test the endpoints $x=-4$ and $x=0$.  When $x=-4$, we get $a_n = \dfrac{(-1)^n(-4+2)^n}{n2^n} = \dfrac{1}{n}$, so we get the harmonic series, which diverges.  When $x=0$, we similarly get $a_n = \dfrac{(-1)^n}{n}$, which gives the alternating harmonic series, which converges.  Therefore, the interval of convergence is $(-4,0]$.
+
+\bigskip
+
+
+\item Find a power series representation for the functions below.  Be sure to state the interval on which the representation is valid.
+\begin{enumerate}[(i)]
+\item $\di f(x) = \frac{1}{4+x^2}$\marginpar{[3]}
+
+We want to make use of the geometric series formula $\di \sum_{n=0}^\infty r^n = \frac{1}{1-r}$, so we re-write $f(x)$ as
+\[
+f(x) = \frac{1}{4}\left(\frac{1}{1+x^2/4}\right) = \frac{1}{4}\left(\frac{1}{1-(-x^2/4)}\right).
+\]
+Therefore, $r=-x^2/4$, and when $|x|<2$, we have $|r|<2^2/4=1$, so
+\[
+f(x) = \frac{1}{4}\sum_{n=0}^\infty \left(\frac{-x^2}{4}\right)^n = \sum_{n=0}^\infty \frac{(-1)^n}{4^{n+1}}x^{2n}.
+\]
+\vspace{1in}
+
+\item $\di g(x) = \frac{x}{(1-x^2)^2}$\marginpar{[3]}\hspace{80pt}  Hint: what is $\di\frac{d}{dx}\left(\frac{1}{1-x^2}\right)$?
+
+We notice that
+\[
+\frac{d}{dx}\left(\frac{1}{1-x^2}\right) = (-1)(1-x^2)^{-2}(-2x) = \frac{2x}{(1-x^2)^2}=2g(x),
+\]
+using the chain rule for derivatives.  Therefore, when $|x|<1$,
+\[
+g(x) = \frac{1}{2}\frac{d}{dx}\frac{1}{1-x^2} = \frac{1}{2}\frac{d}{dx}\sum_{n=0}^\infty x^2n = \frac{1}{2}\sum_{n=1}^\infty 2nx^{2n-1} = \sum_{n=1}^\infty nx^{2n+1}.
+\]
+\end{enumerate}
+\end{enumerate}
+\newpage
+\item Determine the limit of each of the following sequences, or show that it does not exist:
+\begin{enumerate}
+\item $\di a_n = \sqrt[n]{3}$\marginpar{[2]}
+
+\bigskip
+
+We have
+\[
+\lim_{n\to\infty}a_n = \lim_{n\to\infty}3^{1/n} = \lim_{n\to\infty}e^{\frac{ln 3}{n}} = e^0=1.
+\]
+\vspace{2in}
+
+\item $\di a_n = n\sin\left(\frac{1}{n}\right)$\marginpar{[3]}\hspace{100pt} Hint: let $\theta = \dfrac{1}{n}$
+
+\bigskip
+
+Following the hint, we make the substitution $\theta = \dfrac{1}{n}$.  Since $n\to\infty$, it follows that $\theta\to 0^+$.
+Therefore,
+\[
+\lim_{n\to\infty}n\sin\left(\frac{1}{n}\right) = \lim_{\theta\to 0^+}\frac{1}{\theta}\sin\theta = 1,
+\]
+since $\di \lim_{x\to 0}\frac{\sin x}{x} = 1$
+\vspace{1in}
+
+\item $\di b_n = \frac{n^n}{n!}$\marginpar{[3]}
+
+\bigskip
+
+Intuitively, $n^n$ grows faster than $n!$, so the sequence should diverge.  To show this, note that
+\[
+\frac{n^n}{n!} = \frac{n\cdot n\cdots n}{1\cdot 2\cdots n} = \frac{n}{1}\frac{n}{2}\cdots \frac{n}{n-1}\frac{n}{n}>n,
+\]
+and since $\lim\limits_{n\to\infty} n = \infty$, the sequence diverges.
+\end{enumerate}
+\end{enumerate}
+\end{document}

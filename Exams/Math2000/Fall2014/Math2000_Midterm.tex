@@ -1,0 +1,173 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 50}}
+\chead{MATH 2000A}\lhead{Midterm}\rhead{Thursday, 16\textsuperscript{th} October, 2014}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+16\textsuperscript{th} October, 2014, 12:15-1:30 pm\\
+{\bf Math 2000A - Midterm}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ Record your answers below each question in the space provided.    {\bf Left-hand pages may be used as scrap paper for rough work.}  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+The value of each problem is indicated in the left-hand margins. The value of a problem does not always indicate the amount of work required to do the problem.
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/11\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/11\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/50\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item For each of the following sentences, decide whether or not it is an assertion. If it is, indicate whether it is true or false, and why. If it is not, explain why.
+\begin{enumerate}
+\item The number 4 is an even integer. \points{2}
+
+\vspace{1.25in}
+
+\item For each integer $n$, $n^2-1$ is a prime number.\points{2}
+
+\vspace{1.25in}
+
+\item There exists some $x\in\R$ such that $x+y=3$. \points{2}
+
+\vspace{1in}
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+\item Define the {\bf union} of two sets $A$ and $B$.\points{2}
+
+\vspace{1.25in}
+
+\item What is the Law of the Excluded Middle?\points{2}
+\end{enumerate}
+\newpage
+
+\item For the following problems, you do {\bf not} need to show your work.
+\begin{enumerate}
+\item If $A = \{n\in\Z : n=2k \text{ for some } k\in\Z\}$ and $B = \{n\in\Z : n=3k \text{ for some } k\in\Z\}$, what is $A\cap B$? \points{2}
+
+\vspace{1.25in}
+
+\item If $A= \Z$ and $B=\N$, what is $A\setminus B$?\points{2}
+
+\vspace{1.25in}
+
+\item What is the contrapositive of the statement ``If $p$ is a prime number, then $p=2$ or $p$ is an odd number.'' ?\points{2}
+
+\vspace{1in}
+
+\item If $A_n = \{1,n,2n\}$ for $n=1,2,3,\ldots$, what is $\displaystyle \bigcup_{n=2}^4 A_n$? \points{2}
+
+\vspace{1.25in}
+
+\item What is the negation of the statement ``For all $n\in\Z$, there exists some $m\in \Z$ such that $m>n$.''? \points{2}
+
+
+
+\end{enumerate}
+\newpage
+
+\item Prove the following logical equivalence: $(P\vee Q)\to R\equiv (P\to R)\wedge (Q\to R)$. \points{4}\\ Formal justification of each step is not required.
+
+\vspace{2.25in}
+
+\item Give a two-column proof of the following deduction: $(P\vee \neg Q)\to \neg R, Q\to P; \therefore \neg R$ \points{7}
+
+\newpage
+
+\item Are the following propositions true or false? Justify your conclusion with a proof or counterexample.
+\begin{enumerate}
+\item For $a,b,c\in Z$, if $a|bc$, then $a|b$ or $a|c$.\points{3}
+
+\vspace{2.5in}
+
+\item For any subsets $A$ and $B$ of some universal set $U$, $(A\cup B)\setminus A = B\setminus A$. \points{4}
+
+\vspace{2.5in}
+
+\item For any subsets $A$, $B$, and $C$ of some universal set $U$, if $A\cup C\subseteq B\cup C$, then $A\subseteq B$. \points{4}
+
+\end{enumerate}
+\newpage
+
+\item Prove the following assertion: For any integer $n$, if $n^2-1$ is even, then $n^2-1$ is divisible by 4. \points{4}
+
+\vspace{4in}
+
+
+\item Let $I$ be a nonempty index set, and $\mathcal{A} = \{A_\beta : \beta \in I\}$ be an indexed family of sets. Prove that if $A_\beta\subseteq B$ for all $\beta\in I$, then $\di\bigcup_{\beta\in I}A_\beta\subseteq B$.\points{4}
+\end{enumerate}
+
+
+
+\end{document}

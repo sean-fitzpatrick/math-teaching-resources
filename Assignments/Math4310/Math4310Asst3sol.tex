@@ -1,0 +1,83 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+\newcommand{\N}{\mathbb{N}}
+
+\title{Math 4310 Assignment \#3 Solutions\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+\item For each pair of points $a,b\in\mathbb{R}^n$, prove that there is a topological equivalence $f:\R^n\to \R^n$ between $(\R^n,d)$ and itself (where $d$ is the Euclidean metric -- or whatever your favourite metric equivalent to the Euclidean metric happens to be) such that $f(a)=b$.
+
+{\em Hint}: For $n=1$ you should be able to show that $f(x)=x+b-a$ does the job. For general $n\in\mathbb{N}$ you'll want to come up with something similar.
+
+\bigskip
+
+{\bf Solution}: Let $\aaa=(a_1,\ldots, a_n)$ and $\bbb=(b_1,\ldots, b_n)$ be the given points, and define $f:\R^n\to\R^n$ by
+\[
+f(x_1,\ldots, x_n) = (x_1+b_1-a_1,\ldots, x_n+b_n-a_n).
+\]
+Note that if we identify points in $\R^n$ (viewed as a metric space) with vectors (viewing $\R^n$ as a vector space with the standard basis) then $f$ is given simply by $f(\x) = \x+\bbb-\aaa$. Then we have $f(\aaa)=\bbb$, and $f$ is invertible, with inverse map $f^{-1}(\x) = \x-\bbb+\aaa$, so that $f$ must be a bijection. (It's clear that $f^{-1}$ is a well-defined function, so $f$ must be one-to-one, and $f$ is onto, since for any $\y\in\R^n$ we have $f(f^{-1}(\y))=\y$.)
+
+Since $f$ and $f^{-1}$ are simply translations, it should be clear that they are continuous; to check this, note that for any $\epsilon>0$, taking $\delta=\epsilon$ gives
+\[
+\len{(\x-\bbb+\aaa)-(\y-\bbb+\aaa)} = \len{\x-\y}<\delta=\epsilon,
+\]
+so that $f$ is continuous, and an identical proof shows that $f^{-1}$ is continuous.
+
+\item Let $X$ be the open interval $(-\pi/2,\pi/2)$, considered as a subspace of $\R$, with the usual metric. Prove that $X$ is topologically equivalent to all of $\R$ itself. (You might have to think back to your intro calculus material to come up with a function that gives a bijection between $X$ and $\R$.) Next, prove that any two open intervals, viewed as subspaces of $\R$ are topologically equivalent. Conclude that $\R$ is topologically equivalent to any open subinterval.
+
+\bigskip
+
+{\bf Solution}: Note that viewing any open interval as a subspace of the metric space $\R$ simply means that we keep the usual distance function on these spaces, so that continuity means the usual notion of continuity from real analysis. Consider the function $\tan:X=(-\pi/2,\pi/2)\to \R$. From basic calculus, we know that $\tan$ is one-to-one on $X$, has range $\R$, and is continuous. Moreover, its inverse is given by the continuous function $\arctan:\R\to X$, so that $X$ and $\R$ are homeomorphic. Given any two intervals $(a,b)$ and $(c,d)$, we can take the linear function
+\[
+f(x) = \left(\frac{d-c}{b-a}\right)(x-a)+c.
+\]
+We know that any linear (nonconstant) function is one-to-one and continuous, and we have $f(a)=c$ and $f(d)=b$, which tells us that $f$ is onto the interval $(c,d)$. The inverse of $f$ is $f^{-1}(x) = \left(\dfrac{b-a}{d-c}\right)(x-c)+a$, which is also a linear, and hence continuous, function. Taking one of the two intervals to be $X$, we conclude that any open interval is topologically equivalent to $\R$, since we can compose the map $(a,b)\to X$ with the map $\tan:X\to\R$. (Here we are using without proof the fact that topological equivalence is an equivalence relation, which was one of the textbook exercises.)
+
+Finally, if we want to be thorough, we can note that the interval $(0,\infty)$ is homeomorphic to $\R$ via the homeomorphism given by the natural logarithm (with inverse the exponential function), and any interval of the form $(a,\infty)$ or $(-\infty, a)$ can be identified with $(0,\infty)$ by a simple translation and/or reflection (i.e. $x\mapsto x-a$ or $x\mapsto a-x)$.
+
+\item Let $(Y,d')$ be a subspace of $(X,d)$. Let $(a_n)$ be a sequence of points in $Y$ such that $a_n\to a$ in $Y$ (i.e. $(a_n)$ converges in $Y$ to $a\in Y$.) Prove that $a_n\to a$ in $X$ as well.
+
+{\em Hint}: recall that $d' = d|_{Y\times Y}$ for a subspace. Your proof shouldn't be very long. (Note however that the converse of this result is not true: for example, any sequence of rational numbers that converges to $\sqrt{2}$ cannot be considered convergent as a sequence in the metric space $\mathbb{Q}$.)
+
+\bigskip
+
+{\bf Solution}: Given such a sequence $(a_n)$ of points in $Y$ with limit $a\in Y$, we note that since $Y\subseteq X$, we can view the sequence as a sequence in $X$, and the metric remains unchanged, since $d'$ is simply the restriction to $Y$ of the metric $d$ on $X$. Since $(a_n)\to a$ in $Y$, given any $\epsilon>0$ we can find an $N\in\N$ such that for any $n\geq \N$ we have
+\[
+d(a_n,a) = d'(a_n,a) <\epsilon.
+\]
+Thus $a_n\to a$ in $X$.
+
+\item Prove that if $f:X\to Y$ is a continuous map between metric spaces, and $(x_n)$ converges to $x$ in $X$, then $(f(x_n))$ converges to $f(x)$ in $Y$.
+
+\bigskip
+
+{\bf Solution}: Let $\epsilon>0$ be given. Since $f$ is continuous, there exists a $\delta>0$ such that whenever $d_X(x,a)<\delta$, we have $d_Y(f(x),f(a))<\epsilon$. Since $a_n\to a$ in $X$, there exists some $N\in\N$ such that whenever $n\geq N$, we have $d_X(x_n,x)<\delta$. Thus, since $f$ is continuous, whenever $n\geq N$, it follows that $d_Y(f(x_n),f(x))<\epsilon$.
+
+\item Prove that any subset of a discrete topological space is simultaneously open and closed.
+
+\bigskip
+
+{\bf Solution}: By definition, every subset of a space $X$ with the discrete topology is open. Since $X\setminus A$ is also a subset of $X$ for any subset $A\subseteq X$, we know that $X\setminus A$ is open, and thus $A$ is closed.
+
+\end{enumerate}
+\end{document}
+ 

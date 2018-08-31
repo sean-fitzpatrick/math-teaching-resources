@@ -1,0 +1,55 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 3410A}\chead{Quiz \# 5}\rhead{Friday, 27\textsuperscript{th} February, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+{\bf Name:}
+
+\bigskip
+
+Solve {\bf one} of the following two questions:
+ \begin{enumerate}
+ \item  Let $T\in \mathcal{L}(U,V)$ and $S\in \mathcal{L}(V,W)$ be invertible linear maps. Prove that $ST\in \mathcal{L}(U,W)$ is invertible, and show that $(ST)^{1-} = T^{-1}S^{-1}$.
+
+ \item Let $T:\R^4\to \R^3$ be given by
+\[
+ T(w,x,y,z) = (3w-2x+z,x+3y-4z,w-x+y+z).
+\]
+ Compute the matrix of $T$ with respect to the bases
+\begin{align*}
+ B_4 &= \{(1,0,2,0),(0,3,0,1), (1, -2, 0, 0), (0,0,-1,1)\} \text{ of } \R^4, \text{ and }\\
+ B_3 &= \{(1,0,0),(0,1,0), (0,0,1)\} \text{ of } \R^3.
+\end{align*}
+
+ \end{enumerate}
+\end{document}

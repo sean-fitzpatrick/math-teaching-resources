@@ -1,0 +1,97 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.75in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 7}\rhead{Tuesday, 1\textsuperscript{st} March, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newenvironment{aamatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|*{#1}{c}@{}}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}   
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+         
+                  
+\begin{document}
+{\bf \large Name:} \hspace{2.5in} {\bf Tutorial time:}
+
+\bigskip
+
+{\bf Problem you want feedback on:}
+
+\bigskip
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+Please complete all problems below.
+ \begin{enumerate}
+ \item In each case, give an elementary matrix $E$ such that $EA=B$:
+\begin{enumerate}
+ \item $A=\bbm 2&1\\3&-1\ebm$, $B = \bbm 2&1\\1&-2\ebm$
+ \item $A=\bbm -1&2\\0&1\ebm$, $B = \bbm 1&-2\\0&1\ebm$
+ \item $A=\bbm 1&1\\-2&2\ebm$, $B = \bbm -1&2\\1&1\ebm$
+ \item $A=\bbm 4&1\\3&2\ebm$, $B = \bbm 1&-1\\ 3&2\ebm$
+ \item $A=\bbm -1&1\\1&-1\ebm$, $B=\bbm -1&1\\-1&1\ebm$
+\end{enumerate}
+ 
+\item Find an invertible matrix $U$ such that $UA$ is in row-echelon form, where $A = \bbm 3&5&0\\3&7&1\\1&2&1\ebm$. How do you know $U$ is invertible?
+
+\newpage
+
+\item Write the matrix $A = \bbm 1&0&2\\0&1&1\\2&1&6\ebm$ as a product of elementary matrices.
+
+\vspace{4in}
+
+
+\item Prove that if $A$ is invertible, so is $A^T$, and $(A^T)^{-1} = (A^{-1})^T$.
+
+{\em Hint:} You will need the fact that for any matrices $M$ and $N$ such that the product $MN$ is defined, $(MN)^T = N^TM^T$. Use the fact that the inverse is unique.
+
+\vspace{2in}
+
+\item Prove that if $A$ is invertible and $a\in\R$ is a scalar, then $aA$ is invertible.
+
+{\em Hint:} Find an expression for $(aA)^{-1}$.
+
+
+ \end{enumerate}
+
+\end{document}

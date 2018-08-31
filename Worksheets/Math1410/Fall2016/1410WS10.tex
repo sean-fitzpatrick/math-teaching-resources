@@ -1,0 +1,96 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 10}\rhead{November 23/24, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}   
+                 
+\begin{document}
+{\bf \large Name:} \hspace{2.5in} {\bf Tutorial day and time:}
+
+\bigskip
+
+{\bf Select {\bf one} {\em completed} problem for feedback:}
+
+\bigskip
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+ \begin{enumerate}
+\item Compute the transpose, trace, and determinant of each of the matrices below:
+\[
+ A = \bbm 2 & -1 & 3\\0&4&-4\\3&2&-5\ebm \quad \quad \quad B = \bbm -1&-1&1&0\\2&1&1&3\\0&1&1&2\\1&3&-1&2\ebm
+\]
+
+\newpage
+
+\item Let $A$ be a $3\times 3$ matrix such that $\det A = 4$. Compute the determinant of the following matrices:
+\begin{enumerate}
+ \item $B=EA$, where $E$ is the elementary matrix $E=\bbm 3&0&0\\0&1&0\\0&0&1\ebm$
+
+\vspace{0.75in}
+
+ \item The matrix $C$ obtained by switching rows 2 and 3 of $A$.
+
+\vspace{0.75in}
+
+ \item The matrix $2A$.
+
+\vspace{0.75in}
+\end{enumerate}
+
+\item Let $A = \bbm 1&0&-2\\0&3&6\\-1&2&5\ebm$ and $B = \bbm 0&4&-1\\2&3&2\\1&3&-1\ebm$.\\Compute (use scrap paper for more space, or a computer, if needed):
+\begin{enumerate}
+ \item $\det(A)$ and $\det(B)$.
+
+\vspace{1.25in}
+
+ \item The matrices $AB$ and $BA$, and their determinants.
+
+\vspace{1.25in}
+
+ \item The inverse of $A$, and its determinant.
+\end{enumerate}
+
+
+ \end{enumerate}
+\end{document}

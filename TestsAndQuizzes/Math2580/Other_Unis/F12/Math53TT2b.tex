@@ -1,0 +1,223 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 32}}
+\chead{MATH 53}\lhead{Test \# 2}\rhead{Monday, 5\textsuperscript{th} November, 2012}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator{\area}{Area}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of California, Berkeley}\\
+Department of Mathematics\\
+5\textsuperscript{th} November, 2012, 12:10-12:55 pm\\
+{\bf MATH 53 - Test \#2}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+\skipline
+Discussion Section: \underline{\hspace{307pt}}\\
+\skipline
+Name of GSI: \underline{\hspace{336pt}}\\
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ {\bf Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to {\bf show your work}, and include all necessary justifications needed to support your arguments.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/7\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/11\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/4\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/32\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+\skipline
+
+B
+\end{center}
+\end{table}
+\newpage
+
+\begin{center}
+ List of potentially useful information
+\end{center}
+\begin{itemize}
+ \item Extreme Value Theorem: If a subset $D\subseteq \mathbb{R}^2$ is closed and bounded, and $f$ is a continuous function on $D$, then there exist points $(x_1,y_1), (x_2,y_2)\in D$ such that $f(x_1,y_1)=m$ is the absolute minimum of $f$ on $D$, and $f(x_2,y_2)=M$ is the absolute maximum of $f$ on $D$. 
+ \item If $f(x,y)$ has a maximum or minimum at $(a,b)$ when subject to the constraint $g(x,y)=c$, then $\nabla f(a,b) = \lambda \nabla g(a,b)$.
+ \item If $a\leq f(x,y)\leq b$ on $D$, then $\di a\area(D) \leq \iint_D f(x,y)\, dA\leq b\area(D)$.
+ \item Fubini's Theorem: If $f$ is continuous on a rectangle $R=[a,b]\times [c,d]$, then
+ \[
+ \iint_R f(x,y)\, dA = \int_a^b\int_c^d f(x,y)\,dy\,dx = \int_c^d\int_a^b f(x,y)\,dx\,dy.
+ \]
+ \item Polar coordinates: $x=r\cos\theta$, $y=r\sin\theta$, $dA = r\,dr\,d\theta$.
+ \item Cylindrical coordinates: $x=r\cos\theta$, $y=r\sin\theta$ $z=z$, $dV = r\,dz\,dr\,d\theta$.
+ \item Spherical coordinates: $x=\rho\cos\theta\sin\phi$, $y=\rho\sin\theta\sin\phi$, $z=\rho\cos\phi$, $dV = \rho^2\sin\phi\,d\rho\,d\phi\,d\theta$.
+ \item Average value: $\di f_{av} = \frac{1}{\area(D)}\iint_D f(x,y)\,dA$.
+ \item Jacobian: if $T(u,v) = (x(u,v),y(u,v))$, then $\di J_T(u,v) = \frac{\partial x}{\partial u}\frac{\partial y}{\partial v}-\frac{\partial x}{\partial v}\frac{\partial y}{\partial u}$.
+ \item Change of variables: if $T$ is a transformation from $R$ to $D$, then 
+\[
+ \iint_D f(x,y)\,dA = \iint_R f(T(u,v))\lvert J_T(u,v)\rvert\,du\,dv.
+\]
+
+
+ 
+\end{itemize}
+
+\newpage
+
+\begin{enumerate}
+\item Find the maximum and minimum of $f(x,y)=y^2-3x^2$ subject to the constraint $4x^2+9y^2=36$, if they exist. \points{7}
+
+(Note: this problem can be solved either with algebra and calculus, or by drawing a suitable picture, as long as it's properly explained.)
+
+\bigskip
+
+The graphical solution consists of drawing the ellipse $4x^2+9y^2=36$ and realizing that in order for a hyperbola $y^2-3x^2=c$ to be tangent to this ellipse (as required by the Lagrange multiplier equations), the vertices of the hyperbola must coincide with one of the pairs of vertices of the ellipse. Thus, the hyperbola must pass through either $(x,y) = (\pm 3, 0)$, which gives $f(\pm 3, 0) = -27$, or $(x,y) = (0,\pm 2)$, which gives $f(0,\pm 2) = 4$, so that the maximum is $f(0,\pm 2)=4$ and the minimum is $f(\pm 1, 0) = -27$.
+
+\medskip
+
+The somewhat less fun algebraic solution is to write down the Lagrange multiplier equations $\nabla f(x,y) = \lambda \nabla g(x,y)$, and $g(x,y)=36$, where $g(x,y) = 4x^2+9y^2$. We get the pair of equations
+\[
+ -6x = \lambda (8x) \quad \text{ and } \quad 2y = \lambda(18y).
+\]
+For the first equation, we have either $x=0$, in which case the constraint equation gives $y=\pm 2$ (and we have $\lambda = 1/9$), or $\lambda =-3/4$, in which case we must have $y=0$, and thus $x=\pm 3$. This yields the same solutions as the graphical solution suggested above, and thus the maximum is $f(0,\pm 2)=4$, and the minimum is $f(\pm 1,0) = -27$.
+
+\bigskip
+
+\newpage
+
+\item Evaluate the integral $\di \int_{-2}^2\int_0^{\sqrt{4-x^2}}\sqrt{4-y^2}\, dy\,dx$ by changing the order of integration. \points{6}
+
+\bigskip
+
+The region is given by $-2\leq x\leq 2$ and $0\leq y\leq \sqrt{4-x^2}$, which is the half of the circle of radius 2 centered at $(0,0)$ above the $x$-axis. The region can also be described by $0\leq y\leq 2$ and $-\sqrt{4-y^2}\leq x\leq\sqrt{4-y^2}$, and thus,
+\begin{align*}
+ \int_{-2}^2\int_0^{\sqrt{4-x^2}}\sqrt{4-y^2}\, dy\,dx & = \int_0^2\int_{-\sqrt{4-y^2}}^{\sqrt{4-y^2}}\sqrt{4-y^2}\,dx\,dy\\
+& = \int_0^2 2(4-y^2)\,dy\\
+& = 2\left(8-\frac{8}{3}\right) = \frac{32}{3}.
+\end{align*}
+
+
+\bigskip
+
+
+\item Evaluate the integral $\di \iiint_E y\,dV$, where $E\subseteq\mathbb{R}^3$ is bounded by $z=2-x^2-y^2$ and $z=0$. \points{5}
+
+\bigskip
+
+Since the region $E$ is symmetric with respect to the plane $y=0$ and the function $f(x,y,z)=y$ is odd with respect to $y$, we have $\di \iiint_E y\,dV=0$.
+
+\medskip
+
+If you didn't notice the symmetry right away, the best way to set up the integral is using cylindrical coordinates, which gives
+\[
+ \iiint_E y\,dV = \int_0^{2\pi}\int_0^{\sqrt{2}}\int_{0}^{2-r^2}r\sin\theta\, r\,dz\,dr\,d\theta = \int_0^{2\pi}\sin\theta\, d\theta\int_0^{\sqrt{2}}(2r^2-2r^4)\, dr = 0.
+\]
+\newpage
+
+
+\item Let $D\subseteq \mathbb{R}^2$ be the region bounded by the curves $y=2x+1$, $y=2x-2$, $x=-4y$, and $x=6-4y$. Find a rectangle $R$ and transformation $T$ that maps $R$ onto $D$, and compute the Jacobian of $T$.  \points{6}
+
+
+
+\bigskip
+
+The boundary of $D$ consists of four line segments, two of which are part of the family of lines $2x-y=c$, with $-1\leq c\leq 2$; the other two belong to the family of lines $x+4y=d$, with $0\leq d\leq 6$. If we let $u=2x-y$ and $v=x+4y$, then $D$ is the image of the points $(u,v)$ with $(u,v)$ in the rectangle $R = [-1,2]\times [0,6]$. To find the transformation $T$, we need to solve for $x$ and $y$ in terms of $u$ and $v$. We see that $4u+v = (8x-4y)+(x+4y) = 9x$, so that $x = \dfrac{4u+v}{9}$, and $-u+2v = (-2x+y)+(2x+8y) = 9y$, which gives $y= \dfrac{-u+2v}{9}$.
+
+Thus, we have $R=[-1,2]\times [0,6]$ and $T(u,v) = \left(\dfrac{4u+v}{9},\dfrac{-u+2v}{9}\right)$. The Jacobian of $T$ is given by
+\[
+ J_T(u,v) = \frac{\partial x}{\partial u}\frac{\partial y}{\partial v}-\frac{\partial x}{\partial v}\frac{\partial y}{\partial u} = \frac{4}{9}\left(\frac{2}{9}\right)-\frac{1}{9}\left(\frac{-1}{9}\right) = \frac{1}{9}.
+\]
+
+
+\item Show that the Jacobian of the spherical coordinate transformation is given by $J_T(\rho,\phi,\theta) = \rho^2\sin\phi$.\points{4}
+
+
+\bigskip
+
+The spherical coordinate transformation is given by 
+\[   
+T(\rho,\phi,\theta) = (\rho\sin\phi\cos\theta,\rho\sin\phi\sin\theta,\rho\cos\phi),
+\]
+so the Jacobian of $T$ is given by
+\begin{align*}
+ J_T(\rho,\phi,\theta) &= \det\begin{pmatrix}
+                              x_\rho&x_\phi& x_\theta\\y_\rho&y_\phi&y_\theta\\z_\rho&z_\phi&z_\theta
+                             \end{pmatrix}\\
+& = \det\begin{pmatrix}
+         \sin\phi\cos\theta& \rho\cos\phi\cos\theta& -\rho\sin\phi\sin\theta\\ \sin\phi\sin\theta& \rho\cos\phi\sin\theta& \rho\sin\phi\cos\theta\\ \cos\phi & -\rho\sin\phi & 0
+        \end{pmatrix}\\
+& = \cos\phi(\rho^2\cos^2\theta\sin\phi\cos\phi+\sin^2\theta\sin\phi\cos\phi)+\rho
+\sin\phi(\rho\sin^2\phi\cos^2\theta+\sin^2\phi\sin^2\theta)\\
+& = \rho^2\sin\phi(\sin^2\phi+\cos^2\phi) = \rho^2\sin\phi,
+\end{align*}
+as required.
+
+\newpage
+
+\item Let $f$ be a continuous function on a closed, bounded set $D\subseteq \mathbb{R}^2$, and let $m$ and $M$ denote the absolute minimum and maximum of $f$ on $D$. The {\em Intermediate Value Theorem} in two variables states that if $f$ is continuous and $D$ is {\em connected} (consists of one solid piece), then $f$ attains every value between $m$ and $M$ (i.e. the range of $f$ is $[m,M]$). Use these facts to prove that there exists a point $(x_0,y_0)\in D$ such that\points{4}
+\[
+\iint_D f(x,y)\,dA = f(x_0,y_0)\area(D). 
+\]
+ 
+\bigskip
+
+Suppose that $f$ is continuous on a closed, bounded and connected region $D$. By the Extreme Value Theorem, $f$ attains an absolute minimum $m = f(x_1,y_1)$ and an absolute maximum $M=f(x_2,y_2)$ for some points $(x_1,y_1), (x_2,y_2)\in D$. Since $m\leq f(x,y)\leq M$ on $D$, we have
+\[
+ mA(D) = \iint_D m\, dA\leq \iint_D f(x,y)\,dA \leq \iint_D M\, dA = MA(D),
+\]
+and thus $\di m\leq \frac{1}{A(D)}\iint_D f(x,y)\, dA \leq M$. By the Intermediate Value Theorem, $f$ attains every value between $m$ and $M$ on $D$, and thus, in particular, there exists a point $(x_0,y_0)\in D$ such that $\di f(x_0,y_0) = \frac{1}{A(D)}\iint_D f(x,y)\,dA$, from which the result follows.
+
+\end{enumerate}
+
+
+
+\end{document}

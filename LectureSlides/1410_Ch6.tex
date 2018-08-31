@@ -1,0 +1,292 @@
+\documentclass[11pt,t]{beamer}
+\usetheme{Malmoe}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[all,cmtip]{xy}
+\usepackage{pgfpages}
+\usepackage{graphicx}
+
+\pgfpagesuselayout{resize to}[letterpaper,landscape,border shrink=5mm]
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\minor}{minor}
+\DeclareMathOperator{\cof}{cof}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\spn}{span}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\comp}[2]{\operatorname{comp}_{\vec{#1}}\vec{#2}}
+\newcommand{\proj}[2]{\operatorname{proj}_{\vec{#1}}\vec{#2}}
+%\geometry{landscape,paper=letterpaper}
+\beamertemplatenavigationsymbolsempty
+\date{}
+\author{Math 1410 Linear Algebra}
+\title{Eigenvalues and Eigenvectors}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+%\date{} 
+%\subject{} 
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+
+%\begin{frame}
+%\tableofcontents
+%\end{frame}
+
+\begin{frame}
+\frametitle{Matrix transformations}
+Let $A$ be an $m\times n$ matrix. If $X$ is a vector in $\R^n$ (an $n\times 1$ matrix) then we know that $AX=Y$ defines a vector in $\R^m$ (an $m\times 1$ matrix.
+
+For any such matrix $A$, we get a \alert{function} $f_A:\R^n\to\R^m$, called a \alert{matrix transformation}, or \alert{linear transformation}.
+
+\bigskip
+
+If $A$ is a \alert{square} $n\times n$ matrix, we get a function $f_A$ that transforms each vector in $\R^n$ to another vector in $\R^n$. 
+
+\bigskip
+
+
+For example, for $A = \begin{bmatrix}
+\cos \theta &\sin\theta\\-\sin\theta & \cos\theta
+\end{bmatrix}$, the function $f_A$ rotates a each vector $X = \begin{bmatrix}
+x&y
+\end{bmatrix}^T$ by an angle of $\theta$.
+
+\end{frame}
+\begin{frame}
+\frametitle{Multiplication operators}
+
+For any scalar $\lambda$, we can consider the function $f_\lambda:\R^n\to\R^n$ given by $f_\lambda(X) = \lambda X$.
+
+\medskip
+
+This is the operator of scalar multiplication: if $X = \begin{bmatrix}x_1&x_2&\cdots & x_n\end{bmatrix}^T$, then
+\[
+f_\lambda(X) = \begin{bmatrix}\lambda x_1&\lambda x_2&\cdots & \lambda x_n\end{bmatrix}^T.
+\]
+We note that $f_\lambda$ is also a matrix transformation: $f_\lambda=f_A$, where
+\[
+A = \begin{bmatrix}\lambda & 0 & \cdots &  0\\0&\lambda &\cdots & 0\\\vdots & \vdots &\ddots &\vdots \\0&0&\cdots &\lambda\end{bmatrix} = \lambda I_n,
+\]
+where $I_n$ is the $n\times n$ identity matrix.
+\end{frame}
+\begin{frame}
+\frametitle{Invariant directions for matrix transformations}
+
+For the matrix $A = \lambda I_n$, we note that for every vector $X$ in $\R^n$, $AX$ is parallel to $X$. For other matrices, it's possible that there are \alert{no} vectors with this property: for example, if $A$ is the rotation matrix in $\R^2$ (unless $\theta$ is a multiple of $2\pi$).
+
+\bigskip
+
+We'll be interested in the case where there are \alert{some} vectors such that $AX$ is parallel to $X$. For example, the function $f:\R^2\to \R^2$ given by $f(x,y) = (x+y,y)$ is an example of a \alert{shear transformation}. It can be represented as the matrix transformation
+\[
+f_A\left(\begin{bmatrix}x\\y\end{bmatrix}\right) = \begin{bmatrix}1&1\\0&1\end{bmatrix}\begin{bmatrix}
+x\\y
+\end{bmatrix}.
+\]
+\end{frame}
+\begin{frame}
+\frametitle{Eigenvalues and eigenvectors}
+\begin{definition}
+For any $n\times n$ matrix $A$, we say that a scalar $\lambda$ is an \alert{eigenvalue} for $A$ if there exists a non-zero vector $X$, called an \alert{eigenvector}, such that
+\[
+AX=\lambda X
+\]
+\end{definition}
+\begin{example}
+Let $A = \begin{bmatrix}2&-4\\-1&5\end{bmatrix}$. Then we have
+\[
+\begin{bmatrix}2&-4\\-1&5\end{bmatrix}\begin{bmatrix}4\\1\end{bmatrix} = \begin{bmatrix}4\\1\end{bmatrix} \text{ and } \begin{bmatrix}2&-4\\-1&5\end{bmatrix}\begin{bmatrix}1\\-1\end{bmatrix} = \begin{bmatrix}6\\-6\end{bmatrix} = 6\begin{bmatrix}1\\-1\end{bmatrix},
+\]
+so $\lambda =1$ and  $\lambda = 6$ are eigenvalues of $A$, with corresponding eigenvectors $\begin{bmatrix}4\\1\end{bmatrix}$ and $\begin{bmatrix}1\\-1\end{bmatrix}$, respectively.
+\end{example}
+\end{frame}
+\begin{frame}
+\frametitle{Eigenvectors and characteristic directions}
+
+\begin{theorem}
+Suppose $X$ is an eigenvector of an $n\times n$ matrix $A$, with eigenvalue $\lambda$. Then for any scalar $k\neq 0$, $kX$ is also an eigenvector of $A$, corresponding to the same eigenvalue.
+\end{theorem}
+\end{frame}
+\begin{frame}
+\frametitle{Finding eigenvalues and eigenvectors}
+
+Let $A$ be an $n\times n$ matrix, and suppose $\lambda$ is an eigenvalue of $A$. Then there exists a \alert{non-zero} vector $X$ such that $AX=\lambda X$. That is, $X\neq 0$ and
+\[
+AX-\lambda X = (A-\lambda I_n)X = 0.
+\]
+We note that $A-\lambda I_n$ is an $n\times n$ matrix, and that $X$ is a \alert{non-trivial} solution to the homogeneous system $(A-\lambda I_n)X = 0$. This means that \alert{$A-\lambda I_n$ cannot be invertible}. Since a matrix is invertible if and only if its determinant is non-zero, we arrive at:
+\begin{theorem}
+A scalar $\lambda\in\C$ is an eigenvalue of $A$ if and only if $\det(A-\lambda I_n)=0$
+\end{theorem}
+
+\medskip
+
+\end{frame}
+\begin{frame}
+\frametitle{The characteristic polynomial}
+\begin{definition}
+For any $n\times n$ matrix $A$, we define its \alert{characteristic polynomial} by
+\[
+c_A(x) = \det(xI_n-A).
+\]
+\end{definition}
+\alert{Note:} The eigenvalues of $A$ are precisely the zeros of the characteristic polynomial of $A$.
+\begin{example}
+Find the characteristic polynomial of $A = \begin{bmatrix}
+2&3&-1\\0&3&2\\1&2&0
+\end{bmatrix}$.
+\end{example}
+\end{frame}
+\begin{frame}
+\frametitle{Example}
+Find the eigenvalues and eigenvectors of $A = \begin{bmatrix}1&-5\\-5&1\end{bmatrix}$.
+
+\end{frame}
+\begin{frame}
+\frametitle{Example}
+Find the eigenvalues and eigenvectors of $A = \begin{bmatrix}3&0&0\\1&1&-1\\5&1&3\end{bmatrix}$.
+\end{frame}
+\begin{frame}
+\frametitle{Similar matrices}
+\begin{definition}
+We say that two matrices $A$ and $B$ are \alert{similar} if there exists an invertible matrix $P$ such that $B=P^{-1}AP$.
+\end{definition}
+\begin{theorem}
+If $A$ and $B$ are similar matrices, then they have the same eigenvalues.
+\end{theorem}
+\end{frame}
+\begin{frame}
+\frametitle{Diagonal and upper-triangular matrices}
+
+\begin{theorem}
+If $A$ is a triangular matrix, then the eigenvalues of $A$ are given by the entries on the main diagonal of $A$.
+\end{theorem}
+\alert{Note:} In particular, this is true if $A$ is diagonal, in which case the standard unit basis vectors are eigenvectors for $A$.
+\end{frame}
+\begin{frame}
+\frametitle{Examples}
+
+Find the eigenvalues and eigenvectors of the following matrices:
+\[
+A = \begin{bmatrix}2&0&0\\0&2&0\\0&0&2\end{bmatrix}, B = \begin{bmatrix}
+2&1&0\\
+0&2&0\\
+0&0&2\end{bmatrix}, C = \begin{bmatrix}2&1&0\\0&2&1\\0&0&2\end{bmatrix}
+\]
+
+\end{frame}
+\begin{frame}
+\frametitle{Diagonalization}
+
+\begin{definition}
+We say that an $n\times n$ matrix $A$ is \alert{diagonalizable} if $A$ is similar to a diagonal matrix; that is, if there exists an invertible matrix $P$ such that $D=P^{-1}AP$ is diagonal.
+\end{definition}
+Note: since similar matrices have the same eigenvalues, we must have
+\[
+D = \begin{bmatrix}
+\lambda_1 &0 &\cdots &0\\
+0&\lambda_2&\cdots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+0&0&\cdots&\lambda_n
+\end{bmatrix}
+\]
+\begin{theorem}
+An $n\times n$ matrix $A$ is diagonalizable if and only if there exists a basis of $\R^n$ consisting of eigenvectors of $A$.
+\end{theorem}
+\end{frame}
+\begin{frame}
+\frametitle{Example}
+Determine whether or not the matrix $A = \begin{bmatrix}2&0&2\\0&2&-1\\1&-1&4\end{bmatrix}$ can be diagonalized.
+\end{frame}
+
+\begin{frame}
+\frametitle{Case of distinct eigenvalues}
+
+\begin{theorem}
+If $\lambda_1,\ldots, \lambda_m$ are \alert{distinct} eigenvalues of a matrix $A$, then the corresponding eigenvectors $X_1,\ldots, X_m$ are linearly independent.
+\end{theorem}
+
+\medskip
+
+\alert{Fact:} Any set of $n$ linearly independent vectors forms a basis of $\R^n$.
+
+\end{frame}
+\begin{frame}
+\frametitle{Repeated eigenvalues}
+In general a matrix $A$ will have characteristic polynomial
+\[
+c_A(x) = (x-\lambda_1)^{k_1}(x-\lambda_2)^{k_2}\cdots(x-\lambda_m)^{k_m},
+\]
+where $\lambda_1,\ldots, \lambda_m$ are the eigenvalues and $k_1,\ldots, k_m$ are the \alert{multiplicities} of the eigenvalues.
+
+\begin{definition}
+Given an eigenvalue $\lambda$ of a matrix $A$, we define the \alert{eigenspace} $E(\lambda, A)$ of $A$ with respect to $\lambda$ by
+\[
+E(\lambda, A) = \{X\,|\, (A-\lambda I_n)X=0\}.
+\]
+\end{definition}
+Note: we always have $1\leq \dim E(\lambda_j,A)\leq k_j$ for each $j$. \\
+A matrix $A$ is diagonalizable if and only if $\dim E(\lambda_j,A)=k_j$ for each $j=1,2,\ldots, k$.
+\end{frame}
+\begin{frame}
+\frametitle{Example}
+
+Determine whether or not the matrix $A=\begin{bmatrix}1&2&0\\-3&2&3\\-1&2&2\end{bmatrix}$ is diagonalizable.
+
+\end{frame}
+\begin{frame}
+\frametitle{Example}
+
+Determine whether or not the matrix $A=\begin{bmatrix}2&0&0\\-2&-2&2\\-5&-10&7\end{bmatrix}$ is diagonalizable.
+\end{frame}
+\begin{frame}
+\frametitle{Powers of matrices}
+
+Suppose we wanted to find $A^7$, where $A$ was the matrix from the last slide. Finding this by hand would take a very long time. (For large matrices and high powers, even a computer will take a long time.)
+
+However, we know that $A=PDP^{-1}$, where $P=\begin{bmatrix}-2&1&0\\1&0&2\\0&1&5\end{bmatrix}$.
+
+\end{frame}
+\begin{frame}
+\frametitle{Polynomials of matrices}
+
+Suppose $p(x) = a_nx^n+\cdots + a_1x+a_0$ is a polynomial and we want to compute $p(A)$, where $A$ is diagonalizable.
+\end{frame}
+\begin{frame}
+\frametitle{Symmetric matrices}
+
+Recall: an $n\times n$ matrix $A$ is \alert{symmetric} if $A^T=A$. 
+\begin{theorem}
+Suppose $A$ is a symmetric matrix. If $X_1$ and $X_2$ are eigenvalues of $A$ corresponding to eigenvalues $\lambda_1\neq \lambda_2$, then $X_1\dotp X_2=0$.
+\end{theorem}
+\begin{theorem}
+If $A$ is an $n\times n$ symmetric matrix, then there exists an \alert{orthonormal basis} of $\R^n$ consisting of eigenvectors of $A$.
+\end{theorem}
+\end{frame}
+\begin{frame}
+\frametitle{Example}
+
+Given $A=\begin{bmatrix}3&1\\1&3\end{bmatrix}$, find an orthogonal matrix $P$ such that $P^TAP$ is diagonal.
+\end{frame}
+\begin{frame}
+\frametitle{Example}
+
+Sketch the curve defined by the equation $3x^2+2xy+3y^2=1$.
+\end{frame}
+\end{document}

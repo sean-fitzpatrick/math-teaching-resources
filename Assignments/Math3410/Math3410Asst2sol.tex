@@ -1,0 +1,148 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\spn}{span}
+
+\title{Math 3410 Assignment \#2\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Wednesday, February 11, by 5 pm.
+
+\bigskip
+
+Please provide solutions to the problems below, using the same guidelines as for Assignment \#1:
+
+
+\begin{enumerate}
+ \item Let $U$ be a subspace of a vector space $V$, and let $S:U\to W$ be a linear transformation. Prove that the function $T:V\to W$ given by
+\[
+ Tv = \begin{cases}Sv, &\text{ if } v\in U\\ 0, &\text{ if } v\notin U\end{cases}
+\]
+is {\bf not} a linear transformation.
+
+Hint: if $u\in U$ and $v\notin U$, can $u+v$ be an element of $U$? What about $-v$?
+
+\bigskip
+
+{\bf Solution:} Let $u\in U$ be an element of $U$ such that $Su\neq 0$, and choose some $v\in V$ with $v\notin U$. It follows that $u+v\notin U$, since otherwise we'd have that
+\[
+ v = 0+v = (-u+u)+v = -u+(u+v)\in V,
+\]
+since $U$ is closed under addition. (And if $u\in U$, then we must have $-u\in U$ as well.)  Since $u+v\notin U$, on the one hand we have
+\[
+ T(u+v) = 0,
+\]
+by definition of $T$. On the other hand, since $u\in U$ and $v\notin U$, we have
+\[
+ T(u)+T(v) = S(u) + 0 = S(u)\neq 0.
+\]
+Thus, $T$ cannot be linear, since $T(u+v)\neq Tu+Tv$.
+
+
+\bigskip
+
+ \item Suppose $V$ is a finite-dimensional vector space, and let $U\subseteq V$ be a subspace. Prove that any linear transformation $S:U\to W$ can be extended to a linear transformation $T:V\to W$.
+
+Hint: any basis of $U$ can be extended to a basis for $V$. 
+
+\bigskip
+
+{\bf Solution:} Let $U\subseteq V$ be a subspace of $V$, and let $B_U=\{u_1,\ldots, u_k\}$ be a basis for $U$. We know that $B_U$ can be extended to a basis
+\[
+ B_V = \{u_1,\ldots, u_k,v_1,\ldots, v_m\}
+\]
+of $V$. We know from class (or the textbook) that we can uniquely define a linear transformation by specifying its value on each basis vector. Thus, for example, we can define $T:V\to W$ by setting $Tu_i = Su_i$ for $i=1,2,\ldots, k$, and $Tv_i = 0$ for $i=1,2,\ldots, m$.
+
+\bigskip
+
+{\bf Note:} We don't have to define $T$ to be zero on all the $v_i$, but it is a convenient choice. It also provides an opportunity to point out that this is the {\em correct} way to ``extend by zero'' from a subspace. Make sure you understand why the method in this question works, but the method in the first problem does not. Basically, we know that the extension by the vectors $v_1,\ldots, v_k$ defines a complementary subspace $W$ such that $V=U\oplus W$. We can define $T$ by setting $Tu=Su$ for all $u\in U$, and $Tw=0$ for all $w\in W$. But this is {\bf not} the same as defining $Tv=0$ for all $v\notin U$, since if we take nonzero vectors $u\in U$ and $w\in W$, then $v=u+w$ belongs to {\em neither $U$ nor $W$}.
+
+\bigskip
+
+ \item Suppose that $V$ is a finite-dimensional vector space, and $T:V\to W$ is a linear transformation. Prove that there exists a subspace $U\subseteq V$ such that:
+\begin{enumerate}
+ \item $U\cap \nul T = \{0\}$, and
+ \item $\range T = \{Tu : u\in U\}$.
+\end{enumerate}
+
+\bigskip
+
+{\bf Solution:} We know that $\nul T$ is a subspace of $V$, and since $V$ is finite dimensional, so is $\nul T$. Thus, we can choose a basis $B_0 = \{x_1,\ldots, x_k\}$ of $\nul T$. (Note that $Tx_i=0$ for $i=1,2,\ldots, k$.)
+
+Now, since $B_0$ is a basis for a subspace of $V$, we can extend it to a basis of $V$. Let's say that $B_V = \{x_1,\ldots, x_k,y_1,\ldots, y_n\}$ is the extension. Since $B_V$ is a basis for $V$, we know that any $v\in V$ can be written in the form
+\[
+ v = (a_1x_1+\cdots + a_kx_k)+(b_1y_1+\cdots +b_ny_n).
+\]
+Thus, if we define $U = \spn\{y_1,\ldots, y_n\}$, it follows that
+\[
+ V = U\oplus \nul T,
+\]
+and thus $U\cap \nul T = \{0\}$, and for any $v\in V$, we can write $v = x+y$, where $x\in \nul T$ and $y\in U$. It follows that
+\[
+ Tv = T(x+y) = Tx+Ty = Ty,
+\]
+and since $v$ was arbitrary, any element of $\range T$ is of the form $Ty$, with $y\in U$.
+
+\bigskip
+
+\item Suppose $V$ and $W$ are finite-dimensional vector spaces. 
+\begin{enumerate}
+\item Prove that there exists an injective (one-to-one) linear transformation $T:V\to W$ if and only if $\dim V\leq \dim W$.
+
+\bigskip
+
+The Fundamental Theorem of Linear Maps tells us that
+\[
+ \dim V = \dim\nul T + \dim\range T.
+\]
+If $T$ is one-to-one, then $\dim\nul T=0$, so $\dim V  = \dim \range T\leq \dim W$, since $\range T$ is a subspace of $W$. Conversely, suppose $\dim V\leq \dim W$, and choose bases $\{v_1,\ldots, v_k\}$ of $V$ and $\{w_1,\ldots, w_n\}$ of $W$, with $k\leq n$. Let us define $T:V\to W$ by setting
+\[
+ Tv_1 = w_1, \, Tv_2=w_2,\ldots, Tv_k = w_k,
+\]
+and extending by linearity. (As noted above, $T$ is completely determined by its values on a basis of $V$.) Then $T$ is an injection, as follows: suppose $v\in\nul T$, and write $v = c_1v_1+\cdots +c_kv_k$ in terms of the given basis. Then
+\[
+ 0 = Tv = T(c_1v_1+\cdots +c_kv_k) = c_1Tv_1+\cdots +c_kTv_k = c_1w_1+\cdots+c_kw_k,
+\]
+and the vectors $w_1,\ldots, w_k$ are independent, since they're part of a basis. It follows that $c_1=0,\ldots, c_k=0$, and thus $v=0$, which implies that $\nul T=\{0\}$ and that $T$ is an injection.
+
+\bigskip
+
+\item Prove that there exists a surjective (onto) linear transformation $T:V\to W$ if and only if $\dim V\geq \dim W$.
+
+
+\bigskip
+
+If $T$ is onto, then $\range T= W$, so
+\[
+ \dim V = \dim \nul T + \dim \range T = \dim \nul T +\dim W \geq \dim W.
+\]
+Conversely, suppose $\dim V\geq \dim W$, and choose bases $\{v_1,\ldots, v_k\}$ and $\{2_1,\ldots, w_n\}$ of $V$ and $W$ respectively, with $k\geq n$. As above, we can define $T:V\to W$ in terms of the basis for $V$. We set
+\[
+ Tv_1=w_1, \, Tv_2 = w_2,\ldots, Tv_n = w_n, \text{ and } Tv_j = 0 \text{ for } n+1\leq j\leq k.
+\]
+It follows that $T$ is a surjection, since given any 
+\[
+ w = c_1w_1+\cdots +c_nw_n\in W,
+\]
+we can let $v = c_1v_1+\cdots+c_nw_n$, and then $Tv = w$, as required.
+
+\bigskip
+
+\end{enumerate}
+
+ \end{enumerate}
+\end{document}
+ 

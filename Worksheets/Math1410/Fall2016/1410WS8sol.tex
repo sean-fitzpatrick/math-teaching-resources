@@ -1,0 +1,163 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 8 Solutions}\rhead{November 2/3, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}   
+\DeclareMathOperator{\rank}{rank}
+                
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+ \begin{enumerate}
+\item Determine the rank of each of the following matrices:
+\begin{multicols}{2}
+\begin{enumerate}
+ \item $A = \bbm 2&-3&1&4\\-1&3&5&-7\\1&0&6&-3\ebm$
+
+\medskip
+
+The reduced row-echelon form of $A$ is
+\[
+ \bbm 1&0&6&-3\\0&1&11/3&-10/3\\0&0&0&0\ebm.
+\]
+Since there are two leading ones, we have $\rank(A)=2$.
+
+ \item $B = \bbm 2&6\\5&-3\\3&2\ebm$
+
+\medskip
+
+The reduced row-echelon form of $B$ is
+\[
+ \bbm 1&0\\0&1\\0&0\ebm.
+\]
+Since there are two leading ones, we have $\rank(B)=2$.
+
+
+\end{enumerate}
+\end{multicols}
+
+\vspace{0.5in}
+
+\item Determine the basic solutions of the homogeneous system of equations
+\[
+ \begin{array}{ccccccccc}
+  2x_1&-&3x_2& &   &-&4x_4&=&0\\
+  -x_1&+&2x_2&-&x_3&+&3x_4&=&0\\
+  3x_1&-&4x_2&-&x_3&-&5x_4&=&0
+ \end{array}
+\]
+
+The system can be written in the form $A\vec{x}=\vec{0}$, where $A = \bbm 2&-3&0&-4\\-1&2&-3&3\\3&-4&-1&-5\ebm$. The reduced row-echelon form of the augmented matrix $[\begin{array}{c|c} A&0\end{array}]$ is
+\[
+ \bam{4}1&0&-3&1&0\\0&1&-2&2&0\\0&0&0&0&\eam
+\]
+From the reduced row-echelon form, we can see that $x_3=s$ and $x_4=t$ are free parameters, while $x_1-3x_3+x_4=0$ and $x_2-2x_3+2x_4=0$. Solving for $x_1$ and $x_2$, we have $x_1=3x_3-x_4=3s-t$, and $x_4 = 2x_3-2x_4 = 2s-2t$. Writing our solution in vector form, we have
+\[
+ \bbm x_1\\x_2\\x_3\\x_4\ebm = \bbm 3s-t\\2s-2t\\s\\t\ebm = s\bbm 3\\2\\1\\0\ebm+t\bbm -1\\-2\\0\\1\ebm,
+\]
+so our basic solutions are $\vec{v}_1 = \bbm 3\\2\\1\\0\ebm$ and $\vec{v}_2 = \bbm -1\\-2\\0\\1\ebm$.
+
+
+\newpage
+
+\item Determine whether or not the vectors
+\[
+ \vec{v}_1 = \bbm 2\\-1\\3\ebm, \vec{v}_2 = \bbm 0\\1\\-4\ebm, \quad \text{ and } \quad \vec{v}_3 = \bbm 3\\-1\\5\ebm
+\]
+are linearly independent.
+
+\bigskip
+
+We recall that the vectors $\vec{v}_1, \vec{v}_2, \vec{v}_3$ are linearly independent provided that the only solution to the vector equation
+\[
+ x_1\vec{v}_1+x_2\vec{v}_2+x_3\vec{v}_3 = \vec{0}
+\]
+is $x_1=0, x_2=0, x_3=0$. Our vector equation can be re-written as a system of linear equations with augmented matrix
+\[
+ \bam{3}2&0&3&0\\-1&1&-1&0\\3&4&5&0\eam.
+\]
+The reduced row-echelon form of this matrix is $\bam{3}1&0&0&0\\0&1&0&0\\0&0&1&0\eam$, which shows that we have the unique solution $x_1=0,x_2=0,x_3=0$, and thus, our vectors are linearly independent.
+
+\bigskip
+
+
+\item Determine whether or not $\vec{w}\in \operatorname{span}\{\vec{v}_1,\vec{v}_2, \vec{v}_3\}$, where
+\[
+ \vec{v}_1 = \bbm 1\\0\\2\\-1\ebm, \vec{v}_2 = \bbm 2\\1\\0\\-3\ebm, \vec{v}_3 = \bbm -2\\0\\-4\\1\ebm, \quad \text{ and } \quad \vec{w} = \bbm 2\\3\\-8\\6\ebm.
+\]
+
+\bigskip
+
+The vector $\vec{w}$ belongs to the span of the vectors $\vec{v}_1,\vec{v}_2,\vec{v}_3$ provided that there exist scalars $x_1,x_2,x_3$ such that
+\[
+ x_1\vec{v}_1+x_2\vec{v}_2+x_3\vec{v}_3=\vec{w}.
+\]
+This vector equation leads to a system of linear equations with augmented matrix 
+\[
+ \bam{3}1&2&-2&2\\0&1&0&3\\2&0&-4&-8\\-1&-3&1&6\eam.
+\]
+The reduced row-echelon form of this matrix is
+\[
+ \bam{3}1&0&0&-26\\0&1&0&3\\0&0&1&-11\\0&0&0&0\eam.
+\]
+Since a solution exists, we can conclude that $\vec{w}\in \operatorname{span}\{\vec{v}_1,\vec{v}_2, \vec{v}_3\}$. Indeed, we have the unique solution $x_1=-26, x_2=3, x_3=-11$, and we can verify that
+\[
+ -26\vec{v}_1+3\vec{v}_2-11\vec{v}_3 = -26\bbm 1\\0\\2\\-1\ebm +3\bbm 2\\1\\0\\-3\ebm-11\bbm -2\\0\\-4\\1\ebm = \bbm 2\\3\\-8\\6\ebm = \vec{w}.
+\]
+
+
+\vspace{0.5in}
+
+\textbf{Note for Problem 2:} Since the null space of $A$ is defined to be the set of all vectors $\vec{x}$ such that $A\vec{x}=\vec{0}$, we see that
+\[
+ \operatorname{null}(A) = \left\{\left.  \bbm 3s-t\\2s-2t\\s\\t\ebm \,\right|\, s,t\in\R\right\} = \operatorname{span}\{\vec{v}_1,\vec{v}_2\},
+\]
+and thus, the set $\{\vec{v}_1,\vec{v}_2\}$ forms a basis for the null space of $A$. (The vectors $\vec{v}_1$ and $\vec{v}_2$ are not multiples of each other, so this set is clearly linearly independent, in addition to spanning the null space.)
+
+According to Theorem 29 in the textbook, a basis for the column space of $A$ is given by the columns of $A$ in which we find leading ones in the RREF of $A$. Since we had leading ones in the first and second columns, it follows that
+\[
+ \left\{\bbm 2\\-1\\3\ebm, \bbm 3\\2\\4\ebm\right\}
+\]
+is a basis for the column space of $A$. (Recall that the column space of $A$ is defined to be the span of the columns of $A$. The above result tells us that the first two columns of $A$ are sufficient to generate this span. Consequently, the third and fourth columns must both be linear combinations of the first two. Recall also that if $\vec{y}=A\vec{x}$ for some vector $\vec{x}$, then $\vec{y}$ can be written as a linear combination of the columns of $A$; that is, the column space of $A$ determines the \textit{range} of the matrix transformation $T(\vec{x}) = A\vec{x}$.)
+ \end{enumerate}
+\end{document}

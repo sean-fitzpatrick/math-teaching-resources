@@ -1,0 +1,135 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\D}{\mathbf{D}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\title{Three important theorems in advanced calculus}
+\author{Sean Fitzpatrick}
+\begin{document}
+\maketitle
+Source: Marsden, J. E. and Tromba, A. J., {\em Vector Calculus}, 4\textsuperscript{th} ed. W. H. Freeman and Company, New York, 1996.
+
+We state three theorems of theoretical importance in multivariable calculus: the chain rule, the implicit function theorem, and the inverse function theorem. The first two are mentioned in most Stewart-style texts, but not in their most general form, and the last is not mentioned at all. We'll give a general proof of the chain rule, and state the implicit and inverse function theorems. (The proofs can be found in more advanced texts on real analysis.)
+\section{The Chain Rule}
+For a general function $f:U\subseteq \R^n\to \R^m$, the derivative $\D f(\x_0)$ at a point $\x_0\in U$ is the $m\times n$ matrix whose entries are given by the partial derivatives of $f$. That is, if 
+\[
+f(x_1,\ldots, x_n) = (f_1(x_1,\ldots, x_n),\ldots, f_m(x_1,\ldots, x_n)),
+\]
+where each of the component functions $f_i$ is a real-valued function of the variables $x_1,\ldots, x_n$, then the entry in the $i^{th}$ row and $j^{th}$ column of $\D f(\x_0)$ is $\dfrac{\partial f_i}{\partial x_j}(\x_0)$.
+ The chain rule tells us that the derivative of a composition is given by the product of the derivatives, just as for the case of single-variable functions. First, we need a fact about linear functions:
+
+\begin{lemma}
+Let $T:\R^n\to \R^m$ be a linear function given by $T(\x) = A\cdot \x$, where $A=[a_{ij}]$ is an $m\times n$ matrix. Then $T$ is continuous, and in particular, $\lVert T(\x)\rVert \leq M\lVert \x\rVert$, where $M = \sqrt{\sum_{i=1}^m\sum_{j=1}^n a_{ij}^2}$.
+\end{lemma}
+\begin{proof}
+The components of $T$ are given by $T_i(\x) = \sum_{j=1}^n a_{ij}x_j = \mathbf{a}_i\cdot \x$, where $\mathbf{a}_i = \langle a_{i1},\ldots, a_{in}\rangle$. Thus,
+\begin{align*}
+\lVert T(\x)\rVert &= \sqrt{(T_1(\x)^2+\cdots + T_m(\x)^2}\\
+&= \sqrt{|\mathbf{a}_1\cdot\x|^2+\cdots +|\mathbf{a}_m\cdot \x|^2}\\
+&\leq \sqrt{\lVert \mathbf{a}_1\rVert^2\lVert \x\rVert^2 +\cdots \lVert\mathbf{a}_m\rVert^2\lVert \x\rVert^2} \text{ (Cauchy-Schwartz inequality)}\\
+&=\sqrt{(\lVert \mathbf{a}_1\rVert^2+\cdots \lVert \mathbf{a}_m\rVert^2)\lVert \x\rVert^2}\\
+&=M\lVert \x\rVert.\qedhere
+\end{align*}
+\end{proof}
+
+\newpage
+\begin{theorem}[Chain Rule]
+Let $U\subseteq \R^n$ and $V\subseteq \R^m$ be open. Let $g:U\to \R^m$ and $f:V\to \R^p$ be given functions such that the range of $g$ is contained in $V$, so that $f\circ g$ is defined. If $g$ is differentiable at $\mathbf{x}_0\in U$ and $f$ is differentiable at $\mathbf{y}_0=g(\mathbf{x}_0)\in V$, then $f\circ g$ is differentiable at $\mathbf{x}_0$ and 
+\begin{equation}\label{eq1}
+\mathbf{D}(f\circ g)(\mathbf{x}_0) = \D f(g(\x_0))\D g(\x_0).
+\end{equation}
+\end{theorem}
+\begin{proof}
+Using the definition of differentiability, we need to prove that the right-hand side of \eqref{eq1} defines a linear function from $\R^n$ to $\R^p$ such that
+\[
+\lim_{\x\to\x_0}\frac{\lVert f(g(\x))-f(g(\x_0))-\D f(\mathbf{y}_0)\D g(\x_0)\cdot (\x-\x_0)\rVert}{\lVert \x-\x_0\rVert} = 0.
+\]
+The result then follows from the uniqueness of the derivative. By adding and subtracting $\D f(\mathbf{y}_0)\cdot (g(\x)-g(\x_0))$ in the numerator and applying the triangle inequality, we get, with $\mathbf{y} = g(\x)$ and $\mathbf{y}_0 = g(\x_0)$,
+\begin{multline*}
+\lVert f(\mathbf{y})-f(\mathbf{y}_0)-\D f(\mathbf{y}_0)\D g(\x_0)\cdot (\x-\x_0)\rVert\leq \lVert f(\y)-f(\y_0)-\D f(\y_0)\cdot (\y-\y_0)\rVert\\
++\lVert \D f(\y_0)\cdot (g(\x)-g(\x_0)-\D g(\x_0)\cdot (\x-\x_0))\rVert.
+\end{multline*}
+Let $\epsilon>0$ be given. 
+According to the lemma above $\lVert \D f(\y_0)\cdot \mathbf{v}\rVert \leq M\lVert\mathbf{v}\rVert$ for any $\mathbf{v}\in \R^m$, for some constant $M>0$. We will apply this for $\mathbf{v} = g(\x)-g(\x_0)-\D g(\x_0)\cdot (\x-\x_0)$. Since $g$ is differentiable at $\x_0$, we can find a $\delta_1>0$ such that $0< \lVert \x-\x_0\rVert<\delta_1$ implies
+\[
+\frac{\lVert g(\x)-g(\x_0)-\D g(\x_0)\cdot (\x-\x_0)\rVert}{\lVert \x-\x_0\rVert} < \frac{\epsilon}{2M}.
+\]
+Also since $g$ is differentiable at $x_0$, we can find a $\delta_2>0$ and a constant $N$ such that $0< \lVert \x-\x_0\rVert<\delta_2$ implies $\lVert g(\x)-g(\x_0)\rVert\leq N\lVert \x-\x_0\rVert$. Since $f$ is differentiable at $\y_0 = g(\x_0)$, we can find a $\delta_3>0$ such that $0<\lVert \y-\y_0\rVert<\delta_3$ implies that
+\[
+\lVert f(\y)-f(\y_0)-\D f(\y_0)\cdot (\y-\y_0)\rVert \leq \frac{\epsilon}{2N}\lVert \y-\y_0\rVert = \frac{\epsilon}{2N}\lVert g(\x)-g(\x_0)\rVert<\frac{\epsilon}{2}\lVert \x-\x_0\rVert,
+\]
+provided that $\lVert \x-\x_0\rVert <\min\{\delta_2,\delta_3/N\}$. Thus if we let $\delta = \min\{\delta_1,\delta_2,\delta_3/N\}$, we have
+\[
+\frac{\lVert f(g(\x))-f(g(\x_0))-\D f(g(\x_0))\D g(\x_0)\cdot (\x-\x_0)\rVert}{\lVert\x-\x_0\rVert} 
+< \frac{\epsilon}{2}+M\frac{\epsilon}{2M}=\epsilon.
+\]
+\end{proof}
+
+\section{The Implicit and Inverse Function Theorems}
+Recall that for a level curve $g(x,y)=c$, we can solve for $y$ as a function of $x$ {\em locally} near a given point $(x_0,y_0)$ on the curve, provided that the curve has a well-defined tangent line at that point, and that tangent line is not vertical. Notice that finding $y' = dy/dx$ by implicit differentiation is the same as finding $y'$ via the relationship
+\[
+\frac{\partial g}{\partial x} + \frac{\partial g}{\partial y}\frac{dy}{dx} = 0.
+\]
+Thus, we can solve for $y'$ provided $\dfrac{\partial g}{\partial y}(x_0,y_0)\neq 0$.
+
+We will first state a special case that will be useful for dealing with level surfaces in $\R^n$ before stating the general result.
+\begin{theorem}
+Suppose $F:\R^{n+1}\to \R$ is continuously differentiable. Denote points in $\R^{n+1}$ by $(\x,z)$, where $\x\in\R^n$ and $z\in \R$. If at a point $(\x_0,z_0)\in \R^{n+1}$ we have
+\[
+F(\x_0,z)=0 \text{ and } \frac{\partial F}{\partial z}(\x_0,z_0)\neq 0,
+\]
+then there is a ball $U$ containing $\x_0$ in $\R^n$ and a interval $(a,b)$ containing $z$ in $\R$ such that there is a unique function $z=g(\x)$ defined for $\x\in U$ and $z\in (a,b)$ that satisfies $F(\x,g(\x))=0$. Moreover, if $\x\in U$ and $z\in (a,b)$ satisfy $F(\x,z)=0$, then $z=g(\x)$. Finally, $z=g(\x)$ is continuously differentiable, with the derivative given by
+\[
+\D g(\x) = -\frac{1}{\dfrac{\partial F}{\partial z}(\x,z)}\D_\x F(\x,z)|_{z=g(\x)},
+\]
+where $\D_\x F$ denotes the matrix of partial derivatives of $F$ with respect to the variables $x_1,\ldots, x_n$. Equivalently, we have
+\[
+\frac{\partial g}{\partial x_i} = -\frac{\partial F/\partial x_i}{\partial F/\partial z},\quad i=1,\ldots n.
+\]
+\end{theorem}
+Note that the theorem essentially tells us when we can solve the equation $F(\x,z)$ for $z$ in terms of $\x$. More generally, suppose we are given a system of equations of the form
+\begin{align*}
+F_1 &(x_1,\ldots x_n,z_1,\ldots, z_m) = 0\\
+F_2 &(x_1,\ldots x_n,z_1,\ldots, z_m) = 0\\
+ \vdots &  \hspace{1.75in}\vdots\\
+F_m &(x_1,\ldots x_n,z_1,\ldots, z_m) = 0.\\
+\end{align*}
+The general implicit function theorem tells us that we can solve the system for the $z_i$ in terms of the $x_j$, giving $z_i = f_i(x_1,\ldots x_n)$ for unique smooth functions $f_1,\ldots, f_m$, provided that the {\em determinant} of the $m\times m$ matrix
+\[
+\begin{bmatrix} \frac{\partial F_1}{\partial z_1} & \cdots & \frac{\partial F_1}{\partial z_m}\\
+\vdots & & \vdots \\
+\frac{\partial F_m}{\partial z_1}& \cdots & \frac{\partial F_m}{\partial z_m}\end{bmatrix}
+\]
+is non-zero. A special case of the general implicit function theorem is when $m=n$ and $F_i(y_1,\ldots y_n,x_1,\ldots, x_n) = y_i-f(x_1,\ldots x_n)$, (here the $x_i$ above are now the $y_i$, and the $z_i$ above are now the $x_i$, just to keep you on your toes) so that we are trying to solve the system of equations
+\begin{align*}
+f_1 &(x_1,\ldots x_n)  = y_1\\
+ \vdots &  \hspace{1in}\vdots\\
+f_n &(x_1,\ldots x_n)  = y_n,
+\end{align*}
+which means we are trying to invert the system of equations to express the $x_i$ as functions of the $y_j$. Note that this is equivalent to writing $\y=F(\x)$ for the vector-valued function $F=\langle f_1,\ldots f_n\rangle$ and asking for the inverse function such that $\x = F^{-1}(\y)$. Given such a function $F$, we define the {\em Jacobian} $J(F)$ of $F$ as the determinant of the derivative of $F$:
+\[
+J(F)(\x) = \det \D f(\x).
+\]
+\begin{theorem}
+Let $U\subseteq \R^n$ be open and let $F:U\to \R^n$ be continuously differentiable. For any $\x_0\in U$, if $J(F)(\x_0)\neq 0$, then there is a neighbourhood $N$ of $\x_0$ contained in $U$ and a unique function $G$ that is also continuously differentiable, such that for each $\x\in N$ and each $\y=F(\x)$, we have $\x = G(\y)$. Moreover, we have
+\[
+\D G(\y) = (\D F(\x))^{-1}
+\]
+for each $\x\in N$. (The $-1$ on the right-hand side denotes the matrix inverse.)
+\end{theorem}
+
+{\bf Note:} The inverse function theorem only applies to maps $F:\R^n\to \R^n$ where the number of variables is equal to the number of components. Notice that even if $F$ is not defined on all of $\R^n$, $\D F(\x)$ {\em is} for each $\x$ in the domain of $F$: the domain of any linear function is all of $\R^n$. The condition that the determinant of $\D F(\x)$ is nonzero is equivalent to requiring the linear function $\D F(\x)$ to be both one-to-one and onto (and therefore invertible). Since this condition may hold at some points $\x$ in the domain of $F$ and not at others, the invertibility of $F$ only holds {\em locally} (e.g. on the neighbourhood $N$ in the statement of the theorem).
+
+If $F:\R^n\to \R^m$ with $m>n$, $\D F(\x)$ is no longer a square matrix, and therefore cannot be invertible. In this case, the best we can ask for is that $\D F(\x)$ is one-to-one. If this is true at each $\x$ in the domain of $F$, then $F$ is called an {\em immersion}. An immersion is a map that ``preserves structure'' in a sense that is made precise in more advanced courses. For example, if $F:\R^2\to \R^3$ is an immersion, and $C$ is a curve contained in the domain of $F$, then the image of $C$ under $F$ will still be a curve in $\R^3$, and if $D$ is a region in $\R^2$ (such as a disk or a rectangle), then the image of $D$ will be a surface. (Roughly speaking, $F$ ``preserves the dimension'' of these objects - it doesn't collapse a curve to a point or a region to a curve.
+
+If $m<n$, then the strongest condition one can impose is that $\D F(\x):\R^n\to \R^m$ be onto. When this is the case, $F$ looks locally like a projection. Such maps are called {\em submersions}. 
+\end{document}

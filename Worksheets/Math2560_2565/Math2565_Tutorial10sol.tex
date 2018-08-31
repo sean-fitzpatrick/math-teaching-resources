@@ -1,0 +1,225 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.2in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+{\bf MATH 2565 - Tutorial \#10}
+\end{center}
+
+
+
+ \begin{enumerate}
+\item Find the radius and interval of convergence for the following power series:
+\begin{enumerate}
+\item $\di\sum_{n=1}^\infty\frac{(-1)^{n-1}}{n5^n}x^n$
+
+Using the ratio test, we need
+\[
+\lim_{n\to\infty}\abs{\frac{(-1)^n/((n+1)5^{n+1})}{(-1)^{n-1}/(n5^n)}} = \lim_{n\to\infty}\frac{n}{5(n+1)}\abs{x} = \frac{1}{5}\abs{x}<1,
+\]
+so we must have $\abs{x}<5$, giving us 5 as the radius of convergence.
+
+Now we check the endpoints: when $x=5$, we get $\di \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n}$, which converges by the Alternating Series Test. When $x=-5$, we get 
+\[
+\sum_{n=1}^\infty \frac{(-1)^{n-1}(-5)^n}{n5^n} = \sum_{n=1}^\infty \frac{-1}{n},
+\]
+which diverges (since it's a multiple of the harmonic series). The interval of convergence is therefore $(-5,5]$.
+
+\item $\di\sum_{n=1}^\infty\frac{(-1)^n}{(2n-1)2^n}(x-1)^n$
+
+Applying the ratio test, we have
+\[
+\lim_{n\to\infty} \abs{\frac{a_{n+1}}{a_n}} = \lim_{n\to\infty}\frac{2n-1}{2n+1}\cdot\frac{\abs{x-1}}{2} = \frac{\abs{x-1}}{2}.
+\]
+We need this limit to be less than 1, so $\abs{x-1}<2$, giving us a radius of convergence equal to 2. Note that
+\[
+\abs{x-1}<2 \Leftrightarrow -2<x-1<2 \Leftrightarrow -1<x<3.
+\]
+When $x=-1$, we get $\di\sum_{n=1}^\infty \frac{(-1)^n(-2)^n}{(2n-1)2^n} = \sum_{n=1}^\infty\frac{1}{2n-1}$, which diverges (by limit comparison with the harmonic series).
+
+When $x=3$, we get $\di\sum_{n=1}^\infty \frac{(-1)^n2^n}{(2n-1)2^n}=\sum_{n=1}^\infty \frac{(-1)^n}{2n-1}$, which converges, by the Alternating Series Test. The interval of convergence is therefore $(-1,3]$.
+
+\item $\di\sum_{n=1}^\infty\frac{n^2x^n}{2\cdot 4\cdot 6\cdot\cdots\cdot (2n)} = \sum_{n=1}^\infty \frac{n^2x^n}{2^n\cdot n!}$.
+
+The ratio test gives us
+\[
+\lim_{n\to\infty}\abs{\frac{(n+1)^2x^{n+1}}{2^{n+1}(n+1)!}\cdot \frac{2^n \cdot n!}{n^2 x^n}} = \lim_{n\to\infty}\frac{(n+1)^2\cdot n!}{n^2(n+1)n!}\cdot\frac{\abs{x}}{2} = \frac{\abs{x}}{2}\lim_{n\to\infty}\frac{n+1}{n^2} = 0.
+\]
+Since this limit is equal to $0<1$ for all values of $x$, the radius of convergence is infinite, and the interval is $(-\infty,\infty)$.
+
+
+\end{enumerate}
+\item Let $p$ and $q$ be real numbers with $p<q$. Find a power series whose radius of convergence is:
+\begin{multicols}{4}
+\begin{enumerate}
+\item $[p,q]$
+\item $(p,q)$
+\item $[p,q)$
+\item $(p,q]$
+\end{enumerate}
+\end{multicols}
+
+For each of these, let $a=\frac{p+q}{2}$ be the midpoint of the interval, and let $r=\frac{q-p}{2}$ be the radius of the interval. 
+
+Note that when $x=p$, 
+\[
+x-a = p-a = \frac{2p}{2}-\frac{p+q}{2} = \frac{p-q}{2} = -r,
+\]
+and when $x=q$,
+\[
+x-a = q-a = \frac{2q}{2}-\frac{p+q}{2} = \frac{q-p}{2} = r.
+\]
+For a series with interval of convergence $[p,q]$, we take
+\[
+\sum_{n=1}^\infty \frac{(x-a)^n}{n^2r^n}.
+\]
+Notice that
+\[
+\lim_{n\to\infty}\abs{\frac{(x-a)^{n+1}}{(n+1)^2r^{n+1}}\cdot \frac{n^2r^n}{(x-a)^n}} = \lim_{n\to\infty}\frac{n^2}{(n+1)^2}\frac{\abs{x-a}}{r} = \frac{\abs{x-a}}{r},
+\]
+so the radius is $r$, as required. When $x=p$, we get $\di\sum_{n=1}^\infty \frac{(-r)^n}{n^2r^n} = \sum_{n=1}^\infty\frac{(-1)^n}{n^2}$, and when $x=q$ we similarly get $\di\sum_{n=1}^\infty\frac{1}{n^2}$. Both of these series converge, so the interval of convergence is $[p,q]$, as required.
+
+To get a series with interval of convergence $(p,q)$, we go to a geometric series, and take $\di\sum_{n=1}^\infty \frac{(x-a)^n}{r^n}$.
+
+Thinking back to the examples in problem 1, we can work out that the series $\di\sum_{n=1}^\infty \frac{(x-a)^n}{nr^n}$ will have interval of convergence $[p,q)$, while $\di\sum_{n=1}^\infty \frac{(-1)^n(x-a)^n}{nr^n}$ will have interval of convergence $(p,q]$.
+
+\item Given that $\sum_{n=0}^\infty c_n4^n$ is convergent, can we conclude that each of the following series is convergent?
+
+\begin{enumerate}
+\item $\di\sum_{n=0}^\infty c_n(-2)^n$
+
+Yes, this series converges. Knowing that $\sum c_n4^n$ converges tells us that the power series $\sum c_nx^n$ has a radius of convergence of at least 4, and an interval of convergence that is at least $(-4,4]$, which includes $x=-2$.
+
+\item $\di\sum_{n=0}^\infty c_n(-4)^n$
+
+We cannot tell if this series converges. We know that the power series converges for all $x$ in $(-4,4]$, be we can't determine convergence at $x=-4$ without more information.
+\end{enumerate}
+
+
+%\vspace{1.5in}
+
+\item Suppose $\sum_{n=0}^\infty c_nx^n$ converges when $x=-4$ and diverges when $x=6$. What can be said about the convergence or divergence of the following series?
+\begin{multicols}{3}
+\begin{enumerate}
+\item $\sum_{n=0}^\infty c_n$
+\item $\sum_{n=0}^\infty c_n8^n$
+\item $\sum_{n=0}^\infty c_n(-3)^n$
+\end{enumerate}
+\end{multicols}
+
+The information given tells us that the radius of convergence of our power series is at least 4, but no more than 6. Thus, the series will converge for $\abs{x}<4$, diverge for $\abs{x}>6$, and for $4\leq \abs{x}\leq 6$, we cannot draw any conclusion.
+
+The first series has $x=1$, so it converges. The second has $x=8$, so it diverges. The third has $x=-3$, so it converges. 
+
+\item Recall that $f(x) =\frac{1}{1+x} = \sum_{n=0}^\infty (-1)^nx^n$, for $\abs{x}<1$.
+\begin{enumerate}
+\item Find a power series representation for $g(x)=(1+x)^{-2}$. What is the radius of convergence?
+
+Since $\frac{d}{dx}(1+x)^{-1} = -(1+x)^{-2}$, we have
+\[
+g(x) = -\frac{d}{dx}f(x) = -\frac{d}{dx}\sum_{n=0}^\infty(-1)^nx^n = \sum_{n=0}^\infty (-1)^{n+1}\frac{d}{dx}(x^n) = \sum_{n=0}^\infty (-1)^{n+1}nx^{n-1}.
+\]
+This representation is valid for all $x$ with $\abs{x}<1$, so the radius of convergence is 1.
+
+\item Find a power series representation for $h(x) = \dfrac{x^2}{(1+x)^3}$.
+
+We have 
+\[
+h(x) = x^2(1+x)^{-3} = x^2\left(-\frac{1}{2}\frac{d}{dx}(1+x)^{-2}\right) = -\frac{1}{2}x^2g(x).
+\]
+Thus, for $\abs{x}<1$, we have
+\[
+h(x) = -\frac12 x^2\frac{d}{dx}\sum_{n=0}^\infty (-1)^{n+1}nx^{n-1}=\frac12 x^2\sum_{n=0}^\infty (-1)^nn(n-1)x^{n-2} = \sum_{n=0}^\infty \frac12 (-1)^n n(n-1)x^n.
+\]
+(Note that we could start the sum at $n=2$ here, since the first two terms vanish.)
+\end{enumerate}
+
+\item Find a power series representation for the function:
+\begin{enumerate}
+\item $f(x) = x^2\arctan(x^3)$
+
+Since $\arctan(x) = \sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}$, we have
+\[
+f(x)=x^2\arctan(x) = x^2\sum_{n=0}^\infty (-1)^n\frac{(x^3)^{2n+1}}{2n+1} = \sum_{n=0}^\infty (-1)^n\frac{x^{6n+5}}{2n+1}.
+\]
+
+\item $g(x) = \left(\dfrac{x}{2-x}\right)^3$
+
+First we note that
+\[
+\frac{1}{2-x} = \frac12\cdot \frac{1}{1-x/2} = \frac12 \sum_{n=0}^\infty \left(\frac{x}{2}\right)^n = \sum_{n=0}^\infty\frac{x^n}{2^{n+1}},
+\]
+for $\abs{x}<2$. 
+
+Next, $\frac{d^2}{dx^2}\frac{1}{2-x} = \frac{2}{(2-x)^3}$, so
+\[
+\frac{1}{(2-x)^3} = \frac{1}{2}\frac{d^2}{dx^2}\sum_{n=0}^\infty \frac{x^n}{2^{n+1}}= \sum_{n=0}^\infty\frac{n(n-1)x^{n-2}}{2^{n+2}}.
+\]
+Finally, we get
+\[
+g(x) = \left(\dfrac{x}{2-x}\right)^3 = x^3\left(\frac{1}{(2-x)^3}\right) = x^3\sum_{n=0}^\infty\frac{n(n-1)x^{n-2}}{2^{n+2}} = \sum_{n=2}^\infty \frac{n(n-1)x^{n+1}}{2^{n+2}}.
+\]
+\end{enumerate}
+
+%\newpage
+
+\item Express the antiderivative as a power series;
+\begin{enumerate}
+\item $\di\int\frac{t}{1+t^3}\,dt$
+
+Since $\di \frac{t}{1+t^3} = t\sum_{n=0}^\infty (-t^3)^n = \sum_{n=0}^\infty (-1)^n t^{3n+1}$, we get
+\[
+\int\frac{t}{1+t^3}\,dt = \int\left(\sum_{n=0}^\infty (-1)^n t^{3n+1}\right)\,dt = \sum_{n=0}^\infty (-1)^n\int t^{3n+1} \,dt = \sum_{n=1}^\infty (-1)^n\frac{t^{3n+2}}{3n+2}.
+\]
+
+\item $\di \int \frac{\arctan(x)}{x}\,dx$
+
+We have 
+\[
+\frac{\arctan(x)}{x} = \frac{1}{x}\sum_{n=0}^\infty(-1)^n\frac{x^{2n+1}}{2n+1} = \sum_{n=0}^\infty(-1)^n\frac{x^{2n}}{2n+1},
+\]
+so
+\[
+\int\frac{\arctan(x)}{x}\,dx = \int\left(\sum_{n=0}^\infty (-1)^n\frac{x^{2n}}{2n+1}\right)\,dx = \sum_{n=0}^\infty(-1)^n\frac{x^{2n+1}}{(2n+1)^2}.
+\]
+\end{enumerate}
+\end{enumerate}
+\end{document}

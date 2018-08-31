@@ -1,0 +1,174 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\DeclareMathOperator{\nul}{null}
+
+\title{Math 3410 Assignment \#4 Solutions\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+ \item Suppose $V$ is finite-dimensional and $S,T\in\mathcal{L}(V)$. Prove that $ST$ and $TS$ have the same eigenvalues.
+
+\bigskip
+
+Suppose that $\lambda$ is an eigenvalue of $ST$; that is $ST(v) = \lambda v$ for some $v\neq 0$. We consider two cases:
+\begin{enumerate}
+ \item $\lambda\neq 0$. Note that it follows that $Tv\neq 0$, since otherwise we'd have $S(Tv) = (ST)v=0$, but both $\lambda$ and $v$ are nonzero, so $\lambda v\neq 0$. Moreover,
+\[
+ TS(Tv) = T[(ST)v] = T(\lambda v) = \lambda Tv,
+\]
+and since $Tv\neq 0$, it follows that $\lambda$ is an eigenvalue of $TS$. 
+
+ \item $\lambda = 0$. If 0 is an eigenvalue of $ST$, then $ST$ is not invertible. Since $V$ is finite-dimensional, it follows that either $S$ is not invertible or $T$ is not invertible. In either case, we can conclude that $TS$ is not invertible either, and therefore 0 is an eigenvalue of $TS$.
+\end{enumerate}
+This shows that any eigenvalue of $ST$ is an eigenvalue of $TS$, and similarly, we can show that any eigenvalue of $TS$ is an eigenvalue of $ST$.
+
+\bigskip
+
+ \item Suppose that $V$ is finite-dimensional, $T\in\mathcal{L}(V)$, and $v\in V$ with $v\neq 0$. Let $p$ be a nonzero polynomial of smallest degree such that $p(T)v=0$. Prove that every zero of $p$ is an eigenvalue of $T$.
+
+\bigskip
+
+Suppose $v\neq 0$, and let $p$ be a polynomial such that $p(T)v=0$. Suppose that there exists some $a\in\mathbb{F}$ such that $a$ is not an eigenvalue of $T$ and $p(a)=0$. Since $p(a)=0$, it follows that there exists a polynomial $q$ with $\deg q = \deg p-1$ such that $p(z) = (z-a)q(z)$, and thus,
+\[
+ p(T)v = (T-aI)q(T)v = 0.
+\]
+Since $a$ is not an eigenvalue of $T$, we know that $T-aI$ is invertible, and applying $(T-aI)^{-1}$ to both sides of the equation above, we obtain $q(T)v=0$, and thus $p$ is not the polynomial of least degree such that $p(T)v=0$, since $\deg q<\deg p$. Since we've proved the contrapositive of the given statement, the result follows.
+
+\bigskip
+
+ \item Recall that the {\em Fibonacci sequence} $(F_1,F_2,\ldots)$ is defined recursively by $F_1=1, F_2=1$, and
+ \[
+ F_{n+2} = F_{n}+F_{n+1} \quad\text{ for }\quad n\geq 1.
+ \]
+ Define $T\in\mathcal{L}(\R^2)$ by $T(x,y) = (y,x+y)$.
+ \begin{enumerate}
+ \item Show that $T^n(0,1)=(F_n,F_{n+1})$ for each positive integer $n$.
+
+\bigskip
+
+We proceed by induction on $n\in\mathbb{N}$: for $n=1$, we have
+\[
+ T^1(0,1) = T(0,1) = (1,1) = (F_1,F_2).
+\]
+If we have that $T^n(0,1)=(F_n,F_{n+1})$ for some $n\geq 1$, then
+\[
+ T^{n+1}(0,1) = T(T^n(0,1)) = T(F_n,F_{n+1}) = (F_{n+1},F_{n}+F_{n+1}) = (F_{n+1},F_{n+2}).
+\]
+
+\bigskip
+
+ \item Find the eigenvalues of $T$.
+
+\bigskip
+
+Since $T(1,0) = (0,1)$ and $T(0,1)=(1,1)$, the matrix of $T$ with respect to the standard basis is
+\[
+ A=\mathcal{M}(T)=\begin{bmatrix}0&1\\1&1\end{bmatrix},
+\]
+and we know that the eigenvalues of $A$ are equal to the eigenvalues of $T$. Moreover, we know that $A-\lambda I_2$ is not invertible if and only if
+\[
+ 0 = \det(A-\lambda I_2) = \begin{vmatrix}-\lambda&1\\1&1-\lambda\end{vmatrix} = \lambda^2-\lambda-1,
+\]
+and using the quadratic formula, we see that the eigevalues of $A$ (and thus $T$) are given by
+\[
+ \lambda_\pm = \frac{1\pm\sqrt{5}}{2}.
+\]
+
+\bigskip
+
+ \item Find a basis of $\R^2$ consisting of eigenvectors of $T$.
+
+\bigskip
+
+Suppose $X_\pm=\begin{bmatrix}x\\y\end{bmatrix}$ is an eigenvector for $\lambda_\pm$. Then we must have
+\[
+ (A-\lambda_\pm)X_\pm = \begin{bmatrix}-\lambda_\pm &1\\1&1-\lambda_\pm\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}0\\0\end{bmatrix},
+\]
+and one possible solution to this homogeneous system is to take $X_\pm = \begin{bmatrix}1\\\lambda_\pm\end{bmatrix}$.
+
+Note: Multiplying $X_\pm$ by the first row of $A-\lambda_\pm I$ gives $-\lambda_\pm x+y = 0$, which tells us that we can take $y=\lambda_\pm x$, and of course we can set $x$ to any value; in this case we took $x=1$. It's not immediately obvious that the second row gives the same result; however, we note the following identities, which can easily be verified computationally by substituting the values of $\lambda_+$ and $\lambda_-$:
+\begin{itemize}
+ \item $\lambda_+\lambda_- = -1$
+ \item $\lambda_+ +\lambda_- = 1$
+ \item $\lambda_+-\lambda_- = \sqrt{5}$
+\end{itemize}
+The second identity tells us that $1-\lambda_\pm = \lambda_\mp$, and the first tells that mutliplying the first row by $\lambda_\mp$ yields the row $\begin{bmatrix}1&\lambda_\mp\end{bmatrix}$.
+
+The corresponding eigenvectors of $T$ are $v_+=(1,\lambda_+)$ and $v_-=(1,\lambda_-)$.
+
+\bigskip
+
+ \item Use the solution to part (c) to compute $T^n(0,1)$. Conclude that
+ \[
+ F_n = \frac{1}{\sqrt{5}}\left[\left(\frac{1+\sqrt{5}}{2}\right)^n-\left(\frac{1-\sqrt{5}}{2}\right)^n\right]
+ \]
+ for each positive integer $n$.
+
+\bigskip
+
+First, we note that by part (a), $T^n(0,1) = (F_n,F_{n+1})$. We also know that since $T(1,0)=(0,1)$, we have
+\[
+ T^n(1,0) = T^{n-1}(T(1,0))=T^{n-1}(0,1) = (F_{n-1},F_n).
+\]
+It follows that the matrix of $T^n$ with respect to the standard basis is
+\[
+ \mathcal{M}(T^n) = \begin{bmatrix}F_{n-1}&F_n\\F_n&F_{n+1}\end{bmatrix}.
+\]
+On the other hand, we know that $\mathcal{M}(T^n) = (\mathcal{M}(T))^n=A^n$, where $A=\begin{bmatrix}0&1\\1&1\end{bmatrix}$ as in part (b).
+
+We now let $P=\begin{bmatrix}1&1\\\lambda_+&\lambda_-\end{bmatrix}$ be the change of basis matrix whose columns are the eigenvectors of $A$. We note that
+\[
+ \det P = \lambda_- - \lambda_+ = -\sqrt{5},
+\]
+by the third identity above, and thus
+\[
+ P^{-1} = \frac{-1}{\sqrt{5}}\begin{bmatrix}\lambda_-&-1\\-\lambda_+&1\end{bmatrix} = \frac{1}{\sqrt{5}}\begin{bmatrix}-\lambda_-&1\\\lambda_+&-1\end{bmatrix}.
+\]
+Now, since $P^{-1}AP = D = \begin{bmatrix}\lambda_+&0\\0&\lambda_-\end{bmatrix}$, and $D^n = \begin{bmatrix}\lambda_+^n&0\\0&\lambda_-^n\end{bmatrix}$, we have that
+\begin{align*}
+ \begin{bmatrix}F_{n-1}&F_n\\F_n&F_{n+1}\end{bmatrix} = A^n & = (PDP^{-1})^n\\
+& = PD^nP^{-1}\\
+& = \frac{1}{\sqrt{5}}\begin{bmatrix}1&1\\\lambda_+&\lambda_-\end{bmatrix}\begin{bmatrix}\lambda_+^n&0\\0&\lambda_-^n\end{bmatrix}\begin{bmatrix}-\lambda_-&1\\\lambda_+&-1\end{bmatrix}\\
+& = \frac{1}{\sqrt{5}}\begin{bmatrix}1&1\\\lambda_+&\lambda_-\end{bmatrix}\begin{bmatrix}-\lambda_+^n\lambda_-&\lambda_+^n\\\lambda_-^n\lambda_+&-\lambda_-^n\end{bmatrix}\\
+& = \frac{1}{\sqrt{5}}\begin{bmatrix}1&1\\\lambda_+&\lambda_-\end{bmatrix}\begin{bmatrix}\lambda_+^{n-1}&\lambda_+^n\\ -\lambda_-^{n-1}&-\lambda_-^n\end{bmatrix}\\
+& = \frac{1}{\sqrt{5}}\begin{bmatrix}\lambda_+^{n-1}-\lambda_-^{n-1}&\lambda_+^n-\lambda_-^n\\
+                       \lambda_+^n-\lambda_-^n&\lambda_+^{n+1}-\lambda_-^{n+1}
+                      \end{bmatrix}.
+\end{align*}
+
+\bigskip
+
+ \item Use part (d) to conclude that for each positive integer $n$, the Fibonacci number $F_n$ is the integer that is closest to 
+ \[
+ \frac{1}{\sqrt{5}}\left(\frac{1+\sqrt{5}}{2}\right)^n.
+ \]
+
+\bigskip
+
+We note that $\lambda_+\approx 1.62$, while $\lambda_- \approx -0.62$. From part (d), we have
+\[
+ \frac{1}{\sqrt{5}}\left(\frac{1+\sqrt{5}}{2}\right)^n - F_n= \frac{1}{\sqrt{5}}\left(\frac{1-\sqrt{5}}{2}\right)^n.
+\]
+The difference between $F_n$ and $\frac{\lambda_+^n}{\sqrt{5}}$ is thus $\frac{\lambda_-^n}{\sqrt{5}}$, and we note that
+\[
+ \frac{\lambda_-}{\sqrt{5}}\approx -0.276, \frac{\lambda_-^2}{\sqrt{5}}\approx 0.171, \frac{\lambda_-^3}{\sqrt{5}}\approx -0.106, \frac{\lambda_-^4}{\sqrt{5}}\approx 0.065,
+\]
+and that $\left|\dfrac{\lambda_-^{n+1}}{\sqrt{5}}\right|<\left|\dfrac{\lambda_-^n}{\sqrt{5}}\right|$ for all $n\in\mathbb{N}$. Since this difference is always less than 0.5 in absolute value, we can conclude that $F_n$ is the closest integer to $\lambda_+^n/\sqrt{5}$.
+
+ \end{enumerate}
+ \end{enumerate}
+\end{document}
+ 

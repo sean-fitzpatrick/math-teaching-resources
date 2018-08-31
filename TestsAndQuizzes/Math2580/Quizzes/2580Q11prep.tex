@@ -1,0 +1,66 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\di}{\displaystyle}
+
+\title{Practice for Quiz 11\\Math 2580\\Spring 2016}
+\author{Sean Fitzpatrick}
+\date{February 25th, 2016}
+
+\begin{document}
+ \maketitle
+
+If you can answer the following problems, you should be well-prepared for Quiz 11:
+
+
+
+\begin{enumerate}
+ \item Evaluate the following iterated integrals:
+\begin{multicols}{2}
+\begin{enumerate}
+ \item $\di \int_0^2\int_0^3x^2y^3\,dx\,dy$
+ \item $\di \int_{-1}^1\int_0^2 x^2y\sin(y^2)\,dx\,dy$\\ (Hint: symmetry)
+ \item $\di \int_{-1}^1\int_0^3 y^5e^{xy^3}\,dx\,dy$
+ \item $\di \int_0^\pi\int_{-\pi/2}^{\pi/2}\sin(x+y)\,dx\,dy$
+\end{enumerate}
+\end{multicols}
+ \item Evaluate the following integrals over the given region $D$:
+\begin{enumerate}
+ \item $\di \iint_D x^3y^2\,dA$, where $D=\{(x,y) | 0\leq x\leq 2, -x\leq y\leq x\}$.
+ \item $\di \iint_D (1-\sin(\pi x))\,dA$, where $D$ is the region bounded by the lines $y=x$, $y=0$, and $x=1$.
+\end{enumerate}
+ \item For each of the iterated integrals below, (i) sketch the region of itegration, and (ii) evaluate the integral.
+\begin{multicols}{2}
+\begin{enumerate}
+ \item $\di \int_0^\pi\int_{\sin x}^{3\sin x}x(1+y)\,dy\,dx$.
+ \item $\di \int_0^1\int_0^{x^2}(x^2+xy-y^2)\,dy\,dx$.
+\end{enumerate}
+\end{multicols}
+ \item For each of the iterated integrals below, (i) sketch the region of integration, (ii) change the order of integration, and (iii) evaluate the integral.
+\begin{multicols}{2}
+ \begin{enumerate}
+  \item $\di \int_0^1\int_0^x xy\,dy\,dx$
+  \item $\di \int_0^1\int_{1-y}^1(x+y^2)\,dx\,dy$
+  \item $\di \int_0^1\int_{3y}^3 e^{x^2}\,dx\,dy$
+  \item $\di \int_0^1\int_{x^2}^1 x^3\sin(y^3)\,dy\,dx$
+ \end{enumerate}
+
+\end{multicols}
+
+ \end{enumerate}
+
+\end{document}
+ 

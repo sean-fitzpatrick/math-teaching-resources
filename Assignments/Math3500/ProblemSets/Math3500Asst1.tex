@@ -1,0 +1,85 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\title{Math 3500 Assignment \#1\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Friday, September 12, by 6 pm.
+
+\bigskip
+
+For Assignment \#1 I've included a selection of review exercises from Chapters 1 and 2. All of these problems cover material that you should have seen in Math 2000. Please attempt these problems as soon as you have time, and be sure to ask about any that give you trouble in class (our first Wednesday discussion would be ideal for this), online, or during office hours.
+
+Since there are quite a few problems, I'm going to break my rule of not assigning problems by textbook number. (I'll keep to this rule for assigned problems.) If you don't have a copy of the textbook, feel free to drop by during office hours to ask about what sort of problems you should be practicing. 
+
+\subsection*{Practice problems (do not hand in)}
+\begin{itemize}
+ \item \S 1.1, problems 1, 3, 9, 11
+ \item \S 1.2, problems 3, 5, 7, 9, 11, 17, 18, 19, 20
+ \item \S 1.3, problems 3, 6, 7, 9
+ \item \S 1.4, problems 3, 5, 7, 9, 11, 15, 17, 18, 19, 21, 22, 25, 27, 29
+ \item \S 2.1, problems 1, 3, 5, 6, 7, 9, 12, 13, 15, 17, 21, 23, 25
+ \item \S 2.2, problems 10, 11, 13
+ \item \S 2.3, problems 1, 3, 5, 7, 9, 11, 13, 17, 19, 27
+ \item \S 3.1, problems 7, 9, 11, 13, 17, 21, 23, 29
+\end{itemize}
+\newpage
+\subsection*{Assigned problems}
+\begin{enumerate}
+ \item (3.1 \#30 in text) Define the binomial coefficient $\binom{n}{r}$ by
+\[
+ \binom{n}{r} = \frac{n!}{r!(n-r)!}, \text{ for } r = 0, 1, 2, \ldots, n.
+\]
+\begin{enumerate}
+  \item Show that
+\[
+ \binom{n}{r}+\binom{n}{r-1} = \binom{n+1}{r} \text{ for } r=1,2,\ldots, n.
+\]
+  \item Use part (a) and mathematical induction to prove the {\bf binomial theorem}:
+\begin{align*}
+ (a+b)^n & = \binom{n}{0}a^n + \binom{n}{1}a^{n-1}b+\binom{n}{2}a^{n-2}b^2+\cdots + \binom{n}{n}b^n\\
+& = a^n +na^{n-1}b+\frac{1}{2}n(n-1)a^{n-2}b^2+\cdots+nab^{n-1}+b^n.
+\end{align*}
+\end{enumerate}
+ \item Let $A^c$ denote the complement of a set $A$, and recall that De Morgan's Laws state that
+\[
+ (A\cup B)^c = A^c\cap B^c \quad \text{ and } \quad (A\cap B)^c = A^c\cup B^c.
+\]
+\begin{enumerate}
+ \item Show how induction can be used to conclude that
+\[
+ (A_1\cup A_2\cup\cdots \cup A_n)^c = A_1^c\cap A_2^c\cap\cdots\cap A_n^c.
+\]
+ \item If $A_1\supseteq A_2\supseteq A_3\supseteq\cdots$ is a nested sequence of infinite sets, is it necessarily true that $\bigcap_{n=1}^\infty A_n$ contains infinitely many elements as well? Support your answer with a suitable argument or example.
+ \item Explain why induction {\em cannot} be used to conclude that
+\[
+ \left(\bigcup_{n=1}^\infty A_n\right)^c = \bigcap_{n=1}^\infty A_n^c.
+\]
+ \item Is the statement in part (c) valid, in spite of the fact that we cannot use induction to prove it? Give a suitable proof or counterexample.
+\end{enumerate}
+
+ \item (3.2 \#6 in text) Prove that the following are true, where $x$ and $y$ denote real numbers:
+\begin{enumerate}
+  \item $\abs{\abs{x}-\abs{y}}\leq \abs{x-y}$
+  \item If $\abs{x-y}<c$, then $\abs{x}<\abs{y}+c$.
+  \item If $\abs{x-y}<\epsilon$ for all $\epsilon>0$, then $x=y$.
+\end{enumerate}
+ \item Show that for any positive real numbers $x,y\geq 0$, we have
+\[
+ \sqrt{xy}\leq \frac{x+y}{2}.
+\]
+ \item (3.3 \#8 in text) Let $S$ and $T$ be nonempty bounded subsets of $\mathbb{R}$ with $S\subseteq T$. Prove that $\inf T\leq \inf S\leq \sup S\leq \sup T$.
+\end{enumerate}
+
+\end{document}
+ 

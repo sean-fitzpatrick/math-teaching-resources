@@ -1,0 +1,198 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+
+\title{Math 1410 Assignment \#1 Solutions\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+ \item You empty the change in your pockets to discover pennies, nickels, and dimes totalling \$1.05. If there are 17 coins in total, how many of each coin do you have?
+ 
+\bigskip
+
+Let $x$ be the number of pennies, $y$ the number of nickels, and $z$ the number of dimes. We'll assume that we discovered at least one of each coin, so $x,y,z\geq 1$. (Otherwise there are lots of options; for example, 105 pennies, 21 nickels, 10 dimes and a nickel, etc.) Since there are 17 coins in total,
+\[
+ x+y+z=17.
+\]
+Since the total value is \$1.05, or 105 cents, we have
+\[
+ x+5y+10z=105.
+\]
+Using an augmented matrix to solve the system, we have
+\begin{align*}
+ \begin{amatrix}{3}1&1&1&17\\1&5&10&105\end{amatrix}\xrightarrow[]{R_2\to R_2-R_1}
+&\begin{amatrix}{3}1&1&1&17\\0&4&9&88\end{amatrix}\\
+\xrightarrow[]{R_2\to \frac{1}{4}R_2}&\begin{amatrix}{3}1&1&1&17\\0&1&\frac{9}{4}&22\end{amatrix}\\
+\xrightarrow[]{R_1\to R_1-R_2}&\begin{amatrix}{3}1&0&-\frac{5}{4}&-5\\0&1&\frac{9}{4}&22\end{amatrix}
+\end{align*}
+This leaves us with the solution
+\begin{align*}
+ x & = -5 + \frac{5}{4}t\\
+ y & = 22 - \frac{9}{4}t\\
+ z & = t
+\end{align*}
+with $z=t$, the number of dimes, as a parameter. However, we can't take $t$ to be any real number, since $x,y,z$ are positive integers. Since $y=22-\frac{9}{4}t$, we see that $t$ must be a multiple of 4, or else $y$ would have a fractional value. This gives us the possibilities $z=t=4$ and $y=22-9=13$, or $z=t=8$ and $y=22-18=4$. (If $t=12$ or more, $y$ would become negative.)
+
+Now looking at $x=-5+\frac{5}{4}t$, we see that $t=4$ would give $x=0$, so if we want at least one penny, then we have to take $t=8$, giving us $x=-5+10=5$. Thus, we can conclude that there are 5 pennies, 4 nickels, and 8 dimes.
+
+\bigskip
+ 
+ \item We know that every homogeneous system of linear equations has a solution (the trivial solution). The main theorem on homogeneous systems states the following:
+ \begin{quotation}
+ If a homogeneous system of linear equations has more variables than equations, then it has a nontrivial solution. (In fact, it will have infinitely many solutions.)
+ \end{quotation}
+ Using this theorem,
+ \begin{enumerate}
+ \item Show that there is a line through any pair of points $(x_1,y_1)$ and $(x_2,y_2)$ in the plane.
+
+\bigskip
+
+Let the two points be $(x_1,y_1)$ and $(x_2,y_2)$. In order for us to have a line through these points, we have to be able to find real numbers $a,b,c$ (not all zero) such that
+\begin{align*}
+ ax_1+by_1+c & = 0 \text{ and}\\
+ ax_2+by_2+c & = 0.
+\end{align*}
+Since this is a homogeneous system of two equations in the three variables $a, b$ and $c$, we know that there must exist a nontrivial solution, since we have three variables, and the rank of the augmented matrix
+\[
+ \begin{amatrix}{3}
+  x_1&y_1&1&0\\x_2&y_2&1&0
+ \end{amatrix}
+\]
+is at most two, so there is at least $3-2=1$ parameter.
+
+\bigskip
+
+ \item Show that there is a plane through any three points $(x_1,y_1,z_1)$, $(x_2,y_2,z_2)$, and $(x_3,y_3,z_3)$ in space.
+
+\bigskip
+
+The argument is identical to the one given in part (a). The three points give us a system of three equations
+\begin{align*}
+ ax_1+by_1+cz_1+d & = 0\\
+ax_2+by_2+cz_2+d & = 0\\
+ax_3+by_3+cz_3+d & = 0
+\end{align*}
+in the variables $a,b,c,d$ which determine the equation of the plane. Since this is a homogeneous system with more variables than equations, we know that a nontrivial solutions is guaranteed, and thus we can find an equation of the plane through the given three points.
+ \end{enumerate}
+ 
+\bigskip
+
+ \item Let $A = \begin{bmatrix} 1 & 1 & -1 \end{bmatrix}, B = \begin{bmatrix}
+ 0 & 1 & 2
+ \end{bmatrix}$, and $C = \begin{bmatrix}
+ 3 & 0  & 1
+ \end{bmatrix}$. Show that if 
+ \[
+ rA+sB+tC=\begin{bmatrix}
+ 0 & 0 & 0
+ \end{bmatrix}
+ \]
+ then we must have $r=s=t=0$. 
+
+\bigskip
+
+Using the rules for scalar multiplication and addition of matrices, we have
+\begin{align*}
+ rA+sB+tC &= r\begin{bmatrix}1&1&-1\end{bmatrix}+s\begin{bmatrix}0&1&2\end{bmatrix}+t\begin{bmatrix}3&0&1\end{bmatrix}\\
+& = \begin{bmatrix}r&r&-r\end{bmatrix}+\begin{bmatrix}0&s&2s\end{bmatrix}+\begin{bmatrix}3t&0&t\end{bmatrix}\\
+& = \begin{bmatrix}r+3t&r+s&-r+2s+t\end{bmatrix} = \begin{bmatrix}0&0&0\end{bmatrix}.
+\end{align*}
+Since two matrices are equal if and only if each corresponding entry is equal, we obtain the system of equations
+\[
+\begin{array}{ccccccc}
+ r& & &+&3t&=&0\\
+ r&+&s& & &=&0\\
+-r&+&2s&+&t&=&0
+\end{array}
+\]
+Reducing the corresponding augmented matrix to row-echelon form, we have
+\begin{align*}
+ \begin{amatrix}{3}
+  1&0&3&0\\1&1&0&0\\-1&2&1&0
+ \end{amatrix} \xrightarrow[R_3\to R_3+R_1]{R_2\to R_2-R_1} 
+ &\begin{amatrix}{3}
+  1&0&3&0\\0&1&-3&0\\0&2&4&0
+ \end{amatrix}\\
+\xrightarrow[]{R_3\to R_3-2R_2}
+&\begin{amatrix}{3}
+ 1&0&3&0\\0&1&-3&0\\0&0&10&0
+\end{amatrix}\\
+\xrightarrow[]{R_3\to\frac{1}{10}R_3}
+&\begin{amatrix}{3}
+ 1&0&3&0\\0&1&-3&0\\0&0&1&0
+\end{amatrix},
+\end{align*}
+and using back substitution we can conclude that the only solution to our system of equations is $r=0$, $s=0$, and $t=0$, as required.
+
+\bigskip
+
+ \item In each of the following, either explain why the statement is true, or give an example showing that it is false:
+ \begin{enumerate}
+ \item If $A$ is an $m\times n$ matrix where $m<n$, then $AX=B$ has a solution for every column $B$.
+
+\bigskip
+
+This is false. Consider the matrix $A=\begin{bmatrix}1&1&1\\1&1&1\end{bmatrix}$ and the column $B = \begin{bmatrix}0\\1\end{bmatrix}$. We see that $A$ is $2\times 3$, and $2<3$, but there is no $X$ such that $AX=B$, since for $X = \begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}$, we would have to have
+\begin{align*}
+ x_1+x_2+x_3&=0 \text{ and}\\
+ x_1+x_2+x_3&=1,
+\end{align*}
+but this is impossible, since we cannot have $x_1+x_2+x_3$ equal to 0 and 1 simultaneously.
+
+\bigskip
+
+ \item If $AX=B$ has a solution for some column $B$, then it has a solution for every column $B$.
+
+\bigskip
+
+This is false. For example, if $A = \begin{bmatrix}1&1\\1&1\end{bmatrix}$ and $B = \begin{bmatrix}0\\0\end{bmatrix}$, then it's easy to check that $X = \begin{bmatrix}1\\-1\end{bmatrix}$ provides a solution. However, if $B=\begin{bmatrix}0&1\end{bmatrix}$, then no solution is possible, using the same reasoning as in part (a).
+
+\bigskip
+
+ \item If $X_1$ and $X_2$ are solutions to $AX=B$, then $X_1-X_2$ is a solution to $AX=0$.
+
+\bigskip
+
+This is true. Suppose that $AX_1=B$ and $AX_2=B$. Then we have
+\[
+ A(X_1-X_2) = AX_1-AX_2 = B-B=0.
+\]
+
+\bigskip
+
+ \item If $AB=AC$ and $A\neq 0$, then $B=C$.
+
+\bigskip
+
+This is false in general. (We can only conclude $B=C$ if $A$ is invertible.) Using an example from class, if $A = \begin{bmatrix}1&2\\2&4\end{bmatrix}, B = \begin{bmatrix}1&1\\2&3\end{bmatrix}$, and $C = \begin{bmatrix}3&3\\1&2\end{bmatrix}$, then $B\neq C$, but $AC=BC=\begin{bmatrix}5&7\\10&14\end{bmatrix}$.
+
+\bigskip
+
+ \item If $A\neq 0$, then $A^2\neq 0$.
+
+\bigskip
+
+This is false in general. For example, if $A=\begin{bmatrix}0&1\\0&0\end{bmatrix}$, then $A\neq 0$, but
+\[
+ A^2 = \begin{bmatrix}0&1\\0&0\end{bmatrix}\begin{bmatrix}0&1\\0&0\end{bmatrix}=\begin{bmatrix}0&0\\0&0\end{bmatrix}.
+\]
+
+ \end{enumerate}
+ \end{enumerate}
+\end{document}
+ 

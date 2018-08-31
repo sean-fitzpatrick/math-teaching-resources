@@ -1,0 +1,275 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 100}}
+\chead{MATH 2000 A\&B}\lhead{Final Exam}\rhead{Friday, 18\textsuperscript{th} December, 2015}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+18\textsuperscript{th} December, 2015, 9:00 am - 12:00 pm\\
+{\bf Math 2000 A\&B - FINAL EXAM}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ Record your answers below each question in the space provided.    {\bf Left-hand pages may be used as scrap paper for rough work.}  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments.
+
+No external aids are permitted.
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/9\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/9\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/11\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 7 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 8 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 9 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 10 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 11 & \enspace\enspace\enspace\enspace\enspace\enspace/11\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/100\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+ \item Give a precise definition of each of the terms written in {\bf bold} below.
+\begin{enumerate}
+ \item The {\bf Cartesian product} of two sets $A$ and $B$.\points{2}
+
+\vspace{1.5in}
+
+ \item The {\bf range} of a function $f:A\to B$. \points{2}
+
+\vspace{1.5in}
+
+ \item The {\bf pre-image} of a subset $Y\subseteq B$ with respect to a function $f:A\to B$. \points{2}
+
+\vspace{1.5in}
+
+ \item The {\bf equivalence class} of an object $a\in A$, with respect to an equivalence relation $\sim$ on $A$. \points{2}
+
+\vspace{1.5in}
+
+ \item What it means for a set $A$ to be {\bf finite}. \points{2}
+\end{enumerate}
+
+
+\newpage
+
+\item Let $A=\{1,3,4,6,8,9\}$, $B = \{2,3,5,6,7,9\}$, and $C=\{2,3,5,8\}$ be subsets of\\ $U = \{0,1,2,3,4,5,6,7,8,9\}$.
+\begin{enumerate}
+ \item Calculate $A\cup B$. \points{1}
+
+\vspace{1in}
+ 
+ \item Calculate $A\cap B$. \points{1}
+
+\vspace{1in}
+
+ \item Calculate $A\setminus B$. \points{1}
+
+\vspace{1in}
+
+ \item Verify that $(A\cap B)^c = A^c\cup B^c$. \points{3}
+
+\vspace{2in}
+
+ \item Verify that $A\cap (B\cup C) = (A\cap B)\cup (A\cap C)$. \points{3}
+
+\end{enumerate}
+\newpage
+
+\item Let $A, B$, and $C$ be subsets of some universal set $U$. Prove or disprove each of the following:
+\begin{enumerate}
+ \item $A\cap B\subseteq A$. \points{3}
+
+ \vspace{2.5in}
+
+ \item If $A\cup C\subseteq B\cup C$, then $A\subseteq B$. \points{3}
+
+\vspace{2.5in}
+
+ \item If $A\subseteq B$, then $A\cup C\subseteq B\cup C$. \points{3}
+\end{enumerate}
+\newpage
+
+\item Let $A$, $B$, and $C$ be sets. 
+\begin{enumerate}
+ \item Show that $(A\cup B)\setminus C = (A\setminus C)\cup (B\setminus C)$. \points{3}
+
+\vspace{2.5in}
+
+ \item Suppose that $A\cup C=B\cup C$ {\bf and} $A\cap C=B\cap C$. Prove that $A=B$. \points{4}\\
+{\bf Hint:} It's enough to prove that $A\subseteq B$. The proof that $B\subseteq A$ is identical.
+
+\vspace{3.5in}
+
+ \item Prove that if $X\subseteq A$, then $X\times B\subseteq A\times B$. \points{4}
+
+
+\end{enumerate}
+\newpage
+
+\item Let $A=\{1,2,3,4,5\}$ and let $B = \{s,t,u,v\}$, and define $f:A\to B$ by
+\[
+ f(1) = u, \, f(2) = s,\, f(3) = u,\, f(4) = t,\, f(5) = v.
+\]
+\begin{enumerate}
+ \item Draw an arrow diagram that represents the function $f$. \points{2}
+
+\vspace{1.75in}
+
+ \item Is the function $f$ an injection? Why or why not? \points{2}
+
+\vspace{1in}
+
+ \item Is the function $f$ a surjection? Why or why not?\points{2}
+
+\vspace{1in}
+
+ \end{enumerate}
+\item Let $\Z_5 = \{0,1,2,3,4\}$, and define $g:\Z_5\to \Z_5$ by $g(x) = 3x+2 \pmod{5}$.\\
+Verify that $g$ is a bijection, and determine the function $g^{-1}$. \points{4}\\
+{\bf Note:} You don't need to find a formula for $g^{-1}$ but it'll be extra nifty if you do.
+
+\newpage
+
+\item Let $f:A\to B$ and $g:B\to C$ be functions such that $g\circ f:A\to C$ is a surjection.
+\begin{enumerate}
+ \item Either prove that $g$ must be a surjection, or give an example where it is not. \points{3}
+
+\vspace{2.5in}
+
+ \item Either prove that $f$ must be a surjection, or give an example where it is not. \points{3}
+
+\vspace{2.5in}
+
+\end{enumerate}
+\item Prove that if $f:A\to B$ and $g:B\to C$ are both injections, then $g\circ f:A\to C$ is an injection.\points{4}
+
+\newpage
+
+\item Let $A=\{1,2,3,4\}$, and consider the following relations on $A$:
+\begin{align*}
+ R &=\{(1,1), (2,4), (3,3), (4,1)\}\\
+ S &=\{(1,1), (1,2), (2,1), (2,2), (3,3), (3,4), (4,3), (4,4)\}\\
+ T &=\{(1,2), (1,3), (2,2), (2,3), (3,2), (3,3), (4,4)\}
+\end{align*}
+\begin{enumerate}
+ \item Which of the above relations define a function? Which do not? Justify your answer. \points{3}
+
+\vspace{2in}
+
+ \item Which of the above relations are reflexive? Which are not? Justify your answer.\points{3}
+
+\vspace{2in}
+
+ \item Which of the above relations are symmetric? Which are not? Justify your answer. \points{3}
+
+\vspace{2in}
+
+ \item Which one is an equivalence relation? (No justification needed.) \points{1}
+\end{enumerate}
+\newpage
+
+ \item Let $A = \{1,2,3,4,5\}$. Draw a directed graph that represents an equivalence relation on $A$ with two distinct equivalence classes.\points{4}
+
+\vspace{3in}
+
+ \item  For any $m\in\mathbb{Z}$, let $[m]=\{n\in\mathbb{Z} \,|\, n\equiv m\pmod{3}\}$ denote the congruence class of $m$ modulo 3. Use mathematical induction to prove that $[10^n]=[1]$ for all natural numbers $n$.\points{6}
+ 
+\newpage
+
+\item Give an example of two sets $A$ and $B$ such that $A\subseteq B$, and $A\approx B$.\points{4}\\
+Demonstrate the equivalence by giving an explicit bijection $f:A\to B$.
+
+\vspace{3in}
+
+\item Suppose $A$ and $B$ are disjoint finite sets, with cardinalities $|A|=3$ and $|B|=7$. \\
+What are the cardinalities of $A\cup B$ and $A\times B$? \points{3}
+
+\vspace{3in}
+
+\item Give three examples of countably infinite sets, and three examples of uncountable sets.\points{3}
+
+\newpage
+
+\item Let $B$ be a countable set. Prove that any subset $A\subseteq B$ is countable. \points{4}\\
+{\bf Hint:} You need to show there is an injection $f:A\to\mathbb{N}$.
+
+\vspace{2.5in}
+
+\item Prove that if $A$ is uncountable and $A\subseteq B$, then $B$ is uncountable. \points{3}
+ 
+\vspace{2in}
+
+\item Let $g:\mathbb{N}\to A$ be a surjection. For each $a\in A$, let $n_a\in\mathbb{N}$ be the least element of the set $g^{-1}(a)$, and define $f:A\to \mathbb{N}$ by $f(a) = n_a$. Show that $g\circ f = I_A$, and explain why this implies that $f$ is an injection.\points{4}
+
+\vspace{3in}
+
+{\bf Bonus (3 points)}: On the next page, explain why the above definition of $f$ makes sense.
+\end{enumerate}
+\newpage
+
+{\bf Extra space for rough work. Do not remove unless there is nothing on this page you want to be graded.}
+\end{document}

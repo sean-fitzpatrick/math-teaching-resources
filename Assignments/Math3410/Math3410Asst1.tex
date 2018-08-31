@@ -1,0 +1,57 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\title{Math 3410 Assignment \#1\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Wednesday, January 28, by 5 pm.
+
+\bigskip
+
+Please provide solutions to the problems below, using the following guidelines:
+\begin{itemize}
+\item Your submitted assignment should be a {\bf good copy} -- figure out the problems first, and then write down organized solutions to each problem. 
+\item A cover page is required. I'll provide a template on Moodle that you can use for this, so you know what to include.
+\item Since you have plenty of time to work on the problems, assignment solutions will be held to a higher standard than on a test. Your explanations should be clear enough that any of your classmates can understand your solutions.
+\item Group work is permitted, but copying is not. If you're not sure what the difference is, feel free to ask. If you get help solving a problem, you should (a) make sure you completely understand the solution, and (b) re-write the solution for your good copy by yourself, in your own words.
+\item Assignments should be submitted in the appropriate assignment drop box. The drop boxes are on the 5th floor of University Hall, section C, across from the administrative offices for the departments of Mathematics and Computer Science and Modern Languages. 
+\item Late assignments will not be accepted.
+
+\end{itemize}
+\newpage
+\subsection*{Assigned problems}
+\begin{enumerate}
+ \item Let $V = M_{n\times n}(\R)$ denote the space of $n\times n$ matrices.
+ \begin{enumerate}
+ \item Let $E\in V$ be a matrix such that $E^2=E$, and let $U=\{A\in V : AE=A\}$ and $W = \{B\in V : BE = 0\}$. Show $U$ and $W$ are subspaces of $V$, and that $V=U\oplus W$.\\
+ {\em Hint:} Observe that $XE\in U$ for any matrix $X\in V$.
+ \item Let $U$ and $W$ denote the subspaces of symmetric and skew-symmetric matrices, respectively. (That is $U=\{A\in V : A^T=A\}$, and $V=\{B\in V : B^T = -B\}$.) Show that $V = U\oplus W$.\\
+ {\em Hint:} First show that for any matrix $X\in V$, $X+X^T\in U$ and $X-X^T \in W$. 
+ \end{enumerate}
+ \item Let $U$ and $W$ be subspaces of a vector space $V$. Prove that $U\cup W$ is a subspace of $V$ if and only if $U\subseteq W$ or $W\subseteq U$.\\
+ {\em Bonus:} For a 10\% bonus, prove that the union of three subspaces is a subspace if and only if one of the subspaces contains the other two. (This is 1.C.13 from the text; it comes with the warning that it's more difficult than the case of two subspaces. I'm not sure how much more difficult -- I haven't tried to solve it.)
+ \item Let $U$ be the subspace of $V=\C^5$ defined by
+ \[
+ U = \{(z_1,z_2,z_3,z_4,z_5)\in V : 6z_1=z_2 \text{ and } z_3+2z_4+3z_5=0\}.
+ \]
+ \begin{enumerate}
+ \item Find a basis for $U$.
+ \item Extend your basis in part (a) to a basis for $V$.
+ \item Find a subspace $W\subseteq V$ such that $V=U\oplus W$.
+ \end{enumerate}
+ \item Prove or give a counterexample: if $\{v_1,v_2,v_3,v_4\}$ is a basis for $V$,  and $U$ is a subspace of $V$ such that $v_1, v_2\in U$, but $v_3\notin U$ and $v_4\notin U$, then $\{v_1,v_2\}$ is a basis for $U$.
+ \item Prove that if $U$ and $W$ are both 4-dimensional subspaces of $\C^6$, then $U\cap W$ contains at least two linearly independent vectors.
+ \end{enumerate}
+\end{document}
+ 

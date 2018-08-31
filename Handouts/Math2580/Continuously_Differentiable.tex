@@ -1,0 +1,98 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\D}{\mathbf{D}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\h}{\mathbf{h}}
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+
+\title{Proof that Continuously differentiable implies differentiable}
+\author{Sean Fitzpatrick}
+\begin{document}
+\maketitle
+
+As mentioned in Assignment \#2, every continuously differentiable function is differentiable. A proof of this is available in the appendix of Stewart's textbook; however, Stewart only deals with the case of a real-valued function of two variables, so just for fun, I'll do the most general case. It's a good example of how our definition of differentiability and the method of $\epsilon-\delta$ proofs can be put to work. 
+
+Note: this is an update of an old handout, and I didn't have time to update the notation. On this handout the notation $\D f(\x)$ corresponds to the derivative matrix, which I wrote as $D_{\x}f$ on the assignment.
+
+\begin{theorem}
+Let $f:U\subseteq \R^n\to \R^m$ be a given function defined on an open subset $U$ of $\R^n$. Suppose that all partial derivatives of $f$ exist and are continuous on an open neighbourhood of a point $\x_0\in U$. Then $f$ is differentiable at $\x_0$.
+\end{theorem}
+\begin{proof}
+Write $f=\langle f_1,\ldots, f_m\rangle$ in terms of its components with respect to the standard unit basis vectors in $\R^m$. We need to show that if each partial derivative $\dfrac{\partial f_i}{\partial x_j}$ is continuous in a neighbourhood of $\x_0$, then
+\[
+\lim_{\h\to\mathbf{0}}\frac{\lVert f(\x_0+\h)-f(\x_0)-\D f(\x_0)\cdot \h\rVert}{\lVert\h\rVert} = 0.
+\]
+Let $\epsilon>0$ be given. Let $\mathbf{X}(\h)\in\R^m$ be the vector-valued function of $\h$ in the numerator of the above limit, defined by
+\[
+\mathbf{X}(\h) = f(\x_0+\h)-f(\x_0)-\D f(\x_0)\cdot \h.
+\]
+Since $\lVert \mathbf{X}(\h)\rVert \leq \lvert X_1(\h)\rvert+\cdots +\lvert X_m(\h)\rvert$, where the $X_i$ denote the components of $\mathbf{X}$, it is enough to show that for each $i=1,\ldots m$, we can make
+\[
+\frac{|X_i(\h)|}{\lVert \h\rVert}<\epsilon/m,
+\]
+by choosing $\h$ such that $\lVert\h\rVert$ is sufficiently small. Note that
+\[
+X_i(\h) = f_i(\x_0+\h)-f_i(\x_0)-\nabla f_i(\x_0)\cdot \h
+\]
+for each $i=1,\ldots m$. Let us denote the components of $\x_0$ and $\h$ by $\x_0 = \langle x_{0,1}, x_{0,2}, \ldots , x_{0,n}\rangle$ and $\h = \langle h_1,\ldots, h_n\rangle$, respectively. (There's no real way to do this without the notation getting messy.) We can then re-write the difference $f_i(\x_0+\h)-f(\x_0)$ as follows:
+\begin{align*}
+f_i(x_{0,1}+h_1,\ldots x_{0,n}+h_n)-f_i(x_{0,1},\ldots ,x_{0,n}) & = f_i(x_{0,1}+h_1,\ldots x_{0,n}+h_n)\\
+&\quad - f_i(x_{0,1},x_{0,2}+h_2,\ldots, x_{0,n}+h_n)\\
+&\quad\quad + f_i(x_{0,1},x_{0,2}+h_2,\ldots, x_{0,n}+h_n)\\
+&\quad\quad\quad-f_i(x_{0,1},x_{0,2},x_{0,3}+h_3,\ldots x_{0,n}+h_n)\\
+&\quad\quad\quad \vdots\\
+&\quad\quad\quad\quad + f_i(x_{0,1},\ldots, x_{0,n-1},x_{0,n}+h_n)\\
+&\quad\quad\quad\quad\quad -f_i(x_{0,1},\ldots ,x_{0,n}).
+\end{align*}
+(I warned you it would get messy!) For each $j=1,\ldots n$, we set
+\[
+g_{ij}(y) = f_i(x_{0,1},\ldots, x_{0,j-i},y,x_{0,j+1}+h_{j+1},\ldots, x_{0,n}+h_n).
+\]
+Notice that the above expansion of $f_i(x_{0,1}+h_1,\ldots x_{0,n}+h_n)-f_i(x_{0,1},\ldots ,x_{0,n})$ can then be written in the form
+\begin{align*}
+f_i(x_{0,1}+h_1,\ldots x_{0,n}+h_n)-f_i(x_{0,1},\ldots ,x_{0,n}) &= \left(g_{i1}(x_{0,1}+h_1)-g_{i1}(x_{0,1})\right)+\\
+& \quad\quad \cdots + \left(g_{in}(x_{0,n}+h_n)-g_{in}(x_{0,n})\right).
+\end{align*}
+Now, since the partial derivatives of each of the $f_i$ are defined in an open neighbourhood $N$ of $\x_0$, there is a $\delta_1>0$ such that $\lVert\h\rVert<\delta$ implies that $\x_0+\h\in N$, and therefore each function $g_{ij}(y)$ is differentiable for any $y$ between $x_{0,j}$ and $x_{0,j}+h_j$. Applying the mean value theorem, we can find some $\tilde{x}_j$ between $x_{0,j}$ and $x_{0,j}+h_j$ such that
+\[
+g_{ij}(x_{0,j}+h_j)-g_{ij}(x_{0,j}) = g_{ij}\,'(\tilde{x_j})h_j = \frac{\partial f_i}{\partial x_j}(\tilde{\x}_j),
+\]
+where $\tilde{\x}_j =\langle x_{0,1},\ldots, x_{0,j-1},\tilde{x_j},x_{0,j+1}+h_j,\ldots , x_{0,n}+h_n\rangle$. Thus we can write
+\[
+f_i(x_{0,1}+h_1,\ldots x_{0,n}+h_n)-f_i(x_{0,1},\ldots ,x_{0,n}) = \frac{\partial f_i}{\partial x_1}(\tilde{\x}_1)h_1+\cdots \frac{\partial f_i}{\partial x_n}(\tilde{\x}_n)h_n.
+\]
+Now, the other part of the component $X_i(\h)$ defined above is given by
+\[
+\nabla f_i(\x_0)\cdot \h = \frac{\partial f_i}{\partial x_1}(\x_0)h_1 +\cdots + \frac{\partial f_i}{\partial x_n}(\x_0)h_n.
+\]
+Combining these, we find that
+\begin{equation}\label{eq1}
+\frac{\lvert X_i(\h)\rvert}{\lVert \h\rVert} = \left| \left(\frac{\partial f_i}{\partial x_1}(\tilde{\x}_1)-\frac{\partial f_i}{\partial x_1}(\x_0)\right)\frac{h_1}{\lVert\h\rVert}+\cdots + \left(\frac{\partial f_i}{\partial x_n}(\tilde{\x}_n)-\frac{\partial f_i}{\partial x_n}(\x_0)\right)\frac{h_n}{\lVert\h\rVert}\right|.
+\end{equation}
+Now, since each partial derivative $\dfrac{\partial f_i}{\partial x_j}$ is continuous in a neighbourhood of $\x_0$, there exists a $\delta_2>0$ such that $\lVert \tilde{\x}_j-\x_0\rVert\leq \lVert\h\rVert<\delta_2$ implies that
+\[
+\left| \frac{\partial f_i}{\partial x_j}(\tilde{\x}_j)-\frac{\partial f_i}{\partial x_j}(\x_0)\right|<\frac{\epsilon}{mn},
+\]
+for each $j=1,\ldots ,n$. (Notice that by the way the numbers $\tilde{x}_j$ were defined via the Mean Value Theorem, we must have $\lVert \tilde{\x}_j-\x_0\rVert\leq \lVert\h\rVert<\delta_2$ for each $j=1,\ldots n$. For each of the partial derivatives we might have a different $\delta$ that yields the above inequality; we take $\delta_2$ to be the smallest of these.)
+
+Finally, we use the triangle inequality on \eqref{eq1}, together with the fact that $\dfrac{|h_j|}{\lVert\h\rVert}\leq 1$, to get
+\begin{align*}
+\frac{\lvert X_i(\h)\rvert}{\lVert \h\rVert} &\leq \left| \frac{\partial f_i}{\partial x_1}(\tilde{\x}_1)-\frac{\partial f_i}{\partial x_1}(\x_0)\right|\frac{|h_1|}{\lVert\h\rVert}+\cdots \left|\frac{\partial f_i}{\partial x_n}(\tilde{\x}_n)-\frac{\partial f_i}{\partial x_n}(\x_0)\right|\frac{|h_n|}{\lVert\h\rVert}\\
+&< \frac{\epsilon}{nm}+\cdots +\frac{\epsilon}{nm} = \frac{\epsilon}{m}.
+\end{align*}
+Thus, if we take $\lVert\h\rVert<\delta$, where $\delta=\min\{\delta_1,\delta_2\}$, we get that $\dfrac{X_i(\h)}{\lVert\h\rVert}<\epsilon/m$ for each $i=1,\ldots, m$, and thus $\dfrac{\lVert\mathbf{X}(\h)\rVert}{\lVert\h\rVert}<\epsilon$.
+
+Since $\epsilon>0$ was arbitrary, it must be the case that $\dfrac{\lVert\mathbf{X}(\h)\rVert}{\lVert\h\rVert}\to 0$ as $\h\to \mathbf{0}$.
+\end{proof}
+
+\end{document}

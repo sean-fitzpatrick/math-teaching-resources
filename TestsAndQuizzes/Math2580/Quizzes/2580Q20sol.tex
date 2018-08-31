@@ -1,0 +1,110 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\di}{\displaystyle}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\len}[1]{\left\lVert #1\right\rVert}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\F}{\mathbf{F}}
+\newcommand{\N}{\mathbf{N}}
+
+\title{Solutions to Quiz 20 Practice Problems\\Math 2580\\Spring 2016}
+\author{Sean Fitzpatrick}
+\date{March 31st, 2016}
+
+\begin{document}
+ \maketitle
+
+
+
+\begin{enumerate}
+ \item Use Green's Theorem to evaluate the given line integral. Assume the orientation of the curve is positive, unless otherwise indicated.
+\begin{enumerate}
+ \item $\int_C x^2y^2\,dx+4xy^3\,dy$, where $C$ is the triangle with vertices $(0,0)$, $(1,3)$, and $(0,3)$.
+
+\bigskip
+
+The curve $C$ bounds the triangular region $D$ described by $3x\leq y\leq 1$, for $0\leq x\leq 1$, so by Green's Theorem we have
+\begin{align*}
+ \int_C x^2y^2\,dx + 4xy^3\,dy &= \iint_D \left(\pd{4xy^3}{x}-\pd{x^2y^2}{y}\right)\,dA = \int_0^1\int_{3x}^1(4y^3-2x^2y)\,dy\,dx\\
+& = \int_0^1(1-x^2-72x^4)\,dx = 1-\frac{1}{3}-\frac{72}{5}.
+\end{align*}
+
+ \item $\int_C xe^{-2x}\,dx+(x^4+2x^2y^2)\,dy$, where $C$ is the boundary of the region between the circles $x^2+y^2=1$ and $x^2+y^2=4$.
+
+\bigskip
+
+Here, our region is described best in polar coordinates as $1\leq r\leq 2$, with $0\leq \theta\leq 2\pi$. We have
+\[
+ \pd{x^4+2x^2y^2}{x}-\pd{xe^{-2x}}{y} = 4x^3+4xy^2 = 4x(x^2+y^2) = 4r^3\cos\theta
+\]
+in polar coordinates. Thus, by Green's Theorem we have
+\[
+ \int_C xe^{-2x}\,dx+(x^4+2x^2y^2)\,dy = \int_0^{2\pi}\int_1^2 4r^4\cos\theta \,dr\,d\theta = 0.
+\]
+Note: the fact that this integral is zero tells us that the integral around the circle $x^2+y^2=1$ is equal to the integral around the circle $x^2+y^2=4$, since $C$ consists of two circles, with positive orientation for the outer circle, and negative orientation for the inner circle.
+
+ \item $\int_C y^3\,dx-x^3\,dy$, where $C$ is the circle $x^2+y^2=4$.
+
+\bigskip
+
+We have $\pd{Q}{x}-\pd{P}{y} = -3x^2-3y^2 = -3r^2$, and $C$ bounds the region given in polar coordinates by $0\leq r\leq 2$, with $0\leq \theta \leq 2\pi$. Thus, we have
+\[
+ \int_C y^3\,dx-x^3\,dy = \int_0^{2\pi}\int_0^2 (-3r^2)r\,dr\,d\theta = -\frac{3\pi}{2}.
+\]
+
+ \item $\int_C \F\dotp \,d\r$, where $\F(x,y) = \langle y^2\cos x, x^2+2y\sin x\rangle$ and $C$ is the trianglular path from $(0,0)$ to $(2,6)$ to $(2,0)$, and back to $(0,0)$.
+
+\bigskip
+
+First, we note that the given path is the negatively-oriented boundary of the region given by $0\leq x\leq 2$, $0\leq y\leq 3x$, so we have
+\[
+ \int_C \F\dotp \,d\r = -\iint_D\left(\pd{Q}{x}-\pd{P}{y}\right)\,dA = -\int_0^2\int_0^{3x}(2x)\,dy\,dx = -\int_0^2 6x^2\,dx = -16.
+\]
+
+\end{enumerate}
+ \item Find a normal vector to the given parameterized surface at the given point:
+\begin{enumerate}
+ \item $x=2u$, $y=u^2+v$, $z=v^2$, at the point $(0,1,1)$.
+
+\bigskip
+
+With $\r(u,v) = \langle 2u, u^2+v,v^2\rangle$, we have $\r_u(u,v) = \langle 2, 2u, 0\rangle$ and $\r_v(u,v) = \langle 0, 1, 2v\rangle$. At the point $(0,1,1)$ we have $2u=0$, so $u=0$, and comparing $y$-coordinates, $0^2+v=1$, which gives $v=1$ (and we can check that $1^1=1$ works for the $z$-coordinate).
+
+Since $\r_u(0,1) = \langle 2, 0, 0\rangle$ and $\r_v(u,v) = \langle 0, 1, 2\rangle$, we have
+\[
+ \N(0,1) = \r_u(0,1)\times \r_v(0,1) = \langle 2,0,0\rangle\times\langle 0,1,2\rangle = \langle 0,-4,2\rangle.
+\]
+
+ \item $x=u^2-v^2$, $y=u+v$, $z=u^2+4v$, at the point $(-\frac{1}{4}, \frac{1}{2}, 2)$.
+
+\bigskip
+
+We have $\r(u,v) = \langle u^2-v^2, u+v,u^2+4v\rangle$, so $\r_u(u,v) = \langle 2u, 1, 2u\rangle$ and $\r_v(u,v) = \langle -2v, 1, 4\rangle$. We now need to determine the values of $u$ and $v$ that correspond to the point $(-1/4, 1/2, 2)$. It's possible to guess the answer, but if you want to proceed systematically, note that if we take the difference of the $z$ and $x$ coordinates, we have
+\[
+ (u^2+4v)-(u^2-v^2) = v^2+4v= 2-\left(-\frac{1}{4}\right) = \frac{9}{4},
+\]
+so $v^2+4v-\frac{9}{4} = (v-\frac{1}{2})(v+\frac{9}{2}) = 0$, giving either $v=\frac{1}{2}$ or $v=-\frac{9}{2}$. The first solution works in all three coordinates if we take $u=0$, and you can check that $v=9/2$ does not lead to consistent values for $u$ in all three coordinates. Thus $u=0$ and $v=1/2$, giving us
+\[
+ \r_u(0,1/2) = 0,1,0\rangle, \r_v(0,1/2) = \langle -1,1,4\rangle, \N(0,1/2) = \langle 4,0,1\rangle.
+\]
+
+\end{enumerate}
+
+ \end{enumerate}
+
+\end{document}
+ 

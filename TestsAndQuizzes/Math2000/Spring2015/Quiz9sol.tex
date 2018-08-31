@@ -1,0 +1,127 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000B}\chead{Quiz \# 9}\rhead{Thursday, 19\textsuperscript{th} March, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\renewcommand{\div}[2]{#1\, |\,#2}
+
+\begin{document}
+{\bf Name:}
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+\bigskip
+
+{\bf Note:} There are questions on both sides of the page.
+
+Let $\Z_5=\{0,1,2,3,4\}$ and $\Z_6 = \{0,1,2,3,4,5\}$. For each function below, determine whether it is an injection or a surjection (or neither, or both):
+\begin{enumerate}
+ \item $f:\Z_5\to\Z_5$, given by $f(x)=3x+2 \pmod{5}$. \points{3}
+
+\bigskip
+
+We compute the values of $f$ via the following table:
+\[
+ \begin{array}{c|c|c}
+  x&3x+2&f(x)\\
+\hline
+  0&2&2\\
+ 1&5&0\\
+ 2&8&3\\
+ 3&11&1\\
+ 4&14&4
+ \end{array}
+\]
+We see that $f$ attains every value in $\Z_5$, and never takes the same value twice; therefore, $f$ is both an injection and a surjection.
+
+\bigskip
+
+ \item $g:\Z_6\to \Z_6$, given by $g(x) = 3x+2 \pmod{6}$. \points{3}
+
+\bigskip
+
+We again compute the values of $g$ according to the table below:
+
+\[
+ \begin{array}{c|c|c}
+  x&3x+2&g(x)\\
+\hline
+ 0&2&2\\
+ 1&5&5\\
+ 2&8&2\\
+ 3&11&5\\
+ 4&14&2\\
+ 5&17&5
+ \end{array}
+\]
+Since $\operatorname{range} g = \{2,5\}\neq \Z_6$, $g$ is not sujective, and since $g(0)=g(2)=2$, $g$ is not injective.
+
+\newpage
+
+ \item $h:\Z_5\to \Z_5$, given by $h(x) = x^3+4 \pmod{5}$. \points{3}
+
+\bigskip
+
+(Note: I've corrected the typo -- $h$ is defined mod 5, not mod 6.) The table of values for $h$ is given by
+\[
+ \begin{array}{c|c|c}
+  x&x^3+4&h(x)\\
+\hline
+ 0&4&4\\
+ 1&5&0\\
+ 2&12&2\\
+ 3&31&1\\
+ 4&68&3
+ \end{array}
+\]
+We see that every element of $\Z_5$ appears as $h(x)$ for some $x$, so $h$ is a surjection, and no value of $h(x)$ appears twice, so $h$ is an injection.
+
+\bigskip
+
+
+ \item $H:\Z_5 \to \Z_6$, given by $H(x) = x^3+4 \pmod{6}$. \points{1}
+
+\bigskip
+
+This problem proceeds as above, except that we compute remainders modulo 6. The table of values is
+\[
+ \begin{array}{c|c|c}
+  x&x^3+4&H(x)\\
+\hline
+ 0&4&4\\
+ 1&5&5\\
+ 2&12&0\\
+ 3&31&1\\
+ 4&68&2
+ \end{array}
+\]
+From the table, we see that $H$ is injective, since no value appears twice, but $H$ is not surjective, since $3\notin \operatorname{range}H$.
+\end{enumerate}
+
+
+\end{document}

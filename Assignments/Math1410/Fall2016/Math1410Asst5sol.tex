@@ -1,0 +1,207 @@
+\documentclass[letterpaper,12pt,reqno]{amsart}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+                   
+\title{Math 1410 Assignment \#5 Solutions\\University of Lethbridge, Fall 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+
+\item Recall that an $n\times n$ matrix $A$ is {\bf idempotent} if $A^2=A$. Show that:
+
+\medskip
+
+\begin{enumerate}
+ \item The identity matrix $I$ is the only invertible idempotent matrix.
+
+\bigskip
+
+{\bf Solution:} First, we note that $I$ is invertible and idempotent (since $I\cdot I = I$). Suppose now that $A$ is idempotent, so that $A^2=A$. If, in addition, we assume that $A$ is invertible, then we can multiply both sides of $A^2=A$ on the left by $A^{-1}$, giving us:
+\begin{align*}
+ A^{-1}(AA) &= A^{-1}(A)\\
+ (A^{-1}A)A & = I_n\\
+ I_nA & = I_n\\
+ A & = I_n,
+\end{align*}
+so $A$ is necessarily equal to the identity matrix.
+
+\bigskip
+
+ \item A matrix $A$ is idempotent if and only if $I-2A$ is self-inverse. 
+
+\bigskip
+
+{\bf Solution:} First, we note that $(I-2A)(I-2A) = I-4A+4A^2$. Now, if we assume that $A$ is idempotent, then $A^2=A$, and thus
+\[
+ (I-2A)(I-2A) = I-4A+4A = I,
+\]
+which shows that $(I-2A)^{-1} = I-2A$, so $A$ is self-inverse. Conversely, if we assume that $A$ is self-inverse, then $(I-2A)(I-2A) = I$, and thus $I=I-4A+4A^2$. Cancelling $I$ from both sides we get $0=-4A+4A^2$, and thus $4A=4A^2$. Multiplying both sides by $\frac{1}{4}$ gives us $A^2=A$, and thus $A$ is idempotent, as required.
+
+\bigskip
+
+ \item If $A$ is idempotent, then $I-kA$ is invertible for any $k\neq 1$, and
+\[
+ (I-kA)^{-1} = I+\left(\frac{k}{1-k}\right)A.
+\]
+
+\bigskip
+
+{\bf Solution:} Recall that for any matrix $X$, if we can find a matrix $Y$ such that $XY=I$, then we know that $X$ is invertible, and that $Y=X^{-1}$. Thus, it suffices to show that if $A^2=A$, then $(I-kA)\left(\left(\frac{k}{1-k}\right)A\right)=I$. Thus, let us assume $A^2=A$. We then have
+\begin{align*}
+ (I-kA)\left(I+\left(\frac{k}{1-k}\right)A\right) & = I + \left(\frac{k}{1-k}\right)A - kA + \left(\frac{k^2}{1-k}\right)A^2\\
+& = I + \left(\frac{k}{1-k}\right)A - kA + \left(\frac{k^2}{1-k}\right)A \tag{since $A^2=A$}\\
+& = I + \left(\frac{k}{1-k}-k+\frac{k^2}{1-k}\right)A\\
+& = I + \left(\frac{k-k(1-k)+k^2}{1-k}\right)A\\
+& = I + \left(\frac{0}{1-k}\right)A\\
+& = I + 0 = I,
+\end{align*}
+which is what we needed to show.
+
+\bigskip
+
+\end{enumerate}
+
+\bigskip
+
+
+\item Recall that an $n\times n$ matrix $A$ is {\bf symmetric} if $A^T=A$, and {\bf antisymmetric} if $A^T=-A$.
+
+\bigskip
+
+\begin{enumerate}
+ \item Show that $B+B^T$ is symmetric for {\bf any} $n\times n$ matrix $B$.
+
+\bigskip
+
+{\bf Solution:} Using the properties of the transpose, we have
+\[
+ (B+B^T)^T = B^T+(B^T)^T = B^T+B = B+B^T,
+\]
+so $B+B^T$ is symmetric.
+
+\bigskip
+
+ \item Show that $B-B^T$ is antisymmetric for {\bf any} $n\times n$ matrix $B$.
+
+\bigskip
+
+{\bf Solution:} As above, we have
+\[
+ (B-B^T)^T = B^T-(B^T)^T = B^T-B = -(B-B^T),
+\]
+so $B-B^T$ is antisymmetric.
+
+\bigskip
+
+ \item Given any $n\times n$ matrix $B$, find a symmetric matrix $U$ and an antisymmetric matrix $V$ such that $B=U+V$.
+\end{enumerate}
+
+\bigskip
+
+Let $U = \frac{1}{2}(B+B^T)$ and let $V = \frac{1}{2}(B-B^T)$. Since we know that $(kA)^T = kA^T$ for any matrix $A$, we have
+\[
+ U^T = \left[\frac{1}{2}(B+B^T)\right]^T = \frac{1}{2}(B+B^T)^T = \frac{1}{2}(B+B^T) = U,
+\]
+and
+\[
+ V^T = \left[\frac{1}{2}(B-B^T)\right]^T = \frac{1}{2}(B-B^T)^T = \frac{1}{2}(-(B-B^T)) = -\frac{1}{2}(B-B^T) = -V,
+\]
+so $U$ is symmetric, $V$ is antisymmetric, and
+\[
+ U+V = \frac{1}{2}(B+B^T)+\frac{1}{2}(B-B^T) = \frac{1}{2}B+\frac{1}{2}B+\frac{1}{2}B^T-\frac{1}{2}B^T = B,
+\]
+as required.
+
+\bigskip
+
+\item What can be said about the determinant of $A$ if:
+
+\medskip
+
+\begin{enumerate}
+ \item $A$ is idempotent.
+
+\bigskip
+
+{\bf Solution:} If $A$ is idempotent, then $A^2 = A$, and thus
+\[
+ \det(A) = \det(A^2) = (\det(A))^2.
+\]
+Therefore, if $x=\det(A)$, we must have $x=x^2$, so $x^2-x = x(x-1)=0$, and thus $\det(A)$ must equal either 0 or 1.
+
+\bigskip
+
+ \item $A$ is self-inverse.
+
+\bigskip
+
+{\bf Solution:} If $A$ is self-inverse, then $A^2=I$, and thus
+\[
+ 1 = \det(I) = \det(A^2) = \det(A)^2,
+\]
+which tells us that $\det(A) = \pm 1$.
+
+\bigskip
+
+ \item $A$ is antisymmetric.  
+
+\bigskip
+
+{\bf Solution:} If $A$ is antisymmetric, then $A^T = -A = (-1)A$. We then have
+\[
+ \det(A) = \det(A^T) = \det(-A) = (-1)^n\det(A).
+\]
+If $A$ is an $n\times n$ matrix where $n$ is odd, then this gives us $\det(A) = -\det(A)$, and thus $\det(A)=0$. However, if $n$ is even, we get the equation $\det(A)=\det(A)$, which tells us nothing. So when $n$ is even, nothing can be said about the determinant.
+\end{enumerate}
+
+\bigskip
+
+\item Determine all values of $k$ such that the following matrices are invertible:
+
+\medskip
+
+\[
+ A = \bbm k&-k&3\\0&k+1&1\\k&-8&k-1\ebm \quad B = \bbm k&k&0\\k^2&4&k^2\\0&k&k\ebm
+\]
+
+\end{enumerate}
+
+\bigskip
+
+{\bf Solution:} For the matrix $A$, we expand along the first column, giving us
+\begin{align*}
+ \det(A) & = k\begin{vmatrix}k+1 & 1\\-8&k-1\end{vmatrix}+k\begin{vmatrix}-k&3\\k+1&1\end{vmatrix}\\
+ & = k(k^2-1+8)+k(-k-3k-3)\\
+ & = k(k^2-4k+4)\\
+ & = k(k-2)^2.
+\end{align*}
+Thus, we see that $\det(A) = 0$ for $k=0,2$, and therefore, $A$ is invertible for $k\neq 0,2$.
+
+\medskip
+
+For the matrix $B$, we expand along the first row, giving us
+\begin{align*}
+ \det(B) & = k\begin{vmatrix}4&k^2\\k&k\end{vmatrix} - k\begin{vmatrix}k^2&k^2\\0&k\end{vmatrix}\\
+ & = k(4k-k^3)-k(k^3)\\
+ & = k(4k-2k^3) = 2k^2(2-k^2).
+\end{align*}
+Thus, $\det(B) = 0$ if $k=0$ or $k=\pm\sqrt{2}$, and thus $B$ is invertible for all values of $k\neq 0,\sqrt{2},-\sqrt{2}$.
+
+\end{document}
+ 

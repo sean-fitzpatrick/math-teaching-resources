@@ -1,0 +1,107 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\title{Math 2580 Assignment \#2 Solutions\\University of Lethbridge, Spring 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+
+\begin{enumerate}
+ \item Let $r:\R\to \R^3$ be a smooth\footnote{For us, a curve will be {\em smooth} if $r'(t)=\langle u'(t), v'(t), w'(t)\rangle$ exists and is {\bf non-zero} for all $t$.} curve given by $r(t)=(u(t),v(t),w(t))$, and let $f:\R^3\to\R^3$ be a continuously differentiable function given by
+\[
+ f(u,v,w) = (x(u,v,w), y(u,v,w), z(u,v,w)).
+\]
+ The composition $s(t) = (f\circ r) (t) = (x(r(t)), y(r(t)), z(r(t)))$ is then another curve in $\R^3$. Using the Chain Rule, show the following:
+\begin{enumerate}
+ \item If $r'(t)$ exists for all $t$, then $s'(t)$ exists for all $t$.
+ 
+\bigskip
+
+Suppose that $r'(t)$ is defined for all $t$. Then in particular $r(t)$ is defined for all $t$, and since $f$ is continuously differentiable, the derivative matrix $D_{r(t)}f$ is defined at each point $r(t)$ on the curve. Since $s(t)=f(r(t))$, it follows from the Chain Rule that
+\[
+ s'(t) = \frac{d}{dt}(f(r(t))) = (D_{r(t)}f)r'(t)
+\]
+is defined for all $t$.
+
+\bigskip
+
+
+ \item If $\vec{v}$ is tangent to the curve $r(t)$ at a point $\mathbf{u}_0=(u_0,v_0,w_0) = r(t_0)$, then $D_{\mathbf{u}_0}f\vec{v}$ is tangent to the curve $s(t)$ at the point $\mathbf{x_0} = f(u_0,v_0,w_0) = s(t_0)$.
+
+\bigskip
+
+If $\vec{v}$ is tangent to the curve $r(t)$ at the point $r(t_0)$, then we must have $\vec{v} = cr'(t_0)$ for some scalar $c\in\R$. Using the Chain Rule result from part (a), it follows that
+\[
+ D_{r(t_0)}f\cdot \vec{v} = D_{r(t_0)}f(cr'(t_0)) = c D_{r(t_0)}f\cdot r'(t_0) = c s'(t_0),
+\]
+so $D_{r(t_0)}f\cdot \vec{v}$ is a scalar multiple of $s'(t_0)$, and therefore tangent to the curve $s(t)$ at the point $s(t_0)$.
+
+ \item {\bf Bonus:} In order to say that the curve $s(t)$ is ``smooth'', we would need to also guarantee that $s'(t)$ is never zero. What condition on $D_{\mathbf{x}}f$ will guarantee this? (Hint: if $\vec{v}$ is a non-zero vector, how can you guarantee that $A\vec{v}\neq 0$ for an $m\times n$ matrix $A$?)
+
+\bigskip
+
+Since $D_{\mathbf{x}}f$ is a $3\times 3$ matrix in this case, we know that the only solution to the system of equations $D_{\mathbf{x}}f\vec{v}=\vec{0}$ is $\vec{v}=\vec{0}$ provide the matrix $D_{\mathbf{x}}f$ is invertible. Therefore a sufficent condition in this case is
+\[
+ \det(D_{\mathbf{x}}f) \neq 0.
+\]
+{\bf Note:} The answer is a bit simpler in this case because $f$ was a function from $\R^3\to \R^3$. In general, if $f$ is a function from $\R^n$ to $\R^m$ with $m\neq n$, we need to be more careful. There are two cases to consider: if $n<m$, a sufficient condition is that $\operatorname{rank}(D_{\mathbf{x}}f)=n$ for each point $\mathbf{x}$ along the curve. If $n>m$, it's impossible to guarantee that $s'(t)\neq 0$ in general: there will always be non-trivial solutions to the system of equations $A\vec{v}=\vec{0}$ when the matrix $A$ has more columns than rows. The best we can ask for in this case is that the rank of the derivative matrix is equal to $m$. (The only way to avoid $s'(t)=0$ in this case is to makes sure $r'(t)$ never belongs to the null space of the matrix $D_{r(t)}f$.)
+\end{enumerate}
+
+\item Let $r(t)=(2\cos(t), 3\sin(t))$ be a curve in the plane, and let $f:\R^2\to \R$ be the function $f(x,y) = x^2-4xy^3$. The curve
+\[
+ s(t) = (2\cos(t),3\sin(t), f(2\cos(t),3\sin(t)))
+\]
+is then a curve in $\R^3$ that lies on the surface $z=f(x,y)$.
+\begin{enumerate}
+ \item Explain why the claim above (that $s(t)$ defines a curve on the surface $z=f(x,y)$) is true.
+
+\bigskip
+
+Saying that the curve $s(t)$ lies on the surface is simply stating that every point on the curve must also be a point on the surface. If $(x,y,z)$ is a point on the curve, then
+\[
+ (x,y,z)=s(t)=(x(t),y(t),z(t))
+\]
+for some $t$, and requiring that $(x,y,z)$ also lies on the surface $z=f(x,y)$ is simply the condition that $z(t)=f(x(t),y(t))$, and this is exactly what we're given.
+
+ \item Show that the tangent vector to $s(t)$ when $t=0$ lies in the tangent plane to the surface $z=f(x,y)$ at the point $(2,0,4)$.
+
+\bigskip
+
+The tangent vector the the curve $s(t)$ for any value of $t$ is given by
+\[
+ s'(t) = (x'(t), y'(t), z'(t)),
+\]
+where $x'(t) = -2\sin (t)$, $y'(t) = 3\cos(t)$, and by the Chain Rule,
+\[
+ z'(t) = f_x(x(t),y(t))y'(t)+f_y(x(t),y(t))y'(t) = (2x-4y^3)(-2\sin(t))-12y^3(3\cos(t)).
+\]
+When $t=0$, $x(0)=2$, $y(0)=0$, $x'(t)=0$, $y'(t)=3$, and
+\[
+ z'(0) = (2(2)-0)(0)-0(3)=0.
+\]
+Thus, $s'(t) = \langle 0,3,0\rangle$. On the other hand, the normal vector to the tangent plane is given by
+\[
+ \vec{n} = \langle f_x(2,0), f_y(2,0), -1\rangle = \langle 4, 0 , -1\rangle,
+\]
+and thus $\vec{n}\boldsymbol{\cdot}s'(0) = \langle 4, 0, -1\rangle\boldsymbol{\cdot}\langle 0,3,0\rangle = 0$, which shows that $s'(0)$ lies in the tangent plane to $z=f(x,y)$ at the point $s(0)$.
+\end{enumerate}
+Note: the general case for this example is at the end of Section 15.3 in the Marsden and Weinstein text.
+
+
+\end{enumerate}
+
+
+
+\end{document}
+ 

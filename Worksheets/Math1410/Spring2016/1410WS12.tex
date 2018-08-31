@@ -1,0 +1,107 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.75in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 12}\rhead{Tuesday, 12\textsuperscript{th} April, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newenvironment{aamatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|*{#1}{c}@{}}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}   
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+         
+                  
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+ \begin{enumerate}
+  \item If $z=3-2i$ and $w = -5+4i$, compute:
+  \begin{enumerate}
+  \item $3z$
+  \item $z-2w$
+  \item $2w-3z$
+  \item $zw$
+  \item $\overline{z}$ (The complex conjugate is defined by $\overline{x+iy}=x-iy$.)
+  \item $\abs{w}$ (The complex modulus (norm) is defined by $\abs{w} = \sqrt{w\overline{w}}$.)
+  \item $\dfrac{z^2}{w}$
+  \end{enumerate}
+ 
+  
+ \item Solve for $z$ in the following equations:
+\begin{enumerate}
+\item $z+(2-3i)=-5+4i$
+\item $3z-2i = (2-i)(3+4i)$
+\item $2iz = 1+i$
+\item $(3+2i)z -1+3i = 4+i$
+\end{enumerate} 
+\item Find the eigenvalues of the following matrices:
+\[
+A = \bbm 2&4\\-4&2\ebm \quad\quad B = \bbm 3&2+i\\2-i&7\ebm
+\]
+\item Verify that $\bbm 1\\i\ebm$ and $\bbm i\\1\ebm$ are eigenvectors for the matrix $A$ in the previous problem, and that $\bbm 2+i\\-1\ebm$ and $\bbm 1\\2-i\ebm$ are eigenvectors for the matrix $B$ in the previous problem.
+\item (Bonus superfun challenge problem) Let $Z=\bbm 0&1\\-1&0\ebm$.
+\begin{enumerate}
+\item Verify that $Z$ has eigenvalues $\pm i$ and eigenvectors $\vec{v}=\bbm i\\-1\ebm$ and $\vec{w}=\bbm -1\\i\ebm$.
+\item Show that $\langle \vec{v},\vec{w}\rangle = 0$, where $\langle \vec{v},\vec{w}\rangle = \vec{v}\dotp \overline{\vec{w}}$ is the complex version of the dot product. (The notation $\overline{\vec{w}}$ means take the complex conjugate of each entry in $\vec{w}$.) 
+\item A matrix $U$ is called \textbf{unitary} if $U^*U=I$, where $U^*=(\overline{U})^T$ is the \textit{Hermitian conjugate} of $U$, formed by taking the transpose of the complex conjugate of $U$.
+
+Let $U = \dfrac{1}{\sqrt{2}}\bbm i&-1\\-1&i\ebm$. (Note that the columns of $U$ are eigenvectors of $Z$.) Show that $U$ is unitary and that $U^*ZU = \bbm i&0\\0&-1\ebm$.
+\item Compute $Z^{423}$.
+\end{enumerate}
+ \end{enumerate}
+\newpage
+
+{\large \bf Name:}
+
+\vspace{24pt}
+
+{\large \bf Tutorial time:}
+
+\vspace{24pt}
+
+Please submit \textbf{one} \textit{completed} solution from the worksheet for feedback. 
+
+\textbf{Note:} Your solution needs to contain enough detail for it to be clear what problem you're trying to solve!
+
+\end{document}

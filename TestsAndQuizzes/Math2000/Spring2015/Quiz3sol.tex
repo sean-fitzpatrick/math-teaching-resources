@@ -1,0 +1,119 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000B}\chead{Quiz \# 3}\rhead{Thursday, 29\textsuperscript{th} January, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\renewcommand{\div}[2]{#1\, |\,#2}
+
+\begin{document}
+{\bf Name: Solutions}
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+\bigskip
+
+
+Prove any {\bf two} of the following three statements. (5 points each)
+\begin{enumerate}
+ \item For all integers $a, b,$ and $c$, with $a\neq 0$, if $\div{a}{b}$ and $\div{a}{c}$, then $\div{a}{(b-c)}$.
+
+\bigskip
+
+{\bf Solution:} First, as a reminder/clarification: the notation $\div{a}{b}$ represents a {\em statement}, not a number. If we write $\div{a}{b}$ we are saying that $a$ {\bf divides} $b$, which means that we can write $b=ak$ for some integer $k$. You can't replace it with expressions such as $\dfrac{b}{a}$ (which would represent a number; namely, a fraction). If you're ever unsure, try putting some numbers in to see if the sentence makes sense. \\
+(We probably would not make a statement like ``If $\frac{2}{3}$ and $\frac{7}{3}$, then $\frac{-5}{3}$.'')
+
+The proof is as follows: suppose $\div{a}{b}$ and $\div{a}{c}$. Then there exist integers $k$ and $l$ such that $b=ak$ and $c=al$. It follows that
+\[
+ b-c = ak-al = a(k-l).
+\]
+Since $k-l\in\Z$, it follows that $\div{a}{b-c}$.
+
+
+ \item For any integer $n$, if $n$ is an odd integer, then $n^3$ is an odd integer.
+
+\bigskip
+
+There are two methods here: the ``brute force'' method, and the ``rely on previous knowledge'' method. First, the brute force method:
+
+Suppose $n$ is an odd integer. Then $n=2k+1$ for some $k\in \Z$. It follows that 
+\[
+ n^3 = (2k+1)^3 = 8k^3+12k^2+6k+1 = 2(4k^3+6k+3k)+1,
+\]
+which is of the form $n^3=2l+1$, where $l$ is the integer $4k^3+6k+3k)$, so $n^3$ is odd.
+
+{\bf Note:} Be careful with the expression $(2k+1)^3$. I noticed a few people with the result $8k^3+1$ as the quizzes were handed in. Don't forget that there are cross terms:
+\[
+ (2k+1)^3 = (2k+1)(2k+1)(2k+1).
+\]
+(I saw at least 5 or 6 like this, so you're not alone if you made this mistake.) If you've encountered the binomial formula before, you can raise a binomial to the third (or higher) power reasonably quickly:
+\[
+ (a+b)^n = a^n + na^{n-1}b + \binom{n}{2} a^{n-2}b^2+\cdots + \binom{n}{n-2}a^2b^{n-2}+nab^{n-1}+b^n,
+\]
+where $\binom{n}{k} = \dfrac{n!}{k!(n-k)!}$ are the ``binomial coefficients''. If you haven't seen these before (and/or have no idea what $n!$ means), don't worry about it. If you've ever encountered Pascal's Triangle, the binomial coefficients are the numbers you see there.
+
+\newpage
+
+Now, here is the ``rely on previous knowledge'' method:
+
+From the textbook, we know that the product of two odd integers is odd. In particular, this means that if $n$ is odd, then $n^2 = n\cdot n$ is odd. Since $n$ is odd and $n^2$ is odd, it follows that
+\[
+ n^3 = n(n^2)
+\]
+is odd.
+
+\medskip
+
+If you don't want to quote the textbook, you could also write something like the following:
+
+Lemma: the product of two odd integers is an odd integer.
+
+Proof: suppose $x$ and $y$ are odd integers. Then there exist integers $k,l\in\Z$ such that $x=2k+1$ and $y=2l+1$, so
+\[
+ xy = (2k+1)(2l+1) = 4kl+2k+2l+1 = 2(2kl+k+l)+1
+\]
+is odd.
+
+From here, you could proceed as above to conclude that $n$ and $n^2$ are both odd, so $n^3$ must be odd as well.
+
+(A ``lemma'' is a small theorem needed to prove a bigger theorem.)
+
+\bigskip
+
+ \item For each integer $a$, if $\div{4}{(a-1)}$, then $\div{4}{(a^2-1)}$.
+
+\bigskip
+
+Let $a$ be an integer, and suppose that $\div{4}{(a-1)}$. Then there exists some $k\in \Z$ such that $a-1 = 4k$. It follows that
+\[
+ a^2-1 = (a-1)(a+1) = 4k(a+1) = 4[k(a+1)].
+\]
+Thus, $\div{4}{(a^2-1)}$.
+\end{enumerate}
+
+
+\end{document}

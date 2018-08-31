@@ -1,0 +1,82 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000B}\chead{Quiz \# 10}\rhead{Thursday, 2\textsuperscript{nd} April, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\renewcommand{\div}[2]{#1\, |\,#2}
+
+\begin{document}
+{\bf Name: Solutions}
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+\bigskip
+
+
+\begin{enumerate}
+ \item For each of the following, given an example\footnote{Arrow diagrams are acceptable, as long as they clearly indicate (a) what the sets $A,B,C$ are, and (b) how the functions are defined.} of functions $f:A\to B$ and $g:B\to C$ that satisfy the stated conditions, or explain why no such example is possible:
+\begin{enumerate}
+ \item The function $f$ is a surjection, but the function $g\circ f$ is not a surjection. \points{3}
+
+\bigskip
+
+Finte example: take $A=B=\{1\}$, and $C=\{1,2\}$. Define $f:A\to B$ by $f(1)=1$ and $g:B\to C$ by $g(1)=1$. Then $f$ is a surjection, since $\operatorname{range}f = \{1\}=B$. However, we have $g\circ f(1) = g(f(1))=g(1)=1$, so the range of $g\circ f$ is $\{1\}\neq C$, and thus $g\circ f$ is not a surjection.
+
+\medskip
+
+Real-valued example (the one from the back of the textbook): take $A=B=C=\R$ and define $f(x)=x$ and $g(x)=x^2$. Then $f$ is a surjection, but $g\circ f(x) = x^2$ is not, since, for example $-1$ is not in the range of $g\circ f$.
+
+\bigskip
+
+ \item The function $f$ is an injection, but the function $g\circ f$ is not an injection. \points{3}
+
+ \bigskip
+
+Finite example: take $A=B=\{1,2\}$ and $C=\{1\}$. Define $f:A\to B$ by $f(1)=1$ and $f(2)=2$, and define $g:B\to C$ by $g(1)=g(2)=1$. Then $f$ is clearly an injection, but $g\circ f(1) = g\circ f(2) = 1$, so $g\circ f$ is not an injection.
+
+\medskip
+
+Real-valued example: use the same one as above (also from the back of the textbook).
+
+\bigskip
+
+ \end{enumerate}
+\item Let $f:A\to B$ and $g:B\to A$ be functions, and let $I_B:B\to B$ denote the identity function on $B$. Prove that if $f\circ g=I_B$, then $f$ is a surjection.\points{4}
+
+\bigskip
+
+{\bf Proof:} Suppose $f\circ g=I_B$, and let $b\in B$ be arbitrary. We need to show that there exists some $a\in A$ such that $f(a)=b$. Since $g$ is a function from $B$ to $A$, we can set $a=g(b)$. Then
+\[
+ f(a) = f(g(b)) = f\circ g(b) = I_B(b) = b,
+\]
+which is what we needed to show.
+
+\end{enumerate}
+
+
+\end{document}

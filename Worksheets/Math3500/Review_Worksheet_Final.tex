@@ -1,0 +1,207 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\Vert}
+
+\title{Final Exam Review Sheet}
+%\date{1 October, 2014}
+
+
+\begin{document}
+\maketitle
+
+This worksheet covers sections 6.3, 6.4, and 7.1-7.3, which is the material since the second term test. Combining this with the two previous review sheets, you should have a complete review for the final exam.
+
+\subsection*{Section 6.3: l'Hospital's Rule}
+Main definitions and results:
+\begin{itemize}
+ \item To prove l'Hospital's rule, we used {\bf Cauchy's Mean Value Theorem}: if $f$ and $g$ are continuous on $[a,b]$ and differentiable on $(a,b)$, then there exists some $c\in (a,b)$ such that
+\[
+ [g(b)-g(a)]f'(c)=[f(b)-f(a)]g'(c).
+\]
+ \item {\bf l'Hospital's rule} states that given functions $f$ and $g$ that are continuous on $[a,b]$ and differentiable on $(a,b)$, if at some $c\in [a,b]$ we have $f(c)=g(c)=0$, and $g'(x)\neq 0$ for all $x$ near $c$ (that is, for all $x$ in some deleted neighbourhood of $c$), or if $\lim_{x\to c}g(x)\infty$, and
+\[
+ \lim_{x\to c}\frac{f'(x)}{g'(x)} = L,
+\]
+then $\displaystyle \lim_{x\to c}\frac{f(x)}{g(x)} = L$.
+
+As noted in class, l'Hospital's rule can also be applied to limits at infinity and infinite limits.
+\end{itemize}
+
+\noindent Exercises:
+\begin{enumerate}
+ \item Suppose that $f$ is continuous in $[a,b]$ and differentiable on $(a,b)$, and that $\lim\limits_{x\to c}f(x)$ exists. Prove that $f'$ is continuous at $c$. {\em Hint:} the derivative is defined in terms of a 0/0 limit.
+ \item Give a general formula for 
+\[
+ \lim_{x\to c}f(x)^{f(x)}
+\]
+in the case that $f$ is differentiable and positive on $(a,b)$, and $\lim_{x\to c}f(x)=0$ at $c\in (a,b)$.
+\end{enumerate}
+
+\subsection*{Section 6.4: Taylor's Theorem}
+Main definitions and results:
+\begin{itemize}
+ \item We say that two functions $f$ and $g$ {\bf agree to order $n$ at $c$} if
+\[
+ \lim_{x\to c}\frac{f(x)-g(x)}{(x-c)^n} = 0.
+\]
+ \item Given a function $f$ that is $n$ times differentiable at $a$, the {\bf Taylor polynomial of $f$ of order $n$ at $a$} is denoted $P_{n,a,f}(x)$ and defined by
+\[
+ P_{n,a,f}(x) = \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x-a)^k.
+\]
+ \item The Taylor polynomial $P_{n,a,f}$ is the {\bf unique} polynomial of degree $n$ that agrees with $f$ to order $n$ at $a$. That is, if $f(x) = P_{n,a,f}(x)+R_{n,a,f}(x)$, then the remainder term $R_{n,a,f}$ satisfies
+\[
+ \lim_{x\to a}\frac{R_{n,a,f}(x)}{(x-a)^n} = 0.
+\]
+
+ \item {\bf Taylor's theorem} states that if $f, f', \ldots, f^{(n)}$ are continuous on $[a,b]$ and differentiable on $(a,b)$ (in particular, $f^{(n+1)}$ exists, but is not assumed continuous) and $x_0\in [a,b]$, then for each $x\in [x,b]$ with $x\neq x_0$, there exists some $c$ between $x$ and $x_0$ such that
+\[
+ f(x) = P_{n,x_0,f}(x)+\frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}.
+\]
+ \item The above form of the remainder is known as the {\bf Lagrange formula} for the remainder. We also saw the {\em Cauchy formula} for the remainder (which you shouldn't worry about) and the {\bf integral formula}
+\[
+ R_{n,x_0,f}(x) = \int_{x_0}^x \frac{f^{(n+1)}(t)}{n!}(x-t)^n\,dt.
+\]
+If you're going to remember one formula it should probably be the Lagrange formula, but the integral formula comes in handy sometimes.
+ \item The importance of the remainder formulas is twofold: one, they allow us to prove that the corresponding Taylor {\em series} converge, and converge to the original function (this is beyond the scope of our course), and they allow us to estimate the error incurred if we use a particular Taylor polynomial to approximate a function.
+\end{itemize}
+
+
+
+\noindent Exercises:
+\begin{enumerate}
+ \item Estimate the error in writing
+\[
+ \ln(x) = (x-1) - \frac{(x-1)^2}{2} + \frac{(x-1)^3}{3}+R_{3,1,\ln}(x)
+\]
+on the interval $[0.5,1.5]$.
+ \item Use a Taylor polynomial of degree 2 to estimate the value of $\sqrt{8.8}$. (Choose the point $a$ wisely.) What is the error in your estimate?
+\end{enumerate}
+\subsection*{Section 7.1: The Riemann integral}
+Main definitions and results:
+\begin{itemize}
+ \item A {\bf partition} of an interval $[a,b]$ is a finite ordered set
+\[
+ P=\{a=x_0<x_1<\cdots<x_n=b\}.
+\]
+ \item A {\bf refinement} of a partition $P$ is a partition $P'$ such that $P\subseteq P'$.
+ \item Suppose $f:[a,b]\to \R$ is {\em bounded}, and let $P=\{a=x_0<x_1<\cdots <x_n=b\}$ be a partition of $[a,b]$. For each $i=1,\ldots,n$, we define
+\begin{align*}
+ m_i & = \inf\{f(x) : x\in [x_{i-1},x_i]\}\\
+ M_i & = \sup\{f(x) : x\in [x_{i-1},x_i]\}.
+\end{align*}
+The {\bf lower sum} of $f$ with respect to $P$ is given by
+\[
+ L(f,P) = \sum_{i=1}^n m_i (x_i-x_{i-1}),
+\]
+and the {\bf upper sum of $f$ with respect to $P$} is given by
+\[
+ U(f,P) = \sum_{i=1}^n M_1 (x_i-x_{i-1}).
+\]
+\item If $P'$ is a refinement of $P$, then we have
+\[
+ L(f,P)\leq L(f,P')\leq U(f,P')\leq U(f,P).
+\]
+In fact, for {\em any} partitions $P_1,P_2$ of $[a,b]$ we have $L(f,P_1)\leq U(f,P_2)$.
+\item Let $\mathcal{P}$ denote the set of all partitions of $[a,b]$. The previous item tells us that the set of all lower sums is bounded above (by any upper sum), and the set of all upper sums is bounded below (by any lower sum). Thus, we can define the {\bf lower integral}
+\[
+ L(f) = \sup\{L(f,P) : P\in\mathcal{P}\},
+\]
+and the {\bf upper integral}
+\[
+ U(f) = \inf\{U(f,P) : P\in\mathcal{P}\}.
+\]
+\item We say that a function $f$ is {\bf integrable} on $[a,b]$ if $L(f)=U(f)$. The common value is called the {\bf integral of $f$} over $[a,b]$, and denoted by $\int_a^b f$.
+\item {\bf Criterion for integrability}: let $f$ be a bounded function on $[a,b]$. Then $f$ is integrable on $[a,b]$ if and only if for every $\epsilon>0$ there exists a partition $P_\epsilon$ such that
+\[
+ U(f,P_\epsilon)-L(f,P_\epsilon)<\epsilon.
+\]
+\item Our main theorem on integrability: if $f$ is {\bf continuous} on $[a,b]$, then $f$ is integrable on $[a,b]$.
+\end{itemize}
+
+\noindent Exercises:
+
+\begin{enumerate}
+ \item Prove or give a counterexample: if $f$ and $g$ are integrable on $[a,b]$ and $f(x)\leq g(x)\leq h(x)$ on $[a,b]$, then $h$ is integrable on $[a,b]$.
+ \item Let $f(x)=x^2$ on $[0,b]$, for some $b>0$. Let $P_n$ denote the uniform partition of $[0,b]$ into $n$ subintervals. Compute $L(f,P_n)$ and $U(f,P_n)$ for each $n$, and find their limits as $n\to\infty$.
+ \item Prove that if $\int_a^b f >0$, then there exists an interval $[c,d]\subseteq [a,b]$ and a $\delta>0$ such that $f(x)>\delta$ on $[c,d]$.
+\end{enumerate}
+\subsection*{Section 7.2: Properties of the Riemann integral}
+
+Main definitions and results:
+\begin{itemize}
+ \item {\bf Theorem}: Suppose $f$ is bounded on $[a,b]$ and $c\in (a,b)$. Then $f$ is integrable on $[a,b]$ if and only if $f$ is integrable on $[a,c]$ and on $[c,b]$, in which case
+\[
+ \int_a^b f = \int_a^c f + \int_c^b f.
+\]
+ \item {\bf Theorem}: Suppose $f$ is bounded on $[a,b]$ and integrable on $[c,b]$ (or $[a,c]$) for each $c\in (a,b)$. Then $f$ is integrable on $[a,b]$.
+ \item The above two theorems tell us that if $f$ has a finite number of removable or jump discontinuities, then $f$ is integrable.
+ \item If $f$ and $g$ are integrable on $[a,b]$ and $k\in \R$, then $kf$ and $f+g$ are integrable on $[a,b]$, and
+\begin{align*}
+ \int_a^b (kf) &= k\int_a^b f\\
+ \int_a^b(f+g) & = \int_a^b f + \int_a^b g.
+\end{align*}
+ \item If $f(x)\leq g(x)$ on $[a,b]$, then $\int_a^b f\leq \int_a^b g$.
+ \item If $f$ is integrable on $[a,b]$, then so is $\abs{f}$, and $\int_a^b \abs{f} \leq \left|\int_a^b f\right|$.
+\end{itemize}
+
+\noindent Exercises:
+\begin{enumerate}
+ \item Suppose that $f(x)=g(x)$ for all but finitely many $x\in [a,b]$. Prove that $\int_a^b f = \int_a^b g$.
+
+{\em Hint}: first reduce to the case that $f(x)=0$ for all but finitely many $x$.
+\item Prove that if $f$ is continuous on $[a,b]$ and $f(c)>0$ for some point $c\in [a,b]$, then $\int_a^b f>0$.
+\item Let $f$ be integrable on $[a,b]$ and suppose that $m\leq f(x)\leq M$ for all $x\in [a,b]$. Prove that
+\[
+ m(b-a)\leq \int_a^b f\leq M(b-a).
+\]
+\end{enumerate}
+\subsection*{Section 7.3: The Fundamental Theorem of Calculus}
+Main definitions and results:
+\begin{itemize}
+ \item {\bf Theorem: FTC I} Let $f$ be integrable on $[a,b]$. For each $x\in [a,b]$, let $F(x) = \int_a^x f$. Then $F$ is uniformly continuous on $[a,b]$, and if $f$ is continuous at $c$, then $F$ is differentiable at $c$, and $F'(c)=f(c)$.
+ \item {\bf Theorem: FTC II} If $f$ is continuous on $[a,b]$ and $F:[a,b]\to\R$ satisties $F'(x) = f(x)$ for all $x\in [a,b]$, then
+\[
+ \int_a^b f = F(b)-F(a).
+\] 
+\end{itemize}
+
+\noindent Exercises:
+\begin{enumerate}
+ \item If $F(x) = \int_{x^2}^{x^4}\cos(2t)\,dt$, find $F'(x)$.
+ \item Suppose $g$ is differentiable on $[c,d]$ and $g'$ is integrable on $[c,d]$. Suppose $f$ is continuous on $g([c,d])$ and let $a=g(c)$ and $b=g(d)$. Prove that
+\[
+ \int_c^d (f\circ g)(t)g'(t)\,dt = \int_a^b f(u)\,du.
+\]
+Hint: Let $F(x) = \int_a^x f(t)\,dt$ and apply the chain rule to $h(x) = (F\circ c)(x)$ on $[c,d]$.
+\end{enumerate}
+\newpage
+
+ \subsection*{Review of the past reviews}
+There are two older worksheets covering the material beginning in Chapter 3 and ending with Section 6.2. I won't summarize everything again here, but I'll point you to the parts that are most important:
+\begin{itemize}
+ \item 3.3: Know the definition of $\inf A$ and $\sup A$ for a bounded set $A$, and the completeness axiom. You can expect a proof involving the definition of least upper/greatest lower bounds.
+ \item 3.4: $\epsilon$-neighbourhoods, open and closed sets; closure, interior, boundary; limit points and isolated points. (As a reminder, I prepared an addtional handout on this material. You may want to review it.)
+ \item 3.5: compact sets --  understand the open cover definition, but the Heine-Borel and Bolzano-Weierstrass theorems are more important.
+ \item 4.1, 4.2: definition of convergence of sequences and algebraic properties of limits.
+ \item 4.3: Know how to use the monotone convergence theorem, and know the definition of a Cauchy sequence.
+ \item 4.4: I'll leave subsequences off of the final.
+ \item 5.1,5.2: Know the $\epsilon-\delta$ defintions of limits and continuity.
+ \item 5.3: Know both the Intermediate Value Theorem and Extreme Value Theorem, and how to apply them.
+ \item 5.4: Know the how to use the $\epsilon-\delta$ definition of uniform continuity, and know how to identify whether or not a function is uniformly continuous using known theorems.
+ \item 6.1: Know the definition of the derivative and its properties.
+ \item 6.2: Know the statement of the Mean Value Theorem, and how to apply it. Be aware of how many subsequent results in the course are dependent on this theorem. 
+\end{itemize}
+
+\end{document}
+ 

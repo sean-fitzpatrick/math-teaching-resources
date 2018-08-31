@@ -1,0 +1,124 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+
+\title{Math 2580 Assignment \#3 Solutions\\University of Lethbridge, Spring 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+ \item In class, I mentioned the fact that if we want to find the equation of the tangent line to a level curve $f(x,y)=c$ at a point $(a,b)$ on the curve (so $f(a,b)=c$), there are two ways to do it:
+\begin{itemize}
+ \item Using implicit differentiation, as in Calculus I: take the derivative of both sides with respect to $x$, assuming that the equation defines $y$ implicitly as a function of $x$ ($y=g(x)$), let's say.
+ \item Using the gradient: since $\nabla f(a,b)$ is a normal vector for the tangent line, we have 
+\begin{equation}\label{qe}
+ 0=\nabla f(a,b)\dotp \langle x-a, y-b\rangle = f_x(a,b)(x-a)+f_y(a,b)(y-b).
+\end{equation}
+\end{itemize}
+\begin{enumerate}
+ \item Verify that both above methods give the same equation for the tangent line to the curve $x^2y+xy^2=6$ at the point $(2,1)$.
+
+\bigskip
+
+Using implicit differentiation \`a la 1560, we get
+\[
+ 2xy+x^2\frac{dy}{dx}+y^2+2xy\frac{dy}{dx} = 0,
+\]
+so $\dfrac{dy}{dx} = \dfrac{-y^2-2xy}{x^2+2xy}$. Plugging in $x=2$ and $y=1$ gives $m = -\dfrac{5}{8}$ for the slope of the tangent line, so the equation of the tangent line is
+\[
+ y-1 = -\frac{5}{8}(x-2).
+\]
+Now, if we let $f(x,y)=x^2y+xy^2$, then $f_x(x,y) = 2xy+y^2$, so $f_x(2,1) = 5$, and $f_y(x,y) = x^2+2xy$, giving $f_y(2,1) = 8$. Using equation \eqref{qe}, we get the tangent line
+\[
+ 5(x-2)+8(y-1)=0,
+\]
+and if we subtract $8(y-1)$ from both sides and divide by 8, we obtain our previous result.
+
+ \item Confirm that the two methods are equivalent, as follows:
+
+The Implicit Function Theorem for a function $f:\R^2\to\R$ states the following:
+\begin{quotation}
+ Let $f:D\subseteq \R^2\to \R$ be a continuously differentiable function. At any point $(a,b)$ such that $f_y(a,b)\neq 0$, the equation $f(x,y)=c$ defines $y$ implicitly as a function $g$ of $x$ for all $x$ in some interval\footnote{Don't worry too much about the ``in some interval'' part. The argument is as follows: since $f_y(x,y)$ is continuous, if $f_y(a,b)\neq 0$, then $f_y(x,y)\neq 0$ for all $(x,y)$ in some disk centred at $(a,b)$. (The function can't suddenly jump to zero.)} centred at $x=a$, and
+\begin{equation}\label{eq}
+ \frac{dy}{dx} = g'(x) = - \frac{f_x(x,y)}{f_y(x,y)}
+\end{equation}
+for all $x$ in this interval.
+\end{quotation}
+{\bf Assuming} that you can prove that the equation $f(x,y)=c$ defines $y$ as a function of $x$ for $x$ near $a$, if $f_y(a,b)\neq 0$, show that Equation \eqref{eq} is true.
+
+\bigskip
+
+Suppose that $f(x,y)=c$ implicitly defines $y=g(x)$ such that $f(x,g(x))=c$. Letting $r(x) = (x,g(x))$ and applying the Chain Rule to $f(r(x))=c$, we have
+\[
+ 0 =\frac{d}{dx}(f(r(x))) = \pd{f}{x}\frac{dx}{dx}+\pd{f}{y}\frac{dy}{dx} = f_x(x,y)(1)+f_y(x,y)g'(x).
+\]
+Solving for $g'(x)$, we obtain equation \eqref{eq}. Thus, we see that in general, the first method will give us the tangent line 
+\[
+ y-b = -\dfrac{f_x(a,b)}{f_y(a,b)}(x-a),
+\]
+which is just a rearrangement of equation \eqref{qe}.
+\end{enumerate}
+
+\item Now consider a continuously differentiable function $F(x,y,z)$, and suppose $(a,b,c)$ is a point on the level surface $F(x,y,z)=k$. We discussed in class that one way to get the tangent plane to the surface at $(a,b,c)$ is to use the gradient: the vector $\nabla F(a,b,c)$ is normal to the surface at $(a,b,c)$, so
+\[
+ \nabla F(a,b,c) \dotp \langle x-a, y-b, z-c\rangle = 0
+\]
+gives the equation of the tangent plane. On the other hand, we could try generalizing the method of implicit differentiation above. Suppose that the equation $F(x,y,z)=k$ defines $z$ implicitly as a function of $x$ and $y$. That is, assume there exists a function $g:\R^2\to \R$ such that $z=g(x,y)$ satisfies
+\[
+ F(x,y,g(x,y))=k
+\]
+for all points $(x,y)$ near the point $(a,b)$.
+\begin{enumerate}
+ \item Using the Chain Rule, show that if $F_z(a,b,c)\neq 0$, then at the point $(a,b,c)$,
+\[
+ \frac{\partial z}{\partial x} = g_x(a,b) = -\frac{F_x(a,b,c)}{F_z(a,b,c)} \quad \text{ and } \quad \frac{\partial z}{\partial y} = g_y(a,b) = -\frac{F_y(a,b,c)}{F_z(a,b,c)}.
+\]
+
+\bigskip
+
+Let us suppose that $F_z(a,b,c)\neq 0$ and that the equation $F(x,y,z)=k$ implicitly defines $z=g(x,y)$ for $(x,y)$ near $(a,b)$. Let us consider the function 
+$r(u,v) = (u,v,g(u,v))$ (we're defining $x=u$, $y=v$, and $z=g(u,v)$; you can equally well take $r(x,y)=(x,y,g(x,y))$ but this will help avoid some confusion), which is chosen such that $F(r(u,v))=k$ for all values of $(u,v)$ near $(a,b)$.  Applying the Chain Rule gives us the derivatives
+\begin{align*}
+ 0&=\pd{}{u}(F(r(u,v))) = \pd{F}{x}\pd{x}{u}+\pd{F}{y}\pd{y}{u}+\pd{F}{z}\pd{z}{u}\\
+ 0&=\pd{}{v}(F(r(u,v))) = \pd{F}{x}\pd{x}{v}+\pd{F}{y}\pd{y}{v}+\pd{F}{z}\pd{z}{v}.
+\end{align*}
+Now, we note that since $x=u$, $y=v$, and $z=g(u,v)$, we have $\pd{x}{u}=1$, $\pd{y}{u}=0$, $\pd{x}{v}=0$, and $\pd{y}{v}=1$, and
+\[
+ \pd{z}{u}=\pd{z}{x} = g_x(x,y) \quad \text{ and } \pd{z}{v} = \pd{z}{y} = g_y(x,y).
+\]
+Plugging everything in, we have $F_x(x,y,z)+F_z(x,y,z)g_x(x,y) = 0$ and $F_y(x,y,z)+F_z(x,y,z)g_y(x,y)=0$. Since we're assuming $F_z(a,b,c)\neq 0$ we can solve these equations for $g_x(a,b)$ and $g_y(a,b)$ respectively, giving us our result.
+
+
+
+ \item Suppose $F(x,y,z)=k$ implicitly defines $z=g(x,y)$ near a point $(a,b,c)$. Then near this point, we've expressed our level surface as a graph. It might not be possible to do this for the entire surface (there might, for example, be points where $F_z$ equals zero), but at least it works locally. This puts us in a position to calculate the normal vector to the surface at $(a,b,c)$ in two ways:
+\begin{enumerate}
+ \item Using the gradient vector $\nabla F(a,b,c)$, where we describe our surface via the equation $F(x,y,z)=k$.
+ \item Using the result $\vec{n} = \langle g_x(a,b), g_y(a,b), -1\rangle$ that we obtained for graphs, where we describe our surface as the graph $z=g(x,y)$.
+\end{enumerate}
+Use your result from part (a) to show that these two vectors are parallel.
+
+The first method gives us the normal vector $\vec{N} = \langle F_x(a,b,c), F_y(a,b,c), F_z(a,b,c)\rangle$. The second method gives us the vector
+\[
+ \vec{n} = \langle g_x(a,b),g_y(a,b),-1\rangle = \left\langle -\frac{F_x(a,b,c)}{F_z(a,b,c)}, -\frac{F_y(a,b,c)}{F_z(a,b,c)},-1\right\rangle = -\frac{1}{F_z(a,b,c)}\vec{N}.
+\]
+Since $\vec{N} = -F_z(a,b,c)\vec{n}$, the two vectors are scalar multiples of each other, and therefore parallel.
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+\end{document}
+ 

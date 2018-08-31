@@ -1,0 +1,95 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{Practice Problems for Quiz 4\\Math 2000A}
+\date{}
+\begin{document}
+ \maketitle
+\vspace{-0.5in}
+
+Quiz \#3 will take place in class on Thursday, October 2nd. 
+
+\subsection*{Practice, but not quiz practice}
+Here are a few extra problems involving predicates and set notation in case you need extra practice. You won't see any of these on the quiz but you can expect that there will be something similar on the midterm. For the following problems, ``roster method'' refers to listing the elements of a set, either explicitly (e.g. $\{1,2,3,7\}$) or by indicating a pattern (e.g. $\{1,2,4,8,16,\ldots\}$), while ``set builder notation'' refers to specifying the elements of a set in the form $\{x\in U\,|\, P(x)\}$, where $U$ is some universal set and $P(x)$ is a predicate in the variable $x$.
+\begin{enumerate}
+ \item Assume that the universal set for all variables is $\Z$ (the integers), let $P(x)$ be the predicate ``$x^2\leq 4$'', and let $R(x,y,z)$ be the predicate ``$x^2+y^2=z^2$''.
+\begin{enumerate}
+ \item Find two values of $x$ for which $P(x)$ is false.
+ \item Find two values of $x$ for which $P(x)$ is true.
+ \item Use the roster method to list the set of all $x$ for which $P(x)$ is true.
+ \item Find two examples where $R(x,y,z)$ is false.
+ \item Find two examples where $R(x,y,z)$ is true.
+\end{enumerate}
+ \item Write the set $\{\sqrt{2},(\sqrt{2})^3,(\sqrt{2})^5,\ldots\}$ in set builder notation.
+ \item Use set builder notation to describe the following sets:
+\begin{enumerate}
+ \item The set of all integers greater than or equal to 7.
+ \item The set of all even integers.
+ \item The set of all real numbers whose square is greater than one.
+\end{enumerate}
+ \item For each of the following sets, describe the set in English, or use the roster method to specify the elements of the set:
+\begin{enumerate}
+ \item $\{x\in\R\,|\, -3\leq x\leq 5\}$
+ \item $\{x\in\R\,|\, x^2+4=0\}$
+ \item $\{x\in\Z\,|\, x \text{ is odd}\}$.
+ \item $\{x\in\R\,|\, x^2=4\}$.
+ \item $\{x\in\Z\,|\, 3x-4\geq 16\}$.
+\end{enumerate}
+
+\end{enumerate} 
+\subsection*{Quiz practice}
+\begin{enumerate}
+ \item Consider the following sentence: $\exists x\in\R : xy=100$.
+\begin{enumerate}
+ \item Explain why this sentence is not a statement.
+ \item What is the truth value of the sentence if we substitute $y=5$? What about $y=-2$ or $y=\pi$?
+ \item Which real numbers belong to the set $A=\{y\in \R\,|\, \exists x\in \R: xy=100\}$?
+ \item Is the assertion $\forall y\in\R (\exists x\in\R : xy=100)$ true or false? Explain.
+ \end{enumerate}
+ \item For each of the following assertions, (i) write the assertion in the form of an English sentence that does not use symbols for quantifiers (ii) write the negation of the assertion, again in the form of an English sentence (iii) rewrite the negation of the assertion in symbolic form.
+\begin{enumerate}
+ \item $\forall a\in\R, a+0=a$
+ \item $\forall x\in\R, \sin(2x) = 2(\sin x)(\cos x)$. (Note: no trig knowledge required.)
+ \item $\exists x\in\mathbb{Q}$ such that $x^2-3x-7=0$.
+ \item $\exists x\in\R$ such that $x^2+1=0$.
+ \item $\forall x\in \Z$, if $x^2$ is odd, then $x$ is odd.
+\end{enumerate}
+(Note: the negation of ``$\exists x$ such that $P(x)$ is true'' is sometimes best phrased as ``there is no $x$ such that $P(x)$ is true'', and other times as ``for all $x$, $P(x)$ is false''.)
+
+ \item Use a counterexample to explain why the following assertions are false:
+\begin{enumerate}
+ \item For each integer $n$, $(n^2+n+1)$ is a prime number. (A positive integer $n$ is prime if its only factors are $1$ and $n$.)
+ \item For each real number $x$, $2x^2>x$.
+\end{enumerate}
+ \item Let $P(x,y)$ be the predicate $x+y=0$. Which of the following assertions are true?
+\begin{align*}
+ \forall x\in\Z, & (\forall y \in \Z, P(x,y))\quad \forall x\in \Z, (\exists y\in \Z : P(x,y))\\
+ \exists x\in\Z : & (\forall y\in \Z, P(x,y))\quad \exists x\in\Z : (\exists y\in \Z: P(x,y))
+\end{align*}
+ \item Assume that the universal set for each variable is the set of integers $\Z$. Write each of the following statements as an English sentence that does not use quantifiers:
+\begin{multicols}{2}
+ \begin{enumerate}
+  \item $\exists m : (\exists n:m>n)$
+  \item $\exists m : (\forall n,\, m>n)$
+  \item $\forall m, \,(\exists n : m>n)$
+  \item $\forall m, \,(\forall n,\, m>n)$
+ \end{enumerate}
+\end{multicols}
+ \item Write the negation of each assertion from the previous exercise.
+
+\end{enumerate}
+
+
+\end{document}
+ 

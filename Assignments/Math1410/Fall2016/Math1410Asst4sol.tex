@@ -1,0 +1,202 @@
+\documentclass[letterpaper,12pt,reqno]{amsart}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+          
+\title{Math 1410 Assignment \#4 Solutions\\University of Lethbridge, Fall 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+\item Determine the null space and column space of the matrix
+\[
+ A = \bbm 1&-2&-1&3\\2&-4&1&0\\1&-2&2&-3\ebm
+\]
+
+\bigskip
+
+We can determine both of these by reducing the matrix $A$ to reduced row-echelon form. We have\footnote{For the assignment it's not really necessary to show all the row operations. In fact, it would be acceptable for you to use an online tool like the Linear Algebra Toolkit to do it for you, as long as you cite it as a reference.}
+
+\begin{align*}
+ \bbm 1&-2&-1&3\\2&-4&1&0\\1&-2&2&-3\ebm & \xrightarrow[R_3-R_1\to R_3]{R_2-2R_1\to R_2}& \bbm 1&-2&-1&3\\0&0&3&-6\\0&0&3&-6\ebm
+&\xrightarrow{R_3-R_2\to R_2}& \bbm 1&-2&-1&3\\0&0&3&-6\\0&0&0&0\ebm\\
+&\xrightarrow{\frac{1}{3}R_2\to R_2}& \bbm 1&-2&-1&3\\0&0&1&-2\\0&0&0&0\ebm &\xrightarrow{R_1+R_2\to R_1}& \bbm 1&-2&0&1\\0&0&1&-2\\0&0&0&0\ebm.
+\end{align*}
+This last matrix is in reduced row-echelon form. We see that there are leading ones in rows 1 and 3, so the corresponding columns of $A$, namely, $\bbm 1\\2\\1\ebm$ and $\bbm -1\\1\\2\ebm$ are the pivot columns of $A$. By Theorem 29 of the textbook, the pivot columns of $A$ form a basis for the column space of $A$; thus,
+\[
+ \operatorname{col}(A) = \operatorname{span}\left\{\bbm 1\\2\\1\ebm, \bbm -1\\1\\2\ebm\right\}.
+\]
+Since the null space of $A$ is defined to be the set of all vectors $\vec{x}$ such that $A\vec{x}=\vec{0}$, we know that the null space of $A$ is simply the set of all solutions to the homogenous system with coefficient matrix $A$. From our work above, we know that the reduced row-echelon form of the augmented matrix for this system must be
+\[
+ \begin{amatrix}{4}1&-2&0&1&0\\0&0&1&-2&0\\0&0&0&0&0\end{amatrix}.
+\]
+If $\vec{x} = \bbm x_1\\x_2\\x_3\\x_4\ebm$ satisfies $A\vec{x}=\vec{0}$, then it must be the case that $x_2=s$ and $x_4=t$ are free parameters, while the equations $x_1-2x_2+x_4=0$ and $x_3-2x_4=0$ tell us that $x_1 = 2s-t$ and $x_3 = 2t$. The general solution to the system $A\vec{x}=\vec{0}$ is therefore
+\[
+ \vec{x} = \bbm x_1\\x_2\\x_3\\x_4\ebm = \bbm 2s-t\\s\\2t\\t\ebm = s\bbm 2\\1\\0\\0\ebm + t\bbm -1\\0\\2\\1\ebm.
+\]
+It follows that the null space of $A$ is given by
+\[
+ \operatorname{null}(A) = \left\{\left. \bbm 2s-t\\s\\2t\\t\ebm \right| s,t\in\R\right\} = \operatorname{span}\left\{\bbm 2\\1\\0\\0\ebm, \bbm -1\\0\\2\\1\ebm\right\}.
+\]
+
+
+\bigskip
+
+
+\item Prove that if a system of linear equations has more than one solution, then it has\\infinitely many solutions.
+
+\bigskip
+
+Let us write our system in matrix form as $A\vec{x}=\vec{b}$, and let us suppose that there are at least two distinct solutions to this system; that is, we assume that we have vectors $\vec{x}_0$ and $\vec{x}_1$ such that $A\vec{x}_0=\vec{b}$, $A\vec{x}_1=\vec{b}$, and $\vec{x}_1\neq \vec{x}_0$.
+
+Let $\vec{v} = \vec{x}_1-\vec{x}_0$. Since $\vec{x}_1\neq \vec{x}_0$, it follows that $\vec{v}\neq \vec{0}$. Moreover, we have
+\[
+ A\vec{v} = A(\vec{x}_1-\vec{x}_0) = A\vec{x}_1-A\vec{x}_0 = \vec{b}-\vec{b} = \vec{0},
+\]
+so $\vec{v}$ is a nonzero solution to the homogenous system $A\vec{x}=\vec{0}$. To see that our system has infinitely many solutions, we let
+\[
+ \vec{x}_t = \vec{x}_0+t(\vec{v}),
+\]
+where $t$ can be any real number. Note that the vectors $x_t$ corresponding to different values of $t$ are distinct: if $\vec{x}_s = \vec{x}_t$ for some $s,t\in\R$, we would have
+\[
+ \vec{x}_0+s\vec{v} = \vec{x}_0+t\vec{v},
+\]
+so $s\vec{v}=t\vec{v}$, which implies that $(s-t)\vec{v}=\vec{0}$. Since we know that $\vec{v}\neq \vec{0}$, it must be the case that $s-t=0$, or $s=t$. There are therefore infinitely many such vectors $\vec{x}_t$, since there are infinitely many real numbers, and for any $t\in\R$, we have
+\[
+ A\vec{x}_t = A(\vec{x}_0+t\vec{v})=A\vec{x}_0 + tA\vec{v} = \vec{b}+t\vec{0} = \vec{b},
+\]
+so $\vec{x}_t$ is a solution.
+
+\pagebreak
+
+
+\item For each statement below, either demonstrate that it is true, or give an example showing that it is false.
+
+\medskip
+
+
+\begin{enumerate}
+ \item For any $n\times n$ matrices $A$, $B$, and $C$, if $AB=AC$ and $A$ is invertible, then $B=C$.
+
+\bigskip
+
+This statment is true. Suppose that $AB=AC$, and that $A$ is an invertible matrix. Multiplying both sides of this equation by $A^{-1}$, we have
+\begin{align*}
+ A^{-1}(AB) &= A^{-1}(AC)\tag{Multiplying on the left by $A^{-1}$}\\
+ (A^{-1}A)B &= (A^{-1}A)C\tag{Since matrix multiplication is associative}\\
+ I_nB & = I_nC\tag{Since $A^{-1}A=I_n$ by definition}\\
+ B&=C \tag{Since anything times the identity equals itself.}
+\end{align*}
+
+\bigskip
+
+ \item If $A$ is an $n\times n$ matrix and $A\neq 0$, then $A$ is invertible.
+
+\bigskip
+
+This is false. For example, the $2\times 2$ matrix $A = \bbm 1&0\\0&0\ebm$ is not equal to the zero matrix, since its $(1,1)$-entry is nonzero. However, for any matrix $B=\bbm a&b\\c&d\ebm$ we have
+\[
+ AB = \bbm 1&0\\0&0\ebm\bbm a&b\\c&d\ebm = \bbm a&c\\0&0\ebm,
+\]
+and thus (due to the zeros in the second row) $AB$ can never be equal to the identity matrix, no matter what matrix $B$ we choose.
+
+\bigskip
+
+ \item If $A$ and $B$ are invertible $n\times n$ matrices, then $A+B$ is invertible.
+
+\bigskip
+
+This is false. Consider the matrices $A = \bbm 1&0\\0&1\ebm$ and $B = \bbm -1&0\\0&-1\ebm$. Both matrices are invertible; indeed, each is its own inverse, since
+$AA=I_2$ and $BB=I_2$. However, $A+B = \bbm 0&0\\0&0\ebm$ is the zero matrix, which is not invertible.
+
+\bigskip
+
+ \item If $A$ is an $n\times n$ matrix such that $A^2=A$ and $A\neq 0$, then $A$ is invertible. (Hint: your previous assignment provides examples of such matrices.)
+
+\bigskip
+
+This is false. We saw on the previous assignment that the matrix $A = \bbm 1&1\\0&0\ebm$ satisfies $A^2=A$; however, we can see that the matrix $A$ has rank 1 (it is already in reduced row-echelon form), and any invertible $2\times 2$ matrix must have rank 2.
+
+\bigskip
+
+ \item If $A^4=I$, where $I$ is the $n\times n$ identity matrix, then $A$ is invertible.
+
+\bigskip
+
+This is true. Assuming that $A^4=I$, we have $A(A^3) = A^4 = I$. It follows from the Invertible Matrix Theorem and the uniqueness of the inverse that $A$ is invertible, and that $A^{-1} = A^3$.
+
+\bigskip
+
+
+ \item If $A$ is an $n\times n$ matrix and $A^2$ is invertible, then $A$ is invertible.
+
+\bigskip
+
+This is true. Suppose $A^2$ is invertible. Then there exists a matrix $B$ such that $A^2B = I_n$. (That is, $B = (A^2)^{-1}$.) But then we have
+\[
+ A^2B = (AA)B = A(AB) = I_n,
+\]
+and from the Invertible Matrix Theorem, we know that $A$ must be invertible. Moreover, by the uniqueness of the inverse, we know that $A^{-1} = AB$.
+\end{enumerate}
+
+\bigskip
+
+\bigskip
+
+\item Consider the matrix $A = \bbm 2&-1\\0&3\ebm$.
+
+\medskip
+
+\begin{enumerate}
+ \item Show that $A^2-5A+6I=0$.
+
+\bigskip
+
+This is simply an exercise in computation. We have $A^2 = \bbm 2&-1\\0&3\ebm\bbm 2&-1\\0&3\ebm=\bbm 4&-5\\0&9\ebm$, and thus
+\[
+ A^2-5A+6I = \bbm 4&-5\\0&9\ebm + \bbm -10&5\\0&-15\ebm +\bbm 6&0\\0&6\ebm = \bbm 0&0\\0&0\ebm.
+\]
+
+\bigskip
+
+ \item Use part (a) to show that $A^{-1} = \dfrac{1}{6}(5I-A)$.
+
+\bigskip
+
+From the uniqueness of the inverse, it suffices to show that multiplying this matrix by $A$ results in the identity. We have
+\[
+ A\left(\frac{1}{6}(5I-A)\right) = \frac{1}{6}(A(5I-A)) = \frac{1}{6}(5A-A^2) = \frac{1}{6}(6I) = I,
+\]
+where we have used the fact that $A^2-5A+6I=0$ can be rearranged as $6I=5A-A^2$. One can similarly show (although it is not necessary) that
+\[
+ \left(\frac{1}{6}(5I-A)\right)A = \frac{1}{6}(5A-A^2) = \frac{1}{6}(6I) = I.
+\]
+
+\end{enumerate}
+\end{enumerate}
+
+
+
+
+\end{document}
+ 

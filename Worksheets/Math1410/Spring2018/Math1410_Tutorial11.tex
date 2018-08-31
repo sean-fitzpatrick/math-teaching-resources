@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.2in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}      
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 1410 - Tutorial \#11}\\
+Wednesday, April 4
+\end{center}
+\skipline \ \noindent \skipline
+
+\vspace*{\fill}
+
+
+
+
+
+
+
+
+
+\newpage
+%\thispagestyle{empty}
+
+ \begin{enumerate}
+ 
+\item Let $A = \bbm 2&-2\\1&5\ebm$. Compute $A\vec{u}_i$ for $i=1,2,3,4$, where:
+\[
+\vec{u}_1 =  \bbm 1\\4\ebm, \vec{u}_2 = \bbm 4\\-2\ebm, \vec{u}_3 = \bbm 2\\-2\ebm, \vec{u}_4 = \bbm 3\\-3\ebm.
+\]
+Which of the above were eigenvectors? What are the eigenvalues of $A$?
+
+\vspace{3.5in}
+
+\item Verify that the matrix $Z = \bbm 3&1\\-2&1\ebm$ has eigenvalues $\lambda_1 = 2 + i$ and $\lambda_2=2-i$ with corresponding eigenvectors $\vec{x}_1 = \bbm 1+i\\-2\ebm$, $\vec{x}_2 = \bbm 1\\-1-i\ebm$.
+
+\newpage
+
+\item The matrix $A = \bbm 3&2&1\\1&4&1\\1&2&3\ebm$ has characteristic polynomial $c_A(\lambda)=-(\lambda-2)^2(\lambda-6)$. Find the eiqenvalues of $A$, and the corresponding eigenvectors.
+
+\newpage
+
+\item Compute the eigenvalues of the matrix $A = \bbm 3&-1&2\\0&3&1\\0&4&3\ebm$
+
+\vspace{3in}
+
+\item Compute the eigenvalues and eigenvectors of the matrix $A = \bbm 1&4\\2&3\ebm$.
+
+
+
+
+ \end{enumerate}
+\end{document}

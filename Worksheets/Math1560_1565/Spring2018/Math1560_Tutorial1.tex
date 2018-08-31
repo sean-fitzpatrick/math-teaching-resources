@@ -1,0 +1,108 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=0.85in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 1560 - Tutorial \#1}\\
+Monday, January 15
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+
+\vspace*{\fill}
+
+
+
+Some additional practice (copy these into your notes but do not submit anything):
+\begin{enumerate}
+\item Given $f(x)=\sqrt{x}$, $g(x)=x^2$, and $h(x)=e^{2x}$, compute:
+\begin{multicols}{5}
+\begin{enumerate}
+\item $f(f(x))$
+\item $f(g(x))$
+\item $g(f(x))$
+\item $g(h(x))$
+\item $h(f(x))$
+\end{enumerate}
+\end{multicols}
+Does $f(g(x))=g(f(x))$? Why or why not? (Hint: what if $x<0$?)
+\item Determine if the function is even, odd, or neither:
+\begin{multicols}{3}
+\begin{enumerate}
+\item $f(x) = \dfrac{x^3}{x^2+1}$
+\item $g(x) = x\abs{x}$
+\item $h(x) = \cos(x^5)$
+\end{enumerate}
+\end{multicols}
+\end{enumerate}
+
+
+
+
+\newpage
+%\thispagestyle{empty}
+
+  \begin{enumerate}
+    \item Find the domain of the following functions. Write your answer in interval notation.
+  \begin{multicols}{3}
+  \begin{enumerate}
+  \item $f(x) = \dfrac{x+1}{x^2+5x+6}$
+  \item $g(x) = \sqrt{x+2}-\sqrt{3-x}$
+  \item $h(x) = \ln(x^2-1)$
+  \end{enumerate}
+  \end{multicols}
+  
+  \vspace{2in}
+  
+
+  
+   
+  \item Consider the function $f(x) = \begin{cases}1-x, & \text{ if } 1\leq 1\\ x^2, & \text{ if } x>1.\end{cases}$. Evaluate $f(-1)$, $f(0)$, $f(1)$, and $f(2)$. Then, sketch a rough graph.
+  
+  \vspace{2.5in}
+  
+  \item Rewrite $f(x) = \abs{x^2-x-2}$ as a piecewise function (without the absolute value).
+  \end{enumerate}
+
+
+  
+\end{document}

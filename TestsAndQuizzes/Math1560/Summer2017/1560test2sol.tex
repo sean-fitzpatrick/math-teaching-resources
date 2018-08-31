@@ -1,0 +1,149 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1560}\chead{Test \# 2 Solutions}\rhead{May 25th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+ \begin{enumerate}
+ \item  Compute the derivatives of the following functions:
+\begin{enumerate}
+ \item $f(x) = e^x\cos(x)$ \points{2}
+
+\bigskip
+
+\begin{align*}
+f'(x) &= \left(\frac{d}{dx}e^x\right)\cos(x)+e^x\left(\frac({d}{dx}\cos(x)\right)\\
+& = e^x\cos(x)-e^x\sin(x).
+\end{align*}
+
+\bigskip
+
+
+ \item $g(x) = \dfrac{\sin(x)}{x^2+1}$ \points{2}
+
+\bigskip
+
+\begin{align*}
+ g'(x) &= \frac{\left(\frac{d}{dx}\sin(x)\right)(x^2+1)-\sin(x)\left(\frac{d}{dx}(x^2+1)\right)}{(x^2+1)^2}\\
+ & = \frac{\cos(x)(x^2+1)-2x\sin(x)}{(x^2+1)^2}.
+\end{align*}
+
+\bigskip
+
+
+
+ \item $h(x) = \tan^3(x)$ \points{2}
+
+\bigskip
+
+\begin{align*}
+  h'(x) & = 3\tan^2(x)\frac{d}{dx}(\tan(x))\\
+ & = 3\tan^2(x)\sec^2(x).
+\end{align*}
+
+\bigskip
+
+ \item $r(x) = (x^2+1)^x$ \points{2}
+
+
+\bigskip
+
+Using the fact that $e^{\ln y} = y$ for any $y$, we write $r(x) = e^{\ln(x^2+1)^x} = e^{x\ln(x^2+1)}$. The Chain Rule then gives us
+
+\begin{align*}
+ r'(x) & = e^{x\ln(x^2+1)}\frac{d}{dx}(x\ln(x^2+1))\\
+ & = (x^2+1)^x\left((1)\ln(x^2+1)+x\left(\frac{2x}{x^2+1}\right)\right).
+\end{align*}
+
+\end{enumerate}
+\newpage
+
+\item Compute the derivative of $\di f(x)=\ln\left(\sqrt[3]{\frac{x^2(x-3)^3}{(x^4+4x)(2x-1)^4}}\right)$. \points{3}
+
+(Hint: there is an easy way and a hard way.)
+
+\bigskip
+
+Using properties of logarithms, we have
+\[
+ f(x) = \frac{1}{3}\left(2\ln(x)+3\ln(x-3)-\ln(x^4+4x)-4\ln(2x-1)\right).
+\]
+Thus, 
+\[
+ f'(x) = \frac{1}{3}\left(\frac{2}{x}+\frac{3}{x-3}-\frac{4x^3+4}{x^4+4x}-\frac{4(2)}{2x-1}\right).
+\]
+
+\bigskip
+
+\item Find the equation of the tangent line to the curve $(x^2+y^2)^2=4xy$ at the point $(1,1)$. \points{3}
+
+(Suggestion: use implicit differentiation.)
+
+\bigskip
+
+Computing the derivative of both sides of the given equation with respect to $x$ (and assuming that $y$ is defined implicitly as a function of $x$), we have
+
+\begin{align*}
+ \frac{d}{dx}((x^2+y^2)^2) & = \frac{d}{dx} (4xy)\\
+ 2(x^2+y^2)\frac{d}{dx}(x^2+y^2) & = 4(1)y + 4x\frac{dy}{dx}\\
+ 2(x^2+y^2)\left(2x+2y\frac{dy}{dx}\right) & = 4y + 4x\frac{dy}{dx}\\
+ \frac{dy}{dx}(4y(x^2+y^2)-4x) & = 4y-4x(x^2+y^2)\\
+ \frac{dy}{dx} & = \frac{4y-4x^3-4xy^2}{4yx^2+4y^3-4x}.
+\end{align*}
+When $x=1$ and $y=1$, we find $\frac{dy}{dx} = \frac{4-4-4}{4+4-4} = -1$. The equation of the tangent line is therefore
+\[
+ y-1 = -1(x-1).
+\]
+
+
+
+
+\item Write down an example of a function that is continuous everywhere, \points{1} but not differentiable everywhere. (Just give the funciton. You don't have to show that it's a valid example.)
+
+\medskip
+
+There are many examples, but the standard one is $f(x)=\abs{x}$. This function is continuous at all points, including $x=0$, but $f'(0)$ is undefined. (Note that $f'(x)=-1$ for $x<0$ and $f'(x)=+1$ for $x>0$.)
+\end{enumerate}
+
+
+
+
+
+\end{document}

@@ -1,0 +1,315 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 100}}
+\chead{MATH 1010}\lhead{FINAL EXAM}\rhead{December 18, 2015}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\P}{\mathcal{P}}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\spn}{span}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\ds}{\displaystyle}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+December 18th, 2015, 6:00 - 9:00 pm\\
+{\bf MATH 1010 - FINAL EXAM}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+\skipline
+
+\vspace{0.5in}
+
+
+\begin{quote}
+
+ 
+ Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+\bigskip
+
+\end{quote}
+
+
+\vspace{0.25in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 7 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 8 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 9-10 & \enspace\enspace\enspace\enspace\enspace\enspace/15\\
+\cline{1-2} 11-12 & \enspace\enspace\enspace\enspace\enspace\enspace/15\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/100\\
+\hline
+\end{tabular}
+
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+ \item Evaluate the following limits:
+\begin{enumerate}
+\item $\ds \lim_{x\to 0}\frac{99x^{11}-23x^6+1010}{5x^4-7x^2+141x+1}$ \points{2}
+
+\vspace{1.25in} 
+
+\item $\ds \lim_{x\to 2}\frac{x^2-2x}{x^2-5x+6}$ \points{2}
+
+\vspace{1.75in}
+
+ \item $\ds \lim_{x\to 0}\frac{\sin 3x}{x}$ \points{3}
+
+\vspace{2in}
+
+ \item $\ds \lim_{x\to -\infty}\frac{\sqrt{3x^2+4}}{x}$ \points{3}
+\end{enumerate}
+\newpage
+
+\item Determine the set of all $x$ such that the function \points{5}
+\[
+ f(x) = \begin{cases}
+         2\sin x, & \text{ if } x\leq 0\\
+         x^2-5, & \text{ if } 0<x\leq 2\\
+         3x-7, & \text{ if } x>2
+        \end{cases}
+\]
+is continuous. Express your answer in interval notation.
+
+\vspace{3.5in}
+
+\item Using only the {\bf definition of the derivative}, compute $f'(2)$ if $f(x) = \dfrac{1}{x-1}$. \points{5}
+
+
+\newpage
+
+\item Compute the derivatives of the following functions:
+\begin{enumerate}
+ \item $f(x) = 2x^7-3x^3+\dfrac{4}{x}+\sqrt{2}$ \points{2}
+
+\vspace{1in}
+
+ \item $g(x) = \tan (x)\cos(x)$ \points{2}
+
+\vspace{1in}
+
+ \item $h(x) = \dfrac{2x^4-3x}{x^2}$ \points{3}
+
+\vspace{1.75in}
+
+\end{enumerate}
+
+ \item Suppose you know that $f(3)=4$, $g(3)=-2$, $f'(3) = \frac{4}{3}$, and $g'(3) = \frac{1}{2}$ for two functions $f$ and $g$.\\
+ If $h(x) = f(x)g(x)$, what is the equation of the tangent line to the curve $y=h(x)$ when $x=3$?\points{3}
+
+\newpage
+
+\item Find the global (absolute) maximum and minimum values of $f(x) = x^3-3x$ on the interval $[0,2]$. \points{5}
+
+\vspace{4in}
+
+\item Find and classify the critical points of the function $g(x) = x^{5/3}-5x^{2/3}$. \points{5}
+
+\newpage
+
+\item Solve the following inequalities. Express your answers in interval notation.
+\begin{enumerate}
+ \item $\lvert 3x-5\rvert \leq 7$. \points{3}
+
+\vspace{2in}
+
+ \item $x^2<12-x$. \points{3}
+ 
+ \vspace{2.5in}
+ 
+ \item $1\leq \dfrac{6}{x^2+x}$. \points{4}
+\end{enumerate}
+\newpage
+
+
+
+\item Find the exact values of the trigonometric functions below at the given angles:
+\begin{enumerate}
+ \item $\cos (11\pi/3)$ \points{2}
+
+\vspace{1.5in}
+
+ \item $\sin (43\pi/4)$ \points{2}
+
+\vspace{1.5in}
+
+ \item $\cot (-23\pi/6)$ \points{3}
+
+\vspace{2in}
+
+ \item $\cos(\theta)$, if the angle $\theta$ lies in Quadrant II and $\sin(\theta) = 4/5$. \points{3}
+\end{enumerate}
+\newpage
+
+\item \begin{enumerate}
+\item Show that $\dfrac{d}{dx}(\tan (x)) = \sec^2 (x)$, or that $\dfrac{d}{dx}(\sec(x)) = \sec(x)\tan(x)$.\\
+\hskip-60pt(Do {\bf only one} of the two. The derivatives of $\sin (x)$ and $\cos (x)$ are given on the last page.)\points{3}
+
+\vspace{2.5in}
+
+\item Show that $\dfrac{1}{1-\sin (x)} = \sec^2(x)+\sec(x)\tan(x)$.\points{4}
+
+\vspace{2.5in}
+
+\item Determine the function $f(x)$ such that $f'(x) = \dfrac{1}{1-\sin(x)}$ and $f(\pi) = 3$. \points{3}
+\end{enumerate}
+\newpage
+
+\item Consider the function $f(x) = x^3-12x+16$.
+\begin{enumerate}
+ \item Given that $a=2$ is a zero of multiplicity 2, find the remaining real zero of $f$. \points{3}
+
+\vspace{3in}
+
+ \item Construct the sign diagram for $f$. \points{1}
+
+\vspace{1.25in}
+
+ \item Calculate $f'(x)$. \points{2}
+ 
+\vspace{1.5in}
+
+ \item Construct the sign diagram for $f'$. \points{2} 
+\newpage
+
+\item Calculate $f''(x)$, and construct the sign diagram for $f''$. \points{2}
+
+\vspace{2in}
+
+ \item Sketch the graph of $f(x)$. Your sketch should be clearly labelled with the following information:\\
+ $x$ and $y$-intercepts, any local maxima or minima, and any inflection points.\points{5}\\
+{\bf Note:} Your vertical scale does not need to match your horizontal scale.
+\end{enumerate}
+\newpage
+
+\item Consider the function $f(x) = \dfrac{x}{x^2-2x+1}$.
+\begin{enumerate}
+ \item What is the domain of $f$? \points{1}
+\vspace{2in} 
+
+ \item Construct a sign diagram for $f$. \points{1}
+
+\vspace{2in}
+
+ \item Determine any $x$ or $y$-intercepts for the graph of $f$. \points{1}
+
+\vspace{1.5in}
+
+ \item Determine any horizontal or vertical asymptotes for the graph of $f$. \points{2}
+
+\newpage
+
+ \item Calculate $f'(x)$. \points{3}
+
+\vspace{2in}
+
+ \item Construct the sign diagram for $f'$, and determine any local maxima or minima.\points{2}
+
+\vspace{2in}
+
+
+ \item Sketch the graph of $f$. \points{5}
+\end{enumerate}
+
+
+
+
+\end{enumerate}
+\newpage
+
+\begin{center}
+ \textbf{Some true stuff from the course that you possibly didn't remember}
+\end{center}
+\begin{itemize}
+ \item We say $x=a$ is a zero of {\bf multiplicity} $k$ for a polynomial $p(x)$ if $(x-a)^k$ is a factor of $p(x)$, but $(x-a)^{k+1}$ is not.
+ \item The {\bf Factor Theorem} states that for a polynomial function $p(x)$, $p(a)=0$ if and only if $(x-a)$ is a factor of $p$.
+ \item Values of $\sin\theta$ and $\cos\theta$ in the first quadrant:
+\begin{align*}
+ \sin 0 &= 0  \quad& \quad \cos 0 &= 1\\
+ \sin \pi/6 &= 1/2   \quad& \quad\cos \pi/6 &= \sqrt{3}/2\\
+ \sin \pi/4 &= \sqrt{2}/2  \quad &\quad \cos \pi/4& = \sqrt{2}/2\\
+ \sin \pi/3 &= \sqrt{3}/2   \quad &\quad\cos \pi/3& = 1/2\\
+ \sin \pi/2 &= 1  \quad &\quad \cos \pi/2 &= 0
+\end{align*}
+
+\item Fundamental identities:
+\begin{enumerate}
+ \item $\tan\theta = \dfrac{\sin\theta}{\cos\theta}$, $\cot\theta = \dfrac{\cos\theta}{\sin\theta}$, $\sec\theta = \dfrac{1}{\cos\theta}$, $\csc\theta = \dfrac{1}{\sin\theta}$
+ \item $\cos^2\theta + \sin^2\theta =1$
+ \item $\cos(\alpha + \beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta$
+ \item $\cos(\alpha - \beta) = \cos\alpha\cos\beta + \sin\alpha\sin\beta$
+ \item $\sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta$
+ \item $\sin(\alpha - \beta) = \sin\alpha\cos\beta - \cos\alpha\sin\beta$
+\end{enumerate}
+\item Obvious but occasionally forgotten facts that are sometimes useful in conjunction with some of the identities above:
+\begin{enumerate}
+ \item $2\theta = \theta + \theta$
+ \item $\theta = \dfrac{\theta}{2}+\dfrac{\theta}{2}$
+\end{enumerate}
+ \item $\lim_{\theta\to 0}\dfrac{\sin\theta}{\theta} = 1$.
+ \item $\ds f'(a) = \lim_{h\to 0}\frac{f(a+h)-f(a)}{h}$.
+ \item $\dfrac{d}{dx}(x^n) = nx^{n-1}$, $\dfrac{d}{dx}(\sin x) = \cos x$, and $\dfrac{d}{dx}(\cos x) = -\sin x$.
+ \item $(fg)' = f'g+fg'$ and $\left(\dfrac{f}{g}\right)' = \dfrac{f'g-fg'}{g^2}$.
+ \item A {\bf critical point} for a function $f$ is a number $c$ such that $f'(c)=0$ (or doesn't exist); $f(c)$ is the corresponding critical value.
+ \item If you spend all your time reading this page, you won't have time to complete the exam.
+\end{itemize}
+
+
+
+
+\end{document}

@@ -1,0 +1,104 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 4 Solutions}\rhead{October 5/6, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+ \begin{enumerate}
+ 
+\item Find the distance between the skew lines 
+\begin{align*}
+ \ell_1(s) = \langle x,y,z\rangle & = \langle 1,2,1\rangle+s\langle 2,-1,1\rangle\\
+ \ell_2(t) = \langle x,y,z\rangle & = \langle 3,3,3\rangle+t\langle 4,2,-1\rangle
+\end{align*}
+using the method of Example 56 in the text. \\
+
+Letting $P_1 = (1,2,1)$ and $P_2=(3,3,3)$ be the given points on the lines $\ell_1$ and $\ell_2$, respectively, we have the vector 
+\[
+ \vec{w} = \overrightarrow{P_1P_2} = \langle 2,1,2\rangle,
+\]
+which has its tail on $\ell_1$ and head on $\ell_2$. To compute the distance from $\ell_1$ to $\ell_2$, we need to determine the component of $\vec{w}$ that is perpendicular to both lines. We are given the direction vectors $\vec{v}_1 = \langle 2,-1,1\rangle$ and $\vec{v}_2 = \langle 4,2,-1\rangle$ for the two lines; since these vectors are parallel to their respective lines, the cross product
+\[
+ \vec{n} = \vec{v}_1\times\vec{v}_2 = \begin{vmatrix}\hat{\imath}&\hat{\jmath}&\hat{k}\\2&-1&1\\4&2&-1\end{vmatrix} = \langle -1, 6, 8\rangle
+\]
+must be perpendicular to both lines. (The notation $\vec{n}$ is used to indicate the fact that the two skew lines lie in parallel planes, both of which have the normal vector $\vec{n}$. Finding the distance between the two lines is thus reduced to finding the distance between the corresponding parallel planes.)
+
+The desired distance is now given by the length of the projection of $\vec{w}$ onto $\vec{n}$. We have
+\[
+ d = \len{\operatorname{proj}_{\vec{n}}\vec{w}} = \frac{\abs{\vec{n}\dotp\vec{w}}}{\len{\vec{n}}} = \frac{-2+6+16}{\sqrt{1^2+6^2+8^2}} = \frac{20}{\sqrt{101}}.
+\]
+
+
+\item Given the matrices $A = \bbm 2&-3\\1&5\ebm$ and $B = \bbm -7 & 2\\-1&4\ebm$, find and simplify the following matrices:
+\begin{enumerate}
+ \item $A+B = \bbm 2-7&-3+2\\1-1&5+4\ebm = \bbm -5&-1\\0&9\ebm$
+
+\bigskip
+
+
+ \item $4B-5A = 4\bbm -7 & 2\\-1&4\ebm - 5\bbm 2&-3\\1&5\ebm  = \bbm -28&8\\-4&16\ebm+\bbm-10&15\\-5&-25\ebm = \bbm -38&23\\-9&-9\ebm.$
+
+ \item $2(A-B)-(A-2B)$ (Hint: you may want to first simplify the expression before plugging in values.)
+\begin{align*}
+ 2(A-B)-(A-2B) &= (2A-2B)+(-A+2B)\\
+& = (2A-A)+(-2B+2B)\\
+& = A+\mathbf{0} = A = \bbm 2&-3\\1&5\ebm.
+\end{align*}
+
+\end{enumerate}
+\newpage
+
+ \item Prove that for any $m\times n$ matrices $A$ and $B$, and any scalar $k$, we have $k(A+B)=kA+kB$.
+
+\bigskip
+
+Let us denote $A$ and $B$ in terms of their entries as $A=[a_{ij}]$ and $B=[b_{ij}]$. Note that all matrices involved are of the same size ($m\times n$), so it suffices to show that each entry of $k(A+B)$ is equal to the corresponding entry of $kA+kB$. We have:
+\begin{align*}
+ k(A+B) & = k([a_{ij}]+[b_{ij}]) \tag*{Substituting notation}\\
+& = k[a_{ij}+b_{ij}] \tag*{Definition of matrix addition}\\
+& = [k(a_{ij}+b_{ij})] \tag*{Definition of scalar multiplication}\\
+& = [ka_{ij} + kb_{ij}] \tag*{Distributive property for real numbers}\\
+& = [ka_{ij}] + [kb_{ij}] \tag*{Definition of matrix addition}\\
+& = k[a_{ij}]+k[b_{ij}] \tag*{Definition of scalar multiplication}\\
+& = kA+kB \tag*{Substituting notation,}
+\end{align*}
+which is what we needed to show.
+
+
+\end{enumerate}
+\end{document}

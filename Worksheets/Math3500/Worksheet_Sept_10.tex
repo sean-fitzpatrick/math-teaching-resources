@@ -1,0 +1,95 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\Vert}
+
+\title{Math 3500 Exercise Sheet}
+\date{10 September, 2014}
+
+
+\begin{document}
+\maketitle
+
+We will work on some of the following exercises in class. Those not done in class are recommended as homework problems.
+\begin{enumerate}
+ \item Find the least upper bound and greatest lower bound of the following sets (if they exist):
+\begin{enumerate}
+ \item $\left\{\dfrac{1}{n} : n\in \N\right\}$
+ \item $\left\{\dfrac{1}{n} : n \in \mathbb{Z} \text{ and } n\neq 0\right\}$
+ \item $\{x : x=0 \text{ or } x=1/n \text{ for some } n\in \N\}$
+ \item $\{x : 0\leq x\leq \sqrt{2} \text{ and } x\in\Q\}$
+ \item $\{x : x^2+x+1 \geq 0\}$
+ \item $\{x: x^2+x-1<0\}$
+ \item $\{x<0 \text{ and } x^2+x-1<0\}$
+ \item $\left\{\dfrac{1}{n}+(-1)^n : n\in \N\right\}$
+\end{enumerate}
+ \item \begin{enumerate}
+        \item Suppose that $y-x>1$. Prove that there is an integer $k$ such that $x<k<y$. {\em Hint:} let $l$ be the largest integer satisfying $l\leq x$ and consider $l+1$.
+        \item Suppose $x<y$. Prove that there is a rational number $r\in\Q$ such that $x<r<y$. {\em Hint:} If $1/n<y-x$, then $ny-nx>1$. {\em Hint} (to the two hints given so far): why are these questions being asked in the context of least upper bounds?
+	\item Suppose that $r<s$ are rational numbers. Prove that there is an irrational number between $r$ and $s$. {\em Hint:} start by finding an irrational number between 0 and 1.
+	\item Suppose that $x<y$. Prove that there is an irrational number between $x$ and $y$. {\em Hint:} no more work is needed at this point -- your result should follow from parts (b) and (c).
+       \end{enumerate}
+% \item Recall that the absolute value function on $\R$ is defined by 
+%\[
+%\abs{x} = \begin{cases} x,& \text{ if } x\geq 0\\ -x,&\text{ if } x<0\end{cases}. 
+%\]
+%The absolute value function satisfies the following properties (verify this):
+%\begin{enumerate}
+% \item $\abs{x}\geq 0$ for all $x\in\R$, and $\abs{x}=0$ if and only if $x=0$
+% \item $\abs{ax} = \abs{a}\abs{x}$ for all $a,x\in \R$
+% \item $\abs{x+y}\leq \abs{x}+\abs{y}$ for all $x,y\in \R$ (the triangle inequality)
+%\end{enumerate}
+%If $f$ is a bounded\footnote{A function $f$ is {\bf bounded} on a set $A\subseteq\R$ if there exist constants $m$ and $n$ such that $m\leq f(x)\leq n$ for all $x\in A$.} function on $[a,b]$, define 
+%\[
+% \len{f} = \sup_{x\in [a,b]}\{\abs{f(x)}.
+%\]
+%(Note: we've actually defined a new function, whose domain is a set of other functions! Why do we know it's well-defined?) Prove that $\len{f}$ satisfies analgous properties to the three properties above for the absolute value. (For property (b), consider $\len{cf}$, where $c\in \R$ is a constant.) A function with these properties that is defined on a vector space (the set of all bounded functions is an infinite-dimensional vector space) is called a {\em norm} on that space.
+ \item Suppose $\alpha>0$ Prove that every number $x$ can be written uniquely in the form $x=k\alpha+y$, where $k$ is an integer, and $0\leq y<\alpha$. 
+ \item Suppose that $A$ and $B$ are two nonempty sets of numbers such that $x\leq y$ for all $x\in A$ and $y\in B$.
+\begin{enumerate}
+ \item Prove that $\sup A\leq y$ for all $y\in B$.
+ \item Prove that $\sup A\leq \inf B$.
+\end{enumerate}
+ \item \begin{enumerate}
+        \item Consider a sequence of closed intervals $I_1 = [a_1,b_1], I_2 = [a_2,b_2], \ldots$. Suppose that $a_n\leq a_{n+1}$ and $b_{n+1}\leq b_n$ for all $n$. (Notice that this means $I_{n+1}\subseteq I_n$ for each $n$ -- it might help to draw a picture.) Prove that there is a point $x$ which belongs to $I_n$ for all $n\in \N$. (In other words, $x\in\bigcap_{n\in \N}I_n$.)
+	\item Show that this conclusion is false if we consider open intervals instead of closed intervals.
+       \end{enumerate}
+ \item \begin{enumerate}
+        \item Let $A = \{x:x<\alpha\}$. Prove the following (none of them are hard):
+\begin{enumerate}
+ \item If $x\in A$, and $y<x$, then $y\in A$.
+ \item $A\neq \emptyset$
+ \item $A\neq\R$
+ \item If $x\in A$, then there is some number $x'\in A$ such that $x<x'$.
+\end{enumerate}
+	\item Suppose, conversely, that $A$ satisfies (i)-(iv) above. Prove that $A=\{x : x<\sup A\}$.
+\end{enumerate}
+ \item Let $S$ be a nonempty subset of $\R$ that is bounded above. Prove that if $\sup S\in S$, then $\sup S = \max S$. {\em Hint:} your proof should be very short.
+ \item \begin{enumerate}
+        \item Prove that $\inf S\leq \sup S$. (Again, your proof should be short.)
+	\item What can you say about $S$ if $\inf S = \sup S$?
+       \end{enumerate}
+\item Let $S$ and $T$ be nonempty bounded subsets of $\R$. 
+\begin{enumerate}
+ \item Prove that if $S\subseteq T$, then $\inf T\leq \inf S\leq \sup S\leq \sup T$.
+ \item Prove that $\sup S\cup T = \max\{\sup S, \sup T\}$. (For (b) you're not assuming $S\subseteq T$.)
+\end{enumerate}
+\item Prove that if $a>0$ is any real number, then there exists $n\in \N$ such that $1/n<a<n$.
+
+       
+
+
+\end{enumerate}
+ 
+\end{document}
+ 

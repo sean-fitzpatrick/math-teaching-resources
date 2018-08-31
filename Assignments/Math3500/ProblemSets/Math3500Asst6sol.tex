@@ -1,0 +1,221 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+%\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\ss}{\subseteq}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\Abs}[1]{\left| #1\right|}
+
+\title{Math 3500 Assignment \#6 Solutions\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+ \item ({\bf Do not submit}) Let $f:D\to\R$ be continuous. For each of the following, prove the result, or give a counterexample.
+\begin{enumerate}
+ \item If $D$ is open, then $f(D)$ is open.
+
+\bigskip
+
+Let $D=(0,1)$ and define $f(x)=0$ for all $x\in D$. Then $D$ is open but $f(D)=\{0\}$ is closed.
+
+\bigskip
+
+ \item If $D$ is closed, then $f(D)$ is closed.
+
+\bigskip
+
+Let $D=\N$, and define $f(x)=1/x$. Then $D$ is closed (every $n\in\N$ is isolated, so $\N$ has no limit points) but $f(D) = \{1/n:n\in\N\}$ is not closed, since $0$ is a limit point of $f(D)$ and $0\notin f(D)$.
+
+\bigskip
+
+ \item If $D$ is not open, then $f(D)$ is not open.
+
+\bigskip
+
+Let $D=[-1,0)\cup (0,2)$ and define $f(x)=1/x^2$. Then $D$ is not open, since $- 1\in D$ is not interior an point, but $f(D) = [1,\infty)\cup (1/4,\infty) = (1/4,\infty)$ is open. (Here $f$ has a discontinuity at 0, but $0\notin D$, so $f$ is continuous on $D$.)
+
+\bigskip
+
+ \item If $D$ is not closed, then $f(D)$ is not closed.
+
+\bigskip
+
+Let $D=(-\sqrt{3},\sqrt{3})$, and define $f(x)=x^3-3x$. Then $D$ is not closed, since it does not contain the limit points $\pm 3$, but $f(D) = [-2,2]$ is closed. (Here we have $f(\pm\sqrt{3})=0$ and $f(0)=0$, and $f$ has an absolute maximum at $(-1,2)$, and an absolute miniumum at $(1,-2)$.)
+
+\bigskip
+
+ \item If $D$ is not compact, then $f(D)$ is not compact.
+
+\bigskip
+
+Let $D$ be any noncompact subset of $\R$, for example, $D=\R$, and let $f$ be a constant function, say $f(x)=0$ for all $x$. Then $f(D)$ is compact, since it consists of a single point.
+
+\bigskip
+
+ \item If $D$ is unbounded, then $f(D)$ is unbounded.
+
+\bigskip
+
+Let $D=\R$ and take $f(x)=e^{-x^2}$. Then $D$ is not bounded, but $0<f(x)<1$ for all $x\in\R$, so $f$ is bounded.
+
+\bigskip
+
+ \item If $D$ is finite, then $f(D)$ is finite.
+
+\bigskip
+
+This is true for any function, continuous or not: if $D=\{x_1,\ldots, x_n\}$, then $f(D) = \{f(x_1),\ldots, f(x_n)\}$, so the cardinality of $f(D)$ is less than or equal to the cardinality of $D$ (with equality if $f$ is one-to-one).
+
+\bigskip
+
+ \item If $D$ is infinite, then $f(D)$ is infinite.
+
+\bigskip
+
+Let $D=\R$ and take $f(x)=0$.
+
+\bigskip
+
+ \item If $D$ is an interval, then $f(D)$ is an interval.
+
+\bigskip
+
+This is true. Choose any points $u,v\in f(D)$, with $u<v$. Then $u=f(x)$ and $v=f(y)$ for some $x,y\in D$, and by the Intermediate Value Theorem, for any $w\in\R$ such that $u<w<v$, there exists some $z$ between $x$ and $y$ ($z\in (x,y)$ if $x<y$ or $z\in (y,x)$ if $y<x$) such that $f(z)=w$. It follows that $f(D)$ is an interval.
+
+\bigskip
+
+ \item If $D$ is an interval that is not open, then $f(D)$ is an interval that is not open.
+
+\bigskip
+
+Let $D=[0,\infty)$, and let $f(x)=x\sin x$. Then $D$ is an interval that is not open, since $0\in D$ is not an interior point, but $f(D) = \R$, which is open.
+
+\bigskip
+
+\end{enumerate}
+(Note: this is problem 5.3.3 in the text, and there's a hint in the back.)
+\item \begin{enumerate}
+       \item Let $a\in\R$ and define $f:\R\to\R$ by $f(x)=\abs{x-a}$. Prove that $f$ is continuous.
+
+\bigskip
+
+Let $f(x)=\abs{x-a}$, and let $\epsilon>0$ be given. Let $\delta = \epsilon$ and suppose that $\abs{x-y}<\delta$. Then we have
+\[
+ \abs{f(x)-f(y)} = \abs{\abs{x-a}-\abs{y-a}}\leq \abs{x-a-(y-a)} = \abs{x-y}<\delta=\epsilon,
+\]
+using the inequality $\abs{\abs{u}-\abs{v}}\leq \abs{u-v}$ for all $u,v\in\R$.
+
+\bigskip
+
+       \item Let $K$ be a nonempty compact subset of $\R$ and let $a\in\R$. We define the distance from $a$ to $K$ by
+\[
+ d(a,K) = \inf\{\abs{x-a} : x\in K\}.
+\]
+(The infimum exists since $\{\abs{x-a} : x\in K\}$ is bounded below by zero.) Prove that there exists a point $b\in K$ that is {\em closest} to $a$, in the sense that $\abs{b-a} = d(a,K)$.
+      \end{enumerate}
+
+\bigskip
+
+Let $K\ss\R$ be compact, and let $a\in\R$. Define $f:K\to \R$ by $f(x)=\abs{x-a}$. Then $f$ is continuous, by part (a), so $f$ has an absolute miniumum by the Extreme Value Theorem, since $K$ is compact. That is, there exists some $b\in K$ such that $\abs{b-a} = f(b)\leq f(x)=\abs{x-a}$ for all $b\in K$. Since $f(b)$ is the minimum of the set $\{\abs{x-a}:a\in K\}$, it must be the infimum, and thus $f(b)=d(a,K)$, as required.
+
+\bigskip
+
+\item Prove that if $f:[a,b]\to\R$ is continuous and $f(x)\in \Q$ for all $x\in [a,b]$, then $f$ is constant.
+
+\bigskip
+
+Since $f:[a,b]\to\R$ is continuous, it satisfies the Intermediate Value Theorem on $[a,b]$. If there exist $x,y\in [a,b]$ with $f(x)<f(y)$, then we can find an irrational number $z\in\R$ with $f(x)<z<f(y)$, and then we would have to have $z=f(c)$ for some $c$ between $x$ and $y$. But this is impossible, since $f(x)\in\Q$ for all $x\in [a,b]$. Thus, $f$ must have the same value at every point, which is to say that $f$ is constant.
+
+\bigskip
+
+\item Suppose $f$ is continuous on $[0,2]$, and $f(0)=f(2)$. Prove that there exist $x,y\in [0,2]$ with $\abs{y-x}=1$ and $f(x)=f(y)$.
+
+{\em Hint:} Consider $g(x)=f(x+1)-f(x)$ on $[0,1]$.
+
+\bigskip
+
+Let $f$ be a continuous function on $[0,2]$ with $f(0)=f(2)$, and let $g(x)=f(x+1)-f(x)$, with $x\in [0,1]$. Then $g$ is continuous on $[0,1]$ (the function $h(x):[0,1]\to [1,2]$ given by $h(x)=x+1$ is continuous, so $f\circ h(x) = f(x+1)$ is continous on $[0,1]$ since it's the composition of continuous functions, and thus $g$ is the difference of two continous functions.
+
+Let $a=f(0)=f(2)$, and let $b=f(1)$. If $a=b$, we're done, since we can take $x=0$ and $y=1$. If not, we note that
+\[
+ g(0) = f(1)-f(0) = b-a,
+\]
+and
+\[
+ g(1) = f(2)-f(1) = a-b = -(b-a).
+\]
+Since we're assuming that $b-a\neq 0$ we must have either $g(0)<0<g(1)$ or $g(1)<0<g(0)$. Thus, there exists some $c\in [0,1]$ such that $g(c)=0$, by the intermediate value theorem. But then we have $0=g(c) = f(c+1)-f(c)$, so we can take $x=c$ and $y=c+1$.
+
+\bigskip
+
+\item Prove that each of the following functions is uniformly continuous on the specified set using the $\epsilon$-$\delta$ definition of uniform continuity:
+\begin{enumerate}
+ \item $f(x)=x^2$ on $[0,3]$
+
+\bigskip
+
+Let $\epsilon>0$ be given, and let $\delta=\epsilon/6$. Then for any $x,y\in [0,3]$ we have $0\leq x+y\leq 6$, so if $\abs{x-y}<\delta$, then
+\[
+ \abs{f(x)-f(y)} = \abs{x^2-y^2} = \abs{x-y}\abs{x+y}<\delta\cdot 6=\epsilon.
+\]
+
+
+\bigskip
+
+ \item $g(x)=\dfrac{1}{x}$ on $[\frac{1}{2},\infty)$
+
+\bigskip
+
+Let $\epsilon>0$ be given, and let $\delta = 4\epsilon$. For $x,y\geq 1/2$, we have $1/x,1/y\leq 2$, so if $\abs{x-y}<\delta$, then
+\[
+ \abs{g(x)-g(y)} = \Abs{\frac{1}{x}-\frac{1}{y}} = \Abs{\frac{y-x}{xy}}<\frac{\delta}{2\cdot 2}=\epsilon.
+\]
+
+
+\bigskip
+
+\end{enumerate}
+\item ({\bf Do not submit}) Prove that if $f$ is uniformly continuous on a bounded set $D\subseteq \R$, then $f$ is bounded on $D$.
+
+{\em Hint:} If $f$ is not bounded on $D$, you can find some sequence $(a_n)$ in $D$ with $\abs{f(a_n)}\geq n$ for all $n\in\N$. But since $D$ is bounded, $(a_n)$ is a bounded sequence and therefore has a convergent subsequence. We also know that if $f$ is uniformly continuous and $(x_n)$ is a Cauchy sequence, then $(f(x_n))$ is also a Cauchy sequence.
+
+\bigskip
+
+Following the hint, suppose that $f$ is not bounded on $D$. Then for each $n\in\N$ there exists some $a_n\in D$ such that $\abs{f(a_n)}\geq n$. Let $(a_n)$ be the resulting sequence. Since $D$ is bounded, and $a_n\in D$ for all $n\in\N$, $(a_n)$ is bounded, so there must be a convergent subsequence $(a_{n_k})$. Since this subsequence converges, it must be a Cauchy sequence, and since $f$ is uniformly continuous on $D$, it follows that $(f(a_{n_k}))$ is a Cauchy sequence. But then it must be the case that $(f(a_{n_k}))$ is a bounded sequence, which contradicts the assumption that $\abs{f(a_{n_k})}\geq n_k\geq k$ for all $k\in\N$. Thus, $f$ must be bounded on $D$.
+
+\bigskip
+
+\item Prove that $f(x)=\sin x$ is uniformly continous on $\R$.
+
+{\em Hint:} First use the Mean Value Theorem to prove that $\abs{\sin x-\sin y}\leq \abs{x-y}$ for all $x,y\in\R$.
+
+\bigskip
+
+Let $\epsilon>0$ be given, and let $\delta = \epsilon$. Choose any $x,y\in\R$ with $\abs{x-y}<\delta$. Assume without loss of generality that $x,y$. Since $f(x)=\sin x$ is continuous on $[x,y]$ and differentiable on $(x,y)$, there exists some $c\in (x,y)$ such that 
+\[
+ f'(c) = \cos c = \frac{\sin y-\sin x}{y-x} \quad \text{ and thus } \Abs{\frac{\sin y-\sin x}{y-x}} = \abs{\cos c}\leq 1.
+\]
+It follows that
+\[
+ \abs{f(x)-f(y)} = \abs{\sin x-\sin y}\leq \abs{x-y}<\delta = \epsilon.
+\]
+
+
+\end{enumerate}
+
+\end{document}
+ 

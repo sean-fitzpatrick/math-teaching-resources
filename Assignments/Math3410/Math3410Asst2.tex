@@ -1,0 +1,54 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+
+\title{Math 3410 Assignment \#2\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Wednesday, February 11, by 5 pm.
+
+\bigskip
+
+Please provide solutions to the problems below, using the same guidelines as for Assignment \#1:
+
+
+\begin{enumerate}
+ \item Let $U$ be a subspace of a vector space $V$, and let $S:U\to W$ be a non-zero linear transformation. That is, we assume that there exists some $u\in U$ such that $Su\neq 0$. Prove that the function $T:V\to W$ given by
+\[
+ Tv = \begin{cases}Sv, &\text{ if } v\in U\\ 0, &\text{ if } v\notin U\end{cases}
+\]
+is {\bf not} a linear transformation.
+
+Hint: if $u\in U$ and $v\notin U$, can $u+v$ be an element of $U$? What about $-v$?
+
+ \item Suppose $V$ is a finite-dimensional vector space, and let $U\subseteq V$ be a subspace. Prove that any linear transformation $S:U\to W$ can be extended to a linear transformation $T:V\to W$.
+
+Hint: any basis of $U$ can be extended to a basis for $V$. 
+
+ \item Suppose that $V$ is a finite-dimensional vector space, and $T:V\to W$ is a linear transformation. Prove that there exists a subspace $U\subseteq V$ such that:
+\begin{enumerate}
+ \item $U\cap \nul T = \{0\}$, and
+ \item $\range T = \{Tu : u\in U\}$.
+\end{enumerate}
+\item Suppose $V$ and $W$ are finite-dimensional vector spaces. 
+\begin{enumerate}
+\item Prove that there exists an injective (one-to-one) linear transformation $T:V\to W$ if and only if $\dim V\leq \dim W$.
+\item Prove that there exists a surjective (onto) linear transformation $T:V\to W$ if and only if $\dim V\geq \dim W$.
+\end{enumerate}
+
+ \end{enumerate}
+\end{document}
+ 

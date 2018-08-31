@@ -1,0 +1,223 @@
+\documentclass[12pt,t]{beamer}
+\usetheme{Malmoe}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pgfpages}
+\pgfpagesuselayout{resize to}[letterpaper,landscape,border shrink=5mm]
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\DeclareMathOperator{\rank}{rank}
+%\geometry{landscape,paper=letterpaper}
+\beamertemplatenavigationsymbolsempty
+\date{}
+\author{Math 1410 Linear Algebra}
+\title{Matrix Algebra}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+%\date{} 
+%\subject{} 
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}\frametitle{Matrices}
+ An \alert{$m\times n$ matrix} (or simply {\em matrix}, if we do not need to specify the size) is a rectangular array of (real) numbers consisting of $m$ rows and $n$ columns. Examples of matrices include:
+\[
+ A = \begin{bmatrix}2&-1&4\\1&-2&1\end{bmatrix}\quad B = \begin{bmatrix} -5.2 & \pi\\1.234& 0\\\sqrt{2}& 3\end{bmatrix}\quad C = \begin{bmatrix}1 & 0 \\0& 1\end{bmatrix}
+\]
+The number in row $i$ and column $j$ is referred to as the \alert{$(i,j)$-entry} of the matrix.
+\end{frame}
+\begin{frame}\frametitle{General notation}
+ In order to talk about matrices in general, we use the notation $a_{ij}$ for the $(i,j)$-entry of a matrix, and write
+\[
+ A = \begin{bmatrix}a_{11}& a_{12} & a_{13} & \cdots & a_{1n}\\
+      a_{21}  & a_{22} & a_{23} & \cdots & a_{2n}\\
+      \vdots & \vdots & \vdots & & \vdots\\
+      a_{m1} & a_{m2} & a_{m3} &\cdots & a_{mn}
+     \end{bmatrix}
+\]
+to indicate the matrix as a whole.
+
+\bigskip
+
+Other notation: $A = [a_{ij}]$ or $A=[a_{ij}]_{m\times n}$.
+
+Note: 
+\begin{itemize}
+ \item Size $m\times n$ means $m$ rows, $n$ columns.
+ \item Entry $a_{ij}$ lies in row $i$ and column $j$.
+\end{itemize}
+
+\end{frame}
+\begin{frame}\frametitle{Matrix equality}
+ \begin{definition}
+  Two matrices $A$ and $B$ are \alert{equal}, denoted by $A=B$, if
+\begin{enumerate}
+ \item Both $A$ and $B$ have the same size.
+ \item The corresponding entires in each matrix are equal.
+\end{enumerate}
+\end{definition}
+In other words:
+\[
+ A = [a_{ij}]_{m\times n} = [b_{ij}]_{k\times l} = B
+\]
+means $m=k$, $n=l$, and $a_{ij} = b_{ij}$ for all $i$ and $j$.
+\end{frame}
+\begin{frame}\frametitle{Matrix addition}
+ We can add two matrices $A$ and $B$, \alert{provided they are the same size}. The {\bf sum} $A+B$ is formed by adding the corresponding entries:
+\[
+ \text{If } A=[a_{ij}] \text{ and } B = [b_{ij}], \text{ then } A+B = [a_{ij}+b_{ij}].
+\]
+\begin{example}
+ Consider $A =\begin{bmatrix}1&-2&3\\0&-4&2\end{bmatrix}$, $B = \begin{bmatrix}-3&0&1\\0&-3&2\end{bmatrix}$, $C = \begin{bmatrix}1&-2\\2&4\end{bmatrix}$
+\end{example}
+\begin{example}
+ If $\begin{bmatrix}a&b&c\end{bmatrix}+\begin{bmatrix}c&a&b\end{bmatrix} = \begin{bmatrix}3&2&-1\end{bmatrix}$, what are $a$, $b$, and $c$?
+\end{example}
+\end{frame}
+\begin{frame}\frametitle{Properties of matrix addition}
+ For any matrices $A,B,C$ \alert{of the same size}, we have
+\begin{align*}
+ A+B & = B+A \text{ (commutative law)}\\
+ A+(B+C) & = (A+B)+C \text{ (associative law)}
+\end{align*}
+ The $m\times n$ matrix with every entry equal to zero ($a_{ij}=0$ for all $i,j$) is called the \alert{zero matrix}, and denoted by $0$ (or $0_{mn}$ to specify the size). For any other $m\times n$ matrix $A$ we have
+\[
+ A+0 = 0+A = A.
+\]
+ Given a matrix $A = [a_{ij}]$, we define its \alert{negative} by $-A = [-a_{ij}]$. Notice that for any matrix $A$ we have
+\[
+ A+(-A) = 0.
+\]
+ Using the negative we can define the \alert{difference} by $A-B = A+(-B) = [a_{ij}-b_{ij}]$.
+\end{frame}
+\begin{frame}\frametitle{Example 1}
+ If $A = \begin{bmatrix} 3 & -1\\ 0 &2\\  4 & -5\end{bmatrix}$, $B = \begin{bmatrix}1 & -1 \\ 1&0\\ 2&4\end{bmatrix}$, and $C = \begin{bmatrix}1&-3\\2&5\\0&4\end{bmatrix}$, compute $A-B$, $A+C$, and $A+B-C$.
+\end{frame}
+\begin{frame}\frametitle{Example 2}
+ Find the matrix $X$ such that
+\[
+ \begin{bmatrix}2 & 4 \\ -1 & 3\end{bmatrix} + X = \begin{bmatrix}5 & -7\\0 & -3\end{bmatrix}.
+\]
+
+\end{frame}
+\begin{frame}\frametitle{Scalar multiplication}
+ Given a matrix $A$ and a number $k$, the \alert{scalar multiple} $kA$ is defined as follows:
+\[
+ \text{If } A = [a_{ij}], \text{ then } kA = [ka_{ij}].
+\]
+ In other words, to multiply $A$ by $k$, we multiply every entry of $A$ by $k$.
+
+\bigskip
+
+\alert{Note:} Here, ``number'' (or \alert{scalar}) usually will mean {\em real number}. Later on we'll also encounter complex scalars.
+\end{frame}
+\begin{frame}\frametitle{Properties of scalar multiplication}
+ Note that $kA$ is always the same size as $A$. If either $k=0$ or $A=0$, we have $kA = 0$. That is,
+\[
+ 0A = 0 \text{ and } k0 = 0.
+\]
+ The converse is also true: if $kA = 0$, then $k=0$ or $A=0$.
+
+ We also have:
+\begin{align}
+ k(A+B) & = kA + kB \\
+ (h+k)A & = hA +kA\\
+ h(kA) & = (hk)A\\
+ 1A & = A
+\end{align}
+Here, (1) and (2) are referred to as \alert{distributive properties}. Property (3) tells us that scalar multiplication is \alert{associative}.
+\end{frame}
+\begin{frame}\frametitle{Transpose}
+ If a matrix $A$ is the coefficient matrix for a system of linear equations, we have a clear distinction between rows and columns: each \alert{row} corresponds to an {\em equation}, while each \alert{column} corresponds to a variable.
+
+ In many other cases, given a result about the rows of matrix, there is an analogous result about the columns. The \alert{transpose} is an operation on a matrix that exchanges rows and columns:
+
+\begin{definition}
+ Let $A = [a_{ij}]_{m\times n}$ be an $m\times n$ matrix. The {\bf transpose} of $A$, denoted $A^T$, is the $n\times m$ matrix obtained by exchanging rows and columns. That is, if $A^T=[b_{ij}]_{n\times m}$, then $b_{ij} = a_{ji}$ for all $i$ and $j$.
+\end{definition}
+
+\end{frame}
+\begin{frame}\frametitle{Examples}
+ Let $A = \begin{bmatrix}2&3&-1\\0&-4&5\end{bmatrix}$, $B = \begin{bmatrix}b_1\\b_2\\b_3\\b_4\end{bmatrix}$, $C = \begin{bmatrix}1&2&0&3\end{bmatrix}$
+\end{frame}
+\begin{frame}\frametitle{Properties of the transpose}
+ Let $A$ and $B$ be $m\times n$ matrices, and let $k$ be a scalar. Then
+\begin{enumerate}
+ \item $(A^T)^T = A$
+ \item $(kA)^T = kA^T$
+ \item $(A+B)^T = A^T+B^T$.
+\end{enumerate}
+\begin{definition}
+ We say that an $n\times n$ matrix $A$ is \alert{symmetric} if $A^T=A$, and \alert{antisymmetric} if $A^T = -A$.
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Matrix multiplication - row times column}
+ Let $R=\begin{bmatrix}a_1 & a_2 & \cdots & a_n\end{bmatrix}$ be a $1\times n$ row matrix, and let $C=\begin{bmatrix}b_1 & b_2 & \cdots & b_n\end{bmatrix}^T$ be an $n\times 1$ column matrix. We define the \alert{product} (sometimes called a {\em dot product}) to be the number
+\[
+ RC = \begin{bmatrix}a_1 & a_2 & \cdots & a_n\end{bmatrix}\begin{bmatrix}b_1 \\ b_2 \\ \vdots \\ b_n\end{bmatrix} = a_1b_1+a_2b_2+\cdots + a_nb_n.
+\]
+
+\end{frame}
+\begin{frame}\frametitle{Matrix multiplication - matrix times column}
+ The product $AX$ of an $m\times n$ matrix and an $n\times 1$ column $X$ is an $m\times 1$ column.
+
+\bigskip
+
+Two ways to compute $AX$:
+\end{frame}
+\begin{frame}\frametitle{Matrix multiplication - row times matrix}
+\begin{itemize}
+ \item $1\times n$ row $R=\begin{bmatrix}a_1&a_2&\cdots&a_n\end{bmatrix}$
+ \item $n\times p$ matrix $B=[B_1|B_2|\cdots|B_p]$
+\end{itemize}
+($B_1, B_2,\ldots, B_p$ are the ($n\times 1$) columns of $B$.)
+
+\bigskip
+
+$RB=$
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Matrix multiplication - general case}
+Extend from the previous examples: to form the product $AB$, multiply the rows of $A$ by the columns of $B$.\\
+When is the product of matrices $A$ and $B$ defined? 
+ 
+
+
+\end{frame}
+\begin{frame}\frametitle{Examples}
+ 
+\end{frame}
+\begin{frame}\frametitle{``Practical'' example}
+ Suppose corn and barley are grown as feed crops on a farm that raises cows and pigs. Three chemical fertilizers are used on the feed crops. The amount of each chemical absorbed by the feed (in milligrams), and the amount of feed consumed by each animal, are given by the following tables:
+\[
+ \bordermatrix{& \text{Corn} & \text{Barley}\cr
+ \text{Chemical 1} &1 & 2 \cr
+ \text{Chemical 2} &2& 1\cr
+ \text{Chemical 3} &3 & 2}
+\hspace{0.5in} 
+ \bordermatrix{& \text{Cows} & \text{Pigs}\cr
+ \text{Corn} & 27 & 15 \cr
+ \text{Barley} & 15 & 5}
+\]
+
+
+How much of each chemical is consumed by each animal?
+\end{frame}
+
+
+
+
+
+\end{document}

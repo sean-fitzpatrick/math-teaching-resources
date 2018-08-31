@@ -1,0 +1,339 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+%\input quizstyle.tex
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\addtolength{\headheight}{\baselineskip}
+
+\lhead{MAT232HF}
+\rhead{Page \thepage \ of \pageref{LastPage}}
+\cfoot{}
+\rfoot{{\bf Total Marks:} 100}
+
+
+%Redefine the plain page style in fancyhdr package
+\fancypagestyle{plain}{%  
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{Page \thepage \ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}}
+
+\newcounter{probnum}
+\newcounter{subprobnum}
+
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\nll}{null}
+\DeclareMathOperator{\tr}{tr}
+
+\newenvironment{problems}{
+\begin{list}{\arabic{probnum}.}{\usecounter{probnum}}
+}{
+\end{list}
+}
+
+\newenvironment{subproblem}{ % start for subprob
+\begin{list}{ % first arg for list
+(\alph{subprobnum})
+}{ % second arg for list
+\usecounter{subprobnum}
+\setlength{\topsep}{0in}
+} % end of list def
+}{ % end for subprob
+\end{list}
+}
+
+\newcommand{\skipline}{\vspace{12pt}}
+%\input local.tex
+\renewcommand{\labelenumi}{(\roman{enumi})}
+
+\begin{document}
+\thispagestyle{plain}
+%Supresses the headers on the front page
+
+\centerline {\bf UNIVERSITY OF TORONTO AT MISSISSAUGA}
+\medskip
+\centerline {\bf June 2007 Examination}
+\medskip
+\centerline {\bf MAT232HF}
+\centerline {\bf Instructor: Sean Fitzpatrick}
+\medskip
+\centerline {\bf Duration: 3 Hours}
+\bigskip
+\bigskip
+
+\noindent {\bf NO AIDS ALLOWED.} \hfill {\bf Total: 100 marks}
+\vglue .25truein
+\begin{tabular}{ll}
+Family Name: &\underbar {\hskip 4.5in} \\
+   &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[15pt]
+Given Name(s): &\underbar {\hskip 4.5in} \\
+    &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[15pt]
+Please sign here: &\underbar {\hskip 4.5in}\\
+[25pt]
+Student ID Number: &\underbar {\hskip 4.5in}\\
+\end{tabular}
+\bigskip
+
+
+%\vspace{1in}
+\begin{quote}
+{\em Students may be charged with an academic offence for 
+possessing the following items during the writing of an exam:  any 
+unauthorized aid, cell phones, pagers, wristwatch computers, personal 
+digital assistants (PDAs), IPODS, MP3 players, or any other electronic 
+device.  If any of these items are in your possession, please turn them 
+off and put them with your belongings at the front of the room before the 
+examination begins and no penalty will be imposed.  A penalty MAY BE 
+imposed if any of these items are kept with you during the writing of your 
+exam. 
+
+\skipline
+
+\noindent Please note, students are {\bf NOT} allowed to petition to 
+RE-WRITE a final examination.} 
+\end{quote}
+
+\vspace{.25in}
+\begin{center}
+\begin{tabular}{|l|r|l|r|}
+\hline \hline
+\multicolumn{4}{|c|}
+{\rule[-3mm]{0mm}{8mm}
+FOR MARKER'S USE ONLY} \\
+\hline
+Problem 1: & \hspace{.5in}  /22 & Problem 4: & \hspace{.5in} /15 \\ [3pt]
+\hline
+Problem 2: & \hspace{.5in}  /16 & Problem 5: & \hspace{.5in} /15 \\ [3pt]
+\hline
+Problem 3: & \hspace{.5in}  /12 & Problem 6: & \hspace{.5in} /20 \\ [3pt]
+\hline
+\hline
+ & & {\rule[-3mm]{0mm}{8mm} TOTAL:}  & /100  \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+\vglue1pt
+
+\noindent {\bf Instructions:} There are 6 problems in this exam, sorted by 
+topic (not necessarily by difficulty).  Please read over the entire exam 
+before beginning, and make sure that there are no missing pages.
+
+Each of the six problems has several sub-parts.  The value of each 
+sub-part is indicated in the left-hand margin in square brackets.
+In the case that one sub-part depends on a part preceeding it, the correct 
+use of an incorrect previous answer will receive full credit.
+
+Please write your solutions in the space provided.  If there is not enough 
+space you may continue your solution on the back of the {\em previous} 
+page.  There are also two pages at the end of the exam for rough work.
+
+Try to solve as many problems as possible.  Partial credit will be given 
+for partially correct work.
+
+\skipline
+
+To aid in evaluating some of the integrals which you may encounter, a list 
+of indefinite integrals is given below:
+
+\begin{align*}
+\int u^a d u &= \frac{u^{a+1}}{a+1}, \mbox{ for } a\neq -1\\
+\int \sin\theta d \theta &= -\cos \theta\\
+\int \cos\theta d \theta &= \sin \theta\\
+\int \sin^2\theta d \theta &= \frac{\theta}{2} - \frac{1}{4}\sin 2\theta\\
+\int \cos^2\theta d \theta & = \frac{\theta}{2} + \frac{1}{4} \sin 
+2\theta\\
+\int \sin^3\theta d \theta & = \frac{1}{3}\cos^3 \theta -\cos \theta\\
+\int \sin^4\theta d \theta &= \frac{3\theta}{8} - \frac{1}{4} \sin 2\theta 
++\frac{1}{32} \sin 4\theta
+\end{align*}
+
+
+\newpage
+\vglue1pt
+%vglue adds space between headers and text
+
+\begin{problems}
+\item   \begin{subproblem}
+	\item For the function $f(x,y) = \sin(x^2\ln y)$, find 
+$f_x(x,y)$ and $f_y(x,y)$. 
+\marginpar{[4]}
+\vspace{3.5in}
+	\item Let $w=\sqrt{u^2 + v^2 + z^2}$, where $u=3e^t\sin s$, $v= 
+3e^t\cos s$, and $z=4e^t$.
+	\begin{enumerate}
+	\item Write out the chain rule formulas for ${\displaystyle 
+\frac{\partial w}{\partial s}}$ and ${\displaystyle
+\frac{\partial w}{\partial t}}$.\marginpar{[2]}
+\newpage
+\vglue1pt
+
+	\item Calculate ${\displaystyle
+\frac{\partial w}{\partial s}}$ and ${\displaystyle
+\frac{\partial w}{\partial t}}$ using the formulas in (i). \marginpar{[4]}
+\vspace{3.6in}
+	\item Calculate ${\displaystyle
+\frac{\partial w}{\partial s}}$ and ${\displaystyle
+\frac{\partial w}{\partial t}}$ by explicitly making the given 
+substitutions.  Confirm that your answers agree with those in (ii). 
+\marginpar{[4]}
+	\end{enumerate}
+\newpage
+\vglue1pt
+
+	\item Let $h(x,y,z) = x^3 + y^3 + z^3 - 5xyz$.
+	\begin{enumerate}
+	\item Calculuate ${\bf \nabla} 
+h(2,1,1)$.\marginpar{[3]}
+\vspace{2.4in}
+	\item Calculuate the directional derivative of $h(x,y,z)$ at the 
+point $(2,1,1)$ in the direction of $\vec{a} = <1,0,-1>$. \marginpar{[2]}
+\vspace{2.2in}
+	\item Find the equation for the tangent plane to the surface 
+$h(x,y,z) = 0$ at the point $(2,1,1)$.\marginpar{[3]}
+	\end{enumerate}	
+	\end{subproblem}
+
+\newpage
+\vglue1pt
+\item Let $D$ be the region contained within the curve given in 
+polar coordinates by $r=2\sin \theta$.
+	\begin{subproblem}
+	\item Sketch the region $D$, and find its area. \marginpar{[4]}
+\vspace{3.6in}
+	\item Suppose that $D$ bounds a plane lamina of mass density 
+$\delta(x,y) = \sqrt{x^2 + y^2}$.  Find the mass of the lamina. 
+\marginpar{[3]}
+\newpage
+\vglue1pt
+
+	\item Find the centroid of the region $D$, with respect to the 
+density $\delta(r,\theta) = 1$. \marginpar{[3]}
+\vspace{4.5in}
+	\item Find the volume of the solid of revolution obtained by 
+revolving $D$ about the $x$-axis.\marginpar{[2]}
+
+\noindent {\bf Hint:} $V= A\cdot d$, by the First Theorem of Pappus.
+\newpage
+\vglue1pt
+
+	\item Find the volume of the solid which lies above $D$ and below 
+the surface $z=4-\sqrt{(x^2+y^2)}$.\marginpar{[4]}
+	\end{subproblem}
+\newpage
+\vglue1pt
+
+\item Consider the parametric surface $S$ given by the equations
+\begin{equation*}
+x = a\sin u\cos v,\: y = b\sin u\sin v,\: z = c\cos u,
+\end{equation*}
+for $0\leq u\leq \pi$ and $0\leq v\leq 2\pi$.
+	\begin{subproblem}
+	\item Use trigonometric identities (such as $\sin^2 t + \cos^2 t = 
+1$) to eliminiate the parameters $u$ and $v$, and obtain the equation of a 
+quadric surface. \marginpar{[4]}
+\vspace{3in}
+
+	\item Identfiy and sketch this surface, if $a=1$, $b=1$, and 
+$c=2$.\marginpar{[3]}
+\newpage
+\vglue1pt
+
+	\item Set up the integral ${\displaystyle A(S) = \iint\limits_R 
+\left|\vec{N}(u,v)\right| d u d v}$, in terms of $a$, $b$ and $c$,
+which gives the surface area of $S$ \marginpar{[5]}
+(where $\vec{N}(u,v)=\vec{r}_u\times\vec{r}_v$ is the normal to the 
+surface $S$ at $(u,v)\in R$). 
+
+Evaluate the integral in the case $a=b=c$. (Your answer should look 
+familiar.)
+	\end{subproblem}
+\newpage
+\vglue1pt
+\item Let $D$ be the region in the $xy$-plane bounded by the curves $y=x$, 
+$y=2x$, $xy=1$ and $xy=2$.
+	\begin{subproblem}
+	\item Sketch the region, noting all points of intersection of the 
+given curves. \marginpar{[3]}
+\vspace{2.5in}
+	\item Find a change of variables $u=f(x,y)$, $v=g(x,y)$ that 
+transforms the region $D$ into the rectangle $1\leq u\leq 2$, $1\leq v\leq 
+2$.\marginpar{[2]}
+\vspace{2in}
+	\item Solve for $x$ and $y$ in terms of $u$ and 
+$v$.\marginpar{[2]}
+\newpage
+\vglue1pt
+	\item Compute the Jacobian $J={\displaystyle \frac{\partial 
+(x,y)}{\partial (u,v)}}$. \marginpar{[3]}
+\vspace{3.5in}
+	\item Evaluate ${\displaystyle \iint\limits_D \left( 
+\frac{(x-y)^2}{x^2} 
+-1\right) d A}$.\marginpar{[5]}
+	\end{subproblem}
+\newpage
+\vglue1pt
+
+\item Consider the function $f(x,y) = 4xy-2x^4-y^2$.
+	\begin{subproblem}
+	\item Find the critical points of $f(x,y)$.\marginpar{[4]}
+\vspace{3in}
+	\item Classify all critical points found in (a). \marginpar{[6]}
+\newpage
+\vglue1pt
+
+	\item Find the absolute maximum and minimum (if any) of $f(x,y)$ 
+subject to the constraint $2x-y=1$.\marginpar{[5]}
+	\end{subproblem}
+\newpage
+\vglue1pt
+
+\item Consider the vector field $\vec{F}(x,y) = (3x^2+2y^2)\hat{\imath} + 
+(4xy+6y^2)\hat{\jmath}$.
+	\begin{subproblem}
+	\item Show that $\vec{F}(x,y)$ is conservative. \marginpar{[3]}
+\vspace{3in}
+	\item Find a function $f(x,y)$ such that ${\bf \nabla} 
+f(x,y) = \vec{F}(x,y)$.\marginpar{[5]}
+\newpage
+\vglue1pt
+
+	\item If $C$ is the segment of the parabola $x=2y^2$ from $(0,0)$ 
+to $(2,1)$, compute the line integral ${\displaystyle \int_C \vec{F}\cdot 
+d\vec{r}}$:
+	\begin{enumerate}
+	\item Directly. \marginpar{[5]}
+\newpage
+\vglue1pt
+	\item Using the Fundamental Theorem of Calculus for line 
+integrals.\marginpar{[3]}
+\vspace{3in}
+	\end{enumerate}
+	\item State Green's Theorem in the plane. \marginpar{[4]}
+	\end{subproblem}
+\newpage
+\vglue1pt
+Extra space for rough work. Do {\bf not} tear out this page.
+
+\newpage
+\vglue1pt
+Extra space for rough work. Do {\bf not} tear out this page.
+
+\end{problems}
+\end{document}
+\newpage
+

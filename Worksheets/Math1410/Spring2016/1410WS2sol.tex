@@ -1,0 +1,164 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 2 Solutions}\rhead{Tuesday, 19\textsuperscript{th} January, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+%Please complete all problems below, and indicate which {\bf one} problem you want feedback on.
+ \begin{enumerate}
+ \item  Let $\vec{u} = \begin{bmatrix}2\\-3\\1\end{bmatrix}$ and $\vec{v} = \bbm -4\\0\\3\ebm$. Calculate the following:
+\begin{enumerate}
+ \item $\vec{u}+\frac{1}{2}\vec{v}$
+
+\bigskip
+
+\[
+ \vec{u}+\frac{1}{2}\vec{v} = \begin{bmatrix}2\\-3\\1\end{bmatrix}+\frac{1}{2}\bbm -4\\0\\3\ebm = \bbm 2\\-3\\1\ebm+\bbm -2\\0\\3/2\ebm = \bbm 2-2\\-3+0\\1+3/2\ebm = \bbm 0\\-3\\5/2\ebm.
+\]
+
+
+ \item $\vec{u}\dotp \vec{v}$
+
+\[
+ \vec{u}\dotp \vec{v} = 2(-4)+(-3)(0)+1(3) = -8+0+3 = -5.
+\]
+
+
+ \item $\len{\vec{v}}$
+
+\[
+ \len{\vec{v}} = \sqrt{(-4)^2+0^2+3^2} = \sqrt{16+9} = \sqrt{25} = 5.
+\]
+
+
+ \item Find a unit vector in the direction of $\vec{v}$.
+
+Let $\vec{w}$ be the desired unit vector. Then $\vec{w} = c\vec{v}$ for some $c>0$, since $\vec{w}$ is in the same direction as $\vec{v}$, and we want $\len{\vec{w}}=1$, so
+\[
+ 1=\len{\vec{w}} = \len{c\vec{v}}=c\len{\vec{v}} = c(5),
+\]
+using part (c). Thus $c=1/5$, so $\di \vec{w} = \frac{1}{5}\bbm -4\\0\\3\ebm = \bbm -4/5\\0\\3/5\ebm$.
+
+\medskip
+
+{\bf Note:} The above solution assumes that you haven't seen the rule for forming a unit vector, and are working things out from scratch. If you look at the details above, you can see that in general, our unit vector is $\vec{w} = \dfrac{1}{\len{\vec{v}}}\vec{v}$. If you know this result, you can just use it directly.
+
+
+\vspace{1.2in}
+\end{enumerate}
+\item Let $P=(2,-1,3)$ and $Q=(0,3,-2)$. Find the coordinates of the point $R$ that is $\frac{1}{5}$ of the way from $P$ to $Q$.
+
+\bigskip
+
+Since the point $R$ is one fifth of the way from $P$ to $Q$, it follows that $\overrightarrow{PR} = \dfrac{1}{5}\overrightarrow{PQ}$. (The vector from $P$ to $R$ is one fifth as long as the vector from $P$ to $Q$.) Thus,
+\[
+ \overrightarrow{PR} = \frac{1}{5}\bbm 0-2\\3-(-1)\\-2-3\ebm = \frac{1}{5}\bbm -2\\4\\-5\ebm = \bbm -2/5\\4/5\\-1\ebm.
+\]
+Now, to determine the coordinates of the point $R$, it suffices to find the components of the position vector $\overrightarrow{OR}$, where $O$ is the origin. Since $\overrightarrow{OR} = \overrightarrow{OP}+\overrightarrow{PR}$ (to get from $O$ to $R$, we can first travel from $O$ to $P$, and then from $P$ to $R$; it may help to draw a diagram) we have
+\[
+ \overrightarrow{OR} = \bbm 2\\-1\\3\ebm + \bbm -2/5\\4/5\\-1\ebm = \bbm 2-2/5\\-1+4/5\\3-1\ebm = \bbm 8/5\\-1/5\\2\ebm.
+\]
+Thus, the point $R$ is given by $R=(8/5, -1/5, 2)$.
+
+\bigskip
+
+\item Find the parametric equations of the line that passes through the points $P=(3,-1,4)$ and $Q=(1,0,2)$.
+
+\bigskip
+
+To get the equation of a line in $\R^3$, we need a point on the line, and we need a direction vector. We're given two points on the line, so we can choose either one of them. Let's take $P=(3,-1,4)$. Since the line passes through both $P$ and $Q$, the vector $\overrightarrow{PQ}$ must be parallel to the line. Thus,
+\[
+ \vec{v} = \overrightarrow{PQ} = \bbm 1-3\\0-(-1)\\2-4\ebm = \bbm -2\\1\\-2\ebm
+\]
+is a direction vector for the line. It follows that the vector equation of the line is
+\[
+ \bbm x\\y\\z\ebm = \bbm 3\\-1\\4\ebm + t\bbm -2\\1\\-2\ebm,
+\]
+and the corresponding parametric equations are
+\[
+ x = 3-2t,\quad y = -1+t,\quad z = 4-2t.
+\]
+
+
+\item Let $L$ be the line given by the parametric equations
+\begin{align*}
+ x&=2-t\\
+ y&=-3+2t\\
+ z&=1+t
+\end{align*}
+Determine a point $P$ on the line $L$ such that the distance from $P$ to $(2,-3,1)$ is equal to 3.
+
+\bigskip
+
+There are several valid approaches to this problem. For ease of reference, let us write $Q=(2,-3,1)$ for the given point, and note that $Q$ is a point on the line: it corresponds to setting $t=0$ in the parametric equations for the line.
+
+The first approach uses the distance formula. We let $P=(2-t,-3+2t,1+t)$ be our point on the line. (Note that any point on the line must satisfy the parametric equations for the line.) The distance from $P$ to $Q$ is then given by
+\begin{align*}
+ d & = \sqrt{(2-(2-t))^2 + (-3-(-3+2t))^2 + (1-(1+t))^2}\\
+ & = \sqrt{t^2+(-2t)^2+(-t)^2}\\
+ & = \sqrt{t^2+4t^2+t^2}\\
+ & = \sqrt{6t^2} = \sqrt{6}\abs{t}.
+\end{align*}
+Since we want $d=3$, we must have $\sqrt{6}\abs{t}=3$, so $\abs{t} = 3/\sqrt{6}$, and thus $t = \pm 3/\sqrt{6}$. We choose the positive solution $t=3/\sqrt{6}$, and pluggin this into the parametric equations for the line gives us the point
+\[
+ P = \left(2-\frac{3}{\sqrt{6}}, -3+\frac{6}{\sqrt{6}}, 1+\frac{3}{\sqrt{6}}\right).
+\]
+
+The other two approaches involve vectors. From the parametric equations of the line, we can read off (by looking at the numbers multiplying $t$) the direction vector $\vec{v} = \bbm -1\\2\\1\ebm$. We notice that $\len{\vec{v}} = \sqrt{(-1)^2+2^2+1^2} = \sqrt{6}$, so a unit vector in the direction of $\vec{v}$ is
+\[
+ \vec{u} = \frac{1}{\sqrt{6}}\vec{v} = \bbm -1/\sqrt{6}\\2/\sqrt{6}\\1/\sqrt{6}\ebm.
+\]
+Note that the position vector of any point $P$ on the line can be written as $\overrightarrow{OP} = \overrightarrow{OQ}+t\vec{u}$; in particular, the point $Q=(2,-3,1)$ corresponds to setting $t=0$. We want $P$ to be on the line a distance of 3 units away from $Q$, which means that we have to have
+\[
+ \overrightarrow{OP} = \overrightarrow{OQ}+3\vec{u} = \bbm 2\\-3\\1\ebm + 3\bbm -1\sqrt{6}\\2/\sqrt{6}\\1/\sqrt{6}\ebm = \bbm 2-3/\sqrt{6}\\-3+6/\sqrt{6}\\1+3/\sqrt{6}\ebm,
+\]
+and converting $\overrightarrow{OP}$ to the corresponding point $P$, we see that we get the same answer as above.
+
+(If the vector equation above isn't clear, note the following: we want to start at $Q$, and move along the line, which means moving in the direction of the vector $\vec{v}$. The unit vector $\vec{u}$ points in the same direction points in the same direction as $\vec{v}$, and has length 1. Since we want to move a distance of 3 units, we add the vector $3\vec{u}$, which has length 3.)
+
+The last approach is a minor variation on the one above. We want to move from the point $Q$ in the direction of $\vec{v}$ a distance of 3 units. That means we need to add a scalar multiple $t\vec{v}$ of $\vec{v}$ to $\overrightarrow{OQ}$ to obtain $\overrightarrow{OP}$. We want $\len{t\vec{v}}=3$, so
+\[
+ 3 = \len{t\vec{v}} = \abs{t}\len{\vec{v}} = \abs{t}\sqrt{6},
+\]
+giving us $\abs{t} = 3/\sqrt{6}$ and $t=\pm 3/\sqrt{6}$, the same as above.
+
+\bigskip
+
+A last note on this problem: the two approaches using vectors were feasible because of the fact that the point $Q$ is on the given line. One could just as easily ask for a point $P$ on the line that is a distance of 3 away from a point $Q$ that is {\bf not} on the line. In this case, the first approach is the most reasonable way to do the problem.
+ \end{enumerate}
+\end{document}

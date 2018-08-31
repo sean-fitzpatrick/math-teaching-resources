@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000}\chead{Quiz \# 4}\rhead{Thursday, 2\textsuperscript{nd} October, 2014}
+\rfoot{Total: 10 points}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+\noindent{{\bf Name and student number: Solutions}}
+
+ \begin{enumerate}
+ \item  Consider the assertion $\exists x\in\R: (\forall y\in\R, 2x-y=3)$.
+\begin{enumerate}
+ \item Is the statement true or false? Explain your answer. \points{3}
+
+\bigskip
+
+{\bf Solution}: The statement is false. Suppose such an $x$ exists; let's say $x=a$. Then it would have to be true that $2a-y=3$ for every $y\in\R$, but we must have $y=2a-3$, which is a unique number. (For example, if $a=2$, then $y=1$.) Since there is more than one real number, this is impossible.
+
+\bigskip
+
+ \item Write the negation of this assertion in symbolic form. \points{3}
+
+\bigskip
+
+{\bf Solution}: Using the rules for negation with quantifiers, we have
+\begin{align*}
+ \neg[\exists x\in\R: (\forall y\in \R, 2x-y=3)] &\equiv \forall x\in \R, \neg(\forall y\in \R, 2x-y=3)\\
+&\equiv \forall x\in\R, (\exists y\in \R: \neg(2x-y=3))\\
+&\equiv \forall x\in\R, (\exists y\in \R: 2x-y\neq 3).
+\end{align*}
+From this, we can also see that the statement in (a) is false, for its negation is certainly true: given any real number $x$, we can choose $y$ such that $2x-y\neq 3$; indeed, any $y\neq 2x-3$ will do the job.
+\end{enumerate}
+\newpage
+
+\item Consider the assertion
+\points{4}
+\[
+ \text{For all natural numbers } n, n^2+1 \text{ is prime.}
+\]
+(Note: a number $n\in\mathbb{N}$ is prime if it cannot be written in the form $n=a\cdot b$, where $a$ and $b$ are natural numbers other than 1 and $n$. For example, 5 is prime but 6 is not, since $6=2\cdot 3$.)
+
+Calculate $n^2+1$ for $n=1,2,3,4.$ Based on this evidence, is the above assertion true or false? Explain your answer.
+
+\bigskip
+
+{\bf Solution}: We compute $n^2+1$ as follows:
+\begin{align*}
+ 1^2 +1 & = 1\\
+ 2^2 +1 & = 5\\
+ 3^2 +1 & = 10\\
+ 4^2 +1 & = 17
+\end{align*}
+From the above, we see that when $n=3$, we have $3^2+1 = 10 = 2\cdot 5$, so $3^2+1$ is not prime, and thus it cannot be true that $n^2+1$ is prime for all natural numbers $n$, since 3 is a natural number, and $3^2+1$ is not prime.
+
+ \end{enumerate}
+\end{document}

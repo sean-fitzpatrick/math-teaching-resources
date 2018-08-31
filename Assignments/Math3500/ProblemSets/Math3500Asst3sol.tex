@@ -1,0 +1,214 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+%\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\ss}{\subseteq}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\Abs}[1]{\left| #1\right|}
+
+\title{Math 3500 Assignment \#3 Solutions\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+ \item Determine whether or not each of the following sequences $(x_n)$ converge. For those that do, find $\lim x_n$, and prove that $x_n\to x$ using the {\bf definition} of convergence (i.e. no limit theorems allowed). For those that do not converge, explain why there is no limit.
+\begin{enumerate}
+ \item $x_n = \dfrac{(-1)^n}{n}$
+ 
+\bigskip
+
+{\bf Solution}: The sequence converges to zero. To see this, let $\epsilon>0$ be given, and choose $N\in\N$ such that $1/n<\epsilon$ for all $n\geq N$. (We know this is possible since $\R$ is Archimedean.) Then whenever $n\geq N$ we have
+\[
+\Abs{\frac{(-1)^n}{n}} = \frac{1}{n}<\epsilon.
+\]
+
+ \item $x_n = (-1)^n(1-1/n)$
+  
+\bigskip
+
+{\bf Solution}: Let $\epsilon=1$, and note that for any $n>2$, $\dfrac{1}{n}+\dfrac{1}{n+1}<\dfrac{1}{2}+\dfrac{1}{2}=1$. Thus, for $n>2$ we have
+\[
+\abs{x_{n+1}-x_n} = \Abs{1-\frac{1}{n}+1-\frac{1}{n+1}} = \Abs{2-\frac{1}{n}-\frac{1}{n+1}}>2-1=1=\epsilon.
+\]
+It follows that $(x_n)$ is not a Cauchy sequence, and thus cannot converge.
+
+{\bf Note}: Another acceptable solution is to note that $\{x_n:n\in\N\}$ has both 1 and -1 as limit points, and explain why it follows that the sequence cannot converge.
+
+ \item $x_n = \dfrac{3n+1}{2n+5}$
+  
+\bigskip
+
+{\bf Solution}: Let $\epsilon>0$ be given, and choose $N\in \N$ sufficiently large that $\dfrac{1}{n}<\dfrac{4\epsilon}{13}$ for all $n\geq N$. Then we have that
+\[
+\Abs{\frac{3n+1}{2n+5}-\frac{3}{2}} = \Abs{\frac{(6n+2)-(6n+15)}{2(2n+5)}} = \Abs{\frac{-13}{4n+10}}<\frac{13}{4n}<\epsilon.
+\]
+
+
+ \item $x_n = \dfrac{n^2-n}{n^3+1}$
+  
+\bigskip
+
+{\bf Solution}: Let $\epsilon>0$ be given and choose $N\in\N$ such that $1/n<\epsilon$ for all $n\geq N$. Then
+\[
+\Abs{\dfrac{n^2-n}{n^3+1}}<\Abs{\frac{n^2}{n^3}} = \frac{1}{n}<\epsilon.
+\]
+
+\end{enumerate}
+\item Prove that the Squeeze Theorem holds for sequences: if $a_n\leq b_n\leq c_n$ for all $n\in \N$, and $a_n\to L$ and $c_n\to L$, then $b_n\to L$.
+
+ 
+\bigskip
+
+{\bf Solution}: Let $\epsilon>0$ be given. Since $a_n\to L$, there exists $N_1\in\N$ such that $n\geq N_1\Rightarrow \abs{a_n-L}<\epsilon$, and since $c_n\to L$ there exits $N_2\in\N$ such that $n\geq N_2\Rightarrow \abs{c_n-L}<\epsilon$. Let $N=\max{N_1,N_2}$ and suppose that $n\geq N$. Then we have
+\[
+L-\epsilon<a_n\leq b_n\leq c_n<L+\epsilon,
+\]
+and thus that $L-\epsilon<b_n<L+\epsilon$, or equivalently, $\abs{b_n-L}<\epsilon$. Thus, $b_n\to L$ as well.
+
+{\bf Note}: You might be tempted to argue that since $a_n\leq b_n$ for all $n$, then $\lim a_n\leq \lim b_n$, and similarly that $\lim b_n\leq \lim c_n$. But this only works if you know in advance that $\lim b_n$ exists!
+
+
+ \item Prove that the convergence of $(a_n)$ implies the convergence of $(\abs{a_n})$. Is the converse true? Why or why not?
+  
+\bigskip
+
+{\bf Solution}: Suppose that $a_n\to a$. We claim that $\abs{a_n}\to \abs{a}$. To see this, let $\epsilon>0$ be given, and choose $N\in \N$ such that $\abs{a_n-a}<\epsilon$ for all $n\geq N$. Then (using an inequality from the first assignment) we have
+\[
+\abs{\abs{a_n}-\abs{a}}\leq \abs{a_n-a}<\epsilon.
+\]
+The converse is not true, however. For example, if $a_n=(-1)^n$, then $\abs{a_n}=1$, and the sequence is constant and therefore converges. However, we know that $(a_n)$ does not converge.
+
+ \item \begin{enumerate}
+        \item Let $(s_n)$ be a sequence such that $\abs{s_{n+1}-s_n}<2^{-n}$ for all $n\geq 1$. Prove that $(s_n)$ is a Cauchy sequence and hence convergent. 
+
+ 
+\bigskip
+
+{\bf Solution}: Let $(s_n)$ be such a sequence, and let $\epsilon>0$ be given. Since $2^n>n$ for all $n\in \N$ we know that there exists some $N\in\N$ such that $2^{-n+1}<\epsilon$ for all $n\geq N$. Suppose that $m,n\geq N$, and without loss of generality, suppose that $m>n$. Then we can write $m=n+k$ for some $k\geq 1$, and
+\begin{align*}
+\abs{a_m-a_n} & = \abs{a_{n+k}-a_n}\\
+& = \abs{a_{n+k}-a_{n+k-1}+a_{n+k-1}-a_{n+k-2}+\cdots + a_{n+1}-a_n}\\
+& \leq \abs{a_{n+k}-a_{n+k-1}}+\abs{a_{n+k-1}-a_{n+k-2}}+\cdots + \abs{a_{n+1}-a_n}\\
+& < 2^{-(n+k-1)}+2^{-(n+k-2)}+\cdots + 2^{-n}\\
+& = 2^{-n}(1+2^{-1}+\cdots + 2^{-k+1})\\
+& < 2^{-n}(2) = 2^{-n+1}<\epsilon.
+\end{align*}
+
+
+	\item Is the result in part (a) true if we only assume that $\abs{s_{n+1}-s_n}<1/n$ for all $n\geq 1$? (If not, can you find a counterexample?)
+	 
+\bigskip
+
+{\bf Solution}: The result does not necessarily hold. For example, take
+\[
+s_n = 1+1/2+1/3+\cdots + 1/n.
+\] 
+Then $\abs{s_{n+1}-s_n} = \frac{1}{n+1}<\frac{1}{n}$, but $(s_n)$ does not converge, and therefore cannot be Cauchy.
+       \end{enumerate}
+
+
+ \item Consider the following two definitions:
+
+(i) A sequence $(a_n)$ is {\em eventually} in a set $A\ss\R$ if there exists $N\in\N$ such that for all $n\geq N$, $a_n\in A$.
+
+(ii) A sequence $(a_n)$ is {\em frequently} in a set $A\ss\R$ if for every $N\in\N$ there exists an $n\geq N$ such that $a_n\in A$.
+
+\begin{enumerate}
+ \item Is the sequence $(-1)^n$ eventually or frequently in the set $A=\{1\}$?
+  
+\bigskip
+
+{\bf Solution}: The sequence is frequently in $\{1\}$, since for any $N\in \N$, either $N$ or $N+1$ is even, so either $(-1)^N=1$ or $(-1)^{N+1}$ is even. It is not eventually in $\{1\}$ since there are also infinitely many $n$ for which $(-1)^n=-1$.
+
+ \item Which definition is stronger? Does eventually imply frequently? Does frequently imply eventually?
+ 
+\bigskip
+
+{\bf Solution}: The first definition is stronger. If $a_n\in A$ for all $n\geq N$, then there certainly exists some $n\geq N$ for which $a_n\in A$.
+
+ \item Given $a\in \R$ and $A = N_\epsilon(a) = (a-\epsilon,a+\epsilon)$, which of the above two definitions could we use to give an alternative definition of convergence? Explain your answer.
+ 
+  
+\bigskip
+
+{\bf Solution}: The first definition could be used: if we say that $(a_n)$ converges if for every $\epsilon>0$,  $(a_n)$ is eventually in $N_\epsilon(a)$, then we are claiming that there exists an $N\in\N$ such that for all $n\geq N$, $\abs{a_n-a}<\epsilon$, which is the usual definition of convergence.
+
+ \item Suppose an infinite number of terms in a sequence $(x_n)$ are equal to 3. Can we conclude that $(x_n)$ is eventually in the set $A=(2.9, 3.1)$? Is it frequently in $A$?
+ 
+ 
+\bigskip
+
+{\bf Solution}: We can only conclude that the sequence is frequently in $A$: For any $N\in\N$ there must exist an $n\geq N$ such that $x_n=3\in A$, or else $x_n$ would equal 3 only a finite number (at most $N$) of times. But as the example $x_n = 3(-1)^n$ shows, it's possible to have $x_n=3$ an infinite number of times without it being true that $(x_n)$ is eventually in $A$.
+
+ \item Let $(x_n)$ be a sequence and let $X=\{x_n\,|\, n\in \N\}$. Suppose that $x$ is a limit (accumulation) point of $X$. Can we conclude that $\lim x_n = x$? (If $A=N_\epsilon(x)$, is $(x_n)$ frequently in $A$, or eventually in $A$?)
+ 
+ 
+\bigskip
+
+{\bf Solution}: If $x$ is a limit point of $X$, then we can conclude that any neighbourhood of $x$ contains infinitely many points of $X$, so we can conclude that $(x_n)$ is frequently in $A$, as in the previous part. However, this does not guarantee that $(x_n)$ is eventually in $A$: it could be the case that $x_n\in A$ only when $n$ is even, for example.
+
+
+\end{enumerate}
+  \item Consider the sequence $(a_n)$ defined by $a_1 = \sqrt{2}$ and $a_{n+1} = \sqrt{2a_n}$ for all $n\geq 1$. (Thus, $(a_n)$ is the sequence $\sqrt{2},\sqrt{2\sqrt{2}},\sqrt{2\sqrt{2\sqrt{2}}},\ldots$.)
+\begin{enumerate}
+ \item Prove that $(a_n)$ is an increasing sequence. (This is most easily done by induction.)
+  
+\bigskip
+
+{\bf Solution}:  We wish to show that $a_{n+1}\geq a_n$ for all $n\in \N$. Since $a_2 = \sqrt{2\sqrt{2}}>\sqrt{2}$, the result is true when $n=1$. Now, suppose that for some $k\geq 1$ we have $a_{k+1}\geq a_k$. Then
+\[
+a_{k+2} = \sqrt{2a_{k+1}}\geq \sqrt{2a_k} = a_{k+1},
+\]
+and thus $(a_n)$ is increasing by induction.
+ \item Prove that $(a_n)$ converges.
+ 
+\bigskip
+
+{\bf Solution}: We first show that $a_n\leq 2$ for all $n\in\N$. Certainly $a_1=\sqrt{2}<2$, and if $a_k\leq 2$ for some $k\geq 1$, then
+\[
+a_{k+1} = \sqrt{2a_k}\leq \sqrt{2\cdot 2} = 2.
+\]
+Thus, it follows that $a_n\leq 2$, by induction. We now note that since $(a_n)$ is bounded above by 2, and is increasing (by part (a)), it follows that $(a_n)$ converges, by the Monotone Convergence Theorem.
+ 
+ \item Prove that if $(a_n)$ converges, then $\lim a_n^2 = (\lim a_n)^2$. (Use known limit theorems.)
+ 
+\bigskip
+
+{\bf Solution}:  This follows from the rule for products, with $b_n=a_n$: we have $\lim (a_n\cdot a_n) = a\cdot a = a^2$.
+ 
+ \item Explain why, if $(a_n)$ converges, then $\lim a_{n+1} = \lim a_n$.
+  
+\bigskip
+
+{\bf Solution}: In the definition of convergence we have that $\abs{a_n-a}<\epsilon$ for all $n\geq N$. If $(a_n)$ converges, then for any $\epsilon>0$, since $n+1>n$, we have in particular that $\abs{a_{n+1}-a}<\epsilon$ whenever $N\in\N$ is such that $n\geq N$ implies $\abs{a_n-a}\epsilon$.
+
+ \item Find the limit of the sequence $(a_n)$.
+ 
+\bigskip
+
+{\bf Solution}: From part (b) we know that $a = \lim a_n$ exists. Combining parts (c) and (d), it follows that
+\[
+a^2 = \lim a_n^2 = \lim (a_{n+1})^2 = \lim (\sqrt{2a_n})^2 = \lim 2a_n = 2a.
+\]
+This shows that $a^2=2a$, so either $a=0$ or $a=2$. Since $a_n>0$ for all $n$ (this follows easily by induction) we must have $a>0$, and thus $a=2$.
+
+\end{enumerate}
+Note: your solutions for parts (c) and (d) should work for an arbitrary convergent sequence. Part (e) refers to the sequence defined at the start of the problem.
+
+
+
+\end{enumerate}
+
+\end{document}
+ 

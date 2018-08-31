@@ -1,0 +1,102 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+\newcommand{\T}{\mathcal{T}}
+\DeclareMathOperator{\Int}{Int}
+
+\title{Math 4310 Assignment \#7 Solutions\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+\item Let $A$ and $B$ be subsets of a topological space $X$. Suppose that $A$ is connected, and that $B$ is both open and closed in $X$. Prove that if $A\cap B\neq\emptyset$, then $A\subseteq B$.
+
+[Hint: if $A\nsubseteq B$, consider $U=A\cap B$ and $V=A\cap B^c$.]
+
+\bigskip
+
+\noindent {\bf Solution}: Suppose $A$ is connected and $B\subseteq X$ is both open and closed, with $A\cap B\neq \emptyset$. Since $B$ is open in $X$, $U=A\cap B\neq \emptyset$ is open in $A$. Since $B$ is closed, $V=A\cap B^c$ is also open in $A$, and $U\cap V = \emptyset$. Since $A$ is connected, we must have $V=\emptyset$, or else $\{U,V\}$ would be a separation of $A$. Thus $A\cap B^c=\emptyset$, which is equivalent to $A\subseteq B$.
+
+\bigskip
+
+\item Show that if $X$ and $Y$ are connected topological spaces, then $X\times Y$ is connected.
+
+[Hint: suppose $f:X\times Y\to\{0,1\}$ is continuous and nonconstant. Then there are points $(x_0,y_0),(x_1,y_1)\in X\times Y$ with $f(x_0,y_0)=0$ and $f(x_1,y_1)=1$. Note that either $f(x_0,y_1)=0$ or $f(x_0,y_1)=1$. In the first case, consider the map $i_{y_1}:X\to X\times Y$ given by $i_{y_1}(x) = (x,y_1)$. In the second case, consider $i_{y_0}$.]
+
+\bigskip
+
+\noindent {\bf Solution}: Suppose $f:X\times Y\to \{0,1\}$ is continuous and nonconstant. Then there exist points $(x_0,y_0),(x_1,y_1)\in X\times Y$ with $f(x_0,y_0)=0$ and $f(x_1,y_1)=1$. Now consider the point $(x_0,y_1)\in X\times Y$. If $f(x_0,y_1)=0$, define $g:X\to \{0,1\}$ by $g = f\circ \iota_{y_1}$, where $\iota_{y_1}:X\to X\times Y$ is given by $\iota_{y_1} = (x,y_1)$. Since $\iota_{y_1}$ is continuous and $f$ is continuous, it follows that $g:X\to \{0,1\}$ is continuous, and $g(x_0)=0$, while $g(x_1)=1$. But this is impossible, since $X$ is connnected.
+
+Similarly, if $f(x_0,y_1)=1$, the function $h=f\circ \iota_{x_0}:Y\to \{0,1\}$, where $\iota_{x_0}:Y\to X\times Y$ is given by $\iota_{x_0}(y) = (x_0,y)$, is a continuous, nonconstant function, and this is also impossible, since $Y$ is connected. Thus, $X\times Y$ must be connected.
+
+\bigskip
+
+\item Prove that a topological space $X$ is connected if and only if $\partial A\neq \emptyset$ for every proper nonempty subset $A\subseteq X$.
+
+[Hint: you might find it easier to prove the contrapositive in both directions, and you proved a result on an earlier assignment that will be helpful.]
+
+\bigskip
+
+\noindent {\bf Solution}: One option is to recall that for any proper nonempty subset $A\subseteq X$ we can write $X$ as the disjoint union $X=\inter{A}\cup\partial A\cup (X\setminus A)^\circ$. If $\partial A=\emptyset$ then $\{\inter{A},(X\setminus A)^\circ\}$ is a separation of $X$. Conversely, if $X$ is not connected and $\{A,B\}$ is a separation of $X$, then for any $x\in X$, either $x\in A$ and there is a neighbourhood of $x$ that doesn't intersect $B$, or vice versa.
+
+Another option is to note that for any $A\subseteq X$ we have $\inter{A}\subseteq A\subseteq \overline{A}$, and $\partial A = \overline{A}\setminus \inter{A}$. Thus $X$ is not connected if and only if there exists a proper nonempty subset $A\subseteq X$ that is both open and closed, and $A$ is both open and closed in $X$ if and only if $A=\inter{A}$ and $A=\overline{A}$, which is if and only if $\partial A = \emptyset$.
+
+\bigskip
+
+\item Prove that if $A$ and $B$ are path-connected subsets of a topological space $X$ and $A\cap B\neq \emptyset$, then $A\cup B$ is path-connected. Conclude that for any finite collection $\{A_1,\ldots, A_n\}$ of path connected subsets of $X$, with $A_i\cap A_j\neq \emptyset$,  $\bigcup_{i=1}^nA_i$ is path-connected.
+
+\bigskip
+
+\noindent {\bf Solution}: Suppose that $A$ and $B$ are path-connected, and that $A\cap B\neq \emptyset$. Choose any points $x,y
+in A\cup B$. If $x$ and $y$ both belong to $A$ or both belong to $B$, then we can find a path from $x$ to $y$, since $A$ and $B$ are path-connected. Now suppose, without loss of generality, that $x\in A$ and $y\in B$. (If $x\in B$ and $y\in A$ we can simply re-label $x$ and $y$.) Since $A\cap B\neq\emptyset$, choose some $z\in A\cap B$. Since $z\in A$ there exists a path $\gamma_1:[0,1]\to A$ such that $\gamma_1(0)=x$ and $\gamma_1(1)=z$. Since $z\in B$, there exists a path $\gamma_2:[0,1]\to B$ such that $\gamma_2(0)=z$ and $\gamma_2(1)=y$. Then the path $\gamma:[0,1]\to A\cup B$ given by
+\[
+ \gamma(t) = \begin{cases}\gamma_1(2t), & \text{ if } 0\leq t\leq 1/2\\\gamma_2(2t-1), & \text{ if } 1/2\leq t\leq 1\end{cases}
+\]
+satisfies $\gamma(0)=x$ and $\gamma(1)=y$, and $\gamma$ is continuous since $\gamma_1$ and $\gamma_2$ are continuous, and $\gamma_1(1)=\gamma_2(0)=z$.
+
+\bigskip
+
+\item Give an example to show that the intersection of two connected subspaces need not be connected. (Consider $\R^2$.)
+
+\bigskip
+
+\noindent {\bf Solution}: There are many examples. One option is to note that the graph of any continuous function from $\R$ to $\R$ is connected, so in particular, the graphs $A=\{(x,x^2):x\in\R\}$ and $B=\{(x,1):x\in\R\}$ are connected, but the intersection is $A\cap B = \{(-1,1),(1,1)\}$, which is clearly not connected.
+
+\bigskip
+
+\item Prove that the space $\mathcal{C}[0,1]$ of all continuous real-valued functions on $[0,1]$, equipped with the sup-norm metric $(d_\infty)$ is path-connected.
+
+[Hint: you can show the space is in fact convex.]
+
+\bigskip
+
+\noindent {\bf Solution}: Let $f,g\in \mathcal{C}[0,1]$, and define $\gamma:[0,1]\to \mathcal{C}[0,1]$ by
+\[
+ \gamma(t) = tg + (1-t)f.
+\]
+It's clear that for each $t\in [0,1]$ we have $\gamma(t)\in \mathcal{C}[0,1]$, since any linear combination of continuous functions is continuous. It remains to check that $\gamma$ is a continuous map. Given $\epsilon>0$ and $f,g\in\mathcal{C}[0,1]$ with $f\neq g$, choose $\delta = \epsilon/(d_\infty(f,g))$. (We need $f\neq g$ so that $d_\infty(f,g)\neq 0$. If $f=g$ we can take $\gamma$ to be the constant path, which is clearly continuous.) If $\abs{t-t_0}<\delta$, then we have
+\[
+ d_\infty(\gamma(t),\gamma(t_0)) = \len{(tg+(1-t)f) - (t_0g+(1-t_0)f)}_\infty = \len{(t-t_0)(g-f)}_\infty = \abs{t-t_0}d_\infty(f,g)<\epsilon.
+\]
+
+
+\bigskip
+
+\end{enumerate}
+\end{document}
+ 

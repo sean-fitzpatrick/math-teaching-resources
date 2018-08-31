@@ -1,0 +1,60 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\title{Math 1410 Assignment \#1\\University of Lethbridge, Spring 2017}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} {\bf Thursday}, January 26th, by 4 pm.
+
+\bigskip
+
+Please review the {\bf Guidelines for preparing your assignments} before submitting your work. You can find these guidelines, along with the required cover page, in the Assignments section on our Moodle site.
+
+
+
+\subsection*{Assigned problems}
+\begin{enumerate}
+\item Prove the \textit{distributive property} for complex arithmetic. That is, prove that for any complex numbers $u, v, w$, we have
+\[
+ u(v+w) = uv+uw.
+\]
+
+\medskip
+
+\textit{Reminder:} The phrase ``for any'' tells you that simply providing an example is not acceptable. You need to give a general argument that does not depend on any particular choices of values for your complex numbers.
+
+\bigskip
+
+\item Recall that the complex conjugate of $z\in\mathbb{C}$ is denoted by $\overline{z}$, and the modulus of $z$ is denoted by $\abs{z}$. Show that:
+\begin{enumerate}
+ \item $\abs{\overline{z}} = \abs{z}$
+ \item $\abs{z} = \sqrt{z\overline{z}}$
+ \item $\operatorname{Re}(z) = \dfrac{z+\overline{z}}{2}$ and $\operatorname{Im}(z) = \dfrac{z-\overline{z}}{2i}$, where $\operatorname{Re}(z)$ and $\operatorname{Im}(z)$ denote the real and imaginary parts of $z$, respectively.
+\end{enumerate}
+
+\item Convert $z=-1+\sqrt{3}i$ to polar form, and compute the value of $z^6 = (-1+\sqrt{3}i)^6$. Express your answer in rectangular form.
+
+\item  Let $\vec{v} = \langle 3, -1, 4\rangle$ and $\vec{w} = \langle -2, 5, 1\rangle$ be two vectors in $\R^3$. Find the coordinates of:
+\begin{enumerate}
+ \item The point $P$, one half of the way from the tip of $\vec{v}$ to the tip of $\vec{w}$.
+ \item The point $Q$, one third of the way from the tip of $\vec{v}+\vec{w}$ to the tip of $\vec{v}-\vec{w}$.
+\end{enumerate}
+(Assume all vectors are drawn with their tails at the origin.)
+\end{enumerate}
+
+\end{document}
+ 

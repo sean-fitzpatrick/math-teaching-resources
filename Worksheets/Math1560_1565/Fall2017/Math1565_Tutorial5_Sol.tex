@@ -1,0 +1,96 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=0.75in,bottom=0.75in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+%\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+{\bf MATH 1565 - Tutorial \#5 Solutions}\\
+\end{center}
+
+Determine $f'(x)$ for the following functions: 
+\begin{enumerate}
+ \item   $f(x)= x^{38} + 4 \ln(x) -3e^{x} + \pi^{3000}$.
+
+\bigskip
+
+Using the sum and constant rules,
+\[
+f'(x) = 38x^{37}+4\cdot\frac{1}{x}-3e^x.
+\]
+
+\bigskip
+
+ \item $f(x) =x^5e^{x}\tan(x)$.
+ 
+\bigskip
+
+Using the product rule (twice),
+\[
+f'(x) = 5x^4e^x\tan(x)+x^5e^x\tan(x)+x^5e^x\sec^2(x).
+\]
+
+\bigskip
+
+ 
+ \item $f(x) = \cot(x)$. (Write $\cot(x)=\dfrac{\cos(x)}{\sin(x)}$ and use the quotient rule.)
+ 
+\bigskip
+
+Using the quotient rule,
+\begin{align*}
+f'(x) &= \frac{\left(\frac{d}{dx}(\cos(x))\right)\sin(x)-\cos(x)\frac{d}{dx}(\sin(x))}{\sin^2(x)}\\
+& = \frac{-\sin^2(x)-\cos^2(x)}{\sin^2(x)}\\
+& = \frac{-1}{\sin^2(x)} = -\csc^2(x).
+\end{align*}
+ 
+ \bigskip
+ 
+ 
+ \item  $f(x) = \cos(e^{x}+ 13x^{11}-\sin(x))$. 
+ 
+\bigskip
+
+Using the chain rule,
+\begin{align*}
+f'(x) & = -\sin(e^{x}+ 13x^{11}-\sin(x))\frac{d}{dx}(e^{x}+ 13x^{11}-\sin(x))\\
+& = -\sin(e^{x}+ 13x^{11}-\sin(x))(e^x+13(11x^{10})-\cos(x))
+\end{align*}
+\end{enumerate}
+\end{document}

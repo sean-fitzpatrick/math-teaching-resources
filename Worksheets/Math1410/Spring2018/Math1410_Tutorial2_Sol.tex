@@ -1,0 +1,178 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=0.85in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+{\bf MATH 1410 - Tutorial \#2 Solutions}
+\end{center}
+
+
+\textbf{Additional practice}
+\begin{enumerate}
+\item Solve for $z$, if $(2+3i)=4+\frac{(2-i)z}{4z}$.
+
+If this problem seemed off to you, you're right! I didn't mean to include the $z$ in the numerator on the right. Notice that $z\neq 0$, since we can't have zero in the denominator. But if $z\neq 0$ can cancel, giving the (false) equation
+\[
+2+3i=4+(2-i).
+\]
+Since this is impossible, there is no solution.
+
+\item Solve for $z$, if $(1-3i)z+2i\overline{z}=4$.
+
+We let $z=a+ib$, so $\overline{z}=a-ib$. Substituting, expanding, and simplifying, we have
+\begin{align*}
+(1-3i)(a+ib)+2i(a-ib)&=4\\
+a-3b(-1)+bi-3ai+2ai-2b(-1)&=4\\
+(a+5b)+i(-a+b)&=4=4+0i.
+\end{align*}
+Comparing real and imaginary parts, $a+5b=4$, and $-a+b=0$. The latter tells us that $a=b$, so $b+5b=6b=4$, giving $a=b=\frac23$.
+
+Thus, $z=\frac23+i\frac23$.
+\item Compute the magnitude $\len{\vec{v}}$ of the vector $\vec{v}=\langle 2,-3,1\rangle$. Then find a unit vector $\vec{u}$ in the direction of $\vec{v}$
+
+By definition, the magnitude of $\vec{v}=\langle a,b,c\rangle$ is given by $\len{\vec{v}}=\sqrt{a^2+b^2+c^2}$. Thus,
+\[
+\len{\vec{v}}=\sqrt{2^2+(-3)^2+1^2}=\sqrt{4+9+1}=\sqrt{14}.
+\]
+For any nonzero vector $\vec{v}$, an unit vector in the same direction is always given by $\vec{u} = \dfrac{1}{\len{\vec{v}}}\vec{v}$, so
+\[
+\vec{u}=\frac{1}{\sqrt{14}}\langle 2,-3,1\rangle = \left\langle \frac{2}{\sqrt{14}},-\frac{3}{\sqrt{14}},\frac{1}{\sqrt{14}}\right\rangle.
+\]
+\end{enumerate}
+\pagebreak
+
+\textbf{Assigned questions:}
+
+  \begin{enumerate}
+    \item Given $z=2-2i$ and $w=\sqrt{3}+i$, compute the following.\\ Answers can be left in either rectangular or polar form.
+    \begin{enumerate}
+	\item $2z-3\overline{w} = 2(2-2i)-3(\sqrt{3}-i)=(4-4i)+(-3\sqrt{3}+3i)=(4-3\sqrt{3})-i$
+	
+	For the next two, we note that $\abs{z}=\sqrt{2^2+2^2}=\sqrt{8}=2\sqrt{2}$ and $\abs{w}=\sqrt{(\sqrt{3})^2+1^2} = \sqrt{4}=2$. Thus
+	\begin{align*}
+	z &= 2-2i=2\sqrt{2}\left(\frac{1}{\sqrt{2}}+i\left(-\frac{1}{\sqrt{2}}\right)\right)=2\sqrt{2}e^{-i\pi/4}\\
+	w &= \sqrt{3}+i=2\left(\frac{\sqrt{3}}{2}+i\frac{1}{2}\right) = 2e^{i\pi/6}.
+	\end{align*}
+	
+       
+    \item $\dfrac{z}{w^3}=zw^{-3}=(2\sqrt{2}e^{-i\pi/4})(2e^{i\pi/6})^{-3}=(2\sqrt{2}\cdot 2^{-3})e^{-i\pi/4-i\pi/2} = \frac{\sqrt{2}}{4}e^{-3i\pi/4}$.
+    
+   If you used $7\pi/4$ instead of $-\pi/4$ for the argument of $z$, your answer will be $\dfrac{\sqrt{2}}{4}e^{5i\pi/4}$. Since this is a known angle on the unit circle, you have the option of converting back to rectangular:
+\[
+\frac{z}{w^3}=\frac{\sqrt{2}}{4}e^{-3i\pi/4}=\frac{\sqrt{2}}{4}\left(-\frac{1}{\sqrt{2}}-\frac{1}{\sqrt{2}}i\right)=-\frac14-\frac14 i.
+\]
+   Note that there are some other options for solving this problem:
+   
+   Blended: leave $z=2-2i$, and note that
+   \[
+   \frac{1}{w^3} = \frac{1}{8e^{i\pi/2}}=\frac{1}{8i}=-\frac{1}{8}i,
+   \]
+   so $\dfrac{z}{w^3}=(2-2i)\left(-\dfrac{1}{8}i\right)=-\frac14-\frac14 i$.
+   
+   Rectangular: Using $\frac{z}{w^3}=\frac{z(\overline{w})^3}{w^3(\overline{w})^3}$, and noting that
+   \[
+   w^3(\overline{w})^3=(w\overline{w})^3=((\sqrt{3}+i)(\sqrt{3}-i))^3=4^3=64,
+   \]
+   you can compute
+   \[
+   \frac{z}{w^3}=\frac{1}{64}(2-2i)(\sqrt{3}-i)(\sqrt{3}-i)(\sqrt{3}-i).
+   \]
+   (But I'm not sure why you'd want to.)
+    
+    \item All 3 cube roots of $w$.
+    
+    Suppose $z=w^{1/3}$, so that $z^3=w$. If $z=re^{i\theta}$, then $z^3=r^3e^{i(3\theta)}=2e^{i\pi/6} = w$.
+    
+    Equating the two polar coordinates, we get $r^3=2$, so $r=\sqrt[3]{2}=2^{1/3}$, and
+    \[
+    3\theta = \pi/6, \text{ or } 13\pi/6, \text{ or } 25\pi/6,
+    \]
+    where we've obtained the other two angles by adding $2\pi = 12\pi/6$ once and then twice. Dividing by 3, we can solve for $\theta$, giving us the three cube roots
+    \[
+    w_0 = 2^{1/3}e^{i\pi/18}, w_1 = 2^{1/3}e^{13i\pi/18}, w_2 = 2^{1/3}e^{25i\pi/18}.
+    \]
+    The roots are given with arguments in $[0,2\pi)$, since $2\pi = 36\pi/18$. If the question specified that the arguments should be in $(-\pi,\pi]$, then you'd want to replace $25\pi/18$ with $-11\pi/18 = (\pi/6-(2\pi))/3$.
+    
+    \bigskip
+    
+    An alternative approach: since $w=2e^{i(\pi/6+2\pi k)}$, where $k=0,1,2,\ldots$, we have
+    \[
+    w^{1/3}=(2e^{i(\pi/6+2pi k)})^{1/3}=2^{1/3}e^{i(\pi/18+k\cdot 2\pi/3)}.
+    \]
+    Putting $k=0,1,2$ generates the same answers as above. ($k=-1$ can replace $k=2$ for angles in $(-\pi,\pi]$.)
+    
+    \end{enumerate}
+    
+    \item Compute the vector $\overrightarrow{AB}$, where $A=(2,-1,3)$ and $B=(-4,5,2)$.
+    
+\medskip
+
+    By definition, the components of $\overrightarrow{AB}$ are obtained by subtracting the coordinates of the tail $A$ from corresponding coordinates of the tip $B$ (tip-minus-tail). Thus,
+    \[
+    \overrightarrow{AB}=\langle -4-2, 5-(-1), 2-3\rangle = \langle -6, 6, -1\rangle.
+    \]
+    
+    \item Given $\vec{v} = \langle 2,-1,4\rangle$ and $\vec{w} = \langle -1,3,0\rangle$, compute:
+    \begin{enumerate}
+    \item $2\vec{v}-3\vec{w}$.
+    
+    Recall that we add vectors by adding corresponding components, and we multiply by a scalar by multiplying each component by that scalar. Thus,
+    \[
+    2\vec{v}-3\vec{w} =2\langle 2, -1, 4\rangle -3\langle -1,3,0\rangle = \langle 4, -2, 8\rangle+\langle 3,-9, 0\rangle = \langle 7, -11, 8\rangle.
+    \]
+    
+    \item $\len{\vec{v}}$
+    
+Using the formula for $\len{\vec{v}}$ given in the solutions to the practice problems above, we have
+\[
+\len{\vec{v}} = \sqrt{(2^2+(-1)^2+4^2}=\sqrt{4+1+16} = \sqrt{21}.
+\]
+    
+    \item A vector in the same direction as $\vec{v}$, but three times as long.
+    
+    Recall that when we multiply by a positive scalar $c$, $c\vec{v}$ points in the same direction as $\vec{v}$, while the length is changed according to the rule $\len{c\vec{v}}=c\len{\vec{v}}$. Thus, the desired vector is given by
+    \[
+    3\vec{v} = 3\langle 2, -1, 4\rangle = \langle 6, -3, 12\rangle.
+    \]
+\end{enumerate}     
+\end{enumerate}
+  
+\end{document}

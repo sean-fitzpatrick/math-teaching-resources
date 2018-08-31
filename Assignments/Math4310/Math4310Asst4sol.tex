@@ -1,0 +1,69 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+\newcommand{\T}{\mathcal{T}}
+\DeclareMathOperator{\Int}{Int}
+
+\title{Math 4310 Assignment \#4 Solutions\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+\item For any subset $A$ of a topological space $(X,\T)$, prove that the sets $\Int(A)$, $\partial A$ and $\Int(A^c)$ are pairwise disjoint, and that $X = \Int(A)\cup \partial A\cup \Int(A^c)$. (Here, $\Int(A)$ denotes the interior of $A$, and $A^c$ denotes the complement of $A$.)
+
+\bigskip
+
+{\bf Solution}: Let $x\in \partial A$. Then every open neighbourhood of $x$ contains elements of $A^c$ and $A = (A^c)^c$, so $x$ cannot be in the interior of $A$ or $A^c$. Since $\Int A\subseteq A$ and $\Int A^c\subseteq A^c$ and $A\cap A^c=\emptyset$, we see that $\Int A$ and $\Int A^c$ are disjoint as well. It follows that none of the sets have any elements in common.
+
+Now, let $x\in X$. Since $X=A\cup A^c$ for any $A\subseteq X$, we know that $x\in A$ or $x\in A^c$. If $x\in A$, then either $x\in \Int A$ or $x\in A\setminus \Int A$. If $x\in A\setminus \Int A$, then there is no neighbourhood of $x$ contained in $A$. Thus every neighbourhood of $x$ contains a point of $A$ (namely, $x$), and a point of $A^c$, and hence $x\in\partial A$.
+Similarly, if $x\in A^c$, then either $x\in \Int A^c$ or $x\in\partial A^c = \partial A$. (The fact that $\partial A^c = \partial A$ follows immediately from the fact that $(A^c)^c = A$.
+
+\item Let $X$ be an infinite set, and equip $X$ with the finite complement topology. (So that $A$ is open in $X$ if and only if $A^c$ is finite.) For a given set $A\subseteq X$, what is the closure $\overline{A}$ (a) when $A$ is finite, and (b) when $A$ is infinite?
+
+\bigskip
+
+{\bf Solution}: If $A$ is finite, then $A^c$ is open, by definition, so $A=(A^c)^c$ must be closed, and thus $A=\overline{A}$. Now, suppose that $A$ is infinite, and let $x\in X$ be any element. We claim that $x\in\overline{A}$, and thus, that $\overline{A}=X$. To see this, recall that $x\in\overline{A}$ if and only if every open neighbourhood $U$ of $x$ contains a point of $A$. Therefore, if $x\notin\overline{A}$, then there exists a neighbourhood $U$ of $x$ such that $U\cap A=\emptyset$. But this is impossible, since $U\cap A=\emptyset$ if and only if $A\subseteq U^c$, but $A$ is infinite and $U^c$ is finite.
+
+\item Let $X=\R^n$ with the Euclidean topology, and let $B^n=\{(x_1,\ldots, x_n)\in\R^n\,|\, x_1^2+\cdots +x_n^2\leq 1\}$ be the unit ball centred at the origin. Prove that the boundary of $B$ is the sphere $S^{n-1}$, defined as the set of points in $\R^n$ such that $x_1^2+\cdots + \x_n^2 = 1$.
+
+\bigskip
+
+{\bf Solution}: Let $x\in S^{n-1}$, so that $\len{x}=\sqrt{x_1^2+\cdots +x_n^2}=1$, and let $\epsilon>0$ be given. Since $N_{\epsilon_1}(x)\subseteq N_{\epsilon_2}(x)$ whenever $\epsilon_1<\epsilon_2$, we can assume that $\epsilon<1$. Viewing $\R^n$ as a vector space, let $y_\pm = (1\pm\epsilon/2)x$, and note that $y_\pm\in N_\epsilon(x)$ since $\len{y-x} = \len{(\epsilon/2)x} = \epsilon/2<\epsilon$. Then $\len{y_\pm} = (1\pm \epsilon/2)\len{x} = 1\pm \epsilon/2$. It follows that $y_+\in B^c$, since $\len{y_+}>1$, and $y_-\in B$, since $\len{y_-}<1$. Thus every neighbourhood of $x$ contains elements of both $B$ and $B^c$, so $x\in \partial B$. This shows that $S^{n-1}\subseteq \partial B$. 
+
+If $x\notin S^{n-1}$, then either $\len{x}=d>1$ or $\len{x}<1$. If $\len{x}>1$, then $x\in B^c$ and we see that the neighbourhood $N_\epsilon(x)$, where $\epsilon = d-1$, is contained in $B^c$, since if $y\in N_\epsilon(x)$, then $\len{x-y}<d-1$, so $\len{y}\geq \len{x}-\len{x-y} = d-(d-1) = 1$, which means $y\in B^c$ as well. If $\len{x}<1$ a similar argument shows that the neighbourhood $N_{1-d}(x)$ consists of points $y\in\R^n$ with $\len{y}<1$. Thus, $x\notin \partial B$, since in the first case $x$ has a neighbourhood that does not intersect $B$, and in the second case, $x$ has a neighbourhood that does not intersect $B^c$.
+
+{\bf Note}: An alternative proof is to note that $B$ is closed, using the first half of the argument from the previous paragraph, and then show that the interior of $B$ consists of all points with norm less than one. Again, the previous paragraph shows that all such points are interior points, and it remains to check that all points with norm one are not interior points -- but this is essentially what was shown in the first paragraph. The result then follows from the fact that $\partial B = \overline{B} \setminus \inter{B} = B\setminus \inter{B}$, since $B$ is closed.
+
+\item Let $U\subset X$ be an {\em open} subset of a topological space $(X,\T)$. Prove that a subset $V\subseteq U$ is open in $U$ (in the subspace topology) if and only if $V$ is open in $X$.
+
+\bigskip
+
+{\bf Solution}: Let $U\subseteq X$ be open. If $V$ is open in $U$, then $V = U\cap V'$ for some open subset $V'\subseteq X$. It follows that $V$ is open in $X$ since it is the intersection of two open subsets of $X$.
+
+Conversely, if $V$ is open in $X$ and $V\subseteq U$, then $V$ is open in $U$, since we can write $V = U\cap V$.
+
+\item Let $Y$ be a subspace of $X$ and let $A$ be a subset of $Y$. Let $\Int_X(A)$ denote the interior of $A$, viewed as a subset of $X$, and let $\Int_Y(A)$ denote the interior of $A$ with respect to the subspace topology on $Y$. Prove that $\Int_X(A)\subseteq \Int_Y(A)$, and give an example where this inclusion is a proper inclusion.
+
+\bigskip
+
+{\bf Solution}: Let $Y\subseteq X$ and let $A\subseteq Y$. Suppose that $x\in \Int_X(A)$ is an interior point of $A$ with respect to the topology on $X$. Then there exists an open set $U\subseteq X$ such that $x\in U$ and $U\subseteq A$. It follows that $x\in \Int_Y(A)$, since $U\subseteq A\subseteq Y$ implies that $U=Y\cap U$ is open in $Y$, so $U$ is a neighbourhood of $x$ contained in $A$ with respect to the subspace topology on $Y$.
+
+To see that the inclusion is proper, let $X=\R^2$ and consider the subspace $Y=\{(x,0):x\in \R\}$ given by the $x$-axis. Let $A\subseteq Y$ be the set $A=\{(x,0): -1<x<1\}$. Then $A$ is open in $Y$ since it is the intersection of $Y$ with the open disc $U=\{(x,y):x^2+y^2<1\}$. Thus, $A=\Int_Y(A)$, but $\Int_X(A)=\emptyset$, since any open disc around a point in $A$ will contain points $(x,y)$ with $y\neq 0$.
+
+\end{enumerate}
+\end{document}
+ 

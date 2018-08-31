@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 3410A}\chead{Quiz \# 10}\rhead{Friday, 17\textsuperscript{th} April, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\nul}{null}
+\newcommand{\len}[1]{\lVert #1\rVert}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+{\bf Name:}
+
+\bigskip
+
+\begin{enumerate}
+ \item Let $T\in\mathcal{L}(V,W)$ be a linear map. Prove that if the vectors $v_1,v_2,\ldots, v_m$ span $V$, then the vectors $Tv_1,Tv_2,\ldots, Tv_m$ span $\range T$.\points{5}
+
+ \item Let $S,T\in \mathcal{V}$ be linear operators. Prove that if $ST=TS$, then $\range S$ is invariant under $T$. \points{5}
+
+ \item {(\bf Bonus - 2 points)} (Correctly) write down the definition of {\bf any} term introduced in this course.
+\end{enumerate}
+
+\end{document}

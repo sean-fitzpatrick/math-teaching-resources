@@ -1,0 +1,191 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 5}\rhead{Tuesday, 9\textsuperscript{th} February, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newenvironment{aamatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|cc}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}   
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+         
+                  
+\begin{document}
+{\bf \large Name:} \hspace{2.5in} {\bf Tutorial time:}
+
+\bigskip
+
+{\bf Problem you want feedback on:}
+
+\bigskip
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+Please complete all problems below.
+ \begin{enumerate}
+ \item When you put the symbol ``='' between two objects on the page, what are you saying about the relationship between those objects?
+
+\bigskip
+
+An expression such as $a=b$ tells the reader that the objects $a$ and $b$ are {\bf equal}. If an equal sign appears between two objectst that are not, in fact, equal, then you've written an incorrect statement, and will lose marks as a result. (Even if we ``knew what you meant''.)
+
+\bigskip
+
+ \item Each of the augmented matrices below is in reduced row-echelon form. For each matrix, indicate the following:
+
+ \begin{enumerate}
+  \item The {\em rank} of the augmented matrix.
+  \item The number of variables in the corresponding system of equations.
+  \item The number of parameters needed to write down the general solution.
+  \item The general solution to the system, if any.
+
+\begin{enumerate}
+ \item $\di \bam{3} 1&0&-2&4\\0&1&3&-5\\0&0&0&0\eam$
+
+\medskip
+
+The rank is 2, and there are 3 variables (let's call them $x,y,z$), so there is $3-2=1$ parameter. 
+The general solution is
+\begin{align*}
+ x&=4+2t\\
+ y&=-5-3t\\
+ z&=t,
+\end{align*}
+where $t$ can be any real number.
+ \item $\di \bam{4} 1&-3&0&4&2\\0&0&1&-3&7\\0&0&0&0&0\eam$
+
+\medskip
+
+The rank is 2, and there are 4 variables (let's call them $w,x,y,z$), so there are $4-2=2$ parameters.
+The general solution is
+\begin{align*}
+ w&=2+3s-4t\\
+ x&=s\\
+ y&=7+3t\\
+ z=t,
+\end{align*}
+where $s$ and $t$ can be any real numbers.
+ \item $\di \bam{3} 1&2&0&3\\0&0&1&4\\0&0&0&1\eam$
+
+\medskip
+
+The rank is 3, and there are 3 variables, but the third leading 1 appears in the constants column. There is therefore no solution.
+ \item $\di \bam{4} 0&1&0&-1&4\\0&0&1&0&2\\0&0&0&0&0\eam$
+
+\medskip
+
+The rank is 2, and there are 4 variables ($w,x,y,z$), so there are $4-2=2$ parameters. 
+The general solution is
+\begin{align*}
+ w&=s\\
+ x&=4+t\\
+ y=2\\
+ z=t,
+\end{align*}
+where $s$ and $t$ can be any real numbers.
+\end{enumerate}
+
+ \end{enumerate}
+
+
+
+\item Determine the value(s) of $a$ such that the system of equations given by the augmented matrix below has no solution, one solution, or infinitely many solutions, if possible.
+\[
+\begin{amatrix}{3}
+a & 1 & 2 & 1 \\
+
+2 & 1 & 7 & 3 \\
+
+1 & 1 & 2 & 1 \\
+\end{amatrix}
+\]
+
+\medskip
+
+If we proceed with the standard Gaussian elimination algorithm, we first swap rows 1 and 3 to get a leading 1 in the upper left-hand corner, and then proceed to create zeros in the first column, as follows:
+\[
+ \bam{3} a& 1&2&1\\2&1&7&3\\1&1&2&1\eam \xrightarrow[]{R_1\leftrightarrow R_3} \bam{3} 1&1&2&1\\2&1&7&3\\a&1&2&1\eam \xrightarrow[R_3\to R_3-aR_1]{R_2\to R_2-2R_1} \bam{3}1&1&2&1\\0&-1&3&1\\0&1-a&2-2a&1-a\eam.
+\]
+
+At this point we notice that everything in the third row is a multiple of $1-a$. If $a=1$, then $1-a=0$, and we get a row of zeros. From here we get
+\[
+ \bam{3}1&1&2&1\\0&-1&3&1\\0&0&0&0\eam\xrightarrow{R_1\to R_1+R_2}\bam{3}1&0&5&2\\0&-1&3&1\\0&0&0&0\eam\xrightarrow{R_2\to -R_2}\bam{3}1&0&5&2\\0&1&-3&-1\\0&0&0&0\eam,
+\]
+so there are infinitely many solutions of the form $x=2-5t$, $y=-1+3t$, $z=t$, where $t$ can be any real number.
+
+If $a\neq 1$, then $1-a\neq 0$ and we can divide the third row by $1-a$, giving us
+\begin{align*}
+ \bam{3}1&1&2&1\\0&-1&3&1\\0&1-a&2-2a&1-a\eam&\xrightarrow{R_3\to \frac{1}{1-a}R_3}\bam{3}1&1&2&1\\0&-1&3&1\\0&1&2&1\eam \xrightarrow{R_1\to R_1-R_3}\bam{3}1&0&0&0\\0&-1&3&1\\0&1&2&1\eam\\
+&\xrightarrow{R_3\to R_3+R_2}\bam{3}1&1&2&1\\0&-1&3&1\\0&0&5&2\eam\xrightarrow[R_3\to \frac{1}{5}R_3]{R_2\to -R_2} \bam{3}1&0&0&0\\0&1&-3&-1\\0&0&1&\frac{2}{5}\eam,
+\end{align*}
+giving us the unique solution $x=0, y=\frac{1}{5}$, $z=\frac{2}{5}$.
+
+\item Find the basic solutions to the homogeneous system of equations
+\[
+ \begin{array}{ccccccccc}
+  x_1&-&2x_2&+&x_3&-&3x_4&=&0\\
+ 2x_1&+&x_2&-&4x_3&+&x_4&=&0\\
+ 3x_1&-&x_2&-&3x_3&-&2x_4&=&0
+ \end{array}
+\]
+We set up the augmented matrix and apply row operations, as follows:
+\begin{align*}
+ \bam{4}1&-2&1&-3&0\\2&1&-4&1&0\\3&-1&-3&-2&0\eam &\xrightarrow[R_3\to R_3-3R_1]{R_2\to R_2-2R_1} \bam{4}1&-2&1&-3&0\\0&5&-6&7&0\\0&5&-6&7&0\eam\\
+&\xrightarrow{R_3\to R_3-R_2}\bam{4}1&-2&1&-3&0\\0&5&-6&7&0\\0&0&0&0&0\eam\\
+&\xrightarrow{R_2\to \frac{1}{5}R_2}\bam{4}1&-2&1&-3&0\\0&1&-\frac{6}{5}&\frac{7}{5}&0\\0&0&0&0&0\eam\\
+&\xrightarrow{R_1\to R_1+2R_2}\bam{4}1&0&-\frac{7}{5}&-\frac{1}{5}\\0&1&-\frac{6}{5}&\frac{7}{5}&0\\0&0&0&0&0\eam.
+\end{align*}
+From here we can read off the general solution
+\[
+ \bbm x_1\\x_2\\x_3\\x_4\ebm = \bbm \frac{7}{5}s+\frac{1}{5}t\\ \frac{6}{5}s-\frac{7}{5}t\\s\\t\ebm = s\bbm \frac{7}{5}\\\frac{6}{5}\\1\\0\ebm+t\bbm \frac{1}{5}\\-\frac{7}{5}\\0\\1\ebm,
+\]
+so the basic solutions are $\vec{v} = \bbm \frac{7}{5}\\\frac{6}{5}\\1\\0\ebm$ and $\vec{w} = \bbm \frac{1}{5}\\-\frac{7}{5}\\0\\1\ebm$.
+
+\medskip
+
+{\em Note:} Many people prefer to pull out the scalar multiple of $\frac{1}{5}$ created to get the matrix into row-echelon form and use the vectors $\bbm 7\\6\\5\\0\ebm$ and $\bbm 1\\-7\\0\\5\ebm$ instead. Either answer is equivalent, since you can absorb the scalar multiple into the parameters.
+
+
+ \end{enumerate}
+
+\end{document}

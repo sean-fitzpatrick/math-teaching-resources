@@ -1,0 +1,294 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 100}}
+\chead{MATH 1410}\lhead{DEFERRED FINAL EXAM}\rhead{21st December, 2016}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\P}{\mathcal{P}}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\spn}{span}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+21st December, 2016, 9:00 am - 12:00 pm\\
+{\bf MATH 1410 - FINAL EXAM (DEFERRED)}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+
+
+\vspace{0.1in}
+
+
+\begin{quote}
+
+ 
+ Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page. Additional scrap paper may be requested if needed.
+ 
+ \bigskip
+ 
+ Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+\bigskip
+
+ \textbf{No external aids are permitted}, with the exception of a basic (non-scientific and non-graphing) calculator.
+\end{quote}
+
+
+\vspace{0.2in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/11\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/9\\
+\cline{1-2} 7 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 8 & \enspace\enspace\enspace\enspace\enspace\enspace/9\\
+\cline{1-2} 9 & \enspace\enspace\enspace\enspace\enspace\enspace/9\\
+\cline{1-2} 10 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 11 & \enspace\enspace\enspace\enspace\enspace\enspace/7\\
+\cline{1-2} 12 & \enspace\enspace\enspace\enspace\enspace\enspace/7\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/100\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item DEFINITIONS. (2 points each) Give the definition of the term in bold. Write your answer as a complete sentence. 
+
+\begin{enumerate}
+ \item What is the \textbf{modulus} of a complex number?
+
+\vspace{1.3in}
+
+ \item What is a \textbf{unit vector}?
+
+\vspace{1.3in}
+
+ \item What does it mean for an $n\times n$ matrix $A$ to be \textbf{anti-symmetric}?
+
+\vspace{1.3in}
+
+ \item What is the \textbf{null space} of a matrix?
+
+\vspace{1.3in}
+
+ \item What is an \textbf{eigenvalue} of an $n\times n$ matrix $A$?
+
+
+ 
+\end{enumerate}
+\newpage
+
+\item SHORT ANSWER -- Calculations (2 points each): You do not have to show your work.
+
+\begin{enumerate}
+ \item Compute the magnitude (length) of the vector $\vec{v} = \langle -3,4,1\rangle$
+
+\vspace{1.5in}
+
+ \item Compute the product $zw$ of the complex numbers $z=-2+3i$  and $w=5+4i$.
+
+\vspace{1.5in}
+
+ 
+
+ \item Given $A = \bbm 3&-5\\-4&2\ebm$, determine an elementary matrix $E$ such that $EA = \bbm 3&-5\\2&-8\ebm$.
+
+\vspace{1.5in}
+
+ \item Compute the trace of the matrix $A = \bbm 2&-3&7\\-4&6&0\\3&-5&-1\ebm$.
+
+\vspace{1.25in}
+
+ \item Compute the determinant of $A = \bbm 4&-3\\2&1\ebm$.
+
+\end{enumerate}
+\newpage
+
+\item SHORT ANSWER -- More calculations (3 points each): You don't have to show work, but it can earn you part marks if you do.
+
+\begin{enumerate}
+ \item The augmented matrix for a system of equations in the variables $x,y,z$ can be put into the row-echelon form $\bam{3}1&-2&-4&2\\0&1&3&4\eam$. What is the solution of the system?
+
+\vspace{1.75in}
+ 
+ \item Suppose $A$ and $B$ are $2\times 2$ matrices such that $\det(A) = 3$ and $\det(B)=-11$. What is the value of $\det(2A^2B^T(AB)^{-1})$?
+
+
+\vspace{1.6in}
+
+ \item Calculate the projection of the vector $\vec{w} = \langle 4,2,-1\rangle$ onto the vector $\vec{v} = \langle 2,-1,2\rangle$.
+
+\vspace{1.75in}
+
+ \item What is the reduced row-echelon form of the matrix $A = \bbm 3&-6\\2&-3\ebm$?
+
+
+\end{enumerate}
+\newpage
+
+\item SHORT ANSWER -- Yet more calculations (points as indicated):
+
+\begin{enumerate}
+ \item Write the complex number $\dfrac{5-2i}{3+4i}$ in the form $x+iy$. \points{3}
+
+\vspace{1.75in}
+
+ \item Determine the matrix $X$ such that $4X+\bbm 2&3\\-2&7\ebm = 3\bbm 5&0\\1&-2\ebm$. \points{3}
+
+\vspace{1.75in}
+
+ \item Compute the matrix product $\bbm 4&0\\-2&3\ebm \, \bbm -3&1\\0&2\ebm$. \points{3}
+
+\vspace{1.75in}
+
+ \item Compute $T\left(\bbm -3\\2\ebm\right)$, where $T:\R^2\to \R^2$ is a matrix transformation such that $T\left(\bbm 1\\0\ebm\right) = \bbm 1\\-4\ebm$ and $T\left(\bbm 0\\1\ebm\right) = \bbm 7\\-9\ebm$. \points{2}
+
+\end{enumerate}
+\newpage
+
+\item Compute the eigenvalues and eigenvectors of the matrix $A = \bbm 1&4\\2&3\ebm$. \points{9}
+
+\newpage
+
+\item Compute the determinant of the matrix \points{8}
+\[
+ A = \bbm 12 & 0 & 1 & -3\\1&-2&7&-4\\3&0&1&0\\0&1&-4&2\ebm
+\]
+
+\newpage
+
+\item Consider the matrix $A = \bbm 1&0&2\\0&1&1\\2&1&6\ebm$.
+\begin{enumerate}
+ \item Compute the inverse of $A$.\points{6}
+
+\vspace{5in}
+
+ \item Solve the system $A\vec{x} = \bbm 3\\-2\\5\ebm$. \points{3}
+\end{enumerate}
+
+\newpage
+
+\item Consider the vectors $\vec{u} = \bbm 2\\-1\\5\ebm$, $\vec{v} = \bbm 6\\3\\-4\ebm$, and $\vec{w} = \bbm -2\\-5\\14\ebm$.
+\begin{enumerate}
+ \item Determine whether or not the vector $\bbm 3\\-1\\7\ebm$ belongs to the span of $\vec{u}, \vec{v}$, and $\vec{w}$. \points{6}
+
+\vspace{5.5in}
+
+ \item Are the vectors $\vec{u}, \vec{v}, \vec{w}$ linearly independent? Explain. \points{3}
+\end{enumerate}
+
+\newpage
+
+\item Consider the lines $\ell_1$ and $\ell_2$ given by
+\begin{align*}
+ \langle x,y,z\rangle &= \langle 2, -1, 3\rangle + s\langle 3, 0, -4\rangle \quad \text{for $\ell_1$, and}\\
+ \langle x,y,z\rangle & = \langle 1, 3, -5\rangle + t\langle 1, 2, -6\rangle \quad \text{for $\ell_2$.}
+\end{align*}
+\begin{enumerate}
+ \item Show that the lines intersect. \points{4}
+
+\vspace{3.5in}
+
+ \item Determine the equation of the plane containing $\ell_1$ and $\ell_2$. \points{4}
+\end{enumerate}
+
+\newpage
+
+
+ \item Let $A$ be an $n\times n$ matrix and let $I$ denote the $n\times n$ identity matrix.
+\begin{enumerate}
+ \item Show that if $A^2=0$, then $(I-A)^{-1} = I+A$. \points{2} (Hint: $Y=X^{-1}$ if and only if $XY=I$.)
+
+\vspace{2in}
+
+ \item Show that if $A^3=0$, then $(I-A)^{-1} = I+A+A^2$. \points{2}
+
+\vspace{2.25in}
+
+ \item Suppose that $A^n=0$ for some integer $n\geq 3$. Propose a formula for $(I-A)^{-1}$ and show that your formula is correct. \points{3}
+
+
+
+\end{enumerate}
+
+
+\newpage
+
+ \item Verify that $\bbm 1\\i\ebm$ and $\bbm i\\1\ebm$ are eigenvectors of the matrix $Z = \bbm 2&4\\-4&2\ebm$. \points{3}
+
+\vspace{4in}
+
+ \item Prove that if $A$ is an invertible matrix and $\lambda$ is an eigenvalue of $A$, then $\dfrac{1}{\lambda}$ is an eigenvalue of $A^{-1}$. \points{4}
+(For a 2 point bonus: why does the invertibility of $A$ guarantee that $\lambda\neq 0$?)
+
+
+
+
+
+
+\end{enumerate}
+
+\end{document}

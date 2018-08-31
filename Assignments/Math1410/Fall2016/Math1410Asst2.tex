@@ -1,0 +1,109 @@
+\documentclass[letterpaper,12pt]{amsart}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+                   
+\title{Math 1410 Assignment \#2\\University of Lethbridge, Fall 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} {\bf Thursday}, October 13th, by 4:30 pm.
+
+\bigskip
+
+Please review the {\bf Guidelines for preparing your assignments} before submitting your work. You can find these guidelines, along with the required cover page, in the Assignments section on our Moodle site.
+
+
+
+\subsection*{Assigned problems}
+\begin{enumerate}
+\item Recall from class that a key property of the cross product $\vec{u}\times\vec{v}$ is that it is orthogonal to both of the vectors $\vec{u}$ and $\vec{v}$. Prove that this is the case: show that for \textbf{any} vectors $\vec{u}$ and $\vec{v}$ in $\R^3$, the vector $\vec{u}$ is orthogonal to $\vec{u}\times \vec{v}$.
+
+\bigskip
+
+\item Consider the lines $\ell_1$ and $\ell_2$ given by the equations
+\begin{align*}
+ \ell_1(t) = \langle x,y,z\rangle & = \langle 1,2,1\rangle+s\langle 2,-1,1\rangle\\
+ \ell_2(t) = \langle x,y,z\rangle & = \langle 3,3,3\rangle+t\langle 4,2,-1\rangle
+\end{align*}
+
+\medskip
+
+\begin{enumerate}
+ \item Show that the two lines are \textit{skew} (do not intersect). 
+ \item Find the points $P_1$ on $\ell_1$ and $P_2$ on $\ell_2$ such that the distance from $P_1$ to $P_2$ is a minimum, and determine the distance between them.
+ \end{enumerate}
+
+\bigskip
+
+\item Consider the set of $3\times 1$ column vectors $\{\vec{u},\vec{v}\}\subseteq\R^3$, where
+\[
+ \vec{u} = \bbm 1\\-2\\3\ebm, \text{ and } \vec{v} = \bbm 4\\2\\-1\ebm.
+\]
+Determine a $3\times 1$ column vector $\vec{w}\in\R^3$ such that the set $\{\vec{u},\vec{v},\vec{w}\}$ is
+
+\medskip
+
+\begin{enumerate}
+ \item Linearly dependent.
+ \item Linearly independent.
+\end{enumerate}
+
+\bigskip
+
+ \item Determine whether or not the following subsets of $\R^3$ are subspaces. Support your answer.
+
+\medskip
+
+\begin{multicols}{2}
+\begin{enumerate}
+ \item $U = \left\{\left.\bbm x+2y\\3x-y\\4x\ebm \,\right|\, x,y\in\R\right\}$
+ \item $V = \left\{\left.\bbm x\\y\\z\ebm\,\right|\, x+y+z=1\right\}$
+\end{enumerate}
+\end{multicols}
+
+\bigskip
+
+
+\end{enumerate}
+\textbf{See page 2} for hints, suggestions, and advice.
+
+\newpage
+
+
+\begin{enumerate}
+ \item For Problem \#1, technically one should check this for $\vec{v}$ as well, but the argument is exactly the same as the one used for $\vec{u}$, so there's no need to repeat it. We're looking for a \textit{general} argument here: plugging in numbers to see if it works is not sufficient.
+
+\bigskip
+
+ \item For Problem \#2, I do \textbf{not} want to you solve this problem using Equation (3.10) from the text. Instead, I want to see you explain your reasoning. For example, what can you say about the direction of the vector $\overrightarrow{P_1P_2}$ between the two points that are closest together? However, you may wish to use Equation (3.10) to check that the distance you find in part (b) is correct.
+
+\medskip
+
+ Some additional advice for solving this problem: Part (a) can be solved following the method in Example 42 of the textbook. Part (b) can be solved following the method in  Example 48. Both parts will require you to solve systems of equations with two variables. There is nothing wrong with using software to get the answer, provided you cite this as a resource. (GeoGebra and Wolfram Alpha are both good options for this.)
+
+\bigskip
+
+ \item In Problem \#3, there are infinitely many possible correct answers for both parts. More important than your answer is your ability to state your reasons for your answer. You might find Example 60 and Key Idea 11 from the textbook helpful for this problem.
+
+\bigskip
+
+ \item Make sure you've read Examples 61-63 before trying Problem \#4. Remember that every subspace must contain the zero vector, and this is an easy condition to check. (If $\vec{0}$ isn't in the set, you're done. If it is, you have more work to do.)
+\end{enumerate}
+
+\end{document}
+ 

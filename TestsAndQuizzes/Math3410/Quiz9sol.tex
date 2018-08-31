@@ -1,0 +1,90 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 3410A}\chead{Quiz \# 9}\rhead{Friday, 10\textsuperscript{th} April, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\nul}{null}
+\newcommand{\len}[1]{\lVert #1\rVert}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+{\bf Name: Solutions}
+
+\bigskip
+
+The questions below are worth 5 points each, and the quiz is out of 10. You can either choose two, or solve all 3 for a maximum score of 15/10. Feel free to use the back of the page for extra space.
+
+\begin{enumerate}
+ \item Suppose $T\in\mathcal{L}(V)$ and $\lambda\in\mathbb{F}$. Prove that $\lambda$ is an eigenvalue of $T$ if and only if $\overline{\lambda}$ is an eigenvalue of $T^*$.
+
+\bigskip
+
+We recall that for any operator $S\in\mathcal{L}(V)$, $\nul S^* = (\range S)^\bot$ and $\range S^* = (\nul S^*)^\bot$. 
+
+With these preliminaries out of the way, we have:
+\begin{align*}
+ \lambda \text{ is an eigenvalue of } T &\Leftrightarrow T-\lambda I \text{ is not invertible}\\
+&\Leftrightarrow (T-\lambda I)^* \text{ is not invertible}\\
+&\Leftrightarrow T^*-\overline{\lambda}I \text{ is not invertible}\\
+&\Leftrightarrow \overline{\lambda} \text{ is an eigenvalue of } T^*.
+\end{align*}
+
+\bigskip
+
+ \item Suppopse $S,T\in\mathcal{L}(V)$ are self-adjoint. Prove that $ST$ is self-adjoint if and only if $ST=TS$.
+
+\bigskip
+
+Since $S$ and $T$ are self-adjoint, we have
+\[
+ (ST)^* = T^*S^* = TS,
+\]
+and from this it is clear that $ST=(ST)^*$ if and only if $ST=TS$.
+
+\bigskip
+
+ \item Suppose that $T$ is a normal operator on $V$ and that 3 and 4 are eigenvalues of $T$. Prove that there exists a vector $v\in V$ such that $\len{v}=\sqrt{2}$ and $\len{Tv} = 5$.
+
+\bigskip
+
+Since 3 and 4 are eigenvalues of $T$, we can choose eigenvectors $u_1,u_2$ such that $Tu_1=3u_1$ and $Tu_2=4u_2$. By normalizing if necessary we may further assume that $\len{u_1}=\len{u_2}=1$. Now, we let $v=u_1+u_2$. Since $T$ is normal, $u_1$ and $u_2$ are orthogonal, and therefore, by the Pythagorean Theorem, we have
+\[
+ \len{v}^2=\len{u_1+u_2}^2 = \len{u_1}^2+\len{u_2}^2 = 1^2+1^2=2,
+\]
+and we can conclude that $\len{v}=\sqrt{2}$. Now, since any scalar multiples of orthogonal vectors are still orthogonal, we also have
+\[
+ \len{Tv}^2 = \len{T(u_1+u_2)}^2 = \len{Tu_1+Tu_2}^2 = \len{3u_1+4u_2}^2 = \len{3u_1}^2+\len{4u_2}^2 = 3^2+4^2=5^2,
+\]
+and thus $\len{Tv} = 5$, as required.
+\end{enumerate}
+
+\end{document}

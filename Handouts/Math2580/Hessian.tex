@@ -1,0 +1,158 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{rem}[theorem]{Remark}
+\newenvironment{remark}{\begin{rem}\rm}{\end{rem}}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{eg}[theorem]{Example}
+\newenvironment{example}{\begin{eg}\rm}{\end{eg}}
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\h}{\mathbf{h}}
+\renewcommand{\a}{\mathbf{a}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\DeclareMathOperator{\Hess}{Hess}
+\title{Hessians and the second derivative test}
+\author{Sean Fitzpatrick}
+\begin{document}
+\maketitle
+
+We give here a proof of the second derivative test in general. The proof requires the use of Taylor's theorem for a function of several variables, which we will not prove, and a bit of terminology from linear algebra. The details of the proof are borrowed from the text {\em Vector Calculus}, 4\textsuperscript{th} edition, by Marsden and Tromba. 
+
+{\bf Warning:} there are a number of instances below where we define a function variables $x_1,\ldots, x_n$ in terms of the vector $\x=\langle x_1,\ldots, x_n\rangle$ via matrix multiplication. In order to get things to come out correctly, we need to think of $\x$ as a {\bf column vector} $\displaystyle \x = \begin{bmatrix}x_1\\x_2\\\vdots\\x_n\end{bmatrix}$, so that for a vector $x\in\R^n$ and an $m\times n$ matrix $A$, the function $f(\x)=A\x$ produces a vector in $\R^m$ via the usual matrix multiplication. (The line above probably suggests a fairly convincing typographical reason for using the Stewart-style angle bracket notation, even if this isn't compatible with matrix multiplication.)
+\section{Taylor polynomials}
+Before getting into the proof, let's take a brief detour and discuss Taylor polynomials. One way of thinking about differentiability of a function $f:D\subseteq\R^n\to\R$ is to think of the linearization $L(\x)$ as the degree one Taylor polynomial
+\[
+ P_1(\x) = f(\a)+\nabla f(\a)\dotp(\x-\a) = f(\a)+ \pd{f}{x_1}(\a)(x_1-a_1)+\cdots + \pd{f}{x_n}(x_n-a_n).
+\]
+The requirement of differentiability is then that the remainder $R_1(\x) = f(\x)-P_1(\x)$ goes to zero faster than $\len{\x-\a}$; that is,
+\[
+ \lim_{\x\to\a}\frac{R_1(\x)}{\len{\x-\a}}=0.
+\]
+This says roughly that $f$ and $P_1$ ``agree to first order'': we can think of $R_1(\x)$ as a function such that $\abs{R_1(\x)}\sim C\len{\x-\a}^l$, where $C$ is some constant and $l>1$. (We are not saying that $R_1$ is equal to a function of this form, only that its dependence on $\len{\x-\a}$ as $\len{\x-\a}\to 0$ is of an order greater than one.) From here we can go on and ask for degree $k$ Taylor polynomials $P_k(\x)$ that give an ``$k^{\textrm{th}}$-order approximation'' of $f$ near $\a$. In other words, we want a polynomial
+\begin{align*}
+ P_k(x_1,\ldots, x_n) &= a_0 +a_{1}x_1+\cdots+a_{n}x_n+a_{11}x_1^2+a_{12}x_1x_2+\cdots+a_{nn}x_n^2\\
+&\quad\quad\quad\quad +\cdots+a_{1\cdots 1}x_1^k+a_{1\cdots 12}x_1^{k-1}x_2+\cdots+a_{n\cdots n}x_n^k
+\end{align*}
+in $n$ variables of degree $k$ such that the remainder $R_k(\x) = f(\x)-P_k(\x)$ satisfies $R_k(\x)\sim C\len{\x-\a}^l$, with $l>k$. In terms of limits, this means
+\[
+ \lim_{\x\to\a}\frac{R_k(\x)}{\len{\x-\a}^k}=0.
+\]
+You've probably already noticed a problem with talking about higher-order polynomials in several variables: the notation gets really messy, since there are so many more possible terms! For example, even a relatively simple case like a degree 3 polynomial in 3 variables looks like
+\begin{align*}
+ P(x,y,z) &= a+bx+cy+dz+ex^2+fxy+gxz+hy^2+kyz+lz^2\\
+&\quad\quad\quad\quad +mx^3+nx^2y+oxy^2+pxyz+qx^2z+rxz^2+sy^3+ty^2z+uyz^2+vz^3
+\end{align*}
+for constants $a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v$! Usually we get around this using ``multi-index'' notation. We let $\alpha=(a_1,\ldots, a_n)$ denote a $n$-tuple of non-negative integers, where we define $\x^\alpha = x_1^{a_1}x_2^{a_2}\cdots x_n^{a_n}$, $\abs{\alpha}=a_1+\cdots +a_n$ (so that $\x^\alpha$ is a monomial of order $\abs{\alpha}$),  and we denote a possible coefficient of $\x^\alpha$ by $a_\alpha$. A general $k^{\textrm{th}}$-order polynomial then looks like
+\[
+ P_k(\x) = \sum_{\abs{\alpha}=0}^k a_\alpha x^\alpha.
+\]
+For example, in 3 variables, the terms where $\abs{\alpha}=3$ would involve $\alpha = (3,0,0)$, $(2,1,0)$, $(2,0,1)$, $(1,2,0)$, $(1,0,2)$, $(0,3,0)$, $(0,2,1)$, $(0,1,2)$, $(0,0,3)$, so in the above polynomial $m=a_{(3,0,0)},\, n = a_{(2,1,0)}$, etc., with $\x^{(3,0,0)} = x^3,\, \x^{(2,1,0)} = x^2y$, and so on. (Note that $\alpha = (0,\ldots, 0)$ is the only multi-index with $\abs{\alpha}=0$). 
+
+With all of that notational unpleasantness out of the way, we can say what the $k^{\textrm{th}}$-order Taylor polynomial for $f$ near $\a$ should be: Taylor's Theorem, generalized to $n$ variables, states that 
+\[
+ P_k(\x) = \sum_{\abs{\alpha}=0}^k \frac{f^{(\alpha)}(\a)}{\alpha!}(\x-\a)^\alpha,
+\]
+where $\alpha! = a_1!a_2!\cdots a_n!$, and 
+\[
+f^{(\alpha)}(\a) = \left(\frac{\partial^{a_1}}{\partial x_1^{a_1}}\frac{\partial^{a_2}}{\partial x_2^{a_n}}\cdots\frac{\partial^{a_n}}{\partial x_n}f\right)(\a). 
+\]
+I'll leave it as an exercise to check that putting $k=1$ reproduces the linearization $P_1(\x)$ (note that if $\abs{\alpha}=1$ we have to have $\alpha = (1,0,\ldots, 0),\, (0,1,0,\ldots, 0),$ etc.), and that putting $k=2$ gives the quadratic approximation discussed below.
+
+\section{Quadratic functions}
+Let $A$ be an $n\times n$ matrix. We say that $A$ is {\em symmetric} if $A^T=A$, or equivalently, if $a_{ij} = a_{ji}$ for each $i,j$ between 1 and $n$. To each such $A$ we can associate a {\em quadratic function} $q:\R^n\to \R$ given by
+\[
+q(\x) = \x\cdot A\x = \x^TA\x,
+\]
+or in terms of components,
+\[
+q(x_1,\ldots, x_n) = \sum_{i,j=1}^n a_{ij}x^ix^j.
+\]
+We say that $A$ is {\em non-degenerate} if $\det A\neq 0$; this is equivalent to saying that $A$ is invertible, or that $A\x=\mathbf{0}$ is possible only if $\x=\mathbf{0}$. (Note however that the corresponding property does not hold for $q$: it is possible to have $q(\x)=0$ for $\x\neq \mathbf{0}$ even if the corresponding matrix $A$ is non-degenerate. For example, the quadratic function $q(x,y)=x^2-y^2$ has $q(1,1)=0$ and corresponds to the non-degenerate matrix $\begin{bmatrix}1&0\\0&-1\end{bmatrix}$.)
+
+A quadratic function $q$ is called {\em positive-definite} if $q(\x)\geq 0$ for all $\x\in\R^n$, and $q(\x)=0$ only for $\x=\mathbf{0}$. (Note that the quadratic function $q(x,y)=x^2-y^2$ given above is {\em not} positive definite; however, $\tilde{q}(x,y) = x^2+y^2$ is.) Similarly, $q$ is {\em negative-definite} if $q(\x)\leq 0$ for all $\x\in\R^n$ with $q(\x)=0$ for $\x=\mathbf{0}$ only.
+
+If $q(\x) = \x\cdot A\x$ is positive(negative)-definite, we refer to the corresponding symmetric matrix $A$ as positive(negative)-definite as well. In general it can be difficult to determine when a given quadratic function (or its corresponding matrix) is positive or negative-definite. In the case of a $2\times 2$ matrix $A = \begin{bmatrix} a&b\\b&c\end{bmatrix}$ we get
+\begin{align*}
+q(x_1,x_2)&= ax_1^2+2bx_1x_2+cx_2^2\\
+&=a\left(x_1+\frac{b}{a}x_2\right)^2+\left(c-\frac{b^2}{a}\right)x_2^2,
+\end{align*}
+by completing the square. Since we must have $q(x_1,0)>0$ if $x_1\neq 0$, we get $a>0$, and since $q(0,x_2)>0$ for $x_2\neq 0$, it follows that $ac-b^2=\det A >0$. Similarly $q$ is negative-definite if $a<0$ and $\det A>0$.
+
+For an $n\times n$ matrix, one test is as follows: consider the sequence of $j\times j$ matrices $A_j$, for $j=1,\ldots , n$, given by  $A_1=[a_{11}]$, $A_2 = \begin{bmatrix} a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix},\ldots, A_n=A$. (i.e. we take upper-left square sub-matrices of increasing size.) Then $A$ is positive-definite if and only if $\det A_j>0$ for each $j=1,\ldots n$, and $A$ is negative-definite if the signs of $\det A_j$ alternate between negative and positive. (So $\det A_1 = a_{11}<0, \det A_2>0, \det A_3<0,\ldots$).
+
+Another approach, which is more illuminating but requires more advanced linear algebra, is to use the fact that for any symmetric matrix $A$ there exists a change of basis such that $A$ becomes a diagonal matrix $\tilde{A}$ with respect to that basis. (i.e. $A$ can be diagonalized.) If the entries $\tilde{a}_{ii}$ of $\tilde{A}$ along the main diagonal are all non-zero, then $A$ is non-degenerate. If they are all positive, then $A$ is positive-definite. If they are all negative, then $A$ is negative-definite.
+
+We will need the following lemma below. We can't completely prove this result, since it relies on the Extreme Value Theorem, which we will not prove. (It also requires you to accept that the unit sphere in $\R^n$ is a closed and bounded subset.)
+\begin{lemma}\label{l1}
+If $q:\R^n\to \R$ is a positive-definite quadratic function, then there exists a real number $M>0$ such that
+\[
+q(\x)\geq M\lVert\x\rVert^2
+\]
+for any $x\in\R^n$.
+\end{lemma}
+\begin{proof}
+First, let us consider $q(\x)$ on the set $B$ of all $\x$ with $\lVert \x\rVert = 1$. The set $B$ is closed and bounded and $q$ is continuous on $B$, so by the Extreme Value Theorem, $q$ must attain a minimum value $M$ for some $\x\in B$. Now, for any constant $c\in\R$, the fact that $q$ is quadratic implies that $q(c\x) = c^2q(\x)$. For any non-zero $\x\in \R^n$, we know that $\dfrac{\x}{\lVert\x\rVert}\in B$, and thus, we have
+\[
+q(\x) = q\left(\lVert\x\rVert\frac{\x}{\lVert\x\rVert}\right)=\lVert\x\rVert^2q\left(\frac{\x}{\lVert\x\rVert}\right)\geq M\lVert\x\rVert^2.
+\]
+Finally, if $\x=\mathbf{0}$ we get $q(\mathbf{0})=0=M\lVert\mathbf{0}\rVert^2$.
+\end{proof}
+\section{The Hessian matrix of a real-valued function}
+Let $f:\R^n\to \R$ be a function with continuous second-order partial derivatives. We define the {\em Hessian matrix} of $f$ at a point $\a$ in the domain of $f$ to be the $n\times n$ symmetric matrix
+\[
+\Hess f(\a) = \frac{1}{2}\begin{bmatrix}
+\frac{\partial^2 f}{\partial x_1^2}(\a) & \frac{\partial^2 f}{\partial x_1\partial x_2}(\a)&\cdots &\frac{\partial^2 f}{\partial x_1\partial x_n}(\a)\\
+\frac{\partial^2 f}{\partial x_2\partial x_1}(\a) & \frac{\partial^2 f}{\partial x_2^2}(\a)&\cdots &\frac{\partial^2 f}{\partial x_2\partial x_n}(\a)\\
+\vdots & \vdots & & \vdots \\
+\frac{\partial^2 f}{\partial x_n\partial x_1}(\a) & \frac{\partial^2 f}{\partial x_n\partial x_2}(\a)&\cdots &\frac{\partial^2 f}{\partial x_n^2}(\a)
+\end{bmatrix}.
+\]
+Note that $\Hess f(\a)$ is symmetric by Clairaut's theorem. The factor of $1/2$ is included for convenience with respect to Taylor's theorem. Recall that for a function of one variable, the second-order Taylor polynomial of $f$ about $x=a$ is 
+\[
+P_2(x)=f(a)+f'(a)(x-a)+\frac{1}{2}f''(a)(x-a)^2.
+\] 
+For $\x\in\R^n$, let us define the quadratic function $h_{f,\a}(\x) = \x\cdot \Hess f(\a)\x$ associated to the Hessian of $f$ at $\a$. Taylor's theorem for functions of several variables tells us that if all the {\em third} derivatives of $f$ are continuous, then near $\a\in\R^n$ we have
+\begin{equation}\label{e1}
+f(\x) = f(\a) + \nabla f(\a)\cdot (\x-\a) + h_{f,\a}(\x-\a) + R(\a,\x),
+\end{equation}
+where the remainder term $R(\a,\x)$ satisfies
+\begin{equation}\label{e2}
+\lim_{\x\to\a}\frac{R(\x,\a)}{\lVert \x-\a\rVert^2}=0.
+\end{equation}
+
+
+Finally, let us define a critical point $\a$ for $f$ to be {\em non-degenerate} if $\Hess f(\a)$ is non-degenerate.  Now we're ready to state our result on the second derivative test:
+\begin{theorem}
+Let $f:\R^n\to\R$ be three times continuously differentiable, and suppose that $f$ has a non-degenerate critical point at $\a$. If $\Hess f(\a)$ is positive-definite, then $\a$ is a local minimum for $f$. Similarly, if $\Hess f(\a)$ is negative-definite, then $\a$ is a local maximum for $f$.
+\end{theorem}
+\begin{proof}
+Since $\a$ is a critical point for $f$, we know that $\nabla f(\a)=0$, and so from \eqref{e1} we get
+\[
+f(\x)-f(\a) = h_{f,\a}(\x-\a)+R(\a,\x).
+\]
+By Lemma \ref{l1}, we have that $h_{f,\a}(\x-\a)\geq M\lVert\x-\a\rVert^2$, and by \eqref{e2}, there exists a $\delta>0$ such that for any $\x$ with $0<\lVert \x-\a\rVert<\delta$, we have $|R(\a,\x)|<M\lVert \x-\a\rVert^2$, by taking $\epsilon=M$ in the definition of the limit. This implies that
+\[
+h_{f,\a}(\x-\a)+R(\a,\x)>0,
+\]
+since $h_{f,\a}(\x-\a)\geq M\lVert \x-\a\rVert^2> 0$, (it must be positive since we aren't allowing $\x=\a$) and even if $R(\a,\x)$ is negative, its absolute value is less than that of $h_{f,\a}(\x-\a)$, so since $\x\neq\a$ the sum of the two terms must be positive.
+Substituting this into the above equation, we get $f(\x)-f(\a)>0$ for any $\x$ with $0<\lVert\x-\a\rVert<\delta$, and thus $f$ has a local minimum at $\a\in\R^n$. The case of a local maximum can be handled similarly (or by replacing $f$ with $-f$).
+\end{proof}
+Notice that we in fact do slightly better than a local minimum: we get the {\em strict} inequality $f(\x)>f(\a)$, and not just $f(\x)\geq f(\a)$. Often this fact is expressed by saying that non-degenerate critical points are {\em isolated} - if $f$ has a critical point at $\a$, then there is some neighbourhood of $\a$ in which $f$ has no other critical points. (We have only established this for local maxima and minima, but this fact is true for non-degenerate critical points in general.) This observation is the starting point for an important area of differential topology known as Morse Theory.
+\end{document}

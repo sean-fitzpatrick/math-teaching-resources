@@ -1,0 +1,162 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+%\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\ss}{\subseteq}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\Abs}[1]{\left| #1\right|}
+
+\title{Math 3500 Assignment \#9 Solutions\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+ \item Let $f$ be a bounded function on $[a,b]$, let $\mathcal{P}$ denote the set of all partitions of $[a,b]$, and let $P\in \mathcal{P}$ be an arbitrary partition of $[a,b]$.
+\begin{enumerate}
+ \item Prove that $U(f)\geq L(f,P)$, where $U(f) = \inf\{U(f,P) | P\in\mathcal{P}\}$.
+
+\bigskip
+
+We know that for any partition $P'$, $L(f,P)\leq U(f,P')$. Thus, $L(f,P)$ is a lower bound for $\{U(f,P): P\in \mathcal{P}\}$. Since $U(f)$ is the {\em greatest} lower bound, we have $U(f)\geq L(f,p)$.
+
+\bigskip
+
+ \item Prove that $U(f)\geq L(f)$, where $L(f)=\sup\{L(f,P) | P\in\mathcal{P}\}$.
+
+\bigskip
+
+Since the partition $P$ in part (a) was arbitrary, it follows that $U(f)$ is an upper bound for $\{L(f,P):P\in \mathcal{P}\}$. Since $L(f)$ is the {\em least} upper bound, we have $L(f)\leq U(f)$.
+
+\bigskip
+
+\end{enumerate}
+ \item Let $f$ be a bounded function on $[a,b]$.
+\begin{enumerate}
+ \item Prove that $f$ is integrable on $[a,b]$ if and only if there exists a sequence of partitions $(P_n)_{n=1}^\infty$ satisfying
+\[
+ \lim_{n\to\infty}[U(f,P_n)-L(f,P_n)]=0.
+\]
+
+\bigskip
+
+If $f$ integrable, then for each $n\in \N$, taking $\epsilon=1/n$ there must exist a partition $P_n$ such that $0\leq U(f,P_n)-L(f,P_n)<1/n$. Since $1/n\to 0$ as $n\to \infty$, it follows that $U(f,P_n)-L(f,P_n)\to 0$ as well.
+
+Conversely, suppose there exists a sequence of partitions $(P_n)$ such that $a_n = U(f,P_n)-L(f,P_n)\to 0$ as $n\to \infty$. Then for any $\epsilon>0$ there exists some $N\in \N$ such that if $n\geq N$, then $a_n<\epsilon$, and thus for any partition $P_n$ with $n\geq N$, we have $U(f,P_n)-L(f,P_n)<\epsilon$, so $f$ must be integrable.
+
+\bigskip
+
+ \item For each $n$, let $P_n$ denote the uniform partition of $[0,1]$ into $n$ equal subintervals of length $1/n$, and let $f(x)=x$. Find formulas for $U(f,P_n)$ and $L(f,P_n)$ in terms of $n$.
+
+\bigskip
+
+Our partition is given by $P_n = \left\{0,\frac{1}{n},\frac{2}{n},\ldots, \frac{n}{n}=1\right\}$. Since $f$ is increasing on $[0,1]$, on each subinterval $[(i-1)/n,i/n]$ we have $m_i = (i-1)/n$ and $M_i = i/n$. It follows that 
+\[
+ L(f,P_n) = \sum_{i=1}^n\frac{i-1}{n}\cdot\frac{1}{n} = \frac{1}{n^2}\left(\sum_{i=1}^ni-\sum_{i=1}^n1\right) = \frac{1}{n^2}\left(\frac{n(n+1)}{2}-n\right) = \frac{n-1}{2n},
+\]
+and
+\[
+ U(f,P_n) = \sum_{i=1}^n\frac{i}{n}\cdot \frac{1}{n} = \frac{1}{n^2}\sum_{i=1}^ni = \frac{n+1}{2n}.
+\]
+
+
+\bigskip
+
+ \item Use the results from (a) and (b) to prove that $f(x)=x$ is integrable on $[0,1]$.
+
+\bigskip
+
+For each $n$ we have that $U(f,P_n)-L(f,P_n) = \frac{n+1}{2n}-\frac{n-1}{2n} = \frac{1}{n}$. Thus, for any $\epsilon>0$ we can choose $n$ such that $1/n<\epsilon$, and the result follows.
+
+\bigskip
+
+\end{enumerate}
+ \item Let $f:[a,b]\to\R$ be bounded and increasing. Show that $f$ is integrable on $[a,b]$.
+
+\bigskip
+
+Let $P_n = \left\{a, a+\dfrac{b-a}{n}, a+\dfrac{2(b-a)}{n},\ldots, a+\dfrac{n(b-a)}{n}=b\right\}$ denote the uniform partition of $[a,b]$ into $n$ subintervals of length $\Delta x = \dfrac{b-a}{n}$. Since $f$ is increasing on $[a,b]$, for each $i=1,\ldots, n$ we have $m_i = f(x_{i-1})$ and $M_i = f(x_i)$, where $x_i = a+\dfrac{i(b-a)}{n}$. Given $\epsilon>0$, choose $n$ sufficiently large that $(f(b)-f(a))\dfrac{(b-a)}{n}<\epsilon$. Then we have
+\begin{align*}
+ U(f,P_n)-L(f,P_n) & = \sum_{i=1}^n(M_i-m_i)\Delta x\\
+& = \sum_{i=1}^n(f(x_i)-f(x_{i-1}))\left(\frac{b-a}{n}\right)\\
+& = (f(b)-f(a))\frac{(b-a)}{n} \text{ (telescoping sum)}\\
+& < \epsilon.
+\end{align*}
+
+
+\bigskip
+
+\newpage
+ \item Define the function $\displaystyle H(x) = \int_1^x\frac{1}{t}\,dt$, where $x>0$.
+\begin{enumerate}
+ \item What is the value of $H(1)$? What is $H'(x)$ for any $x>0$?
+
+\bigskip
+
+By definition, $H(1) = \int_1^1 \frac{1}{t}\,dt = 0$. By the Fundamental Theorem of Calculus, $H'(x) = 1/x$ for all $x>0$.
+
+\bigskip
+
+ \item Show that if $0<x<y$, then $H(x)<H(y)$; that is, that $H$ is strictly increasing on $(0,\infty)$.
+
+\bigskip
+
+Since $H'(x)=1/x>0$ on $(0,\infty)$, the result follows from the Mean Value Theorem: $H(y)-H(x) = \dfrac{1}{c}(y-x)>0$ for some $c\in (x,y)$.
+
+\bigskip
+
+ \item Show that $H(cx)=H(c)+H(x)$ for any $c>0$.
+
+\bigskip
+
+Let $g(x)=H(cx)$. Then by the Chain Rule we have
+\[
+ g'(x) = H'(cx)\cdot c = \frac{1}{cx}\cdot c = \frac{1}{x} = H'(x).
+\]
+Since $g'(x)=H'(x)$ we must have $g(x)=H(x)+k$ for some $k\in \R$, for all $x>0$. Setting $x=1$, we have $k=g(1)= H(c)$, since $H(1)=0$. Thus, $H(cx)=H(x)+H(c)$.
+
+\bigskip
+
+ \item Use a similar argument to show that $H(x^a)=aH(x)$.
+
+\bigskip
+
+If we let $f(x) = H(x^a)$, then
+\[
+ f'(x) = H'(x^a)(ax^{a-1}) = \frac{ax^{a-1}}{x^a} = \frac{a}{x} = aH'(x).
+\]
+Thus, we must have $f(x)=aH(x)+k$ for some $k\in\R$, for all $x>0$. Since $H(1)=0$, we find $k=f(1) = H(1^a) = 0$, and the result follows.
+
+\bigskip
+
+\end{enumerate}
+Note: One often writes the function $H(x)$ as $\ln(x)$, and refers to this function as the natural logarithm. Parts (c) and (d) then tell us that $\ln(xy)=\ln x+\ln y$ and $\ln(x^y)=y\ln x$. Since $H$ is strictly increasing on $(0,\infty)$, it is one-to-one and therefore has a well-defined inverse function, which is usually denoted by $H^{-1}(x)=e^x$.
+
+\item ({\bf Bonus}) Define a bounded function $f$ on $[0,1]$ by $\displaystyle f(x)=\begin{cases} 1, & \text{ if } x=1/n\\ 0, & \text{ otherwise}\end{cases}$. \\Prove that $f$ is integrable on $[0,1]$.
+
+\bigskip
+
+Let $\epsilon>0$ be given and choose $N\in\N$ such that $1/N<\epsilon/2$. Since $f$ has finitely many discontinuities on $[1/n,1]$, it is integrable on $[1/N,1]$, and thus there exists a partition $P'$ of $[1/N,1]$ with $U(f,P')-L(f,P')<\epsilon/2$. On $[0,1/N]$ we take the partition $P'' = \{0,1/N\}$. Then $U(f,P'') = (1)\left(\dfrac{1}{N}-0\right) = \dfrac{1}{N}$, and $L(f,P'') = 0$, since $0\leq f(x)\leq 1$ on $[0,1/N]$. It follows that $U(f,P'')-L(f,P'')= 1/N<\epsilon/2$.
+
+Therefore, taking the partition $P=P'\cup P''$ of $[0,1]$, we have $U(f,P)-L(f,P)<\epsilon/2+\epsilon/2=\epsilon.$, so $f$ is integrable.
+
+\bigskip
+
+
+
+\end{enumerate}
+
+\end{document}
+ 

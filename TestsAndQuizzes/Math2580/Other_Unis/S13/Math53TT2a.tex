@@ -1,0 +1,179 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 40}}
+\chead{MATH 53}\lhead{Test \# 2}\rhead{Friday, 15\textsuperscript{th} March, 2013}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\rd}[2]{\frac{d #1}{d #2}}
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of California, Berkeley}\\
+Department of Mathematics\\
+15\textsuperscript{th} March, 2013, 12:10-12:55 pm\\
+{\bf MATH 53 - Test \#2}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+\skipline
+Discussion Section: \underline{\hspace{307pt}}\\
+\skipline
+Name of GSI: \underline{\hspace{336pt}}\\
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ {\bf Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+There is a list of potentially useful formulas available on the last page of the exam.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 1 & \enspace\enspace\enspace\enspace\enspace\enspace/15\\
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/15\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/40\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+A
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item Let $f(x,y) = x^2e^{xy}$.
+\begin{enumerate}
+\item Find the linearization of $f$ at the point $(1,0)$. \points{4}
+
+\vspace{1.6in}
+
+
+\item Find the derivative of $f$ in the direction of $\mathbf{v} = \langle -3,4\rangle$ at the point $(1,0)$. \points{3}
+
+\vspace{1.5in}
+
+\item If $x(t)=t^2$ and $y(t)=2t-2$, use the chain rule to find the tangent vector to the curve $\mathbf{r}(t) = \langle x(t),y(t),f(x(t),y(t))\rangle$ when $t=1$. \points{5}
+
+\vspace{2.5in}
+
+\item Verify that the tangent vector found in part (c) is tangent to the surface $z=f(x,y)$ at the point $(1,0,1)$.\points{3}
+\end{enumerate}
+\newpage
+
+\item Let $f(x,y) = 3xy-x^3-y^3$.
+\begin{enumerate}
+\item Find and classify the critical points of $f$. \points{8}
+
+\vspace{4in}
+
+\item Find the absolute maximum and minimum of $f$ on the set $D$ given by the triangular region with vertices at $(0,0)$, $(0,1)$, and $(1,1)$. \points{7}
+\end{enumerate}
+\newpage
+
+\item \begin{enumerate}
+\item Define what it means for a function $f(x,y,z)$ to be {\em continuous} at a point $(a,b,c)$ in its domain. \points{2}
+
+\vspace{1.5in}
+
+\item Define what it means for a function $f(x,y,z)$ to be {\em differentiable} at a point $(a,b,c)$ in its domain. \points{3}
+
+\vspace{2in}
+
+\item Show that if $f$ is differentiable at a point $(a,b,c)$, then it is continuous at $(a,b,c)$.\points{5}
+
+{\em Hint:} You can show this using only the above two definitions and the limit laws.
+\end{enumerate}
+\end{enumerate}
+\newpage
+
+\begin{center}
+List of potentially useful formulas and facts:
+\end{center}
+
+
+\begin{itemize}
+\item The limit of $f(x,y)$ as $(x,y)\to (a,b)$ is $L$ if for every $\epsilon>0$ there exists a $\delta>0$ such that
+\[
+0<\sqrt{(x-a)^2+(y-b)^2}<\delta \quad\Rightarrow\quad \lvert f(x,y)-L\rvert<\epsilon.
+\]
+\item Clairaut's Theorem: If $f$ is defined on a disk $D$ and $f_{xy},\, f_{yx}$ are continuous on $D$, then $f_{xy}=f_{yx}$ on $D$.
+\item The linearization of a function $f(x,y)$ at a point $(a,b)$ is given by
+\[
+L(x,y) = f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b),
+\]
+and the equation of the tangent plane to $z=f(x,y)$ at the point $(a,b,f(a,b))$ is $z=L(x,y)$.
+\item If the first order partial derivatives of a function $f$ exist in a neighborhood of a point, and are continuous at that point, then $f$ is differentiable at that point.
+\item If $w=f(x,y,z)$ and $x=x(t),\, y=y(t),\, z=z(t)$, then
+\[
+\frac{dw}{dt} = \pd{f}{x}\rd{x}{t}+\pd{f}{y}\rd{y}{t}+\pd{f}{z}\rd{z}{t}.
+\]
+If $x=x(u,v), \, y=(u,v),\, z=z(u,v)$, then
+\[
+\pd{w}{u} = \pd{f}{x}\pd{x}{u}+\pd{f}{y}\pd{y}{u}+\pd{f}{z}\pd{z}{u},
+\]
+with a similar formula for $\partial w/\partial v$, and variations on the above Chain Rule formulas for other numbers of variables.
+\item The derivative of $f$ in the direction of a vector $\mathbf{v}$ at a point $\mathbf{x}_0$ can be computed according to $\di D_{\mathbf{v}}f(\mathbf{x}_0) = \frac{\nabla f(\mathbf{x}_0)\dotp \mathbf{v}}{\lVert\mathbf{v}\rVert}$.
+\item The tangent plane to a level surface $f(x,y,z)=k$ at a point $(a,b,c)$ is given by $\nabla f(a,b,c)\dotp\langle x-a, y-b, z-c\rangle = 0$.
+\item The tangent vector to a curve $\mathbf{r}(t) = \langle x(t),y(t),z(t)\rangle$ is $\mathbf{r}'(t) = \langle x'(t), y'(t), z'(t)\rangle$.
+\item Suppose $f$ has a critical point at $(a,b)$, and the second derivatives of $f$ are continuous on a neighborhood of $(a,b)$. Let $D = f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2$. If
+\begin{enumerate}[(a)]
+\item $D>0$ and $f_{xx}(a,b)>0$, then $f$ has a local minimum at $(a,b)$.
+\item $D>0$ and $f_{xx}(a,b)<0$, then $f$ has a local maximum at $(a,b)$.
+\item $D<0$, then $f$ has a saddle point at $(a,b)$.
+\end{enumerate}
+\item If $f(x,y)$ has a maximum or minimum subject to the constraint $g(x,y)=c$ at $(a,b)$, then $\nabla f(a,b) = \lambda \nabla g(a,b)$.
+\end{itemize}
+
+
+
+\end{document}

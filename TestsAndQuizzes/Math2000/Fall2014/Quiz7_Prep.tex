@@ -1,0 +1,91 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\modd}[3]{#1\equiv #2 \pmod{#3}}
+
+\title{Practice Problems for Quiz 7\\Math 2000A}
+\date{}
+\begin{document}
+ \maketitle
+\vspace{-0.5in}
+
+Quiz \#7 will take place in class on Thursday, October 23rd. 
+
+***{\bf Note}: We're now at the half-way point for quizzes: 6 down, 6 to go. If you didn't do as well as you would have liked on some of the earlier quizzes, keep in mind that only your top 10 quizzes count, so there's still lots of room to guarantee a good quiz grade at this point.
+
+{\bf Advice for doing well on the quizzes}: For the remaining quizzes, I'll guarantee that the questions will be either exact copies of the ones below, or minor variations on them (maybe I'll change the numbers slightly). This means the quizzes are a fairly transparent way of bribing you to do your homework. You should expect that there will be some problems that you don't know how to solve right away. This is actually a good thing: figuring out the hard problems is one of the best ways to learn this material. 
+
+You've got a week to work on the problems, so if you attempt an average of two problems a day, you'll be done in time for the quiz. Expect to spend around 10-15 minutes thinking about each problem that you can't solve right away. If you've spent at least that long, and still can't figure it out, then ask for help. You can ask me to solve a problem during office hours, or ask about the problem on Piazza. In either case you'll get an explanation of how to solve it. You can also ask at the evening math help sessions. If you do this, you'll have seen how to solve all the problems before you walk into the quiz, which should make your life a lot easier.
+
+{\bf Note to help session tutors}: It's 100\% OK for you to help my students solve these questions.
+\begin{enumerate}
+\item Let $f:(\R\setminus\{0\})\to \R$ be the function defined by $f(x)=\dfrac{x^3+5x}{x}$, and let $g:\R\to\R$ be the function defined by $g(x)=x^2+5$.
+\begin{enumerate}
+ \item Calculate $f(2), f(-2), f(3)$, and $f(\sqrt{2})$.
+ \item Calculate $g(2), g(-2), g(3)$, and $g(\sqrt{2})$.
+ \item Is the function $f$ equal to the function $g$? Explain.
+ \item If we let $h:(\R\setminus \{0\})\to \R$ be the function defined by $h(x)=x^2+5$, is the function $h$ equal to $f$? Explain.
+\end{enumerate}
+\item Let $s$ be the function that associates with each natural number the sum of its distinct natural number divisors. For example, 
+\[
+ s(8) = 1+2+4+8 = 15.
+\]
+\begin{enumerate}
+ \item What is the domain of $s$? Is it defined for the numbers $\sqrt{2}$, $\pi$, or $-5$?
+ \item Calculate $s(n)$ for $n=1,2,3,\ldots, 15$.
+ \item Does the range of $s$ include 5? (That is, is there a natural number $n$ for which $s(n)=5$?) Explain.
+ \item Is it possible to find two different numbers $n$ and $m$ such that $s(n)=s(m)$? (i.e., is $s$ one-to-one?) Explain.
+ \item Is it true or false that for all $m\in\N$, there exists some $n\in\N$ with $s(n)=m$?
+ \item Is it true or false that for all $n,m\in\N$, if $n\neq m$, then $s(n)\neq s(m)$?
+\end{enumerate}
+\item (A function of two variables) Let $g:\Z\times\Z\to \Z$ be the function defined by $g(m,n) = m^2-n$.
+\begin{enumerate}
+ \item Is $g$ a function? Why or why not?
+ \item Determine $g(0,3)$, $g(3,-2)$, $g(-3, -2)$, and $g(7,1)$.
+ \item Determine the set of all $(m,n)\in\Z\times \Z$ such that $g(m,n)=0$. (This set is known as the {\em preimage} of 0.)
+\end{enumerate}
+\item Let $A=\{a,b,c,d\}$, $B=\{a,b,c\}$, and $C=\{s,t,u,v\}$.
+\begin{enumerate}
+ \item Create a function $f:A\to C$ whose range is the entire set $C$, or explain why it is not possible to do so.
+ \item Create a function $f:A\to C$ whose range is the set $\{u,v\}$, or explain why it is not possible to do so. 
+ \item Create a function $f:B\to C$ whose range is the entire set $C$, or explain why it is not possible to do so.
+\end{enumerate}
+\item Let $S=\{1,2,3,4\}$. Which of the following subsets of $S\times S$ are functions?
+\begin{enumerate}
+ \item $f_1 = \{(1,2), (3,4), (4,1)\}$
+ \item $f_2 = \{(1,3), (2,3), (3,3), (4,3)\}$
+ \item $f_3 = \{(1,1), (2,2), (3,3), (3,4), (4,4)\}$
+ \item $f_4 = \{(1,3), (2,4), (3,1), (4,2)\}$
+\end{enumerate}
+\item In each part, you're given sets $A$ and $B$, and a function $f:A\to B$. Determine which functions are one-to-one.\label{q}
+\begin{enumerate}
+ \item $A=\{1,2,3,4\}, B=\{1,2,3\}$, and $f(1)=2, f(2)=4, f(3)=3, f(4)=4$.
+ \item $A=\{1,2,3\}, B=\{1,2,3,4\}$, and $f(1)=3, f(2)=2, f(3)=1$.
+ \item $A=B=\{1,2,3,4\}$, and $f(1)=2, f(2)=1, f(3)=2, f(4)=1$.
+ \item $A=B=\{1,2,3,4\}$, and $f(1)=3, f(2)=4, f(3)=1, f(4)=2$.
+ \item $A=B=\Z$, and $f(m)=-m$.
+ \item $A=B=\Z$, and $f(m)=2m$, if $m\geq 0$, and $f(m)=3m$, if $m<0$.
+ \item $A=B=\N$, and $f(n)=(n+1)/2$, if $n$ is even, and $f(n)=n/2$, if $n$ is odd.
+ \item $A=B=\N$, and $f(n)=n-1$ if $n$ is even, and $f(n)=n+1$, if $n$ is odd.
+\end{enumerate}
+\item Which if the functions in Problem \ref{q} are onto?
+\item Let $f:\Z\to\Z$ be given by $f(x)=3x+1$. Is $f$ one-to-one? Is $f$ onto? Justify your claims. Repeat the question for the function $g:\Q\to\Q$ given by $g(x)=3x+1$.
+\item Let $f:(\R\setminus\{4\})\to\R$ be given by $f(x)=\dfrac{3x}{x-4}$. Prove that $f$ is one-to-one but not onto.
+\item Let $A = \{(m,n)\in\Z\times\Z : n\neq 0\}$. Define $f:A\to\Q$ by $f(m,n) = \dfrac{m+n}{n}$. Is $f$ one-to-one? Is it onto? Justify your conclusions.
+\end{enumerate}
+
+
+
+\end{document}
+ 

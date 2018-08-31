@@ -1,0 +1,78 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+\newcommand{\T}{\mathcal{T}}
+\DeclareMathOperator{\Int}{Int}
+
+\title{Math 4310 Assignment \#12 Solutions\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+\item Prove that the antipodal map $f:S^1\to S^1$ given by $f(z)=-z$ is homotopic to the identity map.
+
+\bigskip
+
+The antipodal map can be written as $f(e^{i\theta}) = e^{i(\theta+\pi)}$, so an explicit homotopy between the two maps is given by
+\[
+F(e^{i\theta},t) = e^{i(\theta+t\pi)}.
+\]
+The map $F$ is continuous (it's a composition of continuous functions) and $F(e^{i\theta},0)$ is the identity on $S^1$, while $F(e^{i\theta},1)$ is the antipodal map.
+
+\bigskip
+
+\item Let $f:S^1\to S^1$ be the antipodal map as above. What is the effect of the induced isomorphism
+\[
+f_*:\pi_1(S^1,1)\to \pi_1(S^1,-1)?
+\]
+
+\bigskip
+
+From the above, we see that the effect of the antipodal map is a rotation of the circle through an angle of $\pi$ (rather than, say, a reflection). Let $\gamma(t) = e^{2n\pi i t}$ be a representative of an element of $\pi_1(S^1,1)$ corresponding to $n\in \Z$ under the isomorphism $\pi_1(S^1,1)\to \Z$. Then $f_*[\gamma] = [f\circ \gamma]$, where
+\[
+f\circ \gamma(t) = f(e^{2n\pi i t}) = e^{i(2n\pi t+\pi)}.
+\]
+In terms of the isomorphism with $\Z$, the induced isomorphism acts as the identity isomorphism $\Z\to\Z$. One way to see this is to note that to define the isomorphism $\pi_1(S^1,-1)\to\Z$, we simply change the covering map $\R\to S^1$ from $p(t)=e^{2\pi i t}$ to $q(t) = e^{i(2\pi t+\pi)}$. Viewing $\R$ as a `helix'  over the circle, when we rotate the circle, we rotate the helix. 
+
+Since there are choices involved in defining the various isomorphisms, it's hard to be more precise. The main thing to observe is that since the antipodal map is a rotation, each loop based at 1 is simply rotated by $\pi$ to get a loop at $-1$. The only two possibilities were a rotation (which preserves the direction of the loop) or a reflection (which would reverse the direction) and in this case we have a rotation.
+
+\bigskip
+
+\item (Do not hand in) Let $T = S^1\times S^1$ denote the two-dimensional torus. Show that there is a deformation retraction of the punctured torus $T\setminus\{p\}$ onto a pair of circles joined at a point, where $p\in T$ is any point.
+
+Think about this one for a bit. I was going to make it a bonus except it's incredibly easy to Google the solution. So instead, think about it. Once you've thought about it, Google it. You should be able to find a nice YouTube video illustrating exactly how the retraction works.
+
+\bigskip
+
+I hope you found the YouTube video. If not, here's a way to see the retraction: view $T$ as the quotient of the square $[0,1]\times [0,1]$ obtained by identifying opposite edges, and let the point $p$ correspond to four corners of the square. (Note that all four corners are identified to a single point.) Now enlarge the missing point to an open disc (you'll have a quarter disc in each corner), and from here you should be able to see that you can continue to expand the hole until you're left with a $\Large{+}$ in the middle of the square, and when you join the ends of the horizontal and vertical parts, you'll get two circles joined at a point.
+
+\item Prove that the space $X = \R^2\setminus \{p,q\}$, where $p,q\in\R^2$ with $p\neq q$ is homotopy equivalent to the figure-eight space $Y$ given by joining two circles at a point $b$.
+
+\bigskip
+
+As a ``proof'' I accepted any argument by pictures that illustrated how to obtain a deformation retraction of $\R\setminus \{p,q\}$ onto the figure eight. Writing down an explicit homotopy is tricky, but if you wanted to do so, here is a suggestion that might work: look up the family of curves known as Cassini Ovals -- these are curves defined by requiring that the {\em product} of the distances from a point on the curve to two foci are constant. One member of the family is the lemniscate, which is a figure eight curve. Each curve is given as the level set of a function, so you could use the gradient of that function to construct an orthogonal family of curves (this falls under the heading of orthogonal trajectories; you may have encountered these in the calculus sequence). Given any point other than the two foci, it should then be possible to follow a curve orthogonal to the family of Cassini ovals until you land on the lemniscate, and use this to define a homotopy.
+
+There are also simpler maps out there. (They're a little bit hard to track down on Google though.) If you want to argue using a picture, there's a good example on page 2 of the first chapter of Hatcher's book, which you can access via this link: \href{http://www.math.cornell.edu/~hatcher/AT/ATch0.pdf}{http://www.math.cornell.edu/~hatcher/AT/ATch0.pdf}.
+
+Alternatively, note that it's sufficient to convince yourself that a thickened figure eight retracts onto the figure eight curve.
+\end{enumerate}
+\end{document}
+ 

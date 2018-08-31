@@ -1,0 +1,147 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 11 Solutions}\rhead{November 30/December 1, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}   
+                 
+\begin{document}
+{\bf \large Name:} \hspace{2.5in} {\bf Tutorial day and time:}
+
+\bigskip
+
+{\bf Select {\bf one} {\em completed} problem for feedback:}
+
+\bigskip
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+ \begin{enumerate}
+\item Let $A$, $B$, and $C$ be $n\times n$ matrices such that $\det(A) = 2$, $\det(B)=-1$, and $\det(C) = 3$. Evaluate $\det(A^3BC^TB^{-1})$.
+
+\bigskip
+
+\[
+ \abs{A^3BC^TB^{-1}} = \abs{A^3}\abs{B}\abs{C^T}\abs{B^{-1}} = \abs{A}^3\abs{B}\abs{C}\left(\frac{1}{\abs{B}}\right) = 2^3(4) = 24.
+\]
+
+\bigskip
+
+\item If $A$ and $B$ are $3\times 3$ matrices such that $\det(2A^{-1}) = -4 = \det(A^3(B^{-1})^T)$, what are the values of $\det(A)$ and $\det(B)$?
+
+\bigskip
+
+Since $A$ is $3\times 3$, we have $\det(2A^{-1}) = 2^3\det(A^{-1}) = \frac{8}{\det(A)} = -4$, giving us $\det(A) = -2$. Using this, we find
+\[
+ \det(A^3(B^{-1})^T) = (\det(A))^3\det(B^{-1}) = \frac{(-2)^3}{\det(B)} = -4,
+\]
+and solving for $\det(B)$ gives us $\det(B) = 2$.
+
+\bigskip
+
+\item The matrix $A = \bbm 3&2&1\\1&4&1\\1&2&3\ebm$ has eigenvalues $\lambda=2$ and $\lambda=6$. Find the corresponding eigenvectors.
+
+\bigskip
+
+For the eigenvalue $\lambda = 2$, we have
+\[
+ A-2I = \bbm 3-2&2&1\\1&4-2&1\\1&2&3-2\ebm = \bbm 1&2&1\\1&2&1\\1&2&1\ebm \xrightarrow{\text{RREF}} \bbm 1&2&1\\0&0&0\\0&0&0\ebm.
+\]
+It follows that if $\vec{x} = \bbm x\\y\\z\ebm$ is a solution to $(A-2I)\vec{x}=\vec{0}$, then $y=s$ and $z=t$ are free variables, while $x+2y+z=0$ gives $x=-2s-t$. Thus,
+\[
+ \vec{x} = \bbm x\\y\\z\ebm = \bbm -2s-t\\s\\t\ebm = s\bbm -2\\1\\0\ebm + t\bbm -1\\0\\1\ebm.
+\]
+Since $\vec{u} = \bbm -2\\1\\0\ebm$ and $\vec{v} = \bbm -1\\0\\1\ebm$ are both basic solutions to the homogeneous system $(A-2I)\vec{x}=\vec{0}$, they must both be eigenvectors corresponding to the eigenvalue $\lambda=2$. (You should verify this by computing $A\vec{u}$ and $A\vec{v}$.)
+
+For the eigenvalue $\lambda=6$, we have
+\[
+ A-6I = \bbm 3-6&2&1\\1&4-6&1\\3&2&1-6\ebm = \bbm -3&2&1\\1&-2&1\\3&2&-5\ebm \xrightarrow{\text{RREF}} \bbm 1&0&-1\\0&1&-1\\0&0&0\ebm.
+\]
+Thus, any solution $\vec{x}\bbm x\\y\\z\ebm$ to $(A-6I)\vec{x}=\vec{0}$ must satisfy $x=y=z$, where $z=t$ is free. Setting $t=1$ gives us the eigenvector $\vec{w} = \bbm 1\\1\\1\ebm$ corresponding to the eigenvalue $\lambda=6$.
+
+
+\bigskip
+
+\item Compute the eigenvalues and eigenvectors of the matrix $A = \bbm 1&4\\2&3\ebm$.
+
+\bigskip
+
+We first compute the eigenvalues. We have
+\[
+ \det(A-xI) = \begin{vmatrix}1-x&4\\2&3-x\end{vmatrix} = (1-x)(3-x)-8 = x^2-4x+3-8 = x^2-4x+5 = (x+1)(x-5).
+\]
+Thus, $\det(A-xI)=0$ for the eigenvalues $\lambda_1 = -1$ and $\lambda_2=5$.
+
+For the eigenvalue $\lambda_1=-1$, we have
+\[
+ A-\lambda_1I = A+I = \bbm 2&4\\2&4\ebm \xrightarrow{\text{RREF}} \bbm 1&2\\0&0\ebm,
+\]
+so any solution $\vec{x} = \bbm x\\y\ebm$ to $(A+\lambda_1I)\vec{x}=\vec{0}$ must satisfy $x=-2y$, where $y$ is free. Setting $y=1$, we get the eigenvector $\vec{x}_1 = \bbm -2\\1\ebm$ corresponding to $\lambda_1=-1$.
+
+For $\lambda_2=5$, we have
+\[
+ A-\lambda_2I = A-5I = \bbm -4&4\\2&-2\ebm\xrightarrow{\text{RREF}} \bbm 1&-1\\0&0\ebm,
+\]
+so if $(A-5I)\vec{x}=\vec{0}$, we must have $\vec{x} = \bbm t\\t\ebm$ for some free parameter $t$. Setting $t=1$ gives us $\vec{x}_2 = \bbm 1\\1\ebm$ as the eigenvector corresponding to $\lambda_2=5$.
+
+\newpage
+
+
+\item Verify that the matrix $Z = \bbm 3&1\\-2&1\ebm$ has eigenvalues $\lambda_\pm = 2\pm i$ with corresponding eigenvectors $\vec{x}_+ = \bbm 1+i\\-2\ebm$, $\vec{x}_- = \bbm 1\\-1-i\ebm$.
+
+\bigskip
+
+We compute 
+\[
+Z\vec{x}_+ = \bbm 3&1\\-2&1\ebm\bbm 1+i\\-2\ebm = \bbm 3+3i-2\\-2-2i-2\ebm = \bbm 1+3i\\-4-2i\ebm. 
+\]
+On the other hand,
+\[
+ \lambda_+\vec{x}_+ = (2+i)\bbm 1+i\\-2\ebm = \bbm (2+i)(1+i)\\(2+i)(-2)\ebm = \bbm 1+3i\\-4-2i\ebm,
+\]
+so we have verified that $Z\vec{x}_+ = \lambda_+\vec{x}_+$. Similarly,
+\[
+ Z\vec{x}_- = \bbm 3&1\\-2&1\ebm\bbm 1\\-1-i\ebm = \bbm 3-1-i\\-2-1-i\ebm = \bbm 2-i\\-3-i\ebm = (2-i)\bbm 1\\-1-i\ebm = \lambda_-\vec{x}_-,
+\]
+as required.
+ \end{enumerate}
+\end{document}

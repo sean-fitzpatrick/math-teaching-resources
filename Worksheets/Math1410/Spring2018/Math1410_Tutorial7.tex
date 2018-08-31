@@ -1,0 +1,142 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.2in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}      
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 1410 - Tutorial \#7}\\
+Wednesday, March 7
+\end{center}
+\skipline \ \noindent \skipline
+
+\vspace*{\fill}
+
+
+
+
+
+
+
+Additional practice: (\textbf{do not submit}).
+\begin{enumerate}
+\item Determine if the following sets of vectors are linearly independent:
+\begin{multicols}{2}
+\begin{enumerate}
+\item $\left\{\bbm 3\\-2\\0\ebm, \bbm 1\\0\\-2\ebm, \bbm 0\\2\\-4\ebm\right\}$
+\item $\left\{\bbm 1\\-4\\2\ebm, \bbm 2\\-3\\1\ebm, \bbm -1\\-6\\4\ebm\right\}$
+\end{enumerate}
+\end{multicols}
+\item For each set of vectors in the previous problem, determine whether or not the vectors\\ $\vec{v} = \bbm 2\\-1\\3\ebm$ and $\vec{w} = \bbm -3\\2\\0\ebm$ belong to the span of the set.
+\end{enumerate}
+
+
+\newpage
+%\thispagestyle{empty}
+
+ \begin{enumerate}
+\item Let $\vec{u},\vec{v},\vec{w}$ be vectors in $\R^n$. Answer the following as precisely as possible:
+\begin{enumerate}
+\item What is a \textbf{linear combination} of $\vec{u}$, $\vec{v}$, and $\vec{w}$?
+
+\vspace{1in}
+
+\item What is the \textbf{span} of $\vec{u}$, $\vec{v}$, and $\vec{w}$?
+
+\vspace{1in}
+
+\item What does it mean to say that $\{\vec{u},\vec{v},\vec{w}\}$ is linearly independent?
+
+\vspace{1in}
+
+
+\end{enumerate}
+\item Find the basic solutions of the homogeneous system \hspace{24pt} $\arraycolsep1pt
+\begin{array}{ccccccccc}
+x&-&2y&+&z& & &=&0\\
+-2x&+&y&-&3z&-&w&=&0\\
+ & &3y&+&z&+&w&=&0
+\end{array}
+$.
+\newpage
+
+\item The following problems can be answered without doing any computations (but be sure to justify your answer):
+\begin{enumerate}
+\item Is the set of vectors $\left\{\bbm 2\\-1\ebm, \bbm 1\\-3\ebm, \bbm 4\\7\ebm\right\}$ linearly independent?
+
+\vspace{1in}
+
+\item Can the vectors $\left\{\bbm 1\\-1\\1\ebm, \bbm 2\\-2\\2\ebm, \bbm -3\\3\\-3\ebm\right\}$ span all of $\R^3$?
+
+\vspace{1in}
+
+\item Let $\vec{u}$ and $\vec{v}$ be vectors in $\R^3$. Will the set $\{\vec{u},\vec{v}, \vec{u}\times\vec{v}\}$ always be linearly independent? If not, what can go wrong?
+
+\vspace{1in}
+\end{enumerate}
+
+\item Let $\vec{u} = \bbm 1\\-2\\0\ebm$ and $\vec{v} = \bbm 0\\-1\\3\ebm$. Determine a nonzero vector $\vec{w}$ such that the set $\{\vec{u},\vec{v},\vec{w}\}$ is:
+\begin{enumerate}
+\item Linearly dependent:
+
+\vspace{0.75in}
+
+\item Linearly independent:
+\end{enumerate}
+\newpage
+
+\item Show that the vectors $\bbm 1\\2\\-1\ebm, \bbm 0\\1\\-2\ebm, \bbm 3\\4\\1\ebm$ are linearly dependent.
+
+\vspace{4in}
+
+\item Challenge: Determine a condition on  $a$, $b$, and $c$ that guarantees $\bbm a\\b\\c\ebm$ belongs to the span of the vectors in the previous problem.
+
+ \end{enumerate}
+ 
+\end{document}

@@ -1,0 +1,163 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}
+\newtheorem{rem}[theorem]{Remark}
+\newenvironment{remark}{\begin{rem}\rm}{\end{rem}}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{eg}[theorem]{Example}
+\newenvironment{example}{\begin{eg}\rm}{\end{eg}}
+\newtheorem{definition}[theorem]{Definition}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\D}{\mathbf{D}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\h}{\mathbf{h}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\len}[1]{\lVert #1\rVert}
+
+\title{Differentiable functions of several variables}
+\author{Sean Fitzpatrick}
+\begin{document}
+\maketitle
+
+Since I'm using a different defintion of differentiability than the one found in most textbooks, I've prepared this handout with the details. I'll give the general result for $n$ variables, using vector notation. Feel free to translate back into coordinate notation for the cases of two or three variables.
+\section{Real-valued functions}
+Let $f:D\subseteq \R^n\to \R$ be a given function of $n$ variables (you can assume $n=1, 2$ or 3 if you prefer). Let us denote a point $(x_1,x_2,\ldots, x_n)\in\R^n$ using the vector $\x = \langle x_1,x_2,\ldots, x_n\rangle$, so that $f(\x) = f(x_1,x_2,\ldots,x_n)$. Let $\aaa = \langle a_1,a_2,\ldots, a_n\rangle$ denote a fixed point $(a_1,a_2,\ldots, a_n)\in D$.
+
+\begin{definition}
+ The {\bf gradient} of $f$ at $\aaa\in D$ is the vector $\nabla f(\aaa)$ defined by
+ \[
+ \nabla f(\aaa) = \left< \frac{\partial f}{\partial x_1}(\aaa),\frac{\partial f}{\partial x_2}(\aaa),\ldots, \frac{\partial f}{\partial x_n}(\aaa)\right>.
+ \]
+ The {\bf linearization} of $f$ at $\aaa$ is the function $L_\aaa(\x)$ defined by
+ \[
+ L_\aaa(\x) = f(\aaa) + \nabla f(\aaa)\dotp (\x-\aaa).
+ \]
+\end{definition}
+Note that when $n=1$, we get the linearization $L_a(x) = f(a)+f'(a)(x-a)$, which is the definition of the linearization given in a single-variable calculus course. (You might also notice that $L_a(x)$ is the first-degree Taylor polynomial of $f$ about $x=a$. The same is true of the linearization of $f$ for more than one variable, although we will not be considering Taylor polynomials in several variables.) If $n=2$, we get the linearization given in class:
+\begin{align*}
+L_{(a,b)}(x,y) &= f(a,b)+\langle f_x(a,b),f_y(a,b)\rangle\dotp \langle x-a,y-b\rangle\\
+& = f(a,b) + f_x(a,b)(x-a)+f_y(a,b)(y-b).
+\end{align*}
+\begin{remark}
+If the point $\aaa\in D$ at which we are considering the linearization is fixed/clear in a given problem, we can drop the subscript in the notation, and simply write $L(\x)$ instead of $L_\aaa(\x)$.
+\end{remark}
+\begin{definition}\label{dif}
+We say that $f$ is {\bf differentiable} at $\aaa\in D$ if $\nabla f(\aaa)$ exists, and $f(\x)$ and $L_\aaa(\x)$ agree to first order at $\aaa$; that is, if
+\[
+\lim_{\x\to \aaa}\frac{f(\x)-L_\aaa(\x)}{\lVert \x-\aaa\rVert} = \lim_{\x\to\aaa}\frac{f(\x)-f(\aaa)-\nabla f(\aaa)\dotp \langle \x-\aaa\rangle}{\lVert\x - \aaa\rVert} = 0.
+\]
+\end{definition}
+What this definition says is that the linearization $L_\aaa(\x)$ is a good linear approximation to $f$ at $\aaa$. In fact, it's the {\em only} (and hence, best) linear approximation: if a linear approximation exists, it has to be $L_\aaa(\x)$. If you want to see why this has to be true, recall that since the above limit exists, we have to be able to evaluate it along any path we like. In particular, we can choose a path where we let $x_i\to a_i$ for some $i\in\{1,\ldots, n\}$, while setting $x_j=a_j$ for all $j\neq i$. (What do you get if you evaluate the limit along such a path?)
+\begin{remark}
+Note that $\lVert \x-\aaa\rVert = \sqrt{(x_1-a_1)^2+\cdots +(x_n-a_n)^2}$ is the distance from $\x$ to $\aaa$. In general, we would say that two functions $f(\x)$ and $g(\x)$ ``agree up to order $k$'' at $\aaa$ if
+\[
+\lim_{\x\to\aaa}\frac{f(\x)-g(\x)}{\lVert \x-\aaa\rVert^k} = 0.
+\]
+{\bf Exercise:} Check that, for $n=1$, two functions $f$ and $g$ agree up to order $k$ at $a$ if and only if their degree $k$ Taylor polynomials are equal. (A similar statement is true in more than one variable.)
+\end{remark}
+\begin{remark}
+When $n=1$, we have that $\nabla f(a) = f'(a)$ (a vector with one only component is just a number), and existence of $f'(a)$ immediately implies differentiability: since by definition we have
+\[
+f'(a) = \lim_{x\to a}\frac{f(x)-f(a)}{x-a},
+\]
+it follows from the limit laws that
+\begin{align*}
+0 = \lim_{x\to a}\frac{f(x)-f(a)}{x-a} - f'(a) &= \lim_{x\to a}\left(\frac{f(x)-f(a)}{x-a} - \frac{f'(a)(x-a)}{x-a}\right)\\
+& = \lim_{x\to a}\frac{f(x)-f(a)-f'(a)(x-a)}{x-a}.
+\end{align*}
+If we try to take $\nabla f(\aaa)$ out of the limit to get an expression like that for $f'(a)$, we immediately run into trouble, since we end up with the term $\nabla f(\aaa)\dotp\left(\dfrac{\x-\aaa}{\lVert\x-\aaa\rVert}\right)$: in the numerator we have the dot product with the vector $\x-\aaa$, while in the denominator we have the length of that vector. The only time that these cancel is when $n=1$. (You might be tempted to write the dot product as $\lVert\nabla f(\aaa)\rVert\lVert\x-\aaa\rVert\cos\theta$, so that the $\lVert\x-\aaa\rVert$ terms cancel, but we would still have the problem that $\cos\theta$ depends on the way in which $\x$ approaches $\aaa$.)
+\end{remark}
+Recall that in one variable, the derivative is often written instead in terms of $h=x-a$, so that
+\[
+f'(a) = \lim_{h\to 0}\frac{f(a+h)-f(a)}{h}.
+\]
+In more than one variable, we can define $h_i = x_i-a_i$, for $i=1,\ldots, n$, or the corresponding vector $\h = \x-\aaa$. The definition of differentiability then can be written as
+\[
+\lim_{\h\to \mathbf{0}}\frac{f(\aaa+\h)-f(\aaa)-\nabla f(\aaa)\dotp\h}{\lVert \h\rVert} = 0.
+\]
+Note that we want the difference between $f(\aaa+\h)$ and $L_\aaa(\h)$ to go to zero faster than $\lVert \h\rVert$ goes to zero, and that it only makes sense to divide by the length of $\h$, since division by a vector (or the corresponding point) is not defined.
+
+Finally, since the algebra didn't fit on the blackboard all that well, here is a proof that every differentiable function is continuous:
+\begin{theorem}
+If $f:D\subseteq \R^n\to \R$ is differentiable at $\aaa\in D$, then $f$ is continuous at $\aaa$.
+\end{theorem}
+\begin{proof}
+Suppose that $f$ is differentiable at $\aaa$. Then we know that
+\[
+\lim_{\x\to \aaa}\frac{f(\x)-L_\aaa(\x)}{\lVert \x-\aaa\rVert} = \lim_{\x\to\aaa}\frac{f(\x)-f(\aaa)-\nabla f(\aaa)\dotp \langle \x-\aaa\rangle}{\lVert\x - \aaa\rVert} = 0.
+\]
+By the definition of continuity, we need to show that $\displaystyle \lim_{\x\to\aaa}f(\x) = f(\aaa)$. We have that
+\begin{align*}
+f(\x) & = f(\aaa) + (f(\x)-f(\aaa))\\
+ & = f(\aaa) + \left(f(\x) - f(\aaa) - \nabla f(\aaa)\dotp (\x-\aaa)\right) + \nabla f(\aaa)\dotp (\x-\aaa)\\
+ & = f(\aaa) +\left(\frac{f(\x)-f(\aaa)-\nabla f(\aaa)\dotp (\x-\aaa)}{\lVert\x-\aaa\rVert}\right)(\lVert\x-\aaa\rVert) + \nabla f(\aaa)\dotp (\x-\aaa).
+\end{align*}
+Thus, taking limits of the above as $\x\to\aaa$, we find $\displaystyle \lim_{\x\to\aaa}f(\x) = f(\aaa)$, since the first term is a constant ($f(\aaa)$), the second is the product of two terms that both go to zero (the first term is zero by the definition of differentiability, and clearly $\lim_{\x\to\aaa}\lVert\x-\aaa\rVert = 0$), and the last term vanishes since it's linear (and thus continuous) in $\x$, and so, by direct substitution, $\lim_{\x\to\aaa}\nabla f(\aaa)\dotp(\x-\aaa) = \nabla f(\aaa)\dotp(\aaa-\aaa) = 0$.
+\end{proof}
+\pagebreak
+
+\section{Vector-valued functions}
+It's possible to extend Definition \ref{dif} to functions $f:D\subseteq \R^n\to \R^m$. If we apply the convention of representing points in terms of their position vectors to the codomain as well as the domain, we can express such a function as $f=\langle f_1,\ldots, f_n\rangle$, where each function $f_i$ is a real-valued function of $n$ variables. 
+\begin{remark}
+ In this section we need to be a bit more careful about working with vectors. Let us agree that the notation $\langle a_1,a_2,\ldots, a_n\rangle$ is equivalent notation for the {\bf column vector} $\begin{bmatrix}a_1\\a_2\\ \vdots\\a_n\end{bmatrix}$. The former is preferable within a paragraph since it fits on a single line. The column vector notation is necessary in the context of matrix multiplication: we want an $m\times n$ matrix $A$ to define a function $f:\R^n\to \R^m$ according to
+\[
+ f(\x) = A\x = \begin{bmatrix}a_{11} & a_{12} & \cdots & a_{1n}\\
+                a_{21} & a_{22} & \cdots & a_{2n}\\
+		\vdots & \vdots & \ddots & \vdots\\
+		a_{m1} & a_{m2} & \cdots & a_{mn}
+               \end{bmatrix}\begin{bmatrix}x_1\\x_2\\ \vdots \\x_n\end{bmatrix}\\
+=\begin{bmatrix}a_{11}x_1+a_{12}x_2+\cdots + a_{1n}x_n\\ a_{21}x_1+a_{22}x_2+\cdots + a_{2n}x_n\\ \vdots\\ a_{m1}x_1+a_{m2}x_2+\cdots + a_{mn}x_n\end{bmatrix}
+\]
+Using column vectors, the most general linear\footnote{Here, we're using the calculus meaning of linear, generalizing from the linear function $f(x)=ax+b$ in one variable. In linear algebra, linear functions are required to preserve the zero vector (origin) so $\bbb=\mathbf{0}$ is required in that context.} function $L:\R^n\to \R^m$ can be written as
+\[
+ L(\x) = A\x + \bbb,
+\]
+where $\x\in\R^n$, $\bbb\in\R^m$, and $A$ is an $m\times n$ matrix, so that $A\x$ is an $m\times 1$ matrix; that is, a column vector in $\R^m$.
+\end{remark}
+We again define differentiability to mean the existence of a ``good'' linear approximation. Since $f(\x)$ and $L_{\aaa}(\x)$ are now vectors, saying that $L_{\aaa}(\x)$ is a good approximation to $f(\x)$ is the same as saying that the magnitude $\len{f(\x)-L_{\aaa}(\x)}$ is small relative to $\len{\x-\aaa}$; that is,
+\[
+ lim_{\x\to\aaa}\frac{\len{f(\x)-L_{\aaa}(\x)}}{\len{\x-\aaa}} = 0.
+\]
+With a bit of work, we can see what the function $L_{\aaa}$ has to be. First of all, we need to have $L{\aaa}(\aaa) = f(\aaa)$, or else the numerator won't go to zero as $\x\to\aaa$. This forces us to take (exercise) $L_{\aaa}(\x) = A(\x-\aaa)+f(\aaa)$. Thus, we have
+\[
+ f(\x) - L_{\aaa}(\x) = f(\x)-f(\aaa)-A(\x-\aaa).
+\]
+This should be reminding you a bit of the numerator in the one variable case: $f(x)-f(a)-f'(a)(x-a)$. With that in mind, this matrix $A$, whatever it is, should be thought of as {\em the} derivative in the general case of functions from $\R^n$ to $\R^m$. To see what it should be, we try letting $\x\to\aaa$ along different paths. If we consider the path $x_1 = a_1+t, x_2=a_2, \ldots, x_n=a_n$ (that is, varying $x_1$ while holding the other variables constant) then
+\[
+ \x - \aaa = \begin{bmatrix}a_1+t\\a_2\\\vdots \\a_n\end{bmatrix} - \begin{bmatrix}a_1\\a_2\\\vdots \\a_n\end{bmatrix} = t\begin{bmatrix}1\\0\\\vdots\\0\end{bmatrix},
+\]
+so $A(\x-\aaa)$ gives us $t$ times the first column of $A$ (check this). Rearranging the limit gives us
+\[
+ \lim_{t\to 0}\left[\frac{f(a_1+t,a_2,\ldots, a_n)-f(a_1,a_2,\ldots, a_n)}{t} - \begin{bmatrix}a_{11}\\a_{21}\\\vdots \\a_{m1}\end{bmatrix}\right] = 0. 
+\]
+If we write $f(\x) = \begin{bmatrix}f_1(\x)\\f_2(\x)\\\vdots \\f_m(\x)\end{bmatrix}$, then we have
+\[
+ \lim_{t\to 0}\frac{f(a_1+t,a_2,\ldots, a_n)-f(a_1,a_2,\ldots, a_n)}{t} = \begin{bmatrix}\frac{\partial f_1}{\partial x_1}(\aaa)\\\frac{\partial f_2}{\partial x_1}(\aaa)\\\vdots\\\frac{\partial f_m}{\partial x_1}(\aaa)\end{bmatrix},
+\]
+and this should equal to the first column of $A$! Repeating this for each variable, we see that the matrix $A$ is exactly the Jacobian matrix of partial derivatives. That is,
+\[
+ A = D_{\aaa}f = \begin{bmatrix}\frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n}\\
+                  \vdots & \ddots & \vdots \\
+		  \frac{\partial f_m}{\partial x_1} & \cdots & \frac{\partial f_m}{x_n}
+                 \end{bmatrix}.
+\]
+In particular, note that for a function $f:\R^n\to \R$, we recover the gradient vector. (Technically, the derivative in this case is a {\bf row} vector, not a column vector. The gradient is the corresponding column vector, so it's not the ``true'' derivative, but dual to it. Note that multiplying a row vector by a column vector is the same as taking the dot product of two column vectors. 
+
+This definition also accounts for parametric curves, viewed as vector-valued functions of one variable. If $\mathbf{r}:\R\to \R^n$ defines a parametric curve, then the derivative $\mathbf{r}'(t) = \begin{bmatrix}x_1'(t)\\x_2'(t)\\\vdots \\x_n'(t)\end{bmatrix}$ as introduced in Calculus III is the same as the one obtained using this definition.
+
+
+\end{document}

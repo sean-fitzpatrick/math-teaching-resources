@@ -1,0 +1,231 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsthm}
+\usepackage{graphicx}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\DeclareMathOperator{\nul}{null}
+
+\title{Math 3410 Assignment \#5\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Thursday, April 2nd, by 5 pm.
+
+\bigskip
+
+Please provide solutions to the problems below, using the usual guidelines. In particular, you should include a cover page and a reasonable good copy. Your cover page should reference any resources used to complete the assignment, including websites and people. The rules about how you're not supposed to cheat on your assignment remain the same as for previous assignments. In particular, you must {\bf cite all sources}.
+\subsection*{Assigned problems}
+Before you begin, type the following phrases into Google\footnote{Or some other search engine of your choice. I hear there's something called Bing?}, and read the first one or two websites that come up: ``orthogonal diagonalization'', ``positive-definite matrix'', ``principal axes theorem'', ``self-adjoint operator''.
+
+For the purposes of this assignment, $\R^n$ (or $\C^n$) will denote the vector space of $n\times 1$ column vectors, and we will work with $n\times n$ matrices rather then operators.
+\begin{enumerate}
+ \item Recall that an $n\times n$ (real) matrix is {\em symmetric} if $A^T=A$. Suppose that $A$ is symmetric, and $\lambda_1$ and $\lambda_2$ are distinct eigenvalues of $A$ with corresponding eigenvectors $v_1$ and $v_2$. Prove that $v_1$ and $v_2$ are orthogonal with respect to the standard dot product on $\R^n$.
+
+{\em Hint:} First show that if $A$ is symmetric, then $x\boldsymbol{\cdot}(Ay) = (Ax)\boldsymbol{\cdot}y$ for any $x,y\in\R^n$. (Recall that $x\boldsymbol{\cdot}y = y^Tx$.)
+ 
+
+If you're working over $\R$: since $A$ is symmetric, we have $A^T=A$, and thus
+\[
+ x\dotp (Ay) = (Ay)^Tx = (y^TA^T)x = y^T(Ax) = (Ax)\dotp y.
+\]
+If you're working over $\C$: since $A$ is Hermitian, we have $A^\dagger = A$, and thus
+\[
+ \langle x, Ay\rangle = (Ay)^\dagger x = (y^\dagger A^\dagger)x = y^\dagger (Ax) = \langle Ax,y\rangle.
+\]
+In either case, we have $\langle Ax ,y\rangle = \langle x,Ay\rangle$, where $\langle\dotp,\dotp\rangle$ denotes either the real or complex dot product, depending on the context.
+
+Now (over $\R$ or $\C$), suppose that $v_1$ and $v_2$ are eigenvectors of $A$ corresponding to distinct eigenvalues $\lambda_1\neq \lambda_2$. Then if $A$ is symmetric (Hermitian) we have
+\[
+ \lambda_1\langle v_1,v_2\rangle = \langle \lambda_1v_1,v_2\rangle = \langle Av_1,v_2\rangle = \langle v_1, Av_2\rangle = \langle v_1,\lambda_2v_2\rangle = \overline{\lambda_2}\langle v_1,v_2\rangle.
+\]
+In the real case, we automatically have $\overline{\lambda_2}=\lambda_2$, and since $\lambda_1\langle v_1,v_2\rangle = \lambda_2\langle v_1,v_2\rangle$, we have
+\[
+ (\lambda_1-\lambda_2)\langle v_1,v_2\rangle =0,
+\]
+and since $\lambda_1-\lambda_2\neq 0$ by assumption, we must have $\langle v_1,v_2\rangle=0$, and thus $v_1$ and $v_2$ are orthogonal, as required.
+
+In the complex case, the same proof applies, but we first need the following result:
+
+\noindent {\bf Lemma} (And bonus question 6(a)): If $A$ is a Hermitian matrix, then the eigenvalues of $A$ are real.
+
+
+\medskip
+
+\begin{proof}
+ Suppose that $A$ is Hermitian, so that $\langle Av,w\rangle = \langle v,Aw\rangle$ for any $v,w\in V$, as shown above, and that $\lambda$ is an eigenvalue of $A$. Let $v$ be a corresponding eigenvector, so that $Av = \lambda v$. By multiplying by $1/\len{v}$ if necessary, we may assume that $\len{v}=1$. Then we have
+\[
+ \lambda = \lambda\langle v,v\rangle = \langle \lambda v,v\rangle = \langle Av,v\rangle = \langle v,Av\rangle = \langle v,\lambda v\rangle = \overline{\lambda}\langle v,v\rangle = \overline{\lambda}.
+\]
+Since $\overline{\lambda}=\lambda$, we must have $\lambda\in\R$.
+\end{proof}
+
+
+ \item ({\bf Do not submit}) Recall that an $n\times n$ matrix $P$ is {\em orthogonal} if $P^T = P^{-1}$. Prove that the columns of $P$ form an orthonormal basis of $\R^n$.
+
+\bigskip
+
+\begin{proof}
+ Let $C_1,\ldots C_n$ denote the columns of $P$, and let $R_1,\ldots, R_n$ denote the rows of $P^T$. Then by definition of transpose, we have $R_i=C_i^T$ for all $i=1,\ldots, n$. If $P^T=P^{-1}$, then we must have $P^TP=I_n$. But the $(i,j)$-entry of $P^TP$ is equal to
+\[
+ R_iC_j = C_i^TC_j = C_i\dotp C_j,
+\]
+and the $(i,j)$-entry of $I_n$ is $\delta_{ij} = \begin{cases} 1, \text{ if } i=j\\ 0, \text{ if } i\neq j\end{cases}$, and thus we have $C_i\dotp C_j = \delta_{ij}$ for all $i,j=1,\ldots, n$, which is the definition of an orthonormal basis.
+\end{proof}
+{\bf Note:} The same proof works in the complex case, with $A^T$ replaced by $A^\dagger$. A complex matrix $A$ such that $A^\dagger = A^{-1}$ is called a {\em unitary} matrix. As above, the $i^{th}$ row of $A^\dagger$ is $C_i^\dagger = \overline{C_i}^T$, and we get
+\[
+ \delta_{ij} = R_iC_j = C_i^\dagger C_j = \langle C_j,C_i\rangle.
+\]
+
+
+ 
+One can prove that every symmetric matrix $A$ can be {\em orthogonally diagonalized}; that is, there exists an orthogonal matrix $P$ such that $PAP^T=D$ is diagonal. Using this result, solve the following problem:
+
+ \item ({\bf Do not submit}) An $n\times n$ matrix $A$ is called {\em positive-definite} if $X^TAX> 0$ for all non-zero $X\in \R^n$. Prove that a symmetric matrix $A$ is positive-definite if and only if every eigenvalue of $A$ is positive.
+
+\bigskip
+
+Suppose that $A$ is symmetric and positive definite. Since $A$ is a symmetric matrix, there exists an orthogonal matrix $P$ such that $P^TAP=D$, where $D$ is a diagonal matrix. Let $\lambda_1,\ldots, \lambda_n$ denote the entries on the main diagonal of $D$ (which are also the eigenvalues of $A$).
+
+Let $E_1,E_2,\ldots, E_n$ denote the standard basis vectors for $\R^n$. Since $A$ is positive definite, for each $i=1,\ldots, n$ we must have
+\[
+ \lambda_i = \lambda_i\langle E_i,E_i\rangle = E_i^TDE_i = E_i^T(P^TAP)E_i = (PE_i)^TA(PE_i)>0,
+\]
+since $A$ is positive-definite. (Since $P$ is invertible and $E_i\neq 0$, we must have $PE_i\neq 0$.)
+
+Conversely, suppose $A$ is symmetric and every eigenvalue of $A$ is positive. Let $X=\begin{bmatrix}x_1&x_2&\cdots x_n\end{bmatrix}^T$ be any non-zero vector in $\R^n$, and let $Y=P^TX = \begin{bmatrix}y_1&y_2&\cdots &y_n\end{bmatrix}^T$. Note that $Y$ must also be non-zero. Then
+\[
+ X^TAX = X^T(PDP^T)X = (P^TX)^TD(P^TX) = Y^TDY = \lambda_1y_1^2+\cdots +\lambda_ny_n^2>0,
+\]
+so $A$ is positive-definite.
+
+{\bf Note:} It's actually sufficient to assume that $A=PDP^T$, where $P$ is orthogonal, since this implies that $A^T = (PDP^T)^T = (P^T)^TD^TP^T = PDP^T$, since $D^T=D$ for any diagonal matrix $D$.
+
+A similar proof works in the complex case. If $A$ is Hermitian, then there exists a ({\em real}, by the lemma above) diagonal matrix $D$ and a unitary matrix $U$ such that $A = UDU^\dagger$. (And conversely, if $A=UDU^\dagger$, then $A$ is Hermitian.) The definition of positive-definite in the complex setting is
+\[
+ Z^\dagger AZ>0 \text{ for all column vectors } Z\in\C^n,
+\]
+and the proof above can be adapted to show that a Hermitian matrix is posistive-definite if and only if its eigenvales are all positive.
+ 
+ \item Let $A$ be a symmetric, positive-definite matrix. Prove that $\langle X,Y\rangle = Y^TAX$ defines an inner product on $\R^n$.
+
+\bigskip
+
+\begin{proof}
+ Define a map $\langle \cdot, \cdot \rangle: \F^n\times \F^n\to \mathbb{F}$ by $\langle X,Y\rangle = Y^TAX$, where $A$ is symmetric (Hermitian) and positive-definite. We need to verify that this map satisfies the definition of an inner product, so we verify the properties one-by-one.
+
+\begin{itemize}
+ \item Positivity: Let $X\in\F^n$ be a nonzero vector. Then $\langle X,X\rangle = X^\dagger AX>0$, by the definition of a positive-definite matrix.
+ \item Definiteness: If $X=0$, then clearly $\langle 0,0\rangle = 0^TA0 = 0$. If $X^\dagger A X=0$ for some $X\in\F^n$, then we must have $X=0$, since otherwise $A$ would not be positive-definite.
+ \item Additivity: For any $X,Y,Z\in \F^n$, the properties of matrix multiplication show that
+\[
+ \langle X+Y,Z\rangle = Z^\dagger A(X+Y) = Z^\dagger AX+Z^\dagger AY = \langle X,Z\rangle + \langle Y,Z\rangle.
+\]
+ \item Homgeneity: For any $X,Y\in\F^n$ and $\alpha\in\F$, using the properties of matrix multiplication we have
+\[
+ \langle \alpha X,Y\rangle = Y^\dagger A(\alpha X) = \alpha(Y^\dagger AX) = \alpha\langle X,Y\rangle.
+\]
+ \item Conjugate symmetry: Since $A$ is symmetric/Hermitian, for any $X,Y\in\F^n$ we have
+\[
+ \langle Y,X\rangle = X^\dagger (AY) (X^\dagger A)Y = (A\dagger X)^\dagger Y = (AX)^\dagger Y = (Y^\dagger (AX))^\dagger = \langle X,Y\rangle^\dagger = \overline{\langle X,Y\rangle}, 
+\]
+since if $\lambda$ is a scalar, then $\lambda^\dagger = \overline{\lambda}$.
+
+\end{itemize}
+Since all five properties of an inner product are satisfied, we've completed our proof.
+\end{proof}
+
+ 
+ \item A {\em quadratic form} on $\R^n$ is an expression of the form
+ \[
+ q(x_1,\ldots, x_n) = \sum_{i\leq j}a_{ij}x_ix_j.
+ \]
+ For example, $q(x,y) = 2x^2-3xy+y^2$ and $q(x,y,z) = x^2+xy+2yz-xz$ are quadratic forms. There is a one-to-one correspondence between quadratic forms and symmetric matrices. If $A$ is symmetric, we can define a quadratic form by
+ \[
+ q(X) = X^TAX, \text{ where } X = \begin{bmatrix}
+ x_1\\x_2\\\vdots\\x_n
+ \end{bmatrix}.
+ \]
+ \begin{enumerate}
+ \item For the quadratic form $q(x,y)=5x^2-4xy+5y^2$ find a symmetric matrix $A$ such that $q(x,y)=\begin{bmatrix}x&y\end{bmatrix}A\begin{bmatrix}x\\y\end{bmatrix}$.
+
+\bigskip
+
+If $A = \begin{bmatrix}5&-2\\-2&5\end{bmatrix}$, then $A$ is symmetric, and
+\[
+ \begin{bmatrix}x&y\end{bmatrix}\begin{bmatrix}5&-2\\-2&5\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}x&y\end{bmatrix}\begin{bmatrix}5x-2y\\-2x+5y\end{bmatrix} = 5x^2-2xy-2yx+5y^2 = 5x^2-4xy+5y^2,
+\]
+as required.
+
+
+ \item Diagonalize the matrix $A$ from part (a).
+
+\bigskip
+
+We know that $\lambda$ is an eigenvalue of $A$ if and only if
+\[
+ 0 = \begin{vmatrix}5-\lambda&-2\\-2&5-\lambda\end{vmatrix} = \lambda^2-10\lambda+25-4 = (\lambda-3)(\lambda-7),
+\]
+so the eigenvalues of $A$ are $\lambda=3$ and $\lambda=7$.
+
+For $\lambda=3$ we have $A-3I = \begin{bmatrix}2&-2\\-2&2\end{bmatrix}$, and we can see that a basic eigenvector for $\nul(A-3I)$ is $v_1 = \begin{bmatrix}1&1\end{bmatrix}$.
+
+For $\lambda = 7$, we have $A-7I = \begin{bmatrix}-2&-2\\-2&-2\end{bmatrix}$, so a basic eigenvector for $\nul(A-7I)$ is $v_2 = \begin{bmatrix}1&-1\end{bmatrix}$.
+
+We note that $v_1$ and $v_2$ are orthogonal, as expected. If we let 
+\[
+ P = \frac{1}{\sqrt{2}}\begin{bmatrix}1&1\\1&-1\end{bmatrix},
+\]
+then $P$ is orthogonal (as expected), and also symmetric (an added bonus). Thus, $P^T=P^{-1}=P$, and we check that
+\[
+ P^TAP = \frac{1}{2}\begin{bmatrix}1&1\\1&-1\end{bmatrix}\begin{bmatrix}5&-2\\-2&5\end{bmatrix}\begin{bmatrix}1&1\\1&-1\end{bmatrix} = \begin{bmatrix}3&0\\0&7\end{bmatrix} = D,
+\]
+as expected.
+
+\bigskip
+
+ \item Identify the equation $5x^2-4xy+4y^2=1$ as a conic section, and sketch its graph.
+
+\bigskip
+
+From part (a), we know that the equation can be written as $\begin{bmatrix}x&y\end{bmatrix}A\begin{bmatrix}x\\y\end{bmatrix}=1$, where $A$ is the symmetric matrix above. From part (b), we know that we can write $A=PDP$ (we should have $A=PDP^T$ but $P^T=P$ in this case), and thus the equation is
+\begin{align*}
+ \begin{bmatrix}x&y\end{bmatrix}A\begin{bmatrix}x\\y\end{bmatrix}&=\begin{bmatrix}x&y\end{bmatrix}(PDP)\begin{bmatrix}x\\y\end{bmatrix}=(\begin{bmatrix}x&y\end{bmatrix}P)A(P\begin{bmatrix}x\\y\end{bmatrix})\\
+& = \begin{bmatrix}u&v\end{bmatrix}D\begin{bmatrix}u\\v\end{bmatrix} = 3u^2+7v^2=1,
+\end{align*}
+where $\begin{bmatrix}u\\v\end{bmatrix} = \dfrac{1}{\sqrt{2}}\begin{bmatrix}1&1\\1&-1\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}$. Thus, we recognize the equation as that of an ellipse, with respect to the coordinates $u$ and $v$. 
+
+To sketch the graph, you need to do two things:
+
+1. Make sure you know what the graph $3x^2+7y^2=1$ looks like.
+
+2. Figure out how to impose the $u$ and $v$ axes over the $x$ and $y$ axes.
+
+I'll leave you to figure out (1), perhaps by asking Wolfram Alpha. For (2), note that the $u$-axis corresponds to the set of points where $v=0$, and since $v=\dfrac{1}{\sqrt{2}}(x-y)$, the $u$-axis must correspond to the line $y=x$. Similarly, the $v$-axis must correspond to $u=0$, which is the line $y=-x$.
+
+It follows that the ellipse is given by taking the ellipse $3x^2+7y^2=1$ and rotating it counter-clockwise through an angle of $\pi/4$. If you want to verify your result, you can again ask Wolfram Alpha to plot the curve given by $5x^2-4xy+5y^2=1$. The result should look something like the sketch below:
+
+\bigskip
+
+\begin{center}
+ \includegraphics[width=3in]{ellipse.pdf}
+\end{center}
+
+
+
+ \end{enumerate}
+ \end{enumerate}
+\end{document}
+ 

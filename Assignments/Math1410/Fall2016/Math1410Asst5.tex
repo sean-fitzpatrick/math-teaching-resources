@@ -1,0 +1,133 @@
+\documentclass[letterpaper,12pt]{amsart}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+                   
+\title{Math 1410 Assignment \#5\\University of Lethbridge, Fall 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} {\bf Tuesday}, November 29th, by 4:00 pm.
+
+\bigskip
+
+Please review the {\bf Guidelines for preparing your assignments} before submitting your work. You can find these guidelines, along with the required cover page, in the Assignments section on our Moodle site.
+
+
+
+\subsection*{Assigned problems}
+\begin{enumerate}
+
+\item Recall that an $n\times n$ matrix $A$ is {\bf idempotent} if $A^2=A$. Show that:
+
+\medskip
+
+\begin{enumerate}
+ \item The identity matrix $I$ is the only invertible idempotent matrix.
+
+\medskip
+
+ \item A matrix $A$ is idempotent if and only if $I-2A$ is self-inverse. 
+
+\medskip
+
+ \item If $A$ is idempotent, then $I-kA$ is invertible for any $k\neq 1$, and
+\[
+ (I-kA)^{-1} = I+\left(\frac{k}{1-k}\right)A.
+\]
+\end{enumerate}
+
+\bigskip
+
+
+\item Recall that an $n\times n$ matrix $A$ is {\bf symmetric} if $A^T=A$, and {\bf antisymmetric} if $A^T=-A$.
+
+\bigskip
+
+\begin{enumerate}
+ \item Show that $B+B^T$ is symmetric for {\bf any} $n\times n$ matrix $B$.
+
+\medskip
+
+ \item Show that $B-B^T$ is antisymmetric for {\bf any} $n\times n$ matrix $B$.
+
+\medskip
+
+ \item Given any $n\times n$ matrix $B$, find a symmetric matrix $U$ and an antisymmetric matrix $V$ such that $B=U+V$.
+\end{enumerate}
+
+\bigskip
+
+\item What can be said about the determinant of $A$ if:
+
+\medskip
+
+\begin{enumerate}
+ \item $A$ is idempotent.
+
+\medskip
+
+ \item $A$ is self-inverse.
+
+\medskip
+
+ \item $A$ is antisymmetric.  
+\end{enumerate}
+
+\bigskip
+
+\item Determine all values of $k$ such that the following matrices are invertible:
+
+\medskip
+
+\[
+ A = \bbm k&-k&3\\0&k+1&1\\k&-8&k-1\ebm \quad B = \bbm k&k&0\\k^2&4&k^2\\0&k&k\ebm
+\]
+
+\end{enumerate}
+
+\bigskip
+
+\bigskip
+
+{\bf See over} for hints and suggestions.
+
+\newpage
+\textbf{Hints and suggestions:}
+
+\bigskip
+
+\begin{itemize}
+ \item For 1(b), to prove an ``A if and only if B'' statement you must prove two things: A implies B, and B implies A. In this case that means you must prove (i) if $A$ is idempotent, then $I-2A$ is self-inverse, and (ii) if $I-2A$ is self-inverse, then $A$ is idempotent.
+
+\medskip
+ \item For 1(c), remember that showing $B=A^{-1}$ is the same thing as showing $AB=I$.
+
+\medskip
+ \item For 2(a) and 2(b) you should be giving a \textit{general} argument, relying only on the properties of the transpose. Your results here are intended as a hint for 2(c).
+
+\medskip
+
+ \item For problem 3(c), assume $A$ is an $n\times n$ matrix. There are two cases, depending on whether $n$ is even or odd.
+
+\medskip
+
+ \item For problem 4, use determinants!
+\end{itemize}
+
+\end{document}
+ 

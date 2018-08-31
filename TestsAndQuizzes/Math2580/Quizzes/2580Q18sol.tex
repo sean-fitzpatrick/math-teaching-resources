@@ -1,0 +1,128 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\di}{\displaystyle}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\len}[1]{\left\lVert #1\right\rVert}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\F}{\mathbf{F}}
+
+\title{Solutions Quiz 18 Practice Problems\\Math 2580\\Spring 2016}
+\author{Sean Fitzpatrick}
+\date{March 24th, 2016}
+
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+ \item Evaluate the integral of the given vector field along the given curve:
+\begin{enumerate}
+ \item $\F(x,y,z) = \langle x, y, z\rangle$, $\r(t) = \langle \cos t, \sin t, t^2\rangle$, $t\in [0,2\pi]$.
+
+\bigskip
+
+\begin{align*}
+ \int_C \F\dotp d\r & = \int_0^{2\pi} \F(\cos t, \sin t, t^2)\dotp \r'(t)\,dt\\
+& = \int_0^{2\pi}\langle \cos t, \sin t, t^2\rangle \dotp \langle -\sin t, \cos t, 2t\rangle\,dt\\
+& = \int_0^{2\pi} 2t^3\,dt = 8\pi^4.
+\end{align*}
+
+ \item $\F(x,y,z) = \langle yz, xz, xy\rangle$, $\r(t) = \langle 3t, t^2, t^3\rangle$, $t\in [0,1]$.
+
+\bigskip
+
+\begin{align*}
+ \int_C\F\dotp d\r & = \int_0^1 \F(3t, t^2, t^3\rangle\dotp \r'(t)\,dt\\
+& = \int_0^1 \langle t^5, 3t^4, 3t^3\rangle\dotp\langle 3, 2t, 3t^2\rangle\,dt\\
+& = \int_0^1 18t^5\,dt = 3.
+\end{align*}
+
+ \item $\F(x,y,z) = (x^2+x)\i+\dfrac{x-y}{x+y}\j+(z-z^3)\k$, $\r(t) = 3t\i+(t-1)\j+t^2\k$, $t\in [0,1]$.
+
+\bigskip
+
+This line integral is actually undefined: in the $y$-component of $\F$, notice that $x+y=3t+(t-1) = 4t-1$ is in the denominator, and $4t-1=0$ for $t=\frac{1}{4}\in [0,1]$.
+
+\end{enumerate}
+ \item Evaluate the integral of the given function (scalar field) along the given curve:
+\begin{enumerate}
+ \item $f(x,y,z)=xy^3$, $x=4\sin t$, $y= 4\cos t$, $z=3t$, $0\leq t\leq \pi/2$.
+
+\bigskip
+
+We have $\r'(t) = \langle 4\cos t, -4\sin t, 3\rangle$, so $\len{\r'(t)} = \sqrt{16\cos^2t+16\sin^2t+9} = 5$, and 
+\[
+ f(\r(t)) = f(4\sin t, 4\cos t, 3t) = 4\sin t(4\cos t)^3 = 256\sin t\cos^3t,
+\]
+so
+\[
+ \int_C f\,ds = \int_0^{2\pi}f(\r(t))\len{\r'(t)}\,dt = \int_0^{2\pi} (256\sin t\cos^3t)(5)\,dt = 0.
+\]
+
+ \item $f(x,y,z)=xe^{yz}$, along the line segment from $(0,0,0)$ to $(1,2,3)$.
+
+First, we parameterize the line segment using $\r(t) = \langle t, 2t, 3t\rangle$, with $t\in [0,1]$, so $\len{\r'(t)} = \sqrt{1^2+2^2+3^2} = \sqrt{14}$. Thus
+\[
+ \int_C f\,ds = \int_0^1 f(t, 2t, 3t) \len{\r'(t)}\,dt = \int_0^1 te^{6t^2}(\sqrt{14})\,dt = \frac{\sqrt{14}}{12}(e^6-1).
+\]
+
+\end{enumerate}
+ \item Determine if the given vector field is conservative. If it is, find a function $f$ such that $\F=\nabla f$:
+\begin{enumerate}
+ \item $\F(x,y) = (6x+5y)\i + (5x+4y)\j$
+
+\bigskip
+
+For this and the remaining problems, we use the fact that if the domain of $\F(x,y) = P(x,y)\i+Q(x,y)\j$ is all of $\R^2$, then a necessary and sufficient condition for $\F$ to be conservative is $P_y(x,y) = Q_x(x,y)$. For this problem, we have $P_y(x,y) = 5 = Q_x(x,y)$, so $\F$ must be conservative. If $\F = \nabla f$ for some function $f$, then we must have $f_x(x,y) = P(x,y) = 6x+5y$, so $f(x,y) = 3x^2+5xy+g(y)$ for (possibly) some function $g$ of $y$ only. Now, on the one hand we have
+\[
+ f_y(x,y) = \frac{\partial}{\partial y}(3x^2+5xy+g(y)) = 5x+g'(y),
+\]
+while on the other hand, $f_y(x,y) = Q(x,y) = 5x+4y$. Comparing these two, we see that we must have $g'(y) = 4y$, so we can take $g(y) = 2y^2$, and thus
+\[
+ f(x,y) = 3x^2+5xy+2y^2.
+\]
+(We could also add a constant, but this is unnecessary: note that the question asked for \textit{a} function, not \textit{all} functions.)
+
+ \item $\F(x,y) = (x^3+4xy)\i+(4xy-y^3)\j$
+
+\bigskip
+
+We have $P_y(x,y) = 4x$ and $Q_x(x,y) = 4y$. Since $P_y\neq Q_x$, the vector field $\F$ cannot be conservative.
+
+ \item $\F(x,y) = e^y\i+xe^y\j$.
+
+We have $P_y(x,y) = e^y = Q_x(x,y)$, so $\F$ is a conservative vector field. If $\F = \nabla f$ for some function $f$, then we must have
+\[
+ f_x(x,y) = P(x,y) = e^y, \quad \text{ so } \quad f(x,y) = xe^y+g(y)
+\]
+for some function $g(y)$ of $y$ only. Then we have $f_y(x,y) = xe^y + g'(y) = xe^y = Q(x,y)$, which tells us that $g'(y)=0$, so we can take $g(y)=0$ and $f(x,y) = xe^y$.
+
+ \item $\F(x,y) = (ye^x+\sin y)\i+(e^x+x\cos y)\j$
+
+\bigskip
+
+We have $P_y(x,y) = e^x+\cos y = Q_x(x,y)$, so $\F$ is conservative. If $\F = \nabla f$ for some function $f$, then we must have
+\[
+ f_x(x,y) = e^x+\cos y, \quad \text{ so } \quad f(x,y) = e^x+x\cos y+g(y)
+\]
+for some function $y$, and comparing to $Q(x,y) = e^x+x\cos y = f_y(x,y)$, we see that we can take $g(y)=0$, and $f(x,y) = e^x+x\cos y$.
+\end{enumerate}
+
+ \end{enumerate}
+
+\end{document}
+ 

@@ -1,0 +1,66 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+\newcommand{\T}{\mathcal{T}}
+\DeclareMathOperator{\Int}{Int}
+
+\title{Math 4310 Assignment \#5\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Friday, October 10th, by 5 pm.
+
+\bigskip
+
+Please submit solutions to the following problems (except where indicated). As usual, all the textbook exercises are recommended as practice problems if they don't appear as an assigned problem below.
+
+\begin{enumerate}
+\item If $X\times Y$ has the product topology, and $A\subseteq X$, $B\subseteq Y$, show that $\overline{A\times B} = \overline{A}\times \overline{B}$, $(A\times B)^\circ = \inter{A}\times\inter{B}$, and $\partial (A\times B) = \partial A\times \partial B$.
+\item Given a countable number of spaces $X_1,X_2,\ldots$, the product $X=\prod_i X_i$ is the set of all points of the form $x=(x_1,x_2,\ldots)$, where $x_i\in X_i$ for $i=1,2,\ldots$. The product topology on $X$ is defined to be the coarsest topology for which all of the projections $\pi_i:X\to X_i$ are continuous. (This is sometimes known as the {\em weak} product topology.)
+\begin{enumerate}
+ \item Construct a basis for this topology in terms of the open subsets of the spaces $X_1,X_2,\ldots$.
+ \item (In which a hint for part (a) is given.) The {\em box topology} on $X=\prod_i X_i$ is the topology defined by the basis $\mathcal{B} = \{U_1\times U_2\times \cdots \,|\, U_i \text{ is open in } X_i, i=1,2,\ldots\}$. Show that the box topology contains the product topology in part (a) (this is your hint: your answer for (a) should be different than the basis in (b)!), and that the two sets are equal if and only if $X_i$ has the indiscrete topology for all but finitely many values of $i$.
+\end{enumerate}
+Note: this problem is a bit tricky. For 2(a), start by asking yourself which sets definitely have to be open for the projections to be continuous. These won't quite form a basis on their own, but they do form a subbasis.
+\end{enumerate}
+For problems 3 and 4, the diagonal map $\Delta:X\to X\times X$ is given by $\Delta(x) = (x,x)$, and the {\em diagonal} in $X\times X$ is the image $\Delta(X) = \{(x,x)\,|, x\in X\}$ of the diagonal map.
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item Prove that a topological space $X$ is discrete if and only if $\Delta(X)$ is an open subset of $X\times X$ in the product topology.
+
+Hint: if you read the Chapter 10 supplement you'll get about 80\% of the proof.
+\item Prove that $X$ is Hausdorff if and only if $\Delta(X)$ is a closed subset of $X\times X$ in the product topology.
+\item Suppose that $X$ is Hausdorff.
+\begin{enumerate}
+ \item Show that $\{x\}$ is closed, for any $x\in X$.
+ \item Let $\mathcal{U}$ denote the collection of all open neighbourhoods of some $x\in X$. Prove that $\bigcap_{U\in \mathcal{U}}U = \{x\}$.
+\end{enumerate}
+ \item Suppose that $X$ is an infinite set with the finite complement (co-finite) topology.
+\begin{enumerate}
+ \item Show that $\{x\}$ is closed, for any $x\in X$.
+ \item Show that, in spite of part (a), $X$ is not Hausdorff.
+ \item Let $\mathcal{U}$ denote the collection of all open neighbourhoods of some $x\in X$. Show that it is not true that $\bigcap_{U\in \mathcal{U}}U = \{x\}$.
+\end{enumerate}
+ \item (Bonus) Show that $[0,1)\times [0,1)$ is homeomorphic to $[0,1]\times [0,1)$.
+
+(If you sketch the two spaces as subsets of $\R^2$ you can see visually how one can be continuously deformed into the other, but to give a rigorous proof you need to come up with a transformation $T:\R^2\to \R^2$ that is maps $[0,1)\times [0,1)$ onto $[0,1]\times [0,1)$. I couldn't think of one off the top of my head so I figured I probably shouldn't assign the problem for credit.)
+
+
+\end{enumerate}
+\end{document}
+ 

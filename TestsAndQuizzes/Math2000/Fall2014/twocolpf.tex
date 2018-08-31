@@ -1,0 +1,120 @@
+% disjunction
+\def\eor{\ensuremath{\vee}}
+% conjunction
+\def\eand{\ensuremath{\wedge}}
+% conditional
+\def\eif{\ensuremath{\rightarrow}}
+%\def\eif{\ensuremath{\Rightarrow}}
+% biconditional
+\def\eiff{\ensuremath{\leftrightarrow}}
+%\def\eiff{\ensuremath{\Leftrightarrow}} % could use \iff (but then get big spaces)
+% negation
+\def\enot{\ensuremath{\neg}}
+
+%% environment for two-column proofs and three-column proofs
+
+\usepackage{array}
+
+\newcommand{\whline}{\noalign{\global\savedwidth\arrayrulewidth \global\arrayrulewidth 2pt}%
+\hline
+ \noalign{\global\arrayrulewidth\savedwidth}}
+
+\newlength\subpfindent
+\newlength\pflabeloutdent
+\newlength\pfwidth
+\newlength\pfshorten 
+\newlength\savedwidth
+
+\setlength{\subpfindent}{1em}
+\setlength{\pflabeloutdent}{1.5em}
+\setlength{\pfwidth}{\textwidth}
+\addtolength{\pfwidth}{-1em}
+\setlength{\pfshorten}{2.5em}
+
+
+\newcommand{\leftnone}[1]{\hbox to 0pt{#1\hss}}
+\newcommand{\hypend}{\whline}
+\newcommand{\nohypotheses}{\multicolumn{2}{Ic}{ } \\}
+
+\newcolumntype{I}{!{\vrule width 3pt}} 
+\newcolumntype{T}{@{\,}c}  
+
+
+%% ???
+\newcommand{\twocolpf}[1]{\medbreak\begin{center} \renewcommand{\arraystretch}{1.5}
+%
+\newcommand{\pfline}[3]{\hbox to 0pt{\hskip -\pflabeloutdent \hbox to 0pt{\hss$##1$}\hss}\hfil $##2$ & \splitline{##3}\\}
+%
+%\newcommand{\proofunit}[1]{%
+%\addtolength{\pfwidth}{-\pfshorten}%
+%{\begin{tabularx}{\pfwidth}{Il|>{\raggedright\arraybackslash}X|}\hline##1\hline \end{tabularx}}}
+\newcommand{\proofunit}[1]{%
+\begin{tabular}{Il|l|}
+\hline##1\hline\end{tabular}}%
+%
+\newcommand{\subproof}[1]{%
+\hline
+\multicolumn{2}{Il|}{\addtolength{\pflabeloutdent}{1.73\subpfindent}%
+\vbox{\smallskip
+\hbox{\hskip \subpfindent
+\proofunit{##1}}
+\vskip-2pt}}\\  \hline
+}
+%
+\proofunit{#1}\end{center}\medbreak}
+
+\newcommand{\threecolpf}[1]{\medbreak\begin{center} \renewcommand{\arraystretch}{1.5}
+%
+\newcommand{\pfline}[4]{\hbox to 0pt{\hskip -\pflabeloutdent \hbox to 0pt{\hss$##1$}\hss}\hfil $\splitmathline{##2}$&\splitline{##3}&##4\crcr}
+%
+\newcommand{\proofunit}[1]{%
+\addtolength{\pfwidth}{-\pfshorten}%
+{\begin{tabularx}{\pfwidth}{Il|l||>{\raggedright\arraybackslash}X|}\hline##1\hline \end{tabularx}}}
+%
+\newcommand{\subproof}[1]{%
+\hline
+\multicolumn{3}{Il|}{\addtolength{\pflabeloutdent}{1.73\subpfindent}%
+\vbox{\smallskip
+\hbox{\hskip \subpfindent
+\proofunit{##1}}
+\vskip-2pt}}\\  \hline
+}
+%
+\proofunit{#1}\end{center}\medbreak}
+
+\newcommand{\splitline}[1]{\renewcommand{\arraystretch}{1}%
+\begin{tabular}[t]{l}#1\end{tabular}
+}
+\newcommand{\splitmathline}[1]{\renewcommand{\arraystretch}{1}%
+\begin{array}[t]{l}#1\end{array}
+}
+
+
+%% the rules
+\newcommand{\AndIntro}[2]{$\eand$-intro (lines ${#1}$ and ${#2}$)}
+\newcommand{\AndIntroB}[2]{$\eand$-intro \\ (lines ${#1}$ and ${#2}$)}
+\newcommand{\AndElim}[1]{$\eand$-elim (line ${#1}$)}
+\newcommand{\OrIntro}[1]{$\eor$-intro (line ${#1}$)}
+\newcommand{\OrElim}[2]{$\eor$-elim (lines ${#1}$ and ${#2}$)}
+\newcommand{\IfIntro}[2]{$\eif$-intro (lines ${#1}$--${#2}$)}
+\newcommand{\IfElim}[2]{$\eif$-elim (lines ${#1}$ and ${#2}$)}
+\newcommand{\IffIntro}[2]{$\eiff$-intro (lines ${#1}$ and ${#2}$)}
+\newcommand{\IffElim}[1]{$\eiff$-elim (line ${#1}$)}
+\newcommand{\IffElimB}[2]{$\eiff$-elim \\ (lines ${#1}$ and ${#2}$)}
+%\newcommand{\NotIntro}[2]{$\enot$-intro (lines ${#1}$--${#2}$)}
+\newcommand{\NotIntro}[2]{Proof by Contradiction (lines ${#1}$--${#2}$)}
+\newcommand{\NotElim}[1]{$\enot$-elim (line ${#1}$)}
+\newcommand{\Repeat}[1]{repeat~(line ${#1}$)}
+\newcommand{\AllElim}[1]{$\forall$-elim (line ${#1}$)}
+\newcommand{\AllElimSet}[2]{$\forall$-elim (lines ${#1}$ and~${#2}$)}
+\newcommand{\AllIntro}[1]{$\forall$-intro (line ${#1}$)}
+\newcommand{\AllIntroSet}[2]{$\forall$-intro (lines ${#1}$--${#2}$)}
+\newcommand{\ExistElim}[3]{$\exists$-elim (lines ${#1}$ and ${#2}$--${#3}$)}
+\newcommand{\ExistElimSet}[3]{$\exists$-elim (lines ${#1}$ and ${#2}$--${#3}$)}
+\newcommand{\ExistIntro}[1]{$\exists$-intro (line ${#1}$)}
+\newcommand{\ExistIntroSet}[2]{$\exists$-intro (lines ${#1}$ and~${#2}$)}
+\newcommand{\EqualIntro}{$=$-intro}
+\newcommand{\EqualElim}[2]{$=$-elim (lines ${#1}$ and~${#2}$)}
+\newcommand{\NotSimplify}[1]{$\enot$-simplify (line $#1$)}
+\newcommand{\Cases}[3]{Proof by cases (lines $#1$, $#2$, and $#3$)}
+

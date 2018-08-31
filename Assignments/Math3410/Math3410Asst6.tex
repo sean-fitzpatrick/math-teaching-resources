@@ -1,0 +1,45 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\DeclareMathOperator{\nul}{null}
+\title{Math 3410 Assignment \#6\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Thursday, April 16th, by 5 pm.
+
+\bigskip
+
+
+\subsection*{Suggested homework}
+The textbook lacks decent computational problems on characteristic and minimal polynomials, and Jordan Canonical Form. For some extra practice, you may want to take a look at the section on JCF from the Linear Algebra ``wikibook'', available here: \href{http://en.wikibooks.org/wiki/Linear_Algebra/Jordan_Canonical_Form}{\nolinkurl{http://en.wikibooks.org/wiki/Linear_Algebra/Jordan_Canonical_Form}}. (This is essentially Jim Hefferon's free linear algebra textbook.) At the bottom of the page, you find exercises. Suggested exercises are:
+2, 3, 5 (do maybe the first three), 6-9, and 15. At the very bottom of the page you'll find a link to solutions. (The solutions occasionally refer to a ``string basis'', by which they appear to mean a basis corresponding to a nilpotent operator, as described in our text.)
+\subsection*{Assigned problems}
+\begin{enumerate}
+\item Suppose $T\in\L(V)$ is normal. Prove that $\nul T^k=\nul T$ for every positive integer $k$.
+
+{\em Hint:} The inclusion $\nul T\subseteq \nul T^k$ is easy. Recall that for normal operators, $\len{Tu}=\len{T^*u}$ for all $u$. From this, deduce that if $v\in \nul T^k$, then $T^*T^{k-1}v=0$, and then show $v\in \nul T^{k-1}$.
+
+\item Suppose $V$ is a complex inner product space and $T\in\L(V)$ is a normal operator such that $T^9=T^8$. Prove that $T$ is self-adjoint and $T^2=T$.
+
+{\em Hint:} Use the complex spectral theorem and show that the only possible eigenvalues of $T$ are 0 or 1.
+
+\item Suppose $T\in \L(V)$, $m$ is a positive integer, and $v\in V$ is such that $T^{m-1}v\neq 0$ but $T^mv=0$. Prove that the vectors $v, Tv, T^2v,\ldots, T^{m-1}v$ are linearly independent.
+
+\item Determine all possible Jordan Canonical Forms for a linear transformation with characteristic polynomial $(x-2)^3(x-3)^2$. Find the corresponding minimal polynomial for each JCF.
+\end{enumerate}
+\end{document}
+ 

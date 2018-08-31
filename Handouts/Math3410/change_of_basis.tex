@@ -1,0 +1,318 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage[cmtip, all]{xy}
+\newtheorem{theorem}{Theorem}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\author{Sean Fitzpatrick}
+\title{Linear operators and change of basis}
+
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+
+\begin{document}
+\maketitle
+
+Recall that a linear map $T:V\to V$ from a vector space $V$ to itself is called a {\bf linear operator} on $V$. The space of all linear operators on $V$ is denoted by $\L(V)$. If $V$ is finite-dimensional with $\dim V = n$, note that $\dim \L(V) = n^2$. If we choose a basis $B_V = \{v_1,\ldots, v_n\}$ of $V$, then we can form the matrix $\M(T)$ with respect to this basis. (We'll be making use of this idea in Chapter 5 in our discussion of eigenvalues and eigenvectors.) For each $i=1,\ldots, n$, we have
+\[
+Tv_i = a_{1i}v_1+a_{2i}v_2+\cdots + a_{ni}v_n,
+\]
+and $\M(T)$ is the $n\times n$ matrix
+\[
+\M(T) = \begin{bmatrix}
+a_{11}&a_{12}&\cdots & a_{1n}\\
+a_{21}&a_{22}&\cdots & a_{2n}\\
+\vdots & \vdots &\ddots & \vdots\\
+a_{n1}&a_{n2}&\cdots &a_{nn}
+\end{bmatrix}.
+\]
+Note that if we change the basis of $V$, then we change the matrix $\M(T)$. It's sometimes interesting to consider the effect of such a change of basis. First, let us recall the following basic result:
+
+\begin{theorem}
+A linear map $T:V\to W$ is invertible if and only if it maps a basis to a basis; that is, if $\{v_1,\ldots, v_n\}$ is a basis for $V$, then $\{Tv_1,\ldots, Tv_n\}$ is a basis for $W$.
+\end{theorem}
+\begin{proof}
+Suppose $T:V\to W$ is invertible, and $\{v_1,\ldots, v_n\}$ is a basis for $V$. We want to show that $\{Tv_1,\ldots, Tv_n\}$ is a basis for $W$, so we need to show that this set of vectors is linearly independent, and spans $W$. If
+\[
+0 = c_1Tv_1+\cdots +c_nTv_n = T(c_1v_1+\cdots + c_nv_n),
+\]
+then $c_1v_1+\cdots +c_nv_n\in\nul T$, and since $T$ is invertible, it is in particular injective, and thus $\nul T = \{0\}$. Since $\{v_1,\ldots, v_n\}$ is a basis and therefore linearly independent, we must have $c_1=\cdots=c_n=0$. To see that our vectors span $W$, let $w\in W$ be arbitrary. Since $T$ is surjective, there exists some $v\in V$ such that $Tv=w$. But since $\{v_1,\ldots, v_n\}$ is a basis for $V$, there exist scalars $c_1,\ldots, c_n$ such that 
+\[
+v = c_1v_1+\cdots +c_nv_n,
+\]
+and thus
+\[
+w = Tv = T(c_1v_1+\cdots +c_nv_n) = c_1Tv_1+\cdots + c_nTv_n,
+\]
+which shows that $w\in\spn\{Tv_1,\ldots, Tv_n\}$.
+
+Conversely, given $T:V\to W$, let $\{v_1,\ldots, v_n\}$ be a basis for $V$ and suppose that $\{Tv_1,\ldots, Tv_n\}$ is a basis for $W$. Then $T$ is injective, since if
+\[
+0 = Tv = T(c_1v_1+\cdots c_nv_n)=c_1Tv_1+\cdots + c_nTv_n,
+\]
+then we must have $c_1=\cdots=c_n=0$ (since the vectors $Tv_1,\ldots, Tv_n$ are independent), and thus $v=0$. Similarly, $T$ is surjective, since for any $w\in W$ there exist scalars $c_1,\ldots, c_n$ such that 
+\[
+w= c_1Tv_1+\cdots + c_nTv_n = T(c_1v_1+\cdots + c_nv_n).
+\]
+\end{proof}
+Note one consequence of this theorem: if $\dim V=\dim W=n$ and if $\{v_1,\ldots, v_n\}$ is a basis for $V$ and $\{w_1,\ldots, w_n\}$ is a basis for $W$, then we can define a linear transformation $T:V\to W$ by giving its values on basis vectors as
+\[
+Tv_1=w_1, Tv_2 = w_2,\ldots, Tv_n=w_n.
+\]
+(This defines $T$ in general by $T(c_1v_1+\cdots + c_nv_n) = c_1w_1+\cdots + c_nw_n$.) 
+In particular, we can do this if $W=V$ and $\{v_1,\ldots, v_n\}$ and $\{w_1,\ldots, w_n\}$ are {\bf two different bases} for $V$. Note however that in this case a strange thing happens: even though $T$ is not the identity map (unless the two bases are the same basis), the matrix of $T$ is given by $\M(T) = I_n$, where $I_n$ is the $n\times n$ identity matrix.
+
+Normally we don't encounter this phenomenon because whenever we study linear operators on a vector space $V$, we choose a {\bf single} basis for $V$.\footnote{In particular, we'll see in Chapters 5 and 8 -- if there is time -- that not every linear operator can be ``diagonalized'' - that is, represented by a diagonal matrix, with respect to a {\em single} basis. However -- and this is discussed in a later section of Chapter 7 that we won't have time to cover -- it is always possible to get a diagonal matrix if we choose one basis for the ``domain'' copy of $V$, and another basis for the ``range'' copy of $V$.} More relevant for us is the following observation: suppose we fix the basis $\{v_1,\ldots, v_n\}$ as our {\em standard} basis of $V$. Note that each vector $v_i$ then corresponds to a standard basis vector in $\R^{n,1}$: we have
+\[
+\M(v_1) = \begin{bmatrix}1\\0\\\vdots \\0\end{bmatrix}, \M(v_2) = \begin{bmatrix}
+0\\1\\\vdots\\0
+\end{bmatrix}, \ldots, \M(v_n) =\begin{bmatrix}0\\0\\\vdots\\1\end{bmatrix}.
+\]
+Now, suppose we have a second basis $\{v_1',\ldots, v_n'\}$ of $V$, and let $\varphi:V\to V$ be the isomorphism defined by $\varphi v_i = v_i'$ for $i=1,\ldots, n$. As noted above, if we view $\varphi$ as a map
+\[
+\varphi: (V,\{v_1,\ldots v_n\})\to (V,\{v_1',\ldots v_n'\}),
+\]
+then the matrix of $\varphi$ is the identity matrix. Instead, what we'll be interested in is the matrix of $\varphi$ with respect to using the basis $\{v_1,\ldots, v_n\}$, for {\em both} the domain and codomain. If we write
+\[
+v_j' = c_{1j}v_1+c_{2j}v_2+\cdots + c_{nj}v_n
+\]
+for $j=1,2,\ldots, n$, then we obtain the $n\times n$ matrix $P = \M(\varphi) = [c_{ij}]$, and this matrix will be invertible, since the map $\varphi$ is an isomorphism. Notice that the columns of $P$ are simply the column vectors $\M(v_i')$ with respect to the original basis.
+
+For example, if $V=\R^3$ with the standard basis $\{v_1=(1,0,0),v_2=(0,1,0),v_3=(0,0,1)\}$ and we have a second basis 
+\[
+\{v_1' = (1,2,3), v_2' = (2, -3, 4), v_3' = (1,0,-1)\},
+\]
+then
+\[
+\varphi(x,y,z) = x(1,2,3)+y(2,-3,4)+z(1,0,-1) = (x+2y+z,2x-3y, 3x+4y-z),
+\]
+and the matrix of $\varphi$ with respect to the standard basis is
+\[
+\M(\varphi) = P = \begin{bmatrix}1&2&1\\2&-3&0\\3&4&-1\end{bmatrix}.
+\]
+(Notice that $P\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}x+2y+z\\2x-3y\\3x+4y-z\end{bmatrix}$, which is the matrix of the vector $\varphi(x,y,z)$ with respect to the standard basis.)
+
+Now, let's return to the problem of finding the matrix of a general linear transformation $T:V\to W$. Recall from the examples in class that finding the matrix $\M(T)$ of $T$ is easiest if we are using a standard basis for $W$. I mentioned that if $\dim V = n$ and $\dim W = m$, then finding the coefficients $a_{ij}$ such that $Tv_j = \sum a_{ij}w_i$ requires solving $n$ {\em different systems} of $m$ equations in $m$ unknowns... or does it?
+
+For example, consider the linear transformation $T:\R^4\to\R^3$ given by
+\[
+T(x_1,x_2,x_3,x_4) = (x_1+2x_2+3x_3-x_4, 2x_1-x_2+x_3, -2x_1+3x_2-x_3+4x_4).
+\]
+Suppose we wanted to find the matrix of $T$ with respect to the standard basis of $\R^4$ but the basis
+\[
+B = \{(1,2,1), (0,-1,2), (2,0, 1)\}
+\]
+of $\R^3$. We'd begin by calculating the value of $T$ on the basis, as follows:
+\begin{align*}
+T(1,0,0,0) & = (1,2,-2)\\
+T(0,1,0,0) & = (2,-1,3)\\
+T(0,0,1,0) & = (3,1,-1)\\
+T(0,0,0,1) & = (-1,0,4).
+\end{align*}
+Computing the matrix of $T$ requires finding scalars $a_{ij}$, $i=1,2,3$, $j=1,2,3,4$ such that
+\begin{align*}
+a_{11}(1,2,1)+a_{21}(0,-1,2)+a_{31}(2,0,1) &= (a_{11}+2a_{31},2a_{11}-a_{21},a_{11}+2a_{21}+a_{31})=(1,2,-2)\\
+a_{12}(1,2,1)+a_{22}(0,-1,2)+a_{32}(2,0,1) &= (a_{12}+2a_{32},2a_{12}-a_{22},a_{12}+2a_{22}+a_{32})=(2,-1,3)\\
+a_{13}(1,2,1)+a_{23}(0,-1,2)+a_{33}(2,0,1) &= (a_{13}+2a_{33},2a_{13}-a_{23},a_{13}+2a_{23}+a_{33})=(3,1,-1)\\
+a_{14}(1,2,1)+a_{24}(0,-1,2)+a_{34}(2,0,1) &= (a_{14}+2a_{34},2a_{14}-a_{24},a_{14}+2a_{24}+a_{34})=(-1,0,4)\\
+\end{align*}
+Equating the two sides of each of the vector equations above gives us our four systems of three equations in three unknowns (here $n=4$ and $m=3$). But things aren't quite as bad as they seem. Notice that for each system, the constants on the right-hand side of each equation (given by the values of $Tv_i$, $i=1,2,3,4$) are different, and the variables are labelled differently, but {\em the coefficient matrix is the same}. Our four systems correspond to four augmented matrices:
+\[
+\begin{amatrix}{3}1&0&2&1\\2&-1&0&2\\1&2&1&-2\end{amatrix},
+\begin{amatrix}{3}1&0&2&2\\2&-1&0&-1\\1&2&1&3\end{amatrix},
+\begin{amatrix}{3}1&0&2&3\\2&-1&0&1\\1&2&1&-1\end{amatrix},
+\begin{amatrix}{3}1&0&2&-1\\2&-1&0&0\\1&2&1&-4\end{amatrix}
+\]
+Rather than solve each one separately, we could use one of two approaches. One would be to set up a much larger augmented matrix, with {\em four} columns of constants to the right of the coefficient matrix,
+\[
+\left[\begin{array}{ccc|cccc}
+1&0&2&1&2&3&-1\\
+2&-1&0&2&-1&1&0\\1&1&1&-2&3&-1&4
+\end{array}\right]
+\]
+ and then row reduce to solve all four systems simultaneously. But this is a story we've seen elsewhere in the past: let's define
+\[
+P = \begin{bmatrix}1&0&2\\2&-1&0\\1&2&1\end{bmatrix}
+\]
+to be the matrix of coefficients. Notice -- and this will be useful later on -- that the columns of $P$ are given precisely by the columns corresponding to the basis vectors in $B$. Now recall from your first course in linear algebra that if we wanted to find the inverse $P^{-1}$ of $P$ (if it exists), we'd have to solve three systems of three equations to get the nine entries of $P^{-1}$, but all three coefficient matrices are the same, which is what leads to the algorithm where we set up the augmented matrix
+\[
+\left[\begin{array}{ccc|ccc}
+1&0&2&1&0&0\\
+2&-1&0&0&1&0\\
+1&1&1&0&0&1
+\end{array}\right]
+\]
+and then row-reduce until $P$ on the left is reduced to the $3\times 3$ identity matrix, in which case the result on the right is $P^{-1}$. If we go ahead and do this, we find that
+\[
+P^{-1} = \begin{bmatrix}
+-\frac{1}{9}&\frac{4}{9}&\frac{2}{9}\\
+-\frac{2}{9}&-\frac{1}{9}&\frac{4}{9}\\
+\frac{5}{9}&-\frac{2}{9}&-\frac{1}{9}
+\end{bmatrix}
+\]
+Now we're ready to compute the matrix of $T$ with respect to the given basis. Let $v_1,v_2,v_3,v_4$ denote the standard basis of $\R^4$, and let $Tv_i$, $i=1,2,3,4$, represent the four vectors we found above. Suppose we write
+\[
+\tilde{\M}(Tv_i) = \begin{bmatrix}b_{1i}\\b_{2i}\\b_{3i}\end{bmatrix}
+\]
+with respect to the {\em standard basis}, so that, for example $\tilde{\M}(Tv_1) = \begin{bmatrix}1\\2\\-2\end{bmatrix}$. The matrix of $\M(Tv_i) = \begin{bmatrix}a_{1i}\\a_{2i}\\a_{3i}\end{bmatrix}$ with respect to the {\em given} basis therefore satisfies $P\M(Tv_i) = \tilde{\M}(Tv_i)$, for $i=1,2,3,4$. (Note that the column vectors $\M(Tv_i)$ form the four columns of $\M(T)$.) We can therefore find each of the columns $\M(Tv_i)$, and thus, the matrix of $T$, according to
+\[
+\M(Tv_i) = P^{-1}\tilde{\M}(Tv_i).
+\]
+This gives us
+\begin{align*}
+\M(Tv_1) &= \begin{bmatrix}
+-\frac{1}{9}&\frac{4}{9}&\frac{2}{9}\\
+-\frac{2}{9}&-\frac{1}{9}&\frac{4}{9}\\
+\frac{5}{9}&-\frac{2}{9}&-\frac{1}{9}
+\end{bmatrix}\begin{bmatrix}1\\2\\-2\end{bmatrix} = \begin{bmatrix}\frac{1}{3}\\-\frac{4}{3}\\\frac{1}{3}\end{bmatrix}\\
+\M(Tv_2) &= \begin{bmatrix}
+-\frac{1}{9}&\frac{4}{9}&\frac{2}{9}\\
+-\frac{2}{9}&-\frac{1}{9}&\frac{4}{9}\\
+\frac{5}{9}&-\frac{2}{9}&-\frac{1}{9}
+\end{bmatrix}\begin{bmatrix}2\\-1\\3\end{bmatrix} = \begin{bmatrix}0\\1\\1\end{bmatrix}\\
+\M(Tv_3) &= \begin{bmatrix}
+-\frac{1}{9}&\frac{4}{9}&\frac{2}{9}\\
+-\frac{2}{9}&-\frac{1}{9}&\frac{4}{9}\\
+\frac{5}{9}&-\frac{2}{9}&-\frac{1}{9}
+\end{bmatrix}\begin{bmatrix}3\\1\\-1\end{bmatrix} = \begin{bmatrix}-\frac{1}{9}\\-\frac{11}{9}\\\frac{14}{9}\end{bmatrix}\\
+\M(Tv_4) &= \begin{bmatrix}
+-\frac{1}{9}&\frac{4}{9}&\frac{2}{9}\\
+-\frac{2}{9}&-\frac{1}{9}&\frac{4}{9}\\
+\frac{5}{9}&-\frac{2}{9}&-\frac{1}{9}
+\end{bmatrix}\begin{bmatrix}-1\\0\\4\end{bmatrix} = \begin{bmatrix}1\\2\\-1\end{bmatrix},
+\end{align*}
+so with respect to the given bases,
+\[
+\M(T) = \begin{bmatrix}\frac{1}{3}&0&-\frac{1}{9}&1\\
+-\frac{4}{3}&1&-\frac{11}{9}&2\\
+\frac{1}{3}&1&\frac{14}{9}&-1
+\end{bmatrix}.
+\]
+OK, so that's a bit of a pain computationally, but at least it's feasible. It does lead to one other observation, however. Suppose we had gone ahead and calculated the matrix $\tilde{\M}(T)$ with respect to the standard basis of $\R^3$. Then we'd have
+\[
+\tilde{\M}(T) = \begin{bmatrix}1&2&3&-1\\2&-1&1&0\\-2&3&-1&4\end{bmatrix}.
+\]
+Since the columns of $\tilde{\M}(T)$ are the vectors $\tilde{\M}(Tv_i)$, and the columns of $\M(T)$ are the vectors $\M(Tv_i) = P^{-1}\tilde{\M}(Tv_i)$, we're able to conclude immediately that
+\[
+\M(T) = P^{-1}\tilde{\M}(T).
+\]
+Now, in the above example, we only changed the basis of the codomain, while leaving the basis of the domain intact. What if we changed the basis of the domain? Notice that if we use the matrix $\tilde{\M}(T)$, we can compute
+\[
+T(a,b,c,d) = \begin{bmatrix}1&2&3&-1\\2&-1&1&0\\-2&3&-1&4\end{bmatrix}\begin{bmatrix}a\\b\\c\\d\end{bmatrix} = \begin{bmatrix}a+2b+3c-d\\2a-b+c\\-2a+3b-c+4d\end{bmatrix},
+\]
+and this is just the matrix of $T(a,b,c,d)$ with respect to the standard basis. Now suppose we do this with four vectors that form a basis for $\R^4$. Let's say we use the basis
+\[
+B' = \{u_1=(1,-2,1,0),u_2=(0,1,3,1), u_3=(0,1,0,1), u_4 = (1,0,-1,0)\}
+\]
+for $\R^4$. Let $\M'(T)$ denote the matrix of $T$ with respect to the basis $B'$ of $\R^4$ and the standard basis of $\R^3$. Then the columns of $\M'(T)$ are given by $\M(T)\M(u_1)$, $\M(T)\M(u_2)$, $\M(T)\M(u_3)$, and $\M(T)\M(u_4)$. Thus, following the rules of matrix multiplication, if we let
+\[
+Q = \begin{bmatrix}1&0&0&1\\-2&1&1&0\\1&3&0&-1\\0&1&1&0\end{bmatrix}
+\]
+be the matrix whose columns are given by the vectors in in $B'$, then we have
+\[
+\M'(T) = \M(T)Q.
+\]
+Now let's put everything together. Suppose we know that $\M(T)$ is the matrix of a transformation $T:V\to W$ with respect to the standard bases $B_V$ and $B_W$ of $V$ and $W$, respectively. Suppose further that $P$ is the matrix obtained by converting the standard basis of $W$ to some other basis $B_W'$, as above,\footnote{If the standard basis $B_W$ corresponds to the columns $\begin{bmatrix}1\\0\\\vdots \\0\end{bmatrix}$, $\begin{bmatrix}0\\1\\\vdots\\0\end{bmatrix}$, etc. then the columns of $P$ are given by the columns corresponding to the vectors in $B_W'$. The matrix $Q$ is formed in the same way.} and suppose that $Q$ is the matrix obtained by converting the standard basis of $V$ to some other basis $B_V'$. Then we have
+\[
+\M(T,B_V',B_W') = P^{-1}\M(T,B_V,B_W)Q.
+\]
+Finally, we consider all of the above in the case of a linear operator $T:V\to V$, where $\dim V=n$. Usually, when we compute the matrix of a linear operator, we use the same basis for both the domain and codomain, so $\M(T) = \M(T,B_V,B_V)$ for some basis $B_V$ of $V$. Suppose we know the matrix $\M(T)$ with respect to some basis $B_V=\{v_1,\ldots, v_n\}$ of $V$, and we want to switch to some new basis $B_V'=\{v_1'\ldots, v_n'\}$ of $V$. As above, if $\M(v)\in\R^{n,1}$ denotes the matrix (column vector) of a vector $v\in V$ with respect to the basis $B_V$, and $\M'(v)$ denotes the matrix of $v$ with respect to the basis $B_V'$, then as in the example above, we can find an invertible $n\times n$ matrix $P$ such that
+\[
+\M'(v) = P^{-1}\M(v),
+\]
+and the relationship between the matrix $\M(T)$ of $T$ with respect to the basis $B_V$ and the matrix $\M'(T)$ of $T$ with respect to the basis $B_V'$ is given by
+\[
+\M'(T) = P^{-1}\M(T)P.
+\]
+(In other words, for a linear operator $T:V\to V$, when, the domain and range use the same basis, we set $P=Q$.) In practice, one is often interested in the case where a given operator is diagonal with respect to one of the two bases, and the matrix $P$ is what allows us to convert between the two. (This is essentially the process of diagonalization.)
+
+Notice that if we compute $Tv=w$ with respect to the first basis, we have
+\[
+\M(T)\M(v) = \M(w).
+\]
+If we change basis, then $\M(v) = P\M'(v)$ and $\M(w) = P\M'(w)$, which gives
+\[
+\M(T)(P\M'(v)) = P\M'(w),
+\]
+and if we multiply both sides by $P^{-1}$, we get
+\[
+(P^{-1}\M(T)P)\M'(v) = \M'(w),
+\]
+so we see that the relationship $\M'(T) = P^{-1}\M(T)P$ makes sense.
+\subsection*{Change of basis and the ``commutative cube''}
+In class we discussed change of basis in the context of diagonalization of a matrix. Suppose we have two bases $B_1 = \{v_1,\ldots, v_n\}$ and $B_2=\{w_1,\ldots, w_n\}$ for a vector space $V$ of dimension $n$. For a given vector $v\in V$ we then have unique scalars $a_1,\ldots, a_n$ such that
+\[
+ v=a_1v_1+\cdots +a_nv_n,
+\]
+and $b_1,\ldots, b_n$ such that
+\[
+ v=b_1w_1+\cdots +b_bw_n.
+\]
+ Let $\varphi_1:V\to\R^{n,1}$ be the coordinate map
+\[
+ \varphi_1(v) = \varphi_1(a_1v_1+\cdots +a_nv_n) = \begin{bmatrix}a_1\\\vdots\\a_n\end{bmatrix},
+\]
+and let $\varphi_2:V\to \R^{n,1}$ be the coordinate map
+\[
+ \varphi_2(v) = \varphi_2(b_1w_1+\cdots +b_nw_n) = \begin{bmatrix}b_1\\\vdots\\b_n\end{bmatrix}.
+\]
+Notice that matrix of the identity map $I:V\to V$ can look quite complicated if we use $B_1$ as the domain basis, and $B_2$ as the codomain basis: it's given by a matrix $P$ called the {\em change of basis matrix}:
+
+\noindent{\bf Definition:} Given two bases $B_1$ and $B_2$ of $V$ as above, let
+\[
+ v_j = a_{1j}w_1+a_{2j}w_2+\cdots +a_{nj}w_n, \text{ for } j=1,2,\ldots, n.
+\]
+The resulting matrix $P=[a_{ij}]$ is called the {\bf change of basis matrix} from $B_1$ to $B_2$.
+
+\medskip
+
+Notice that we have
+\[
+ P\varphi_1(v) = \begin{bmatrix}a_{11}&\cdots &a_{1n}\\ \vdots&\ddots&\vdots\\a_{n1}&\cdots&a_{nn}\end{bmatrix}\begin{bmatrix}a_1\\\vdots\\a_n\end{bmatrix}=\begin{bmatrix}b_1\\\vdots\\b_n\end{bmatrix}.
+\]
+
+
+
+As we noted above, $P$ is really the matrix of the identity operator, if we use different bases for the domain and codomain. Note on the other hand that there is the change of basis isomorphism $S:V\to V$ given by
+\[
+ S(a_1v_1+a_2v_2+\cdots+a_nv_n) = a_1w_1+a_2w_2+\cdots +a_nw_n.
+\]
+Notice that in this case we change the basis vectors but we keep the scalars the same. It follows that the matrix of $S$, if we use $B_1$ as the domain basis, and $B_2$ as the codomain basis, is the identity matrix. To recap: the identity operator induces the change of basis matrix operator on $\R^{n,1}$, while conversely, the change of basis operator on $V$ induces the identity operator on $\R^{n,1}$.
+
+The matrix $\M_1(T)$ of an operator $T$ with respect to the first basis can be described according to the commutative square
+\[
+ \xymatrix{V\ar[r]^T \ar[d]^{\varphi_1} & V\ar[d]^{\varphi_1}\\ \R^{n,1}\ar[r]^{\M_1(T)}&\R^{n,1}}
+\]
+where (abusing notation) we let the matrix $\M_1(T)$ stand for the corresponding linear operator on $\R^{n,1}$ given by multiplication by $\M_1(T)$. If we want to understand the relationship between the matrix $\M_1(T)$ and the matrix $\M_2(T)$ with respect to the basis $B_2$, the diagram gets a little more complicated. We have the diagram:
+
+\begin{center}
+ \includegraphics[width=3in]{basis_cube.pdf}
+\end{center}
+
+Of course, the identity maps up top are somewhat redundant, so we could also diagram the situation as a pyramid, like so:
+\begin{center}
+ \includegraphics[width=3in]{basis_pyramid.pdf}
+\end{center}
+The cube is probably a better illustration of the change of basis procedure, however. The back of the cube represents the procedure for finding the matrix of $T$ with respect to the basis $B_1$, while the front represents the same for $B_2$. The left and right-hand sides of the cube represent the procedure for finding the change of basis matrix when switching between the two bases. 
+
+Note also that for the two top edges corresponding to the identity operator, if we replace $I$ with the change of basis isomorphism $S$, then we end up with the identity matrix on the bottom instead of $P$. In this case, the top-front edge no longer represents the map $T$ - it will instead be the map $S^{-1}TS$. However, since $P$ becomes the identity matrix, it means the other two matrices on the bottom are the same. This gives the identity
+\[
+ \M_2(S^{-1}TS) = \M_1(T).
+\]
+
+
+
+\end{document}

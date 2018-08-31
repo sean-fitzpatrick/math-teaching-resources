@@ -1,0 +1,277 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 100}}
+\chead{MATH 2000B}\lhead{Final Exam}\rhead{Wednesday, 29\textsuperscript{th} April, 2015}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+29\textsuperscript{th} April, 2015, 2:00-5:00 pm\\
+{\bf Math 2000B - FINAL EXAM}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ Record your answers below each question in the space provided.    {\bf Left-hand pages may be used as scrap paper for rough work.}  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments.
+
+No external aids are permitted.
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 7 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 8 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 9 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 10 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 11 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/100\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item Write the converse and the contrapositive of each of the following statements:
+\begin{enumerate}
+
+ \item If $a$ is an odd integer, then $3a$ is an odd integer. \points{2}
+
+\vspace{1.75in}
+
+ \item If $ab=0$, then $a=0$ or $b=0$. \points{3}
+
+\vspace{1.75in}
+\end{enumerate}
+\item Write the negation of each of the following statements. Use of symbolic notation is allowed but not required.
+\begin{enumerate}
+ \item For all integers $m$, $m^2$ is even.\points{2}
+
+\vspace{1.25in}
+
+ \item For all integers $m$, there exists an integer $n$ such that $2m+3n=5$.\points{3}
+\end{enumerate}
+\newpage
+
+\item Let $A=\{1,3,6,7\}$, $B=\{2,3,4,8,9\}$, and $C = \{1,5,7,8\}$ be subsets of the universal set $U=\{1,2,3,4,5,6,7,8,9\}$. Verify the following by explicitly computing the sets involved:
+
+\begin{enumerate}
+
+ \item $A^c\cup B^c = (A\cap B)^c$. \points{3}
+
+\vspace{2.5in}
+
+ \item $(A\cup B)\setminus B = A\setminus (A\cap B)$ \points{3}
+
+\vspace{2.5in}
+
+ \item $A\cap (B\cup B) = (A\cap B)\cup (A\cap C)$. \points{4}
+\end{enumerate}
+\newpage
+
+\item For each $n\in\N$, let $A_n = \{k\in \Z : -n\leq k\leq n\}$.
+\begin{enumerate}
+ \item Compute $\di \bigcup_{n=1}^4 A_n$. \points{2}
+
+\vspace{1.25in}
+
+ \item Compute $\di \bigcap_{n=3}^6 A_n$. \points{2}
+
+\vspace{1.25in}
+
+ \item What are $\di \bigcup_{n=1}^\infty A_n$ and $\di \bigcap_{n=1}^\infty A_n$? \points{2}
+
+\vspace{1.5in}
+
+ \item Let $\mathcal{A} = \{A_\alpha : \alpha\in I\}$ be any indexed collection of sets (where the index set $I$ is  non-empty). Prove that if $B\subseteq A_\alpha$ for all $\alpha\in I$, then $B\subseteq \bigcap_{\alpha\in I}A_\alpha$. \points{4}
+\end{enumerate}
+\newpage
+
+\item Let $f:A\to B$ be a function.
+\begin{enumerate}
+ \item Given an element $b\in B$, define the preimage $f^{-1}(b)$. \points{2}
+
+\vspace{1in}
+
+ \item Given a subset $C\subseteq B$, define the preimage $f^{-1}(C)$. \points{1}
+
+\vspace{1in}
+
+\end{enumerate}
+\item Let $f:A\to B$ and $g:B\to C$ be functions.
+\begin{enumerate}
+ \item Prove that if $g\circ f:A\to C$ is an injection, then $f$ is an injection.  \points{5}
+
+\vspace{3in}
+
+ \item Give an example to show that $g$ need not be an injection.\points{2}
+\end{enumerate}
+\newpage
+
+\item Determine if each of the following statements is true. If it is true, give a direct proof of the statement. If it is false, give a counterexample.
+\begin{enumerate}
+ \item For all integers $a,b,c$, with $a\neq 0$, if $a|b$ then $a|(bc)$. \points{3}
+
+\vspace{2.5in}
+
+ \item For all integers $a$ and $b$ with $a\neq 0$, if $6|(ab)$, then $6|a$ or $6|b$. \points{2}
+
+\vspace{2in}
+
+ \item The function $f:\Z_5\to \Z_5$ given by $f(x) = x^2+3 \pmod{5}$ is a bijection, where $\Z_5=\{0,1,2,3,4\}$. \points{5}
+\end{enumerate}
+\newpage
+
+\item Prove the following biconditional statement: For any integer $n$, $n$ is odd if and only if $n^2$ is odd. \points{4}
+
+\vspace{2.5in}
+
+\item Use mathematical induction to prove that for all natural numbers $n$,\points{6}
+\[
+ 1+5+9+\cdots + (4n-3) = n(2n-1).
+\]
+\newpage
+
+\item Prove that for any real numbers $x$ and $y$, if $x$ is rational and $y$ is irrational, then $x+y$ is irrational. (Hint: proof by contradiction.) \points{5}
+
+
+
+
+\vspace{3.5in}
+
+\item Prove that $8|(n^2-1)$ for all {\bf odd} natural numbers $n$.\points{5}
+
+({\em Hint:} a proof by induction is possible, but a proof by cases is easier.)
+
+\newpage
+
+\item Let $A=\{1,2,3\}$. For each of the relations $R\subseteq A\times A$ on $A$ below, determine if $R$ is a function, an equivalence relation, or neither.
+\begin{enumerate}
+ \item $R=\{(1,1),(2,1), (3,1), (2,3), (3,3)\}$ \points{3}
+
+\vspace{1.75in}
+
+ \item $R=\{(1,1), (1,2), (2,1), (2,2), (3,3)\}$ \points{3}
+
+\vspace{1.75in}
+
+ \item $R=\{(1,1), (2,3), (3,3)\}$ \points{3}
+\end{enumerate}
+\vspace{1.5in}
+
+ \item Give an example of a relation $R$ on a nonempty set $A$ such that $R$ is both a function and an equivalence relation, or explain why such a relation cannot exist. \points{1}
+
+
+\newpage
+
+\item Determine the addition and multiplication tables for modular arithmetic on $\Z_3 = \{[0],[1],[2]\}$. \points{4}
+
+\vspace{4in}
+
+\item \begin{enumerate}
+       \item Prove the following: For all $[a],[b]\in \Z_3$, if $[a]^2\oplus [b]^2=[0]$, then $[a]=[0]$ and $[b]=[0]$. \points{4}
+
+\vspace{2in}
+
+ \item Explain why it follows from Part (a) that for all $a,b\in\Z$, if 3 divides $a^2+b^2$, then 3 divides $a$ and 3 divides $b$. \points{2}
+      \end{enumerate}
+
+\newpage
+
+\item \begin{enumerate}
+       \item Define what it means for two sets to be {\bf equivalent}. \points{1}
+
+\vspace{1.25in}
+
+\item Define what it means for a set to be {\bf finite}. \points{1}
+
+\vspace{1.25in}
+
+\item Suppose $f:A\to B$ is an injection. Prove that there exists a subset $C\subseteq B$ such that $A$ is equivalent to $C$. \points{4}
+
+\vspace{3in}
+
+\item For each subset of $\R$ below, indicate whether the set is finite, countably infinite, or uncountable: \points{4}
+\begin{itemize}
+ \item $A = \{x\in\R : x^2 = 1\}$.
+
+\bigskip
+
+ \item $B = \{x\in\R : x^2\leq 1\}$.
+
+\bigskip
+
+ \item $C = \{1, 1/2, 1/3, 1/4, 1/5, \ldots\}$.
+
+\bigskip
+
+ \item $\mathbb{Q}$ (the set of rational numbers).
+\end{itemize}
+
+      \end{enumerate}
+
+\end{enumerate}
+\newpage
+
+{\bf Extra space for rough work. Do not remove unless there is nothing on this page you want to be graded.}
+\end{document}

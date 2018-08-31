@@ -1,0 +1,48 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\di}{\displaystyle}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\len}[1]{\left\lVert #1\right\rVert}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\F}{\mathbf{F}}
+
+\title{Practice for Quizzes 23 and 24\\Math 2580\\Spring 2016}
+\author{Sean Fitzpatrick}
+\date{April 12th, 2016}
+
+\begin{document}
+ \maketitle
+
+For Quiz 23 on Tuesday, you should make sure you can do the problems from Section 2 of the handout on surface integrals.
+For Quiz 24 on Thursday, you should be able to do the following problems:
+\begin{enumerate}
+ \item Use Stokes' theorem to evaluate $\iint_S(\nabla\times \F)\dotp d\mathbf{S}$, where $\F(x,y,z)=\langle yz, xz, xy\rangle$, and $S$ is the part of the paraboloid $z=9-x^2-y^2$ that lies above the plane $z=5$, oriented upward.
+ \item Evaluate $\iint_S(\nabla\times \F)\dotp d\mathbf{S}$, directly, where $\F(x,y,z)=\langle yz, xz, xy\rangle$, and $S$ is the disk $x^2+y^2\leq 4$ in the plane $z=5$.
+ \item How are Problems 1 and 2 related?
+ \item Use Stokes' theorem to evaluate $\int_C\F\dotp \,d\r$, where $\F(x,y,z) = \langle xy, 2x, 3y\rangle$, and $C$ is the curve of intersection of the plane $x+z=5$ and the cylinder $x^2+y^2=9$.
+ \item Use Stokes' theorem to show that if $\F$ is $C^1$ vector field defined on all of $\R^3$ such that $\nabla\times \F = \mathbf{0}$, then $\F$ is conservative.
+ \item Use the Divergence theorem to evaluate $\iint_S\F\dotp d\mathbf{S}$ for the vector field $\F(x,y,z) = \langle x^4,-x^3z^2, 4xy^2z\rangle$, where $S$ is the boundary of the region bounded by the cylinder $x^2+y^2=1$ and the planes $z=0$ and $z=x+2$.
+ \item Use the Divergence theorem to evaluate $\iint_S(2x+2y+z^2)\,dS$, where $S$ is the sphere $x^2+y^2+z^2=1$.
+
+\textit{Hint:} This is the surface integral of a scalar field, but you can re-write it as a the integral of a vector field. (What is the unit normal vector for the given sphere?)
+\end{enumerate}
+
+
+
+
+\end{document}
+ 

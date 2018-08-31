@@ -1,0 +1,263 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 100}}
+\chead{MATH 2000A}\lhead{FINAL EXAM}\rhead{Wednesday, 10\textsuperscript{th} December, 2014}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+10\textsuperscript{th} December, 2014, 2:00 - 5:00 pm\\
+{\bf Math 2000A - FINAL EXAM}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ Record your answers below each question in the space provided.    {\bf Left-hand pages may be used as scrap paper for rough work.}  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+The value of each problem is indicated in the left-hand margins. The value of a problem does not always indicate the amount of work required to do the problem.
+
+{\bf No external aids are permitted, including calculators, cell phones, cheat sheets, laptops, spy cameras, drones, and secret radio communications devices.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|c|l|r|} \hline
+Page&Grade & \hspace{24pt} &Page & Grade\\
+\hline \hline
+ 2 & \enspace\enspace\enspace\enspace\enspace\enspace/13 & &  7 & \enspace\enspace\enspace\enspace\enspace\enspace/10 \\
+\hline
+ 3 & \enspace\enspace\enspace\enspace\enspace\enspace/8 & &  8 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\hline
+ 4 & \enspace\enspace\enspace\enspace\enspace\enspace/8 & & 9 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\hline
+ 5 & \enspace\enspace\enspace\enspace\enspace\enspace/12 & &  10 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\hline
+ 6 & \enspace\enspace\enspace\enspace\enspace\enspace/9 & &  11 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\hline
+\multicolumn{5}{|c|}{}\\
+\multicolumn{5}{|l|}{{\bf Total:}\hspace{168 pt} /100}\\
+\hline
+\end{tabular}
+
+\medskip
+
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item Establish the following logical equivalence (justify each step):\points{5}
+\[
+ P\to (Q\vee R)\equiv (P\wedge \neg Q)\to R 
+\]
+
+\vspace{2.25in}
+
+\item Given a function $f:A\to B$, we say that $f$ is {\em onto} if for every $b\in B$ there exists some $a\in A$ such that $f(a)=b$.
+\begin{enumerate}
+ \item Re-write this definition using symbolic logic and the quantifier symbols $\forall$ and $\exists$. \points{2}
+
+\vspace{1.25in}
+
+ \item Using symbolic logic, define what it means to say that $f$ is {\bf not} onto. \points{3}
+
+\vspace{1.25in}
+\end{enumerate}
+\item What is the contrapositive of the conditional statement ``If $a^2=25$, then $a=5$ or $a=-5$''?\points{3}
+
+\newpage
+
+\item Let $U = \{0,1,2,3,4,5,6,7,8,9\}$, and let $A,B,C\subseteq U$ be given by
+\[
+ A = \{2,5,7,8\}, \quad B = \{1,3,4,9\}, \quad C = \{0,2,4\}.
+\]
+\begin{enumerate}
+ \item What is the power set of $C$? \points{2}
+
+\vspace{2in}
+
+ \item What is $A\cup (B\cap C)$? \points{2}
+
+\vspace{1.5in}
+
+ \item What is $A\setminus C$? \points{2}
+
+\vspace{1.5in}
+
+ \item What is the complement of $A\cup B\cup C$? \points{2}
+\end{enumerate}
+\newpage
+
+\item Determine if the statements below are true or false, and support your answer with a proof or counterexample.
+\begin{enumerate}
+ \item For any subsets $A,B,C$ of some universal set $U$,  \points{4}
+\[
+ A\setminus (B\cap C) = (A\setminus B)\cup (A\setminus C)
+\]
+
+\vspace{4in}
+
+ \item For any subsets $A,B,C$ of some universal set $U$,  \points{4}
+\[
+\text{if } A\cap C\subseteq B\cap C, \text{ then } A\subseteq B.
+\]
+
+\end{enumerate}
+\newpage
+
+\item Determine if the statements below are true or false, and support your answer with a proof or counterexample.
+\begin{enumerate}
+       \item For all $a,b,c\in \Z$, if $a|b$ and $a|c$, then $a|(b-c)$.\points{4}
+
+\vspace{2.5in}
+
+       \item For all $a,b\in\Z$, if $ab\equiv 0\pmod{6}$, then $a\equiv 0\pmod{6}$ or $b\equiv 0\pmod{6}.$\points{4}
+
+\vspace{2in}
+
+       \item For each $a\in \Z$, if 3 does not divide $a$, then 3 divides $2a^2+1$.\points{4}
+      \end{enumerate}
+\newpage
+
+\item Let $f:\Z\to \Z$ be defined by $f(x) = 5x+3$.
+\begin{enumerate}
+ \item Is $f$ one-to-one? \points{3}
+
+\vspace{2.5in}
+
+ \item Is $f$ onto? \points{3}
+
+\vspace{2.5in}
+
+ \item Does your answer to either (a) or (b) change if $f$ is a function from $\Q$ to $\Q$? Explain. \points{3}
+\end{enumerate}
+
+\newpage
+
+\item \begin{enumerate}
+       \item If $f:\R\to\R$ is given by $f(x) = 2x+1$ and $g:\R\to\R$ is given by $g(x) = \dfrac{1}{x^2+1}$, \points{4} determine formulas for the compositions $f\circ g$ and $g\circ f$.
+
+\vspace{2.5in}
+
+\item Construct an example of functions $f:A\to B$ and $g:B\to C$ such that $g\circ f:A\to C$ is onto, but $f$ is not. \points{2}
+
+\vspace{2.5in}
+
+\item Given $f:A\to B$ and $g:B\to C$, prove that if $g\circ f:A\to C$ is onto, then so is $g$. \points{4}
+      \end{enumerate}
+\newpage
+
+\item Let $A = \{1,2,3,4,5,6\}$ and let $B = \{r,s,t,u,v\}$. Define $f:A\to B$ by
+\[
+ f(1) = s,\, f(2) = t,\, f(3) = r,\, f(4) = t,\, f(5) = u,\, f(6) = s.
+\]
+\begin{enumerate}
+ \item If $C = \{2,4,6\}$, what is $f(C)$? \points{2}
+
+\vspace{1.5in}
+
+ \item If $D = \{r,s,v\}$, what is $f^{-1}(D)$? \points{2}
+
+\vspace{1.5in}
+
+
+\end{enumerate}
+\item Prove that for any function $f:A\to B$ and any subsets $C,D\subseteq B$, we have \points{5}
+\[
+ f^{-1}(C\cup D) = f^{-1}(C)\cup f^{-1}(D).
+\]
+
+
+\newpage
+
+\item \begin{enumerate}
+       \item If $k\geq l$, show that there exists an onto function $f:\{1,2,\ldots, k\}\to\{1,2,\ldots, l\}$. \points{4}
+
+\vspace{2.5in}
+
+       \item Using part (a), show that if $A$ and $B$ are finite sets with $|A|\geq |B|$, then there exists an onto function $g:A\to B$. \points{4}
+      \end{enumerate}
+
+\vspace{2.5in}
+
+\item Give four examples of countably infinite sets. \points{4}
+
+\newpage
+
+\item Use mathematical induction to prove the following statement: \points{10}
+\[
+\forall n\in\N,\quad 2+5+8+\cdots + (3n-1) = \frac{n(3n+1)}{2}.
+\]
+
+
+\newpage
+
+\item Let $A=\{0,1,2,3,4,5,6,7,8\}$, and define a relation $\sim$ on $A$ by 
+\[
+ a\sim b \, \text{ if and only if } \, a^2\equiv b^2 \pmod{9}.
+\]
+\begin{enumerate}
+ \item Prove that $\sim$ is an equivalence relation on $A$. \points{5}
+
+\vspace{3in}
+
+ \item Determine all of the distinct equivalence classes determined by $\sim$.\points{3}
+
+\vspace{2in}
+\end{enumerate}
+\item For which $[x]\in\Z_4 = \{[0],[1],[2],[3]\}$ is it true that $([2]\odot[x])\oplus [1] = [3]$?\points{2}\\
+(Hint: there are only four values of $[x]$ to check.)
+
+\end{enumerate}
+\newpage
+
+This page is left intentionally blank for rough work. Please do not remove this page.
+
+
+\end{document}

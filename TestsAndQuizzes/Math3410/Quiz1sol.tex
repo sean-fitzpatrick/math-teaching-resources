@@ -1,0 +1,65 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 3410A}\chead{Quiz \# 1}\rhead{Friday, 16\textsuperscript{th} January, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+{\bf Name: Solutions}
+ \begin{enumerate}
+ \item  Find a number $\lambda\in\C$ such that
+ \[
+ \lambda(1+i,2-3i,3+4i) = (3+i,5-10i,6+7i),
+ \]
+ or explain why no such number can exist.
+ 
+ \bigskip
+ 
+ (Note: the numbers above are different from the original quiz, because (a) I'm working from home and don't have a hard copy of the quiz with me, and (b) I accidentally overwrote the file while making the second quiz.)
+ 
+ {\bf Solution:} Using the rule for scalar multiplication in $\C^3$, the vector on the left must be $(\lambda(1+i),\lambda(2-3i),\lambda(3+4i))$, and this must equal $(3+i,5-10i,6+7i)$. Equating the first entries, we have
+ \[
+ \lambda(1+i) = 3+i.
+ \]
+ If we multiply both sides by $1-i$, we get $2\lambda = 4-2i$, so $\lambda = 2-i$. Thus, looking at the second entry, on the left we have $\lambda(2-3i) = (2-i)(2-3i) = 1-8i$, which does not equal $5-10i$. Therefore, no such $\lambda$ can exist.
+ 
+ \bigskip
+ 
+ \item Let $V$ be a vector space over a field $\mathbb{F}$. Prove that for any $a\in \mathbb{F}$ and $v\in V$, if $av=0$, then $a=0$ or $v=0$.
+ 
+ \bigskip
+ 
+ {\bf Proof}: Given $a\in\mathbb{F}$, either $a=0$ or $a\neq 0$. If $a=0$, then we're done. If $a\neq 0$, then from $av=0$ we have
+ \[
+ v = 1v = \left(\frac{1}{a}\cdot a\right)v = \frac{1}{a}(av) = \frac{1}{a}(0) = 0.
+ \]
+ \end{enumerate}
+\end{document}

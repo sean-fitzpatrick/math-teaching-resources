@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000}\chead{Quiz \# 9}\rhead{Thursday, 13\textsuperscript{th} November, 2014}
+\rfoot{Total: 10 points}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\modd}[3]{#1\equiv #2 \pmod{#3}}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+\noindent{{\bf Name and student number: Solutions}}
+
+ \begin{enumerate}
+ \item Let $f:\R\to\R$ be defined by $f(x)=x^2$. If $A=[0,2]$ and $B=[-1,1]$, compute:
+\begin{enumerate}
+ \item $f(A\cap B)$\points{2}
+
+\bigskip
+
+We have $A\cap B = [0,2]\cap [-1,1] = [0,1]$, and
+\[
+ f([0,1]) = \{f(x)|x\in [0,1]\} = \{x^2 | 0\leq x\leq 1\} = [0,1].
+\]
+
+\bigskip
+
+ \item $f(A)\cap f(B)$\points{2}
+
+\bigskip
+
+We have $f(A) = \{x^2|0\leq x\leq 2\} = [0,4]$ and $f(B) = \{x^2 | -1\leq x\leq 1\} = [0,1]$, so
+\[
+ f(A)\cap f(B) = [0,4]\cap [0,1] = [0,1].
+\]
+
+\bigskip
+
+ \item $f^{-1}(f(A))$\points{2}
+
+\bigskip
+
+From (b) we have that $f(A) = [0,4]$, so
+\[
+ f^{-1}(f(A)) = f^{-1}([0,4]) = \{x\in \R | 0\leq x^2\leq 4\} = [-2,2].
+\]
+
+\end{enumerate}
+\newpage
+
+\item Let $f:A\to B$ be a given function. We know that for any subset $C\subseteq A$, $C\subseteq f^{-1}(f(C))$, since if $x\in C$, then $f(x)\in f(C)=\{f(c)|c\in C\}$, and thus 
+\[
+x\in f^{-1}(f(C))=\{x\in A | f(x)\in f(C)\}. 
+\]
+Prove that if $f$ is one-to-one, then the reverse inclusion holds; that is, $f^{-1}(f(C))\subseteq C$.\points{4}
+
+Hint: Suppose $x\in f^{-1}(f(C))$, and let $y= f(x)$. If $y\in f(C)$, that doesn't immediately guarantee that $x\in C$, but it does guarantee that there is some $c\in C$ such that $f(c)=y$.
+
+
+\bigskip
+
+{\bf Proof}: Suppose $x\in f^{-1}(f(C)) = \{x\in A | f(x)\in C\}$. Then $f(x)\in f(C)$, so there exists some $c\in C$ such that $f(c)=f(x)$. Since $f$ is one-to-one, it follows that $c=x$ and thus $x\in C$.
+
+Since $x\in C$ whenever $x\in f^{-1}(f(C))$, it follows that $f^{-1}(f(C))\subseteq C$.
+ \end{enumerate}
+\end{document}

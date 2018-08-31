@@ -1,0 +1,168 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[canadian]{babel}
+\usepackage{geometry}
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+\usepackage[dvips]{hyperref}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\P}{\mathcal{P}}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\row}{row}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\rank}{rank}
+
+\newcommand{\M}{\mathcal{M}}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+
+\author{Sean Fitzpatrick}
+\date{2015-02-25}
+\title{The column space and null space of a matrix}
+
+\begin{document}
+\maketitle
+
+In our course, we've discussed the general scenario of the null space and range of a linear transformation between vector spaces. Given a linear transformation $T:V\to W$, our main results are that $\nul T$ is a subspace of $V$, and $\range T$ is a subspace of $W$, and if $V$ is finite-dimensional, then
+\[
+ \dim V = \dim \nul T + \dim \range T.
+\]
+As mentioned in class, a special case of linear transformations in general is that of a matrix transformation. If we denote
+\[
+ V = \R^{n,1} = \left\{X=\begin{bmatrix}x_1\\x_2\\\vdots\\x_n\end{bmatrix} : x_1,x_2,\ldots, x_n\in\R\right\}
+\]
+and 
+\[
+W = \R^{m,1} = \left\{Y=\begin{bmatrix}y_1\\y_2\\\vdots\\v_m\end{bmatrix} : y_1,y_2,\ldots, y_m\in\R\right\},
+\]
+and if $A$ is any $m\times n$ matrix, then we have a corresponding linear transformation $T_A:\R^{n,1}\to\R^{m,1}$ given by
+\[
+ T_A(X) = AX = \begin{bmatrix}a_{11}&a_{12}&\cdots & a_{1n}\\
+                a_{21}&a_{22}&\cdots&a_{2n}\\
+		\vdots & \vdots & \ddots & \vdots\\
+		a_{m1} & a_{m2} & \cdots & a_{mn}
+               \end{bmatrix}\begin{bmatrix}x_1\\x_2\\\vdots\\x_n\end{bmatrix}.
+\]
+Notice that $\mathcal{M}(T_A) = A$: the matrix of the linear transforation $T_A$, as defined in the text, is equal to the original matrix $A$. This implies that for finite-dimensional vector spaces, the properties of general linear transformations are closely related to those of matrix transformations. However, the study of matrix transformations in particular, as opposed to linear transformations in general, often falls through the cracks: it belongs in the study of vectors in $\mathbb{R}^n$ covered in a course like Math 1410, but is usually left out due to time constraints, and doesn't quite make it into a course like Math 3410 that begins with the study of general vector spaces.
+
+Given an $m\times n$ matrix $A$, one defines the {\em null space} of $A$ to be the subspace of $\R^{n,1}$ defined by
+\[
+ \nul A = \{X\in\R^{n,1} : AX=0\},
+\]
+and the {\em column space} of $A$ to be the subspace $\col A$ of $\R^{m,1}$ spanned by the columns of $A$. However, if we follow the usual rules of matrix multiplication, we can see that
+\[
+ AX = \begin{bmatrix}a_{11}&a_{12}&\cdots & a_{1n}\\
+                a_{21}&a_{22}&\cdots&a_{2n}\\
+		\vdots & \vdots & \ddots & \vdots\\
+		a_{m1} & a_{m2} & \cdots & a_{mn}
+               \end{bmatrix}\begin{bmatrix}x_1\\x_2\\\vdots\\x_n\end{bmatrix}
+=x_1\begin{bmatrix}a_{11}\\a_{21}\\\vdots\\a_{m1}\end{bmatrix}+x_2\begin{bmatrix}a_{12}\\a_{22}\\\vdots\\a_{m2}\end{bmatrix}+\cdots +x_n\begin{bmatrix}a_{1n}\\a_{2n}\\\vdots\\a_{mn}\end{bmatrix}.
+\]
+Thus, $Y\in\R^{m,1}$ belongs to the column space of $A$ if and only if $Y=AX$ for some vector $X\in\R^{n,1}$. In other words,
+\[
+ \col A = \range T_A.
+\]
+In a course focusing on matrices and vectors in $\R^n$, one is usually concerned with the rank of a matrix, since this gives us information about the general solutions to systems of linear equations. One often defines in addition $\row A$, the {\em row space} of $A$, to be the subspace of $\R^{1,m}$ spanned by the rows of $A$.\footnote{Note that $\R^{m,1}$ and $\R^{1,m}$ are isomorphic: the transpose of a row is a column, and vice versa. In fact there is an even closer relationship here: $\R^{1,m}$ is the {\em dual} of $\R^{m,1}$. If you have the third edition of the text, you can find details in section 3.F. In  particular, you'll find there the result that given a linear transformation $T:V\to W$ between finite-dimensional vector spaces $V$ and $W$, with dual spaces $V'$ and $W'$, there is a dual map $T':W'\to V'$, and the matrix of $T'$ is simply the transpose of the matrix of $T$.}
+\begin{enumerate}
+ \item The {\bf rank} of $A$, given by the number of leading ones in the row-echelon form of $A$.
+ \item The {\bf column rank} of $A$, given by the dimension of $\col A$.
+ \item The {\bf row rank} of $A$, given by the dimension of $\row A$.
+\end{enumerate}
+One then proves that the rank, column rank, and row rank of $A$ are all equal. The proof is essentially the Gaussian elimination algorithm: the leading ones in the row-echelon form of $A$ each land in exactly one row and one column.
+
+The next few results are borrowed from the text ``Linear Algebra with Applications'', 5\textsuperscript{th} ed., by W. Keith Nicholson.
+\begin{theorem}\label{1}
+ Let $A$, $U$, and $V$ be matrices of size $m\times n$, $p\times m$, and $n\times q$, respectively. Then
+\begin{enumerate}
+ \item $\col(AV)\subseteq \col A$, with equality if $V$ is square and invertible.
+ \item $\row(UA)\subseteq \row A$, with equality if $U$ is square and invertible.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+ We will prove (1); the proof of (2) follows from (1) by taking transposes. Note that if $X_j$ denotes the $j^{th}$ column of $V$, then $AX_j\in \col A$. But $AX_j$ is just the $j^{th}$ column of $AV$. Since $\col A$ contains a spanning set for $\col (AV)$, it follows that $\col(AV)\subseteq \col A$. If $V$ is invertible, then 
+\[
+ \col(AV)\supseteq \col((AV)V^{-1}) = \col A,
+\]
+so $\col (AV) = \col A$.
+\end{proof}
+Note that this result is almost trivial from the point of view of linear transformations, using basic properties of functions from Math 2000: we have $\col A = \range T_A$, and $\col (AV) = \range T_{AV} = \range (T_A\circ T_V)$. Since $\range T_V\subseteq \dom T_A$, it follows that $\range T_A\circ T_V \subseteq \range T_A$. 
+
+We now want to consider the above from the point of view of the row-echelon form of a matrix $A$. Recall that since $A$ can be carried to its row-echelon form $R$ (which is unique) via elementary row operations, there exist elementary matrices $E_1,\ldots, E_K$ such that
+\[
+ R = (E_k\cdots E_1)A = UA,
+\]
+where $U=E_k\cdots E_1$ is a product of elementary matrices, and therefore invertible. It immediately follows from the above theorem that $\row R = \row A$. In addition, we have the following:
+\begin{lemma}
+ Let $R$ denote an $m\times n$ matrix in row-echelon form. Then:
+\begin{enumerate}
+ \item The non-zero rows of $R$ are a basis for $\row R$.
+ \item The columns of $R$ containing the leading ones are a basis cor $\col R$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+ \begin{enumerate}
+  \item By definition, $\row R = \spn\{R_1,\ldots, R_r\}$, where $r=\rank R$ and the $R_j$ are the nonzero rows of $R$. From the definition of row-echelon form, we can assume that the rows are ordered such that the leading one of $R_i$ is to the left of the leading one of $R_j$ if $i<j$. It is then easy to see that the rows are linearly independent: if $a_1R_1+\cdots+a_mR_m=0$, then $a_1=0$, since the leading one of $R_1$ is to the left of the remaining leading ones, and then $a_2=0$, and so on.
+ \item The columns containing leading ones are linearly independent, since each contains a leading one in a different row, and all the entries below a leading one are zero, so $\dim \col R\geq r$. Note from the proof of (1) that only the first $r$ rows of $R$ contain nonzero entries, so $\col R$ is contained in the subspace of $\R^m$ consisting of columns with the last $m-r$ entries equal to zero. This shows that $\dim \col R\leq r$, and that the columns containing the leading ones must therefore form a basis.
+ \end{enumerate}
+\end{proof}
+Note that in the course of the above proof, we've shown that for a matrix $R$ in row-echelon form, $\dim \row R = \dim \col R = \rank R$. It remains to show that this still holds true for any matrix.
+\begin{theorem}\label{2}
+ Let $A$ denote any $m\times n$ matrix. Then
+\[
+ \dim\row A = \dim \col A.
+\]
+Moreover, suppose that $A$ can be carried to a matrix $R$ in row-echelon form via elementary row operations. If $r=\rank A$ is the number of nonzero rows in $R$, then
+\begin{enumerate}
+ \item The $r$ nonzero rows of $R$ form a basis for $\row A$.
+ \item If the leading ones of $R$ appear in columns $j_1,\ldots, j_r$ of $R$, then the corresponding columns $j_1,\ldots, j_r$ of $A$ are a basis for $\col A$.
+\end{enumerate}
+\end{theorem}
+\noindent {\bf Remark:} It is the second point in the above theorem that is the most relevant to us. (Knowing the row space is not so important.) If $A=\mathcal{M}(T)$ denotes the matrix of a linear transformation $T$, then knowing $\col A$ will let us determine $\range T$. Be careful with this result though: it is {\bf not} the leading columns of $R$ that form a basis for $\col A$: the leading ones in $R$ just tell us which columns {\em of the original matrix} $A$ will form a basis for the column space of $A$.
+
+\begin{proof}[Proof of Theorem \ref{2}]
+ We know that $R=UA$ for some invertible matrix $U$ (since $U$ will be a product of elementary matrices). It follows that $\row A = \row R$ from Theorem \ref{1}, and (1) follows from the lemma above. Now, let $C_1,\ldots, C_n$ denote the columns of $A$, and write $A=\begin{bmatrix}C_1&\cdots &C_n\end{bmatrix}$ in block form. Then
+\[
+ R = UA =\begin{bmatrix}UC_1&\cdots &UC_n\end{bmatrix}.
+\]
+If $j_1,\ldots, j_r$ are the columns of $R$ containing leading ones, then by our lemma, the columns $UC_{j_1},\ldots, UC_{j_r}$ of $R$ form a basis for $\col R$. Since these columns are linearly independent and $U$ is invertible, it follows that the columns $C_{j_1},\ldots, C_{j_r}$ of $A$ are linearly independent.\footnote{This is a familar result in different language. If we consider $C_{j_1},\ldots, C_{j_r}$ as vectors in $\R^{m,1}$, and multiplication by $U$ as an invertible (and thus, injective) linear transformation $T_U:\R^{m,1}\to \R^{m,1}$, we know that the vectors $UC_{j_1},\ldots, UC_{j_r}$ are linearly independent if and only if the vectors $C_{j_1},\ldots, C_{j_r}$ are linearly independent.} Finally, for any column $C_j$ of $A$, we know that $UC_j$ is a linear combination of $UC_{j_1},\ldots, UC_{j_r}$, since these vectors form a basis for $\col R$, and since $U$ is invertible, it follows that $C_j$ is a linear combination of $C_{j_1},\ldots, C_{j_r}$, and we've proved (2).
+
+As a consequence of (1) and (2), we have that $\dim \col A = \dim \row A = r= \rank A$.
+\end{proof}
+\begin{corollary}
+ For any matrix $A$, $\rank A = \rank A^T$.
+\end{corollary}
+\begin{corollary}
+ If $A$ is an $m\times n$ matrix, then $\rank A\leq \min\{m,n\}$.
+\end{corollary}
+\begin{corollary}
+ An $n\times n$ matrix $A$ is invertible if and only if $\rank A=n$.
+\end{corollary}
+Another consequence of the above is the so-called ``Rank-Nullity Theorem'' for a matrix. If we define the nullity of $A$ to be the dimension of $\nul A$, then this theorem states that for any $m\times n$ matrix $A$,
+\[
+ \operatorname{nullity}A+\rank A = n.
+\]
+If we view $A$ as the coefficient matrix for a system of $m$ equations in $n$ variables, this is the familiar result that the number of parameters in the general solution to the system (given by the nullity of $A$) is equal to the number of variables ($n$) minus the rank. However, if we view $A$ as the matrix of a linear transformation $T:V\to W$, then we see that $\rank A = \dim \col A = \dim \range A$, and $\operatorname{nullity}A = \dim\nul A = \dim \nul T$, then this is again the ``Fundamental Theorem of Linear Maps'', that
+\[
+ \dim\nul A + \dim\range A = \dim V.
+\]
+
+
+\end{document}

@@ -1,0 +1,206 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=0.85in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 1560 - Tutorial \#5}\\
+Monday, February 12
+\end{center}
+\skipline \ \noindent \skipline
+
+Student \#1 :\underline{\hspace{348pt}}\\
+
+\bigskip
+
+
+Student \#2 :\underline{\hspace{348pt}}\\
+
+\bigskip
+
+Student \#3 :\underline{\hspace{348pt}}\\
+
+\bigskip
+
+Student \#4 :\underline{\hspace{348pt}}\\
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+Some additional practice (discuss the answers but don't write anything down):
+\begin{enumerate}
+\item Evaluate the limits:
+\begin{multicols}{3}
+\begin{enumerate}
+\item $\di \lim_{x\to 0}\sqrt{4x^2-x+9}$
+\item $\di \lim_{x\to \infty}\frac{8x^5+3x+5}{4+5x^3+2x^5}$
+\item $\di \lim_{x\to 3}\frac{x^2-9}{x-3}$ 
+\end{enumerate}
+\end{multicols}
+
+\item Compute the derivative:
+\begin{multicols}{3}
+\begin{enumerate}
+\item $\di\frac{d}{dx}(x^4+4x+9)$
+\item $\di \frac{d}{dx}\sqrt{x^4+4}$
+\item $\di\frac{d}{dx}(5x^3e^x)$
+\end{enumerate}
+\end{multicols}
+
+\item Evaluate the immediate integral:
+\begin{multicols}{2}
+\begin{enumerate}
+\item $\di \int(4x^3+2x)\,dx$
+\item $\di \int\frac{1}{x}\,dx$
+\item $\di \int 7e^{7x}\sin(e^{7x})\,dx$
+\item $\di \int \frac{\ln(x)}{x}\,dx$
+\end{enumerate}
+\end{multicols}
+\end{enumerate}
+
+
+
+
+\newpage
+%\thispagestyle{empty}
+
+\vglue12pt
+
+Test problems: (note $\di \sum_{k=1}^n k^3=\frac{n^2(n+1)^2}{4}$)
+  \begin{enumerate}
+    \item Compute the limit:
+    \begin{multicols}{2}
+    \begin{enumerate}
+    \item $\di \lim_{x\to 2^+}\frac{(x^2-4)^2}{x-2}$
+
+    
+    \item $\di \lim_{n\to\infty}\left(\frac{1^3}{n^4}+\frac{2^3}{n^4}+\cdots + \frac{n^3}{n^4}\right)$ 
+    \end{enumerate}
+\end{multicols}
+
+    \vspace{2cm}
+
+    \item Compute the derivative:
+    \begin{multicols}{2}
+    \begin{enumerate}
+    \item $f(x) = \dfrac{\sin(x)}{e^x}$
+    
+
+    
+    \item $\di g(x)= \tan(5x^2)$
+    
+  
+    
+    
+    \end{enumerate}
+    \end{multicols}
+    
+    \vspace{2cm}
+    
+    \item Compute $\dfrac{d}{dx}(x^x)$
+    
+    \vspace{2cm}
+    
+    \item Evaluate the integral:
+    \begin{multicols}{2}
+    \begin{enumerate}
+    \item $\di\int 2x(x^2+4)^4\,dx$
+    
+
+    
+    \item $\di\int(\cos(2x)-sec^2(x))\,dx$
+    
+
+    \end{enumerate}
+    \end{multicols}
+    
+    \vspace{2cm}
+    
+    \item Compute $y'=\frac{dy}{dx}$, given:
+    \begin{multicols}{2}
+    \begin{enumerate}
+    \item $x^2+y^2=25$, at the point $(-3,-4)$.
+    
+
+    
+    \item $y^3+x^5y=2\ln(y)+\dfrac{x}{y}$ (don't solve for $y'$)
+    \end{enumerate}
+    \end{multicols}
+    
+    \vspace{2cm}
+    
+    \newpage
+  \vglue12pt
+  
+    \item Given $f(x) = x^2e^x$, solve the equation $f'(x)=0$.
+    
+    \vspace{4cm}
+    
+    \item Given $f(x) = e^{-2x^2}$, solve the equation $f''(x)=0$.
+
+ \vspace{3cm}
+  
+   \item Let $f(x) = x^3(x-4)^5$. Determine:
+   \begin{enumerate}
+   \item All values of $x$ such that $f'(x)=0$
+   
+   \vspace{3cm}
+   
+   \item The intervals on which $f$ is increasing or decreasing.
+   
+   \vspace{1.5cm}
+   
+   \item The coordinates of any local maxima or minima.
+   \end{enumerate}
+   
+
+   
+   
+  \end{enumerate}
+\end{document}

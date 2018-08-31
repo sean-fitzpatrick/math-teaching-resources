@@ -1,0 +1,147 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+\newcommand{\T}{\mathcal{T}}
+\DeclareMathOperator{\Int}{Int}
+
+\title{Math 4310 Assignment \#10 Solutions\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+\item Let $f:S^1\to \R$ be a continuous map, where $S^1=\{(x,y) | x^2+y^2=1\}$. Show that there exists a point $(x,y)\in S^1$ such that $f(x,y)=f(-x,-y)$. (Hint: $S^1$ is connected; in fact, it is path-connected.)
+
+\bigskip
+
+Given $f:S^1\to\R$, let $g(x,y)=f(x,y)-f(-x,-y)$. Choose a point $(x_0,y_0)\in S^1$ and let $\gamma:[0,1]\to S^1$ be a path from $(x_0,y_0)$ to $(-x_0,-y_0)$, and let $h=g\circ\gamma:[0,1]\to \R$. Then $h(0)=g(\gamma(0))=f(x_0,y_0)-f(-x_0,y_0)$. If $h(0)=0$, we're done. If not, note that $h(1)=g(\gamma(1))=f(-x_0,-y_0)-f(x_0,y_0)=-h(0)$. Then either $h(0)<0$ and $h(1)>0$ or $h(0)>0$ and $h(1)<0$; in either case, the Intermediate Value Theorem guarantees the existence of some $c\in (0,1)$ such that $h(c)=0$, and $(x,y)=\gamma(c)$ is the desired point.
+
+\bigskip
+
+Alternative solution: suppose that no such point exists. Then the function $g(x,y) = \dfrac{f(x,y)-f(-x,-y)}{\abs{f(x,y)-f(-x,-y)}}$ is defined on all of $S^1$, since $f(x,y)-f(-x,-y)\neq 0$, and since $g(-x,-y)=-g(x,y)$, $g$ is a continuous surjection from $S^1$ to $\{-1,1\}$. But this is impossible, since $S^1$ is connected.
+
+\bigskip
+
+\item Let $X$ be a topological space. Prove that $CX$, the cone over $X$, is path-connected.
+
+(Recall that $CX$ is the quotient of $X\times [0,1]$ obtained by collapsing $X\times\{1\}$ to a single point.)
+
+\bigskip
+
+Let $p:X\to CX$ denote the quotient map, and let $a\in CX$ denote the apex of the cone; that is, such that $p^{-1}(a)=X\times\{1\}$. It suffices to show that for any point $y\in CX$, there exists a path $\gamma:[0,1]\to CX$ from $y$ to $a$, since for any two points $y_1,y_2\in CX$ with paths $\gamma_1,\gamma_2$ from $y_1,y_2$ to $a$, respectively, the path $\gamma_1\star\gamma_2^{-1}$ given by
+\[
+\gamma_1\star\gamma_2^{-1}(s) = \begin{cases} \gamma_1(s) & \text{ if } 0\leq s\leq 1/2\\ \gamma_2(2-2s) & \text{ if } 1/2\leq s\leq 1\end{cases}
+\]
+is a path from $y_1$ to $y_2$. So, let $y\in CX$. If $y=a$, we can take the constant path. If $y\neq a$, then $y=p(x,t)$ for some $x\in X$ and $t\in [0,1)$. Let $\alpha:[0,1]\to X\times [0,1]$ be the path given by
+\[
+\alpha(s) = (x, t+s-st).
+\]
+Then $\alpha$ is clearly continuous, since the map $f:[0,1]\to [0,1]$ given by $f(s)=t+(1-t)s$ is continuous, and $\alpha$ is the product of $f$ and a constant map. Moreover, $\alpha(0)=(x,t)$ and $\alpha(1)=(x,1)$, so $\alpha$ is a path in $X\times [0,1]$ from $(x,t)$ to $(x,1)$. It follows that the composition $\gamma = p\circ \alpha:[0,1]\to CX$ is a path from $y$ to $a$.
+
+\bigskip
+
+\item \begin{enumerate}
+\item Let $X$ be a connected topological space, and call a point $p\in X$ a {\em cut point} if $X\setminus \{p\}$ is not connected. Prove that the existence of a cut point is a topological property. (That is, if $f:X\to Y$ is a homeomorphism and $X$ has a cut point $p$, $q=f(p)$ must be a cut point of $Y$.)
+
+\bigskip
+
+We first prove the following more general result: if $f:X\to Y$ is a homeomorphism, and $p\in X$ is any point, then the function $g:X\setminus\{p\}\to Y\setminus\{f(p)\}$ given by $g(x)=f(x)$ for all $x\in X\setminus \{p\}$ is also a homeomorphism. (As usual we assume $X\setminus\{p\}$ and $Y\setminus \{f(p)\}$ are given the subspace topology.) To see this, we note that since $f$ is a bijection that maps $p$ to $f(p)$, $g$ must also be a bijection. We know that $g$ is continuous, since it's the restriction of a continuous function. Moreover, $g^{-1}$ is continuous, since $g^{-1}$ is just the restriction of $f^{-1}$ to $Y\setminus\{f(p)\}$.
+
+Now, if $X$ is connected and $f:X\to Y$ is a homeomorphism, then $Y$ must be connected as well. If $p\in X$ is a cut point, then $X\setminus\{p\}$ is no longer connected, and since $X\setminus\{p\}\cong Y\setminus\{f(p)\}$, $Y\setminus\{f(p)\}$ must also no longer be connected, and thus $f(p)$ is a cut point of $Y$.
+
+\bigskip
+
+Alternative solution: let $\{U,V\}$ be a separation of $X\setminus \{p\}$. Given a homeomorphism $f:X\to Y$, explain why $f(U)$ and $f(V)$ must give a separation of $Y\setminus\{f(p)\}$.
+
+\bigskip
+
+\item Prove that none of the intervals $[0,1]$, $(0,1)$, or $[0,1)$ can be homeomorphic. 
+
+\bigskip
+
+We know that $[0,1]$ cannot be homeomorphic to either of the other two intervals, since $[0,1]$ is compact and $(0,1)$ and $[0,1)$ are not. It remains to show that $(0,1)$ cannot be homeomorphic to $[0,1)$. To see this, note that both intervals are connected, and suppose that $f:(0,1)\to [0,1)$ is a bijection. Then there is some $x\in (0,1)$ such that $f(x)=0$. Then $x\in (0,1)$ is a cut point, since $(0,1)\setminus\{x\} = (0,x)\cup (x,1)$ is no longer connected. However, $[0,1)\setminus\{0\} = (0,1)$ is still connected, so $f$ cannot be a homeomorphism, by part (a).
+
+\bigskip
+
+\item Prove that the letters X and Y (viewed as subsets of $\R^2$ with the subspace topology) are not homeomorphic.
+
+(Hint: extend your proof from (a) to show that if $f:X\to Y$ is a homeomorphism, $p$ is a cut point of $X$, and $q=f(p)$, then $X\setminus \{p\}$ has the same number of connected components as $Y\setminus \{f(p)\}$.
+
+\bigskip
+
+First, we note that any homeomorphism $f:A\to B$ between topological spaces $A$ and $B$ determines a one-to-one correspondence between connected components, since $f$ maps disjoint open subsets to disjoint open subsets. Thus, if $A\cong B$, then $A$ and $B$ have the same number of connected components.
+
+Now let $p$ denote the point at the center of the letter X. Removing $p$ from X leaves us with four connected components (the four ``legs'' of X). If there was a homeomorphism $f$ from X to Y, it would have to induce a homeomorphism from X with $p$ removed to the space obtained by removing $f(p)$ from Y. However, it is clear that we can obtain at most three connected components by removing a point from Y, so X and Y cannot be homeomorphic.
+
+\bigskip
+
+\end{enumerate}
+\item Prove that any infinite subset of a compact space must have  a limit point.
+
+\bigskip
+
+Let $X$ be a compact space, and suppose that $A\subseteq X$ does not have a limit point. Then $A$ is closed, since it contains its (non-existent) limit points. Thus, $X\setminus A$ is open. If we choose an open neighbourhood $U_a$ of each $a\in A$, then the collection
+\[
+\mathcal{A} = \{U_a | a\in A\}\cup\{X\setminus A\}
+\]
+is an open cover of $X$. Moreover, since $A$ does not have any limit points, we can choose each $U_a$ such that $U_a\cap A = \{a\}$. Since $X$ is compact, there must exist a finite subcover; that is, we must have 
+\[
+X = U_{a_1}\cup U_{a_2}\cup\cdots \cup U_{a_n}\cup (X\setminus A)
+\]
+for some points $a_1,a_2,\ldots, a_n\in A$. It follows that $A \subseteq U_{a_1}\cup U_{a_2}\cup \cdots \cup U_{a_n}$, so
+\begin{align*}
+A & \subseteq (U_{a_1}\cup U_{a_2}\cup \cdots \cup U_{a_n})\cap A\\
+& = (U_{a_1}\cap A)\cup (U_{a_2}\cap A)\cup \cdots \cup (U_{a_n}\cap A)\\
+& = \{a_1\}\cup\{a_2\}\cup\cdots\cup\{a_n\}\\
+& = \{a_1,a_2\ldots, a_n\}.
+\end{align*}
+It follows that $A=\{a_1,a_2,\ldots, a_n\}$ is finite, and the result follows by taking the contrapositive.
+
+\bigskip
+
+\item A closed map $p:X\to Y$ is called a {\em perfect map} if $p$ is a surjection and $p^{-1}(y)$ is a compact subset of $X$ for every $y\in Y$. A quotient map $p:X\to Y$ is called a {\em proper map} if $p^{-1}(K)$ is compact whenever $K\subseteq Y$ is compact. Prove that any perfect map is proper.
+
+(Hint: any open cover of $p^{-1}(K)$ is also an open cover of $p^{-1}(k)$ for each $k\in K$. If $p^{-1}(k)\subseteq U=U_1\cup\cdots U_n$, then $F=X\setminus U$ is closed in $X$, and $p$ is a closed map, so $p(F)$ is closed in $Y$, and thus $Y\setminus p(F)$ is an open neighbourhood of $k$ in $Y$.)
+
+\bigskip
+
+Let $K\subseteq Y$ be compact, and assume that $p:X\to Y$ is perfect. We wish to show that $p^{-1}(K)\subseteq X$ is compact. Let $\mathcal{A}$ be an open cover for $p^{-1}(K)$. If $k\in K$, then $p^{-1}(k)\subseteq p^{-1}(K)$, so $\mathcal{A}$ is also an open cover of $p^{-1}(k)$. Since $p^{-1}(k)$ is compact, there exist finitely many sets $A_{1,k},\ldots, A_{n_k,k}$ such that
+\[
+p^{-1}(k)\subseteq A_k = A_{1,k}\cup\cdots\cup A_{n_k,k}.
+\]
+Since $A_k$ is open, $F_k = X\setminus A_k$ is closed. Since $p$ is perfect, it's in particular a closed map, so $p(F_k)$ is a closed subset of $Y$. Since $p^{-1}(k)\cap F_k = \emptyset$, we must have $k\in U_k = Y\setminus p(F_k)$. The collection $\mathcal{U} = \{U_k|k\in K\}$ is then an open cover of $K$, and since $K$ is compact, there exists a finite subcover $\{U_{k_1},\ldots, U_{k_m}\}$ with
+\[
+K\subseteq U=U_{k_1}\cup \cdots \cup U_{k_m}.
+\]
+Since $K\subseteq U$, we have
+\[
+p^{-1}(K) \subseteq p^{-1}(U) = p^{-1}(U_{k_1})\cup \cdots \cup p^{-1}(U_{k_m}),
+\]
+and for each $j\in \{1,\ldots, m\}$ we have
+\[
+p^{-1}(U_{k_j}) = p^{-1}(Y\setminus p(F_{k_j})) = X\setminus p^{-1}(p(F_{k_j})).
+\]
+Since $F_{k_j}\subseteq p^{-1}(p(F_{k_j})$, we have $X\setminus p^{-1}(p(F_{k_j}))\subseteq X\setminus F_{k_j} = A_{k_j}$, and each $A_{k_j}$ is a finite union of open sets. Thus, the collection 
+\[
+\{A_{1,k_1},\ldots, A_{n_{k_1},k_1},\ldots, A_{1,k_m},\ldots, A_{n_{k_m},k_m}\}
+\]
+is a finite subcover.
+\end{enumerate}
+\end{document}
+ 

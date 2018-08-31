@@ -1,0 +1,175 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\di}{\displaystyle}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\len}[1]{\left\lVert #1\right\rVert}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\F}{\mathbf{F}}
+
+\title{Solutions to Quiz 19 Practice Problems\\Math 2580\\Spring 2016}
+\author{Sean Fitzpatrick}
+\date{March 29th, 2016}
+
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+ \item Find a function $f$ such that $\nabla f = \F$, and use this to evaluate $\int_C \F\dotp d\r$ for the given curve:
+\begin{enumerate}
+ \item $\F(x,y) = \dfrac{y^2}{1+x^2}\i + 2y\arctan x\j$, $C$ parameterized by $\r(t) = t^2\i+2t\j$, $0\leq t\leq 1$.
+
+\bigskip
+
+Let $\F=P\i+Q\j$ and suppose $\F = \nabla f$ for some function $f$. If $f_x(x,y) = \dfrac{y^2}{1+x^2} = P(x,y)$, then we must have $f(x,y) = y^2\arctan x + g(y)$ for some function $g(y)$ of $y$ only. Then on the one hand we have $f_y(x,y) = 2y\arctan x +g'(y)$, and on the other hand, $f_y(x,y) = 2y\arctan x = Q(x,y)$, so we can take $g(y)=0$, and $f(x,y)=y^2\arctan x$.
+
+The endpoints of the curve are given by $\r(0) = \langle 0,0\rangle$ and $\r(1) = \langle 1, 2\rangle$, so by the Fundamental Theorem of Calculus we have
+\[
+ \int_C \F\dotp d\r = f(\r(1))-f(\r(0)) = f(1,2)-f(0,0) = 4\arctan 1 - 0 = \pi.
+\]
+
+
+
+ \item $\F(x,y,z) = (2xz+y^2)\i+2xy\j + (x^2+3z^2)\k$, $C$ parameterized by $x=t^2, y=t+1, z=2t-1$, $0\leq t\leq 2$.
+
+\bigskip
+
+Let $\F = P\i+Q\j+R\k$ and suppose $\F = \nabla f$ for some function $f$. Then we must have $f_x(x,y,z) = P(x,y,z) = 2xz+y^2$, which gives $f(x,y,z) = x^2z+xy^2+g(y,z)$ for some function $g$ that does not depend on $x$. Now we must have
+\[
+ Q(x,y,z) = 2xy = f_y(x,y,z) = 2xy+g_y(y,z),
+\]
+which tells us that $g_y(y,z)=0$, so $g(y,z)=g(z)$ depends only on $z$. Comparing $z$-components, we have
+\[
+ R(x,y,z) = x^2+3z^2 = f_z(x,y,z) = x^2+g'(z),
+\]
+from which we find $g'(z) = 3z^2$, so $g(z)=z^3$ and $f(x,y,z) = x^2z+xy^2+z^3$. The endpoints of our curve are given by $(0^2, 0+1, 2(0)-1) = (0,1,-1)$ and $(2^2, 2+1, 2(2)-1) = (4,3,3)$ so we have
+\[
+ \int_C \F\dotp d\r = f(4,3,3)-f(0,1,-1) = 16(3)+4(9)+27-(-1)^3 = 110.
+\]
+
+ \item $\F(x,y,z) = \langle e^y, xe^y, (z+1)e^z\rangle$, $C$ parameterized by $\r(t) = \langle t, t^2, t^3\rangle$, $t\in [0,1]$.
+
+\bigskip
+
+Let $\F = P\i+Q\j+R\k$ and suppose $\F = \nabla f$ for some function $f$. Then we must have $f_x(x,y,z) = P(x,y,z) = e^y$, so $f(x,y,z) = xe^y+g(y,z)$ for some function $g$ of $y$ and $z$. Comparing $y$ components, we have
+\[
+ Q(x,y,z) = xe^y = f_y(x,y,z) = xe^y+g_y(y,z),
+\]
+so $g_y(y,z) = 0$, and $g(y,z) = g(z)$ depends on $z$ only. Comparing $z$ components, 
+\[
+ R(x,y,z) = (z+1)e^z = g'(z),
+\]
+and since $(z+1)e^z = \dfrac{d}{dz}(ze^z)$, we have $g(z)=ze^z$ and $f(x,y,z) = xe^y+ze^z$. Thus,
+\[
+ \int_C\F\dotp d\r = f(1,1,1)-f(0,0,0) = 2e.
+\]
+
+\end{enumerate}
+ \item Calculate the curl of the given vector field:
+\begin{enumerate}
+ \item $\F(x,y,z) = \langle 2xy, xz, y^2z\rangle$
+
+\bigskip
+
+\[
+ \nabla \F(x,y,z) = \begin{vmatrix} \i&\j&\k\\ \pd{}{x} & \pd{}{y} & \pd{}{z}\\ 2xy & xz & y^2z\end{vmatrix} = (2yz-x)\i+(z-2x)\k.
+\]
+
+ \item $\F(x,y,z) = \langle y\cos xy, x\cos xy, -\sin z\rangle$
+
+\bigskip
+
+\[
+ \nabla \F(x,y,z) = \begin{vmatrix} \i&\j&\k\\ \pd{}{x} & \pd{}{y} & \pd{}{z}\\y\cos xy & x\cos xy & -\sin z\end{vmatrix} = \langle 0,0,0\rangle.
+\]
+
+\end{enumerate}
+ \item Verify that Green's Theorem holds for the following line integrals in the plane:
+\begin{enumerate}
+ \item $\int_C xy^2\,dx+x^3\,dy$, where $C$ is the rectangle with corners at $(0,0), (2,0), (2,3)$, and $(0,3)$.
+
+\bigskip
+
+Let $C=C_1+C_2+C_3+C_4$, as follows:
+
+$C_1$ is the bottom of the rectangle, with $y=0$ and $x=2t$, $t\in [0,1]$, so along $C_1$, $y=0$ and $dy=0$, which means $xy^2\,dx+x^3\,dy = 0$.
+
+$C_2$ is the right side of the rectangle, with $x=2$ and $y=3t$, $t\in [0,1]$. Along $C_1$, $dx=0$ since $x$ is constant, so
+\[
+ xy^2\,dx + x^3\,dy = 0 + (2^3)(3\,dt) = 24\,dt.
+\]
+
+$C_3$ is the top of the rectangle, with $y=3$, $dy=0$, and $x=2-2t$, $t\in [0,1]$, so $dx= -2\,dt$ and
+\[
+ xy^2\,dx+x^3\,dy = (2-2t)(3)^2(-2\,dt) = (36t-36)\,dt.
+\]
+
+$C_4$ is the left side of the rectangle, where $x=0$ and $dx=0$, so $xy^2\,dx+x^3\,dy = 0$. We thus have
+\[
+ \int_C xy^2\,dx+x^3\,dy = 0+\int_0^1 24\,dt + \int_0^1 (36t-36)\,dt + 0 = 6.
+\]
+On the other hand, we have
+\[
+ \pd{Q}{x}-\pd{P}{y} = \pd{x^3}{x}-\pd{xy^2}{y} = 3x^2-2xy,
+\]
+and
+\[
+ \int_0^2\int_0^3 (3x^2-2xy)\,dy\,dx = \int_0^2 (9x^2-9x)\,dx 3(2^3)-\frac{9}{2}(2^2) = 24-18=6.
+\]
+
+ \item $\int_C y\,dx-x\,dy$, where $C$ is the unit circle.
+
+\bigskip
+
+To compute the integral directly, we parameterize $C$ using $x=\cos t$, $y=\sin t$, $t\in [0,2\pi]$. Then
+\[
+ \int_C y\,dx-x\,dy = \int_0^{2\pi}\sin t(-\sin t\,dt)-(\cos t)(\cos t\,dt) = \int_0^{2\pi}(- 1)\,dt = -2\pi.
+\]
+Using Green's Theorem, we have $Q_x(x,y)-P_y(x,y) = -1-1=-2$, so
+\[
+ \iint_D\left(\pd{Q}{x}-\pd{P}{y}\right)\,dA = \iint_D(-2)\,dA = -2A(D) = -2\pi.
+\]
+
+ \item $\int_C x\,dx+y\,dy$, where $C$ consists of the line segments from $(0,1)$ to $(0,0)$, and from $(0,0)$ to $(1,0)$, and the portion of the parabola $y=1-x^2$ from $(1,0)$ to $(0,1)$.
+
+\bigskip
+
+First, we compute the line integral directly: we have $C=C_1+C_2+C_3$, where $C_1$ is the portion of the curve along the $y$-axis, $C_2$ is along the $x$-axis, and $C_3$ is the parabolic arc. Along $C_1$ we have $x=0$ and $dx=0$, while $y=1-t$, $dy = -dt$, with $t\in [0,1]$, so
+\[
+ \int_C{_1}x\,dx+y\,dy = \int_0^1 (0+(1-t)(-dt)) = \int_0^1 (t-1)\,dt = -\frac{1}{2}.
+\]
+Along $C_2$ we have $x=t$, $dx=dt$, with $t\in [0,1]$, and $y=0$, $dy=0$, so
+\[
+ \int_{C_2}x\,dx+y\,dy = \int_0^1 t\,dt = \frac{1}{2}.
+\]
+Finally, along $C_3$, we take $x=1-t$, $y=1-(1-t)^2 = 2t-t^2$, so $dx = -dt$ and $dy = (2-2t)\,dt$. This gives us
+\[
+ \int_{C_3} x\,dx+y\,dy = \int_0^1 (1-t)(-dt)+(2t-t^2)(2-2t)\,dt = \int_0^1 (2t^3-6t^2+5t-1)\,dt = \frac{1}{2}-2+\frac{5}{2}-1 = 0.
+\]
+Thus, $\int_C x\,dx+y\,dy = -\frac{1}{2}+\frac{1}{2}+0 = 0.$
+
+(Note, for $C_3$, you can take $x=t$ and $y=1-t^2$, with $t\in [0,1]$, as long as you're aware that this parameterization sends you along the parabola in the wrong direction, requiring you to change the sign of your answer at the end.)
+
+Now, to compute the integral using Green's Theorem, we simply note that $\pd{Q}{x}-\pd{P}{x} = 0-0 = 0$, so the double integral is automatically zero, in agreement with the line integral above.
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+
+\end{document}
+ 

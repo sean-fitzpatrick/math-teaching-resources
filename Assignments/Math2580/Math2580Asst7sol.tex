@@ -1,0 +1,160 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbf{F}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\n}{\mathbf{n}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\len}[1]{\lVert #1\rVert}
+
+\title{Math 2580 Assignment \#7 Solutions\\University of Lethbridge, Spring 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+\item Verify Green's Theorem holds for the integral $\di \int_C (2x^3-y^3)\,dx+(x^3+y^3)\,dy$, where $C$ is the unit circle.
+
+\bigskip
+
+If we wish to compute the integral directly, we can use the parameterization $x=\cos t$, $y=\sin t$, with $t\in [0,2\pi]$. Then
+\begin{align*}
+ (2x^3-y^3)\, dx & = (2\cos^3t+\sin^3t)(-\sin t)\,dt = (-2\cos^3t\sin t+\sin^4 t)\,dt\\
+ (x^3+y^3)\,dy & = (\cos^3t+\sin^3t)(\cos t)\,dt = (\cos^4t+\sin^3t\cos t)\,dt,
+\end{align*}
+giving us the line integral
+\[
+ \int_C (2x^3-y^3)\,dx+(x^3+y^3)\,dy = \int_0^{2\pi}(\cos^4 t+\sin^4t -2\cos^3t\sin t+\sin^3 t\cos t)\,dt = \frac{3\pi}{2}.
+\]
+To compute the last integral above, note that the last two terms in the integral do not contribute: they integrate to powers of $\cos t$ and $\sin t$, respectively, and the limits of integration are 0 and $2\pi$. For the first two terms, note that
+\[
+ \cos^4 t + \sin^4 t = \left(\frac{1+\cos 2t}{2}\right)^2+\left(\frac{1-\cos 2t}{2}\right)^2 = \frac{1}{4}(2+2\cos^2 2t) = \frac{1}{4}(3+\cos 4t),
+\]
+and there is no contribution from the $\cos 4t$ term, leaving us with $\dfrac{3}{4}(2\pi) = \dfrac{3\pi}{2}$.
+
+To compute the integral using Green's theorem, we note that $C$ is the boundary of the disc $D$  given by $x^2+y^2\leq 1$, so
+\begin{align*}
+ \int_C (2x^3-y^3)\,dx+(x^3+y^3)\,dy & = \iint_D\left(\frac{\partial}{\partial x}(x^3+y^3)-\frac{\partial}{\partial x}(2x^3-y^3)\right)\,dA\\
+& = \iint_D (3x^2+3y^2)\,dA = \int_0^{2\pi}\int_0^1 3r^2\cdot r\,dr\,d\theta = \frac{3\pi}{2},
+\end{align*}
+as above.
+
+
+
+\item A vector field $\F(x,y) = P(x,y)\i+Q(x,y)\j$ in $\R^2$ can be viewed as a special case of a vector field in $\R^3$ that does not depend on $z$, with $z$-component equal to zero. With this identification,
+\begin{enumerate}
+ \item Show that $(\nabla\times\F)\dotp \k = \dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}$.
+
+Using the determinant formula for curl, we have 
+\[
+ \nabla\times \F = \begin{vmatrix}\i&\j&\k\\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\ P & Q & 0\end{vmatrix} = \left(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}\right)\k,
+\]
+and taking the dot product of this with $\k$ gives the result, since $\k\dotp \k = 1$.
+
+ \item Use part (a) to show that Green's Theorem can be written in the vector form
+\[
+ \int_{C} \F\dotp d\r = \iint_D (\nabla\times \F)\dotp \k\,dA,
+\]
+where $D\subseteq \R^2$ is a region to which Green's Theorem applies, and $C=\partial D$ is the positively-oriented boundary of $D$.
+
+\bigskip
+
+We have
+\[
+ \int_C\F\dotp d\r = \int_C P\,dx+Q\,dy = \iint_D \left(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}\right)\,dA = \iint_D (\nabla\times \F)\dotp \k\,dA,
+\]
+as required.
+
+ \item Show that Green's Theorem implies the \textit{Divergence Theorem in the Plane}: 
+
+Let $D\subseteq \R^2$ be a region to which Green's Theorem applies, and let $C=\partial D$ be its positively-oriented boundary. Let $\n$ denote the outward-pointing unit normal vector to $C$: if $\r:[a,b]\to \R^2$, $\r(t)=(x(t),y(t))$ defines a positively-oriented parameterization of $C$, then $\n$ is given by
+\[
+ \n = \frac{y'(t)\i-x'(t)\j}{\sqrt{(x'(t))^2+(y'(t))^2}}. \quad \text{(Verify this.)}
+\]
+If $\F=P\i+Q\j$ is a $C^1$ vector field on $D$, then
+\[
+ \int_C \F\dotp \n\,ds = \iint_D (\nabla \dotp \F)\,dA.
+\]
+\end{enumerate}
+
+
+\bigskip
+
+Let us write $\N(t) = y'(t)\i-x'(t)\j$ for the non-unit normal vector, noting that $\N$ and $\n$ point in the same direction. We can see that $\N$ must be normal to the curve, since 
+\[
+ \N(t)\dotp \r'(t) = y'(x)x'(t)-x'(t)y'(t) = 0,
+\]
+so $\N$ is orthogonal to the tangent vector $\r'(t) = x'(t)\i+y'(t)\j$, and if we treat $\N$ and $\r$ as vectors in the $xy$-plane of $\R^3$, we see that
+\[
+ \N(t)\times \r'(t) = \begin{vmatrix}\i&\j&\k\\ y'(t) & -x'(t) & 0\\x'(t) & y'(t) & 0\end{vmatrix} = (x'(t)^2+y'(t)^2)\k
+\]
+points in the positive $z$-direction. This tells us that $\N$ is always to the right of $\r'$ (this is easiest to see with a picture, if you use the right-hand rule for the direction of the cross product), and therefore $\N$ is the outward-pointing normal vector, and $\len{\N(t)} = \sqrt{x'(t)^2+y'(t)^2}$, so $\n$ is the unit normal vector.
+
+Now, noting that $\len{\N(t)} = \sqrt{x'(t)^2+y'(t)^2} = \len{\r'(t)}$, we have
+\begin{align*}
+ \int_C \F\dotp\n\,ds &= \int_a^b \langle P(\r(t)),Q(\r(t))\rangle\dotp \frac{1}{\len{\N(t)}}\langle y'(t),-x'(t)\rangle \len{\r'(t)}\,dt\\
+& = \int_a^b (P(\r(t))y'(t)-Q(\r(t))x'(t))\,dt \\
+& = \int_C -Q\,dx+P\,dy\\
+& = \iint_D \left(\frac{\partial P}{\partial x}-\frac{\partial -Q}{\partial y}\right)\,dA\\
+& = \iint_D (\nabla \dotp\F)\,dA.
+\end{align*}
+
+
+\item The \textbf{Laplacian}  is a differential operator $\Delta = \nabla^2$ that acts on functions $f:D\subseteq \R^n\to \R$, defined by
+\[
+ \Delta f = \nabla^2f = \nabla\dotp(\nabla f) = \frac{\partial^2 f}{\partial x_1^2}+\frac{\partial^2 f}{\partial x_2^2}+\cdots + \frac{\partial^2 f}{\partial x_n^2}.
+\]
+A $C^2$ function $f$ is called \textbf{harmonic} if $\Delta f = 0$. Harmonic functions are important in many areas of Engineering and Physics, such as heat transfer, electrodynamics, fluid flow, robotics\footnote{According to the internet.}, etc.
+\begin{enumerate}
+ \item Determine whether or not the functions $f(x,y)=e^x\sin y$, $g(x,y) = x^3+y^3$, $h(x,y) = x^3-3xy^2$ are harmonic.
+
+\bigskip
+
+We have 
+\[
+ f_{xx}(x,y)=e^x\sin y \text{ and } f_{yy}(x,y) = -e^x\sin y, \text{ so } f_{xx}(x,y)+f_{yy}(x,y) = \Delta f(x,y) = 0,
+\]
+showing that $f$ is harmonic. For $g$ we have
+\[
+ \Delta g(x,y) = g_{xx}(x,y) +g_{yy}(x,y)= 6x+6y\neq 0,
+\]
+so $g$ is not harmonic. For $h$ we have
+\[
+ \Delta h(x,y) = h_{xx}(x,y)+h_{yy}(x,y) = \frac{\partial}{\partial x}(3x^2-3y^2)+\frac{\partial}{\partial y}(-6xy) = 6x-6x=0,
+\]
+so $h$ is harmonic.
+
+ \item Prove that for any harmonic function $f$ defined on a region $D$ for which Green's Theorem holds, we have
+\[
+ \int_{\partial D}\frac{\partial f}{\partial y}\,dx - \frac{\partial f}{\partial x}\,dy = 0.
+\]
+Note that any harmonic function $f$ is $C^2$ by definition, so the partial derivatives $f_x$ and $f_y$ are $C^1$, and therefore we can apply Green's theorem to obtain
+\[
+ \int_{\partial D}\frac{\partial f}{\partial y}\,dx - \frac{\partial f}{\partial x}\,dy = \iint_D\left(-\frac{\partial^2 f}{\partial x^2}-\frac{\partial^2 f}{\partial y^2}\right)\,dA = \iint_D(-\Delta f)\,dA = \iint_D(0)\,dA = 0.
+\]
+
+ \end{enumerate}
+
+\end{enumerate}
+
+
+
+\end{document}
+ 

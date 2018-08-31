@@ -1,0 +1,66 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\Abs}[1]{\left| #1 \right|}
+\newcommand{\len}[1]{\lVert #1\Vert}
+
+\title{Math 3500 Exercise Sheet}
+\date{26 November, 2014}
+
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+ \item Consider the function $h:[0,1]\to\R$ given by
+\[
+ h(x) = \begin{cases}1& \text{ for } 0\leq x<1\\ 2& \text{ for } x=1\end{cases}.
+\]
+\begin{enumerate}
+ \item Show that $L(f,P)=1$ for every partition $P$ of $[0,1]$.
+ \item Construct a partition $P$ for which $U(f,P)<1+1/10$.
+ \item Given $\epsilon>0$, construct a partition $P_\epsilon$ for which $U(f,P_\epsilon)<1+\epsilon$.
+\end{enumerate}
+ \item Decide which of the following conjectures is true and supply a short proof. For those that are not true, give a counterexample.
+\begin{enumerate}
+ \item If $\abs{f}$ is integrable on $[a,b]$, then $f$ is integrable on $[a,b]$.
+ \item Assume $g$ is integrable and $g\geq 0$ on $[a,b]$. If $g(x)>0$ for an infinite number of points $x\in [a,b]$, then $\int g>0$.
+ \item If $g$ is continuous on $[a,b]$ and $g\geq 0$ with $g(x_0)>0$ for at least one point $x_0\in [a,b]$, then $\int_a^bg>0$.
+ \item If $\int_a^bf>0$, there is an interval $[c,d]\subseteq [a,b]$ and a $\delta>0$ such that $f(x)\geq \delta$ for all $x\in [c,d]$.
+\end{enumerate}
+ \item Consider the function $f(x)=x^n$ on $[0,1]$.
+\begin{enumerate}
+ \item For any points $x_{i-1}$ and $x_i$ with $0\leq x_{i-1}<x_i<1$, argue that
+\[
+ x_{i-1}^n \leq \frac{x_{i-1}^n+x_{i-1}^{n-1}x_i + \cdots + x_{i-1}x_i^{n-1}+x_i^n}{n+1}\leq x_i^n.
+\]
+ \item Argue that for any partition $P$ of $[0,1]$, we have $L(f,P)\leq \dfrac{1}{n+1}\leq U(f,P)$.
+ \item Conclude that $\int_0^1 x^n \,dx = \dfrac{1}{n+1}$. (Note: why is it not necessary to prove $f(x)=x^n$ is integrable?)
+\end{enumerate}
+\item Prove the Cauchy-Schwarz inequality for integrals: $\left(\int_a^b fg\right)^2 \leq \left(\int_a^b f^2\right)\left(\int_a^b g^2\right)$.
+
+Hint: let $\alpha = \int_a^b g^2$ and $\beta = -\int_a^b fg$, and consider $\int_a^b(\alpha f+\beta g)^2$.
+\end{enumerate}
+Hint for 2(b): recall Thomae's function 
+\[
+ t(x) = \begin{cases} 1 & \text{ if } x=0\\ \frac{1}{n} & \text{ if } x=\frac{m}{n} \text{ in lowest terms, and } n>0\\ 0 & \text{ if } x\notin\Q\end{cases}.
+\]
+It turns out that $t$ is integrable on $[0,1]$ with $\int_0^1 t = 0$. To see this, note that $L(f,P)=0$ for any partition $P$. Now consider the set $D_{\epsilon/2} = \{x\in [0,1]\, |\, t(x)\geq \epsilon/2\}$. Argue that this set is finite for all $\epsilon>0$. From this observation it's possible to construct a partition $P_\epsilon$ such that $U(f,P_\epsilon)<\epsilon$. For details, see example 7.2.3 in the text.
+
+\end{document}
+ 

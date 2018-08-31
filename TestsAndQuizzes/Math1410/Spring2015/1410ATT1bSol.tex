@@ -1,0 +1,320 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newenvironment{aamatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|cc}
+}{%
+  \end{array}\right]
+}
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 40}}
+\chead{MATH 1410A}\lhead{Test \# 1}\rhead{Wednesday, 11\textsuperscript{th} February, 2015}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\ivec}{\,\boldsymbol{\hat{\imath}}}
+\newcommand{\jvec}{\,\boldsymbol{\hat{\jmath}}}
+\newcommand{\kvec}{\,\boldsymbol{\hat{k}}}
+\DeclareMathOperator{\comp}{comp}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+11\textsuperscript{th} February, 2015, 10:00 - 10:50 am\\
+{\bf MATH 1410A - Test \#1}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{50pt}{\bf Solutions}\hspace{248pt}}\\
+\skipline
+First Name:\underline{\hspace{50pt}{\bf The}\hspace{275pt}}\\
+\skipline
+Student Number:\underline{\hspace{323pt}}\\
+\skipline
+Tutorial Section: \underline{\hspace{320pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ {\bf Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments.
+
+\bigskip
+
+No external aids are allowed, with the exception of a 5-function calculator.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/40\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+B
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item SHORT ANSWER: For each of the questions below, please provide a short (one line) answer.
+ \begin{enumerate}
+\item Do the values $x=3$, $y=-2$, $z=4$ provide a solution to the system of equations below? Why or why not?\points{2}
+\[
+\begin{array}{ccccccc}
+x&+&y&+&z&=&5\\
+2x&+&4y&-&z&=&-6\\
+-3x&-&5y&+&z&=&4
+\end{array}
+\]
+
+\bigskip
+
+\noindent {\bf Solution:} No, $-3(3)-5(-2)+4=5\neq 4$.
+
+\bigskip
+
+\item If $A$ is an $m\times n$ matrix and $B$ is a $k\times l$ matrix, what condition on the numbers $k,l,m,n$ is needed for the product $AB$ to be defined? \points{2}
+
+\bigskip
+
+\noindent {\bf Solution:} You need to have $n=k$.
+
+\bigskip
+
+\item The matrix $E=\begin{bmatrix}
+1&0&0\\2&1&0\\0&0&1
+\end{bmatrix}$ is an elementary matrix. If $A$ is any other $3\times 3$ matrix, what elementary row operation would let us obtain $EA$ from $A$? \points{2}
+
+
+\bigskip
+
+\noindent {\bf Solution:} Adding 2 times Row 1 to Row 2.
+
+\bigskip
+
+\item Identify the matrices below as symmetric, antisymmetric, or neither: \points{2}
+\[
+\begin{bmatrix}
+1&2\\2&-3
+\end{bmatrix}\hspace{1in} \begin{bmatrix}
+1&3\\2&4
+\end{bmatrix}\hspace{1in} \begin{bmatrix}
+0&4\\-4&0
+\end{bmatrix}
+\]
+
+\bigskip
+
+\noindent {\bf Solution:} The matrices, from left to right, are:
+
+Symmetric, Neither, and Anti-symmetric.
+
+\bigskip
+
+\item What does it mean to say that an $n\times n$ matrix $A$ is invertible? \points{2}
+
+
+\bigskip
+
+\noindent {\bf Solution:} There exists another $n\times n$ matrix $B$ such that $AB=BA=I_n$, where $I_n$ is the $n\times n$ identity matrix.
+
+
+
+
+\end{enumerate}
+\newpage
+
+\item Find the general solution to the following system of linear equations: \points{10}
+\[
+\begin{array}{ccccccccc}
+x&-&y& &  &+&2w&=&1\\
+ & &y&+&3z&-&w&=&1\\
+x&&&+&3z&+ &w &=&2 
+\end{array}
+\]
+
+\bigskip
+
+\noindent {\bf Solution:} We set-up and reduce the augmented matrix of the system as follows:
+\begin{align*}
+ \begin{amatrix}{4}
+  1&-1&0&2&1\\0&1&3&-1&1\\1&0&3&-1&2
+ \end{amatrix}&\xrightarrow[]{R_3\to R_3-R_1}\begin{amatrix}{4}1&-1&0&2&1\\0&1&3&-1&1\\0&1&3&-1&1\end{amatrix}\\
+&\xrightarrow[]{R_3\to R_3-R_2}\begin{amatrix}{4}
+                             1&-1&0&2&1\\0&1&3&-1&1\\0&0&0&0&0
+                            \end{amatrix}\\
+&\xrightarrow[]{R_1\to R_1+R_2}\begin{amatrix}{4}
+                                 1&0&3&1&2\\0&1&3&-1&1\\0&0&0&0&0
+                                \end{amatrix}.
+\end{align*}
+From the reduced row-echelon form of the augmented matrix, we see that $x$ and $y$ are leading variables, and we assign the non-leading variables to parameters. With $z=s$ and $w=t$, where $s$ and $t$ can be any real numbers, we have the general solution
+\begin{align*}
+ x& = 2-3s-t\\
+ y& = 1-3s+t\\
+ z&=s\\
+ w&=t.
+\end{align*}
+
+
+\bigskip
+
+\newpage
+
+\item Suppose $A$, $B$, and $X$ are $2\times 2$ matrices.
+\begin{enumerate}
+\item Given that $X^T-2A=B$, solve for $X$ in terms of $A$ and $B$.\points{3}
+
+
+\bigskip
+
+\noindent {\bf Solution:} By adding $2A$ to both sides and then taking the transpose, we have
+\[
+ X = (B+2A)^T = B^T+2A^T.
+\]
+
+
+\bigskip
+
+
+\item If $A=\begin{bmatrix}3&-1\\2&4\end{bmatrix}$ and $B=\begin{bmatrix}2&0\\0&5\end{bmatrix}$ and $X$ is as in part (a), determine the entries of $X$. \points{3}
+
+
+\bigskip
+
+\noindent {\bf Solution:} Plugging the given values for $A$ and $B$ into the expression above, we have
+\[
+ X = \begin{bmatrix}2&0\\0&5\end{bmatrix}+2\begin{bmatrix}3&2\\-1&4\end{bmatrix} = \begin{bmatrix}8&4\\-2&13\end{bmatrix}
+\]
+
+
+\bigskip
+
+
+\end{enumerate}
+\item Suppose that $A,B,C,$ and $D$ are $n\times n$ matrices, with $A,B,$ and $C$ {\em invertible}. Given that \points{4}
+\[
+BA^{-1}XAC=BD^T,
+\]
+solve for $X$ in terms of $A,B,C,$ and $D$.
+
+
+\bigskip
+
+\noindent {\bf Solution:} We have
+\[
+ X = AB^{-1}(BA^{-1}XAC)(C^{-1}A^{-1}) = AB^{-1}(BD^T)C^{-1}A^{-1} = AD^TC^{-1}A^{-1}.
+\]
+
+
+\bigskip
+
+\newpage
+
+\item Let $A=\begin{bmatrix}3&6\\-3&-5\end{bmatrix}$.
+\begin{enumerate}
+\item Find $A^{-1}$. \points{5}
+
+
+\bigskip
+
+\noindent {\bf Solution:} Using the augmented matrix algorithm for the inverse, we have
+\begin{align*}
+ \begin{aamatrix}{2}
+  3&6&1&0\\-3&-5&0&1
+ \end{aamatrix} & \xrightarrow[]{R_2\to R_2+R_1}\begin{aamatrix}{2}
+                                                3&6&1&0\\0&1&1&1
+                                               \end{aamatrix}\\
+&\xrightarrow[]{R_1\to\frac{1}{3}R_1}\begin{aamatrix}{2}
+                                      1&2&\frac{1}{3}&0\\0&1&1&1
+                                     \end{aamatrix}\\
+&\xrightarrow[]{R_1\to R_1-2R_2}\begin{aamatrix}{2}
+                                 1&0&-\frac{5}{3}&-2\\0&1&1&1
+                                \end{aamatrix},
+\end{align*}
+so $A^{-1} = \begin{bmatrix}-\frac{5}{3}&-2\\1&1\end{bmatrix}$.
+
+\bigskip
+
+
+\item Write $A^{-1}$ as a product of elementary matrices. \points{3}
+
+
+\bigskip
+
+\noindent {\bf Solution:} We know that $A^{-1}=E_3E_2E_1$, where $E_1,E_2,E_3$ are the elementary matrices corresponding to the three row operations above, in the order they were performed. Therefore,
+\[
+ A^{-1}=\begin{bmatrix}1&-2\\0&1\end{bmatrix}\begin{bmatrix}\frac{1}{3}&0\\0&1\end{bmatrix}\begin{bmatrix}1&0\\1&1\end{bmatrix}.
+\]
+
+
+\bigskip
+
+
+\item Write $A$ as a product of elementary matrices. \points{2}
+
+
+\bigskip
+
+\noindent {\bf Solution:} Since $A^{-1}=E_3E_2E_1$, we have
+\[
+ A = (E_3E_2E_1)^{-1} = E_1^{-1}E_2^{-1}E_3^{-1} = \begin{bmatrix}1&0\\-1&1\end{bmatrix}\begin{bmatrix}3&0\\0&1\end{bmatrix}\begin{bmatrix}1&2\\0&1\end{bmatrix}.
+\]
+
+
+\bigskip
+
+\end{enumerate}
+\end{enumerate}
+\end{document}

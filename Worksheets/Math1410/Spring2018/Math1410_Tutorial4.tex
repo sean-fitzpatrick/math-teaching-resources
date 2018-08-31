@@ -1,0 +1,141 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.2in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}            
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 1410 - Tutorial \#4}\\
+Wednesday, February 7
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+
+\vspace*{\fill}
+
+
+
+
+\bigskip
+
+Additional practice: (\textbf{do not submit}).
+\begin{enumerate}
+\item Find the equation of the line through the point $(1,-2,4)$ that is parallel to the line
+\[
+\langle x,y,z\rangle = \langle 3-4t,2+t,5\rangle.
+\]
+\item Find the area of the parallelogram with vertices $(1,2,3), (4,0,7), (0,3,5)$, and $(3,1,9)$.
+\item Prove \textit{Lagrange's identity}: for any vectors $\vec{a},\vec{b}$ in $\R^3$, $\len{\vec{a}}^2\len{\vec{b}}^2=\len{\vec{a}\times\vec{b}}^2 +(\vec{a}\dotp\vec{b})^2.$
+\item Prove that if $\vec{a}$ is parallel to $\vec{b}$, then $\vec{a}\times\vec{b}=\vec{0}$. You may use the properties of the cross product given in Theorem 17 on page 80 of the textbook.
+\item Determine the point of intersection (if any) of the lines
+\[
+\ell_1(s)  = \langle 5,3,0\rangle + s\langle 3,1,-2\rangle\quad\text{ and } \quad
+\ell_2(t)  = \langle -2,4,4\rangle+t\langle 1,-3,0\rangle
+\]
+\end{enumerate}
+
+
+\newpage
+%\thispagestyle{empty}
+
+\begin{enumerate}
+
+  
+ \item Find the area of the triangle with vertices $P=(2,0,-1)$, $Q=(-3,4,2)$, and $R=(0,-3,1)$.
+
+\vspace{2.5in}
+
+\item Find the equation of the line that passes through the points $P=(2,-1,4)$ and $Q=(-1,3,2)$.
+
+\vspace{2in}
+
+ \item Show that for any two vectors $\vec{a},\vec{b}$ in $\R^3$, $\vec{a}$ is orthogonal to $\vec{a}\times\vec{b}$.
+ 
+ 
+\newpage
+
+
+\item Find the shortest distance from the point $P=(1,3,-2)$ to the line through the point $P_0 = (2,0,-1)$ in the direction of $\vec{v} = \langle 1, -1, 0\rangle$. Also find the point $P_1$ on the line that is closest to $P$. {\bf Include a diagram.}
+
+
+\vspace{3.75in}
+
+\item Find the distance between the skew lines 
+\begin{align*}
+ \ell_1(s) = \langle x,y,z\rangle & = \langle 1,2,1\rangle+s\langle 2,-1,1\rangle\\
+ \ell_2(t) = \langle x,y,z\rangle & = \langle 3,3,3\rangle+t\langle 4,2,-1\rangle
+\end{align*}
+using the method of Example 47 in the text. (See the back of this page.)
+
+\pagebreak
+
+\textbf{Method for finding distance between skew lines:}
+
+\medskip
+
+First we note that the cross product of the direction vectors of $\ell_1$ and $\ell_2$ is orthogonal to both lines, so moving in this direction from one line to the other will minimize distance. 
+
+Choosing one point on either line, you can construct a vector with its tail on one plane, and tip on the other. Chances are that these points are not the two that are closest. However, the projection of this vector onto the cross product gives you a vector whose length is  the shortest distance between the two lines.
+
+(This becomes a bit easier to visualize once we discuss planes, in which case we can think of the two skew lines as lying in parallel planes, and the distance between the two lines is then the same as the distance between the two planes containing them.)
+
+\bigskip
+
+\bigskip
+
+\textbf{Aside:} much more challenging is actually finding the two points, one on each line, such that the distance between them minimizes this minimum distance! To see how you might start to solve this, consider a general point $P = (1+2s,2-s,1+s)$ on $\ell_1$, and a general point $Q=(3+4t,3+2t,3-t)$ on $\ell_2$.
+
+If the distance from $P$ to $Q$ is the minimum distance, then the vector $\overrightarrow{PQ}$ must be orthogonal to the direction vectors for both lines. (Do you see why?)
+
+This means that $\vec{d}_1\dotp \overrightarrow{PQ}=0$ and $\vec{d}_2\dotp \overrightarrow{PQ}=0$, where $\vec{d}_1,\vec{d}_2$ are the two direction vectors. This gives us a pair of equations:
+\[
+\vec{d}_1\dotp \overrightarrow{PQ} = \langle 2,-1,1\rangle\dotp \langle 3+4t-2s, 1+2t+s, 2-t-s\rangle = 7+5t-6s=0
+\]
+and
+\[
+\vec{d}_2\dotp \overrightarrow{PQ} = \langle 4,2,-1\rangle\dotp \langle 3+4t-2s, 1+2t+s, 2-t-s\rangle = 12+21t-5s=0.
+\]
+Solving these equations for $s$ and $t$ lets us determine $P$ and $Q$, and from there, the distance between them.
+
+
+\end{enumerate}
+  
+\end{document}

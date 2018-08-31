@@ -1,0 +1,70 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+
+\title{Math 4310 Assignment \#2\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Friday, September 19, by 5 pm.
+
+\bigskip
+
+Please submit solutions to the following problems (except where indicated). As usual, all the textbook exercises are recommended as practice problems if they don't appear as an assigned problem below.
+
+\begin{enumerate}
+\item Since any $\epsilon$-neighbourhood in a metric space $X$ is open in $X$, we know that the union of any collection of such neighbourhoods is an open set in $X$. Prove that this is in fact the most general type of open set. That is, prove that any open subset $U\subseteq X$ of a metric space $X$ is a union of $\epsilon$-neighbourhoods.
+
+{\em Hint:} If you're unsure of how to start, you might want to look at the online supplements for the textbook. (There's a link on Moodle to the website for the textbook.) There's a proof of this fact for the case $X=\R$ in the supplement to Chapter 5.
+
+\item Let $(X,d)$ be a metric space. Prove that $d:X\times X\to \R$ is continuous with respect to the product metric $d_1$ on $X\times X$. (See the text if you need a reminder on how $d_1$ is defined.)
+
+\item (Do not hand in) Suppose that in a metric space $X$ we have that $N_a(x) = N_b(y)$ for some $x,y\in X$ and $a,b\in\R$. Can we conclude that $a=b$ and $x=y$?
+
+{\em Hint:} For some metrics, yes. What metric should you go to if you're looking for a counterexample?
+
+\item (Do not hand in) Prove that any finite subset of a metric space $X$ is closed in $X$.
+
+{\em Hint:} Why is it enough to prove that a set containing one element is closed?
+
+\item Prove that the Cantor set is a closed subset of $\R$ with respect to the standard metric on $\R$. (See Problem 6.5 in the text, or type `Cantor set' into Google and follow the first link for a definition.)
+
+\item (Do not hand in) Let $\mathcal{C}[0,1]$ be the space of continuous functions on $[0,1]$, equipped with the sup-norm metric ($d_\infty$). For any subset $A\subseteq [0,1]$, show that the set $Y=\{f\in \mathcal{C}[0,1] : f(a)=0 \text{ for all } a\in A\}$ is a closed subset of $\mathcal{C}[0,1]$.
+
+\item Prove that a map $f:X\to Y$ of metric spaces is continuous if and only if $f(\overline{A})\subseteq \overline{f(A)}$ for all subsets $A\subseteq X$, where $\overline{B}$ denotes the closure of $B$.
+
+\item (Do not hand in) Let $A$ be a nonempty subset of a metric space $(X,d)$. For $x\in X$, define
+\[
+d(x,A) = \inf\{d(x,a):a\in A\}.
+\]
+\begin{enumerate}
+\item Prove that $d(x,A)=0$ if and only if $x\in \overline{A}$.
+\item Show that if $y\in X$ is another point of $X$, then $d(x,A)\leq d(x,y)+d(y,A)$.
+\item Prove that $x\to d(x,A)$ defines a continuous map $X\to \R$.
+\end{enumerate}
+\item Let $A$ be a nonempty subset of a metric space $X$. Prove that a point $x\in X$ belongs to the boundary $\partial A$ of $A$ if and only if $d(x,A) = d(x,X\setminus A)=0$, where $d(x,A)$ is the distance from a point to a set defined in the previous problem.
+\item (Do not hand in, unless you really want to) For a subset $A$ of a metric space $X$, prove:
+\begin{enumerate}
+\item $\inter{A} = A\setminus \partial A = \overline{A}\setminus \partial A$
+\item $\overline{X\setminus A} = X\setminus \inter{A}$
+\item $\partial A = \overline{A}\cap \overline{X\setminus A} = \partial (X\setminus A)$
+\item $\partial A$ is closed in $X$.
+\end{enumerate}
+
+\end{enumerate}
+\end{document}
+ 

@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000}\chead{Quiz \# 12}\rhead{Thursday, 4\textsuperscript{th} December, 2014}
+\rfoot{Total: 10 points}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}[2]{#1\,R\,#2}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\modd}[3]{#1\equiv #2 \pmod{#3}}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+\noindent{{\bf Name and student number:} Solutions}
+
+\bigskip
+
+
+ \begin{enumerate}
+\item Let $A = \{a,b,c\}$ and let $R=\{(a,a), (a,c), (b,b), (b,c), (c,a), (c,b)\}$ define a relation on $A$. Determine whether the following statements are true or false. Explain your answer.
+\begin{enumerate}
+ \item For each $x\in A$, $\R{x}{x}$. \points{1}
+
+\bigskip
+
+This is false, since $c\in A$ but $(c,c)\notin R$.
+
+\bigskip
+
+ \item For every $x,y\in A$, if $\R{x}{y}$, then $\R{y}{x}$. \points{2}
+
+\bigskip
+
+This is true: we have both $(a,c)$ and $(c,a)$ as well as $(b,c)$ and $(c,b)$. The other two elements of $R$ are $(a,a)$ and $(b,b)$, which are unchanged if we swap the the order. (If $a\,R\,a$, then $a\, R\,a$, etc. which is trivially true. It was enough to take note of the pairs where the two terms were different.)
+
+\bigskip
+
+ \item For every $x,y,z\in A$, if $\R{x}{y}$ and $\R{y}{z}$, then $\R{x}{z}$.\points{2}
+
+\bigskip
+
+This is false, since $(a,c)$ and $(c,b)$ belong to $R$, but $(a,b)\notin R$.
+
+\bigskip
+
+ \item The relation $R$ defines a function from $A$ to $A$. \points{1}
+
+\bigskip
+
+This is false, since for example both $(a,a)$ and $(a,c)$ are elements of $R$, and for a function, $a$ cannot be related to two different elements.
+
+\bigskip
+
+\end{enumerate}
+
+
+\item Let $A=\{a,b\}$, and consider the relations $R_1=\{(a,a),(b,b)\}$ and $R_2=\{(a,a),(a,b)\}$. Show that $R_1$ is an equivalence relation but $R_2$ is not. Is $R_2$ transitive? \points{4}
+
+\bigskip
+
+$R_1$ is clearly reflexive, and it's trivially symmetric and transitive: there are no ordered pairs containing different elements of $A$, and it's a tautology that if $a\, R_1\, a$ then $a\, R_1\, a$, etc.
+
+$R_2$ is not a equivalence relation since it's neither reflexive ($b\in A$ but $(b,b)\notin R$) nor symmetric ($(a,b)\in R_2$ but $(b,a)\notin R_2$). It's enough to point out just one of these two.
+
+However, $R_2$ is transitive: we need to show that for all $x,y,z\in A$, if $(x,y)\in R_2$ and $(y,z)\in R_2$, then $(x,z)\in R_2$. The only possibility here for the ``if'' part is $x=a, y=a, z=b$ (since we need the second coordinate of the first pair to match the first coordinate of the second pair), and it's certainly true that if $(a,a)\in R_2$ and $(a,b)\in R_2$, then $(a,b)\in R_2$.
+
+(Note that transitivity for $R_1$ follows by taking $x=y=z=a$ or $x=y=z=b$.)
+ \end{enumerate}
+\end{document}

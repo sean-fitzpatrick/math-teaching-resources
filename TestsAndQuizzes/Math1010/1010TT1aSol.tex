@@ -1,0 +1,291 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 40}}
+\chead{MATH 1010A}\lhead{Test \# 1}\rhead{Monday, 19\textsuperscript{th} October, 2015}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\ivec}{\,\boldsymbol{\hat{\imath}}}
+\newcommand{\jvec}{\,\boldsymbol{\hat{\jmath}}}
+\newcommand{\kvec}{\,\boldsymbol{\hat{k}}}
+\DeclareMathOperator{\comp}{comp}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+19\textsuperscript{th} October, 2015, 4:00 - 4:50 pm\\
+{\bf MATH 1010A - Test \#1}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{50pt}{\bf Solutions}\hspace{248pt}}\\
+\skipline
+First Name:\underline{\hspace{50pt}{\bf The}\hspace{275pt}}\\
+\skipline
+Student Number:\underline{\hspace{323pt}}\\
+\skipline
+Tutorial Section: \underline{\hspace{320pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ {\bf Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments.
+
+\bigskip
+
+No external aids are allowed, with the exception of a 5-function calculator.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/40\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+A
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item Simplify the following expressions. Your final answer should be in the form $\dfrac{A}{B}$, where $A$ and $B$ are integers.
+\begin{enumerate}
+ \item $\dfrac{1-\left(\frac{4}{3}\right)\left(\frac{3}{8}\right)}{1+\left(\frac{4}{3}\right)\left(\frac{3}{8}\right)}$. \points{3}
+
+\bigskip
+
+\[
+ \frac{1-\left(\dfrac{4}{\not 3}\right)\left(\dfrac{\not 3}{8}\right)}{1-\left(\dfrac{4}{\not 3}\right)\left(\dfrac{\not 3}{8}\right)} = \frac{1-\dfrac{4}{8}}{1+\dfrac{4}{8}} = \frac{1-\dfrac{1}{2}}{1+\dfrac{1}{2}} = \frac{\dfrac{1}{2}}{\dfrac{3}{2}} = \left(\frac{1}{2}\right)\left(\frac{2}{3}\right) = \frac{1}{3}. 
+\]
+
+
+
+\bigskip
+
+ \item $\left(\dfrac{81}{16}\right)^{-3/4}$. \points{3}
+
+\bigskip
+
+\[
+ \left(\frac{81}{16}\right)^{-3/4} = \left(\dfrac{16}{81}\right)^{3/4} = \left(\frac{2^4}{3^4}\right)^{3/4} = \frac{(2^4)^{\frac{3}{4}}}{(3^4)^{\frac{3}{4}}} = \frac{2^3}{3^3} = \frac{8}{27}
+\]
+
+\bigskip
+
+
+\end{enumerate}
+\item Simplify the following expression. Your final answer should be in the form $\dfrac{A}{B}$, where $A$ and $B$ are polynomials.\points{4} 
+
+\[
+ \frac{3x}{1+x}+\frac{2x-3}{1-x}-\frac{2x-4}{1-x^2} 
+\]
+
+\bigskip
+
+\begin{align*}
+ \frac{3x}{1+x}+\frac{2x-3}{1-x}-\frac{2x-4}{1-x^2}&= \frac{3x(1-x)}{(1+x)(1-x)}+\frac{(2x-3)(1+x)}{(1-x)(1+x)}-\frac{2x-4}{1-x^2}\\
+& = \frac{3x(1-x)+(2x-3)(1+x)-(2x-4)}{1-x^2}\\
+& = \frac{3x-3x^2+2x^2-x-3-2x+4}{1-x^2}\\
+& = \frac{1-x^2}{1-x^2} = 1
+\end{align*}
+
+
+\newpage
+
+\item Solve the following inequalities. Express your answer in {\bf interval notation}.
+\begin{enumerate}
+ \item $\dfrac{2}{3}-2x \leq \dfrac{4x-3}{2}$. \points{3}
+
+\bigskip
+
+Dividing by 2 on the right-hand side, we have $\dfrac{2}{3}-2x \leq 2x-\dfrac{3}{2}$. Adding $2x$ to both sides to bring all the terms involving $x$ to the right, and adding $\dfrac{3}{2}$ to both sides to bring all constant terms to the left, we obtain
+\[
+ \dfrac{2}{3}+\dfrac{3}{2}\leq 4x.
+\]
+Since $\dfrac{2}{3}+\dfrac{3}{2} = \dfrac{4}{6}+\dfrac{9}{6} = \dfrac{13}{6}$, we have $\dfrac{13}{6}\leq 4x$, and dividing both sides by $4$ (noting that $4>0$), we have
+\[
+ \frac{13}{24}\leq x \quad \text{ or } \quad x\geq \frac{13}{24}. \quad \text{ In interval notation, } \quad x\in \left[\frac{13}{24},\infty\right).
+\]
+
+
+ \item $7x\geq 4-x\geq 3$ \points{4}
+
+\bigskip
+
+We are given a pair of inequalities. The first one is $7x\geq 4-x$; adding $x$ to both sides gives us $8x\geq 4$, and dividing by 8, we find that $x\geq \dfrac{1}{2}$.
+
+The second inequality is $4-x\geq 3$, which simplifies to $1\geq x$, or $x\leq 1$. Since we must satisfy {\bf both} inequalities, we must have $\dfrac{1}{2}\leq x$ {\bf and} $x\leq 1$, so $\dfrac{1}{2}\leq x\leq 1$. In interval notation, our solution is $x\in [\frac{1}{2},1]$.
+
+\bigskip
+
+ \item $\lvert 3x-5\rvert \leq 4$ \points{3}
+
+\bigskip
+
+We recall that the statement $\lvert a\rvert \leq b$ is equivalent to $-b\leq a\leq b$ for any $a\in \mathbb{R}$ and any $b>0$. For the given inequality this gives us
+\[
+ -4\leq 3x-5\leq 4.
+\]
+Adding 5 to all three parts of this compound inequality yields $1\leq 3x\leq 9$, and if we divide throughout by $3>0$, we obtain $\frac{1}{3}\leq x\leq 3$. Thus we must have
+$x\in [\frac{1}{3},3].$
+
+\end{enumerate}
+\newpage
+
+\item Consider the function $f(x) = x\lvert x\rvert$.
+\begin{enumerate}
+ \item Evaluate the following: $f(1), f(1) + f(-2), f(2)\cdot f(-3)$. \points{3}
+
+\bigskip
+
+We recall that $\lvert x\rvert = \begin{cases} x, & \text{ if } x\geq 0\\ -x, & \text{ if } x<0\end{cases}$, so that, for example, $\lvert 1\rvert = 1$, since $1>0$, while $\lvert -2\rvert = -(-2) = 2$, since $2<0$. (Note that $\lvert x\rvert \geq 0$ for all $x\in\mathbb{R}$.) Thus, we can compute as follows:
+\[
+ f(1) = 1\abs{1} = 1(1)=1. \quad f(1)+f(-2) = 1\abs{1}+(-2)\abs{-2} = 1(1)-2(2) = 1-4=-3. 
+\]
+\[
+ f(2)\cdot f(-3) = (2\abs{2})(-3\abs{-3}) = 2(2)(-3)(3) = -36.
+\]
+
+
+ \item Sketch the graph of $f$. (Hint: consider the cases $x\geq 0$ and $x<0$.) \points{3}
+\begin{multicols}{2}
+ For $x\geq 0$, we have $\abs{x}=x$, so $f(x)=x\abs{x} = x(x)=x^2$. For $x<0$, $\abs{x}=-x$, so $f(x) = x(-x)=-x^2$. Thus our graph should consists of the part of the parabola $y=x^2$ for $x\geq 0$, and the parabola $y=-x^2$, for $x<0$, giving us the graph on the right:
+\columnbreak
+\begin{center}
+ \includegraphics[height=2.3in]{Plot4(b)A.pdf}
+\end{center}
+
+\end{multicols}
+
+
+ \item Sketch the graphs $y=f(x+1)$ and $y=-\frac{1}{2}f(x)+2$. \points{4}
+
+{\bf Note:} if your graph in part (b) is incorrect, credit will be awarded for correct transformations of an incorrect graph.
+
+\begin{multicols}{2}
+ \begin{center}
+ \includegraphics[height=2.5in]{Plot4(c)1A.pdf}
+
+$y=f(x+1)$\\
+This is a shift one unit to the left.
+\end{center}
+\begin{center}
+ \includegraphics[height=2.5in]{Plot4(c)2A.pdf}
+
+$y=-\frac{1}{2}f(x)+2$\\
+This is a reflecion across the $x$-axis, followed by a vertical scaling by $1/2$, and a shift two units up.
+\end{center}
+\end{multicols}
+
+\end{enumerate}
+\newpage
+
+\item Consider the function $f(x) = x^2-2x-8$.
+\begin{enumerate}
+ \item Determine the sign diagram for $f$. \points{3}
+
+\bigskip
+
+We have $f(x) = x^2-2x-8 = (x+2)(x-4)$, so $f$ has zeros at $x=-2$ and $x=4$. We check that for $x>4$, $x+2>0$ and $x-4>0$, so $f(x)>0$. For $-2<x<4$, $x+2>0$ but $x-4<0$, so $f(x)<0$. For $x<-2$, $x+2<0$ and $x-4<0$, so $f(x)>0$. This gives us the sign diagram as follows:
+
+\begin{center}
+ \includegraphics[width=4in]{SD5(a)A.pdf}
+\end{center}
+
+
+ \item Using your answer from part (a), solve the following:
+\begin{enumerate}
+ \item $f(x)=0$. \points{1}
+
+\bigskip
+
+From the sign diagram, we immediately see that $x^2-2x-8=0$ when\\ $x=-2$ or $x=4$.
+
+
+\bigskip
+
+ \item $f(x)\geq 0$. \points{1}
+
+\bigskip
+
+Since the regions where $f(x)\geq 0$ correspond to the zeros and the intervals on the sign diagram with + signs, we immediately see that $f(x)\geq 0$ for\\ $x\in (-\infty, -2]\cup [4,\infty)$.
+
+\bigskip
+
+\end{enumerate}
+
+
+
+\item Since $f$ is a quadratic function, its graph is a parabola. Determine the location of the vertex of the parabola, as well as any $x$ or $y$-intercepts. (You do not have to sketch the graph.) \points{4}
+
+\bigskip
+
+We already have from part (b) that the $x$-intercepts are at $(-2,0)$ and $(4,0)$. Setting $x=0$ gives us $f(0)=-8$, so the $y$-intercept is at $(0,-8)$. To find the vertex, we complete the square to put $f$ in the ``vertex form'' as follows:
+\[
+ f(x) = x^2-2x-8 = (x^2-2x+1)-1-8 = (x-1)^2-9.
+\]
+From this, we can immediately conclude that the location of the vertex is the point $(1,-9)$.
+
+\bigskip
+
+\item What is the domain of the function $g(x) = \dfrac{1}{\sqrt{8+2x-x^2}}$? \points{1}
+
+\bigskip
+
+In order for $g(x)$ to be defined, the denominator must be nonzero, and the polynomial under the square root cannot be negative. This leads to the condition $8+2x-x^2>0$, which is equivalent to $x^2-2x-8<0$, or $f(x)<0$, where $f$ is our function from part (a). From the sign diagram, we can immediately conclude that $f(x)<0$ for $x\in (-2,4)$, so the domain of $g$ is the open interval $(-2,4)$.
+
+\end{enumerate}
+
+
+\end{enumerate}
+\end{document}

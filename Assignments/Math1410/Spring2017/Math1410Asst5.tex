@@ -1,0 +1,56 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+\DeclareMathOperator{\proj}{proj}
+
+\title{Math 1410 Assignment \#5\\University of Lethbridge, Spring 2017}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} {\bf Friday}, March 31st, by 12 pm.
+
+\bigskip
+
+Please review the {\bf Guidelines for preparing your assignments} before submitting your work. You can find these guidelines, along with the required cover page, in the Assignments section on our Moodle site.
+
+
+
+\subsection*{Assigned problems}
+\begin{enumerate}
+\item Suppose $A$ and $B$ are $4\times 4$ matrices such that $\det(A) = 3$ and $\det(B)=-4$. Determine the values of
+\begin{enumerate}
+ \item $\det(A^2B)$
+ \item $\det(B^TBAB^{-1})$
+ \item $\det(2AB^{-1})$
+\end{enumerate}
+\item Suppose $\det(AB)=0$. Must it be the case that $\det(A)=0$ or $\det(B)=0$? Prove this, or give a counterexample.
+\item We say that an $n\times n$ matrix $B$ is \textbf{similar} to an $n\times n$ matrix $A$ if $B=P^{-1}AP$ for some invertible matrix $P$, and write $B\sim A$.
+\begin{enumerate}
+ \item Show that if $B\sim A$, then $\operatorname{tr}(B)=\operatorname{tr}(A)$.
+ \item Show that if $B\sim A$, then $\det(B)=\det(A)$.
+ \item Suppose $A$ is similar to a matrix $D = \bbm x&0&0\\0&x&0\\0&0&y\ebm$, and we know that $\operatorname{tr}(A)=0$, and $\det(A)=16$. What are the values of $x$ and $y$?
+\end{enumerate}
+\item Let $\operatorname{adj}(A)$ denote the adjugate matrix of an $n\times n$ matrix $A$. Show that 
+\[\det(\operatorname{adj}(A)) = (\det(A))^{n-1}.\]
+
+
+\end{enumerate}
+
+\end{document}
+ 

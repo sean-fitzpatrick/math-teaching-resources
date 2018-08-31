@@ -1,0 +1,580 @@
+\documentclass[letter, 12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{graphicx,color}
+%\input quizstyle.tex
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\addtolength{\headheight}{\baselineskip}
+
+\lhead{{\bf Date:} 10$^{\text{th}}$ December, 2008 }
+\chead{{\bf Time:} 9:30 am}
+\rhead{MAT294H1F}
+\cfoot{Page \thepage \ of \pageref{LastPage}}
+\rfoot{{\bf Total Marks:} 100}
+
+%Redefine the plain page style in fancyhdr package
+\fancypagestyle{plain}{%  
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{Page \thepage \ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}}
+
+\newcounter{probnum}
+\newcounter{subprobnum}
+
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\nll}{null}
+\DeclareMathOperator{\tr}{tr}
+
+\newenvironment{problems}{
+\begin{list}{\arabic{probnum}.}{\usecounter{probnum}}
+}{
+\end{list}
+}
+
+\newenvironment{subproblem}{ % start for subprob
+\begin{list}{ % first arg for list
+(\alph{subprobnum})
+}{ % second arg for list
+\usecounter{subprobnum}
+\setlength{\topsep}{0in}
+} % end of list def
+}{ % end for subprob
+\end{list}
+}
+
+\newcommand{\skipline}{\vspace{12pt}}
+%\input local.tex
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\usepackage{graphicx}
+
+\begin{document}
+\thispagestyle{plain}
+%Supresses the headers on the front page
+
+\centerline {\bf University of Toronto}
+\centerline {\bf FACULTY OF APPLIED SCIENCE AND ENGINEERING}
+
+\bigskip
+
+\centerline {FINAL EXAMINATION, December 2008}
+\centerline {DURATION: $2\frac{1}{2}$ hours}
+
+\medskip
+
+\centerline {Second Year - Materials Science and Engineering}
+
+\medskip
+
+\centerline {\bf MAT294H1F - Calculus and Differential Equations}
+ 
+\medskip
+
+\centerline {Calculator type: 3}
+\centerline {Exam type: B}
+
+\medskip
+
+\centerline {Examiner: Sean Fitzpatrick}
+
+\bigskip
+
+\noindent {\bf Total: 100 marks}
+\vglue .25truein
+\begin{tabular}{ll}
+Family Name: &\underbar{SOLUTIONS {\hskip 3.5in}} \\
+   &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[15pt]
+Given Name(s): &\underbar{ THE {\hskip 4.05in}} \\
+    &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[15pt]
+Please sign here: &\underbar {\hskip 4.5in}\\
+[25pt]
+Student ID Number: &\underbar {\hskip 4.5in}\\
+\end{tabular}
+\bigskip
+
+
+\vspace{.5in}
+\begin{quote}
+{\large \bf No aids, electronic or otherwise, are permitted, with the exception of faculty-approved calculators.  
+Partial credit will be given for partially correct work.
+Please read through the entire exam before beginning, and take note of
+how many points each question is worth.
+
+The second page of the exam contains a list of formulas that may be helpful in the completion of the exam.}
+\end{quote}
+\newpage
+
+\thispagestyle{empty}
+\vspace{.25in}
+
+\begin{tabular}{|l|r|}
+\hline
+\multicolumn{2}{|c|}
+{\rule[-3mm]{0mm}{8mm}
+FOR MARKER'S USE ONLY} \\
+\hline
+Problem 1: & \hspace{.5in}  /12 \\ [3pt]
+\hline
+Problem 2: & \hspace{.5in}  /10 \\ [3pt]
+\hline
+Problem 3: & \hspace{.5in}  /18 \\ [3pt]
+\hline
+Problem 4: & \hspace{.5in}  /15 \\ [3pt]
+\hline
+Problem 5: & \hspace{.5in}  /15 \\ [3pt]
+\hline
+Problem 6: & \hspace{.5in}  /15 \\ [3pt]
+\hline
+Problem 7: & \hspace{.5in}  /15 \\ [3pt]
+\hline
+\hline 
+  {\rule[-3mm]{0mm}{8mm} TOTAL:}  & /100  \\
+\hline
+\end{tabular}
+
+
+\addtocounter{page}{-1}
+\newpage
+{\bf List of relevant formulas}
+
+\bigskip
+
+Coordinate systems:
+\begin{align*}
+Cylindrical & & Spherical &\\
+x &= r\cos\theta & x &=\rho\sin\phi\cos\theta\\
+y &= r\sin\theta & y &=\rho\sin\phi\sin\theta\\
+z &= z & z &=\rho\cos\phi
+\end{align*}
+
+\bigskip
+
+Jacobian:
+\[J_T(u,v) = \det\begin{pmatrix}x_u & x_v\\y_u & y_v\end{pmatrix}\]
+
+\bigskip
+
+Integrating factor:
+\[u(x) = e^{\int P(x)\,dx}\]
+
+\bigskip
+
+Normal vector:
+\[\vec{N}(u,v) = \frac{\partial(y,z)}{\partial(u,v)}\hat{\imath} + \frac{\partial(z,x)}{\partial(u,v)}\hat{\jmath} + \frac{\partial(x,y)}{\partial(u,v)}\hat{k}\]
+
+\bigskip
+
+Fundamental theorem for line integrals:
+\[\int_C \nabla f\cdot d\vec{r} = f(\vec{r}(b)) - f(\vec{r}(a))\]
+
+\bigskip
+
+Stokes' theorem:
+\[\iint\limits_S(\nabla\times\vec{F})\cdot\vec{n}\,dS = \oint_C \vec{F}\cdot d\vec{r}\]
+
+\bigskip
+
+Divergence theorem:
+\[\iiint\limits_T \nabla\cdot\vec{F}\,dV = \int\limits_{\phantom{l}S} \hspace{-.8em} \int
+\vec{F}\cdot\vec{n}\,dS\]
+
+\bigskip
+
+Solution of the $n^{th}$-order system $\vec{r}\,'(t) = A\,\vec{r}(t)$:
+\[\vec{r}(t) = c_1\vec{X}_1 e^{\lambda_1 t} + c_2\vec{X}_2 e^{\lambda_2 t} + \cdots + c_n\vec{X}_n e^{\lambda_n t}\]
+
+		
+
+\newpage
+\vglue1pt
+%vglue adds space between headers and text
+
+\begin{problems}
+\item Consider the function $f(x,y) = 4xy -2x^4-y^2$.
+\begin{subproblem}
+\item Calculate $\nabla f(x,y)$. \marginpar{[3]}
+
+\bigskip
+
+\[\nabla f(x,y) = (4y-8x^3)\hat{\imath} + (4x - 2y)\hat{\jmath}\]
+
+\vspace{.7in}
+
+\item At which points $(x,y)$ is the plane tangent to the surface $z=f(x,y)$ horizontal? \marginpar{[3]}
+
+\bigskip
+
+The tangent plane will be horizontal when $\nabla f (x,y) = 0$.  This vector equation reduces to the two equations
+\begin{align*}
+4y - 8x^3 & = 0\\
+4x - 2y & = 0.
+\end{align*}
+The second equation gives $y=2x$, which can be substituted into the first to give $8x - 8x^3 = 0$, or
+\[8x(1-x)(1+x) = 0.\]
+There are thus three points at which the tangent plane is horizontal: $(1, 2)$, $(-1, -2)$, and $(0,0)$.
+\vspace{.5in}
+
+\item Which (if any) of the above points are local maxima? \marginpar{[3]}
+
+\bigskip
+
+We let $A = f_{xx}(a,b)$, $B = f_{xy}(a,b)$, $C = f_{yy}(a,b)$, and $\Delta = AC -B^2$, as usual.\\
+We have $f_{xx}(x,y) = -24x^2$, $f_{xy}(x,y) = 4$, and $f_{yy}(x,y) = -2$, so $\Delta = 48x^2 - 16$.\\
+At $(0,0)$ we have $\Delta<0$, so $(0,0)$ is neither a local max nor a local min.\\
+At $(1,2)$ and $(-1,-2)$ we have $A = -24 < 0$ and $\Delta = 32 > 0$, so both of these points are local maxima.
+
+\vspace{.5in}
+
+\item Set up (but do not solve) \marginpar{[3]}the three equations that would let us find the maximum value of  $f(x,y)$ subject to the constraint $2x^2+3y^2 = 6$.  
+
+\bigskip
+
+We let $g(x,y) = 2x^2+3y^2-6$.  The Lagrange multiplier equations are $\nabla f = \lambda\nabla g$ and $g=0$, so we get the three equations
+\begin{align*}
+4y - 8x^3 & = \lambda (4x)\\
+4x - 2y & = \lambda (6y)\\
+2x^2 + 3y^2 &= 6.
+\end{align*}
+\end{subproblem}
+
+\newpage
+\vglue1pt
+
+\item  Let $R$ be the region in the first quadrant of the $xy$-plane bounded by the curves $y=x^2$, $y=2x^2$, $x=y^2$ and $x=4y^2$.
+\begin{subproblem}
+\item Sketch the region $R$. \marginpar{[2]}
+
+\bigskip
+OK, well I don't have a good curve-sketching program handy that can give me a decent graphic to export, but your graph should show two parabolas opening upwards, and two to the right; there is a four-sided curved region bounded by all four of the parabolas.
+
+\vspace{2in}
+\item Determine a transformation $(x,y) = T(u,v)$ such that $R$ is the image under $T$ of a rectangle \marginpar{[2]}
+of the form $a\leq u\leq b$, $c\leq v\leq d$, for some $a,b,c,d$.
+
+\bigskip
+
+Since the boundaries of the region $R$ are given by $y/x^2 = 1$, $y/x^2 = 2$, $x/y^2 = 1$ and $x/y^2 = 4$, the natural choice is to set $u = y/x^2$, so $1\leq u \leq 2$, and $v = x/y^2$, so $1\leq v \leq 4$.
+
+To determine the transformation $T$ we solve for $x$ and $y$ in terms of $u$ and $v$, giving
+\[T(u,v) = (u^{-2/3}v^{-1/3},u^{-1/3}v^{-2/3}),\quad \text{ for } \quad (u,v)\in [1,2]\times [1,4].\]
+
+\newpage
+\vglue1pt
+\item Compute the Jacobian of the transformation $T$.\marginpar{[3]}
+
+\bigskip
+
+Using the given formula, we calculate the Jacobian as
+\begin{align*}
+J_T(u,v) &= \begin{vmatrix}-2/3u^{-5/3}v^{-1/3}& -1/3u^{-2/3}v^{-4/3}\\-1/3u^{-4/3}v^{-2/3} & -2/3u^{-1/3}v^{-5/3} \end{vmatrix}\\
+&=4/9 u^{-2}v^{-2} - 1/9 u^{-2}v^{-2}\\
+&= 1/3u^2v^2.
+\end{align*}
+
+\vspace{1in}
+\item Evaluate the integral\marginpar{[3]}
+\begin{equation*}
+ \iint\limits_R\left(\frac{y^2}{x^4} + \frac{x^2}{y^4}\right)\,dx\,dy.
+\end{equation*}
+
+\bigskip
+If we let $f(x,y) = y^2/x^4 + x^2/y^4$, then we have
+\begin{align*}
+ \iint\limits_R\left(\frac{y^2}{x^4} + \frac{x^2}{y^4}\right)\,dx\,dy & = \int^4_1\int^2_1 f(T(u,v))|J_T(u,v)|\,du\,dv\\
+&= \int^4_1\int_1^2 (u^2 + v^2)\frac{1}{3u^2v^2}\,du\,dv\\
+&= \int^4_1\int^2_1 \left(\frac{1}{3u^2} + \frac{1}{3v^2}\right)\,du\,dv\\
+&= 3/4.
+\end{align*}
+
+\end{subproblem}
+\newpage
+\vglue1pt
+\item Consider the following two first-order differential equations:
+\begin{equation*}
+ \text{(I)}\:(-2x+3y)\,dx + x\,dy = 0 \qquad \text{(II)} (3x^2y + e^y)\,dx + (x^3 + xe^y - 2y)\,dy = 0.
+\end{equation*}
+\begin{subproblem}
+\item Classify each of the above equations as either separable, linear, or exact.\marginpar{[4]}
+
+\bigskip
+
+Since (I) can be re-written in the form $\displaystyle \frac{dy}{dx} + \frac{3}{x}y = 2$, it is a linear differential equation.
+
+\bigskip
+
+Since 
+\[\frac{\partial\phantom{y}}{\partial y}(3x^2y + e^y) = 3x^2 + e^y = \frac{\partial\phantom{y}}{\partial x}(x^3 + xe^y -2y),\]
+the equation (II) is exact.
+
+(And yes, for 4 marks you had better assume that some reason needed to be given!)
+
+\bigskip
+
+\item Find the general solution to equation (I).\marginpar{[4]}
+
+\bigskip
+
+Since $P(x) = 3/x$, the integrating factor is given by
+\[u(x) = e^{\int \frac{3}{x}\,dx} = e^{3\ln x} = e^{\ln x^3} = x^3.\]
+
+Thus we multiply both sides of (I) by $u(x) = x^3$, giving
+\[x^3 \frac{dy}{dx} + 3x^2 y = \frac{d\phantom{x}}{dx}(x^3y) = 2x^3,\]
+so we integrate both sides with respect to $x$ and get $x^3y = \frac{1}{2} x^4 + C$.  The general solution is thus
+\[y = \frac{x}{2} + Cx^{-3}.\]
+\newpage
+\vglue1pt
+
+\item Find the general solution to equation (II).\marginpar{[4]}
+
+\bigskip
+
+Since equation (II) is exact, there must be some function $f(x,y)$ such that 
+\[df = (3x^2y +  e^y)\,dx + (x^3 + xe^y -2y)\,dy.\]
+
+If $f_y(x,y) = x^3 + xe^y -2y$, then we must have $f(x,y) = x^3y + xe^y -y^2 + h(x)$, for some function $h(x)$.  We calculate $f_x(x,y) = 3x^2y + e^y + h'(x)$, which suggests that we can take $h(x) = 0$, so the general solution to equation (II) is
+\[x^3y + xe^y -y^2 = c.\] 
+
+\vspace{2in}
+\item Evaluate the line integral $\displaystyle \int_C (3x^2y + e^y)\,dx + (x^3 + xe^y - 2y)\,dy$ \marginpar{[6]}, where $C$ is the curve given by $(x(t), y(t)) = (2t^2, -3t)$, for $-1\leq t\leq 1$.\\
+You do {\bf not} have to simplify your answer.
+
+\bigskip
+
+OK, we could go to the trouble of plugging in the parameterization and trying to integrate with respect to $t$, but this involves integration by parts, which can be annoying at times.
+
+So, we decide to go the easy route, and say, ``Well, the integrand here is exactly the differential $df$ of the function I just went to the trouble of finding in part (c), so let's apply the fundamental theorem of calculus.''
+
+We get:
+\begin{align*}
+\int_C (3x^2y + e^y)\,dx + (x^3 + xe^y - 2y)\,dy & = \int_C df\\
+& = \int_C \nabla f \cdot d\vec{r}\\
+& = f(x(1),y(1)) - f(x(-1),y(-1))\\
+& = -24 + 2e^{-3} - 9 - (24 + 2e^3 - 9).
+\end{align*}
+\end{subproblem}
+\newpage
+\vglue1pt
+
+\item Consider the surface $S$ given by $z = 9-x^2-y^2$, for $5\leq z\leq 9$..
+\begin{subproblem}
+\item Describe $S$ as a parametric surface $\vec{r}(u,v)$. \marginpar{[4]}
+
+\bigskip
+
+There are two options here.  The first is easier to write down, but leads to a more complicated integral.  That would be the parameterization $x = x$, $y = y$, and $z = 9 - x^2 - y^2$, so
+\[\vec{r}(x,y) = x\hat{\imath} + y\hat{\jmath} + (9-x^2-y^2)\hat{k},\]
+where $(x,y)\in\{(x,y)|x^2+y^2\leq 4\}$.  (And yes, you {\em do} have to say on what domain your parameters are defined!)
+
+The second option takes an extra ten seconds to write out, but we'll get an easier integral in the end.  This is of course the option of using the polar coordinate variables as our parameters.  We get
+\[\vec{r}(r,\theta) = r\cos\theta\hat{\imath} + r\sin\theta\hat{\jmath} + (9-r^2)\hat{k},\]
+where $(r,\theta)\in[0,2]\times[0,2\pi]$.
+\vspace{1in}
+\item Using the parameterization from part (a), compute the normal vector $\vec{N}(u,v)$ to the surface $S$.\marginpar{[5]}
+
+\bigskip
+
+If you use the formula given at the beginning of the exam, then you should get
+\[N(x,y) = 2x\hat{\imath} + 2y\hat{\jmath} + \hat{k},\]
+if you went with the first option, and
+\[N(r,\theta) = 2r^2\cos\theta\hat{\imath} + 2r^2\sin\theta\hat{\jmath} + r\hat{k},\]
+if you went with the second option.  Note that with the second option, the extra factor of $r$ that you get when you convert an integral to polar coordinates is already sitting there (so be careful not to add it a second time!)
+\newpage
+\vglue1pt
+\item Compute the surface area of $S$. \marginpar{[6]}
+The surface area of $S$ is given by
+\begin{equation*}
+A(S) = \iint\limits_S\,dS = \iint\limits_D ||N(u,v)||\,du\,dv,
+\end{equation*}
+where $D$ is the domain on which the parameters $u$ and $v$ have been defined.  Since the integral will be a bit of a mess if we try to stick with option one, let's go with $(u,v) = (r,\theta)$.  We get:
+\begin{align*}
+A(S) &= \int^{2\pi}_0\int^2_0 ||N(r,\theta)||\,dr\,d\theta\\
+&=\int^{2\pi}_0\int^2_0 \sqrt{4r^4 +  r^2}\,dr\,d\theta\\
+&=\int^{2\pi}_0\int^2_0 r\sqrt{4r^2+1}\,dr\,d\theta\\
+&=\frac{\pi}{4}\int_1^{17} \sqrt{u}\,du\\
+&=\frac{\pi}{6}(17^{3/2} - 1).
+\end{align*}
+\end{subproblem}
+
+\newpage
+\vglue1pt
+\item Let $\vec{F}(x,y,z) = \left<yz,\,-xz,\,z^3\right>$, and let $S$ be the surface given by the part of the cone $z = \sqrt{x^2+y^2}$ between the planes $z=1$ and $z=3$.
+\begin{subproblem}
+\item Sketch the surface $S$.\marginpar{[3]}
+
+\medskip
+Your sketch should look something more or less like this:
+
+\begin{center}
+\includegraphics[width = 3.5in]{/home/sean/Documents/cone.pdf}
+\end{center}
+
+
+\item Calculate $\nabla\times \vec{F}$. \marginpar{[2]}
+
+\bigskip
+
+\[\nabla\times\vec{F}(x,y) = x\hat{\imath} + y\hat{\jmath} -2z\hat{k}.\]
+\newpage
+\vglue1pt
+
+\item Use Stokes' theorem to evaluate \marginpar{[6]}
+\begin{equation*}
+\iint\limits_S\left(\nabla\times\vec{F}\right)\cdot\vec{n}\,dS.
+\end{equation*}
+\noindent {\bf Hint:} This problem is easiest if you apply Stokes' theorem twice in a clever way to obtain two much simpler surface integrals.  The boundary of $S$ has two separate parts so be sure to keep track of orientation!
+
+\bigskip
+
+Let $C_1$ be the circle $x^2+y^2=1$ and $z=1$ that makes up the bottom piece of the boundary of $S$, and let $C_2$ be the circle $x^2+y^2 = 9$ and $z=3$ that makes up the top piece of the boundary of $S$.  If you want to use Stokes' theorem directly, then let $x=\cos\theta$, $y = -\sin\theta$ and $z=1$ be the parameterization of $C_1$, and $x = 3\cos\theta$, $y=3\sin\theta$, $z=3$ be the parameterization of $C_2$, with $\theta\in[0,2\pi]$ for both.  (It's important that the two curves have {\em opposite} orientation - hence the $-\sin\theta$ for $C_1$ - but if you went with the reverse of this, you didn't lose any marks.)  We then have:
+
+\begin{align*}
+\iint\limits_S(\nabla\times \vec{F})\cdot \vec{n}\,dS & = \int_{C_1}\vec{F}\cdot d\vec{r} + \int_{C_2}\vec{F}\cdot d\vec{r}\\
+& = \int_0^{2\pi}\left<-\sin\theta,-\cos\theta,1\right>\cdot\left<-\sin\theta,-\cos\theta,0\right>\,d\theta \\
+& \qquad + \int_0^{2\pi}\left<9\sin\theta,-9\cos\theta,27\right>\cdot\left<-3\sin\theta,3\cos\theta,0\right>\,d\theta\\
+& = \int^{2\pi}_0 (-26)\,d\theta = -52\pi.
+\end{align*}
+Alternatively, since $C_1$ bounds the disc $D_1$ given by $x^2+y^2\leq 1$, $z = 1$, and is positively oriented with respect to the unit normal vector $-\hat{k}$, and $C_2$ bounds the disc $D_2$ given by $x^2+y^2\leq 9$, $z = 3$, and is positively oriented with respect to the unit normal vector $\hat{k}$, we can apply Stokes' theorem twice, as follows:
+\begin{align*}
+\iint\limits_S(\nabla\times \vec{F})\cdot \vec{n}\,dS & = \int_{C_1}\vec{F}\cdot d\vec{r} + \int_{C_2}\vec{F}\cdot d\vec{r}\\
+&=\iint\limits_{D_1}(\nabla\times \vec{F})\cdot \vec{n}\,dS + \iint\limits_{D_2}(\nabla\times \vec{F})\cdot \vec{n}\,dS\\
+&=\iint\limits_{D_1}\left<x,y,-2\right>\cdot \left<0,0,-1\right>\,dS + \iint\limits_{D_2}\left<x,y,-6\right>\cdot\left<0,0,1\right>\,dS\\
+& =\iint\limits_{D_1}2\,dS - \iint\limits_{D_2}6\,dS =2\pi(1)^2 -6\pi(3^2) = -52\pi.
+\end{align*}
+\newpage
+\vglue1pt
+
+\item In the special case that $\vec{F} = P\hat{\imath} + Q\hat{\jmath}$ \marginpar{[4]} and that $S$ is a region $R$ in the $xy$-plane, show that Stokes' theorem reduces to Green's theorem.
+
+\bigskip
+
+If $\vec{F} = P\hat{\imath} + Q\hat{\jmath}$, then 
+\[\nabla\times \vec{F} = \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)\hat{k}.\]
+(If you assumed $P$ and $Q$ depend on $z$ as well as $x$ and $y$ you might have other terms here, but they'll vanish when we take the dot product anyway.)
+
+Since the region $R$ lies in the $xy$-plane, its normal vector is the same as the normal vector of the plane; that is, we have $\vec{n} = \hat{k}$.  Thus Stokes' theorem gives us (on the left-hand side we note $dz = 0$):
+\begin{align*}
+\int_C P\,dx + Q\, dy &= \iint\limits_S \left(\nabla\times \vec{F}\right)\cdot\vec{n}\,dS\\
+& = \iint\limits_R \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)\,dA,
+\end{align*}
+since $\hat{k}\cdot\hat{k} = 0$, which gives us Green's theorem.
+\end{subproblem}
+\newpage
+\vglue1pt
+
+\item Let $\vec{F}(x,y,z) = ||\vec{r}||\vec{r}$, where $\vec{r} = x\hat{\imath} + y\hat{\jmath} + z\hat{k}$, and let $S$ be the spherical surface $x^2+y^2+z^2 = 9$.
+\begin{subproblem}
+\item Evaluate the surface integral $\displaystyle \iint\limits_S \vec{F}\cdot\vec{n}\,dS$ by direct computation. \marginpar{[6]}
+
+\bigskip
+
+Let me make a remark before beginning.  If you didn't notice that this problem was a lot simpler than it looks, and decided to parameterize the surface, you really should have used spherical coordinate parameters (see the beginning of the exam).  This would give you $x = 3\sin\phi\cos\theta$, $y = 3\sin\phi\sin\theta$ and $z = 3\cos\phi$, (the 3 is from the fact that you're on a sphere of radius 3) so that
+\[\vec{N} = \left<9\sin^2\phi\cos\theta,9\sin^2\phi\sin\theta,9\sin\phi\cos\phi\right>,\]
+and $dS = ||\vec{N}||d\phi d\theta$, and so on.
+
+\medskip
+
+Many students wrote $z = \sqrt{9-x^2-y^2}$, and then tried to use the formula $dS = \sqrt{1+z_x^2+z_y^2}\,dx\,dy$, which gets you {\em nowhere}!  Why?  Well for one thing, you chose the positive square root, so you're only integrating over half of the sphere!  For another, the integral you get (had you managed to do everything else right) is very difficult.  I know this formula is in the book, but I avoided it in class for a reason: it only works in the very special case where the surface is given as a graph $z = f(x,y)$, and most surfaces aren't. 
+
+\medskip
+
+So, what's the easy way to do the problem?  Well, the normal vector to the sphere is given by the radial vector $\vec{r} = \left<x,y,z\right>$.  (If you don't believe this, calculate the gradient of $x^2+y^2+z^2$.)  So, the unit normal vector is $\vec{n} = \dfrac{\vec{r}}{||\vec{r}||}$.  Therefore,
+\[\vec{F}\cdot\vec{n} = ||\vec{r}||\vec{r}\cdot \frac{\vec{r}}{||\vec{r}||} = \vec{r}\cdot\vec{r} = x^2+y^2+z^2.\]
+But on the surface $S$, we know that $x^2+y^2+z^2 = 9$.  Therefore, the integral is
+\[\iint\limits_S\vec{F}\cdot\vec{n}\,dS = \iint\limits_S 9\,dS = 9(4\pi(3^2)) = 324\pi,\]
+since the surface area of a sphere is given by $4\pi R^2$.
+
+\medskip
+
+If you parameterized, then since $||\vec{r}||=3$ on $S$, we have
+\begin{align*}
+\vec{F}\cdot\vec{N} &= \left<9\sin\phi\cos\theta,9\sin\phi\sin\theta,9\cos\phi\right>\cdot \left<9\sin^2\phi\cos\theta,9\sin^2\phi\sin\theta,9\sin\phi\cos\phi\right>\\
+& = 81\sin^3\phi + 81\sin\phi\cos^2\phi = 81\sin\phi,
+\end{align*}
+so
+\[\iint\limits_S \vec{F}\cdot\vec{n}\,dS = \int_0^{2\pi}\int_0^\pi \vec{F}\cdot\vec{N}\,d\phi\,d\theta = 324\pi.\]
+\newpage
+\vglue1pt
+
+\item Compute $\nabla\cdot\vec{F}$. \marginpar{[3]}
+
+\bigskip
+
+If you just go ahead and compute things directly, you get
+\begin{align*}
+\nabla\cdot (||\vec{r}||\vec{r}) &= \frac{\partial }{\partial x}x\sqrt{x^2+y^2+z^2} + \frac{\partial }{\partial y}y\sqrt{x^2+y^2+z^2} + \frac{\partial }{\partial z}z\sqrt{x^2+y^2+z^2}\\
+& = 3\sqrt{x^2+y^2+z^2} + \frac{x^2}{\sqrt{x^2+y^2+z^2}}+\frac{y^2}{\sqrt{x^2+y^2+z^2}}+\frac{z^2}{\sqrt{x^2+y^2+z^2}}\\
+& = 4\sqrt{x^2+y^2+z^2}.
+\end{align*}
+Note that here, you can't just go ahead and set $||\vec{r}||=3$, since that's only true on $S$, and you need to take values away from $S$ to find the derivatives.  (It's the equivalent of saying that since $f(2) = 4$ is a constant, $f'(2) = 0$.)
+
+By the way, if you remembered the exercises from the book involving product rule formulas for the $\nabla$ operator, you could have just written
+\[\nabla\cdot (||\vec{r}||\vec{r}) = \nabla(||\vec{r}||)\cdot \vec{r} + ||\vec{r}||\nabla\cdot\vec{r} = \frac{\vec{r}}{||\vec{r}||}\cdot\vec{r} + ||\vec{r}||(3) = 4||\vec{r}||.\]
+
+
+\item Evaluate $\displaystyle \iint\limits_S \vec{F}\cdot\vec{n}\,dS$ using the divergence theorem. \marginpar{[6]}
+
+\bigskip
+
+In spherical coordinates, we have $||\vec{r}|| = \rho$, so
+\begin{align*}
+\iint\limits_S\vec{F}\cdot\vec{n}\,dS &= \iiint\limits_T(\nabla\cdot\vec{F})\,dV\\
+&= \int_0^{2\pi}\int_0^\pi\int_0^3 (4\rho)\rho^2\sin\phi\,d\rho\,d\phi\,d\theta\\
+&= \int_0^{2\pi}\int_0^\pi 3^4 \sin\phi\, d\phi\,d\theta\\
+&= 81(4\pi) = 324\pi.
+\end{align*}
+\end{subproblem}
+\newpage
+\vglue1pt
+
+\item Solve the following system of linear first order differential equations:
+\begin{equation*}
+ \vec{r}\,'(t) = (4x+5y)\hat{\imath} + (-2x + 6y)\hat{\jmath}
+\end{equation*}
+\noindent {\bf Note:} Your solution should involve complex numbers.\\
+A correct final answer that still involves complex numbers is worth 10/15.\\
+To score 15/15 you must give the correct answer in terms of {\em real numbers only}.
+
+\bigskip
+
+We have $\displaystyle A = \begin{bmatrix} 4&5\\-2&6\end{bmatrix}$, so the eigenvalues are the roots of
+\[\begin{vmatrix}4-\lambda & 5\\-2&6-\lambda\end{vmatrix} = \lambda^2-10\lambda+34.\]
+Therefore the eigenvalues are given by
+\[\lambda = \frac{10\pm\sqrt{10^2-4(34)}}{2} = \frac{10\pm 6i}{2} = 5\pm 3i,\]
+where $i = \sqrt{-1}$.
+
+Now depending on which eigenvalue you decide to work with, and how you normalize things, you could have ended up with different looking answers (vectors that are complex multiples of each other can look very different!)  But if you choose $\lambda  = 5-3i$, then you can check that $\begin{bmatrix}-1+3i & 5\\-2 1+3i\end{bmatrix}\begin{bmatrix}1+3i\\2\end{bmatrix} = 0$, so that $X = \begin{bmatrix}1+3i\\2\end{bmatrix}$ is an eigenvector associated to $\lambda = 5-3i$.
+
+We know that the complex conjugate of $X$ will be an eigenvector for $\lambda  = 5+3i$, so the general complex solution is
+\[\vec{r}(t) = c_1\begin{bmatrix}1+3i\\2\end{bmatrix}e^{(5-3i)t}+c_2\begin{bmatrix}1-3i\\2\end{bmatrix}e^{(5+3i)t}.\]
+
+To get the real solution, we expand the first term above using complex multiplication, and the fact that $e^{(5-3i)t} = e^{5t}(\cos 3t - i\sin 3t)$:
+
+\[\begin{bmatrix}1+3i\\2\end{bmatrix}(\cos 3t - i\sin 3t) = \begin{bmatrix}\cos 3t + 3\sin 3t\\2\cos 3t\end{bmatrix} + i\begin{bmatrix}3\cos 3t - \sin 3t\\-2\sin 3t\end{bmatrix}.\]
+
+The general solution in terms of real variables is therefore
+\begin{align*}
+x(t) &= k_1e^{5t}(\cos 3t + 3\sin 3t) + k_2e^{5t}(3\cos 3t - \sin 3t)\\
+y(t) &= 2k_1 e^{5t}\cos 3t - 2k_2 e^{5t}\sin 3t.
+\end{align*}
+Again, depending on the choices you made, you might have ended up with a different-looking solution, but in any case, you can confirm your solution by checking that it satisfies the system you were given to start with.
+\newpage
+\vglue1pt
+
+Extra space for rough work. Do {\bf not} tear out this page.
+\end{problems}
+\end{document}
+
+

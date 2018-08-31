@@ -1,0 +1,229 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbf{F}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\n}{\mathbf{n}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\renewcommand{\S}{\mathbf{S}}
+\newcommand{\bvm}{\begin{vmatrix}}
+\newcommand{\evm}{\end{vmatrix}}
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}   
+\newcommand{\N}{\mathbf{N}}               
+
+\title{Math 2580 Assignment \#8 Solutions\\University of Lethbridge, Spring 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+\item Find the area of the portion of the hyperbolic paraboloid $z=xy$ that lies within the cylinder $x^2+y^2=4$.
+
+\bigskip
+
+Since the surface is a graph, we take $x$ and $y$ as parameters, and $\r(x,y) = \langle x, y, xy\rangle$, with $(x,y)\in D=\{(x,y)|x^2+y^2\leq 4\}$. We then have
+\begin{align*}
+ \r_x(x,y) & = \langle 1, 0, y\rangle\\
+ \r_y(x,y) & = \langle 0, 1, x\rangle\\
+ \N(x,y) & = \langle -y, -x, 1\rangle,
+\end{align*}
+so $\len{\N(x,y)} = \sqrt{x^2+y^2+1}$ and the area is given by 
+\begin{align*}
+ A & = \iint_S \,dS = \iint_D\len{\N(x,y)}\,dA = \iint_D \sqrt{x^2+y^2+1}\,dA\\
+& = \int_0^{2\pi}\int_0^2\sqrt{r^2+1}r\,dr\,d\theta\\
+& = \pi \int_1^5 u^{1/2}\,du = \frac{2\pi}{3}(5^{3/2}-1).
+\end{align*}
+\textbf{Note:} We can set up the integral in $x$ and $y$ as above, and then convert to polar coordinates, but we can also use $r$ and $\theta$ as parameters from the beginning. If we let $\r(r,\theta) = \langle r\cos\theta, r\sin\theta, r^2\sin\theta\cos\theta\rangle$. If you go ahead and compute $\r_r$ and $\r_\theta$ and take the cross product to get $\N$, you find
+\[
+ \N(r,\theta) = \langle -r^2\sin\theta, -r^2\cos\theta, r\rangle = r\langle -r\sin\theta, -r\cos\theta, 1\rangle = r\langle -y,x,1\rangle
+\]
+so the normal vector for the parameters $r$ and $\theta$ is equal to $r$ times the normal vector we found above, and this $r$ is exactly the one that appears above as the Jacobian of the polar coordinate transformation.
+\pagebreak
+
+\item Evaluate the surface integral $\iint_S(x^2y+z^2)\,dS$, where $S$ is the portion of the cylinder $x^2+y^2=9$ that lies between the planes $z=0$ and $z=2$.
+
+\bigskip
+
+Since our surface is a cylinder, a natural choice of parameters for the surface is to use cylindrical coordinates. We define
+\[
+ \r(\theta,z) = \langle 3\cos\theta, 3\sin\theta,z\rangle,
+\]
+for $\theta\in [0,2\pi]$ and $z\in [0,2]$, and this gives us a parameterization of our cylinder. We then have
+\begin{align*}
+ \r_\theta(\theta, z) & = \langle -3\sin\theta, 3\cos\theta, 0\rangle\\
+ \r_z(\theta, z) & = \langle 0, 0, 1\rangle\\
+ \N(\theta,z) & = \langle 3\cos\theta, 3\sin\theta, 0\rangle.
+\end{align*}
+(Note that the normal vector is indeed perpendicular to the cylinder at all points!) The length of the normal vector is simply $\len{\N(\theta,z)} = 3$, and in terms of this parameterization, we have
+\[
+ x^2y+z^2 = 27\cos^2\theta\sin\theta+z^2,
+\]
+so
+\[
+ \iint_S (x^2y+z^2)\,dS = \int_0^2\int_0^{2\pi}(27\cos^2\theta\sin\theta +z^2)(3)\,d\theta\,dz = 2\pi\int_0^2 3z^2\,dz = 16\pi.
+\]
+
+
+\item Evaluate the surface integral of the vector field $\F(x,y,z) = \langle y, z-y, x\rangle$ over the tetrahedron with vertices $(0,0,0)$, $(1,0,0)$, $(0,1,0)$, and $(0,0,1)$.
+
+\bigskip
+
+This problem requires a bit of work, since our surface is a piecewise-smooth surface consisting of four planar triangles $S_1, S_2, S_3$, and $S_4$.
+\begin{itemize}
+ \item $S_1$ is the portion of the $xy$-plane given by $0\leq x\leq 1$, $0\leq y\leq 1-x$, oriented upwards: With $\r(x,y) = \langle x,y,0\rangle$ (note that $z=0$ in the $xy$-plane) we find $\N_1(x,y) = \i\times\j = \k$. 
+ \item $S_2$ is the portion of the $yz$-plane given by $0\leq y\leq 1$, $0\leq z\leq 1-y$, oriented in the positive $x$-direction: With $\r(y,z) = \langle 0,y,z\rangle$, we find $\N_2(x,y) =\j\times\k = \i$.
+ \item $S_3$ is the portion of the $xz$-plane given by $0\leq z\leq 1$, $0\leq x\leq 1-z$, oriented in the negative $y$-direction: With $\r(x,z) = \langle x,0,z\rangle$, we find $\N_3(x,y) =\i\times\k = -\j$.
+ \item $S_4$ is diagonal face of the tetrahedron, which lies in the plane $x+y+z=1$. If we view this as the graph $z=1-x-y$, with $0\leq x\leq 1$ and $0\leq y\leq 1-x$ (the same region as $S_1$), we have $\r(x,y) = \langle x,y,1-x-y\rangle$, so $\N_4(x,y) = (\i-\k)\times(\j-\k) = \i+\j+\k$.
+\end{itemize}
+Next, we compute the integral of $\F$ over each surface.
+
+On $S_1$, we have $\F(x,y,0)\dotp\N_1(x,y) = \langle y,0-y,x\rangle\dotp\k = x$, so
+\[
+ \iint_{S_1}\F\dotp\,d\S = \int_0^1\int_0^{1-x} x\,dy\,dx = \int_0^1(x-x^2)\,dx = \frac{1}{6}.
+\]
+On $S_2$, we have $\F(0,y,z)\dotp\N_2(y,z) = \langle y, z-y, 0\rangle\dotp \i = y$, so
+\[
+ \iint_{S_2}\F\dotp\,d\S = \int_0^1\int_0^{1-y}y\,dz\,dy = \int_0^1(y-y^2)\,dy = \frac{1}{6}.
+\]
+On $S_3$, we have $\F(x,0,z)\dotp\N_3(x,z) = \langle 0,z,x\rangle\dotp (-\j) = -z$, so
+\[
+ \iint_{S_3}\F\dotp\,d\S = \int_0^1\int_0^{1-z}(-z)\,dx\,dz = \int_0^1(z^2-z)\,dz = -\frac{1}{6}.
+\]
+On $S_4$, we have $\F(x,y,1-x-y)\dotp\N_4(x,y) = \langle y,1-x-2y,x\rangle\dotp\langle 1,1,1\rangle = 1-y$, so
+\[
+ \iint_{S_4}\F\dotp\,d\S = \int_0^1\int_0^{1-y}(1-y)\,dx\,dy = \int_0^1(1-2y+y^2)\,dy = \frac{1}{3}.
+\]
+Now, the overall surface (the tetrahedron) is a closed surface, and by default we give it the outward orientation. To have an outward-pointing normal vector at all points, we need to reverse the orientations for $S_1$ and $S_2$ (we want $S_1$ oriented downwards, and $S_2$ oriented in the negative $x$-direction). The total surface is therefore \[
+S = -S_1-S_2+S_3+S_4,                                                                                                                                                                                                                                                                                                                                                         \]
+so
+\[
+ \iint_S \F\dotp\,d\S = -\iint_{S_1}\F\dotp\,d\S-\iint_{S_2}\F\dotp\,d\S+\iint_{S_3}\F\dotp\,d\S+\iint_{S_4}\F\dotp\,d\S = -\frac{1}{6}-\frac{1}{6}-\frac{1}{6}+\frac{1}{3} = -\frac{1}{6}.
+\]
+\textbf{Note:} The point of this exercise was, of course, to do the whole thing by hand. Having done so, we can now appreciate the usefulness of the Divergence Theorem: since $S$ is a closed surface, we have
+\[
+ \iint_S\F\dotp\,d\S = \iiint_E (\nabla\dotp \F)\,dV,
+\]
+where $E$ is the region bounded by the tetrahedron, and $\nabla \dotp \F = \dfrac{\partial}{\partial x}(y)+\dfrac{\partial}{\partial y}(z-y)+\dfrac{\partial}{\partial z}(x) = -1$, and since the volume of a tetrahedron with height $h=1$ and base area $A=\frac{1}{2}(1)(1)=\frac{1}{2}$ is $V = \frac{1}{3}Ah = \frac{1}{6}$, we have
+\[
+ \iint_S\F\dotp\,d\S =\iiint_E (-1)\,dV = -V = -\frac{1}{6}.
+\]
+\pagebreak
+
+
+\item Use Stokes' theorem to calculate the integral of $\F(x,y,z) = xy\i+yz\j+xz\k$ around the triangle $C$ with vertices $(2,0,0)$, $(0,1,0)$, and $(0,0,3)$.\label{a}
+
+\bigskip
+
+The curve $C$ is the boundary of the surface $S$ given by the part of the plane $3x+6y+2z=6$ that lies in the first octant. We can describe $S$ as the graph $z=3-\frac{3}{2}x-3y$, where $(x,y)$ belongs to the region $D$ in the $(x,y)$-plane bounded by the triangle with vertices $(0,0)$, $(2,0)$, and $(0,1)$. Thus, we parameterize $S$ by
+\[
+ \r(x,y)=\langle x,y,3-\frac{3}{2}x-3y\rangle,
+\]
+with $(x,y)\in D$. As a Type 1 region, $D$ is given by $0\leq x\leq 2$, with $0\leq y\leq 1-\frac{1}{2}x$; as a Type 2 region, $D$ is given by $0\leq y\leq 1$, and $0\leq x\leq 2-2y$. For this parameterization, we find that $\N(x,y) = \langle \frac{3}{2},3,1\rangle$. (This is the normal vector we can read off from the equation of the plane, scaled by one half, since we divided by 2 to solve for $z$.)
+
+Next, we compute
+\[
+ \nabla\times \F(x,y,z) = \bvm \i&\j&\k\\ \pd{}{x} & \pd{}{y} & \pd{}{z}\\xy & yz& xz\evm = -y\i-z\j-x\k,
+\]
+so $\nabla\times \F(\r(x,y)) = \langle -y, \frac{3}{2}x+3y-3, -x\rangle$. Stokes' theorem then gives us
+\begin{align*}
+ \int_C\F\dotp\,d\r &= \iint_S(\nabla\times \F)\dotp d\S\\
+& = \int_0^1\int_0^{2-2y}\langle -y, \frac{3}{2}x+3y-3, -x\rangle\dotp \langle \frac{3}{2},3,1\rangle\,dx\,dy\\
+& = \int_0^1\int_0^{2-2y}\left(\frac{7}{2}x+\frac{15}{2}y-9\right)\,dx\,dy\\
+& = \int_0^1\left(\frac{7}{4}(2-2y)^2+\frac{15}{2}y(2-2y)-9(2-2y)\right)\,dy\\
+& = -\frac{25}{6}.
+\end{align*}
+
+\item Calculate the line integral in Problem \ref{a} directly to verify that Stokes' theorem holds in this case. \label{b}
+
+\bigskip
+
+The curve $C$ is piecewise smooth, consisting of three line segments $C_1, C_2$, and $C_3$. The line segment $C_1$ from $(2,0,0)$ to $(0,1,0)$ can be parameterized using
+\[
+ \r_1(t) = \langle 2-2t, t, 0\rangle, \quad t\in [0,1].
+\]
+The line segment $C_2$ from $(0,1,0)$ to $(0,0,3)$ can be parameterized using
+\[
+ \r_2(t) = \langle 0, 1-t, 3t\rangle, \quad t\in [0,1].
+\]
+The line segmenet $C_3$ from $(0,0,3)$ to $(2,0,0)$ can be parameterized using
+\[
+ \r_3(t) = \langle 2t, 0, 3-3t\rangle, \quad t\in [0,1].
+\]
+We then have
+\begin{align*}
+ \int_C\F\dotp\,d\r & = \int_{C_1}\F\dotp\,d\r + \int_{C_2}\F\dotp\,d\r + \int_{C_3}\F\dotp\,dr\\
+ & = \int_0^1\langle (2-2t)t,0,0\rangle\dotp\langle -2,1,0\rangle\,dt\\
+&\quad\quad\quad + \int_0^1\langle 0, (1-t)(3t), 0\rangle \dotp\langle 0,1,3\rangle\,dt\\
+ &\quad\quad\quad\quad\quad\quad+\int_0^1 \langle 0,0,2t(3-3t)\rangle\dotp \langle 2,0,3\rangle\,dt\\
+ & = \int_0^1 (4t^2-4t)\,dt + \int_0^1 (3t^2-3t)\,dt + \int_0^1(18t^2-18t)\,dt\\
+ & = \int_0^1 (25t^2-25t)\,dt = -\frac{25}{6}.
+\end{align*}
+
+
+
+\item Use Stokes' theorem to calculate the integral $\iint_S(\nabla\times \F)\dotp \n\,dS$, where $\F(x,y,z) = \r\times(\i+\j)$, and $S$ is the portion of the sphere $x^2+y^2+z^2=9$ where $x+y\geq 1$.
+
+\textbf{Note:} Here $\r = x\i+y\j+z\k$ in the definition of $\F$. You can try to use Stokes' theorem directly, and integrate $\F$ around the boundary of $S$, but for best results, use Stokes' theorem indirectly: by applying Stokes' theorem twice, you can replace the original surface $S$ by a simpler surface that shares the same boundary.
+
+\bigskip
+
+We first compute $\F(x,y,z) = \bvm \i&\j&\k\\ x&y&z\\ 1&1&0\evm = \langle -z, z, x-y\rangle$, so
+\[
+ \nabla\times \F(x,y,z) = \bvm \i&\j&\k\\ \pd{}{x}&\pd{}{y}&\pd{}{z}\\-z&-z&x-y\evm = \langle -2, -2, 0\rangle = -2(\i+\j).
+\]
+
+Now the curve of intersection $C$ of the sphere $x^2+y^2+z^2=9$ and $x+y=1$ is the boundary of the given surface $S$, but it is also the boundary of the portion of the plane $x+y=1$ bounded by $C$. Let's call this portion $S'$. We'll show how to obtain the result in two ways: as a line integral around $C$, and also as a surface integral over $S'$. (We can replace $S$ by $S'$ since the two surfaces share the same oriented boundary.)
+
+If we choose to integrate over $S'$, then we treat the plane $x+y=1$ as the graph $x=1-y$, and use the parameterization $\r(y,z) = \langle 1-y,y,z\rangle$. Determining the parameter domain $D$ for $y$ and $z$ takes a bit of work. If we substitute $x=1-y$ into the equation of the sphere, we have
+\[
+ (1-y)^2+y^2+z^2 = 1-2y+y^2+y^2+z^2 = 2y^2-2y+z^2+1=9,
+\]
+and completing the square in $y$ gives us
+\[
+ 2(y-\frac{1}{2})^2+z^2 = \frac{17}{2}, \quad \text{ or } \quad \frac{(y-1/2)^2}{17/4}+\frac{z^2}{17/2}=1,
+\]
+which we recognize as the equation of an ellipse in the $(y,z)$-plane. The desired curve $C$ is obtained by letting $x=1-y$, where $y$ and $z$ satisfy the equation above.
+
+\medskip
+
+If we want to compute the line integral $\int_C\F\dotp\,d\r$, we need to parameterize $C$. If we let $a = \dfrac{\sqrt{17}}{2}$ and $b = \sqrt{\dfrac{17}{2}}$, then our ellipse is $\dfrac{(y-1/2)^2}{a^2}+\dfrac{z^2}{b^2}=1$, which we can parametrize using $y = \dfrac{1}{2}+a\cos t$, $z=b\sin t$, with $t\in [0,2\pi]$, so with $x=1-y$ we have
+\[
+ \r(t) = \langle \frac{1}{2}-a\cos t, \frac{1}{2}+a\cos t, b\sin t\rangle, \quad \r'(t) = \langle a\sin t, -a\sin t, b\cos t\rangle,
+\]
+and $\F(\r(t)) = \langle -b\sin t, b\sin t, -2a\cos t\rangle$, so
+\begin{align*}
+ \int_C\F\dotp\,d\r &= \int_0^{2\pi}\langle -b\sin t, b\sin t, -2a\cos t\rangle\dotp \langle a\sin t, -a\sin t, b\cos t\rangle\,dt\\
+& = \int_0^{2\pi} (-ab\sin^2t-ab\sin^2t-2ab\cos^2t)\,dt\\
+& = \int_0^{2\pi} (-2ab)\,dt = -4\pi ab,
+\end{align*}
+and putting in our values of $a$ and $b$ gives us $-4\pi ab = -17\sqrt{2}\pi$ for the result.
+
+\medskip
+
+If we want to compute the integral $\iint_{S'}(\nabla\times \F)\dotp d\S$, we note that the parameter domain $D$ for the parameterization $\r(y,z)$ above is given by the region in the $(y,z)$ plane bounded by the above ellipse. The normal vector is $\N(y,z) = \i+\j$ (constant, since our surface lies in a plane), and we have
+\[
+ \iint_{S}(\nabla\times \F)\dotp d\S = \iint_{S'}(\nabla\times \F)\dotp d\S = \iint_D (-2(\i+\j))\dotp (\i+\j)\,dA = -4\iint_D\,dA,
+\]
+so the value of the integral is $-4A(D)$, where the area $A(D)$ is given by $A(D) = \pi ab = \pi\frac{17}{2\sqrt{2}}$, using the formula for the area of an ellipse, and again we obtain the result $-17\sqrt{2}\pi$.
+\end{enumerate}
+
+
+\end{document}
+ 

@@ -1,0 +1,345 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 60}}
+\chead{MATH 2000B}\lhead{Midterm}\rhead{Tuesday, 3\textsuperscript{rd} March, 2015}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+3\textsuperscript{rd} March, 2015, 3:05-4:20 pm\\
+{\bf Math 2000B - Midterm}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{50pt}{\bf SOLUTIONS}\hspace{50pt}}\\
+\skipline
+First Name:\underline{\hspace{50pt}{\bf THE}\hspace{100pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ Record your answers below each question in the space provided.    {\bf Left-hand pages may be used as scrap paper for rough work.}  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+The value of each problem is indicated in the left-hand margins. The value of a problem does not always indicate the amount of work required to do the problem.
+
+Outside aids, including, but not limited to, cheat sheets, smart phones, laptops, spy cameras, drones, and telepathic communication, are not permitted. You can keep a calculator with you if it makes you feel better.
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 7 & \enspace\enspace\enspace\enspace\enspace\enspace/6\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/60\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item For each of the following sentences, decide whether or not it is an assertion. If it is, indicate whether it is true or false, and why.
+\begin{enumerate}
+\item The number 4 is an even integer. \points{2}
+
+\bigskip
+
+This is an assertion, and it is true: $4=2(2)$.
+
+\bigskip
+
+\item For each integer $n$, $n^2-1$ is a prime number.\points{2}
+
+\bigskip
+
+This is an assertion, and it is false: for $n=2$ we get $2^2-1=8$, which is not prime.
+
+\bigskip
+
+
+\item There exists some $x\in\R$ such that $x+y=3$. \points{2}
+
+\bigskip
+
+This is not an assertion, since there is no quantifier for the variable $y$.
+
+\bigskip
+\end{enumerate}
+
+\item For each conditional statement below, identify the hypothesis and conclusion, and indicate whether or not the statement is true or false.
+\begin{enumerate}
+\item If $3+5=10$, then $8<-3$. \points{2}
+
+\bigskip
+
+The hypothesis is $3+5=10$, and the conclusion is $8<-3$. Since the hypothesis is false, the conditional statement is true.
+
+\bigskip
+
+\item The fact that $14=2(7)$ implies that 14 is an odd integer. \points{2}
+
+\bigskip
+
+The hypothesis is $14=2(7)$, which is true, but the conclusion, that 14 is an odd integer, is false. Therefore the conditional statement is false.
+\end{enumerate}
+\newpage
+
+\item For the following problems, you do {\bf not} need to show your work.
+\begin{enumerate}
+\item List four integers $n$ such that $n\equiv 3 \pmod{7}$. \points{2}
+
+\bigskip
+
+Any four integers such that $n-3$ is divisible by 7 will do; for example, 3, 10, 17, and 24.
+
+\bigskip
+
+\item Give an example of a tautology and an example of a contradiction. Your example can be specific or symbolic (using $P$, $Q$, etc.)\points{2}
+
+\bigskip
+
+For any statement $P$, we know that $P\vee \neg P$ is a tautology, and $P\wedge \neg P$ is a contradiction, by the Law of the Excluded Middle.
+
+\medskip
+
+Note: A tautology/contradiction must always be true/false regardless of the truth value of the statements it is comprised of. A single statement may itself be true or false, but simply knowing a statement to be true does not make it a tautology.
+
+\bigskip
+
+\item What is the contrapositive of the statement ``If $p$ is a prime number, then $p=2$ or $p$ is an odd number''?\points{2}
+
+\bigskip
+
+The contrapositive of a conditional statement $P\to Q$ is $\neg Q\to \neg P$, so we must have:
+
+\medskip
+
+If $p\neq 2$ and $p$ is even, then $p$ is not a prime number.
+
+\bigskip
+
+\item What does it mean to say that a subset of the integers is {\em inductive}? \points{2}
+
+\bigskip
+
+A subset $S\subseteq \mathbb{Z}$ is {\bf inductive} if for every $n\in\mathbb{Z}$, $n\in S \to n+1\in S$.
+
+\bigskip
+
+\item What is the negation of the statement ``For all $m\in\Z$, there exists some $n\in \Z$ such that $2m-5n=7$''? \points{2}
+
+\bigskip
+
+The statement may be written symbolically as $\forall m\in\Z, \exists n\in\Z : 2m-5n=7$. The negation is therefore
+\[
+ \exists m\in \Z \text{ such that } \forall n\in \Z, 2m-5n\neq 7.
+\]
+
+
+
+\end{enumerate}
+\newpage
+
+\item Prove the following logical equivalence: $(P\wedge Q)\to (R\vee S)\equiv (\neg R\wedge \neg S)\to (\neg P\vee \neg Q)$. \points{6}
+
+\bigskip
+
+By taking the contrapositive of the left-hand side and then applying one of de Morgan's Laws, we have
+\[
+ (P\wedge Q)\to (R\vee S)\equiv \neg(R\vee S)\to \neg (P\wedge Q) \equiv (\neg R\wedge \neg S)\to (\neg P\vee \neg Q).
+\]
+Alternatively, you could first eliminate the conditional, although it takes longer.:
+\[
+ (P\wedge Q)\to (R\vee S)\equiv \neg (P\wedge Q)\vee (R\vee S) \equiv \neg (\neg R\wedge \neg S)\vee (\neg P\vee \neg Q)\equiv (\neg R\wedge \neg S)\to (\neg P\vee \neg S).
+\]
+(The middle equivalence contains three or four steps: de Morgan's Laws (twice), double negation, and the commutative law for $\vee$.)
+
+\bigskip
+
+\item  Show that the syllogism $[(P\to Q)\wedge (Q\to R)]\to (P\to R)$ is a tautology. \points{6}
+
+\bigskip
+
+This is one example where it turns out that a truth table is the easier option:
+\[
+ \begin{array}{ccc|c|c|c|c|c}
+  P&Q&R&P\to Q&Q\to R & (P\to Q)\wedge (Q\to R)& P\to R & [(P\to Q)\wedge (Q\to R)]\to (P\to R)\\
+\hline
+T&T&T&T&T&T&T&T\\
+T&T&F&T&F&F&F&T\\
+T&F&T&F&T&F&T&T\\
+T&F&F&F&F&F&F&T\\
+F&T&T&T&T&T&T&T\\
+F&T&F&T&F&F&T&T\\
+F&F&T&T&T&T&T&T\\
+F&F&F&T&T&T&T&T
+ \end{array}
+\]
+If you want to proceed using equivalences instead, the following will do the job (it's one of a few ways that will work):
+\begin{align*}
+ [(P\to Q)\wedge (Q\to R)]\to (P\to R)&\equiv \neg [(P\to Q)\wedge (Q\to R)]\vee (P\to R)\\
+&\equiv \neg(P\to Q)\vee \neg (Q\to R)\vee (\neg P\vee R)\\
+&\equiv [(P\wedge\neg Q)\vee\neg P]\vee [(Q\wedge \neg R)\vee R]\\
+&\equiv [(P\vee \neg P)\wedge (\neg Q\vee \neg P)]\vee [(Q\vee R)\wedge (\neg R\vee R)]\\
+&\equiv [T\wedge (\neg Q\vee \neg P)]\vee [(Q\vee R)\wedge T]\\
+&\equiv (\neg Q)\vee \neg P)\vee (Q\vee R)\\
+&\equiv (Q\vee \neg Q)\vee (\neg P\vee R)\\
+&\equiv T\vee (\neg P\vee R)\equiv T.
+\end{align*}
+
+\newpage
+
+\item Are the following propositions true or false? Justify your conclusion with a proof\footnote{Any true statements on this page can be proved using a direct proof of either the original statement or its contrapositive.} or counterexample.
+\begin{enumerate}
+\item For $a,b,c\in Z$, with $a\neq 0$, if $a|(bc)$, then $a|b$ or $a|c$.\points{4}
+
+\bigskip
+
+The proposition is false. For example, if we take $a=6, b=2$, and $c=3$, then $a\nmid b$ and $a\nmid c$, but $bc=6=6(1)$, so $a\,|\,(bc)$.
+
+\bigskip
+
+\item For any $n\in \N$, if $n^3$ is even, then $n$ is even. \points{4}
+
+\bigskip
+
+The proposition is true; we will prove this by proving the contrapositive. Suppose $n$ is odd. Then $n=2k+1$ for some integer $k$. Thus,
+\[
+ n^3 = (2k+1)^3 = 8k^3+12k^2+6k+1 = 2(4k^3+6k^2+3k)+1,
+\]
+which is of the form $n^3=2l+1$, where $l$ is the integer $4k^3+6k^2+3k$, and this shows that $n^3$ is odd, which completes the proof.
+
+\bigskip
+
+\item  For any $a,b\in\Z$, if $a\equiv 5\pmod{9}$ and $b\equiv 7\pmod{9}$, then $(a+b)\equiv 3\pmod{9}$.\points{4}
+
+\bigskip
+
+Suppose that $a\equiv 5\pmod{9}$ and $b\equiv 7\pmod{9}$. Then there exist integers $k$ and $l$ such that
+\[
+ a = 5+9k \quad\text{ and }\quad b = 7+9l.
+\]
+Thus, 
+\[
+ a+b - 3 = (5+9k)+(7+9l) -3 = (9k+9l+12) - 3 =9k+9l+9 = 9(k+l+1).
+\]
+Therefore, $9|(a+b-3)$, and it follows that $(a+b)\equiv 3\pmod{9}$.
+
+\bigskip
+
+Also acceptable: from the same initial assumption, conclude (using a theorem from class) that $a+b\equiv 5+7 \pmod{9}$. Then note that $5+7=12$ and $12-3$ is divisible by 9 to get your result.
+\end{enumerate}
+\newpage
+
+\item Use proof by cases to prove the following proposition: For each $n\in\Z$, if $n\not\equiv 0\pmod{3}$, then $n^2\equiv 1\pmod{3}$. \points{5}\\
+Hint: The division algorithm gives three possible remainders when $n$ is divided by 3.
+
+\bigskip
+
+Suppose that $n\not\equiv 0\pmod{3}$. Since the division algorithm gives possible remainders of $r=0,1,2$ when $n$ is divided by 3, and our assumption rules out the case $r=0$, we have two cases:
+
+Case 1: $r=1$. In this case, $n\equiv 1\pmod{3}$, so $n^2\equiv 1^2\pmod{3}$, but $1^2=1$, and the result follows.
+
+Case 2: $r=2$. If $n\equiv 2\pmod{3}$, then $n^2\equiv 2^2\pmod{3}$. Since $2^2=4$ and $4\equiv 1\pmod{3}$, we can again conclude that $n^2\equiv 1\pmod{3}$.
+
+Since we have $n^2\equiv 1\pmod{3}$ in both cases where $n\not\equiv 0\pmod{3}$, we can conclude that if $n\not\equiv 0\mod{3}$, then $n^2\equiv 1\pmod{3}$.
+
+\bigskip
+
+
+
+\item Use proof by contradiction to prove the following proposition: For each $n\in \N$, $\sqrt{3n+2}$ is not a natural number. \points{5}\\
+Hint: The two problems on this page are related.
+
+\bigskip
+
+Suppose for the sake of contradiction that the above is false. Then the negation must be true; that is, there must exist some $n\in\N$ such that $\sqrt{3n+2}=k$ is a natural number. But then
+\[
+ k^2 = 3n+2, \text{ and } 3n+2\equiv 2\pmod{3},
+\]
+which implies that $k^2 \equiv 2\pmod{3}$. But this is impossible, since we know that either $k\equiv 0\pmod{3}$ (in which case $k^2\equiv 0\pmod{3}$), or $k^2\equiv 1\pmod{3}$, from the problem above.
+
+Thus, it must be the case that $\sqrt{3n+2}$ is not an integer for every $n\in\N$.
+\newpage
+
+\item Use mathematical induction to prove that for each natural number $n$, \points{6}
+\[
+1+3+5+\cdots + (2n-1) = n^2.
+\]
+
+\bigskip
+
+For each $n\in \N$, let the predicate $P(n)$ represent the equation
+\[
+ 1+3+\cdots + (2n-1) = n^2.
+\]
+When $n=1$ we note that $2(1)-1 = 1 = 1^2$, which shows that $P(1)$ is true, so the base case holds.
+
+Let us now assume that $P(k)$ is true for some $k\geq 1$; thus, we assume that
+\[
+ 1+3+\cdots (2k-1) = k^2.
+\]
+If we add $2(k+1)-1 = 2k+1$ to both sides of the above equation, we obtain
+\begin{align*}
+ 1+3+\cdots + (2k-1)+(2(k+1)-1) & = k^2 + (2k+1)\\
+& = (k+1)^2,
+\end{align*}
+and thus $P(k+1)$ is true. This shows that $P(k)\to P(k+1)$, and thus, we can conclude that $P(n)$ is valid for all $n\in\N$, by induction.
+
+\end{enumerate}
+
+
+
+\end{document}

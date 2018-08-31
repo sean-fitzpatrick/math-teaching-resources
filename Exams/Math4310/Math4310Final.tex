@@ -1,0 +1,105 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+\newcommand{\T}{\mathcal{T}}
+\DeclareMathOperator{\Int}{Int}
+
+\title{Math 4310 Final Exam\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+This is a take-home final exam. You have a total of {\bf 72 hours} to complete the exam and submit your solutions. 
+
+The exam will operate on a basic honour system: the solutions you submit should be your own. You may make full use of your class notes and textbook, and any supplemental textbooks you have, but you may {\bf not} discuss the problems with your classmates. You're free to ask me questions but I don't guarantee that I'll provide the answer you want. Use of online resources is officially discouraged: I'll be checking to make sure solutions haven't been copied directly from the web. (It should go without saying that asking someone to do your problem on the Math Stack Exchange is definitely not cool.)
+
+\bigskip
+
+There are eight problems below. For full credit, submit solutions to any {\bf five} problems. All problems will be assigned an equal weight of 10 points, for a total of 50 points. Partial marks will be awarded for progress towards a solution. Only five problems will be graded, so submit your five best solutions. (If you submit six or more solutions I will only look at the first five.)
+
+
+\begin{enumerate}
+\item Let
+\[
+\mathcal{A} = \{\mathsf{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}\}
+\]
+denote the set of capital letters in the English Roman alphabet. Partition $\mathcal{A}$ into subsets such that two letters belong to the same subset if and only if they're homeomorphic. Formal proofs are not required but you should give reasons for your choices.
+
+{\em Caution:} Homeomorphism is a stronger condition than homotopy equivalence. The letters here should be viewed as one-dimensional subspaces of $\R^2$, so that removing a point creates a gap in the letter. Also note that homeomorphism type depends on the font: I've used a sans-serif font to make the letters as simple as possible.
+\item Let $X$ be a topological space, and let $A\subseteq X$ be a nonempty proper subset. The characteristic function of $A$ is given by
+\[
+\chi_A (x) = \begin{cases} 1, & \text{ if } x\in A\\ 0, & \text{ if } x\notin A\end{cases}.
+\]
+Explain (with proof) how to describe the boundary of $A$ in terms of $\chi_A$.
+\item Let $(X,d)$ be a metric space. Define a function $\delta:X\times X\to\R$ by
+\[
+\delta(x,y) = \frac{d(x,y)}{1+d(x,y)}
+\]
+\begin{enumerate}
+\item Prove that $\delta$ is a metric on $X$.
+\item Prove that the identity map $i:X\to X$ is a homeomorphism from $(X,d)$ to $(X,\delta)$.
+\item Why does it follow that boundedness is not a topological property?
+\item Give an example of two homeomorphic metric spaces, where one is bounded and the other is not.
+\item Let $CX = ((0,1]\times X)\cup \{p_0\}$. Prove that the map $\rho:CX\times CX\to \R$ given in terms of the bounded metric $\delta$ by
+\begin{align*}
+\rho((s,x),(t,y)) & = \abs{s-t} + \min\{s,t\}\delta(x,y) \text{ if } s,t>0\\
+\rho((s,x),p_0) &= s
+\end{align*}
+is a metric on $CX$. (This provides an alternative way of defining the cone CX when $X$ is a metric space.)
+\end{enumerate}
+\item A metric on $X$ is called an {\bf ultrametric} if for all $x,y,z\in X$,
+\[
+d(x,z)\leq \max\{d(x,y),d(y,z)\}.
+\]
+(Intuitively, this means that the trip from $x$ to $z$ cannot be broken into shorter segments by making a stopover at some point $y$. In other words, road trips in an ultrametric space are not very convenient.)
+
+{\bf Note:} For this problem, please feel free to read the Wikipedia article on ultrametric spaces. You won't find any proofs but you can read about several interesting applications.
+\begin{enumerate}
+\item Show that the ultrametric property implies the triangle inequality.
+\item Show that in an ultrametric space, ``all triangles are isoceles''.
+\item Let $N_\epsilon(x)$ denote the $\epsilon$-neighbourhood of some point in an ultrametric space. Prove that for all $y\in N_\epsilon(x)$, $N_\epsilon(y) = N_\epsilon(x)$.
+\item Prove that an ultrametric space is totally disconnected. (That is, the only nonempty connected subsets are those consisting of a single point.)
+\item Let $X$ be the set of all binary sequences. Given $x,y\in X$ with $x=(a_1,a_2,a_3,\ldots)$ and $y=(b_1,b_2,b_3,\ldots)$, define $d(x,y) = 2^{-n}$ if $a_1=b_1, a_2=b_2,\ldots, a_{n-1}=b_{n-1}$, but $a_n\neq b_n$. Prove that $d$ is an ultrametric on $X$.
+\end{enumerate}
+
+\item Let $X$ be a topological space. Prove that if there exists a countable basis for the topology on $X$, then $X$ contains a countable dense subset. (A basis $\mathcal{B}$ is countable if it contains countably many open sets.)
+\newpage
+\item Let $X$ and $Y$ be topological spaces.
+\begin{enumerate}
+\item Prove that any two functions $f,g:X\to CY$ are homotopic, where $CY$ denotes the cone over $Y$.
+\item Prove that a continuous function $f:X\to Y$ is nullhomotopic if and only if it extends to a map from $CX$ to $Y$ (that is, there exists a continuous function $g:CX\to Y$ such that the restriction of $g$ to $X\times\{0\} \cong X$ is equal to $f$).
+\end{enumerate}
+\item Let $p:X\to Y$ be a quotient map. Prove that if $Y$ is connected and each set $p^{-1}(\{y\})$ is connected, then $X$ is connected.
+\item Let $X$ be a topological space. Recall that a {\em connected component} of $X$ is a maximal connected subset of $X$. (That is, $A\subseteq X$ is connected, and if $A\subseteq B$, either $A=B$ or $B$ is not connected.)
+\begin{enumerate}
+\item Prove that if $X$ has finitely many connected components, then each component is both open and closed.
+\item Give an example of a topological space such that none of its components are open sets. 
+\end{enumerate}
+{\bf 2 point bonus opportunity}: Write an original limerick on a topological theme similar to the one below:
+\begin{quote}
+T'is a most indisputable fact\\
+If you want to make something compact\\
+Make it bounded and closed\\
+For you're totally hosed\\
+If either condition you lack.
+\end{quote}
+\end{enumerate}
+
+\end{document}
+ 

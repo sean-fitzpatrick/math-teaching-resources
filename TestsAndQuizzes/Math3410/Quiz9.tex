@@ -1,0 +1,54 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 3410A}\chead{Quiz \# 9}\rhead{Friday, 10\textsuperscript{th} April, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\nul}{null}
+\newcommand{\len}[1]{\lVert #1\rVert}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+{\bf Name:}
+
+\bigskip
+
+The questions below are worth 5 points each, and the quiz is out of 10. You can either choose two, or solve all 3 for a maximum score of 15/10. Feel free to use the back of the page for extra space.
+
+\begin{enumerate}
+ \item Suppose $T\in\mathcal{L}(V)$ and $\lambda\in\mathbb{F}$. Prove that $\lambda$ is an eigenvalue of $T$ if and only if $\overline{\lambda}$ is an eigenvalue of $T^*$.
+ \item Suppopse $S,T\in\mathcal{L}(V)$ are self-adjoint. Prove that $ST$ is self-adjoint if and only if $ST=TS$.
+ \item Suppose that $T$ is a normal operator on $V$ and that 3 and 4 are eigenvalues of $T$. Prove that there exists a vector $v\in V$ such that $\len{v}=\sqrt{2}$ and $\len{Tv} = 5$.
+
+{\em Hint for \#3:} Eigenvectors corresponding to distinct eigenvalues of a normal operator are orthogonal. (Hint hint: Pythagorus.)
+\end{enumerate}
+
+\end{document}

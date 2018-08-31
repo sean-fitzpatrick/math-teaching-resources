@@ -1,0 +1,161 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\title{Math 3410 Assignment \#1 Solutions\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+ \item Let $V = M_{n\times n}(\R)$ denote the space of $n\times n$ matrices.
+ \begin{enumerate}
+ \item Let $E\in V$ be a matrix such that $E^2=E$, and let $U=\{A\in V : AE=A\}$ and $W = \{B\in V : BE = 0\}$. Show $U$ and $W$ are subspaces of $V$, and that $V=U\oplus W$.\\
+ {\em Hint:} Observe that $XE\in U$ for any matrix $X\in V$.
+ 
+ 
+ \bigskip
+ 
+ Let $E\in V$ be such that $E^2=E$, and let $U=\{A\in V : AE=A\}$. Then $U$ is a subspace of $V$, since
+ \begin{enumerate}
+ \item $0E=0$, so $0\in U$.
+ \item If $A_1,A_2\in U$ (so $A_1E=A_1$ and $A_2E=A_2$), then
+ \[
+ (A_1+A_2)E = A_1E+A_2E = A_1+A_2,
+ \]
+ so $A_1+A_2\in U$.
+ \item If $A\in U$ and $c\in \R$, then $(cA)E = c(AE) = cA$, so $cA\in U$.
+ \end{enumerate}
+ The proof that $W$ is a subspace is almost identical: it's clear that $0\in W$, and if $B_1E=B_2E = 0$, then $(B_1+B_2)E=0$ and $(cB_1)E = 0$ for any $B_1,B_2\in E$.
+ 
+ Given any matrix $X\in V$, write 
+ \[
+ X = XE+(X-XE).
+ \]
+ Then $XE\in U$, since $(XE)E = XE^2 = XE$, and $X-XE\in W$, since $(X-XE)E = XE-XE^2 = XE-XE=0$. This tells us that $U+W=V$. Finally we note that $U\cap W = \{0\}$, since if $A\in U$ and $A\in W$, then we have $A=AE=0$. It follows that $V=U\oplus W$.
+ 
+ \item Let $U$ and $W$ denote the subspaces of symmetric and skew-symmetric matrices, respectively. (That is $U=\{A\in V : A^T=A\}$, and $V=\{B\in V : B^T = -B\}$.) Show that $V = U\oplus W$.\\
+ {\em Hint:} First show that for any matrix $X\in V$, $X+X^T\in U$ and $X-X^T \in W$. 
+ 
+ \bigskip
+ 
+ Since $0^T = 0 = -0$, we see that $0\in U$ and $0\in W$. If $A,B\in U$, then $(A+B)^T = A^T+B^T = A+B$, so $A+B\in U$. Similarly, if $A,B\in W$, then $(A+B)^T = A^T+B^T = -A-B=-(A+B)$, so $A+B\in W$. Finally, given $A\in U$ and $B\in W$ and any $c\in \R$, we have $(cA)^T = cA^T=cA$ and $(cB)^T=cB^T = c(-B) = -(cB)$, so $cA\in U$ and $cB\in W$. It follows that $U$ and $W$ are subspaces.
+ 
+ Now, given any $X\in V$, we can write $X$ as
+ \[
+ X = \frac{1}{2}(X+X^T)+\frac{1}{2}(X-X^T),
+ \]
+ and since 
+ \[
+ [\frac{1}{2}(X+X^T)]^T = \frac{1}{2}(X^T+(X^T)^T) = \frac{1}{2}(X+X^T)
+ \]
+ and
+ \[
+ [\frac{1}{2}(X-X^T)]^T = \frac{1}{2}(X^T-(X^T)^T) = \frac{1}{2}(X^T-X)=-\frac{1}{2}(X-X^T),
+ \]
+ we see that $\frac{1}{2}(X+X^T)\in U$ and $\frac{1}{2}(X-X^T)\in W$, so $V=U+W$. Now, if $A\in U\cap W$, then we have
+ $A = A^T = -A$, from which we get $2A=0$ and thus $A=0$. Therefore $U\cap W=\{0\}$, and we can conclude that $V=U\oplus W$.
+ \end{enumerate}
+ 
+ \bigskip
+ 
+ \item Let $U$ and $W$ be subspaces of a vector space $V$. Prove that $U\cup W$ is a subspace of $V$ if and only if $U\subseteq W$ or $W\subseteq V$.\\
+ {\em Bonus:} For a 10\% bonus, prove that the union of three subspaces is a subspace if and only if one of the subspaces contains the other two. (This is 1.C.13 from the text; it comes with the warning that it's more difficult than the case of two subspaces. I'm not sure how much more difficult -- I haven't tried to solve it.)
+ 
+ \bigskip
+ 
+ Let $U,W\subseteq V$ be subspaces. If $U\subseteq W$, then $U\cup W = W$, and thus $U\cup W$ is a subspace. Similarly if $W\subseteq U$ then $U\cup W = U$ is a subspace.
+ 
+ Conversely, suppose that neither subspace is a subset of the other. Then there is some $u\in U$ such that $u\notin W$, and there is some $w\in W$ such that $w\notin U$. Note that we have $u,w\in U+W$, and consider $u+w$. We know that $u+w\notin U$, since otherwise, using the fact that $-u\in U$ (since $U$ is a subspace), we have
+ \[
+ -u+(u+w) = (-u+u)+w=0+w=w\in U.
+ \]
+ However, $w\notin U$ by assumption, so $u+w\notin U$. Similarly, we must hav $u+w\notin W$. It follows that $u+w\notin U\cup W$, and thus $U\cup W$ cannot be a subspace.
+ 
+ \bigskip
+ 
+
+ \item Let $U$ be the subspace of $V=\C^5$ defined by
+ \[
+ U = \{(z_1,z_2,z_3,z_4,z_5)\in V : 6z_1=z_2 \text{ and } z_3+2z_4+3z_5=0\}.
+ \]
+ \begin{enumerate}
+ \item Find a basis for $U$.
+ 
+ \bigskip
+ 
+ Substituting $z_2=6z_1$ and $z_3 = -2z_4-3z_5$, we see that an arbitrary element of $U$ is of the form 
+ \[
+ v=(z_1, 6z_1, -2z_4-3z_5,z_4,z_5) = z_1(1,6,0,0,0)+z_4(0,0,-2,1,0)+z_5(0,0,-3,0,1).
+ \]
+ Thus, the set $B=\{(1,6,0,0,0),(0,0,-2,1,0),(0,0,-3,0,1)\}$ spans $U$, and it is linearly independent: if
+ \[
+ a(1,6,0,0,0)+b(0,0,-2,1,0)+c(0,0,-3,0,1) = (0,0,0,0,0),
+ \]
+ we have $a=0$ (comparing $z_1$ components), $b=0$ (comparing $z_4$ components), and $c=0$ (comparing $z_5$ components). Thus, $B$ is a basis for $U$.
+ 
+ \bigskip
+ 
+ \item Extend your basis in part (a) to a basis for $V$.
+ 
+ \bigskip
+ 
+ We need to find two independent vectors that are not in the span of $B$. It's clear that one such vector is $(1,0,0,0,0)$. Now note that any vector of the form $(z,w,0,0,0)$ is in the span of $(1,0,0,0,0)$ and $(1,6,0,0,0)$, but no vector $(0,0,a,b,c)$ with any of $a,b,c\neq 0$ is. Thus, it suffices to find a vector $(0,0,a,b,c)$ not in the span of $(0,0,-2,1,0)$ and $(0,0,-3,0,1)$, and one such vector is $(0,0,1,0,0)$.
+ 
+ To verify that this is a basis, we can either check that it spans (in which case it's a minimal spanning set) or that it is linearly independent (in which case it's a maximal independent set). Let's see that it spans. Given 
+ \begin{align*}
+ v&=(z_1,z_2,z_3,z_4,z_5)\\&=a(1,6,0,0,0)+b(1,0,0,0,0)+c(0,0,1,0,0)+d(0,0,-2,1,0)+e(0,0,-3,0,1),
+ \end{align*}
+ we must take $a=z_2/6$, in which case $b=z_1-z_2/6$, $d=z_4$, $e=z_5$, and thus $c=z_3+2z_4+2z_5$.
+ 
+ \bigskip
+ 
+ 
+ \item Find a subspace $W\subseteq V$ such that $V=U\oplus W$.
+ 
+ \bigskip
+ 
+ By our previous construction, we can take $W=\operatorname{span}\{(1,0,0,0,0),(0,0,1,0,0)\}$, and we immediately have $V=U+W$. If $v\in U\cap W$, then $v=(s,0,t,0,0) = (a,6a,-2b-3c,b,c)$. Comparing the 4th and 5th components gives $b=c=0$, and comparing the second components gives $a=0$ (and thus $s=t=0$ as well). Thus $U\cap W = \{0\}$, so $V=U\oplus W$.
+
+ \end{enumerate}
+
+\bigskip
+
+ \item Prove or give a counterexample: if $\{v_1,v_2,v_3,v_4\}$ is a basis for $V$,  and $U$ is a subspace of $V$ such that $v_1, v_2\in U$, but $v_3\notin U$ and $v_4\notin U$, then $\{v_1,v_2\}$ is a basis for $U$.
+ 
+ \bigskip
+ 
+ This is false. Consider $\R^4$  with the standard basis. Let $U$ be the span of $v_1 = (1,0,0,0)$, $v_2 = (0,1,0,0)$, and $w = v_3+v_4 = (0,0,1,1)$. Thus,
+\begin{align*}
+ U &= \{x(1,0,0,0)+y(0,1,0,0)+z(0,0,1,1)\,|\, x,y,z\in\R\}\\
+& = \{(x,y,z,z) \,|\, x,y,z\in\R\},
+\end{align*}
+from which it is clear that $v_3,v_4\notin U$. However, $\{v_1,v_2\}$ cannot not a basis for $U$, since it contains only two vectors, and $\dim U = 3$.
+ 
+ \bigskip
+ 
+ \item Prove that if $U$ and $W$ are both 4-dimensional subspaces of $\C^6$, then $U\cap W$ contains at least two linearly independent vectors.
+ 
+ \bigskip
+ 
+ We have the dimension formula
+ \[
+ \dim(U+W) = \dim U + \dim W-\dim (U\cap W).
+ \]
+ Since $U+W\subseteq \C^6$ we have $\dim (U+W)\leq 6$. Thus,
+ \[
+ \dim(U\cap W) = \dim U + \dim W-\dim(U+W) \geq 4+4-6 = 2.
+ \]
+ Therefore, the dimension of $U\cap W$ is at least 2, and the result follows.
+ \end{enumerate}
+\end{document}
+ 

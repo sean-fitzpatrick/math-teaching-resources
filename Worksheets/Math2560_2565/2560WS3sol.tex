@@ -1,0 +1,217 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2560}\chead{Worksheet \# 3}\rhead{Thursday 4\textsuperscript{th} February, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+The problems on this worksheet are for in-class practice during tutorial. You are free to collaborate and to ask for help. They don't count for course credit, but it's a good idea to make sure you know how to do everything before you leave tutorial -- similar problems may show up on a test or assignment.
+
+\bigskip
+
+This week I've tried to make my best guess at what your test on Friday might look like.
+
+\begin{enumerate}
+ \item Evaluate the following ``immediate integrals'':
+
+\begin{enumerate}
+ \item $\di \int (2x+3)^4\,dx = \frac{1}{10}(2x+3)^5+C$
+
+\bigskip
+
+ \item $\di \int \frac{x^2+2x}{x^3+3x^2+5}\,dx = \frac{1}{3}\ln(x^3+3x^2+5)+C$
+
+\bigskip
+
+ \item $\di \int \tan^5(x)\sec^2(x)\,dx = \frac{1}{6}\tan^6(x)+C$
+
+\bigskip
+
+ \item $\di \int \frac{\ln(\sqrt{x+1})}{\sqrt{x+1}}\,dx = 2\sqrt{x+1}\ln\sqrt{x+1}-2\sqrt{x+1}+C$\\
+(Okay, this one is only ``immediate'' if you remembered that $\int \ln u\,du = u\ln u-u+C$, which is obtained using integration by parts.)
+
+\bigskip
+
+ \item $\di \int \frac{1}{\sqrt{4-x^2}}\,dx = \sin^{-1}(x/2)+C$
+
+\bigskip
+
+ \item $\di \int \frac{x^3-4x^2}{\sqrt{x}}\,dx = \int(x^{5/2}-4x^{3/2})\,dx = \frac{2}{7}x^{7/2}-\frac{8}{5}x^{5/2}+C$
+
+\bigskip
+
+ \item $\di \int \frac{e^x+1}{e^x}\,dx = =\int (1-e^{-x})\,dx = x+e^{-x}+C$
+
+\bigskip
+
+ \item $\di \int \frac{\ln(x^3)}{x}\,dx = 3\int \frac{\ln(x)}{x}\,dx = 3(\ln(x))^2+C$ 
+
+\bigskip
+
+ \item $\di \int x(1-x^2)^5\,dx = -\frac{1}{12}(1-x^2)^6+C$
+
+\bigskip
+
+ \item $\di \int 3x^2\cos(x^3)e^{\sin(x^3)}\,dx = e^{\sin(x^3)}+C$
+\end{enumerate}
+
+\newpage
+
+\item Evaluate the following integrals:
+\begin{enumerate}
+ \item $\di \int x\sec^2(x)\,dx = \int x d(\tan x) = x\tan x-\int \tan x\,dx = x\tan x+\ln\abs{\cos(x)}+C$
+
+
+ \item $\di \int e^{\sqrt{x}}\,dx$
+
+\medskip
+
+First let $x=u^2$, so $dx=2u\,du$, giving us
+\begin{align*}
+ \int e^{\sqrt{x}}\,dx &= \int 2ue^u\,du = 2\int u d(e^u) = 2ue^2-2\int e^u\,du = 2ue^u-2e^u+C\\
+& = 2\sqrt{x}e^{\sqrt{x}}-2e^{\sqrt{x}}+C.
+\end{align*}
+
+
+
+ \item $\di \int \cos(x)\cos(2x)\,dx = \int \cos(x)(1-2\sin^2x)\,dx = \sin(x)-\frac{2}{3}\sin^3(x)+C.$
+
+
+ \item $\di \int \tan^5(x)\sec^4(x)\,dx = \int \tan^5(x)(1+\tan^2(x))\sec^2(x)\,dx = \frac{1}{6}\tan^6(x)+\frac{1}{8}\tan^8(x)+C$
+
+
+
+ \item $\di \int \frac{8}{\sqrt{x^2+2}}\,dx$
+
+\medskip
+
+Letting $x=\sqrt{2}\tan\theta$, we have $\sqrt{x^2+2} = \sqrt{2\sec^2\theta} = \sqrt{2}\sec\theta$ and $dx = \sqrt{2}\sec^2\theta\,d\theta$, so
+\[
+ \int\frac{8}{\sqrt{x^2+2}}\,dx = \int \frac{8\sqrt{2}\sec^2\theta}{\sqrt{2}\sec\theta}\,d\theta = 8\ln\abs{\sec\theta+\tan\theta}+C = 8\ln\abs{x+\sqrt{x^2+2}}+C.
+\]
+
+
+
+ \item $\di \int \frac{\sqrt{5-x^2}}{x^2}\,dx$
+
+\medskip
+
+Letting $x=\sqrt{5}\sin\theta$, so $\sqrt{5-x^2} = \sqrt{5}\cos\theta$ and $dx = \sqrt{5}\cos\theta\,d\theta$, we have
+\begin{align*}
+ \int\frac{\sqrt{5-x^2}}{x^2}\,dx &= \int \frac{5\cos^2\theta}{5\sin^2\theta}\,d\theta = \int\cot^2\theta\,d\theta = \int (\csc^2\theta-1)\,d\theta\\
+ & = -\cot\theta-\theta+C = -\frac{\sqrt{5-x^2}}{x}-\sin^{-1}\left(\frac{x}{\sqrt{5}}\right)+c
+\end{align*}
+
+
+ \item $\di \int \frac{16x^2-2x}{(x+3)(2x-1)(x-1)}\,dx$
+
+We look for a partial fraction decomposition 
+\[
+\dfrac{16x^2-2x}{(x+3)(2x-1)(x-1)} = \dfrac{A}{x+3}+\dfrac{B}{2x-1}+\dfrac{C}{x-1}. 
+\]
+
+
+Multiplying both sides of this decomposition by $x+3$ gives us 
+\[
+ \dfrac{16x^2-2x}{(2x-1)(x-1)} = A +\dfrac{B(x+3)}{2x-1}+\dfrac{C(x+3)}{x-1}.
+\]
+ Plugging in $x=-3$ then gives
+$A=\dfrac{75}{14}$.
+
+Multiplying both sides of the decomposition by $2x-1$ gives 
+\[
+ \dfrac{16x^2-2x}{(x+3)(x-1)} = \dfrac{A(2x-1)}{x+3}+B+\dfrac{C(2x-1)}{x-1},
+\]
+ and plugging in $x=1/2$ gives $B = \dfrac{12}{7}$.
+
+Multiplying both sides of the decomposition by $x-1$ gives 
+\[
+ \dfrac{16x^2-2x}{(x+3)(2x-1)} = \dfrac{A(x-1)}{x+3}+\dfrac{B(x-1)}{2x-1}+C,
+\]
+ and plugging in $x=1$ gives $C=\dfrac{7}{2}$.
+
+Putting everything together, we get
+\begin{align*}
+ \int \frac{16x^2-2x}{(x+3)(2x-1)(x-1)}\,dx &= \frac{75}{14}\int\frac{1}{x+3}\,dx +\frac{12}{7}\int\frac{1}{2x-1}\,dx + \frac{7}{2}\int\frac{1}{x-1}\,dx\\
+& = \frac{75}{14}\ln\abs{x+3}+\frac{6}{7}\ln\abs{2x-1}+\frac{7}{2}\ln\abs{x-1}+C.
+\end{align*}
+
+
+ \item $\di \int \frac{2x+1}{x^3+x}\,dx$
+
+This time we look for a decomposition $\dfrac{2x+1}{x(x^2+1)} = \dfrac{A}{x}+\dfrac{Bx+C}{x^2+1}$. Getting a common denominator on the right-hand side, we have
+\[
+ \frac{2x+1}{x^3+x} = \frac{Ax^2+A+Bx^2+Cx}{x^3+x}.
+\]
+Comparing numerators, we have $0x^2+2x+1 = (A+B)x^2+Cx+A$. Constant terms must be equal, so $A=1$, Coefficients of $x$ must be equal, so $C=2$. Coefficients of $x^2$ must be equal, so $A+B=0$, giving $B=-A=-1$. Thus,
+\[
+ \int\frac{2x+1}{x^3+x}\,dx = \int \frac{1}{x}\,dx -\int\frac{x}{x^2+1}\,dx + 2\int \frac{1}{x^2+1}\,dx = \ln\abs{x}-\frac{1}{2}\ln(x^2+1)+2\tan^{-1}(x)+C.
+\]
+
+
+\end{enumerate}
+
+
+These won't be on your test, but I thought I should give you a couple of practice problems involving improper integrals.
+
+\bigskip
+
+
+\item Evaluate the following improper integrals, or explain why they do not exist:
+\begin{enumerate}
+ \item $\di \int_0^4\frac{1}{\sqrt{x}}\,dx$
+
+\bigskip
+
+Since the integrand isn't defined at $x=0$, we have the improper integral
+\[
+ \int_0^4 x^{-1/2}\,dx= \lim_{a\to 0}\int_a^4x^{-1/2}\,dx = \lim_{a\to 0}(2(\sqrt{4}-\sqrt{a})) = 4.
+\]
+
+
+ \item $\di \int_1^\infty \frac{\ln(x)}{x^2}\,dx$
+
+\bigskip
+
+See Example 46 on Page 53 of the textbook.
+\end{enumerate}
+
+\end{enumerate}
+
+
+\end{document}

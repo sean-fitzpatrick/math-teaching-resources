@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000}\chead{Quiz \# 6}\rhead{Thursday, 23\textsuperscript{rd} October, 2014}
+\rfoot{Total: 10 points}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\modd}[3]{#1\equiv #2 \pmod{#3}}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+\noindent{{\bf Name and student number: Soltions}}
+
+ \begin{enumerate}
+ \item \begin{enumerate}
+ \item Prove that for each $a\in\Z$, $a\not\equiv 0\pmod{3}$ if and only if $\modd{a^2}{1}{3}$.\points{4}
+
+\bigskip
+
+\noindent{\bf Solution}: (Version 1: Using theorems from class) First, suppose that $\modd{a}{0}{3}$. Then $\modd{a^2}{0}{3}$ since $0^2=0$, so in particular, $a^2\not\equiv 1\pmod{3}$.
+
+Now, suppose that $a\not\equiv 0\pmod{3}$. Then either $\modd{a}{1}{3}$ or $\modd{a}{2}{3}$. In the first case, we have $\modd{a^2}{1}{3}$ since $1^2=1$. Similarly, if $\modd{a}{2}{3}$, then $a^2\equiv 4\equiv 1 \pmod{3}$. In either case, we see that $\modd{a^2}{1}{3}$.
+
+\bigskip
+
+(Version 2: Using the definition of congruence) First, suppose that $\modd{a}{0}{3}$. Then $a=3k$ for some $k\in\Z$, so $a^2 = 9k^2 = 3(3k^2)$, which shows that $\modd{a^2}{0}{3}$ and thus $a^2\not\equiv 0\pmod{3}$.
+
+Now, suppose that $a\not\equiv 0\pmod{3}$. Then either $\modd{a}{1}{3}$ or $\modd{a}{2}{3}$. If $\modd{a}{1}{3}$, then $a=3k+1$ for some $k\in \Z$, so $a^2 = 9k^2+6k+1 = 3(3k^2+2k)+1$, which shows that $\modd{a^2}{1}{3}$. If $\modd{a}{2}{3}$, then $a=3k+2$ for some $k\in\Z$, so $a^2=9k^2+12k+4 = 3(3k^2+4k+1)+1$, so that $\modd{a^2}{1}{3}$.  In either case, we see that $\modd{a^2}{1}{3}$.
+
+\bigskip
+
+ \item Prove that for each $n\in\N$, $\sqrt{3n+2}$ is not a natural number. \points{2}
+
+\bigskip
+
+\noindent{\bf Solution}: Let $n\in\N$ be arbitrary, and suppose to the contrary that $k=\sqrt{3n+2}$ is an integer. If this is the case, then $k^2=3n+2$, so $\modd{k^2}{2}{n}$. But we saw in part (a) that this is impossible: for any integer $k$, either $\modd{k^2}{0}{3}$ or $\modd{k^2}{1}{3}$. Thus, $k$ cannot be an integer.
+\end{enumerate}
+
+
+\item Let $A$ and $B$ be sets. Prove that if $S\subseteq A$, then $S\times B\subseteq A\times B$.\points{4}
+
+\bigskip
+
+\noindent {\bf Solution}: Suppose $S\subseteq A$, and suppose that $(a,b)$ is an arbitrary element of $S\times B$. Then $a\in S$ and $b\in B$. Since $S\subseteq A$, it follows that $a\in A$. Since $a\in A$ and $b\in B$, we know that $(a,b)\in A\times B$. Since $(a,b)$ was arbitrary, it follows that $S\times B\subseteq A\times B$ by the definition of subset.
+ \end{enumerate}
+\end{document}

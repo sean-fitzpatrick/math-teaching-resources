@@ -1,0 +1,107 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.25in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 1560 - Tutorial \#11}\\
+Monday, March 26
+\end{center}
+\skipline \ \noindent \skipline
+
+\skipline
+Name:\underline{\hspace{348pt}}\\
+\skipline
+
+\vspace{4cm}
+
+\textbf{Note:} You may do this assignment as a group, if you wish, by listing additional names under the space above, up to a maximum of 3 students per group.
+
+\newpage
+%\thispagestyle{empty}
+
+
+\begin{enumerate}
+\item Evaluate the definite integral:
+\begin{enumerate}
+\item $\di \int_0^{\pi/2}\cos(x)\,dx$
+
+\vspace{1in}
+
+\item $\di \int_0^2(x^3-2x+3)\,dx$
+
+\vspace{2in}
+
+\item $\di \int_0^3 x\sqrt{1+x}\,dx$
+
+\vspace{2in}
+
+\item $\di \int_0^1 x^2\sin(x^3)\,dx$
+\end{enumerate}
+
+\newpage
+
+\item Evaluate the integral $\di \int_0^2 \abs{2x-2}\,dx$.
+ 
+\noindent Suggestion: either use properties of integrals to simplify, or sketch the graph and evaluate by interpreting the result as an area.
+
+\vspace{7cm}
+
+ \item Find the area between the curves $y= 2-x^2$ and $y=x^2$.
+
+\newpage
+
+\item Calculate the indicated Taylor polynomial:
+\begin{enumerate}
+\item Degree 5, for $f(x)=\cos(x)$, about $x=\pi/3$.
+
+\vspace{2.5in}
+
+\item Degree 2, for $f(x)=\sec(x)$, about $x=0$.
+\end{enumerate}
+
+\vspace{2.25in}
+
+\item Use the degree 3 Maclaruin polynomial for $f(x)=\sin(x)$ to approximate the value of $\sin(1)$.
+\end{enumerate}
+
+\end{document}

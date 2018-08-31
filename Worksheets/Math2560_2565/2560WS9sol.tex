@@ -1,0 +1,236 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2560}\chead{Worksheet \# 9}\rhead{Thursday 24\textsuperscript{th} March, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+%The problems on this worksheet are for in-class practice during tutorial. You are free to collaborate and to ask for help. They don't count for course credit, but it's a good idea to make sure you know how to do everything before you leave tutorial -- similar problems may show up on a test or assignment.
+
+\begin{enumerate}
+ \item Solve the following separable differential equations:
+\begin{enumerate}
+ \item $xy' = y+2x^2y$, where $y(1)=1$.
+ 
+ \bigskip
+ 
+ We have $xy' = y(1+2x^2)$, and rearranging gives $\dfrac{dy}{y}=\left(\dfrac{1}{x}+2x\right)\,dx$. Integrating this, we have $\ln y = \ln x+x^2+C$. Applying the initial condition $y(1)=1$, we have $0=0+1+C$, so $C=-1$. Solving for $y$, our final solution is
+ \[
+ y = xe^{x^2-1}.
+ \]
+Note: this can also be solved as a linear equation: $\dfrac{dy}{dx} - \left(\dfrac{1}{x}+2x\right)y=0$, and of course the result is the same.
+ 
+ \item $\dfrac{dy}{dx} = \dfrac{x^2+1}{y^2+1}$, where $y(0)=1$. (Give an implicit solution.)
+ 
+ \bigskip
+ 
+ Rearranging this equation gives us $(y^2+1)\,dy = (x^2+1)\,dx$, and integrating both sides, we have
+ \[
+ \frac{1}{3}y^3+y = \frac{1}{3}x^3+x+C.
+ \]
+ The initial condition $y(0)=1$ gives is $\frac{1}{3}+1 = C$, so $C=\frac{4}{3}$. The solution is thus given implicitly by $y^3+3y=x^3+3x+4$.
+ 
+
+ 
+ 
+ \item $(4y+yx^2)\,dy - (2x+xy^2)\,dx = 0$
+
+ \bigskip
+ 
+ We have $y(4+x^2)\,dy=x(2+y^2)\,dy$, so $\dfrac{y}{2+y^2}\,dy = \dfrac{x}{4+x^2}\,dx$. This gives us $\ln (2+y^2) = \ln(4+x^2)+C = \ln(k(4+x^2))$, where $k=e^C$. Thus, our solution is 
+ \[
+ y^2=k(4+x^2)-2.
+ \]
+ The value of $k$ (and choice of positive or negative square root) will depend on the initial condition, which was not given.
+ 
+\end{enumerate}
+ \item Solve the following linear differential equations. State an interval on which the general solution is defined.
+\begin{enumerate}
+ \item $\dfrac{dy}{dx}+y=e^{3x}$
+ 
+ \bigskip
+ 
+ Here the coefficient of $y$ is $f(x)=1$, so the integrating factor is simply $I=e^x$. This gives us
+ \[
+ e^xy'+e^xy = \frac{d}{dx}(e^xy) = e^xe^{3x} = e^{4x},
+ \]
+ so $e^xy = \frac{1}{4}e^{4x}+C$, and thus $y = \frac{1}{4}e^{3x}+Ce^{-x}$. This solution is valid for all real numbers $x$.
+ 
+ \item $(1+x^2)\,dy+(xy+x^3+x)\,dx = 0$
+ 
+ \bigskip
+ 
+ We first rearrange the equation to put it into standard form. Dividing by $(1+x)^2\,dx$, we get
+ \[
+ \frac{dy}{dx} + \left(\frac{x}{1+x^2}\right)y = -\frac{x^3+x}{x^2+1} = -x,
+ \]
+ so the equation is linear, and the coefficient of $y$ is $f(x) = \dfrac{x}{x^2+1}$. The integrating factor is therefore
+ \[
+ I = \exp\left(\int \frac{x}{x^2+1}\,dx \right) = \exp \left(\frac{1}{2}\ln(x^2+1)\right) = \exp(\ln(x^2+1)^{1/2}) = \sqrt{1+x^2}.
+ \]
+ Multiplying the equation by $\sqrt{1+x^2}$, we get
+ \[
+ \dfrac{d}{dx}(\sqrt{1+x^2}y) = \sqrt{1+x^2}\frac{dy}{dx}+\frac{x}{\sqrt{1+x^2}}y = -x\sqrt{1+x^2}.
+ \]
+ Integrating both sides gives
+ \[
+ \sqrt{1+x^2}y = -\int x\sqrt{1+x^2}\,dx = -\frac{1}{3}(1+x^2)^{3/2}+C,
+ \]
+ so $y = -\dfrac{1}{3}(1+x^2)+C(1+x^2)^{-1/2}$. This solution is valid for all real $x$, since $1+x^2\neq 0$ for all $x$.
+ 
+ \textbf{Note:} It's a useful exercise for this (or any differential equation) to verify that this is indeed a solution. I'll leave it for you to check this.
+ 
+ \item $(1-x^3)\dfrac{dy}{dx}=3x^2y$
+ 
+ \bigskip
+ 
+ Note that this equation is also separable, so you should try solving it as a separable equation to verify that the result is the same. We'll treat it as a linear equation, however. Dividing by $1-x^3$, we have
+ \[
+ \frac{dy}{dx}-\frac{3x^2}{1-x^3}=0.
+ \]
+ The coefficient of $y$ is $f(x) = -\dfrac{3x^2}{1-x^3}$, and since this is undefined when $x=1$, our solution will need to be restricted to either the interval $(1,\infty)$ or $(-\infty, 1)$. (The choice depends on the initial condition, which is not provided.)
+ 
+ Since $\int f(x)\,dx = \ln(x^3-1)$, our integrating factor is $I(x) = x^3-1$. Multiplying by $I(x)$ gives us 
+ \[
+ (x^3-1)\frac{dy}{dx} +3x^2y = \frac{d}{dx}((x^3-1)y) = 0,
+ \]
+ so $(x^3-1)y=C$, and thus $y = \dfrac{C}{x^3-1}$.
+ 
+ \item $(x^2+x)\,dy+(xy+x^3+x)\,dx = 0$
+ 
+ \bigskip
+ 
+ Dividing by $(x^2+x)\,dx$ and rearranging, we get the equation
+ \[
+ \frac{dy}{dx} + \frac{1}{x+1}y = -x,
+ \]
+ so the equation is linear, with $f(x) = \dfrac{1}{x+1}$ as the coefficient of $y$. The integrating factor is therefore $I(x) = \exp\left(\int\dfrac{dx}{x+1}\right) = \exp(\ln(x+1)) = x+1$.
+ 
+ (Note: we divided by $x^2+x = x(x+1)$, which is undefined when $x=0$ and $x=-1$, so our solution will have to be for one of the intervals $(-\infty, -1)$, $(-1,0)$, or $(0,\infty)$. On the first interval, since $x+1<0$, $\ln (x+1)$ is not defined, and our integrating factor would have to be $-(x+1)$ instead. However, this change amounts to multiplying the entire differential equation by $-1$, which doesn't make any difference.)
+ 
+ Multiplying the equation by $x+1$, we have
+ \[
+ (x+1)\frac{dy}{dx}+y = \frac{d}{dx}((x+1)y) = -x(x+1) = -x^2-x,
+ \]
+ so $(x+1)y = -\dfrac{1}{3}x^3-\dfrac{1}{2}x^2+C$, giving us $y = -\dfrac{2x^3+3x^2}{6x+6}+\dfrac{C}{x+1}.$
+ 
+ \item $\cos x\dfrac{dy}{dx}+y\sin x =1$
+ 
+ \bigskip
+ 
+ Dividing by $\cos x$, we obtain $\dfrac{dy}{dx} + \tan x y = \sec x$, so the coefficient of $y$ is $f(x)=\tan x$. The integrating factor is therefore
+ \[
+ I(x) = \exp\left(\int \tan x\,dx\right) = \exp(\ln |\sec x|) = |\sec x|
+ \]
+ Again, we note that the absolute value is unnecessary, and take $I(x)=\sec x$ as our integrating factor. We must restrict our solution to an interval where $\tan x$ (and $\sec x$) is defined; the interval $(-\pi/2,\pi/2)$ is the natural choice.
+ 
+ Multiplying the equation by $\sec x$, we get
+ \[
+ \sec x \frac{dy}{dx} + (\sec x\tan x) y = \frac{d}{dx}(y\sec x ) = \sec^2 x.
+ \]
+ Thus, we find $y\sec x = \tan x+C$, and multiplying both sides by $\cos x$, we get $y = \sin x + C\cos x$.
+\end{enumerate}
+\item Determine whether the sequence converges or diverges. If it converges, give the limit.
+\begin{enumerate}
+ \item $a_n = (-1)^n\dfrac{n}{n^2+1}$
+ 
+ \bigskip
+ 
+ We have $a_n = (-1)^n\dfrac{1/n}{1+1/n^2}$, and since $1/n^k\to 0$ as $n\to \infty$ for any $k>0$ the sequence $\{a_n\}$ converges to zero.
+ 
+ \item $a_n = (-1)^n\dfrac{2n+1}{3n+4}$
+
+\bigskip
+
+ In this case $a_n = (-1)^n\dfrac{2+1/n}{3+4/n}$, so for $n$ very large, $a_{2n}\approx \dfrac{2}{3}$, and $a_{2n+1} \approx -\dfrac{2}{3}$. Since limits of sequences have to be unique, and there is no way for this sequence to approach a single limiting value, the sequence diverges.
+ 
+ 
+ \item $a_n = \dfrac{n-1}{n}-\dfrac{n}{n-1}$
+ 
+ \bigskip
+ 
+ If we get a common denominator and simplify, we have 
+ \[
+ a_n = \frac{1-2n}{n^2-n} = \frac{1/n^2-2/n}{1-1/n},
+ \]
+ so the sequence converges, with $\di \lim_{n\to \infty}a_n = \frac{0-0}{1-0} = 0$.
+ 
+ \item $a_n = \dfrac{4n}{\sqrt{9n^2+4}}$
+ 
+ \bigskip
+ 
+ Since $a_n = \dfrac{4n}{n\sqrt{9+4/n^2}} = \dfrac{4}{\sqrt{9+4/n^2}}$ and $4/n^2\to 0$ as $n\to \infty$, the sequence converges, with $\lim a_n = \dfrac{4}{3}$.
+ 
+ \item $a_n = 1-\dfrac{1}{n}$
+
+ \bigskip
+ 
+ Since $\dfrac{1}{n}\to 0$ as $n\to \infty$, the sequence converges, and $\lim a_n = 1$.
+ 
+ \item The sequence $\{a_n\}$ defined by $a_1=1$ and $a_{n+1} = 3-\dfrac{1}{a_n}$ for all $n\geq 1$. (You may assume that the sequence converges. If you want to actually \textit{show} that it converges, feel free to ask me how.
+
+ \bigskip
+ 
+ The reason the sequence converges is that the sequence is both increasing and bounded above, so the \textit{Monotone Convergence Theorem} applies. Showing that the sequence is increasing and bounded above requires the method of \textit{Proof by Mathematical Induction}, which is usually covered in Math 2000. Since this course is not a prerequisite, we can't expect you to be able to rigorously establish these facts.
+ 
+ Assuming that the limit exists, let $a=\lim a_n$, and note that $\lim a_{n+1} = \lim a_n$. Thus, we have
+ \[
+ a = \lim a_{n+1} = \lim \left(3-\frac{1}{a_n}\right) = 3-\frac{1}{\lim a_n} = 3-\frac{1}{a},
+ \]
+ using the limit laws for sequences. The above expression for $a$ can be rearranged to give us $\dfrac{a^2-3a+1}{a}=0$. We know that $a\neq 0$, since the sequence is increasing and $a_1=1$, so $a_n>1$ for all $n$. Using the quadratic formula for the numerator gives us $a = \dfrac{3\pm \sqrt{5}}{2}$. We know that $2<\sqrt{5}<3$, so $0<\dfrac{3-\sqrt{5}}{2}<\dfrac{1}{2}$, and we again reject this possibility since we know $a>1$. Thus, it must be the case that $a = \dfrac{3+\sqrt{5}}{2}$.
+
+ \item The sequence $\{a_n\}$ defined by $a_1 = \sqrt{2}$ and $a_{n+1} = \sqrt{2+a_n}$ for all $n\geq 1$. (Again, you may assume that the sequence converges.)
+ 
+ \bigskip
+ 
+ As with the previous problem, we assume that $a=\lim a_n$ exists. Taking the limit of both sides of the recursion formula $a_{n+1} = \sqrt{2+a_n}$, we have
+ \[
+ a = \lim a_{n+1} = \lim \sqrt{2+a_n} = \sqrt{2+\lim a_n} = \sqrt{2+a}.
+ \]
+ Squaring both sides of $a=\sqrt{2+a}$, we have $a^2 = 2+a$, or $a^2-a-2=0$, giving us $a=2$ or $a=-1$. Since $a_n>0$ for all $n$ (the sequence is defined using the \textit{positive} square root), we must have $a=2$.
+\end{enumerate}
+
+
+
+\end{enumerate}
+
+
+
+
+
+\end{document}

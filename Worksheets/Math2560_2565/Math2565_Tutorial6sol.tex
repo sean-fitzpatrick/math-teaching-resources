@@ -1,0 +1,168 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.2in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+{\bf MATH 2565 - Tutorial \#6 Solutions}
+\end{center}
+
+\textbf{Assigned problems:}
+
+ \begin{enumerate}
+
+
+
+ 
+ \item Find the area of the surface obtained by revolving $y=x^2$, for $x\in [0,1]$, about the $y$-axis.
+ 
+\medskip
+
+We're revolving a function of $x$ about the $y$-axis, so we use the formula $S=2\pi\int_a^b x\sqrt{1+f'(x)^2}\,dx$. With $f(x)=x^2$ we have $f'(x)=2x$, so
+\[
+ S = 2\pi\int_0^1 x\sqrt{1+4x^2}\,dx = \frac{\pi}{4}\int_1^5 \sqrt{u}\,du = \frac{\pi}{6}(5^{3/2}-1),
+\]
+using the substitution $u=1+4x^2$, so $du=8x\,dx$, and when $x=0$, $u=1$, and when $x=4$, $u=5$.
+
+\bigskip
+
+Alternatively, one could write $x=\sqrt{y}$, so $\dfrac{dx}{dy}=\frac{1}{2\sqrt{y}}$, and
+\[
+S = 2\pi\int_0^1\sqrt{y}\sqrt{\frac{1}{4y}+1}\,dy = 2\pi \int_0^1\sqrt{y+\frac{1}{4}}\,dy = \frac{4\pi}{3}\left(\left(\frac{5}{4}\right)^{3/2}-\left(\frac{1}{4}\right)^{3/2}\right).
+\]
+With a little bit of work, you can confirm that this result is equal to the one above.
+
+\bigskip
+
+ 
+ \item Find the area of the surface obtained by revolving $x=1+2y^2$, $1\leq y\leq 2$, about the $x$-axis.
+
+\medskip
+
+
+Since we have $x$ given as a function of $y$ and we're revolving about the $x$-axis, we use the formula $S=\int_c^d y\sqrt{1+g'(y)^2}\,dy$. Here, $g(y) = 1+2y^2$, so $g'(y) = 4y$. Thus,
+\[
+ S = 2\pi\int_1^2 y\sqrt{1+16y^2}\,dy = \frac{\pi}{16}\int_{17}^{65}\sqrt{u}\,dy = \frac{\pi}{24}(65^{3/2}-17^{3/2}).
+\]
+
+ \bigskip
+ 
+ If for some reason you'd rather integrate with respect to $x$, we have $y=\sqrt{\dfrac{x-1}{2}}$ and $\dfrac{dy}{dx}=\dfrac{1}{2}\sqrt{\dfrac{2}{x-1}}$, so
+ \[
+ S = 2\pi\int_3^9\sqrt{\frac{x-1}{2}}\sqrt{1+\frac{1}{2(x-1)}}\,dx = \int_3^9 \frac{1}{\sqrt{2}}\sqrt{x-\frac{1}{4}}\,dx ,
+ \]
+ and presumably working this out gives the same answer as above.
+ 
+\end{enumerate}
+
+
+\textbf{Additional practice} (don't include your solutions here):
+\begin{enumerate}
+  \item Find the area of the surface obtained by revolving $y=\sqrt{x}$, for $x\in [0,1]$, about the $x$-axis.
+
+\medskip
+
+Since we're revolving about the $x$-axis and $y$ is given as a function of $x$, we use the formula $S = 2\pi \int_a^b f(x)\sqrt{1+f'(x)^2}\,dx$. With $f(x)=\sqrt{x}$, we have
+\[
+ 1+f'(x)^2 = 1+\left(\frac{1}{2\sqrt{x}}\right)^2 = \frac{4x+1}{4x}.
+\]
+The surface area is thus
+\[
+ S = 2\pi \int_0^1 \sqrt{x}\sqrt{\frac{4x+1}{4x}}\,dx = \pi\int_0^1 \sqrt{4x+1}\,dx = \left.\frac{\pi}{4}\cdot\frac{2}{3}(4x+1)^{3/2}\right|_0^1 = \frac{\pi}{6}(5^{3/2}-1).
+\]
+
+ \item Verify that $x=Ce^{-t}+De^{2t}$ is a solution to $x''-x'-2x=0$.\label{a}
+ 
+ \bigskip
+
+We have
+\begin{align*}
+ x(t) & = Ce^{-t}+De^{2t}\\
+ x'(t) & = -Ce^{-t}+2De^{2t}\\
+ x''(t) & = Ce^{-t}+4De^{2t},
+\end{align*}
+so $x''-x'-2x = e^{-t}(C-(-C)-2C)+e^{2t}(4D-2D-2D) = 0$, as required.
+
+ \item Find the solution from Problem \ref{a} that satisfies $x(0)=3$ and $x'(0)=-2$.
+ 
+ \bigskip
+
+Setting $x(0)=3$ gives us $C+D=3$. Setting $x'(0)=-2$ gives us $-C+2D=-2$. We have two equations in the unknowns $C$ and $D$, which can easily be solved to give us $C=\dfrac{8}{3}$ and $D=\dfrac{1}{3}$.
+
+\item Solve $y'=y^3$ when $y(0)=1$. (Hint: $\dfrac{1}{y'} = \dfrac{dx}{dy}$.)
+ 
+ \bigskip
+
+There are two ways to solve this differential equation. The first follows the hint: 
+
+We first note that $y(x)=0$ is a solution. If we assume that $y\neq 0$, we can write
+\[
+ \frac{1}{y'} = \frac{dx}{dy} = \frac{1}{y^3} = y^{-3}.
+\]
+Here we're assuming that $y=f(x)$, where $f$ has an inverse, so we can write $x=f^{-1}(y)$. (This may not be globally true, but it is true on any open interval that does not contain a critical point of $f$.)
+
+If $\dfrac{dx}{dy} = y^{-3}$, then taking the antiderivative gives us $x = -\dfrac{1}{2y^2}+C$, so $y^2=\dfrac{1}{2C-2x}$. This leaves us with the problem of whether to take the positive or negative square root to solve for $y$, but the initial condition $y(0)=1>0$ tells us that we must take the postitive square root. Applying the initial condition gives us
+\[
+ 1^1 = 1 = \frac{1}{2C},
+\]
+so $C=\frac{1}{2}$, and thus $y=\dfrac{1}{\sqrt{1-2x}}$.
+
+The other approach is to treat the equation as a separable equation. From $\dfrac{dy}{dx}=y^3$ we have $\dfrac{dy}{y^3}=dx$, and integrating both sides gives us $-\dfrac{1}{y^2} = x+C$. The remainder of the solution is as above.
+ 
+ \item Solve $\dfrac{dx}{dt} = x\sin(t)$ for $x(0)=1$.
+
+\bigskip
+
+We have a separable differential equation, which can be written as $\dfrac{dx}{x} = \sin t\,dt$. Integrating both sides gives us $\ln x = -\cos t+C$. We can solve now for $x$ as a function of $t$ but it's convenient to first apply the initial condition: when $t=0$ we have $x=1$, so
+\[
+ \ln (1) = 0 = -\cos(0)+C,
+\]
+which gives us $C=1$. Thus $\ln x = 1-\cos t$, so $x = e^{1-\cos t}$.
+\end{enumerate}
+
+
+%\thispagestyle{empty}
+
+
+
+
+
+
+\end{document}

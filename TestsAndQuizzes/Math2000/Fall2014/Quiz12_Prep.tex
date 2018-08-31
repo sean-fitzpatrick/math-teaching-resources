@@ -1,0 +1,75 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}[2]{#1\,R\,#2}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\modd}[3]{#1\equiv #2 \pmod{#3}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\title{Practice Problems for Quiz 12\\Math 2000A}
+\date{}
+\begin{document}
+ \maketitle
+\vspace{-0.5in}
+
+Quiz \#12 will take place in class on Thursday, December 4th. It's the final quiz, unless you count the final exam (which is like a quiz, but lasts longer).
+As usual, solving the problems on this sheet will significantly improve your chances of getting a high score on the quiz.
+
+{\bf Note to help session tutors}: It's 100\% OK for you to help my students solve these questions.
+\begin{enumerate}
+\item For which $n\in\N$ is it true that $n^2<2^n$? Justify your conclusion.
+\item Define a sequence $a_1,a_2,a_3,\ldots$ of real numbers {\em recursively} by defining $a_1=a$, and for each $n\in\N$,
+\[
+ a_{n+1} = r\cdot a_n,
+\]
+where $r$ is some fixed real number. Thus, $a_1=a, a_2 = r\cdot a, a_3 = r\cdot a_2 = r\cdot (r\cdot a)$, etc. This sequence is known as a {\em geometric} sequence. Use mathematical induction to prove that $a_n = a\cdot r^{n-1}$ for all $n\in \N$.
+\item Define a sequence $a_1, a_2, a_3, \ldots$ by $a_1 = 1, a_2 = 1$, and for each $n\in\N$,
+\[
+ a_{n+2} = \frac{1}{2}\left(a_{n+1}+\frac{2}{a_n}\right).
+\]
+\begin{enumerate}
+ \item Calculate $a_3$ through to $a_5$. If you're feeling adventurous, calculate $a_6$.
+ \item Use the strong form of mathematical induction to prove that $1\leq a_n\leq 2$ for all $n\in\N$.
+\end{enumerate}
+
+\item Let $A = \{a,b,c\}$ and let $R=\{(a,a), (a,c), (b,b), (b,c), (c,a), (c,b)\}$ define a relation on $A$. Determine whether the following statements are true or false. Explain your answer.
+\begin{enumerate}
+ \item For each $x\in A$, $\R{x}{x}$.
+ \item For every $x,y\in A$, if $\R{x}{y}$, then $\R{y}{x}$.
+ \item For every $x,y,z\in A$, if $\R{x}{y}$ and $\R{y}{z}$, then $\R{x}{z}$.
+ \item The relation $R$ defines a function from $A$ to $A$.
+\end{enumerate}
+\item Define a relation on $\mathbb{R}$ by $R = \{(x,y)\in \mathbb{R}\times \mathbb{R} : x<y\}$.
+\begin{enumerate}
+ \item What are the domain and range of $R$?
+ \item Is the relation $R$ a function from $\R$ to $\R$? Explain.
+\end{enumerate}
+\item Let $A=\{a,b\}$, and consider the relations $R_1=\{(a,a),(b,b)\}$ and $R_2=\{(a,a),(a,b)\}$. Show that $R_1$ is an equivalence relation but $R_2$ is not. Is $R_2$ transitive?
+\item Let $f:\mathbb{R}\to\mathbb{R}$ be defined by $f(x)=x^2-4$, and define a relation $\sim$ on $\mathbb{R}$ by $x\sim y$ if and only if $f(x)=f(y)$.
+\begin{enumerate}
+ \item Is $\sim$ an equivalence relation? Justify your answer.
+ \item Determine the set of all real numbers $x$ such that $x\sim 5$.
+\end{enumerate}
+\item Define a relation $\sim$ on $\Q$ by $a\sim b$ if and only if $a-b\in \Z$. The {\em equivalence class} of an element $a\in \Q$ is the set $[a] = \{b\in \Q : b\sim a\}$. 
+\begin{enumerate}
+ \item Prove that $\sim$ is an equivalence relation.
+ \item Prove that $\left[\dfrac{3}{5}\right] = \left\{\dfrac{3}{5}+m : m\in\Z\right\}$.
+ \item If $a\in \Z$, what is $[a]$?
+ \item Prove that for $a\in \Z$, there is a bijection from $[a]$ to $\left[\dfrac{3}{5}\right]$.
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+\end{document}
+ 

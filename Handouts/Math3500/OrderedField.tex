@@ -1,0 +1,114 @@
+ 
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\usepackage[dvips]{hyperref}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{The rational numbers as an ordered field}
+\author{Sean Fitzpatrick}
+\date{September 5th, 2014}
+
+\begin{document}
+ \maketitle
+
+In class we introduced the number systems
+\begin{align*}
+ \N & = \{1,2,3,4,\ldots\}, \text{ the natural numbers}\\
+ \Z & = \{\ldots, -2, -1, 0, 1, 2,\ldots\}, \text{ the integers, and}\\
+ \Q & = \{p/q\,|\, p,q\in\Z \text{ and } q\neq 0\}, \text{ the rational numbers.}
+\end{align*}
+We discussed how each one can be obtained from the previous, and that the motivation for each is to expand the available algebraic operations that can be performed within the set. (Note that by convention $\Z$ is considered the subset of $\Q$ given by elements of the form $p/1$, which we simply write as $p$.) The end result is that $\Q$ satisfies the properties of an {\bf ordered field}.
+
+First, we note that $\N$ is equipped with operations of addition ($n+m$) and multiplication ($n\cdot m$ or simply $nm$) defined as follows:
+\begin{align*}
+ n+m & = n+1+1+\cdots +1 \text{ ($m$ times)}\\
+ n\cdot m & = n + n + \cdots + n \text{ ($m$ times)}.
+\end{align*}
+(Technically on the first line we should include appropriate bracketing --- e.g. $n+1$, then $(n+1)+1$, then $((n+1)+1)+1$, etc. since we haven't discussed associativity yet.)
+
+The operations of addition and multiplication both satisfy the {\em commutative} and {\em associative} properties: for any $a,b,c\in \N$ we have
+\begin{align*}
+ a+b & = b+a\\
+ a\cdot b & = b\cdot a\\
+ a+(b+c) & = (a+b)+c\\
+ a\cdot(b\cdot c) & = (a\cdot b)\cdot c.
+\end{align*}
+The first two equalities are the commutativity of addition and multiplication, respectively, while the last two express associativity. If we include zero in $\N$ then both addition and multiplication have identities as well: for any $n\in\N$ we have
+\[
+ n+0=0+n=n \quad \text{and}\quad n\cdot 1=1\cdot n = n.
+\]
+The natural numbers also satisfy the {\em distributive property}: for any $a,b,c\in \N$ we have that
+\[
+ a\cdot(b+c) = a\cdot b+a\cdot c.
+\]
+It's possible to verify that this follows from the defintions of addition and multiplication above, although you might be used to thinking of this property in terms of comparing areas. (Imagine a rectangular field of width $a$ and length divided into two parts of lengths $b$ and $c$ respectively.
+
+Expanding $\N$ to the set $\Z$ allows us to have {\em additive inverses}: for each $n\in\Z$ there is an element $-n\in\Z$ such that
+\[
+ n+(-n) = -n+n = 0.
+\]
+The term ``inverse'' here refers to the fact that addition of one does the opposite of addition of the other. That is, for any other $m\in \Z$, to recover $m$ from $m+n$ we add $-n$:
+\[
+ (m+n)+(-n) = m+(n+(-n)) = m+0 = m.
+\]
+Similarly, by expanding $\Z$ to the rational numbers $\Q$, we are able to introduce {\em multiplicative inverses} for all elements except for the zero element: for any $n\neq 0$ we have the element $1/n$ such that $n(1/n)=1$. Just as with addition, multiplication by $1/n$ ``undoes'' the operation of multiplying by $n$. Since we don't want the operations of addition and multiplication to take us outside of our set, we want $\Q$ to include products such as $m\cdot (1/n)$, which we write simply as $m/n$. With these conventions, the set $\Q$ satisfies the axioms of a {\bf field}. A set $A$ is a field if it is equipped with two operations $+$ and $\cdot$ such that whenever $a,b\in A$ we have $a+b\in A$ and $a\cdot b\in A$ (we say $A$ is ``closed'' under these operations; the operations are also assumed to be uniquely defined), and the operations satisfy the following axioms:
+\begin{itemize}
+ \item (A1) For all $a,b\in A$, $a+b=b+a$ (commutativity of +)
+ \item (A2) For all $a,b,c\in A$, $a+(b+c)=(a+b)+c$ (associativity of +)
+ \item (A3) There exists an element $0\in A$ such that $a+0=a$ for all $a\in A$ (existence of an additive identity)
+ \item (A4) For each $a\in A$ there exists an element $-a\in A$ such that $a+(-a)=0$ (existence of additive inverses)
+ \item (M1) For all $a,b\in A$, $a\cdot b=b\cdot a$ (commutativity of $\cdot$)
+ \item (M2) For all $a,b,c\in A$, $a\cdot(b\cdot c)=(a\cdot b)\cdot c$ (associativity of $\cdot$)
+ \item (M3) There exists an element $1\in A$ such that $a\cdot 1=a$ for all $a\in A$ (existence of a multiplicative identity)
+ \item (M4) For each $a\neq 0\in A$ there exists an element $1/a\in A$ such that $a\cdot(1/a)=1$ (existence of multiplicative inverses)
+ \item (D) For each $a,b,c\in A$, $a\cdot(b+c) = a\cdot b+a\cdot c$.
+\end{itemize}
+We note that $\Q$ satisfies these axioms (and so, by the way, does $\R$), so $\Q$ is a field. Recall that an {\bf order relation} on a set $A$ is a relation $a\leq b$ such that
+\begin{enumerate}
+ \item $a\leq a$ (the relation is reflexive)
+ \item If $a\leq b$ and $b\leq a$, then $a=b$ (the relation is anti-commutative)
+ \item If $a\leq b$ and $b\leq c$, then $a\leq c$ (the relation is transitive)
+\end{enumerate}
+The relation $a<b$ is distinguished from $a\leq b$ by the ``law of trichotomy'': for all $a,b\in A$, {\bf exactly one} of the relations $a<b$, $b<a$, and $a=b$ must hold. If we take $a\leq b$ to mean $a<b$ or $a=b$, then trichotomy implies the anti-commutative property. The usual number line order defines an ordering of the sets $\N$, $\Z$, and $\Q$. A field $A$ is called an {\bf ordered field} if it is equipped with an order relation $a<b$ that is compatible with the field operations $+$ and $\cdot$, in the sense that it satisfies the following two additional axioms:
+\begin{itemize}
+ \item (O1) If $a<b$, then $a+c<b+c$ for all $c\in A$.
+ \item (O2) If $a<b$ and $c>0$, then $ac>bc$.
+\end{itemize}
+In particular, both $\Q$ and $\R$ are ordered fields. You should note that the properties of an ordered field are simply a formal way of stating that an ordered field behaves in exactly the way you expect things to behave according to ordinary arithmetic. To make sure you've understood the axioms of an ordered field, you might want to attempt the following exercises:
+\begin{enumerate}
+ \item Using only the axioms of an ordered field as given above, show that if $A$ is an ordered field, then for any elements $a,b,c\in A$, we have
+\begin{enumerate}
+ \item If $a+c=b+c$, then $a=b$.
+ \item $a\cdot 0 = 0$.
+ \item $-0 = 0$
+ \item $(-1)\cdot a = -a$
+ \item $ab = 0$ if and only if $a=0$ or $b=0$.
+ \item $a<b$ if and only if $-b<-a$.
+ \item If $a<b$ and $c<0$, then $ac>bc$.
+\end{enumerate}
+ \item Let $A$ be the set of all rational functions. That is, $A$ is the set of all functions of the form $P(x)/Q(x)$, where $P(x)$ and $Q(x)$ are polynomials, and $Q(x)\neq 0$. Given an element
+\[
+ p(x)/q(x) = \frac{a_nx^n+\cdots a_1x+a_0}{b_kx^k+\cdots b_1x+b_0},
+\]
+we define $p/q>0$ if $a_nb_k >0$; that is, if the product of the leading coefficients on the top and bottom is positive. Given rational functions $p/q$ and $f/g$, we define 
+\[
+ \frac{p}{q}>\frac{f}{g} \text{ if and only if } \frac{p}{q}-\frac{f}{g}>0.
+\]
+Check that $A$ is an ordered field with respect to the usual addition and multiplication of functions.
+\end{enumerate}
+
+
+
+\end{document}

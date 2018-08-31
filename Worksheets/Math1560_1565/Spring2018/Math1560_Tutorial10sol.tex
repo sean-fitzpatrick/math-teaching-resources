@@ -1,0 +1,113 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.25in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+{\bf MATH 1560 - Tutorial \#10 Solutions}
+\end{center}
+
+On the worksheet, you were provided with the following:
+
+\textbf{Intermediate Value Theorem (zero version):} Suppose a function $f$ is continuous on $[a,b]$, and either (a) $f(a)<0$ and $f(b)>0$, or (b) $f(a)>0$ and $f(b)<0$. Then there exists some real number $c\in (a,b)$ such that $f(c)=0$.
+
+\bigskip
+
+\textit{Extra fun:} Apply Newton's method to the equation $x^2-a=0$ (where $a>0$) to derive the formula
+\[
+x_{n+1} = \frac12\left(x_n+\frac{a}{x_n}\right).
+\]
+This formula represents the algorithm used by ancient Babylonians to compute $\sqrt{a}$.
+
+
+\bigskip
+
+In Newton's Method, we set $f(x)=x^2-a$, so $f'(x)=2x$. We then get
+\[
+x_{n+1} = x_n-\frac{x_n^2-a}{2x_n} = \frac{2x_n^2-x_n^2+a}{2x_n} = \frac12\left(\frac{x_n^2+a}{x_n}\right) = \frac12\left(x_n+\frac{a}{x_n}\right),
+\]
+as required.
+%\thispagestyle{empty}
+
+
+\begin{enumerate}
+\item Consider the \textit{Intermediate Value Theorem} (IVT), which is stated on the reverse of this page.
+\begin{enumerate}
+\item Use the IVT to show that the equation $3x^4-8x^3+2=0$ has a solution on the interval $[2,3]$.
+
+We let $f(x)=3x^4-8x^3+2$, which is a continuous function, since it's a polynomial. We then find $f(2) = -14<0$ and $f(3)=29>0$. By the IVT as given on the worksheet, there must be some $c\in (2,3)$ such that $f(c)=0$.
+
+\item Use Newton's method to find the solution, correct to six decimal places.
+
+We know our solution must lie between 2 and 3 by part (a), so as our first guess, we go half-way between, and take $x_1=2.5$. We have
+\[
+x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)} = x_n-\frac{3x_n^4-8x_n^3+2}{12x_n^3-24x_n^2} = \frac{9x_n^4-16x_n^3-2}{12x_n^3-24x_n^2}.
+\]
+We now go to the calculator/computer. We get the following values:
+\[
+\begin{array}{c|cccccc}
+n&1&2&3&4&5&6\\
+x_n&2.500000&2.655000&2.630725&2.630021&2.630020&2.630020
+\end{array}
+\]
+We see that, up to 6 decimal places, $x_6=x_5$, so our solution must be approximately $x_5=2.630020$.
+
+\end{enumerate}
+
+
+
+\item Explain why Newton's Method doesn't work for finding a solution to the equation $x^3-3x+6=0$ if the initial approximation is $x_1=1$.
+
+Given $f(x)=x^3-3x$ we have $f'(x)=3x^2-3$, and $f'(1)=0$. We cannot use the Newton's method formula since we would have to divide by zero.
+
+This makes sense since the formula computes the $x$-intercept of the tangent line at $(x_1,f(x_1))$, but in this case that would be the horizontal line $y=4$, which never intersects the $x$-axis.
+
+\item Apply Newton's Method to the equation $1/x - a=0$ to derive the reciprocal algorithm $x_{n+1}=2x_n-ax_n^2$.
+
+(This algorithm is used by computers to compute reciprocals without dividing.)
+
+We set $f(x)=\dfrac1x-a$ and apply the Newton's Method formula:
+\[
+x_{n+1} = x_n-\frac{f(x_n)}{f'(x_n)}=x_n-\frac{1/x_n-a}{-1/x_n^2}=x_n+x_n^2(1/x_n-a)=x_n+x_n-ax_n^2=2x_n-ax_n^2,
+\]
+as required.
+\end{enumerate}
+
+\end{document}

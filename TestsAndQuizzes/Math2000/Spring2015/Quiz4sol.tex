@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000B}\chead{Quiz \# 4}\rhead{Thursday, 5\textsuperscript{th} February, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\renewcommand{\div}[2]{#1\, |\,#2}
+
+\begin{document}
+{\bf Name: Solutions}
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+\bigskip
+Choose {\bf one} of the following two problems:
+\begin{enumerate}
+ \item Prove the following statement: For all nonzero real numbers $x$ and $y$, if $x$ is a rational number and $y$ is an irrational number, then $\dfrac{x}{y}$ is an irrational number.
+     
+
+\begin{proof}
+Suppose to the contrary that $x$ is rational and $y$ is irrational, but $\dfrac{x}{y}$ is rational. Since $x\neq 0$, $\dfrac{y}{x}$ is defined, and is rational, since it's equal to $\dfrac{1}{x/y}$. But if $x$ and $\dfrac{y}{x}$ are both rational, then
+\[
+ y = x\left(\dfrac{y}{x}\right)
+\]
+ is rational, contradicting the assumption that $y$ is irrational. Thus, it must be the case that $\dfrac{x}{y}$ is rational.
+\end{proof}
+
+\item Prove the following statement: For all real numbers $x$, either $x+\sqrt{2}$ is irrational, or $-x+\sqrt{2}$ is irrational.
+
+\begin{proof}
+ Suppose to the contrary that $x+\sqrt{2}$ and $-x+\sqrt{2}$ are both rational. If this is the case, then it's also true that $a = \frac{1}{2}(x+\sqrt{2})$ and $b=\frac{1}{2}(-x+\sqrt{2})$ are rational.
+
+Since the sum of two rational numbers is rational, this implies that
+\[
+ a+b = \frac{x}{2}+\frac{\sqrt{2}}{2}-\frac{x}{2}+\frac{\sqrt{2}}{2} = \sqrt{2}
+\]
+is rational, which contradicts the fact that $\sqrt{2}$ is irrational. Since we arrived at our contradiction by assuming that both $x+\sqrt{2}$ and $-x+\sqrt{2}$ are rational, it must be the case that at least one of them is irrational.
+\end{proof}
+Note: for \#2, if $P(x)$ is the predicate ``$x+\sqrt{2}$ is irrational'' and $Q(x)$ is the predicate ``$-x+\sqrt{2}$ is irrational'', then we are trying to prove $P(x)\vee Q(x)$, and we start our proof by contradiction by assuming the negation, which is $\neg P(x)\wedge \neg Q(x)$, by one of de Morgan's laws.
+
+\end{enumerate}
+
+
+
+\end{document}

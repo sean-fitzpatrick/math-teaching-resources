@@ -1,0 +1,66 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage[utf8x]{inputenc}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\cla}[1]{\left[ #1\right]}
+%opening
+\title{The lifting correspondence}
+\author{Sean Fitzpatrick}
+
+\begin{document}
+
+\maketitle
+
+In class I stated the path/homotopy lifting lemma: Let $p:X\to B$ be a covering map, choose $x_0\in X$ and let $\gamma:[0,1]\to B$ be a path with $\gamma(0)=b_0=\gamma(x_0)$. Then there is a unique lift $\tilde{\gamma}:[0,1]\to X$ with $\gamma(0)=x_0$ such that $p\circ\tilde{\gamma}=\gamma$. Moreover, if $F:[0,1]\times[0,1]\to B$ is a continuous map with $F(0,0)=b_0$, then there is a unique lift $\tilde{F}:[0,1]\times [0,1]\to X$ such that $\tilde{F}(0,0)=x_0$.
+
+Finally, if $F$ is a homotopy between paths $\gamma_0,\gamma_1:[0,1]\to B$ beginning at $b_0\in B$ and $\tilde{\gamma}_0,\tilde{\gamma}_1$ the lifts of $\gamma_0$ and $\gamma_1$, then $\tilde{F}$ is a homotopy between $\tilde{\gamma}_0$ and $\tilde{\gamma}_1$.
+
+Now, with $p:X\to B$ and $b_0=p(x_0)$ as above, we consider the fundamental group $\pi_1(B,b_0)$. For each $[\gamma]\in\pi_1(B,b_0)$ we choose a representative $\gamma$ and let $\tilde{\gamma}$ be the unique lift of $\gamma$ to a path beginning at $x_0$. The {\bf lifting correspondence} is the map
+\[
+ \phi:\pi_1(B,b_0)\to p^{-1}(b_0)
+\]
+given by $\phi([\gamma]) = \tilde{\gamma}(1)$. Since homotopic lifts in $B$ lift to homotopic paths in $X$, the value of $\phi$ does not depend on the choice of representative $\gamma$. The map $\phi$ is probably most easily visualized in the example of the covering map $p:\R\to S^1$ given by $p(x) = e^{2\pi i x}$, with $b_0=1$. We have $p^{-1}(1)=\Z\subseteq \R$, and we picture $\R$ as sitting inside of $\R^3$ as the image of the map $f:\R\to\R^3$ given by $f(t) = (\cos 2\pi t, \sin 2\pi t, t)$. If we take $x_0=0\in \R$ (which would be the point $(1,0,0)$ on the spiral), a loop that wraps $n$ times around the circle counter-clockwise will lift to a path beginning at $(1,0,0)$ and ending at $(1,0,n)$, while a loop that wraps $n$ times around the circle clockwise will lift to a path beginning at $(1,0,0)$ and ending at $(1,0,-n)$. In particular, note that $\tilde{\gamma}$ need not be a loop: we can have $\tilde{\gamma}(1)=x_1$ where $x_1\in p^{-1}(b)$ but $x_1\neq x_0$. (That is, $p(x_1)=p(x_0)=b_0$.)
+
+\begin{theorem}
+ If $X$ is path connected, then then map $\phi:\pi_1(B,b_0)\to p^{-1}(b_0)$ given by the lifting correspondence is surjective. If $X$ is simply connected, then $\phi$ is bijective.
+\end{theorem}
+\begin{proof}
+ If $X$ is path connected and $x_1\in p^{-1}(b_0)$, there exists a path $\tilde{\gamma}$ from $x_0$ to $x_1$, and $\gamma = p\circ\tilde{\gamma}$ is a loop in $B$ based at $b_0$ with $\phi([\gamma])=x_1$.
+
+ If $X$ is simply connected and $\phi([\gamma_0])=\phi([\gamma_1])$, then we have liftings $\tilde{\gamma}_0$ and $\tilde{\gamma}_1$ of $\gamma_0$ and $\gamma_1$ such that $\tilde{\gamma}_0(1)=\tilde{\gamma}_1(1)$. Since $X$ is simply connected, there exists a homotopy $\tilde{F}:I\times I\to X$ with $\tilde{F}(s,0)=\tilde{\gamma}_0(s)$ and $\tilde{F}(s,1)=\tilde{\gamma}_1(s)$ for all $s\in I$, and then $F = p\circ\tilde{F}$ is a homotopy from $\gamma_0$ to $\gamma_1$ in $B$, so $[\gamma_0]=[\gamma_1]$, so $\phi$ is injective.
+\end{proof}
+\newpage
+\begin{theorem}
+ $\pi_1(S^1,1)\cong \Z$.
+\end{theorem}
+\begin{proof}
+ Let $\phi:\pi_1(S^1,1)\to p^{-1}(1)=\Z$ be given by the lifting correspondence, with $p:\R\to \Z$ given by $p(x)=e^{2\pi i x}$ and $x_0=0\in \R$. Since $\R$ is simply connected, $\phi$ is a bijection, so it remains to show that $\pi$ is a group homomorphism. Given $[\alpha],[\beta]\in \pi_1(S^1,1)$, choose representatives $\alpha$ and $\beta$ and let $\tilde{\alpha},\tilde{\beta}$ be their respective liftings to paths in $\R$ beginning at $0$. Suppose we have
+\begin{align*}
+ \tilde{\alpha}(1) &= n = \phi([\alpha])\\
+ \tilde{\beta}(1) &= m = \phi([\beta]).
+\end{align*}
+Let $\tilde{\gamma}$ be the path in $\R$ defined by $\tilde{\gamma}(s) = n+\tilde{\beta}(s)$. Since $\tilde{\beta(0)}=0$, $\tilde{\gamma}$ is a path beginning at $n$ and ending at $n+m$, and $p\circ\tilde{\gamma} = p\circ \tilde{\beta}=\beta$. Thus $\tilde{\alpha}\ast\tilde{\gamma}$ is defined, since $\tilde{\alpha}(1)=n=\tilde{\gamma}(0)$, and it is a lifting of $\alpha\ast\beta$ beginning at 0 and ending at $\tilde{\gamma}(1)=n+m$. Thus,
+\[
+ \phi([\alpha]\ast[\beta]) = n+m = \phi([\alpha])+\phi([\beta]).\qedhere
+\]
+
+\end{proof}
+
+
+\end{document}

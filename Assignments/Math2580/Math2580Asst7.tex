@@ -1,0 +1,86 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbf{F}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\n}{\mathbf{n}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+
+\title{Math 2580 Assignment \#7\\University of Lethbridge, Spring 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Thursday, April 7th, by 3 pm.
+
+\bigskip
+
+Please provide solutions to the problems below, using the following guidelines:
+\begin{itemize}
+\item Your submitted assignment should be a {\bf good copy} -- figure out the problems first, and then write down organized solutions to each problem. 
+\item You should include a {\bf cover page} with the following information: the course number and title, the assignment number, your name, and a list of any resources you used or people you worked with.
+\item Since you have plenty of time to work on the problems, assignment solutions will be held to a higher standard than on a test. Your explanations should be clear enough that any of your classmates can understand your solutions.
+\item Group work is permitted, but copying is not. If you're not sure what the difference is, feel free to ask. If you get help solving a problem, you should (a) make sure you completely understand the solution, and (b) re-write the solution for your good copy by yourself, in your own words.
+\item Assignments can be submitted in class, or in the designated drop box on the 5th floor of University Hall, across from the Math Department office.
+\item Late assignments will not be accepted without prior permission.
+
+\end{itemize}
+\newpage
+
+
+\subsection*{Assigned problems}
+\begin{enumerate}
+\item Verify Green's Theorem holds for the integral $\di \int_C (2x^3-y^3)\,dx+(x^3+y^3)\,dy$, where $C$ is the unit circle.
+\item A vector field $\F(x,y) = P(x,y)\i+Q(x,y)\j$ in $\R^2$ can be viewed as a special case of a vector field in $\R^3$ that does not depend on $z$, with $z$-component equal to zero. With this identification,
+\begin{enumerate}
+ \item Show that $(\nabla\times\F)\dotp \k = \dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}$.
+ \item Use part (a) to show that Green's Theorem can be written in the vector form
+\[
+ \int_{C} \F\dotp d\r = \iint_D (\nabla\times \F)\dotp \k\,dA,
+\]
+where $D\subseteq \R^2$ is a region to which Green's Theorem applies, and $C=\partial D$ is the positively-oriented boundary of $D$.
+ \item Show that Green's Theorem implies the \textit{Divergence Theorem in the Plane}: 
+
+Let $D\subseteq \R^2$ be a region to which Green's Theorem applies, and let $C=\partial D$ be its positively-oriented boundary. Let $\n$ denote the outward-pointing unit normal vector to $C$: if $\r:[a,b]\to \R^2$, $\r(t)=(x(t),y(t))$ defines a positively-oriented parameterization of $C$, then $\n$ is given by
+\[
+ \n = \frac{y'(t)\i-x'(t)\j}{\sqrt{(x'(t))^2+(y'(t))^2}}. \quad \text{(Verify this.)}
+\]
+If $\F=P\i+Q\j$ is a $C^1$ vector field on $D$, then
+\[
+ \int_C \F\dotp \n\,ds = \iint_D (\nabla \dotp \F)\,dA.
+\]
+\end{enumerate}
+\item The \textbf{Laplacian}  is a differential operator $\Delta = \nabla^2$ that acts on functions $f:D\subseteq \R^n\to \R$, defined by
+\[
+ \Delta f = \nabla^2f = \nabla\dotp(\nabla f) = \frac{\partial^2 f}{\partial x_1^2}+\frac{\partial^2 f}{\partial x_2^2}+\cdots + \frac{\partial^2 f}{\partial x_n^2}.
+\]
+A $C^2$ function $f$ is called \textbf{harmonic} if $\Delta f = 0$. Harmonic functions are important in many areas of Engineering and Physics, such as heat transfer, electrodynamics, fluid flow, robotics\footnote{According to the internet.}, etc.
+\begin{enumerate}
+ \item Determine whether or not the functions $f(x,y)=e^x\sin y$, $g(x,y) = x^3+y^3$, $h(x,y) = x^3-3xy^2$ are harmonic.
+ \item Prove that for any harmonic function $f$ defined on a region $D$ for which Green's Theorem holds, we have
+\[
+ \int_{\partial D}\frac{\partial f}{\partial y}\,dx - \frac{\partial f}{\partial x}\,dy = 0.
+\]
+ \end{enumerate}
+
+\end{enumerate}
+
+
+
+\end{document}
+ 

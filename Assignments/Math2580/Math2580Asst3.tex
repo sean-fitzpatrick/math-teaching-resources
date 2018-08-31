@@ -1,0 +1,121 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+
+\title{Math 2580 Assignment \#3\\University of Lethbridge, Spring 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Thursday, February 4th, by 3 pm.
+
+\bigskip
+
+Please provide solutions to the problems below, using the following guidelines:
+\begin{itemize}
+\item Your submitted assignment should be a {\bf good copy} -- figure out the problems first, and then write down organized solutions to each problem. 
+\item You should include a {\bf cover page} with the following information: the course number and title, the assignment number, your name, and a list of any resources you used or people you worked with.
+\item Since you have plenty of time to work on the problems, assignment solutions will be held to a higher standard than on a test. Your explanations should be clear enough that any of your classmates can understand your solutions.
+\item Group work is permitted, but copying is not. If you're not sure what the difference is, feel free to ask. If you get help solving a problem, you should (a) make sure you completely understand the solution, and (b) re-write the solution for your good copy by yourself, in your own words.
+\item Assignments can be submitted in class, or in the designated drop box on the 5th floor of University Hall, across from the Math Department office.
+\item Late assignments will not be accepted without prior permission.
+
+\end{itemize}
+\newpage
+
+
+\subsection*{Assigned problems}
+\begin{enumerate}
+ \item In class, I mentioned the fact that if we want to find the equation of the tangent line to a level curve $f(x,y)=c$ at a point $(a,b)$ on the curve (so $f(a,b)=c$), there are two ways to do it:
+\begin{itemize}
+ \item Using implicit differentiation, as in Calculus I: take the derivative of both sides with respect to $x$, assuming that the equation defines $y$ implicitly as a function of $x$ ($y=g(x)$), let's say.
+ \item Using the gradient: since $\nabla f(a,b)$ is a normal vector for the tangent line, we have 
+\begin{equation}\label{qe}
+ 0=\nabla f(a,b)\dotp \langle x-a, y-b\rangle = f_x(a,b)(x-a)+f_y(a,b)(y-b).
+\end{equation}
+\end{itemize}
+\begin{enumerate}
+ \item Verify that both above methods give the same equation for the tangent line to the curve $x^2y+xy^2=6$ at the point $(2,1)$.
+ \item Confirm that the two methods are equivalent, as follows:
+
+The Implicit Function Theorem for a function $f:\R^2\to\R$ states the following:
+\begin{quotation}
+ Let $f:D\subseteq \R^2\to \R$ be a continuously differentiable function. At any point $(a,b)$ such that $f_y(a,b)\neq 0$, the equation $f(x,y)=c$ defines $y$ implicitly as a function $g$ of $x$ for all $x$ in some interval\footnote{Don't worry too much about the ``in some interval'' part. The argument is as follows: since $f_y(x,y)$ is continuous, if $f_y(a,b)\neq 0$, then $f_y(x,y)\neq 0$ for all $(x,y)$ in some disk centred at $(a,b)$. (The function can't suddenly jump to zero.)} centred at $x=a$, and
+\begin{equation}\label{eq}
+ \frac{dy}{dx} = g'(x) = - \frac{f_x(x,y)}{f_y(x,y)}
+\end{equation}
+for all $x$ in this interval.
+\end{quotation}
+{\bf Assuming} that you can prove that the equation $f(x,y)=c$ defines $y$ as a function of $x$ for $x$ near $a$, if $f_y(a,b)\neq 0$, show that Equation \eqref{eq} is true.
+
+\medskip
+
+{\em Hint:} Using the Chain Rule, take the derivative with respect to $x$ of both sides of the equation $f(x,y)=c$. If you're finding it hard to see how the Chain Rule applies, consider the parametric curve $r(t) = (t,g(t))$, and calculate $\dfrac{d}{dt}(f(g(t)))$ using the Chain Rule. Then note that your choice of parametric curve defines $x=t$ and $y=g(t)$, and since $x=t$, the derivative with respect to $t$ is the same as the derivative with respect to $x$.
+
+\medskip
+
+In case it's not clear that Equation \eqref{eq} confirms that the two methods from part (a) are equivalent, note that using Calc I methods, the tangent line to the graph $y=g(x)$ at $a=x$ is given by $y=g(a) + g'(a)(x-a)$. On the other hand, if we solve Equation \eqref{qe} for $y$, we get $y = b-\dfrac{f_x(a,b)}{f_y(a,b)}(x-a)$. Comparing the two equations, since $g(a)=b$, our methods agree as long as we can show that $g'(a) = -\dfrac{f_x(a,b)}{f_y(a,b)}$, and that's what I'm asking you to show.
+\end{enumerate}
+\newpage
+
+{\bf Note:} Take a minute to think about what happens if $f_y(a,b)=0$. Looking at your examples, it should be clear that at such a point $(a,b)$, the curve $f(x,y)=c$ will have a vertical tangent. (In general, if $f_y(a,b)=0$, then $\nabla f(a,b)$ is parallel to the $x$-axis, and if the normal vector is horizontal, the tangent line must be veritcal.) Is it clear why it's impossible to write $y$ as a function of $x$ near such points? So if $f_y(a,b)=0$, we can't define $y$ as a function of $x$ near $(a,b)$, but as long as $f_x(a,b)=\neq 0$, we could instead define $x$ as a function of $y$, and we could similarly show that $\dfrac{dx}{dy} = -\dfrac{f_y(a,b)}{f_x(a,b)}$.
+
+But what if {\bf both} $f_x(a,b)=0$ and $f_y(a,b)=0$? Well, in this case, $\nabla f(a,b)$ is the zero vector -- not much use as a normal vector! Any such point where the gradient vector is zero is called a {\bf critical point}, and the value $c=f(a,b)$ is called a {\bf critical value}. Any value that is not a critical value is called a {\bf regular value}. What all of the above tells us is that if $r$ is a regular value, the level curve $f(x,y)=r$ will have a well-defined tangent line at every point: the curve is {\em smooth}. (If there was some point $(a,b)$ on the curve where $\nabla f(a,b)=\vec{0}$, then $r$ would be a critical value, not a regular value.)
+
+So the ``nice'' level curves are the curves $f(x,y)=r$, where $r$ is a regular value. The curves $f(x,y)=c$, where $c$ is a critical value may not be so nice, or they might not even be a curve at all! Consider for example the functions $f(x,y)=x^2+y^2$ and $g(x,y)=x^2-y^2$. Both functions have exactly one critical point; namely $(0,0)$. (I'll leave this as an easy exercise.) The corresponding critical value for both functions is 0. We have the sets\footnote{That's right, I'm using preimage notation. I make no apologies for this.}
+\[
+ f^{-1}(0) = \{(x,y) | f(x,y)=0\} = \{ (x,y) | x^2+y^2 = 0\} = \{(0,0)\}
+\]
+and 
+\[
+ g^{-1}(0) = \{(x,y) | g(x,y)=0\} = \{ (x,y) | x^2-y^2=0\} = \{(x,y) | y=\pm x\}.
+\]
+In the first case, we don't even get a curve; we just get a single point. In the second case, instead of a curve, we get a pair of intersecting curves: the lines $y=x$ and $y=-x$. Here, the bad behaviour is that point of intersection at the origin. How to you find a tangent line when the curve is pointing in two directions at once?
+
+\bigskip
+
+As you work on the next problem, think about the analogous results for functions of three variables. If $F(x,y,z)=k$ defines a level surface, where $F:D\subseteq \R^3\to \R$ is continuously differentiable, we know that the normal vector at a point $(a,b,c)$ on the surface is given by $\nabla F(a,b,c)$. Note that if $F_z(a,b,c)=0$, then $\nabla F(a,b,c)$ is parallel to the $xy$-plane -- the normal vector is horizontal -- which means that the tangent plane is vertical. Near such points it wouldn't be reasonable to assume that the equation $F(x,y,z)=k$ defines $z$ implicitly as a function of $x$ and $y$.
+
+However, as long as $F_z(a,b,c)\neq 0$, it's possible to prove that there exists a continuously differerntiable function $g(x,y)$ defined for all $(x,y)$ sufficiently close to $(a,b)$ such that $F(x,y,g(x,y))=k$.
+
+ \newpage
+
+
+\item Okay, have you recovered from the first problem? Good. Now consider a continuously differentiable function $F(x,y,z)$, and suppose $(a,b,c)$ is a point on the level surface $F(x,y,z)=k$. We discussed in class that one way to get the tangent plane to the surface at $(a,b,c)$ is to use the gradient: the vector $\nabla F(a,b,c)$ is normal to the surface at $(a,b,c)$, so
+\[
+ \nabla F(a,b,c) \dotp \langle x-a, y-b, z-c\rangle = 0
+\]
+gives the equation of the tangent plane. On the other hand, we could try generalizing the method of implicit differentiation above. Suppose that the equation $F(x,y,z)=k$ defines $z$ implicitly as a function of $x$ and $y$. That is, assume there exists a function $g:\R^2\to \R$ such that $z=g(x,y)$ satisfies
+\[
+ F(x,y,g(x,y))=k
+\]
+for all points $(x,y)$ near the point $(a,b)$.
+\begin{enumerate}
+ \item Using the Chain Rule, show that if $F_z(a,b,c)\neq 0$, then at the point $(a,b,c)$,
+\[
+ \frac{\partial z}{\partial x} = g_x(a,b) = -\frac{F_x(a,b,c)}{F_z(a,b,c)} \quad \text{ and } \quad \frac{\partial z}{\partial y} = g_y(a,b) = -\frac{F_y(a,b,c)}{F_z(a,b,c)}.
+\]
+ \item Suppose $F(x,y,z)=k$ implicitly defines $z=g(x,y)$ near a point $(a,b,c)$. Then near this point, we've expressed our level surface as a graph. It might not be possible to do this for the entire surface (there might, for example, be points where $F_z$ equals zero), but at least it works locally. This puts us in a position to calculate the normal vector to the surface at $(a,b,c)$ in two ways:
+\begin{enumerate}
+ \item Using the gradient vector $\nabla F(a,b,c)$, where we describe our surface via the equation $F(x,y,z)=k$.
+ \item Using the result $\vec{n} = \langle g_x(a,b), g_y(a,b), -1\rangle$ that we obtained for graphs, where we describe our surface as the graph $z=g(x,y)$.
+\end{enumerate}
+Use your result from part (a) to show that these two vectors are parallel.
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+\end{document}
+ 

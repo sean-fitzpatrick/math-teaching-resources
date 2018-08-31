@@ -1,0 +1,237 @@
+\documentclass[letterpaper,12pt]{amsart}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+                   
+\title{Math 1410 Assignment \#2\\University of Lethbridge, Fall 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+\item Recall from class that a key property of the cross product $\vec{u}\times\vec{v}$ is that it is orthogonal to both of the vectors $\vec{u}$ and $\vec{v}$. Prove that this is the case: show that for \textbf{any} vectors $\vec{u}$ and $\vec{v}$ in $\R^3$, the vector $\vec{u}$ is orthogonal to $\vec{u}\times \vec{v}$.
+
+\bigskip
+
+{\bf Solution:} Let $\vec{u}=\langle u_1,u_2,u_3\rangle$ and $\vec{v} = \langle v_1, v_2, v_3\rangle$ be any two vectors in $\R^3$. By definition, we have
+\[
+ \vec{u}\times\vec{v} = \langle u_2v_3-u_3v_2, u_3v_1-u_1v_3, u_1v_2-u_2v_1\rangle,
+\]
+and thus
+\begin{align*}
+ \vec{u}\dotp(\vec{u}\times\vec{v}) &= u_1(u_2v_3-u_3v_2)+u_2(u_3v_1-u_1v_3)+u_3(u_1v_2-u_2v_1)\\
+ & = u_1u_2v_3-u_1u_3v_2+u_2u_3v1-u_2u_1v_3+u_3u_1v_2-u_3u_2v_1\\
+ & = u_1u_2v_3-u_2u_1v_3 + u_2u_3v_1 - u_3u_2v_1 +u_3u_1v_2-u_1u_2v_2\\
+ & = 0,
+\end{align*}
+as required.
+
+\bigskip
+
+\item Consider the lines $\ell_1$ and $\ell_2$ given by the equations
+\begin{align*}
+ \ell_1(t) = \langle x,y,z\rangle & = \langle 1,2,1\rangle+s\langle 2,-1,1\rangle\\
+ \ell_2(t) = \langle x,y,z\rangle & = \langle 3,3,3\rangle+t\langle 4,2,-1\rangle
+\end{align*}
+
+\medskip
+
+\begin{enumerate}
+ \item Show that the two lines are \textit{skew} (do not intersect). 
+
+\bigskip
+
+{\bf Solution:} The two lines intersect if there is a point $(x,y,z)$ such that
+\[
+ \langle x,y,z\rangle = \langle 1+2s,2-s,1+s\rangle = \langle 3+4t, 3+2t, 3-t\rangle.
+\]
+Equating components of the two vectors, and simplifying, we get the system of equations
+\[
+ \begin{array}{ccccc}
+  2s&-&4t&=&2\\
+  -s&-&4t&=&1\\
+  s&+&t&=&2.
+ \end{array}
+\]
+Inputting this system into Wolfram Alpha (or solving by hand), we find that there is no solution to the system, and therefore, the two lines do not intersect.
+
+\bigskip
+
+ \item Find the points $P_1$ on $\ell_1$ and $P_2$ on $\ell_2$ such that the distance from $P_1$ to $P_2$ is a minimum, and determine the distance between them.
+
+\bigskip
+
+Let $P_1 = (1+2s,2-s,1+s)$ be a point on $\ell_1$, and let $P_2=(3+4t,3+2t,3-t)$ be a point on $\ell_2$. The points $P_1$ and $P_2$ will be closest together when the vector $\overrightarrow{P_1P_2}$ is orthogonal to both lines. We find that
+\[
+ \overrightarrow{P_1P_2} = \langle 2+4t-2s, 1+2t+s, 2-t-s\rangle.
+\]
+This vector must be orthogonal to the direction vectors $\vec{d}_1 = \langle 2, -1, 1\rangle$ and $\vec{d}_2 = \langle 4, 2 ,-1\rangle$; thus, we must have
+\[
+ \vec{d}_1\dotp \overrightarrow{P_1P_2} = 2(2+4t-2s)-1(1+2t+s)+1(2-t-s) = -6s+5t+5=0,
+\]
+and
+\[
+ \vec{d}_2\dotp \overrightarrow{P_1P_2} = 4(2+4t-2s)+2(1+2t+s)-1(2-t-s) = -5s+21t+8=0.
+\]
+This gives us the system of equations
+\[
+ \begin{array}{ccccc}
+  6s&-&5t&=&5\\
+  5s&-&21t&=&8.
+ \end{array}
+\]
+Using Wolfram Alpha (or solving by hand), we find the solution to be\\ $s=\dfrac{65}{101}$ and $t=-\dfrac{23}{101}$. Putting these values back into our points, we find that the closest points are
+\begin{align*}
+ P_1 & = \left(1+2\cdot\frac{65}{101}, 2-\frac{65}{101}, 1+\frac{65}{101}\right) = \left(\frac{231}{101}, \frac{137}{101}, \frac{166}{101}\right) \text{ and} \\
+ P_2 & = \left(3+4\left(-\frac{23}{101}\right), 3+2\left(-\frac{23}{101}\right), 3+\frac{23}{101}\right) = \left(\frac{211}{101}, \frac{257}{101}, \frac{326}{101}\right).
+\end{align*}
+The vector $\overrightarrow{P_1P_2}$ is then equal to
+\begin{align*}
+ \overrightarrow{P_1P_2} &= \left\langle 2+4\left(-\frac{23}{101}\right)-2\left(\frac{65}{101}\right), 1+2\left(-\frac{23}{101}\right)+\frac{65}{101}, 2+\frac{23}{101}+\frac{65}{101}\right\rangle\\
+ & = \left\langle -\frac{20}{101}, \frac{120}{101}, \frac{160}{101}\right\rangle\\
+& = \frac{20}{101}\langle -1,6,8\rangle,
+\end{align*}
+and the desired distance is
+\[
+ \len{\overrightarrow{P_1P_2}} = \frac{20}{101}\sqrt{(-1)^2+6^2+8^2} = \frac{20}{101}\sqrt{101} = \frac{20}{\sqrt{101}}.
+\]
+
+ \end{enumerate}
+
+\newpage
+
+\item Consider the set of $3\times 1$ column vectors $\{\vec{u},\vec{v}\}\subseteq\R^3$, where
+\[
+ \vec{u} = \bbm 1\\-2\\3\ebm, \text{ and } \vec{v} = \bbm 4\\2\\-1\ebm.
+\]
+Determine a $3\times 1$ column vector $\vec{w}\in\R^3$ such that the set $\{\vec{u},\vec{v},\vec{w}\}$ is
+
+\medskip
+
+\begin{enumerate}
+ \item Linearly dependent.
+
+\bigskip
+
+{\bf Solution:} One choice is to take $\vec{w}=\vec{0}$, since any set containing the zero vector is linearly independent. Another option is to let $\vec{w}$ be any linear combination of $\vec{u}$ and $\vec{v}$; for example $\vec{w} = 2\vec{u}$ would work.
+
+\bigskip
+
+ \item Linearly independent.
+
+\bigskip
+
+To obtain a linearly independent set it is necessary that $\vec{w}$ cannot be written as a linear combination of $\vec{u}$ and $\vec{v}$ (since otherwise the set $\{\vec{u},\vec{v},\vec{w}\}$ would be linearly dependent by definition). It turns out that this is also a sufficient condition. Since $\vec{u}$ is clearly not a scalar multiple of $\vec{v}$, and vice versa, choosing a vector $\vec{w}$ that is not a linear combination of $\vec{u}$ and $\vec{v}$ will also guarantee that $\vec{u}$ cannot be written as a linear combination of $\vec{v}$ and $\vec{w}$, and that $\vec{v}$ cannot be written in terms of $\vec{u}$ and $\vec{w}$.
+
+To see this, suppose $\vec{w}$ does not belong to the span of $\vec{u}$ and $\vec{v}$, and suppose that
+\[
+ \vec{u} = a\vec{v}+b\vec{w}
+\]
+for some choice of scalars $a$ and $b$. If $b\neq 0$, then we can solve for $\vec{w}$, obtaining $\vec{w} = \frac{1}{b}\vec{u}-\frac{a}{b}\vec{v}$, but we are assuming that $\vec{w}$ can \textbf{not} be written in terms of $\vec{u}$ and $\vec{v}$, so we must have $b=0$. But if $b=0$, then we would have $\vec{u}=a\vec{v}$, implying that $\vec{u}$ is a scalar multiple of $\vec{v}$, and this is clearly not the case.
+
+A similar argument shows that $\vec{v}$ cannot be written in terms of $\vec{u}$ and $\vec{w}$.
+
+It remains to determine a vector $\vec{w}$ that does not belong to the span of $\vec{u}$ and $\vec{v}$. We know that the subspace spanned by $\vec{u}$ and $\vec{v}$ is a plane through the origin, so any vector $\vec{w}$ that is not parallel to that plane will do; in particular, this would be the case if we took $\vec{w}$ to be orthogonal to the plane. We know that one such vector is given by
+\[
+ \vec{w} = \vec{u}\times \vec{v},
+\]
+and so it follows that the set $\{\vec{u},\vec{v}, \vec{u}\times\vec{v}\}$ is linearly independent.
+
+(A complete explanation such as the above is not necessary for full credit, but it is needed if we want our argument to be air tight.)
+
+\bigskip
+
+We can also show that the set $\{\vec{u},\vec{v}, \vec{u}\times\vec{v}\}$ is linearly independent directly. Let $\vec{w}=\vec{u}\times\vec{v}$, and recall from class that the set $\{\vec{u},\vec{v}, \vec{u}\times\vec{v}\}$ is linearly independent provided that whenever
+\begin{equation}\label{ref}
+ a\vec{u}+b\vec{v}+c\vec{w} = \vec{0}
+\end{equation}
+for scalars $a,b,c$, we must have $a=b=c=0$. Thus, let us assume that equation \eqref{ref} holds for some scalars $a$, $b$, and $c$. Since $\vec{w}$ is orthogonal to both $\vec{u}$ and $\vec{v}$, it follows that we must have
+\begin{align*}
+ 0 = \vec{w}\dotp \vec{0} & = \vec{w}\dotp(a\vec{u}+b\vec{v}+c\vec{w})\\
+ & = a(\vec{w}\dotp\vec{u})+b(\vec{w}\dotp\vec{v})+c(\vec{w}\dotp\vec{w})\\
+ & = a(0)+b(0)+c\len{\vec{w}}^2.
+\end{align*}
+We can easily compute that $\vec{w}\neq\vec{0}$, which implies that $\len{\vec{w}}\neq 0$, and thus $c\len{\vec{w}}^2=0$ implies that $c=0$. Putting $c=0$ in equation \eqref{ref} gives us the equation
+\[
+ a\vec{u}+b\vec{v}=\vec{0}.
+\]
+From this we can deduce that $a=0$ and $b=0$, since if either scalar were non-zero, we would have either $\vec{u} = -\frac{b}{a}\vec{v}$ (if $a\neq 0$) or $\vec{v} = -\frac{a}{b}\vec{u}$ (if $b\neq 0$), and we know that neither $\vec{u}$ nor $\vec{v}$ is a scalar multiple of the other.
+\end{enumerate}
+
+\bigskip
+
+ \item Determine whether or not the following subsets of $\R^3$ are subspaces. Support your answer.
+
+\medskip
+
+
+\begin{enumerate}
+ \item $U = \left\{\left.\bbm x+2y\\3x-y\\4x\ebm \,\right|\, x,y\in\R\right\}$
+
+\bigskip
+
+The set $U$ is a subspace. The easiest way to see this is as follows. Let $\vec{u}=\bbm x+2y\\3x-y\\4x\ebm$ be any vector in $U$. Then we have
+\[
+ \vec{u} = \bbm x+2y\\3x-y\\4x\ebm = \bbm x\\3x\\4x\ebm + \bbm 2y\\-y\\0\ebm = x\bbm 1\\3\\4\ebm+y\bbm 2\\-1\\0\ebm = x\vec{a}+y\vec{b},
+\]
+where $\vec{a} = \bbm 1\\3\\4\ebm$ and $\vec{b} = \bbm 2\\-1\\0\ebm$. Thus, every $\vec{u}\in U$ can be written as a linear combination of $\vec{a}$ and $\vec{b}$, which implies that
+\[
+ U = \operatorname{span}\left\{\bbm 1\\3\\4\ebm, \bbm 2\\-1\\0\ebm\right\},
+\]
+and since the span of any set of vectors is a subspace, we can conclude that $U$ is a subspace.
+
+\bigskip
+
+If we prefer to prove that $U$ is a subspace directly, using the subspace test, then we proceed as follows:
+
+First, we check to see if $U$ is non-empty by verifying that $\vec{0}$ is in $U$. Setting $x=y=0$ gives us the element
+\[
+ \bbm 0+2(0)\\3(0)-0\\4(0)\ebm = \bbm 0\\0\\0\ebm = \vec{0},
+\]
+so $\vec{0}\in U$.
+
+Next, we check to see if $U$ is closed under addition. Let $\vec{u} = \bbm a+2b\\3a-b\\4a\ebm$ and $\vec{v} = \bbm c+2d\\3c-d\\4c\ebm$ be any two elements of $U$. Then
+\[
+ \vec{u}+\vec{v} = \bbm a+2b\\3a-b\\4a\ebm+\bbm c+2d\\3c-d\\4c\ebm = \bbm (a+c) + 2(b+d)\\3(a+c)-(b+d)\\4(a+c)\ebm = \bbm x+2y\\3x-y\\4x\ebm,
+\]
+where $x=a+c$ and $y=b+d$, which shows that $\vec{u}+\vec{v}\in U$, and thus $U$ is closed under addition.
+
+Finally, we check to see if $U$ is closed under scalar multiplication. Given $\vec{u} = \bbm a+2b\\3a-b\\4a\ebm$ and any scalar $k\in\R$, we have
+\[
+ k\vec{u} = k\bbm a+2b\\3a-b\\4a\ebm = \bbm k(a+2b)\\k(3a-b)\\k(4a)\ebm = \bbm ka+2(kb)\\3(ka)-(kb)\\4(ka)\ebm = \bbm x+2y\\3x-y\\4x\ebm,
+\]
+where $x=ka$ and $y=kb$, showing that $k\vec{u}\in U$, so $U$ is closed under scalar multiplication.
+
+\bigskip
+
+ \item $V = \left\{\left.\bbm x\\y\\z\ebm\,\right|\, x+y+z=1\right\}$
+
+\bigskip
+
+{\bf Solution:} We note that $\vec{0}$ does not belong to $V$, since $0+0+0=0\neq 1$. Since $\vec{0}\notin V$, $V$ is not a subspace.
+\end{enumerate}
+
+
+\bigskip
+
+
+\end{enumerate}
+
+
+
+\end{document}
+ 

@@ -1,0 +1,164 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1560}\chead{Tutorial Assignment \# 4 Solutions}\rhead{May 23rd, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+ \begin{enumerate}
+ \item  Find an equation for the line tangent to the graph of the given function $f$ at the point $(a,f(a))$:
+\begin{enumerate}
+ \item $f(x) = (3x^2+2)\tan(x)$, $a=0$.
+
+\bigskip
+
+The prodcut rule gives us
+\[
+ f'(x) = 6x\tan(x)+(3x^2+2)\sec^2(x).
+\]
+Thus, 
+\[
+ f'(0) = 6(0)\tan(0)+(3(0^2)+2)\sec^2(0) = 0+2(1) = 2
+\]
+ is the slope of the tangent line at the point $(0,f(0)) = (0,0)$. The equation of the tangent line is therefore $y=2x$.
+
+\bigskip
+
+ \item $f(x) = \dfrac{x^2-2x+3}{x^2+4}$, $a=1$.
+
+\bigskip
+
+Using the quotient rule, we have
+\[
+ f'(x) = \frac{(2x-2)(x^2+4)-(x^2-2x+3)(2x)}{(x^2+4)^2}.
+\]
+When $x=1$, this gives us the slope 
+\[
+ f'(1) = \frac{(2-2)(5)-(1-2+3)(2)}{5^2} = \frac{4}{25}.
+\]
+ Since $f(1) = \frac{2}{5}$, we get the equation
+\[
+ y-\frac{2}{5} = \frac{4}{25}(x-1)
+\]
+for the tangent line. (Equivalently, this can be written as $4x-25y=-6$.)
+
+\bigskip
+
+
+ \item $f(x) = (x^4+2x)^5$, $a=-1$ 
+
+\bigskip
+
+Using the Chain rule, we find 
+\[
+ f'(x) = 5(x^4+2x)^4\frac{d}{dx}(x^4+2x) = 5(x^4+2x)^4(4x^3+2),
+\]
+ so 
+\[
+ f'(-1) = 5(1-2)^4(-4+2) = 5(1)(-2)=-10
+\]
+ is the slope of the tangent line, and when $x=-1$, $y=f(-1)=-1$, so our equation is $y+1=-10(x+1)$, or $y=-10x-11$.
+\end{enumerate}
+\newpage
+
+\item Compute the derivative of $f(x)=\sin(2x)$:
+\begin{enumerate}
+ \item Using the Chain Rule.
+
+\medskip
+
+We find $f'(x) = \cos(2x)\dfrac{d}{dx}(2x) = 2\cos(2x)$.
+
+\medskip
+
+ \item Using the identity $\sin(2x)=2\sin(x)\cos(x)$.
+
+\medskip
+
+Using the constant and product rules,
+\[
+ f'(x) = 2\left(\frac{d}{dx}(\sin(x))(\cos(x))+\sin(x)\frac{d}{dx}(\cos(x))\right)  = 2(\cos^2(x)-\sin^2(x)).
+\]
+
+\bigskip
+
+\end{enumerate}
+Do your answers in parts (a) and (b) agree?
+
+\bigskip
+
+Yes, because $\cos(2x) = \cos^2(x)-\sin^2(x)$.
+
+\bigskip
+
+
+\item Given $f(x)=\tan(x)$, compute $f''(x)$ (also denoted $\dfrac{d^2}{dx^2}(\tan(x))$).
+
+\bigskip
+
+The first derivative is given by $f'(x)=\sec^2(x) = (\sec(x))^2$. Applying the Chain Rule to this expression, we find
+\begin{align*}
+ f''(x) & = \frac{d}{dx}(\sec(x))^2\\
+ & = 2\sec(x)\frac{d}{dx}(\sec(x))\\
+ & = 2\sec(x)(\sec(x)\tan(x))\\
+ & = 2\sec^2(x)\tan(x).
+\end{align*}
+
+\bigskip
+
+\item Discuss with your classmates, but don't hand in:
+
+Determine values of $A$ and $B$ such that the derivative of 
+\[
+f(x) = \begin{cases}Ax^2+Bx+2, & \text{ if } x\leq 2,\\ Bx^2-A, & \text{ if } x>2\end{cases}
+\]
+is everywhere continuous. (Hint: note that if $f'(x)$ exists, $f(x)$ itself must be continuous.)
+
+\bigskip
+
+Note that continuity of $f(x)$ requires that $\di \lim_{x\to 2^-}f(x) = \lim_{x\to 2^+}f(x)$, which implies that $4A+2B+2=4B-A$.
+
+For $x<2$, we have $f'(x) = 2Ax+B$, and for $x>2$, we have $f'(x)=2Bx$. If we want $f'(x)$ to be continuous at $2$, we need $\di \lim_{x\to 2^-}f'(x) = \lim_{x\to 2^+}f'(x)$, so we must have $4A+B = 4B$. This second equation suggests $4A=3B$, or $B=\frac{4}{3}A$. Plugging this into our earlier equation, we find
+\[
+ 4A+2\left(\frac{4}{3}A\right) +2 = 4\left(\frac{4}{3}A\right)-A,
+\]
+ which simplifies to $A=-\frac{6}{7}$, and thus $B = -\frac{8}{7}$.
+
+\end{enumerate}
+
+\end{document}

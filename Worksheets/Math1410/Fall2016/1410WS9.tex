@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 9}\rhead{November 16/17, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}   
+                 
+\begin{document}
+{\bf \large Name:} \hspace{2.5in} {\bf Tutorial day and time:}
+
+\bigskip
+
+{\bf Select {\bf one} {\em completed} problem for feedback:}
+
+\bigskip
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+ \begin{enumerate}
+\item Compute the inverse of the given matrix, if possible:
+\begin{enumerate}
+ \item $A = \bbm 1&-5&0\\-2&15&4\\4&-19&1\ebm$
+
+\vspace{3.25in}
+
+ \item $B = \bbm 2&3&4\\-3&6&9\\-1&9&13\ebm$
+\end{enumerate}
+\newpage
+
+\item Simplify the expression $A^2(B^{-1}A)^{-1}(AB)^{-1}B$.
+
+\vspace{1.25in}
+
+\item Find an expression for $A^{-1}$, given that:
+\begin{enumerate}
+ \item $5A^3=I$
+
+\vspace{1in}
+
+ \item $A^2-2A+I=0$
+
+\vspace{1in}
+
+ \item $A^2B$ is invertible, for some matrix $B$. (Give your answer in terms of $(A^2B)^{-1}$.)
+\end{enumerate}
+
+\vspace{1in}
+
+\item Write the matrix $A=\bbm 2&-4\\-4&9\ebm$ as a product of elementary matrices.
+
+
+
+ \end{enumerate}
+\end{document}

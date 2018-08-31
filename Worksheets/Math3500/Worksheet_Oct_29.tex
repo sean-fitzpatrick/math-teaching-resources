@@ -1,0 +1,67 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\Abs}[1]{\left| #1 \right|}
+\newcommand{\len}[1]{\lVert #1\Vert}
+
+\title{Math 3500 Exercise Sheet}
+\date{29 October, 2014}
+
+
+\begin{document}
+\maketitle
+
+This week's problems involve uniform continuity. First, recall that a function $f:D\to \R$ is {\bf continuous} on $D$ if for every $\epsilon>0$ and for every $y\in D$ there exists a $\delta>0$ such that whenever $x\in D$ and $\abs{x-y}<\delta$, we have $\abs{f(x)-f(y)}<\epsilon$.
+
+Note that in this definition our choice of $\delta$ depends on both $\epsilon$ and the point $y\in D$. A function $f:D\to\R$ is {\bf uniformly continuous} on $D$ if for every $\epsilon>0$, whenever $x,y\in D$ and $\abs{x-y}<\delta$, we have $\abs{f(x)-f(y)}<\epsilon$. Here, the same $\delta$ has to work on all of $D$, whereas for regular continuity we can choose a different $\delta$ at each point.
+
+As practice, make sure that it's clear to you that uniform continuity implies continuity. We proved in class that if $D$ is {\em compact}, then continuity implies uniform continuity, so the two definitions coincide in this case. 
+\begin{enumerate}
+ \item Show that if $f:D\to\R$ is uniformly continuous and $(x_n)$ is a Cauchy sequence in $D$, then $f(x_n)$ is a Cauchy sequence.
+ \item \begin{enumerate}
+        \item Suppose that $f$ is uniformly continuous on $(a,b)$, and $(x_n)$ is a sequence in $(a,b)$ such that $x_n\to a$. Show that $\lim f(x_n)$ exists.
+	\item Suppose $(x_n)$ and $(y_n)$ are two sequences in $(a,b)$ that converge to $a$. Let $(z_n)$ be the sequence given by $(x_1,y_1,x_2,y_2,\ldots)$. Explain why $\lim f(z_n) = \lim f(x_n) = \lim f(y_n)$.
+
+Hint: if a sequence $(a_n)$ converges to some limit $L$, then any subsequence must also converge to $L$.
+        \item Explain why (a) and (b) guarantee that $\lim_{x\to a^+}f(x)$ exists.
+	\item Conclude that if $f$ is uniformly continuous on $(a,b)$, then there exists a continuous function $\tilde{f}$ on $[a,b]$ such that $\tilde{f}(x) = f(x)$ for all $x\in [a,b]$. (Such a function $\tilde{f}$ is called an {\bf extension} of $f$ from $(a,b)$ to $[a,b]$.)
+	\item Finally, notice that we've proved the following theorem: a function $f$ is uniformly continuous on $(a,b)$ if and only if it can be extended to a continuous function on $[a,b]$.
+       \end{enumerate}
+ \item Decide whether or not the following functions are uniformly continuous on the given interval. You may use any of the theorems mentioned or proved above on this worksheet.
+\begin{enumerate}
+ \item $f(x)=x^{17}\sin x-e^x\cos(3x)$ on $[0,\pi]$
+ \item $f(x)=x^3$ on $[0,1]$
+ \item $f(x)=x^3$ on $(0,1)$
+ \item $f(x)=x^3$ on $\R$
+ \item $f(x)=1/x^3$ on $(0,1]$
+ \item $f(x)=\sin(1/x^2)$ on $(0,1]$
+ \item $f(x)=x^2\sin(1/x^2)$ on $(0,1]$
+\end{enumerate}
+ \item Use the $\epsilon-\delta$ definition of uniform continuity to prove that the following functions are uniformly continuous on the given interval:
+\begin{enumerate}
+ \item $f(x)=3x+1$ on $\R$
+ \item $f(x)=\dfrac{x}{x+1}$ on $[0,2]$
+\end{enumerate}
+\item Suppose $f$ is continuous on $[a,b]$, and let $a=x_0<x_1<x_2<\cdots<x_n=b$ be a uniform partition of $[a,b]$.
+\begin{enumerate}
+ \item Explain why, for each $i=1,2,\ldots, n$, there exist $m_i,M_i\in\R$ such that $m_i\leq f(x)\leq M_i$ for all $x\in [x_{i-1},x_i]$.
+ \item Let $\displaystyle U_n = \sum_{i=1}^nM_i\Delta x$ and $\displaystyle L_n = \sum_{i=1}^nm_i\Delta x$, where $\Delta x= (b-a)/n$. Notice that for any $x_i^*\in [x_{i-1},x_i]$, we have $\displaystyle L_n\leq \sum_{i=1}^n f(x_i^*)\Delta x\leq U_n$. Explain why it follows that if $\lim\limits_{n\to\infty}(U_n-L_n)=0$, then $f$ is intergrable on $[a,b]$ (pretend that we've defined this).
+ \item Given $\epsilon>0$, there exists $\delta>0$ such that if $x,y\in [a,b]$ and $\abs{x-y}<\delta$, then $\abs{f(x)-f(y)}<\dfrac{\epsilon}{b-a}$, since $f$ is uniformly continuous. Now, suppose we choose $N\in\N$ large enough that $1/N<\delta$. Show that if $n>N$, then $M_i-m_i<\dfrac{\epsilon}{b-a}$ for each $i=1,2,\ldots, n$. Conclude that $0\leq U_n-L_n<\epsilon$.
+ \item Finally, explain why it follows that any continuous function defined on a closed interval is integrable.
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
+ 

@@ -1,0 +1,31 @@
+
+\documentclass{amsart}
+
+\input twocolpf
+
+\begin{document}
+
+\twocolpf{
+\pfline{1}{A \eif B}{hypothesis}
+\pfline{2}{\enot A \eif C}{hypothesis}
+\hypend
+\pfline{3}{A \eor \enot A}{Law of Excluded Middle}
+	\subproof{
+	\pfline{4}{A}{assumption (want $B \eor C$)}
+	\hypend
+	\pfline{5}{B}{\IfElim{1}{4}}
+	\pfline{6}{B \eor C}{\OrIntro{5}}
+	}
+\pfline{7}{A \eif (B \eor C)}{\IfIntro{4}{6}}
+	\subproof{
+	\pfline{8}{\enot A}{assumption (want $B \eor C$)}
+	\hypend
+	\pfline{9}{C}{\IfElim{2}{9}}
+	\pfline{10}{B \eor C}{\OrIntro{9}}
+	}
+\pfline{11}{\enot A \eif (B \eor C)}{\IfIntro{8}{10}}
+\pfline{12}{B \eor C}{Proof by cases (lines 3, 7, and 12)}
+}
+
+
+\end{document}

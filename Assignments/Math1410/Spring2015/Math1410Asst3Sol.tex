@@ -1,0 +1,259 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\title{Math 1410 Assignment \#3 Solutions\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+
+\item Given a polynomial $p(x)=a+bx+cx^2+dx^3+x^4$, the matrix
+\[
+ C = \begin{bmatrix}
+      0&1&0&0\\
+0&0&1&0\\
+0&0&0&1\\
+-a&-b&-c&-d
+     \end{bmatrix}
+\]
+is called the {\em companion matrix} of $p(x)$. Show that $\det(xI_4-C)=p(x)$.
+
+\bigskip
+
+{\bf Solution:} We have that
+\[
+ xI_4-C = \begin{bmatrix}x&0&0&0\\
+0&x&0&0\\
+0&0&x&0\\
+0&0&0&x           
+          \end{bmatrix} - \begin{bmatrix}
+      0&1&0&0\\
+0&0&1&0\\
+0&0&0&1\\
+-a&-b&-c&-d
+     \end{bmatrix} = \begin{bmatrix}x&-1&0&0\\0&x&-1&0\\0&0&x&-1\\a&b&c&x+d\end{bmatrix}.
+\]
+Thus, using a cofactor expansion along the first row, we have
+\begin{align*}
+ \det(xI_4-C) & = x\begin{vmatrix}x&-1&0\\0&x&-1\\b&c&x+d\end{vmatrix} - (-1)\begin{vmatrix}0&-1&0\\0&x&-1\\a&c&x+d\end{vmatrix}\\
+& = x^2\begin{vmatrix}x&-1\\c&x+d\end{vmatrix}+x\begin{vmatrix}0&-1\\b&x+d\end{vmatrix} +a\begin{vmatrix}-1&0\\x&-1\end{vmatrix}\\
+& = x^2(x^2+dx+c)+xb+a\\
+& = a+bx+cx^2+dx^3+x^4 = p(x).
+\end{align*}
+(You could also simplify the determinant using row/column operations if you prefer.)
+
+\bigskip
+
+\item If $p(x)=a_0+a_1x+a_2x^2+\cdots + a_kx^k$ is a polynomial of degree $k$ (the degree of $p(x)$ is the highest power of $x$, so we're assuming that $a_k\neq 0$). Given any such polynomial $p(x)$ and any $n\times n$ (square) matrix $A$, it's possible to plug $A$ into the polynomial to obtain a {\em new} matrix, denoted $p(A)$, given by
+\[
+ p(A)=a_0I_n+a_1A+a_2A^2+\cdots + a_kA^k.
+\]
+For example, if $p(x)=2-3x+x^2$, then $p(A) = 2I_n-3A+A^2$.
+\begin{enumerate}
+ \item If $p(x) = 3-4x+2x^2$ and $A=\begin{bmatrix}1&-3\\0&2\end{bmatrix}$, compute $p(A)$.
+
+\bigskip
+
+{\bf Solution:} Since $A^2 = \begin{bmatrix}1&-3\\0&2\end{bmatrix}\begin{bmatrix}1&-3\\0&2\end{bmatrix}=\begin{bmatrix}1&-9\\0&4\end{bmatrix}$, we have
+\[
+ p(A) = 3I-4A+2A^2 = 3\begin{bmatrix}1&0\\0&1\end{bmatrix}-4\begin{bmatrix}1&-3\\0&2\end{bmatrix}+2\begin{bmatrix}1&-9\\0&4\end{bmatrix} = \begin{bmatrix}1&-6\\0&3\end{bmatrix}.
+\]
+
+\bigskip
+
+ \item The {\em characteristic polynomial} of an $n\times n$ matrix $A$ is defined by
+\[
+ c_A(x) = \det(xI_n-A).
+\]
+ The {\em Cayley-Hamilton Theorem} is a famous theorem in linear algebra which states that for any $n\times n$ matrix $A$, $c_A(A) = 0$ (where the zero on the right is the zero matrix).
+
+Verify that the Cayley-Hamilton Theorem is true for $A=\begin{bmatrix}3&2\\1&-1\end{bmatrix}$.
+
+\bigskip
+
+{\bf Solution:} For $A=\begin{bmatrix}3&2\\1&-1\end{bmatrix}$ we have
+\[
+ xI_2-A = \begin{bmatrix}x-3&-2\\-1&x+1\end{bmatrix},
+\]
+so 
+\[
+ c_A(x) = \det(xI_2-A) = (x-3)(x+1)-2 = x^2-2x-5.
+\]
+We check that $A^2 = \begin{bmatrix}11&4\\2&3\end{bmatrix}$; thus,
+\[
+ c_A(A) = A^2-2A-5I_2 = \begin{bmatrix}11&4\\2&3\end{bmatrix}-2\begin{bmatrix}3&2\\1&-1\end{bmatrix}-5\begin{bmatrix}1&0\\0&1\end{bmatrix} = \begin{bmatrix}0&0\\0&0\end{bmatrix},
+\]
+as required.
+\end{enumerate}
+
+\bigskip
+
+{\bf Bonus opportunity}: Prove the Cayley-Hamilton Theorem for the $n=2$ case. That is, show that the theorem holds for a general $2\times 2$ matrix $A=\begin{bmatrix}a&b\\c&d\end{bmatrix}$.
+
+\bigskip
+
+Given $A=\begin{bmatrix}a&b\\c&d\end{bmatrix}$, we have
+\[
+c_A(x) = \begin{vmatrix}
+x-a&-b\\-c&x-d
+\end{vmatrix}=(x-a)(x-d)-bc = x^2-(a+d)x+(ad-bc).
+\]
+Note that $A^2=\begin{bmatrix}
+a^2+bc&ab+bd\\ac+dc&bc+d^2
+\end{bmatrix}$, so we have
+\begin{align*}
+c_A(x) &= A^2-(a+d)A+(ad-bc)I_2\\
+& = \begin{bmatrix}
+a^2+bc&ab+bd\\ac+dc&bc+d^2
+\end{bmatrix} - \begin{bmatrix}
+a^2+ad&ab+bd\\ac+dc&ad+d^2
+\end{bmatrix}+\begin{bmatrix}
+ad-bc&0\\0&ad-bc
+\end{bmatrix}\\
+&=\begin{bmatrix}
+0&0\\0&0
+\end{bmatrix},
+\end{align*}
+which shows that the theorem is true for any $2\times 2$ matrix.
+
+\bigskip
+
+\item In each case, either explain why the statement is true (in general), or give an example showing that it is false:
+\begin{enumerate}
+ \item If $\len{\vec{v}-\vec{w}}=0$, then $\vec{v}=\vec{w}$.
+ 
+ \bigskip
+ 
+ {\bf Solution:} This is true. Let $\vec{v}=\langle v_1,\ldots, v_n\rangle$ and $\vec{w} = \langle w_1,\ldots, w_n\rangle$. Then
+ \[
+ \vec{v}-\vec{w} = \langle v_1-w_1,v_2-w_2,\ldots, v_n-w_n\rangle,
+ \]
+so if
+\[
+\len{\vec{v}-\vec{w}} = \sqrt{(v_1-w_1)^2+(v_2-w_2)^2+\cdots + (v_n-w_n)^2} = 0,
+\]
+then we must have $v_1-w_1=0, v_2-w_2=0,\ldots, v_n-w_n=0$, since the only value of $x$ for which $\sqrt{x}=0$ is $x=0$, and a sum of squares is zero if and only if each one of the squares is zero (since the square of a real number can't be negative). Thus, $v_i=w_i$ for $i=1,2,\ldots, n$, which implies that $\vec{v}=\vec{w}$.
+
+\bigskip
+
+
+ \item If $\vec{v}=-\vec{v}$, then $\vec{v}=\vec{0}$.
+
+\bigskip
+
+{\bf Solution:} This is true. Given $\vec{v}=-\vec{v}$, we can add $\vec{v}$ to both sides of the equation, giving us $2\vec{v}=\vec{0}$. If we now multiply both sides by $\frac{1}{2}$, we're left with $\vec{v}=\vec{0}$.
+
+\bigskip
+
+
+ \item If $\len{\vec{v}}=\len{\vec{w}}$, then $\vec{v}=\vec{w}$.
+ 
+ \bigskip
+ 
+ {\bf Solution:} This is false. For example if $\vec{v} = \langle 1,0\rangle$ and $\vec{w}=\langle 0,1\rangle$, then $\vec{v}\neq \vec{w}$, but $\len{\vec{v}}=\len{\vec{w}}=1$.
+ 
+ \bigskip
+ 
+ \item If $\len{\vec{v}}=\len{\vec{w}}$, then $\vec{v}=\pm\vec{w}$.
+ 
+ \bigskip
+ 
+ {\bf Solution:} This is also false, and the previous counterexample can be applied here as well.
+ 
+ \bigskip
+ 
+ \item $\len{\vec{v}+\vec{w}} = \len{\vec{v}}+\len{\vec{w}}$.
+ 
+ \bigskip
+ 
+ {\bf Solution:} This is false. If we take our two vectors in the solution to part (c), then we see that $\vec{v}+\vec{w} = \langle 1,1\rangle$, so $\len{\vec{v}+\vec{w}} = \sqrt{2}$, while $\len{\vec{v}}+\len{\vec{w}}=1+1=2$.
+\end{enumerate}
+\item Let $\vec{u} = \begin{bmatrix}3&-1&0\end{bmatrix}^T, \vec{v} = \begin{bmatrix}4&0&1\end{bmatrix}^T$, and $\vec{w} = \begin{bmatrix}1&1&1\end{bmatrix}^T$. In each case, either find scalars $a,b,c$ such that $\vec{x} = a\vec{u}+b\vec{v}+c\vec{w}$, or explain why no such scalars exist:
+\begin{enumerate}
+ \item $\vec{x} = \begin{bmatrix}5&1&2\end{bmatrix}^T$
+ 
+ \bigskip
+ 
+ If $\vec{x} = a\vec{u}+b\vec{v}+c\vec{w}$, we obtain the vector equation
+ \[
+ a\begin{bmatrix}
+ 3\\-1\\0\\
+ \end{bmatrix}+b\begin{bmatrix}
+ 4\\0\\1
+ \end{bmatrix}+c\begin{bmatrix}
+ 1\\1\\1
+ \end{bmatrix} = \begin{bmatrix}
+ 5\\1\\2
+ \end{bmatrix}
+ \]
+ which leads to the system of equations
+ \[
+ \begin{array}{ccccccc}
+ 3a&+&4b&+&c&=&5\\
+ -a& & &+&c&=&1\\
+   &+&b&+&c&=&2
+ \end{array}
+ \]
+The general solution to this system (found, as usual, by setting up and reducing the augmented matrix of the system) is given by
+\begin{align*}
+a&=-1+t\\
+b&=2-t\\
+c&=t,
+\end{align*} 
+where $t$ can be any real number. In particular, we see that for $t=0$, we have $a=-1$,  $b=2$, and $c=0$ and we verify that 
+\[
+-\vec{u}+2\vec{v}+0\vec{w} = (-1)\begin{bmatrix}
+ 3\\-1\\0\\
+ \end{bmatrix}+2\begin{bmatrix}
+ 4\\0\\1
+ \end{bmatrix}=\begin{bmatrix}
+ 5\\1\\2
+ \end{bmatrix}=\vec{x},
+ \]
+ as required.
+
+\bigskip
+ 
+ \item $\vec{x} = \begin{bmatrix}1&2&1\end{bmatrix}^T$.
+ 
+ \bigskip
+ 
+ The setup here is the same as in part (a), and yields the system of equations
+  \[
+ \begin{array}{ccccccc}
+ 3a&+&4b&+&c&=&1\\
+ -a& & &+&c&=&2\\
+   &+&b&+&c&=&1
+ \end{array}.
+ \]
+ (Note that the only change is to the constants on the right-hand side given by the vector $\vec{x}$.) This time, if we set up and reduce our augmented matrix, we end up with the row-echelon form
+ \[
+ \begin{amatrix}{3}
+ 1&0&1&-2\\
+ 0&1&1&7/4\\
+ 0&0&0&-3/4
+ \end{amatrix},
+ \]
+ and the last row tells us that the system must be inconsistent, since $0=-3/4$ is impossible. Thus, in this case there can be no values of $a,b$ and $c$ that satisfy the given vector equation.
+\end{enumerate}
+ \end{enumerate}
+
+\end{document}
+ 

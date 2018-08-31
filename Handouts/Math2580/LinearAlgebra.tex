@@ -1,0 +1,186 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{eg}[theorem]{Example}
+\newenvironment{example}{\begin{eg}\rm}{\end{eg}}
+\newtheorem{defn}[theorem]{Definition}
+\newenvironment{definition}{\begin{defn}\rm}{\end{defn}}
+\newtheorem{rem}[theorem]{Remark}
+\newenvironment{remark}{\begin{rem}\rm}{\end{rem}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\e}{\mathbf{e}}
+\newcommand{\di}{\displaystyle}
+\DeclareMathOperator{\spn}{span}
+
+\author{Sean Fitzpatrick}
+\title{Some linear algebra basics}
+\begin{document}
+\maketitle
+
+A fundamental principle underlying calculus (of one or many variables) is that any differentiable function $f:D\subseteq \R^n\to \R^m$ can be locally approximated by a {\em linear} function. With this principle in mind, it's important to understand the behaviour of general linear functions, which requires a certain amount of linear algebra, which we will now discuss (without going into too much detail).
+
+\section{Vector spaces}
+
+\begin{definition}
+A {\bf vector space} over the real numbers\footnote{One can also study vector spaces over other {\em fields}, such as the complex numbers, but we will only consider real vector spaces in this course.} is a set $V$ equipped with operators of addition
+\[
+V\times V\to V:\quad (\x,\y)\mapsto \x+\y
+\]
+and scalar multiplication
+\[
+\R\times V\to V: \quad (c,\x)\mapsto c\x
+\]
+such that the following axioms are satisfied, for all $\x, \y, \mathbf{z}\in V$ and all scalars $c,d\in\R$:
+\begin{enumerate}
+\item $\x+\y = \y+\x$ (Commutativity of addition)
+\item $(\x+\y)+\mathbf{z} = \x+(\y+\mathbf{z})$ (Associativity of addition)
+\item There exists an element $\mathbf{0}\in V$ such that $\mathbf{0}+\x = \x+\mathbf{0}=\x$. (Existence of a zero element.)
+\item There exists an element $-\x\in V$ such that $\x+(-\x) = -\x+\x = \mathbf{0}$. (Existence of additive inverses.)
+\item $c(\x+\y) = c\x+c\y$ (Distributive law for vector addition.)
+\item $(c+d)\x = c\x+d\x$ (Distributive law for scalar addition.)
+\item $c(d\x) = (cd)\x$ (Associativity of scalar multiplication.)
+\item $1\x = \x$ (Multiplication by the unit scalar.)
+\end{enumerate}
+\end{definition}
+From these axioms various other properties follow automatically; for example, $0\x = \mathbf{0}$ and $(-1)\x=-\x$ for any $\x\in V$. For us, the main example of a vector space is $V=\R^n$, where we view $\R^n$ not as a set of points $(x_1,\ldots, x_n)$, but as the set of column vectors $\di \x = \begin{bmatrix}
+x_1\\ \vdots\\x_n
+\end{bmatrix}$, equipped with the addition $\x+\y = \begin{bmatrix}
+x_1\\ \vdots \\x_n
+\end{bmatrix}+\begin{bmatrix}
+y_1\\ \vdots \\y_n
+\end{bmatrix} = \begin{bmatrix}
+x_1+y_1\\ \vdots \\x_n+y_n
+\end{bmatrix}$ and scalar multiplication $c\x = c\begin{bmatrix}
+x_1\\ \vdots \\x_n
+\end{bmatrix}=\begin{bmatrix}
+cx_1\\ \vdots \\cx_n
+\end{bmatrix}$.
+Another example of a vector space is the set of all polynomials $p(x) = a_nx^n+\cdots a_1x+a_0$ of degree less than or equal to $n$, equipped with the usual addition and scalar multiplication of functions.
+\begin{remark}
+It is also possible to identify $\R^n$ with the vector space of {\em row} vectors $\x = \begin{bmatrix}
+x_1 & \cdots & x_n
+\end{bmatrix}$, although it will be more convenient to think of this space as being ``dual'' to $\R^n$ in a sense that you will explore on your second assignment.
+\end{remark}
+
+\section{Bases of vector spaces}
+Two important notions in linear algebra are those of {\em linear independence} and {\em span}. Given vectors $\x_1, \x_2, \ldots, \x_n$ in a vector space $V$, a {\bf linear combination} of these vectors is any expression of the form
+\[
+\x = c_1\x_1+c_2\x_2+\cdots +c_n\x_n,
+\]
+where $c_1, c_2, \ldots, c_n\in \R$ are scalars. Note that the vector space axioms ensure that $\x$ is again an element of $V$, and that the expression defining $\x$ is unambiguous.
+
+\begin{definition}
+Let $S=\{\x_1,\ldots,\x_k\}$ be a set of vectors in a vector space $V$. The {\bf span} of $S$ is the set $\spn(S)\subseteq V$ consisting of all possible linear combinations of the vectors in $S$. That is,
+\[
+\spn(S) = \{\x\in V| \x = c_1\x_1+\cdots +c_k\x_k \text{ for some } c_1,\ldots, c_k\in \R\}.
+\]
+\end{definition}
+For example, the span of two vectors $\x,\y\in \R^3$ is a plane through the origin. Notice that the span of any finite set $S\subseteq V$ is again a vector space (exercise). A subset of a vector space which is again a vector space is known as a {\em subspace}.
+
+\begin{remark}\label{re}
+Note that since a vector space must contain a zero vector, a subset of a vector space $V$ can only be a subspace if it contains the zero vector of $V$. In particular, lines and planes in $\R^3$ only define subspaces if they pass through the origin. Lines and planes that do not pass through the origin are sometimes known as {\em affine} spaces: spaces which are {\em geometrically} the same as vector spaces, but not {\em algebraically}, since in particular they do not have a preferred choice of origin. Given a fixed vector $\x_0\in V$, a typical affine space would be of the form $U=\{\x_0+\x|\x\in\spn(S)\}$.
+\end{remark}
+
+\begin{definition}
+A set $S=\{\x_1,\ldots ,\x_k\}\subseteq V$ is called {\bf linearly independent} if none of the elements of $S$ can be written as a linear combination of the others. Equivalently, $S$ is linearly independent if the only solution to the equation $c_1\x_1+\cdots +c_k\x_k=\mathbf{0}$ is $c_1=\cdots=c_k=0$.
+\end{definition}
+A linearly independent set can be thought of as one that does not contain any ``unnecessary'' vectors: if one of the vectors, say $\x_k$, in $S$ was a linear combination of the others, then the span of $\{\x_1,\ldots,\x_{k-1}\}$ would be the same as the span of $S$. In $\R^3$, two vectors are linearly independent if they are not parallel, and three vectors are linearly independent if they do not all lie in the same plane.
+
+Finally, we can define a {\bf basis} for a vector space $V$ to be a set $S=\{\e_1,\ldots, \e_n\}$ such that $S$ is linearly independent, and $V=\spn(S)$. A basis $S$ for $V$ has the property that every element of $V$ can be written as a {\em unique} linear combination of the elements of $S$. Note also that the number of vectors in $S$ is ``just right'': if we removed any element of $S$, the remaining vectors would no longer span $V$, and if we added another vector, the resulting set would no longer be linearly independent. One of the most important theorems in linear algebra is that every basis for a given vector space $V$ must contain the same number of elements. This number is known as the {\bf dimension} of $V$.
+
+\begin{remark}\label{ree}
+Note that a choice of basis $S=\{\e_1,\ldots \e_n\}$ gives us an identification between elements of $V$ and elements of $\R^n$: if $\x = c_1\e_1+\cdots +c_n\e_n$, we can identify $\x$ with the column vector $\di \x_S = \begin{bmatrix}
+c_1\\ \vdots \\ c_n
+\end{bmatrix}$. Thus, every vector space of $V$ is ``the same'' as $\R^n$, but only up to a choice of basis.
+\end{remark}
+\section{Matrices}
+A {\bf matrix} of size $m\times n$ is an array of $mn$ real numbers arranged into $m$ rows and $n$ columns. We denote the entries of a matrix $A$ of size $m\times n$ by $a_{ij}$, where the index $i\in\{1,\ldots, m\}$ indicates the row in which the number $a_{ij}$ is found, and the index $j\in\{1,\ldots, n\}$ indicates the column in which $a_{ij}$ is found:
+\[
+A = \begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n}\\
+a_{21} & a_{22} & \cdots & a_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{bmatrix}.
+\]
+For example, $\di A = \begin{bmatrix} 1&-2&3\\4&0&-5\end{bmatrix}$ is a $2\times 3$ matrix. The set of all $m\times n$ matrices is in fact a vector space of dimension $mn$; addition and scalar multiplication are defined component-wise, as for column vectors in $\R^n$ (which are just matrices of size $n\times 1$).
+
+As well as addition and scalar multiplication, it's possible to define the product of two matrices, but only for certain compatible pairs. The product $AB$ of two matrices $A$ and $B$ is defined whenever the number of columns of $A$ is equal to the number of rows of $B$; that is, if $A$ is an $m\times n$ matrix, and $B$ is an $n\times p$ matrix. The product $AB$ is then an $m\times p$ matrix, defined as follows: if $c_{ij}$ denotes the $(i,j)^{\mathrm{th}}$ entry of $AB$ (that is, the entry in the $i^{\mathrm{th}}$ row and $j^{\mathrm{th}}$ column of $AB$), then
+\[
+c_{ij} = \sum_{i=1}^n a_{ik}b_{kj}.
+\]
+You might find it helpful to think of $c_{ij}$ as the dot product of the $i^{\mathrm{th}}$ row of $A$ with the $j^{\mathrm{th}}$ column of $B$. (And since the dot product is only defined between vectors of the same size, we need $A$ to have as many columns as $B$ has rows.)
+
+\begin{example}
+Let $\di A = \begin{bmatrix}
+1&-2&3\\4&0&-5
+\end{bmatrix}$, and let $\di B = \begin{bmatrix}
+1&-3\\-2&2\\3&-1
+\end{bmatrix}$. Since $A$ is $2\times 3$ and $B$ is $3\times 2$, the product $AB$ is defined, and is a $2\times 2$ matrix, with entries
+\begin{align*}
+c_{11} & = a_{11}b_{11}+a_{12}b_{21}+a_{13}b_{31} = 1(1)+(-2)(-2)+3(3) = 14\\
+c_{12} & = a_{11}b_{12}+a_{12}b_{22}+a{13}b_{32} = 1(-3)+(-2)(2)+3(-1) = -10\\
+c_{21} & = a_{21}b_{11}+a_{22}b_{21}+a{23}b_{31} = 4(1)+0(-2)+(-5)(3) = -11\\
+c_{22} & = a_{21}b_{12}+a_{22}b_{22}+a{23}b_{32} = 4(-3)+0(2)+(-5)(-1) = -7,
+\end{align*}
+which gives $\di AB = \begin{bmatrix}
+14&-10\\-11&-7
+\end{bmatrix}$.
+\end{example}
+In particular, we should make note of the following special case: if $A$ is an $m\times n$ matrix and $\x\in \R^n$ is an $n\times 1$ matrix, then $\y=A\x$ is an $m\times 1$ matrix; that is, $\y\in\R^m$:
+\[
+A\x = \begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n}\\
+a_{21} & a_{22} & \cdots & a_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{bmatrix}\begin{bmatrix}
+x_1\\x_2\\ \vdots \\x_n
+\end{bmatrix} = \begin{bmatrix}
+a_{11}x_1+a_{12}x_2+\cdots +a_{1n}x_n\\a_{21}x_1+a_{22}x_2+\cdots +a_{2n}x_n\\ \vdots\\ a_{m1}x_1+a_{m2}x_2+\cdots +a_{mn}x_n
+\end{bmatrix}.
+\]
+Matrix multiplication satisfies most of the usual properties we expect for multiplication. In particular, it is distributive and associative: $A(BC) = (AB)C$, $A(B+C) = AB+BC$, and $(A+B)C = AC+BC$, whenever these products are defined, and matrix multiplication also respects scalar multiplication: for any real number $c$, we have $(cA)B = A(cB) = c(AB)$. Note however that matrix multiplication is {\bf not} commutative: in general $AB\neq BA$ (and in fact, if $A$ is $m\times n$ and $B$ is $n\times p$, $BA$ is not even {\em defined}, unless $p=m$).
+
+Among all {\em square} matrices (those of size $n\times n$), there is the matrix $I_n$ whose entries are given by $I_{ii}=1$ for $i=1,\ldots, n$, and $I_{ij}=0$ if $i\neq j$. (So $I_n$ has ones along its ``main diagonal'' and zeros everywhere else.) The matrix $I_n$ is called the {\bf identity matrix} since it has the property that $I_nA = A$ for any $n\times p$ matrix $A$, and $BI_n=B$ for any $m\times n$ matrix $B$. 
+
+In the case of a square matrix $A$ of size $n\times n$, we can ask whether or not $A$ has a multiplicative inverse $A^{-1}$ such that $AA^{-1} = A^{-1}A=I_n$. Unlike the real numbers, it is not the case that every nonzero matrix $A$ has an inverse. One consequence of this is that if we know that $AB=AC$, we can {\bf not} conclude that $B=C$, unless we know in advance that $A^{-1}$ exists.
+
+Finally, we should mention one other operations on matrices, called the {\bf transpose}. Given an $m\times n$ matrix $A$, we can define an $n\times m$ matrix $A^T$, the transpose of $A$, such that the rows of $A^T$ are the columns of $A$ and vice versa. (In other words, the $(i,j)^{\mathrm{th}}$ entry of $A^T$ is equal to the $(j,i)^{\mathrm{th}}$ entry of $A$.)
+
+\section{Determinants}
+Given an $n\times n$ (square) matrix $A$, we can compute a number $\det A$ (sometimes denoted $\lvert A\rvert$) called the {\bf determinant} of $A$. Determinants are computed recursively via ``cofactor expansion''. A $1\times 1$ matrix $A$ is simply a number $a$, and in this case we set $\det A =a$. For a $2\times 2$ matrix $\di A=\begin{bmatrix} a&b\\c&d\end{bmatrix}$ we define $\det A = ad-bc$. Note that this is the difference of the products of the entries on the two {\em diagonals} of $A$. For an $n\times n$ matrix $A$, the determinant of $A$ is defined by\footnote{This formula gives the determinant in terms of expansion along the $i^{\mathrm{th}}$ row. It's possible to show that the choice of row does not matter; moreover, one can also expand instead along any column of $A$.}
+\[
+\det A = \sum_{j=1}^n (-1)^{i+j}a_{ij}A_{ij},
+\]
+where $A_{ij}$ is the determinant of the $(n-1)\times (n-1)$ matrix obtained by deleting the row and column of $A$ containing $a_{ij}$. (Each $(n-1)\times (n-1)$ determinant can then be computed in terms of $(n-2)\times (n-2)$ determinants, and so on, until we reach $2\times 2$ determinants.)
+
+We will not need to know how to compute general determinants in this course, so we will not discuss methods for doing so here. It will, however, be useful to be aware of some of the properties of determinants, which we list here:
+\begin{itemize}
+\item A matrix $A$ is invertible if and only if $\det A\neq 0$.
+\item For any two $n\times n$ matrices $A$ and $B$, $\det(AB) = \det A\det B$.
+\item If we swap any two rows or columns in $A$, then $\det A$ is multiplied by $-1$.
+\item If we multiply any row or column of $A$ by a scalar $c$, then $\det A$ is multiplied by by $c$ as well.
+\end{itemize}
+\section{Linear transformations}
+A {\bf linear transformation} $T$ is a map $T:V\to W$ between vector spaces $V$ and $W$ that respects the addition and scalar multiplication in both spaces, in the sense that for any vectors $\x,\y\in V$ and any scalars $a,b\in \R$, we have
+\[
+T(a\x+b\y) = aT(\x)+bT(\y).
+\]
+For example, any $m\times n$ matrix $A$ determines a linear transformation $T:\R^n\to \R^m$ given by $T(\x) = A\x$. In fact, this example is the canonical one. As soon as we make a choice of basis $B$ for $V$ and $C$ for $W$, we can determine a matrix $A$ such that if $\y=T(\x)$, then $\y_C = A\x_B$, where $\x_B$ denotes the element of $\R^n$ determined by the basis $B$, and $\y_C$ denotes the element of $\R^m$ determined by the basis $C$ (see Remark \ref{ree} above).
+
+A linear transformation that is both one-to-one and onto is called an {\em isomorphism}. There exists an isomorphism between two vector spaces $V$ and $W$ if and only if $V$ and $W$ have the same dimension. For example, you should check that the association $\x\mapsto \x_S$ given by choosing a basis $S$ for a vector space $V$ is an isomorphism from $V$ to $\R^n$ (note that in particular this requires verifying that this map is linear).
+
+Notice that any linear transformation $T:V\to W$ must take the zero vector of $V$ to the zero vector of $W$. In the case of a linear transformation $T:\R^n\to \R^n$, if we view $\R^n$ as a set of points, then any linear transformation must ``preserve the origin''. In particular, the definition of a linear transformation does not quite coincide with the usual notion of a linear {\em function} in calculus: usually we think of a linear function $f:\R\to \R$ as being a function of the form $f(x) = ax+b$, whereas $f$ can only be a linear transformation if $b=0$. When it becomes necessary to make the distinction, we will always reserve the term {\em linear transformation} to refer to the definition from linear algebra given above, and allow the more generic term {\em linear function} to refer to functions defined by the formula $f(\x) = A\x+\y$, where $\x\in\R^n$, $y\in\R^m$, and $A$ is an $m\times n$ matrix. (These functions are sometimes referred to as {\em affine} transformations - see Remark \ref{re} above.)
+
+\end{document}

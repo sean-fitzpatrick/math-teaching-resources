@@ -1,0 +1,181 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.75in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 9 Solutions}\rhead{Tuesday, 15\textsuperscript{th} March, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newenvironment{aamatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|*{#1}{c}@{}}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}   
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+\newcommand{\bvm}{\begin{vmatrix}}
+\newcommand{\evm}{\end{vmatrix}}         
+                  
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+ \begin{enumerate}
+  \item Let $\vec{a} = \bbm 3\\-1\\2\ebm, \vec{b} = \bbm 0\\1\\-2\ebm, \vec{c} = \bbm 3\\0\\-1\ebm$.
+\begin{enumerate}
+ \item Calculate $\vec{a}\times\vec{b}$
+
+\[
+ \vec{a}\times\vec{b}  = \bvm \i&\j&\k\\3&-1&2\\0&1&-2\evm = \bvm -1&2\\1&-2\evm\i - \bvm 3&2\\0&-2\evm\j + \bvm 3&-1\\0&1\evm\k = 0\i+6\j+3\k = \bbm 0\\6\\3\ebm.
+\]
+
+
+ \item Find the area of the parallelogram spanned by the vectors $\vec{a}$ and $\vec{b}$.
+
+\bigskip
+
+We know that the area of the parallelogram spanned by $\vec{a}$ and $\vec{b}$ is given by $\len{\vec{a}\times\vec{b}}$; therefore,
+\[
+ A = \len{\vec{a}\times\vec{b}} = \len{0\i+6\j+3\k} = \sqrt{0^2+6^2+3^2} = \sqrt{45}.
+\]
+
+
+ \item Calculate the volume of the parallelepiped spanned by the vectors $\vec{a},\vec{b},\vec{c}$.
+
+The volume of the parallelepiped is given by the absolute value of the box product $(\vec{a}\times\vec{b})\dotp \vec{c}$; therefore,
+\[
+ V = \abs{\bbm 0&6&3\ebm^T\dotp \bbm 3&0&-1\ebm^T} = \abs{0(3)+6(0)+3(-1)} = \abs{-3} = 3.
+\]
+Alternatively, the volume can be computed using the $3\times 3$ determinant whose rows are given by the entries of $\vec{a}$, $\vec{b}$, and $\vec{c}$, respectively, but this is more work than the dot product.
+
+
+ \end{enumerate}
+
+
+\item Find the equation of the plane that passes through the points $(2,1,3)$, $(3,-1,5)$, and $(1,2,-3)$.
+
+\bigskip
+
+Letting $P=(2,1,3)$, $Q=(3,-1,5)$, and $R=(1,2,-3)$, the vectors 
+\[
+\vec{v} = \overrightarrow{PQ} = \bbm 3-2\\-1-1\\5-3\ebm = \bbm 1\\-2\\2\ebm \text{ and } \vec{w} = \overrightarrow{PR} = \bbm 1-2\\2-1\\-3-3\ebm = \bbm -1\\1\\-6\ebm
+\]
+are both parallel to the plane, since they begin and end at points in the plane. (We could also have used the vector $\overrightarrow{QR}$, but two vectors is sufficient.)
+
+Since $\vec{v}$ and $\vec{w}$ are both parallel to the plane, it follows that the vector
+\[
+ \vec{n} = \vec{v}\times\vec{w} = \bvm \i & \j& \k\\ 1&-2&2\\-1&1&-6\evm = \bvm -2&2\\1&-6\evm\i - \bvm 1&2\\-1&-6\evm\j + \bvm 1&-2\\-1&1\evm\k = 10\i+4\j-\k = \bbm 10\\4\\-1\ebm
+\]
+is a normal vector for the plane, since the cross product of $\vec{v}$ and $\vec{w}$ is orthogonal to both $\vec{v}$ and $\vec{w}$, and thus $\vec{n}$ is perpendicular to the plane. Choosing $P=(2,1,3)$ as our reference point in the plane (either one of the other two points works fine too), we have the equation
+\[
+ 10(x-2)+4(y-1)-(z-3)=0
+\]
+for our plane.
+
+
+\item Find the equation of the plane that contains the lines
+\[
+ \bbm x\\y\\z\ebm = \bbm 1\\1\\-2\ebm+s\bbm 1\\1\\1\ebm \quad \text{ and } \quad \bbm x\\y\\z\ebm = \bbm 0\\0\\-3\ebm+t\bbm 1\\-1\\0\ebm.
+\]
+ 
+We first note that $\bbm 0\\0\\-3\ebm = \bbm 1\\1\\-2\ebm + (-1)\bbm 1\\1\\1\ebm = \bbm 0\\0\\-3\ebm+0\bbm 1\\-1\\0\ebm$, so the two lines intersect at the point $(0,0,-3)$, and therefore define a plane. Since we know that the point $(0,0,-3)$ must be on the plane, it remains to find a normal vector. We know that the two given lines are parallel to the plane, so their direction vectors must both be parallel to the plane. As with the previous problem, we can conclude that their cross product must be a normal vector. Therefore, we have
+\[
+ \vec{n} = \bvm \i&\j&\k\\ 1&1&1\\ 1&-1&0\evm = \bvm 1&1\\-1&0\evm\i-\bvm 1&1\\1&0\evm\j +\bvm 1&1\\1&-1\evm\k = \i+\j-2\k = \bbm 1\\1\\-2\ebm.
+\]
+This gives us the equation $x+y-2(z+3)=0$ for the plane.
+
+
+\item Show that the shortest distance from a point $P$ to the line $L$ through $P_0$ with direction vector $\vec{d}$ is $\dfrac{\len{\overrightarrow{P_0P}\times\vec{d}}}{\len{\vec{d}}}$.
+
+Consider the following diagram:
+\begin{center}
+ \includegraphics[width=0.7\textwidth]{WS9-4}
+\end{center}
+
+The desired distance is given by the value $h$, which is also the height of the parallelogram spanned by the vectors $\vec{d}$ and $\overrightarrow{P_0P}$. On the one hand, the area of the parallelogram is given by $A=\len{\overrightarrow{P_0P}\times\vec{d}}$, and on the other hand, the area is given by $A = \len{d}h$, since the area of a parallelogram is given by multiplying the length of its base by its height. Equating the two values for the area, we have $\len{\overrightarrow{P_0P}\times\vec{d}}=\len{d}h$, and thus $h=\dfrac{\len{\overrightarrow{P_0P}\times\vec{d}}}{\len{\vec{d}}}$, as required.
+
+\item Let $T:\R^2\to \R^2$ be a linear transformation such that
+\[
+ T\left(\bbm 1\\0\ebm\right) = \bbm 2\\-3\ebm \quad\text{ and } \quad T\left(\bbm 0\\1\ebm\right) = \bbm 4\\-2\ebm.
+\]
+\begin{enumerate}
+ \item Find a matrix $A$ such that $T(\vec{x}) = A\vec{x}$ for all vectors $\vec{x}$ in $\R^2$.
+
+\bigskip
+
+Since the domain and range of $T$ both consist of two-dimensional vectors, we know that $T(\vec{x})=A\vec{x}$ for some $2\times 2$ matrix $A=\bbm a&b\\c&d\ebm$. This gives us
+\[
+ \bbm 2\\-3\ebm = T\left(\bbm 1\\0\ebm\right) = \bbm a&b\\c&d\ebm\bbm 1\\0\ebm = \bbm a\\c\ebm,
+\]
+so $a=2$ and $c=-3$. Similarly,
+\[
+ \bbm 4\\-2\ebm = T\left(\bbm 0\\1\ebm\right) = \bbm a&b\\c&d\ebm\bbm 0\\1\ebm = \bbm b\\d\ebm,
+\]
+so $b=4$ and $d=-2$. Therefore, we have $A=\bbm 2&4\\-3&-2\ebm$.
+
+ \item Describe the effect of $T$ on the square $0\leq x, y\leq 1$. What is the resulting region, and what is its area?
+
+\bigskip
+
+Every point in the square has a position vector of the form $\vec{p}=s\i+t\j$, where $0\leq s,t\leq 1$. Since $T(s\i) = s\bbm 2\\-3\ebm$ and $T(t\j) = t\bbm 4\\-2\ebm$, we can see that the two sides of the square that lie along the $x$ and $y$ axes get sent to the two sides of the parallelogram spanned by $\vec{v} = \bbm 2\\-3\ebm$ and $\vec{w} = \bbm 4\\-2\ebm$ that meet at the origin.
+
+We can then check that the other two sides of the square get sent to the remaining two sides of the paralleogram, and that every point inside the square corresponds to a point inside the paralleogram spanned by $\vec{v}$ and $\vec{w}$. The area of this parallelogram is given by
+\[
+ \text{Area} = \det A = \bvm 2&4\\-3&-2\evm = 8.
+\]
+
+\end{enumerate}
+ \end{enumerate}
+\end{document}
+
+\newpage
+
+{\large \bf Name:}
+
+\vspace{24pt}
+
+{\large \bf Tutorial time:}
+
+\vspace{24pt}
+
+Please submit \textbf{one} \textit{completed} solution from the worksheet for feedback. 
+
+\textbf{Note:} Please recopy the question you are solving so we know which solution you're submitting.
+
+\end{document}

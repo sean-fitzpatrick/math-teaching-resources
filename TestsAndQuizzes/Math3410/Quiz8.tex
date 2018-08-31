@@ -1,0 +1,65 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 3410A}\chead{Quiz \# 8}\rhead{Friday, 27\textsuperscript{th} March, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\nul}{null}
+\newcommand{\len}[1]{\lVert #1\rVert}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+{\bf Name:}
+
+\bigskip
+
+Solve the following {\bf two} questions. 
+ \begin{enumerate}
+ \item Suppose that $u,v\in V$ are such that $\len{u}=3$, $\len{u+v}=4$, and $\len{u-v}=6$. What is the value of $\len{v}$? \points{5}
+
+\vspace{3.4in}
+
+ \item Prove that for all positive numbers $a,b,c,d\in\R$, we have \points{5}
+\[
+ 16\leq (a+b+c+d)\left(\frac{1}{a}+\frac{1}{b}+\frac{1}{c}+\frac{1}{d}\right).
+\]
+\vspace{3.2in}
+
+See the back of the page if you want to earn 5 {\bf bonus} points:
+\newpage
+
+\item Suppose that $V$ is a real inner product space. Prove that \points{5}
+\[
+ \langle u,v\rangle = \frac{\len{u+v}^2-\len{u-v}^2}{4}
+\]
+for all $u,v\in V$.
+ \end{enumerate}
+\end{document}

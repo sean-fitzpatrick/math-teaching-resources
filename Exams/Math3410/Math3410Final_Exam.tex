@@ -1,0 +1,309 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 80}}
+\chead{MATH 3410}\lhead{FINAL EXAM}\rhead{23rd April, 2015}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\P}{\mathcal{P}}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\spn}{span}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\L}{\mathcal{L}}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+23rd April, 2015, 9:00 am - 12:00 pm\\
+{\bf MATH 3410 - FINAL EXAM}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+\skipline
+
+\vspace{0.5in}
+
+
+\begin{quote}
+
+ 
+ Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+
+\end{quote}
+
+
+\vspace{0.25in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Problem&Grade\\
+\hline \hline
+\cline{1-2} Definitions & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} Short Answer I & \enspace\enspace\enspace\enspace\enspace\enspace/9\\
+\cline{1-2} Short Answer II & \enspace\enspace\enspace\enspace\enspace\enspace/9\\
+\cline{1-2} Short Answer III & \enspace\enspace\enspace\enspace\enspace\enspace/6\\
+\cline{1-2} Question 3 \#1 & \enspace\enspace\enspace\enspace\enspace\enspace/6\\
+\cline{1-2} Question 3 \#2 & \enspace\enspace\enspace\enspace\enspace\enspace/6\\
+\cline{1-2} Question 3 \#3 & \enspace\enspace\enspace\enspace\enspace\enspace/6\\
+\cline{1-2} Quesiton 3 \#4 & \enspace\enspace\enspace\enspace\enspace\enspace/6\\
+\cline{1-2} Question 4 \#1 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} Question 4 \#2 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} Question 4 \#3 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/80\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item Define the following terms:
+\begin{enumerate}
+ \item A {\bf subspace} of a vector space.\points{2}
+
+\vspace{2in}
+
+ \item A {\bf linearly independent} set of vectors. \points{2}
+
+\vspace{2in}
+
+ \item The {\bf orthogonal complement} of a subspace $U\subseteq V$. \points{2}
+
+\vspace{2in}
+
+ \item A {\bf generalized eigenvector} of an operator $T\in\L(V)$. \points{2}
+
+\end{enumerate}
+\newpage
+
+\item Short-answer problems.
+\begin{enumerate}
+ \item Determine the matrix (with respect to the standard basis) of the linear operator $T\in\L(\mathcal{P}_3(\R))$ given by $(Tp)(x) = 3p(x)-2p\,'(x)$. \points{3}
+
+\vspace{2.75in}
+
+ \item Given that $B=\{(1,0,3,0),(0,2,0,-4)\}$ is an orthogonal basis of a subspace $U\subseteq \R^4$, find the orthogonal projection of $v=(3,1,-1,2)$ onto $U$.\points{3}
+
+\vspace{2.75in}
+
+ 
+ \item Is the set $U=\{(x,y,z)\in\R^3 : xy=z\}$ a subspace of $\R^3$? Why or why not? \points{3}
+
+\newpage
+
+ \item Suppose $U$ and $W$ are both 5-dimensional subspaces of $\R^9$. Is it possible to have $U\cap W=\{0\}$? Explain. \points{3}
+
+\vspace{2.5in}
+
+ \item Is it possible to have a set of six linearly independent polynomials of degree four or less? Why or why not? \points{3}
+
+\vspace{2.5in}
+
+ \item Suppose $T\in\L(\R^5)$ and you know that $\dim E(8,T)=4$. Explain why at least one of $T-2I$ or $T-6I$ has to be invertible. \points{3}
+
+\newpage
+
+ \item Suppose that $T$ is a normal operator on $V$, and you have vectors $v,w\in V$ such that $\len{v}=\len{w}=2$, $Tv=3v$, and $Tw=4w$. Show that $\len{T(v+w)}=10$. \points{3}
+
+\vspace{3.5in}
+
+ \item Give an example of an operator on $\R^4$ whose characteristic polynomial is equal to $(x-1)(x-5)^3$ and whose minimal polynomial is $(x-1)(x-5)^2$. \points{3}
+
+\end{enumerate}
+\newpage
+
+\item Solve {\bf four} of the following five problems on the pages that follow.\label{1}
+
+\bigskip
+
+
+\begin{enumerate}
+ \item Suppose that $V$ is finite-dimensional and $T\in\L(V)$ is a self-adjoint operator whose only eigenvalues are 2 and 3. Prove that $T^2-5T+6I=0$.\points{6}
+
+\vspace{1in}
+
+ \item Suppose $T\in\L(V,W)$ and $\{v_1,\ldots, v_m\}$ is a set of vectors in $V$ such that the vectors $Tv_1,\ldots, Tv_m$ are linearly independent in $W$. Prove that the vectors $v_1,\ldots, v_m$ are linearly independent in $V$. \points{6}
+
+\vspace{1in}
+
+ \item Suppose $T\in\L(V)$ and $v$ is an eigenvector of $T$ with eigenvalue $\lambda$. Prove that for any polynomial $p\in\P(\mathbb{F})$, $p(T)v = p(\lambda)v$.\points{6}
+
+\vspace{1in}
+
+ \item Let $V$ be a real inner product space. Prove that for all $u,v\in V$,\points{6}
+\[
+ \langle u,v\rangle = \frac{\len{u+v}^2-\len{u-v}^2}{4}.
+\]
+
+\vspace{1in}
+
+ \item Let $T\in\L(V)$ and let $U$ be a subspace of $V$. Prove that if $U$ is invariant under $T$, then $U^\bot$ is invariant under $T^*$. \points{6}
+
+
+
+\end{enumerate}
+\newpage
+
+\begin{center}
+ {\bf Space for first problem from Question \ref{1}}
+\end{center}
+
+\newpage
+
+\begin{center}
+ {\bf Space for second problem from Question \ref{1}}
+\end{center}
+
+\newpage
+
+\begin{center}
+ {\bf Space for third problem from Question \ref{1}}
+\end{center}
+
+\newpage
+
+\begin{center}
+ {\bf Space for fourth problem from Question \ref{1}}
+\end{center}
+
+\newpage
+
+\item {\bf There are six problems below}. Three are theoretical, and three are computational. You may choose any {\bf three} of these problems to solve. They are worth 8 points each.
+\begin{enumerate}
+\item Suppose that $V$ and $W$ are finite-dimensional. Prove that there exists an injective linear map $T:V\to W$ if and only if $\dim V\leq \dim W$. 
+
+\bigskip
+
+\item Suppose that $V$ is finite-dimensional and $T\in \L(V)$. Let $\lambda_1,\ldots, \lambda_m$ denote the distinct nonzero eigenvalues of $T$. Prove that
+\[
+ \dim E(\lambda_1,T)+\cdots +\dim E(\lambda_m,T)\leq \dim \range T.
+\]
+
+
+\bigskip
+
+\item Suppose $T\in \L(V)$ and $S\in\L(V)$ is invertible. Prove that $T$ and $S^{-1}TS$ have the same eigenvalues with the same multiplicities.
+
+\bigskip
+
+
+\item Let $T:\R^4\to\R^3$ be the linear transformation given by
+\[
+ T(x_1,x_2,x_3,x_4) = (x_1-2x_2+4x_4,3x_1+2x_3-x_4,-x_1-4x_2-2x_3+9x_4).
+\]
+\begin{enumerate}
+ \item Compute the matrix of $T$ with respect to the standard bases of $\R^4$ and $\R^3$. 
+ \item Determine a basis for both $\nul T$ and $\range T$.
+\end{enumerate}
+
+\bigskip
+
+
+\item Let $U$ be the subspace of $\R^4$ defined by
+\[
+ U = \{(x_1,x_2,x_3,x_4) : x_1=x_3 \text{ and } x_2+2x_3-3x_4=0\}.
+\]
+\begin{enumerate}
+ \item Determine a basis for $U$.
+ \item Find a basis for the orthogonal complement $U^\bot$.
+ \item Find an orthonormal basis for $U^\bot$.
+\end{enumerate}
+
+\bigskip
+
+\item Let $T\in\L(\R^3)$ be the operator whose matrix with respect to the standard basis is given by
+\[
+ \mathcal{M}(T) = \begin{bmatrix}4&0&0\\0&2&2\\2&3&1\end{bmatrix}.
+\]
+Find a Jordan basis for $T$, the characteristic and minimal polynomials of $T$, and the Jordan Canonical Form of $T$.
+\end{enumerate}
+
+\newpage
+
+\begin{center}
+ {\bf Space for your first problem from Question 4}
+\end{center}
+
+\newpage
+
+
+\begin{center}
+ {\bf Space for your second problem from Question 4}
+\end{center}
+
+\newpage
+
+
+\begin{center}
+ {\bf Space for your third problem from Question 4}
+\end{center}
+
+\newpage
+
+
+
+\newpage
+
+\item {\bf Bonus problems:} If you have time left and you'd like some bonus points, I'll give a 5\% bonus for correct solutions to each of the following:
+\begin{enumerate}
+ \item Let $U$ be a subspace of a finite-dimensional vector space $V$. Prove that $P_{U^\bot} = 1-P_U$, where $P_U$ and $P_{U^\bot}$ denote orthogonal projection onto $U$ and $U^\bot$, respectively.
+ \item Suppose $T\in\L(V)$ and $u,v$ are eigenvectors of $T$ such that $u+v$ is also an eigenvector. Prove that $u$ and $v$ are eigenvectors corresponding to the same eigenvalue. Deduce from this that if every nonzero $v\in V$ is an eigenvector, then $T$ is a scalar multiple of the identity.
+\end{enumerate}
+
+\end{enumerate}
+\newpage
+
+\begin{center}
+ {\bf Extra space for rough work. Do not remove this page if you want it to be graded.}
+\end{center}
+
+
+
+
+
+\end{document}

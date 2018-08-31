@@ -1,0 +1,54 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\title{Math 1410 Assignment \#2\\University of Lethbridge, Spring 2017}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} {\bf Tuesday}, February 14th, by 4 pm.
+
+\bigskip
+
+Please review the {\bf Guidelines for preparing your assignments} before submitting your work. You can find these guidelines, along with the required cover page, in the Assignments section on our Moodle site.
+
+
+
+\subsection*{Assigned problems}
+\begin{enumerate}
+\item Consider the triangle $\Delta PQR$ with vertices $P=(2,0,-3)$, $Q=(5,-2,1)$, and $R=(7,5,3)$.
+\begin{enumerate}
+ \item Show that $\Delta PQR$ is a right-angled triangle. (Hint: this is a question about dot products.)
+ \item Compute the lengths of the three sides of $\Delta PQR$ and verify that the Pythagorean Theorem holds.
+ \item Determine the equation of the plane containing $\Delta PQR$.
+\end{enumerate}
+\item Let $\vec{u}$ and $\vec{v}$ be any two vectors in $\R^3$.
+\begin{enumerate}
+ \item Show that $\len{\vec{u}+\vec{v}}^2+\len{\vec{u}-\vec{v}}^2 = 2(\len{\vec{u}}^2+\len{\vec{v}}^2)$.
+ \item What does part (b) tell you about parallelograms?
+\end{enumerate}
+\noindent\textit{Note:} For parts (a) and (b) in Problem 2, it is \textbf{not} necessary (nor desirable) to write out $\vec{u}$ and $\vec{v}$ in terms of their components. Instead, work with the properties of the dot product given in Section 3.3 of the textbook.
+
+\item  Let $\ell$ be a line through the origin in $\R^3$, and let $\vec{p}$ and $\vec{q}$ be the position vectors for any two points on $\ell$.
+\begin{enumerate}
+ \item Show that the point with position vector $\vec{p}+\vec{q}$ also lies on the line $\ell$.
+ \item Show that for any scalar $c$, the point with position vector $c\vec{p}$ also lies on the line $\ell$.
+ \item Repeat parts (a) and (b) with $\ell$ replaced by a \textit{plane} through the origin.
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
+ 

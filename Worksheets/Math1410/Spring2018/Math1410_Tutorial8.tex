@@ -1,0 +1,138 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.2in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}      
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 1410 - Tutorial \#8}\\
+Wednesday, March 14
+\end{center}
+\skipline \ \noindent \skipline
+
+\skipline \ \noindent \skipline
+
+Student \#1 :\underline{\hspace{348pt}}\\
+
+\bigskip
+
+\bigskip
+
+Student \#2 :\underline{\hspace{348pt}}\\
+
+\bigskip
+
+\bigskip
+
+Student \#3 :\underline{\hspace{348pt}}\\
+
+\bigskip
+
+\bigskip
+
+Student \#4 :\underline{\hspace{348pt}}\\
+
+
+
+
+
+\bigskip
+
+\textbf{(Moodle ID not required.)}
+
+
+
+
+
+
+
+
+
+\newpage
+%\thispagestyle{empty}
+
+ \begin{enumerate}
+\item For each matrix $A$ and vector $\vec{b}$ below, solve the equation $A\vec{x}=\vec{b}$. Express your answer in terms of the vector $\vec{x}$.
+
+If there are infinitely many solutions, give your answer in the form $\vec{x}=\vec{x}_p+\vec{x}_h$, where $\vec{x}_p$ is a particular solution, and $\vec{x}_h$ is the general solution to the homogeneous system $A\vec{x}=\vec{0}$. (Express $\vec{x}_h$ in terms of basic solutions.)
+\begin{enumerate}
+\item $A = \bbm 1&0&-4\\-2&1&4\\1&0&6\ebm$, $\vec{b}=\bbm 2\\-1\\5\ebm$.
+
+\vspace{3in}
+
+\item $A= \bbm 1&0&2&-4\\3&1&5&-7\\-2&-2&-2&-2\ebm$, $\vec{b}=\bbm 3\\2\\8\ebm$
+\end{enumerate}
+
+\newpage
+
+\item Consider the matrices
+\[
+A = \bbm 2&-1&3\\5&4&-2\ebm, B = \bbm 4&-2\\5&1\ebm, C = \bbm 1&4\\-2&-1\\6&3\ebm.
+\]
+For each of the 9 possible products ($A^2, AB, AC, BA, B^2, BC, CA, CB, C^2$), compute the product, or state why it is undefined.
+
+\newpage
+
+\item Consider a system of equations, written in matrix form as $A\vec{x}=\vec{b}$. Prove that if there is more than one solution to the system (say, $\vec{x}_1$ and $\vec{x}_2$, with $\vec{x}_1\neq \vec{x}_2$), then there are infinitely many solutions.
+
+\vspace{2.5in}
+
+\item For which values of $k$ will the system \hspace{12pt}
+$\arraycolsep1pt
+\begin{array}{ccccccc}
+x&+&y&+&kz&=&1\\
+x&+&ky&+&z&=&1\\
+kx&+&y&+&z&=&-2
+\end{array}$
+\hspace{12pt} have: 
+
+(a) No solution? \hspace{12pt} (b) A unique solution? \hspace{12pt} (c) Infinitely many solutions?
+ \end{enumerate}
+ 
+\end{document}

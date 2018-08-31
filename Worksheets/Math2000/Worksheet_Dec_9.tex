@@ -1,0 +1,96 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+%\usepackage[dvips]{hyperref}
+\newcommand{\divs}[2]{#1 \, | \, #2}
+\renewcommand{\cong}[3]{#1 \equiv #2 \pmod{#3}}
+%\newcommand{\R}[2]{#1 \, R \, #2}
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\Z}{\mathbb{Z}}
+%\author{Sean Fitzpatrick}
+%\date{2015-09-15}
+\title{Math 2000 Tutorial Worksheet}
+\date{December 9th, 2015}
+
+\begin{document}
+\maketitle
+
+ \begin{enumerate}
+  \item (Section 7.3 \#2) Let $A=\{a,b,c,d,e,f\}$, and assume that $\sim$ is an equivalence relation on $A$. Assuming that you know that
+\begin{align*}
+ a\sim b & & a \not\sim c & & e\sim f \\
+ a\sim d & & a \not\sim f &  & e \not\sim c,
+\end{align*}
+draw a complete directed graph for the equivalence relation $\sim$ on the set $A$, and then determine all of the equivalence classes for this equivalence relation.
+\item (Section 7.3 \# 5) Let $A = \{0, 1, 2, 3, 4, 5, 6, 7, 8\}$. For all $a,b\in A$, define the relation $a\sim b$ if and only if $a^2\equiv b^2 \pmod{9}$. Prove that $\sim$ is an equivalence relation on $A$, and determine the set of equivalence classes of this equivalence relation.
+\item Repeat Problem 2 for the relation given by $a\sim b$ if and only if $a^3\equiv b^3\pmod{9}$. 
+\item (Section 7.4 \# 1) Complete the addition and multiplication tables for modular arithmetic in $\Z_7$ and $\Z_8$. (You don't have to write all the square brackets.)
+\item (Section 7.4 \# 2) Solve the following equations. (See the end of the handout on modular arithmetic for an example of how this works.)
+\begin{multicols}{2}
+ \begin{enumerate}
+  \item $[x]^2=[1]$, in $\Z_4$.
+  \item $[x]^2=[1]$, in $\Z_8$.
+  \item $[x]^4=[1]$, in $\Z_5$.
+  \item $[x]^2\oplus[3]\odot[x] = [3]$, in $\Z_6$.
+  \item $[x]^2\oplus[1]=[0]$, in $\Z_5$. 
+  \item $[3]\odot[x]\oplus[2] = [0]$, in $\Z_5$.
+  \item $[3]\odot[x]\oplus[2] = [0]$, in $\Z_6$.
+  \item $[3]\odot[x]\oplus[2] = ]0]$, in $\Z_9$.
+ \end{enumerate}
+\end{multicols}
+\item (Section 7.4 \#4) In each case, determine if the statement is true or false:
+\begin{enumerate}
+ \item For all $[a], [b]\in\Z_6$, if $[a]\neq [0]$ and $[b]\neq [0]$, then $[a]\odot [b] \neq [0]$.
+ \item For all $[a], [b]\in\Z_5$, if $[a]\neq [0]$ and $[b]\neq [0]$, then $[a]\odot [b] \neq [0]$.
+\end{enumerate}
+\item (Section 7.4 \#13) Use mathematical induction to prove that if $n$ is an integer and $n\geq 3$, then $10^n\equiv 0\pmod{8}$. Hence, for congruence classes modulo 8, if $n$ is an integer and $n\geq 3$, then $[10^n]=[0]$.
+\item (Section 7.4 \#14) Let $n\in \mathbb{N}$ and assume
+\[
+ n = (a_k\times 10^k)+(a_{k-1}\times 10^{k-1})+\cdots + (a_1\times 10^1)+(a_0\times 10^0).
+\]
+Use your result from the previous problem to help devise a divisibility test for division by 8, and prove that your divisibility test is correct.
+\item (Section 9.1 \#2) Let $A$ be a subset of some universal set $U$. Prove that for any $x\in U$, $A\times\{x\}\approx A$.
+\item (Section 9.1 \#3) Prove that the set $E^+$ of positive even integers is equivalent to the set $\mathbb{N}$ of natural numbers.
+\item (Section 9.1 \#7) Prove the following propositions:
+\begin{enumerate}
+ \item If $A, B, C$, and $D$ are sets with $A\approx B$ and $C\approx D$, then $A\times C\approx B\times D$.
+ \item If $A, B, C$, and $D$ are sets with $A\approx B$ and $C\approx D$, and if $A\cap C = \emptyset$ and $B\cap D=\emptyset$, then $A\cup C\equiv B\cup D$.
+\end{enumerate}
+Most of the following exercises are really from Chapter 5, but (a) you need to review that stuff anyway, and (b) we're going to make use of these results on Tuesday.
+\item Let $A$ and $B$ be subsets of some universal set $U$. Prove that
+\begin{enumerate}
+ \item The sets $A\cap B$ and $A\setminus B$ are disjoint.
+ \item $A = (A\cap B)\cup (A\setminus B)$.
+ \item If $A$ and $B$ are finite sets, then $|A\setminus B| = |A|-|A\cap B|$. (Recall that I'm using $|A|$ to denote the cardinality of $A$.)
+\end{enumerate}
+\item Let $A$ and $B$ be subsets of some universal set $U$. Prove that
+\begin{enumerate}
+ \item The sets $A\setminus B$, $A\cap B$, and $B\setminus A$ are pairwise disjoint.
+ \item $A\cup B = (A\setminus B)\cup (A\cap B) \cup (B\setminus A)$.
+ \item Use this (and the previous exercise) to prove the {\em Principle of Inclusion-Exclusion}: for any finite sets $A$ and $B$ (disjoint or not), 
+\[
+ |A\cup B| = |A|+|B|-|A\cap B|.
+\]
+ \item If the last problem wasn't too bad, try the following: for any finite sets $A$, $B$, and $C$, prove that
+\[
+ |A\cup B\cup C| = |A|+|B|+|C|-|A\cap B|-|A\cap C|-|B\cap C|+|A\cap B\cap C|.
+\]
+ \item If that also didn't seem so bad, make a conjecture about how to extend the last two results to give the cardinality of $|A\cup B\cup C\cup D|$ for finite sets $A,B,C,D$, and prove that your conjecture is correct.
+ \item Really, you figured out that one too? Then see if you can do the same for $\displaystyle\left|\bigcup_{i=1}^nA_i\right|$, where $A_1,\ldots, A_n$ are finite sets, for any natural number $n\geq 2$.
+\end{enumerate}
+
+
+
+
+ \end{enumerate}
+
+
+\end{document}
+ 

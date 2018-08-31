@@ -1,0 +1,272 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 100}}
+\chead{MATH 1410}\lhead{FINAL EXAM}\rhead{24th April, 2015}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\P}{\mathcal{P}}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\spn}{span}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+24th April, 2015, 9:00 am - 12:00 pm\\
+{\bf MATH 1410 - FINAL EXAM}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+\skipline
+
+\vspace{0.5in}
+
+
+\begin{quote}
+
+ 
+ Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+\bigskip
+
+\end{quote}
+
+
+\vspace{0.25in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 6 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 7 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 8 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 9 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 10 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 11 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} 12 & \enspace\enspace\enspace\enspace\enspace\enspace/10\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/100\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item DEFINITIONS (2 points each):
+
+\begin{enumerate}
+ \item What is the {\bf rank} of a matrix? 
+
+\vspace{1.25in}
+
+ \item What does it mean to say that a system of linear equations is {\bf consistent}?
+
+\vspace{1.25in}
+
+ \item What does it mean to say that two vectors are {\bf orthogonal}?
+
+\vspace{1.25in}
+
+ \item What does it mean to say that a set of vectors $\{\vec{v}_1,\ldots, \vec{v}_k\}$ is {\bf linearly independent}?
+
+\vspace{1.25in}
+
+ \item What is an {\bf eigenvalue} of an $n\times n$ matrix $A$?
+
+
+ 
+\end{enumerate}
+\newpage
+
+\item SHORT ANSWER -- Calculations (2 points each): You do not have to show your work.
+
+\begin{enumerate}
+ \item If $A=\begin{bmatrix}2&-1\\3&0\end{bmatrix}$ and $B=\begin{bmatrix}-3&4\\0&5\end{bmatrix}$, what is the matrix $3A-2B$?
+
+\vspace{1.5in}
+
+ \item Given $z=2-3i$ and $w=1+2i$, compute $z+w$ and $zw$.
+
+\vspace{1.75in}
+
+ \item If $\vec{v}=\begin{bmatrix}1&-2&3\end{bmatrix}^T$ and $\vec{w}=\begin{bmatrix}-2&4&1\end{bmatrix}^T$, compute $\vec{v}\times \vec{w}$.
+
+\vspace{1.75in}
+
+ \item Determine whether $x=2$, $y=3$, $z=-1$ is a solution to the system
+\begin{align*}
+ 2x-3y+z&=-6\\
+ -3x+y+2z&=5
+\end{align*}
+
+\end{enumerate}
+\newpage
+
+\item SHORT ANSWER -- More calculations (2 points each): You do not have to show your work.
+
+\begin{enumerate}
+ \item Given $\vec{a} = \begin{bmatrix}2&-3&4\end{bmatrix}^T$ and $\vec{b}=\begin{bmatrix}-1&4&5\end{bmatrix}^T$, determine the vector $\vec{x}$ such that $3\vec{a}+2\vec{x} = 4\vec{b}$.
+
+\vspace{1.75in}
+
+ \item Let $A$ and $B$ be $3\times 3$ matrices such that $\det A = -3$ and $\det B = 4$. What is the determinant of the matrix $C=2A^3B^TA^{-1}$?
+
+\vspace{1.75in}
+
+ \item What is the projection of the vector $\vec{v}=\begin{bmatrix}-2&5&3\end{bmatrix}^T$ onto the vector $\vec{w} = \begin{bmatrix}4&-3&0\end{bmatrix}^T$?
+
+\vspace{1.75in}
+
+ \item Is the vector $\vec{v} = \begin{bmatrix}2\\-3\end{bmatrix}$ an eigenvector of the matrix $A=\begin{bmatrix}7&2\\3&6\end{bmatrix}$?
+\end{enumerate}
+\newpage
+
+\item SHORT ANSWER -- A little more theory this time (2 points each):
+\begin{enumerate}
+ \item Suppose $AX=B$ is the matrix form of a consistent system of 6 equations in 7 variables, such that the coefficient matrix $A$ has rank 4. How many parameters will there be in the general solution to the system?
+
+\vspace{1.75in}
+
+ \item Suppose the matrix $A$ is not invertible. Can there possibly exist a matrix $B$ such that $AB$ is invertible? Why or why not?
+
+\vspace{1.75in}
+
+ \item Suppose $\vec{a}$ and $\vec{b}$ are vectors in $\R^n$ for which it is known that $\vec{a}\dotp \vec{b} = 4$ and $(\vec{a}+\vec{b})\dotp \vec{b} = 13$. What is $\len{\vec{b}}$?
+
+\vspace{1.75in} 
+
+ \item Suppose $\lambda=0$ is an eigenvalue of $A$. Can $A$ be invertible? Why or why not?
+\end{enumerate}
+\newpage
+
+\item Compute the determinant of the matrix \points{8}
+\[
+ A = \begin{bmatrix}4&-1&3&-1\\3&1&0&2\\0&1&2&2\\1&2&-1&1\end{bmatrix}
+\]
+
+\newpage
+
+\item Let $A=\begin{bmatrix}1&0&-3\\0&1&4\\-2&2&15\end{bmatrix}$
+\begin{enumerate}
+ \item Compute the inverse of $A$. \points{5}
+
+\vspace{4in}
+
+ \item Write $A^{-1}$ as a product of elementary matrices. \points{3}
+
+\vspace{1.75in}
+
+ \item Write $A$ as a product of elementary matrices. \points{2}
+\end{enumerate}
+\newpage
+
+\item \begin{enumerate}
+       \item Find the equation of the plane containing the points $P=(0,1,2)$, $Q=(-1,0,4)$, and $R=(2,1,3)$.\points{5}
+
+\vspace{3in}
+
+ \item Find the area of the triangle whose corners are given by the three points $P,Q,R$ in part (a). \points{2}
+
+\vspace{2in}
+
+ \item Find the shortest distance from the point $P_0 = (4,-2,7)$ to the plane in part (a). \points{3}
+      \end{enumerate}
+\newpage
+
+\item Find point of intersection of the line $\begin{bmatrix}x&y&z\end{bmatrix}^T = \begin{bmatrix}1&0&-2\end{bmatrix}^T+t\begin{bmatrix}-2&3&1\end{bmatrix}^T$ and the plane given by the equation $x-3y+2z=4$. \points{5}
+
+\vspace{4in}
+
+\item Find the line of intersection of the planes $x+y+z=7$ and $2x-y+4z=3$. \points{5}
+
+\newpage
+
+\item Given $z=\sqrt{3}-i$, find the value of $z^7$. Express your answer in the form $x+iy$. \points{4}
+
+\vspace{4in}
+
+\item Find all complex solutions to the equation $z^3=-1$. \points{4} Express your answers in the form $x+iy$.
+
+\newpage
+
+\item Let $A=\begin{bmatrix}0&1&1\\1&0&1\\1&1&0\end{bmatrix}$.\points{10} If possible, find an invertible matrix $P$ and a diagonal matrix $D$ such that $P^{-1}AP=D$.
+
+(You do not have to compute $P^{-1}$ or compute the product $P^{-1}AP$ to show it equals $D$.)
+
+\newpage
+
+\item Let $A$ be an $n\times n$ matrix.
+\begin{enumerate}
+ \item Show that if $B$ is similar to $A$, then $\det A = \det B$. \points{3}
+
+\vspace{2in}
+
+ \item Suppose $\vec{u}_1,\vec{u}_2,\ldots, \vec{u}_k$ are eigenvectors of $A$ that all correspond to the same eigenvalue $\lambda$. Show that $\vec{v}\in\operatorname{span}\{\vec{u}_1,\ldots,\vec{u}_k\}$, then $\vec{v}$ is also an eigenvector corresponding to $\lambda$. \points{4}
+
+\vspace{3in}
+
+ \item Let $A$ be an $n\times n$ matrix of real numbers. Show that if $\lambda\in\mathbb{C}$ is an eigenvalue of $A$, then so is $\overline{\lambda}$. \points{3}
+
+\end{enumerate}
+
+\end{enumerate}
+\newpage
+
+{\bf Extra page for rough work. Do not remove if you want anything on this page to be graded.}
+
+
+
+
+\end{document}

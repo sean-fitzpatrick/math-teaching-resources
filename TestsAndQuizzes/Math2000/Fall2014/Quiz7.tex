@@ -1,0 +1,63 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000}\chead{Quiz \# 7}\rhead{Thursday, 30\textsuperscript{th} October, 2014}
+\rfoot{Total: 10 points}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\modd}[3]{#1\equiv #2 \pmod{#3}}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+\noindent{{\bf Name and student number:}}
+
+ \begin{enumerate}
+ \item Let $A=\{a,b,c,d\}$, $B=\{a,b,c\}$, and $C=\{s,t,u,v\}$.
+\begin{enumerate}
+ \item Create a function $f:A\to C$ whose range is the set $\{u,v\}$, or explain why it is not possible to do so. \points{2}
+
+\vspace{4in}
+
+ \item Create a function $f:B\to C$ whose range is the entire set $C$, or explain why it is not possible to do so. \points{2}
+\end{enumerate}
+\newpage
+\item In each part, you're given sets $A$ and $B$, and a function $f:A\to B$. Determine which functions are one-to-one.
+\begin{enumerate}
+ \item $A=\{1,2,3\}, B=\{1,2,3,4\}$, and $f(1)=3, f(2)=2, f(3)=1$.\points{1}
+
+\vspace{1.5in}
+
+ \item $A=B=\{1,2,3,4\}$, and $f(1)=2, f(2)=1, f(3)=2, f(4)=1$.\points{1}
+
+\vspace{1.5in}
+
+ \item $A=B=\Z$, and $f(m)=-m$.\points{2}
+
+\vspace{2in}
+
+ \item $A=B=\N$, and $f(n)=n-1$ if $n$ is even, and $f(n)=n+1$, if $n$ is odd.\points{2}
+
+\end{enumerate}
+ \end{enumerate}
+\end{document}

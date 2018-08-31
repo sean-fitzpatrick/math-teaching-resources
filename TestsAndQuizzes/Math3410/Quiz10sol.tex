@@ -1,0 +1,99 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 3410A}\chead{Quiz \# 10 Solutions}\rhead{Friday, 17\textsuperscript{th} April, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\nul}{null}
+\newcommand{\len}[1]{\lVert #1\rVert}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+
+\bigskip
+
+\begin{enumerate}
+ \item Let $T\in\mathcal{L}(V,W)$ be a linear map. Prove that if the vectors $v_1,v_2,\ldots, v_m$ span $V$, then the vectors $Tv_1,Tv_2,\ldots, Tv_m$ span $\range T$.\points{5}
+
+
+\bigskip
+
+Suppose that the vectors $v_1,\ldots, v_m$ span $v$. If $w\in \range T$, then there exists some $v\in V$ such that $Tv=w$. Since the vectors $v_1,\ldots, v_m$ span $V$, there exist scalars $c_1,\ldots, c_m$ such that
+\[
+ v=c_1v_1+\cdots +c_mv_m,
+\]
+and thus
+\[
+ w=Tv = T(c_1v_1+\cdots c_mv_m) = c_1(Tv_1)+\cdots +c_m(Tv_m),
+\]
+which shows that $w\in\operatorname{span}\{Tv_1,\ldots, Tv_m\}$, and the result follows.
+
+\bigskip
+
+
+ \item Let $S,T\in \mathcal{L}(V)$ be linear operators. Prove that if $ST=TS$, then $\range S$ is invariant under $T$. \points{5}
+
+\bigskip
+
+Suppose that $ST=TS$, and let $w\in\range S$. Then $w=Sv$ for some $v\in V$, and thus
+\[
+ Tw=T(Sv)=S(Tv)\in\range S,
+\]
+which shows that $\range S$ is invariant under $T$.
+
+\bigskip
+
+ \item {(\bf Bonus - 2 points)} (Correctly) write down the definition of {\bf any} term introduced in this course.
+
+\bigskip
+
+Listing all definitions in the course would take more space than is reasonable for quiz solutions, so instead I'll just list incorrect definitions that were submitted, with corrections, for the benefit of those who might like to avoid making the same mistake twice.
+\begin{itemize}
+ \item The symbol $\oplus$. \\
+Submitted 1: Let $U_i$ be subspaces of $V$. Then any $v\in V$ can be written as $v=u_1\oplus u_2\oplus \cdots \oplus u_n$ where $n\in\mathbb{N}$.\\
+Submitted 2: Direct sum is the sum of two vector spaces but does not include the shared space.\\
+Correct: The {\em sum} of subspaces $U_1,\ldots, U_m\subseteq V$ is the set $U$ of all vectors of the form $u=u_1+\cdots +u_m$, where $u_i\in U_i$ for $i=1,\ldots, m$. We say that the sum is {\em direct}, and write $U=U_1\oplus\cdots\oplus U_m$, if for every $u\in U$ there exist {\bf unique} vectors $u_1,\ldots, u_m$ such that $u=u_1+\cdots +u_m$.
+\item Eigenvalue.\\
+Submitted: Any numerical value $\lambda$ that corresponds to an eigenvector in a linear transformation.\\
+Correct: A number $\lambda\in\mathbb{F}$ is called an {\em eigenvalue} of an operator $T\in\mathcal{L}(T)$ if there exists a {\bf nonzero} vector $v\in V$ (called an eigenvector) such that $Tv=\lambda v$.\\
+Equivalent, but not the original definition: $\lambda\in\mathbb{F}$ is an eigenvalue of $T$ if $T-\lambda I$ is not inveritible.
+\item Dimension:\\
+Submitted: The dimension of $V$ is equal to the maximum size of a basis of $V$.\\
+Correct: The {\em dimension} of a finite-dimensional vector space $V$ is defined to be the number of vectors in {\bf any basis} of $V$.
+\item Subspace:\\
+Submitted: $U$ is a subspace of a vector space $V$ if every element of $U$ is in $V$, $U$ must be closed under addition and scalar multiplication, and must contain zero.
+Correct: The above is true, but it's a theorem, not a definition. We defined $U$ to be a subspace of a vector space $V$ if $U$ is a subset of $V$ that is also a vector space, using the same addition and scalar multiplication as $V$.
+\end{itemize}
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,46 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\inter}[1]{\overset{\,\,\circ}{#1}}
+
+\title{Math 4310 Assignment \#3\\University of Lethbridge, Fall 2014}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Friday, September 26, by 5 pm.
+
+\bigskip
+
+Please submit solutions to the following problems (except where indicated). As usual, all the textbook exercises are recommended as practice problems if they don't appear as an assigned problem below.
+
+\begin{enumerate}
+\item For each pair of points $a,b\in\mathbb{R}^n$, prove that there is a topological equivalence $f:\R^n\to \R^n$ between $(\R^n,d)$ and itself (where $d$ is the Euclidean metric -- or whatever your favourite metric equivalent to the Euclidean metric happens to be) such that $f(a)=b$.
+
+{\em Hint}: For $n=1$ you should be able to show that $f(x)=x+b-a$ does the job. For general $n\in\mathbb{N}$ you'll want to come up with something similar.
+
+\item Let $X$ be the open interval $(-\pi/2,\pi/2)$, considered as a subspace of $\R$, with the usual metric. Prove that $X$ is topologically equivalent to all of $\R$ itself. (You might have to think back to your intro calculus material to come up with a function that gives a bijection between $X$ and $\R$.) Next, prove that any two open intervals, viewed as subspaces of $\R$ are topologically equivalent. Conclude that $\R$ is topologically equivalent to any open subinterval.
+
+\item Let $(Y,d')$ be a subspace of $(X,d)$. Let $(a_n)$ be a sequence of points in $Y$ such that $a_n\to a$ in $Y$ (i.e. $(a_n)$ converges in $Y$ to $a\in Y$.) Prove that $a_n\to a$ in $X$ as well.
+
+{\em Hint}: recall that $d' = d|_{Y\times Y}$ for a subspace. Your proof shouldn't be very long. (Note however that the converse of this result is not true: for example, any sequence of rational numbers that converges to $\sqrt{2}$ cannot be considered convergent as a sequence in the metric space $\mathbb{Q}$.)
+\item Prove that if $f:X\to Y$ is a continuous map between metric spaces, and $(x_n)$ converges to $x$ in $X$, then $(f(x_n))$ converges to $f(x)$ in $Y$.
+
+\item Prove that any subset of a discrete topological space is simultaneously open and closed.
+
+
+\end{enumerate}
+\end{document}
+ 

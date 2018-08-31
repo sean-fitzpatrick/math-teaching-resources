@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 2000}\chead{Quiz \# 8}\rhead{Thursday, 6\textsuperscript{th} November, 2014}
+\rfoot{Total: 10 points}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\modd}[3]{#1\equiv #2 \pmod{#3}}
+
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+\noindent{{\bf Name and student number: Solutions}}
+
+ \begin{enumerate}
+ \item Define functions $f:\R\to [1,\infty)$ and $g:[1,\infty)\to \R$ by $f(x)=x^2+1$ and $g(x)=\sqrt{x-1}$, respectively.
+\begin{enumerate}
+ \item Compute $f(g(x))$ for $x\geq 1$. \points{2}
+
+\bigskip
+
+\noindent {\bf Solution:} For any $x\geq 1$, we have 
+\[
+ f(g(x)) = f(\sqrt{x-1}) = (\sqrt{x-1})^2+1 = x-1+1 = x.
+\]
+
+
+\bigskip
+
+ \item Compute $g(f(x))$ for $x\in\R$. \points{2}
+
+
+\bigskip
+
+\noindent {\bf Solution:} For any $x\in\R$, we have
+
+\[
+ g(f(x)) = g(x^2+1) = \sqrt{x^2-1+1} = \sqrt{x^2}.
+\]
+Note however that $\sqrt{x^2}=x$ only for $x\geq 0$. If $x<0$ we get $\sqrt{x^2}=-x$. (Since $x$ is negative, $-x$ is positive.)
+
+\bigskip
+
+
+ \item Is $g=f^{-1}$? Why or why not? \points{1}
+
+\bigskip
+
+\noindent {\bf Solution:} We note that $f$ can't have an inverse, since $f$ is not one-to-one. Also, $g$ can't be the inverse of $f$, since inverses are bijections, and $g$ is not onto, since $g(x)\geq 0$ for all $x\geq 1$. Either reason is valid. Another reason (although you may have missed it in part (b)) is that it's {\bf not} true that $g(f(x))=x$ for all $x\in \R$ -- this is only valid for $x\geq 0$, as noted above. (If it were true that $g(f(x))=x$ for all $x$, then we'd have to conclude that $g=f^{-1}$.)
+
+\bigskip
+
+\end{enumerate}
+%\newpage
+
+\item Construct an example of functions $f:A\to B$ and $g:B\to C$ such that $g$ and $g\circ f$ are onto, but $f$ is not. \points{3}
+
+
+\bigskip
+
+\noindent {\bf Solution:} There are many possible examples. A simple example is to take $A=\{1,2\}$, $B = \{a,b,c\}$, and $C=\{u,v\}$, and define $f:A\to B$ by $f(1)=a$ and $f(2)=b$ (so $f$ is not onto, since $c$ is not in the range of $f$), and define $g:B\to C$ by $g(a)=u$, $g(b)=v$, $g(c)=v$. Then $g$ is onto, and $g\circ f(1) = g(f(1))=g(a)=u$ and $g\circ f(2) = g(f(2))=g(b)=v$, so $g\circ f$ is onto.
+
+\bigskip
+
+
+\item Let $f:A\to B$ and $g:B\to C$ be functions. Prove that if $g\circ f :A\to C$ is onto, then $g$ onto. \points{2}
+
+\bigskip
+
+\noindent {\bf Solution:} Suppose that $g\circ f$ is onto, and let $c\in C$ be arbitrary. We need to find some $b\in B$ such that $g(b)=c$. Since $g\circ f:A\to C$ is onto, we know that there exists some $a\in A$ such that $g\circ f(a)=c$. If we let $b=f(a)$, then we have $g(b)=g(f(a))=g\circ f(a)=c$. Thus, $g$ is onto.
+
+\bigskip
+
+ \end{enumerate}
+\end{document}

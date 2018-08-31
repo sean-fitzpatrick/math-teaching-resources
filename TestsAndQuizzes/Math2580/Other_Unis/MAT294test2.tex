@@ -1,0 +1,197 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+%\input quizstyle.tex
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\addtolength{\headheight}{\baselineskip}
+
+\lhead{{\bf Date:} 6th November, 2008 }
+\chead{{\bf Time:} 4:10 pm}
+\rhead{MAT294H1Y}
+\cfoot{Page \thepage \ of \pageref{LastPage}}
+\rfoot{{\bf Total Marks:} 50}
+
+%Redefine the plain page style in fancyhdr package
+\fancypagestyle{plain}{%  
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{Page \thepage \ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}}
+
+\newcounter{probnum}
+\newcounter{subprobnum}
+
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\nll}{null}
+\DeclareMathOperator{\tr}{tr}
+
+\newenvironment{problems}{
+\begin{list}{\arabic{probnum}.}{\usecounter{probnum}}
+}{
+\end{list}
+}
+
+\newenvironment{subproblem}{ % start for subprob
+\begin{list}{ % first arg for list
+(\alph{subprobnum})
+}{ % second arg for list
+\usecounter{subprobnum}
+\setlength{\topsep}{0in}
+} % end of list def
+}{ % end for subprob
+\end{list}
+}
+
+\newcommand{\skipline}{\vspace{12pt}}
+%\input local.tex
+\renewcommand{\labelenumi}{(\roman{enumi})}
+
+\begin{document}
+\thispagestyle{plain}
+%Supresses the headers on the front page
+
+\centerline {\bf FACULTY OF APPLIED SCIENCE AND ENGINEERING}
+\centerline {\bf University of Toronto}
+\medskip
+\centerline {\bf MAT294H1Y}
+\centerline {\bf Calculus and Differential Equations}
+\medskip
+\centerline {Term Test \#2}
+\centerline {Duration: 110 minutes}
+\bigskip
+\bigskip
+
+\noindent {\bf NO AIDS ALLOWED.} \hfill {\bf Total: 50 marks}
+\vglue .25truein
+\begin{tabular}{ll}
+Family Name: &\underbar {\hskip 4.5in} \\
+   &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[15pt]
+Given Name(s): &\underbar {\hskip 4.5in} \\
+    &{\hskip 2truein } {\footnotesize (Please Print)}\\
+[15pt]
+Please sign here: &\underbar {\hskip 4.5in}\\
+[25pt]
+Student ID Number: &\underbar {\hskip 4.5in}\\
+\end{tabular}
+\bigskip
+
+
+%\vspace{1in}
+\begin{quote}
+{\large \bf You may not use calculators, cell phones, or PDAs during
+the test.  Partial credit will be given for partially correct work.
+Please read through the entire test before starting, and take note of
+how many points each question is worth.}
+\end{quote}
+
+\vspace{.25in}
+\begin{center}
+\begin{tabular}{|l|r|}
+\hline
+\multicolumn{2}{|c|}
+{\rule[-3mm]{0mm}{8mm}
+FOR MARKER'S USE ONLY} \\
+\hline
+Problem 1: & \hspace{.5in}  /10 \\ [3pt]
+\hline
+Problem 2: & \hspace{.5in}  /10 \\ [3pt]
+\hline
+Problem 3: & \hspace{.5in}  /10 \\ [3pt]
+\hline
+Problem 4: & \hspace{.5in}  /10 \\ [3pt]
+\hline
+Problem 5: & \hspace{.5in}  /10 \\ [3pt]
+\hline
+\hline 
+  {\rule[-3mm]{0mm}{8mm} TOTAL:}  & /50  \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+\vglue1pt
+%vglue adds space between headers and text
+
+\begin{problems}
+\item
+\begin{subproblem}
+\item Evaluate the double integral \marginpar{[5]}
+\begin{equation*}
+\int^1_0\int^{\sqrt{y}}_y(x+y)\,dx\,dy.
+\end{equation*}
+
+\newpage
+\vglue1pt
+
+\item Evaluate the double integral \marginpar{[5]}
+\begin{equation*}
+\int_0^1\int^1_y e^{y/x}\,dx\,dy.
+\end{equation*}
+\noindent {\bf Hint:} Change the order of integration.
+\end{subproblem}
+
+\newpage
+\vglue1pt
+
+\item \begin{subproblem}
+\item Find the volume of the solid bounded by the coordinate planes, and the plane \marginpar{[5]}
+\begin{equation*}
+\frac{x}{a} + \frac{y}{b} + \frac{z}{c} = 1,
+\end{equation*}
+where $a, b, c >0$.
+\newpage
+\vglue1pt
+
+\item Find the volume of the solid bounded by the cone $z^2 = x^2 + y^2$ and the cylinder $x^2+y^2 = 2y$. \marginpar{[5]}
+
+\noindent {\bf Hint \#1:} Use polar coordinates.
+
+\noindent {\bf Hint \#2:} $\displaystyle \frac{d}{d\theta}\left(\frac{\cos^3\theta}{3}-\cos\theta\right) = \sin^3\theta$.
+\end{subproblem}
+\newpage
+\vglue1pt
+\item A plane lamina has mass density $\delta(x,y) = xy$, and occupies the region $R$ given by the inequalities
+\begin{equation*}
+0\leq x \leq 1 \quad \text{ and }\quad x^2\leq y \leq 1.
+\end{equation*}
+\begin{subproblem}
+\item Find the mass of the lamina. \marginpar{[4]}
+\newpage
+\vglue1pt
+\item Find the centre of mass of the lamina.\marginpar{[6]}
+\end{subproblem}
+\newpage
+\vglue1pt
+
+\item Let $T$ be the region in space bounded by the surfaces $z=\sqrt{x^2+y^2}$ and $z=\sqrt{2-x^2-y^2}$. (You may want to sketch the region.)
+\begin{subproblem}
+\item Using {\bf cylindrical coordinates}, find the mass of the solid bounded by $T$ whose mass density is given by $\delta(x,y,z) = \lambda z$, where $\lambda$ is a positive constant.\marginpar{[5]}
+\newpage
+\vglue1pt
+\item Using {\bf spherical coordinates}, find the volume of the solid bounded by $T$. \marginpar{[5]}
+\end{subproblem}
+
+\newpage
+\vglue1pt
+\item Evaluate the integral
+\begin{equation*}
+ \iint_R xy\,dx\,dy,
+\end{equation*}
+where $R$ is the region in the $1^{\text{st}}$ quadrant bounded by the curves $x^2+y^2 = 4$, $x^2+y^2=9$, $x^2-y^2 = 1$ and $x^2-y^2 =4$.
+
+\end{problems}
+\end{document}
+
+

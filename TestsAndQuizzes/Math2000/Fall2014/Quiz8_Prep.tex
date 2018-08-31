@@ -1,0 +1,88 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\modd}[3]{#1\equiv #2 \pmod{#3}}
+
+
+\title{Practice Problems for Quiz 8\\Math 2000A}
+\date{}
+\begin{document}
+ \maketitle
+\vspace{-0.5in}
+
+Quiz \#8 will take place in class on Thursday, November 6th. 
+
+As usual, solving the problems on this sheet will significantly improve your chances of getting a high score on the quiz.
+
+{\bf Note to help session tutors}: It's 100\% OK for you to help my students solve these questions.
+\begin{enumerate}
+\item Let $\Z_5 = \{0,1,2,3,4\}$. Let $r:\Z\to\Z_5$ be the remainder function defined by the division algorithm: for any $n\in\Z$, there exist unique integers $q(n)$ and $r(n)$ such that $n=5q(n)+r(n)$ and $r(n)\in\Z_5$. For each of the following functions $f:\Z_5\to \Z_5$ below, determine if the function is a bijection. For those functions that are bijections, determine the inverse of the function. (It suffices to define $f^{-1}$ by giving its value on each element of $\Z_5$. You don't need to find a formula.)
+\begin{enumerate}
+ \item $f(x) = r(3x+1)$
+ \item $f(x) = r(2x^2)$
+ \item $f(x) = r(1+x^3)$
+\end{enumerate}
+{\bf Note}: There's nothing special about the number 5 here. We could look at the remainder function for any natural number. A set with 5 elements just happens to be a reasonable size to work with. Also, it helps that 5 is prime. (We'll see why later in the course.)
+ \item Find the composition $g\circ f$ for each of the following pairs of functions:
+\begin{enumerate}
+ \item $f:\Z\to\N$; $f(m)=m^2+1$, $g:\N\to (0,\infty)$; $g(n) = 1/n$.
+ \item $f:\R\to (0,1)$; $f(x)=1/(1+x^2)$, $g:(0,1)\to (0,1)$; $g(x)=1-x$.
+ \item $f:\R\to [1,\infty)$; $f(x)=x^2+1$, $g:[1,\infty)\to [0,\infty)$; $g(x)=\sqrt{x-1}$.
+ \item $f:\{1,2,3,4\}\to \{1,2,3,4\}$; $f(1)=4, f(2)=1, f(3)=2, f(4)=3$,\\ $g:\{1,2,3,4\}\to\{1,2,3,4\}$; $g(1)=3, g(2)=4, g(3)=1, g(4)=2$.
+\end{enumerate}
+\item Construct an example of sets $A$, $B$, and $C$, and functions $f:A\to B$ and $g:B\to C$ such that both $f$ and $g\circ f$ are one-to-one, but $g$ is not.
+\item Construct an example of sets $A$, $B$, and $C$, and functions $f:A\to B$ and $g:B\to C$ such that both $g$ and $g\circ f$ are onto, but $f$ is not.
+\item We discussed in class that if $f:A\to B$ and $g:B\to C$ are both one-to-one, then so is $g\circ f$, and that if they're both onto, then so is $g\circ f$. We also briefly looked at an example (with $A=\{1\}$ having one element, $B=\{a,b,c\}$ having three elements (or any nubmer greater than one), and $C=\{2\}$ having one element), that illustrated that it's possible to have $g\circ f$ both one-to-one and onto even if these properties fail for one of $f$ or $g$. However, at least one of the two functions has to have the given property, as the following results show:
+\begin{enumerate}
+ \item Prove that if $g\circ f:A\to C$ is one-to-one, then so is $f:A\to B$.
+
+{\em Hint:} If $f(x_1)=f(x_2)$, what can you say about $g\circ f(x_1)$ and $g\circ f(x_2)$?
+
+ \item Prove that if $g\circ f:A\to C$ is onto, then so is $g:B\to C$.
+\end{enumerate}
+
+\item Let $f:A\to B$ be one-to-one and onto. Prove that $(f^{-1})^{-1}=f$.
+\item Let $f:A\to B$ and $g:B\to A$, and let $I_A:A\to A$ and $I_B:B\to B$ denote the identity functions on $A$ and $B$, respectively.
+\begin{enumerate}
+ \item Show that if $g\circ f = I_A$, then $f$ is one-to-one.
+ \item Show that if $f\circ g = I_B$, then $f$ is onto.
+\end{enumerate}
+\item Suppose you can find functions $f:A\to B$ and $g:B\to A$ such that $g\circ f = I_A$ and $f\circ g = I_B$. Show that $f$ must be both one-to-one and onto, and that $g=f^{-1}$.
+\item Let $S=\{a,b,c,d\}$. Define $f:S\to S$ by defining $f$ to be the following set of ordered pairs:
+\[
+ f=\{(a,c),(b,b), (c,d), (d,a)\}.
+\]
+\begin{enumerate}
+ \item Draw an arrow diagram to represent the function $f$. Is $f$ a bijection?
+ \item Write the inverse of $f$ as a set of ordered pairs. Is $f^{-1}$ function? Explain.
+ \item Draw an arrow diagram for $f^{-1}$ using the arrow diagram from part (a).
+ \item Compute $(f\circ f^{-1})(x)$ and $(f^{-1}\circ f)(x)$ for each $x\in S$. What theorem does this illustrate?
+\end{enumerate}
+\item Consider the function $f(x)=(2x-1)^3$.
+\begin{enumerate}
+ \item Find functions $g(x)$ and $h(x)$ such that $f = g\circ h$.
+ \item Show that the functions $g$ and $h$ you found in part (a) are bijections, and find their inverses.
+ \item Explain how your results from part (b) can be used to solve the equation 
+\[
+ (2x-1)^3=27,
+\]
+ and then solve for $x$.
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+\end{document}
+ 

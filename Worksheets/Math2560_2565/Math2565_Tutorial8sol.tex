@@ -1,0 +1,287 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1.2in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+{\bf MATH 2565 - Tutorial \#8 Solutions}
+\end{center}
+
+
+\textbf{Additional practice}
+\begin{enumerate}
+\item Solve by separation of variables:
+\begin{enumerate}
+ \item $x^5y'+y^5=0$
+
+\medskip
+
+First, we note that $y=0$ is a solution. If $y\neq 0$,  $x^5\dfrac{dy}{dx}=-y^5$, so $y^{-5}dy = -x^{-5}dx$. Integrating both sides, we get
+ \[
+ -\frac14 y^{-4} = \frac14 x^{-4}+C.
+ \]
+ Multiplying both sides by $-4$, we get $\dfrac{1}{y^4}=k-\dfrac{1}{x^4}$, where $k=-4C$. 
+ 
+ \item $xy'=(1-4x^2)\tan y$
+ 
+ Again, one solution is $y=0$. In fact, $y=k\pi$ is a solution for each integer $k$. If $y\neq k\pi$ (in fact, we need to avoid $y=k\pi/2$ since $\tan y$ is undefined at odd multiples of $\pi/2$) we have
+ \[
+ x\dfrac{dy}{dx}=(1-4x^2)\tan y \quad\Rightarrow\quad \cot y\,dy = \left(\frac1x -4x\right)\,dx,
+ \]
+ so $\ln\abs{\sin y} = \ln\abs{x}-2x^2+C$.
+ 
+ \item $xy^2-y'x^2=0$
+
+ Once more, $y=0$ is a solution. If $y\neq 0$, we have $x^2\dfrac{dy}{dx}=xy^2$, so $y^{-2}\,dy = x^{-1}\,dx$, giving $-y^{-1} = \ln\abs{x}+C$, or
+ \[
+ y = \frac{-1}{\ln\abs{x}+C}.
+ \]
+ 
+ \item $(1+x^2)\,dy+(1+y^2)\,dx=0$
+
+ Separation of variables gives $\dfrac{1}{1+y^2}\,dy = -\dfrac{1}{1+x^2}\,dx$, so $\arctan(y) = -\arctan(x)+C$. If desired, we can solve for $y$:
+ \[
+ y = \tan(C-\arctan(x)) = \frac{\tan(C)-x}{1+\tan{C}x} = \frac{k-x}{1+kx},
+ \]
+ where $k=\tan(C)$ is a constant.
+\end{enumerate}
+\newpage
+
+
+\item Solve the linear differential equation:
+
+\begin{enumerate}
+ \item $y'+y=\dfrac{1}{1+e^{2x}}$
+
+Using the integrating factor $P(x)=e^x$, we get
+\[
+e^xy'+e^xy = \frac{d}{dx}(e^xy) = \dfrac{e^x}{1+e^{2x}}.
+\]
+Integrating both sides, we find $e^xy = \arctan(e^x)+C$, so
+\[
+y = e^{-x}(C+\arctan(e^x)).
+\]
+
+ \item $xy'-3y=x^4$
+
+We have $y'-\frac{3}{x}y = x^3$, for $x\neq 0$. Our integrating factor is
+\[
+P(x) = e^{\int (-3/x)\,dx} = e^{-3\ln x} = x^{-3}.
+\]
+Multiplying by $x^{-3}$ gives us
+\[
+x^{-3}y'-3x^{-4}y = \frac{d}{dx}(x^{-3}y) = 1,
+\]
+so $x^{-3}y = x+C$, giving $y = x^4+Cx^3$.
+
+ \item $y'+y\cot x = 2x\csc x$
+
+The integrating factor is
+\[
+P(x) = e^{\int \cot x\,dx} = e^{\ln(\sin(x))} = \sin(x).
+\]
+Multiplying by $P(x)$, we get
+\[
+\sin(x)y'+\cos(x) y = \frac{d}{dx}(\sin(x)y) = 2x,
+\]
+so $\sin(x)y=x^2+C$, and $y=(x^2+C)\csc(x)$.
+
+ \item $(1+x)y'+4y=3x$
+
+Dividing by $1+x$, with the restriction $x\neq -1$, we have $y'+\frac{4}{1+x}y = \frac{3x}{1+x}$.
+
+This gives us $P(x) = e^{\int 4/(1+x)\,dx} = e^{4\ln(x+1)} = (x+1)^4$, and multiplying by $P(x)$, we get
+\[
+(1+x)^4y'+4(1+x)^3y \frac{d}{dx}((1+x)^4y)= 3x(1+x)^4.
+\]
+Noting that
+\[
+\int x(x+1)^4\,dx = \int (u-1)u^4\,du = \frac{u^6}{6}-\frac{u^5}{5} = \frac{(x+1)^6}{6}-\frac{(x+1)^5}{5},
+\]
+we get
+\[
+(1+x)^4y = \frac12 (1+x)^6-\frac35 (1+x)^5+C,
+\]
+so
+\[
+y=\frac12 (1+x)^2-\frac35 (1+x) + \frac{C}{(1+x)^4}.
+\]
+
+\end{enumerate}
+
+
+\item Determine if the series converges or diverges:
+
+\begin{enumerate}
+ \item $\di \sum_{n=1}^\infty \frac{7^n}{6^n}$ diverges. (Geometric with $r=7/6>1$)
+ 
+ \item $\di \sum_{n=1}^\infty \frac{10}{n!} = 10 \sum_{n=1}^\infty\frac{1}{n!} = 10e$ converges. 
+ \item $\di \sum_{n=1}^\infty\left(\frac{1}{n!}+\frac{1}{n}\right)$ diverges since $\di \sum_{n=1}^\infty\frac1n$ diverges.
+\end{enumerate}
+
+\end{enumerate}
+
+\newpage
+%\thispagestyle{empty}
+
+
+\textbf{Assigned problems}
+
+
+ \begin{enumerate}
+\item Solve the initial value problem:
+\begin{enumerate}
+\item $\dfrac{y'}{1+x^2}=\dfrac{x}{y}$, $y(1)=3$.
+
+Using separation of variables, we get $2y\,dy = 2x(1+x^2)=x+x^3\,dx$, (I multiplied by 2 to simplify the antiderivatives in the next step) so
+\[
+y^2 = x^2+\frac12 x^4+C.
+\]
+When $x=1$, $3^2 = 1 +\frac12 +C$, giving $C= 9-\frac32=\frac{15}{2}$, so
+\[
+y = \sqrt{x^2+\frac12 x^4+\frac{15}{2}}.
+\]
+(Since $y(1)=3>0$, we take the positive square root.)
+
+
+\item $y'-2xy = 6xe^{x^2}$, $y(0)=1$.
+
+This is linear, with integrating factor $P(x) = e^{\int(-2x)\,dx} = e^{-x^2}$. We find
+\[
+\frac{d}{dx}(e^{-x^2}y) = e^{-x^2}y' -2xe^{-x^2}y = 6x,
+\]
+so $e^{-x^2}y=3x^2+C$. When $x=0$, $y=1$, so $e^{0}(1)=0+C$, giving $C=1$ and $y=(3x^2+1)e^{x^2}$.
+
+\item $x^2y'+xy=2x$, $y(1)=4$.
+
+Dividing by $x^2$, $x\neq 0$ (note that our initial condition forces $x>0$ for the domain of solution) we get
+\[
+y' + \frac1x y = \frac2x.
+\]
+Our integrating factor is $P(x) = e^{\int 1/x\,dx} = x$, so 
+\[
+xy'+y = \frac{d}{dx}(xy) = 2.
+\]
+Integrating gives $xy = 2x+C$, and when $x=1$, $y=4$, so $(1)(4)=2(1)+C$, giving $C=2$, and $y=2+\dfrac{2}{x}$.
+\end{enumerate}
+ \newpage
+ 
+\item Initially 5 grams of salt are dissolved in 20 litres of water.
+Brine with concentration of salt 2 grams of salt per litre is
+added at a rate of 3 litres a minute. The tank is mixed well
+and is drained at 3 litres a minute. How long does the process have to continue until there are 20 grams of salt in the
+tank?
+
+\bigskip
+
+Let $x(t)$ denote the amount of salt at time $t$. We have $x(0)=0$, and since the volume is a constant 20 l (the flow rate in equals the flow rate out), the concentration of salt in the tank is $C_x = x/20$. 
+
+Salt is flowing in at a rate of $(2\text{ g/l})\times (3\text{ l/min})=6\text{ g/min}$ and flowing out at a rate of $(C_x\text{ g/l})\times (3\text{ l/min}) = 3x/20\text{ g/min}$. Thus,
+\[
+x'(t) = 6-\frac{3x(t)}{20}, \text{ or } x'(t)+\frac{3}{20}x(t)=6.
+\]
+Multiplying both sides by the integrating factor $e^{3t/20}$, we get
+\[
+\frac{d}{dt}(e^{3t/20}x(t))=6e^{3t/20},
+\]
+so $e^{3t/20}x(t) = 40e^{3t/30}+C$. Since $x(0)=5$, we have $5=40+C$, so $C=-35$. Thus,
+\[
+x(t) = 40-35e^{-3t/30}.
+\]
+
+\medskip
+
+When there are 20 grams of salt in the tank, we have 
+\[
+x(t)=20=40-35e^{-3t/20},
+\]
+so $35e^{-3t/20}=20$, giving $e^{-3t/20}=\dfrac47$, so $t=\dfrac{20}{3}\ln\left(\frac{7}{4}\right)=\approx 3.73$ minutes.
+\newpage
+
+\item Find the limit of the sequence, or explain why it does not converge:\begin{enumerate}
+ \item $a_n = \dfrac{n-1}{n}-\dfrac{n}{n-1}$
+
+\[
+\lim_{n\to\infty}a_n = \lim_{n\to \infty}\left(\frac{n-1}{n}\right)-\lim_{n\to\infty}\left(\frac{n}{n-1}\right) = 1-1=0.
+\]
+
+ \item The sequence $\{a_n\}$ defined by $a_1 = \sqrt{2}$ and $a_{n+1} = \sqrt{2a_n}$ for all $n\geq 1$. (You may assume that the sequence converges.)
+ 
+ Assuming the limit exists, let $a=\lim_{n\to\infty}a_n$. Since the square root function is continuous,
+ \[
+ a = \lim_{n\to\infty}a_{n+1} = \lim_{n\to\infty}\sqrt{2a_n} = \sqrt{2\lim_{n\to\infty}a_n} = \sqrt{2a}.
+ \]
+ Squaring both sides, we get $a^2=2a$, so there are two possibilities: $a=0$, or $a=2$. We know that $a_1=\sqrt{2}$ is between these two values, so we might ask: is the sequence increasing or decreasing?
+ 
+Computing the first few terms suggests that the sequence should be increasing. To confirm, note that $a_2 = \sqrt{2\sqrt{2}}=\sqrt[4]{2}\sqrt{2} = \sqrt[4]{2}a_1>a_1$, and if we assume that $a_{n+1}>a_n$ for some $n\geq 1$, then
+\[
+a_{n+2} = \sqrt{2a_{n+1}}>\sqrt{2a_n} = a_{n+1}.
+\]
+It follows by induction that the sequence is increasing. A similar argument shows that the sequence is bounded above by 2. This guarantees that the limit exists, and the calculation above shows that the limit must be equal to 2.
+ 
+\end{enumerate}
+\item Determine if the series converges or diverges:
+\begin{enumerate}
+
+ \item $\di \sum_{n=1}^\infty \frac{\sqrt{n}+1}{n^2} = \sum_{n=1}^\infty \frac{1}{n^{3/2}} +\sum_{n=1}^\infty \frac{1}{n^2}$ converges since it can be written as the sum of two convergent series. (Both are $p$-series with $p>1$.)
+
+
+
+ \item $\di \sum_{n=1}^\infty \frac{3^n}{5^n} = \sum_{n=1}^\infty \left(\frac35\right)^n$ converges, since it's a geometric series with $r=3/5<1$.
+ 
+ (The limit is $\frac{3/5}{1-3/5} = \frac{3}{2}$.)
+
+
+ \item $\di \sum_{n=1}^\infty e^{-n} = \sum_{n=1}^\infty (e^{-1})^n$ is a geometric series with $r=e^{-1}<1$, so it converges.
+ 
+ (The limit is $\dfrac{1/e}{1-1/e} = \dfrac{1}{e-1}$.) 
+ 
+ 
+ 
+ \item $\di \sum_{n=1}^\infty \ln\left(\frac{n}{n+1}\right) = \sum_{n=1}^\infty(\ln n - \ln(n+1))$.
+ 
+ This is a telescoping series; however, the $N^{\text{th}}$ partial sum is
+ \[
+ S_N = (\ln(1)-\ln(2))+(\ln(2)-\ln(3))+\cdots + (\ln(N)-\ln(N+1)) = -\ln(N+1) 
+ \]
+ so the series diverges, since $\lim_{N\to\infty}S_N = -\infty$.
+\end{enumerate}
+\end{enumerate}
+\end{document}

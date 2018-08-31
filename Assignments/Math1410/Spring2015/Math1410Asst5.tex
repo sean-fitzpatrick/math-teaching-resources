@@ -1,0 +1,125 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\col}{col}
+
+\title{Math 1410 Assignment \#5\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} {\bf Thursday}, April 16th, by 5 pm.
+
+\bigskip
+
+Assignment \#5 should be prepared according to the usual guidelines. Things that are {\bf not} allowed include, but are not limited to: paying someone else to do it, standing by the drop box on the due date and begging for answers, and photocopying someone else's assignment and writing your name on it. Things that {\bf are} allowed include asking myself or Allysa for help, posting questions on Piazza, and talking to each other.
+
+\subsection*{Assigned problems}
+\begin{enumerate}
+\item Let $A$ be an $m\times n$ matrix. Let $\R^n$ and $\R^m$ denote the spaces of $n\times 1$ and $m\times 1$ column vectors, respectively. We define the {\em null space} of $A$ by
+\[
+ \nul A = \{\vec{x}\in\R^n \,|\, A\vec{x}=\vec{0}\}.
+\]
+That is, $\nul A$ is the set of all vectors $\vec{x}$ such that $A\vec{x}=\vec{0}$, which can also be thought of as the set of all solutions $\vec{x}$ to the homogeneous system of linear equations $A\vec{x}=\vec{0}$. 
+\begin{enumerate}
+ \item Show that $\nul A$ is a subspace of $\R^n$.
+
+{\em Reminder:} To show that a set $V$ is a subspace, you need to check two things: (1) it contains the zero vector. (2) if $\vec{u}$ and $\vec{v}$ belong to $V$, then so does $a\vec{u}+b\vec{v}$ for all scalars $a$ and $b$.
+
+ \item If $A = \begin{bmatrix}
+                1&-2&1&1\\-1&2&0&1\\2&-4&1&0
+               \end{bmatrix}$, find a basis for $\nul A$.
+
+{\em Hint:} The problem isn't difficult once you realize it's a Chapter 1 question (about the solution to a homogeneous system) phrased in different language.
+
+
+{\bf Note:} Given $A$, we can also define a subspace of $\R^m$, called the {\em column space} of $A$, by 
+\[
+\col A = \{\vec{y}\in\R^m\,|\, \vec{y}=A\vec{x} \text{ for some } \vec{x}\in\R^n\}.
+\]
+Note that $\col A$ can be thought of as the set of all $\vec{y}\in\R^m$ such that the system $A\vec{x}=\vec{y}$ is consistent. You may recall from the last assignment that this is equivalent to $\vec{y}$ being in the span of the columns of $A$ -- hence the name ``column space''. If we think of $A$ as defining a function $f:\R^n\to\R^m$ given by $f(\vec{x})=A\vec{x}$, then $\col A$ is the range of that function. To find a basis for $\col A$, we can use the following theorem:
+
+\medskip
+
+{\bf Theorem}: A basis for $\col A$ is given by the columns of $A$ such that the corresponding columns in the row-echelon form of $A$ contain a leading 1.
+
+\medskip
+
+(For example, if the REF of $A$ has leading 1s in columns 1 and 2, then the first two columns of $A$ would form a basis for $\col A$.) 
+
+You do {\bf not} have to hand this in, but if you're curious, it's a good exercise to also find a basis for $\col A$ for the matrix above.
+\end{enumerate}
+\item Complex vectors in $\C^n$ are given by $n\times 1$ matrices of complex numbers $\vec{z} = \langle z_1, z_2, \cdots ,  z_n\rangle$. The {\bf norm} of a complex vector $\vec{z}$ is defined by
+\[
+ \len{\vec{z}} = \sqrt{\abs{z_1}^2+\abs{z_2}^2+\cdots + \abs{z_n}^2},
+\]
+where $\abs{z_i} = \sqrt{z_i\overline{z_i}}$ denots the modulus of the complex number $z_i$. We can also generalize the dot product to $\C^n$; however, it needs to be modified slightly. We want to preserve the rule that $\len{z} = \sqrt{\vec{z}\dotp\vec{z}}$, which requires that we define
+\[
+ \vec{z}\dotp \vec{w} = z_1\overline{w_1}+z_2\overline{w_2}+\cdots +z_n\overline{w_n}.
+\]
+The properties of the complex dot product are similar to the real dot product, except that it is no longer symmetric: we have
+\[
+ \vec{w}\dotp \vec{z} = \overline{\vec{z}\dotp\vec{w}}.
+\]
+(Since we take the complex conjugate of the components of the second vector, reversing the order in the dot product is the same as taking the complex conjugate.) With the above in mind,
+\begin{enumerate}
+ \item Compute the norm of the complex numbers
+\begin{align*}
+ \vec{u} & = \langle 1+i, 2-3i\rangle\\
+ \vec{z} & = \langle 1, 1-i, -2, i\rangle\\
+ \vec{w} & = \langle 1-i, 1+i, 1, 3-4i\rangle
+\end{align*}
+ \item Determine whether or not the following pairs of complex vectors are orthogonal:
+\begin{align*}
+ \vec{z} = \langle 4, -3i,2+i\rangle & \text{ and } \vec{w} = \langle i, 2, 2-4i\rangle\\
+ \vec{z} = \langle i, -i, 2+i\rangle &\text{ and } \vec{w} = \langle i, i, 2-i\rangle\\
+ \vec{z} = \langle 1, 1, i, i\rangle & \text{ and } \vec{w} = \langle 1, i, -i, 1\rangle
+\end{align*}
+
+\end{enumerate}
+\newpage
+\item In each case, decide whether the matrix $A$ is diagonalizable. If so, find a matrix $P$ such that $P^{-1}AP$ is diagonal:
+\begin{enumerate}
+ \item $A=\begin{bmatrix}
+           3&0&6\\0&-3&0\\5&0&2
+          \end{bmatrix}$
+ \item $A=\begin{bmatrix}
+           4&0&0\\0&2&2\\2&3&1
+          \end{bmatrix}$
+
+
+\end{enumerate}
+\item ({\bf Bonus}) Prove the following: Let $A$ be any $n\times n$ matrix, and let $p(x)$ be a polynomial. Recall that if $p(x)=a_0+a_1x+a_2x^2+\cdots + a_kx^k$, then
+\[
+ p(A) = a_0I_n + a_1A + a_2A^2+\cdots + a_kA^k.
+\]
+\begin{enumerate}
+ \item Supppose that $\vec{x}$ is an eigenvector of $A$ with eigenvalue $\lambda$. Prove that
+\[
+ p(A)\vec{x} = p(\lambda)\vec{x},
+\]
+where $p(\lambda)$ denotes the scalar obtained by subsituting $x=\lambda$ in the polynomial $p(x)$.
+ \item Prove that if $A$ is diagonalizable, then the Cayley-Hamilton theorem holds: we have $c_A(A)=0$, where $A$ is the characteristic polynomial of $A$.
+\end{enumerate}
+
+
+\end{enumerate}
+
+
+\end{document}
+ 

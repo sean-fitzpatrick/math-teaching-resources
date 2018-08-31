@@ -1,0 +1,168 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 4 Solutions}\rhead{Tuesday, 2\textsuperscript{nd} February, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newenvironment{aamatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|cc}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}  
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+     
+\DeclareMathOperator{\proj}{proj}            
+                  
+\begin{document}
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+
+ \begin{enumerate}
+ \item Solve the system of linear equations below by (a) forming the corresponding augmented matrix, and (b) using Gaussian elimination (row operations) to reduce it to row-echelon form.
+\[
+ \begin{array}{ccccccc}
+  x&-&2y&+&z&=&4\\
+ -x&+&y&-&2z&=&-2\\
+ 2x&-&4y&+&3z&=&9
+ \end{array}
+\]
+
+\bigskip
+
+The augmented matrix is given by $[A|\vec{b}] = \bam{3}1&-2&1&4\\-1&1&-2&-2\\2&-4&3&9\eam$. We proceed using row operations to simplify this matrix. Since we already have a leading 1 in the upper left-hand corner, we begin by adding Row 1 to Row 2, and then subtracting 2 times Row 1 from Row 3, to create zeros below this leading one:
+\[
+ \bam{3}1&-2&1&4\\-1&1&-2&-2\\2&-4&3&9\eam  \xrightarrow[R_3\to R_3-2R_1]{R_2\to R_2+R_1} \bam{3}1&-2&1&4\\0&-1&-1&2\\0&0&1&1\eam \xrightarrow[]{R_2 \to (-1)R_2} \bam{3}1&-2&1&4\\0&1&1&2\\0&0&1&1\eam.
+\]
+At this point, our augmented matrix is in row-echelon form: each row begins with a leading 1, and each leading 1 has only 0s below it. If we like, we can now solve using back substitution: the third row tells us $z=1$; the second row tells us $y+z=-2$, and plugging $z=1$ into this gives us $y+1=-2$, so $y=-3$. The first row tells us that $x-2y+z=4$, and putting $y=-3$, $z=1$ into this equation gives us $x-2(-3)+1=4$, or $x+7=4$, so $x=-3$. This gives us the solution
+\[
+ x=-3,\quad y=-3, \quad, z=1.
+\]
+We can verify that our solution works: $-3-2(-3)+1 = -3+6+1 = 4$, so it satisfies the first equation. $-(-3)+(-3)-2(1) = -2$, so it satisfies the second equation. $2(-3)-4(-3)+3(1) = -6+12+3 = 9$, so it satisfies the third equation, as well.
+
+\bigskip
+
+If you prefer not to do back substitution, you can proceed to reduced row-echelon form. Since the third row now has two 0s and a 1, we can use the 1 to eliminate entries above it in the third column, without changing anything in the first two columns. Once that's done, our last step will be to eliminate the -2 at the top of the second column:
+\[
+ \bam{3}1&-2&1&4\\0&1&1&2\\0&0&1&1\eam  \xrightarrow[R_2\to R_2-R_3]{R_1\to R_1-R_3} \bam{3}1&-2&0&3\\0&1&0&-3\\0&0&1&1\eam \xrightarrow[]{R_1\to R_1+2R_2} \bam{3} 1&0&0&-3\\0&1&0&-3\\0&0&1&1\eam.
+\]
+This is the reduced row-echelon form of our augmented matrix, and from here we can immediately read off our solution of $x=-3, y=-3, z=1$.
+\newpage
+
+ \item Consider the following system of two equations in three variables:
+\[
+ \begin{array}{ccccccc}
+  x&+&2y&-&3z=6\\
+ 2x&+&5y&-&4z=-3
+ \end{array}
+\]
+\begin{enumerate}
+ \item What geometric object in $\R^3$ (3-dimensional space) is defined by each of the individual equations? (A point? A line? A plane? Something else?)
+
+\medskip
+
+Each of these equations defines a plane in $\R^3$.
+
+\medskip
+
+ \item Find a one-parameter family of solutions to the system of equations above. (It should only take one row operation for row-echelon form, two for reduced row-echelon form.)
+
+\bigskip
+
+We probably don't need to use an augmented matrix here, but just for fun, we have
+\[
+ \bam{3} 1&2&-3&6\\2&5&-4&-3\eam \xrightarrow[]{R_2\to R_2-2R_1} \bam{3} 1&2&-3&6\\0&1&2&-15\eam \xrightarrow[]{R_1\to R_1-2R_2} \bam{3}1&0&-7&36\\0&1&2&-15\eam
+\]
+Since the $z$-column has no leading one, we set $z=t$ as our parameter. The first row of the reduced row-echelon form then gives us $x-7z=36$, so $x=36+7t$, and the second row gives us $y+2z=-15$, so $y=-15-2t$. Our solution is therefore
+\[
+ x=36+7t,\quad y=-15-2t,\quad z=t.
+\]
+
+
+
+ \item Write your solution to part (b) in vector form ( as $\bbm x\\y\\z\ebm = \ldots$). What geometric object in $\R^3$ does your solution represent? Does this seem reasonable?\\ (Note that any point $(x,y,z)$ that satisfies {\bf both} of the original equations belongs to the {\bf intersection} of the objects defined by those equations.
+
+\bigskip
+
+In vector form, we have $\bbm x\\y\\z\ebm = \bbm 36\\-15\\0\ebm + t\bbm 7\\-2\\1\ebm$, which is the vector equation of a line through the point $(36,-15,0)$ in the direction of the vector $\vec{v} = \bbm 7&-2&1\ebm^T$. Since each of the original equations describes a plane, any solution to the system must be a point that lies on both planes (since it satisfies both equations). The set of all solutions is therefore the intersection of the two planes, and it makes sense that the intersection of two planes in $\R^3$ is a line.
+
+\item Suppose it had turned out that the system of equations had no solutions. How would you explain this visually?
+
+\bigskip
+
+The only way there would be no solution is if the left-hand side of the second equation was a multiple of the first, but this was not true of the right-hand side. Since the coefficients of $x$, $y$, and $z$ determine the normal vector, this would mean that the normal vector for the second plane was a scalar multiple of the first, and the two planes would therefore be parallel. A system of two equations in three unknowns is therefore represented by a pair of parallel planes, and since parallel planes don't intersect, there should not be any solutions to the system.
+\end{enumerate}
+
+
+
+
+ \end{enumerate}
+\end{document}
+\newpage
+
+{\bf Exam preparation:} Do not hand in this page. Take it home with you, and make sure you can confidently answer every question below. (You will have to be able to do some -- perhaps all -- of these things on the test, so anything left unanswered represents marks left unearned on your test.)
+
+\bigskip
+
+{\bf How do I ...}
+\begin{enumerate}
+ \item Compute the distance between two points? (In $\R^2$? In $\R^3$? In $\R^n$?)
+ \item Determine the vector $\overrightarrow{PQ}$ whose tail is at the point $P$ and whose head is at the point $Q$?
+ \item Determine the point $Q$, if given $P$ and $\overrightarrow{PQ}$, or the point $P$, if given $Q$ and $\overrightarrow{PQ}$?
+ \item Calculate the length of a vector?
+ \item Add two vectors together, or multiply a vector by a scalar?
+ \item Calculate the dot product of two vectors?
+ \item Calculate the angle between two vectors?
+ \item Define a line in $\R^3$? (What are the parametric equations? What is the vector equation?)
+ \item Find the equation(s) of a line, given a point on the line and a vector parallel to the line (direction vector)? What if I'm given two points on the line? Or a point on the line and the equation(s) of a parallel line?
+ \item Find either a point on a line, or a vector in the direction of the line, if given the equations of the line?
+ \item Determine the equation of a plane, if given a point on the plane and the normal vector?
+ \item Determine a point on a plane, or the normal vector to the plane, if given the equation of the plane?
+ \item Compute a projection?
+ \item Describe a projection using a diagram? (If I'm projecting a vector $\vec{a}$ onto a vector $\vec{b}$, and drawing each vector as an arrow, where do I locate the tails of $\vec{a}$, $\vec{b}$, and $\proj_{\vec{b}}\vec{a}$? Where do I locate the heads?)
+ \item Take a vector $\vec{a}$, and, with resepct to a second vector $\vec{b}$, write it as $\vec{a} = \vec{a}_\parallel + \vec{a}_\bot$ where $\vec{a}_\parallel$ is parallel to $\vec{b}$, and $\vec{a}_\bot$ is orthogonal to $\vec{b}$?
+ \item Find the shortest distance from a point to a line?
+ \item Find the shortest distance from a point to a plane?
+ \item Find the intersection of a line and a plane?
+ \item Find the intersection of two lines?
+ \item Find the intersection of two planes?
+\end{enumerate}
+(Note that the last two items require you to solve a system of equations.)

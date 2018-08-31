@@ -1,0 +1,228 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.75in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 8 Solutions}\rhead{Tuesday, 8\textsuperscript{th} March, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newenvironment{aamatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|*{#1}{c}@{}}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\newcommand{\bvm}{\begin{vmatrix}}
+\newcommand{\evm}{\end{vmatrix}}  
+\DeclareMathOperator{\proj}{proj}   
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+         
+                  
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+%Please complete all problems below.
+ \begin{enumerate}
+  \item Let $A = \bbm 1&5&-3\\2&3&4\\-2&-7&3\ebm$
+\begin{enumerate}
+ \item Compute $\det A$ using cofactor (Laplace) expansion along the row or column of your choice.
+
+\bigskip
+
+Expanding along the first row, we have
+\begin{align*}
+ \det A &= 1(+1)\bvm 3&4\\-7&3\evm + 5(-1)\bvm 2&4\\-2&3\evm + (-3)(+1)\bvm 2&3\\-2&-7\evm\\
+&= 1(9+28)-5(6+8)-3(-14+6) = 37-70+24 = -9.
+\end{align*}
+
+
+ \item Compute $\det A$ by first using row operations to reduce $A$ to triangular form. (Keep in mind that some row operations effect the value of $\det A$.)
+
+\bigskip
+
+We proceed as follows:
+
+\begin{align*}
+ \bvm 1&5&-3\\2&3&4\\-2&-7&3 \evm & = \bvm 1&5&-3\\0&-7&10\\0&3&-3\evm & & \text{(Using $R_2\to R_2-2R_1$ and $R_3\to R_3 +2R_1$)}\\
+& = \bvm 1&5&-3\\0&-1&4\\0&3&-3\evm & & \text{(Using } R_2\to R_2+2R_3)\\
+& = \bvm 1&5&-3\\0&-1&4\\0&0&9\evm & & \text{(Using } R_3\to R_3+3R_2)\\
+& = 1(-1)(9)=-9.
+\end{align*}
+
+Note that the above used only ``Type 3'' row operations, which do not affect the determinant. One option you might have tried is to get rid of the factor of 3 in the third row after the first equality. You need to remember that the row operation $R_3\to \dfrac{1}{3}R_3$ affects the value of the determinant: the determinant of the resulting matrix is one third the determinant of the original matrix. One way to keep track of this is to think of ``factoring out'' the 3, as follows:
+\[
+ \bvm 1&5&-3\\0&-7&10\\0&3&-3\evm = 3\bvm 1&5&-3\\0&-7&10\\0&1&-1\evm.
+\]
+
+Note also that I did one more row operation than necessary in order to avoid fractions. From the right-hand side of the first line, I could have used the row operation $R_3\to R_3+\frac{3}{7}R_2$ to get (in one step)
+\[
+ \bvm 1&5&-3\\0&-7&10\\0&3&-3\evm = \bvm 1&5&-3\\0&-7&10\\0&0&\frac{9}{7}\evm = 1(-7)\left(\frac{9}{7}\right) = -9.
+\]
+
+
+ \item Use Cramer's rule to find the value of $x$ in the solution to the following system of equations:
+\[
+ \begin{array}{ccccccc}
+  x&+&5y&-&3z&=&2\\
+ 2x&+&3y&+&4z&=&-1\\
+-2x&-&7y&+&3z&=&0
+ \end{array}
+\]
+\end{enumerate}
+
+Cramer's rule states that $x=\dfrac{\det A_x}{\det A}$, where $A_x = \bbm 2&5&-3\\-1&3&4\\0&-7&3\ebm$ is the matrix obtained by replacing the $x$ column in the coefficient matrix $A$ by the column $\bbm 2\\-1\\0\ebm$ of constants from the right-hand sides of the equations. Noting that the coefficient matrix $A$ is the same one from part (a) --- now that I've fixed the typo --- we know that $\det A =-9$. We then compute
+\[
+ \det A_x = \bvm 2&5&-3\\-1&3&4\\0&-7&3\evm = \bvm 0 & 11&5\\-1&3&4\\0&-7&3\evm = (-1)(-1)\bvm 11&5\\-7&3\evm = 1(33+35)=68,
+\]
+where we've used the row operation $R_1\to R_1+R_2$ to create a zero in the upper left-hand corner, and then expanded along the third column. We thus have $x=-\dfrac{68}{9}$.
+
+\item Let $A$ be a $3\times 3$ matrix such that $\det A = 4$. Compute the determinant of the following matrices:
+\begin{enumerate}
+ \item $B=EA$, where $E$ is the elementary matrix $E=\bbm 3&0&0\\0&1&0\\0&0&1\ebm$
+
+\medskip
+
+Since $EA$ is obtained from $A$ by multiplying Row 1 by 3, we know that $\det(EA) = 3\det A = 12$.
+
+Alternatively, $\det(EA) = \det E\cdot \det A = 3\cdot 4 = 12$.
+
+ \item The matrix $C$ obtained by switching rows 2 and 3 of $A$.
+
+\medskip
+
+Since swapping two rows changes the sign of the determinant, $\det C = -\det A = -4$.
+
+
+ \item The matrix $2A$.
+
+\medskip
+
+Multiplying $A$ by 2 multiplies each of the three rows of $A$ by 2. Since multiplying a single row of $A$ by 2 multiplies the determinant by 2, and we're doing this three times, we have $\det (2A) = 2\cdot 2\cdot 2\cdot \det A = 2^3 \det A = 8\cdot 4 = 32$.
+
+\end{enumerate}
+
+\pagebreak
+
+\item With the help of your classmates, come up with as many answers as possible to fill in the blank below:
+
+\medskip
+
+An $n\times n$ matrix $A$ is invertible if and only if \underline{\hspace{2in}}.
+
+\medskip
+
+Some possible answers include:
+\begin{itemize}
+ \item $AB = I$ for some $n\times n$ matrix $B$.
+ \item $\det A\neq 0$
+ \item The system of equations $AX=B$ has a unique solution.
+ \item The rank of $A$ is $n$.
+ \item There are no rows of zeros in the row-echelon form of $A$.
+ \item $A$ is a product of elementary matrices.
+\end{itemize}
+There are a few more possibilities, but most of them involve language we haven't gotten to yet.
+
+\item In each case, either prove the statement, or give an example showing that it is false:
+\begin{enumerate}
+ \item $\det(A+B)=\det A+\det B$.
+
+\medskip
+
+If we let $A=\bbm 1&0\\0&1\ebm$ and $B=\bbm -1&0\\0&-1\ebm$, then $\det A = \det B = 1$, so $\det A+\det B = 2$. On the other hand, $A+B = \bbm 0&0\\0&0\ebm$, so $\det(A+B)=0$. Since $2\neq 0$, this statement is false in general.
+
+ \item If $\det A=0$, then $A$ has two equal rows.
+
+\medskip
+
+This is false. For example, the rows of $A=\bbm 1&1\\2&2\ebm$ are not equal, but $\det A = 2-2=0$. (The converse is true however: if $A$ has two equal rows, then $\det A=0$.)
+
+
+
+
+ \item For any $2\times 2$ matrix $A$, $\det (A^T)=\det A$.
+
+\medskip
+
+This is true. A general $2\times 2$ matrix can be written as $A=\bbm a&b\\c&d\ebm$, in which case $A^T = \bbm a&c\\b&d\ebm$, and we can easily verify that $\det A = \det A^T = ad-bc$.
+
+ \item $\det (-A) = -\det A$
+
+\medskip
+
+This is false in general. For example, in our example for part (a), we had $B=-A$, but $\det B = \det A$.
+
+What is true is that $\det (-A) = (-1)^n\det A$, if $A$ is an $n\times n$ matrix, so the result is false when $n$ is even, and true when $n$ is odd.
+
+ \item If $\det A\neq 0$ and $AB=AC$, then $B=C$.
+
+\medskip
+
+This is true. If $\det A\neq 0$, then we know $A$ is invertible, so if $AB=BC$ and $\det A\neq 0$, then we can multiply both sides of this equation on the left by $A^{-1}$ to obtain $B=C$.
+
+\end{enumerate}
+\pagebreak
+\item What can be said about $\det A$ if:
+\begin{enumerate}
+ \item $A^2=A$
+
+\medskip
+
+Since $A^2=A$, we know that $\det (A^2) = \det (A)$. Since $\det (AB) = \det A\cdot \det B$ for any $n\times n$ matrices $A$ and $B$, we know that
+\[
+ \det(A^2) = \det(AA) = \det A\cdot \det A = (\det A)^2.
+\]
+Thus, if we let $x=\det A$, we must have $x^2=x$, or $x^2-x = x(x-1)=0$, so $\det A=0$ or $\det A=1$.
+
+ \item $A^2 = I$
+
+\medskip
+
+Since $\det I = 1$, we have $\det (A^2) = (\det A)^2 = 1$, which implies that $\det A = \pm 1$.
+
+ \item $PA=P$, where $P$ is invertible.
+
+\medskip
+
+If $PA=P$, then $\det (PA) = \det P$. But $\det (PA) = \det P\cdot \det A$, so we have $\det P \cdot \det A = \det P$. Since $P$ is invertible, we know that $\det P\neq 0$, so we can divide both sides of the last equation by $\det P$, giving us $\det A = 1$.
+\end{enumerate}
+
+
+
+ \end{enumerate}
+
+\end{document}

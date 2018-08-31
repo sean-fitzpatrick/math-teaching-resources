@@ -1,0 +1,199 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 6 Solutions}\rhead{Tuesday, 23\textsuperscript{rd} February, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newenvironment{aamatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|*{#1}{c}@{}}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}       
+\DeclareMathOperator{\proj}{proj}   
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}
+         
+                  
+\begin{document}
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+Please complete all problems below.
+ \begin{enumerate}
+ \item Let $A=\di \bbm 1&-2&3\\0&4&-2\ebm$, $B=\di \bbm 3&5\\-1&2\\0&-2\ebm$, and $C=\di \bbm 2&-4\\-3&6\ebm$.\\ Compute each of the following, or explain why they're not defined:
+\begin{enumerate}
+ \item $2A-3B^T$. ($B^T$ denotes the transpose of $B$. Ask if you don't know what that is.)
+
+\begin{align*}
+ 2A-3B^T & = 2\bbm 1&-2&3\\0&4&-2\ebm-3\bbm 3&5\\-1&2\\0&-2\ebm^T\\
+& = \bbm 2&-4&6\\0&8&-4\ebm-\bbm 9&-3&0\\15&6&-6\ebm = \bbm -7&-1&6\\-15&2&2\ebm.
+\end{align*}
+
+
+ \item $2A-3C$.
+
+\bigskip
+
+Not defined, since you can't add or subtract matrices of different sizes: $2A$ is a $2\times 3$ matrix, and $3C$ is a $2\times 2$ matrix.
+
+\medskip
+
+ \item $AB$
+
+\begin{align*}
+ AB & = \bbm 1&-2&3\\0&4&-2\ebm \bbm 3&5\\-1&2\\0&-2\ebm\\
+ & = \bbm 1(3)-2(-1)+3(0) & 1(5)-2(2)+3(-2)\\0(3)+4(-1)-2(0)& 0(5)+4(2)-2(-2)\ebm = \bbm 5&-5\\-4&12\ebm.
+\end{align*}
+
+
+
+ \item $BA$
+
+\begin{align*}
+ BA & = \bbm 3&5\\-1&2\\0&-2\ebm \bbm 1&-2&3\\0&4&-2\ebm\\
+& = \bbm 3(1)+5(0)&3(-2)+5(4)&3(3)+5(-2)\\
+-1(1)+2(0)&-1(-2)+2(4)&-1(3)+2(-2)\\
+0(1)-2(0)&0(-2)-2(4)&0(3)-2(-2)\ebm = \bbm 3& 14 & -1\\-1&10&-7\\0&-8&4\ebm.
+\end{align*}
+
+
+
+ \item $AB+C$
+
+We calculated $AB$ above. Using that result, we have
+\[
+ AB+C = \bbm 5&-5\\-4&12\ebm+\bbm 2&-4\\-3&6\ebm = \bbm 7&-9\\-7&18\ebm.
+\]
+
+
+ \item $BA+C$
+
+\bigskip
+
+This is undefined, since $BA$ is a $3\times 3$ matrix and $C$ is a $2\times 2$ matrix, and you can't add matrices of different sizes.
+\end{enumerate}
+
+
+\item Compute the inverses of the following matrices, if possible:
+\begin{enumerate}
+ \item $A=\di \bbm 1& 3\\-4&-2\ebm$
+
+\bigskip
+
+Our algorithm for finding the inverse is to use Gaussian elimination to convert the augmented matrix $[A|I]$ to $[I|A^{-1}]$, if possible. We proceed as follows:
+\begin{align*}
+ \begin{aamatrix}{2}
+  1&3&1&0\\-4&-2&0&1
+ \end{aamatrix} & \xrightarrow{R_2\to R_2+4R_1} \begin{aamatrix}{2}
+                                                 1&3&1&0\\0&10&4&1
+                                                \end{aamatrix} \xrightarrow{R_2\to \frac{1}{10}R_2} \begin{aamatrix}{2}
+                                                                             1&3&1&0\\0&1&\frac{2}{5}&\frac{1}{10}
+                                                                            \end{aamatrix}\\
+& \xrightarrow{R_1\to R_1-3R_2} \begin{aamatrix}{2}
+                                 1&0&-\frac{1}{5}&-\frac{3}{10}\\0&1&\frac{2}{5}&\frac{1}{10}
+                                \end{aamatrix}.
+\end{align*}
+Therefore, we conclude that $A^{-1} = \bbm -\frac{1}{5}&-\frac{3}{10}\\\frac{2}{5}&\frac{1}{10}\ebm$.
+
+ \item $B = \di \bbm 1&0&4\\0&-3&2\\2&0&9\ebm$
+
+\bigskip
+
+We use the same algorithm as above, but this time for a $3\times 3$ matrix.
+
+\begin{align*}
+ \begin{aamatrix}{3}
+  1&0&4&1&0&0\\0&-3&2&0&1&0\\2&0&9&0&0&1
+ \end{aamatrix} & \xrightarrow{R_3\to R_3-2R_1} \begin{aamatrix}{3}
+                                                 1&0&4&1&0&0\\0&-3&2&0&1&0\\0&0&1&-2&0&1
+                                                \end{aamatrix}\\
+&\xrightarrow[R_2\to R_2-2R_3]{R_1\to R_1-4R_3}\begin{aamatrix}{3}
+                                                1&0&0&9&0&-4\\0&-3&0&4&1&-2\\0&0&1&-2&0&1
+                                               \end{aamatrix}\\
+&\xrightarrow{R_2\to -\frac{1}{3}R_2}\begin{aamatrix}{3}
+                                      1&0&0&9&0&-4\\0&1&0&-\frac{4}{3}&-\frac{1}{3}&\frac{2}{3}\\0&0&1&-2&0&1
+                                     \end{aamatrix}.
+\end{align*}
+Thus, $A^{-1} = \bbm 9 &0 & -4\\-\frac{4}{3}&-\frac{1}{3}&\frac{2}{3}\\-2&0&1\ebm$.
+
+\end{enumerate}
+
+\item Solve the following systems. (Hint: use your answer from 2(a))
+
+\begin{enumerate}
+ \item \[
+        \begin{array}{ccccc}
+         x&+&3y&=&3\\
+         -4x&-&2y&=&-7
+        \end{array}
+       \]
+
+
+In matrix form, we have $A\bbm x\\y\ebm = \bbm 1&3\\-4&-2\ebm\bbm x\\y\ebm = \bbm 3\\-7\ebm$, so
+\[
+ \bbm x\\y\ebm = A^{-1}\bbm 3\\-7\ebm = \bbm -\frac{1}{5}&-\frac{3}{10}\\\frac{2}{5}&\frac{1}{10}\ebm\bbm 3\\-7\ebm = \bbm \frac{15}{10}\\\frac{5}{10}\ebm = \bbm \frac{3}{2}\\\frac{1}{2}\ebm.
+\]
+
+
+\item \[
+       \begin{array}{ccccc}
+        x&+&3y&=&2a\\
+       -4x&-&2y&=&-3b
+       \end{array}
+      \]
+
+As above, we have
+\[
+ \bbm x\\y\ebm = A^{-1}\bbm 2a\\-3b\ebm = \bbm -\frac{1}{5}&-\frac{3}{10}\\\frac{2}{5}&\frac{1}{10}\ebm\bbm 2a\\-3b\ebm = \bbm -\frac{2a}{5}+\frac{9b}{10}\\\frac{4a}{5}-\frac{3b}{10}\ebm.
+\]
+
+\end{enumerate}
+
+\textbf{Possibly useful note}: the question ``Can the vector $V$ be written as a linear combination of the vectors $A,B,C$?'' is equivalent to the question ``Do there exist scalars $x,y,z$ such that $xA+yB+zC=V$?'' This latter question can be turned into a system of equations in the variables $x,y,z$.
+
+Similarly, the question ``Given the vectors $A,B,C,D$, can any one of these vectors be written as a linear combination of the others?'' is equivalent to the question, ``Do there exist scalars $w,x,y,z$, {\em not all equal to zero}, such that $wA+xB+yC+zD=0$?'' (See if you can figure out why these two questions are the same.) This latter question can be turned into a homogeneous system of equations, and the answer is ``yes'' if this system has a non-trivial solution.
+
+\bigskip
+
+\textbf{Note on this note:} There is one question on the Lyryx Lab where you need to know how to answer the first question. In Chapter 6 we will briefly encounter the concepts of linear independence and span, which are best understood in terms of the note above.
+
+ \end{enumerate}
+
+\end{document}

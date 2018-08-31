@@ -1,0 +1,155 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+
+\title{Solutions to Quiz 9 Practice Problems\\Math 2580\\Spring 2016}
+\author{Sean Fitzpatrick}
+\date{February 9th, 2016}
+
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+ \item Calculate the partial derivatives of the function $f(x,y,z) = \cos(xy^2)+e^{3xyz}$ and $g(x,y,z) = x^{yz}$. (Be careful with the second one -- what are you treating as a constant for each derivative? Should you be thinking of a power function or an exponential function?)
+
+\bigskip
+
+For the first function, we have
+\begin{align*}
+ f_x(x,y,z) &= -y^2\sin(xy^2)+3yze^{3xyz}\\
+ f_y(x,y,z) &= -2xy\sin(xy^2)+3xze^{3xyz}\\
+ f_z(x,y,z) & = 3xye^{3xyz}.
+\end{align*}
+For the second function, we have
+\begin{align*}
+ g_x(x,y,z)&=yzx^{yz-1}\\
+ g_y(x,y,z)&=zx^{yz}\ln x\\
+ g_z(x,y,z)&=yx^{yz}\ln x.
+\end{align*}
+
+
+
+ \item Show that $\displaystyle \lim_{(x,y)\to (0,0)}\frac{x}{x+y}$ does not exist.
+
+\bigskip
+
+If we let $(x,y)\to (0,0)$ along the $x$-axis, $y=0$, and we get $\dfrac{x}{x+y} = \dfrac{x}{x} = 1$, for all $x\neq 0$. It follows that we get a limit of 1 as we approach along the $x$-axis. However, if we let $(x,y)\to (0,0)$ along the $y$-axis, then $x=0$ and we get $\dfrac{x}{x+y} = 0$ for all $y\neq 0$, and thus, the limit is 0 as we approach along the $y$-axis. Since we get two different values along different paths, the limit does not exist.
+
+ \item Find the equation of the tangent plane to the graph $z=xy^2-3x^2+4xy$ at the point $(2,1,-2)$.
+
+\bigskip
+
+Letting $f(x,y) = xy^2-3x^2+4xy$, we have $f_x(x,y) = y^2-6x+4y$ and $f_y(x,y) = 2xy+4x$. If $x=2$ and $y=1$, this gives us $f_x(2,1) = -7$ and $f_y(2,1) = 12$. (Note also that $f(2,1) = -2$, so the point $(2,1,-2)$ is indeed on the graph. The equation of the tangent plane is therefore
+\[
+ z = -2 -7(x-2)+12(y-1).
+\]
+
+ \item Calculate $\pd{z}{u}$ and $\pd{z}{v}$ if $z=x^2-3xy-y^2$, where $x=2u+3v$ and $y=3u-v$,
+\begin{enumerate}
+ \item Using the Chain Rule (either via matrix multiplication or just writing out the patterns).
+
+\bigskip
+
+If we let $g(u,v) = (2u+3v, 3u-v)$, then
+\[
+ D_{(u,v)}g = \begin{bmatrix} \pd{x}{u}&\pd{x}{v}\\& \\ \pd{y}{u}&\pd{y}{v}\end{bmatrix} = \begin{bmatrix} 2&3\\3&-1\end{bmatrix},
+\]
+and if $f(x,y) = x^2-3xy-y^2$, then $D_{(x,y)}f = \begin{bmatrix}f_x(x,y) & f_y(x,y)\end{bmatrix} = \begin{bmatrix} 2x-3y & -3x-2y\end{bmatrix}$, so
+\[
+ D_{g(u,v)}f = \begin{bmatrix}2(2u+3v)-3(3u-v)&-3(2u+3v)-2(3u-v)\end{bmatrix} = \begin{bmatrix}-5u+9v&-12u-7v\end{bmatrix}.
+\]
+The chain rule then gives us
+\begin{align*}
+ \begin{bmatrix}\pd{z}{u}&\pd{z}{v}\end{bmatrix} &= D_{(u,v)}(f\circ g) = D_{g(u,v)}f\cdot D_{(u,v)}g\\
+& = \begin{bmatrix}-5u+9v&-12u-7v\end{bmatrix}\begin{bmatrix}2&3\\3&-1\end{bmatrix}\\
+& = \begin{bmatrix}(-5u+9v)(2)+(-12u-7v)(3)&(-5u+9v)(3)+(-12u-7v)(-1)\end{bmatrix}\\
+& = \begin{bmatrix}-46u-3v&-3u+34v\end{bmatrix}.
+\end{align*}
+Comparing coefficients of the first and last matrices, we have
+\[
+ \pd{z}{u} = -46u-3v \quad \text{ and } \quad \pd{z}{v} = -3u+34v.
+\]
+
+
+ \item By first substituting the expressions for $x$ and $y$ in terms of $u$ and $v$ into the equation defining $z$.
+
+Letting $f(x,y) = x^2-3xy-y^2$, we have 
+\begin{align*}
+ z = f(2u+3v,3u-v) &= (2u+3v)^2-3(2u+3v)(3u-v)-(3u-v)^2 \\
+ &= 4u^2+12uv+9v^2-18u^2-21uv+9v^2-9u^2+6uv-v^2\\
+ & = -23u^2-3uv+17v^2.
+\end{align*}
+Thus, we have $\pd{z}{u} = -46u-3v$, and $\pd{z}{v} = -3u+34v$.
+\end{enumerate}
+
+ \item Let $f(x,y)=x^2+y^2-3xy^3$. Compute
+\begin{enumerate}
+ \item The gradient of $f$ at the point $(a,b)=(1,2)$.
+
+\bigskip
+
+By definition, $\nabla f(x,y) = \langle f_x(x,y), f_y(x,y)\rangle  = \langle 2x-3y^3, 2y-9xy^2\rangle$, so $\nabla f(1,2) = \langle -22, -32\rangle$.
+ 
+ \item The directional derivative of $f$ in the direction of $\vec{v} = \langle 1/2, \sqrt{3}/2\rangle$.
+
+\bigskip
+
+By definition, $d_{\vec{v}}f(1,2) = \nabla f(1,2)\dotp \vec{v} = \langle -22, -32\rangle\dotp \langle 1/2, \sqrt{3}/2\rangle = -11-16\sqrt{3}.$
+
+\end{enumerate}
+ \item Find the equation of the tangent plane to the surface $xyz^2=4$ at the point $(1,1,2)$.
+
+\bigskip
+
+Since we're dealing with a level surface $g(x,y,z)=4$, with $g(x,y,z)=xyz^2$, we know that the normal vector is given by the gradient. We have
+\[
+ \nabla g(x,y,z) = \langle yz^2, xz^2, 2xyz\rangle, \quad \text{ so } \quad \nabla g (1,1,2) = \langle 4, 4, 4\rangle.
+\]
+The equation of the tangent plane is thus $4(x-1)+4(y-1)+4(z-2)=0$, or $x+y+z=4$.
+
+ \item Find and classify the critical points of the function $f(x,y) = 3x^2y+y^3-3x^2-3y^2+2$. (You should find 4 critical points.)
+
+\bigskip
+
+The gradient of $f$ is given by $\nabla f(x,y) = \langle 6xy-6x, 3x^2+3y^2-6y\rangle$. Any critical points occur when $\nabla f(x,y) = \langle 0,0\rangle$, so we must have
+\begin{align*}
+ 6xy-6x=6x(y-1)&=0 \quad \text{ and}\\
+3x^2+3y^2-6y&= 0.
+\end{align*}
+The first equation tells that either $x=0$ or $y=1$. If $x=0$, the second equation gives us $3y^2-6y=3y(y-2)=0$, so $y=0$ or $y=2$. This gives us two critical points: $(0,0)$ and $(0,2)$. If $y=1$, the second equation gives us $3x^2-3=0$, so $x^2=1$, giving us $x=\pm 1$, and two more critical points: $(1,1)$ and $(-1,1)$.
+
+\medskip
+
+To classify the critical points we compute the second derivatives of $f$. We have
+\[
+ f_{xx}(x,y) = 6y-6, \quad f_{xy}(x,y) = 6x = f_{yx}(x,y), \quad f_{yy}(x,y) = 6y-6.
+\]
+(Oddly enough, we have $f_{xx}(x,y)=f_{yy}(x,y)$, which isn't usually the case, but it will make our lives easier).
+
+At $(0,0)$ we have $A=f_{xx}(0,0) = -6 = f_{yy}(0,0)=C$ and $B=f_{xy}(0,0)=0$, so $D=AC-B^2 = 36$. Since $A<0$ and $D>0$, $(0,0)$ is a local maximum.
+
+At $(0,2)$ we have $A=f_{xx}(0,2) = 6 = f_{yy}(0,2)=C$ and $B = f_{xy}(0,0)=0$, so $D=AC-B^2=36$. Since $A>0$ and $D>0$, $(0,2)$ is a local minimum.
+
+At $(1,1)$ we have $A=f_{xx}(1,1) = 0 = f_{yy}(1,1)=C$ and $B = f_{xy}(1,1) = 6$, so $D=AC-B^2=-36$. Since $D<0$, $(1,1)$ is a saddle point.
+
+At $(-1,1)$ we have $A=f_{xx}(-1,1) = 0 = f_{yy}(-1,1)=C$ and $B = f_{xy}(-1,1) = -6$, so $D=AC-B^2=-36$. Since $D<0$, $(-1,1)$ is a saddle point.
+
+\end{enumerate}
+
+
+\end{document}
+ 

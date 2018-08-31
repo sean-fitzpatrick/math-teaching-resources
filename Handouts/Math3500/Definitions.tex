@@ -1,0 +1,77 @@
+\documentclass[letterpaper,8pt,landscape]{article}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=0.75in]{geometry}
+
+%\usepackage[dvips]{hyperref}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+\title{Potentially useful facts and definitions}
+\author{}
+
+\begin{document}
+\begin{center}
+{\bf List of potentially useful facts and definitions} (you may remove this page)
+\end{center}
+\begin{multicols}{2}
+\subsubsection*{Properties of $\R$}
+Completeness axiom: $A\subseteq \R$ bounded above $\Rightarrow \sup A$ exists.\\
+Archimedian property: $\forall x>0, \exists n\in\mathbb{N}$ such that $1/n<x$.\\
+Neighbourhood: $N_\epsilon(x) = \{y\in\R : |x-y|<\epsilon\}$.\\
+A point $x\in A$ is an {\bf interior point} of $A$ if $\exists \epsilon>0$ such that $N_\epsilon(x)\subseteq A$.\\
+A set $A$ is {\bf open} if every point $a\in A$ is an interior point. ($A$ is equal to its interior $A^\circ$)\\
+A point $x\in\R$ is a {\bf boundary point} of $A\subseteq \R$ if $\forall \epsilon>0$, $N_\epsilon(x)\cap A\neq\emptyset$ and $N_\epsilon(x)\cap(\R\setminus A) \neq \emptyset$.\\
+A point $x\in \R$ is a {\bf limit point} of $A\subseteq \R$ if $\forall \epsilon>0$, $(N_{\epsilon}(x)\setminus \{x\})\cap A\neq\emptyset$.\\
+A point $x\in A$ is an {\bf isolated point} of $A$ if it is not a limit point.\\
+The {\bf closure} $\overline{A}$ of $A\subseteq \R$ is the union of $A$ and its limit points.\\
+A set $A\subseteq \R$ is {\bf closed} iff $X\setminus A$ is open, iff $A=\overline{A}$.\\
+A set $A\subseteq \R$ is {\bf bounded} if $A\subseteq [a,b]$ for some $a,b\in\R$.
+A set $A\subseteq \R$ is {\bf compact} if every open cover of $A$ admits a finite subcover.\\
+A set $A\subseteq \R$ is compact iff it is {\bf closed and bounded}.\\
+The {\bf union} of any collection of {\bf open} sets is open.\\
+The {\bf intersection} of any collection of {\bf closed} sets is closed.
+
+\subsubsection*{Sequences}
+A sequence $(a_n)$ {\bf converges} to $a\in\R$ if $\forall \epsilon>0, \exists N\in \N$ such that $|a_n-a|<\epsilon$ for all $n\geq N$.\\
+If $a$ is a limit point of $A$, there is a sequence $(a_n)$ in $A$ converging to $a$.\\
+A set $A$ is closed iff the limit of every sequence $(a_n)$ in $A$ that converges belongs to $A$.\\
+A sequence is {\bf monotone} if it is either increasing or decreasing.\\
+A bounded monotone sequence converges.\\
+A sequence $(a_n)$ is {\bf Cauchy} if $\forall \epsilon>0 \exists N\in\N$ such that if $m,n>N$, then $|a_m-a_n|<\epsilon$.\\
+A sequence is Cauchy if and only if it converges.
+
+\subsubsection*{Continuity}
+$\lim_{x\to a}f(x) = L$ iff $\forall \epsilon>0, \exists \delta>0$ such that $0<|x-a|<\delta \Rightarrow |f(x)-L|<]\epsilon$.\\
+$\lim_{x\to a}f(x) = L$ iff for every sequence $(a_n)$ with $a_n\to a$, $f(a_n)\to L$.\\
+$f$ is {\bf continuous} at $a$ if $\forall \epsilon>0, \exists \delta>0$ such that $|x-a|<\delta \Rightarrow |f(x)-f(a)|<\epsilon$.\\
+If $f$ is continuous on $D$ and $D$ is compact, then $f(D)$ is compact.\\
+If $f$ is continuous on $[a,b]$ then $f$ has the intermediate value property on $[a,b]$.\\
+$f$ is {\bf uniformly continuous} on $D\subseteq \R$ if $\forall \epsilon>0, \exists \delta>0$ such that $\forall x,y\in D$, if $|x-y|<\delta$, then $|f(x)-f(y)|<\epsilon$.\\
+If $f$ is continuous on $D$ and $D$ is compact, then $f$ is uniformly continuous.\\
+If $f$ is uniformly continuous on $D$ then $f$ is bounded on $D$.\\
+$f$ is uniformly continuous on $(a,b)$ iff $f$ can be extended to a continuous function on $[a,b]$.
+
+\subsubsection*{Derivatives}
+$f$ is {\bf differentiable} at $a$ if $f'(a)=\lim_{x\to a}(f(x)-f(a))/(x-a)$ exists.\\
+If $f$ is differentiable at $a$ then $f$ is continuous at $a$.\\
+$f'(x)$ always has the intermediate value property.\\
+Mean Value Theorem: if $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then there exists $c\in (a,b)$ such that $f'(c)(b-a) = f(b)-f(a)$.\\
+l'Hospital's rule is a thing, but not a thing you'll be asked about.\\
+The {\bf remainder} in Taylor's Theorem is given, for some $c$ between $a$ and $x$, by $R_{n,a,f}(x) = f^{(n+1)}(c)(x-a)^{n+1}/(n+1)!$.
+
+\subsubsection*{Integration}
+Lower sum: $L(f,P) = \sum_{i=1}^n m_i(x_i-x_{i-1})$, $m_i = \inf\{f(x) : x_{i-1}\leq x\leq x_i\}$\\
+Upper sum: $U(f,P) = \sum_{i=1}^n M_i(x_i-x_{i-1})$, $M_i = \sup\{f(x) : x_{i-1}\leq x\leq x_i\}$\\
+If $P_1\subseteq P_2$, $L(f,P_1)\leq L(f,P_2)\leq U(f,P_2)\leq U(f,P_1)$\\
+$f$ is {\bf intergrable} on $[a,b]$ iff $\forall \epsilon>0, \exists P_\epsilon$ such that $U(f,P_\epsilon)-L(f,P_\epsilon)<\epsilon$.\\
+Every continuous function is integrable.\\
+FTC I: If $F(x) = \int_a^x f(t)\,dt$, $f$ continuous on $[a,b]$, then $F'(x) = f(x)$.\\
+FTC II: If $F'(x) = f(x)$ on $[a,b]$, then $\int_a^b f(x)\, dx = F(b)-F(a)$.
+\end{multicols}
+
+\end{document}

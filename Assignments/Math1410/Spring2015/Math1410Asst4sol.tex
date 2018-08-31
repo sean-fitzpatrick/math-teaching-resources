@@ -1,0 +1,195 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+
+\title{Math 1410 Assignment \#4 Solutions\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+\begin{enumerate}
+\item Let $A$ be an $m\times n$ matrix. Note that each column of $A$ is of size $m\times 1$, and therefore a vector in $\R^m$. Recall that for a vector $\vec{x} = \begin{bmatrix}x_1&x_2&\cdots &x_n\end{bmatrix}^T$ in $\R^n$, we have
+\[
+ A\vec{x} = x_1C_1+x_2C_2+\cdots +x_nC_n,
+\]
+where $C_1,C_2,\ldots, C_n$ denote the columns of $A$. Show that the following are true:
+\begin{enumerate}
+ \item The columns $C_1,C_2,\ldots, C_n$ are linearly independent if and only if the only solution to the homogeneous equation $A\vec{x}=\vec{0}$ is $\vec{x}=\vec{0}$.
+
+\bigskip
+
+{\bf Proof:} Suppose that the columns $C_1,\ldots, C_n$ of $A$ are linearly independent, and suppose that $A\vec{x} = \vec{0}$, where $\vec{x} = \begin{bmatrix}x_1&\cdots&x_n\end{bmatrix}^T$. Then we have that
+\[
+ \vec{0}= A\vec{x} = x_1C_1+\cdots +x_nC_n,
+\]
+and since the columns are linearly independent, it follows that $x_i=0$ for all $i=1,\ldots, n$, and therefore $\vec{x}=\vec{0}$. Since $\vec{x}$ was arbitrary, this must be the only solution.
+
+Conversely, suppose that the only solution to $A\vec{x}=\vec{0}$ is $\vec{x}=\vec{0}$, and suppose that
+\[
+ x_1C_1+x_2C_2+\cdots + x_nC_n = \vec{0}
+\]
+for some scalars $x_1,\ldots, x_n$. Then we have that $A\vec{x}=\vec{0}$, where $\vec{x} = \begin{bmatrix}x_1&\cdots & x_n\end{bmatrix}^T$, and therefore we must have $\vec{x}=\vec{0}$, which implies that $x_i=0$ for all $i=1,\ldots, n$. Thus, the columns $C_1,\ldots, C_n$ are linearly independent.
+
+\bigskip
+
+ \item The non-homogeneous equation $A\vec{x}=\vec{y}$ has a solution if and only if\\ $\vec{y}\in\operatorname{span}\{C_1,C_2,\ldots, C_n\}$.
+
+\bigskip
+
+{\bf Proof:} The proof is similar to the one given above: if we let $\vec{x}=\begin{bmatrix}x_1&\cdots &x_n\end{bmatrix}^T$, then the equation $A\vec{x}=\vec{y}$ is equivalent to the equation
+\[
+ x_1C_1+x_2C_2+\cdots+x_nC_n=\vec{y}.
+\]
+Therefore, given $\vec{y}\in\R^m$, if $A\vec{x}=\vec{y}$ has a solution $\vec{x}$, then we can find scalars $x_1,\ldots, x_n$ such that $x_1C_1+\cdots +x_nC_n=\vec{y}$, and thus $\vec{y}$ is in the span of the columns $C_1,\ldots, C_n$.
+
+Conversely, if $\vec{y}\in\operatorname{span}\{C_1,\ldots, C_n\}$, then there exist scalars $x_1,\ldots, x_n$ such that $x_1C_1+\cdots+x_nC_n=\vec{y}$, and thus $A\vec{x}=\vec{y}$ has a solution.
+\end{enumerate}
+
+\bigskip
+
+\item Find the point of intersection (if any) of the following pairs of lines:
+\begin{enumerate}
+ \item \begin{align*}
+        \begin{bmatrix}x\\y\\z\end{bmatrix} & = \begin{bmatrix}3\\-1\\2\end{bmatrix}+t\begin{bmatrix}1\\1\\-1\end{bmatrix}\\
+        \begin{bmatrix}x\\y\\z\end{bmatrix} & = \begin{bmatrix}1\\1\\-2\end{bmatrix}+s\begin{bmatrix}2\\0\\3\end{bmatrix}\\
+       \end{align*}
+
+\bigskip
+
+{\bf Solution:} If $(x,y,z)$ is a point of intersection of the two lines, then we would have to have
+\[
+ \begin{bmatrix}x\\y\\z\end{bmatrix}  = \begin{bmatrix}3\\-1\\2\end{bmatrix}+t\begin{bmatrix}1\\1\\-1\end{bmatrix}= \begin{bmatrix}1\\1\\-2\end{bmatrix}+s\begin{bmatrix}2\\0\\3\end{bmatrix},
+\]
+which gives us the system of equations
+\begin{align*}
+ 3+t&=1+2s\\
+-1+t&=1\\
+2-t&=-2+3s.
+\end{align*}
+The second equation requires that $t=2$. Putting $t=2$ in the first equation gives us $s=2$, but in the third equation, it gives us $s=2/3$. Thus, there is no solution to the system, and the two lines do not intersect.
+
+\bigskip
+
+\item \begin{align*}
+        \begin{bmatrix}x\\y\\z\end{bmatrix} & = \begin{bmatrix}4\\-1\\5\end{bmatrix}+t\begin{bmatrix}1\\0\\1\end{bmatrix}\\
+        \begin{bmatrix}x\\y\\z\end{bmatrix} & = \begin{bmatrix}2\\-7\\12\end{bmatrix}+s\begin{bmatrix}0\\-2\\3\end{bmatrix}\\
+       \end{align*}
+
+\bigskip
+
+{\bf Solution:} If $(x,y,z)$ is a point of intersection for the two lines, then we must have
+\[
+ \begin{bmatrix}x\\y\\z\end{bmatrix}  = \begin{bmatrix}4\\-1\\5\end{bmatrix}+t\begin{bmatrix}1\\0\\1\end{bmatrix} = \begin{bmatrix}2\\-7\\12\end{bmatrix}+s\begin{bmatrix}0\\-2\\3\end{bmatrix},
+\]
+which gives us the system of equations
+\begin{align*}
+ 4+t&=2\\
+-1&=-7-2s\\
+5+t&=12+3s.
+\end{align*}
+The first equation tells us that $t=-2$, and the second requires $s=-3$. If we plug these values into the third equation, we get $5-2=3$ on the left, and $12+3(-3)=3$ on the right. Since $t=-2$ and $s=-3$ satisfies all three equations, the lines intersect. Using the equation for either line, we see that the point of intersection is $(2,-1,3)$, since
+\[
+ \begin{bmatrix}2\\-1\\3\end{bmatrix}  = \begin{bmatrix}4\\-1\\5\end{bmatrix}-2\begin{bmatrix}1\\0\\1\end{bmatrix} = \begin{bmatrix}2\\-7\\12\end{bmatrix}-3\begin{bmatrix}0\\-2\\3\end{bmatrix},
+\]
+\end{enumerate}
+\item \begin{enumerate}
+       \item Show that $\vec{n} = \begin{bmatrix}a\\b\end{bmatrix}$ is perpendicular to the line $ax+by+c=0$.
+       
+       \bigskip
+       
+       {\bf Solution:} There are two ways to solve the problem. (Well, there are more than two, but these are the two I'm going to show you.) 
+       
+       Option 1: Let $(x_0,y_0)$ and $(x_2,y_2)$ be two points on the line. Then we know that (i) $ax_0+by_0=-c$, and $ax_2+by_2=-c$, since both points are on the line, and (ii) the vector $\vec{v} = \langle x_2-x_0,y_2-y_0\rangle$ is parallel to the line. Since
+       \[
+       \langle a,b\rangle\dotp \langle x_2-x_0,y_2-y_0\rangle = a(x_2-x_0)+b(y_2-y_0) = (ax_2+by_2)-(ax_0+by_0) = -c + c = 0,
+       \]
+       it follows that $\vec{n}$ is perpendicular to $\vec{v}$, and thus to the line.
+       
+       Option 2: If we view the equation $ax+by+c=0$ as a system of one linear equation in two unknowns, the general solution is given by setting $y=t$, where $t$ is a parameter, and thus $x=-c/a-b/at$. The vector form of this solution is
+       \[
+       \begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}-c/a\\0\end{bmatrix}+t\begin{bmatrix}-b/a\\1\end{bmatrix},
+       \]
+       so $\vec{v} = \begin{bmatrix}-b/a\\1\end{bmatrix}$ is parallel to the line, and $\vec{n}\dotp\vec{v} = a(-b/a)+b(1) = 0$.
+       
+       \bigskip
+       
+       \item Show that the shortest distance from the point $P_1=(x_1,y_1)$ to the line is
+\[
+ \frac{\abs{x_1+y_1+c}}{\sqrt{a^2+b^2}}.
+\]
+{\em Hint: } Take any point $P_0$ on the line and project $\vec{u}=\overrightarrow{P_0P_1}$ onto $\vec{n}$. If you haven't drawn yourself a picture, you're probably doing it wrong.
+
+\bigskip
+
+{\bf Solution:} Let $P_0=(x_0,y_0)$ be any point on the line, and let $\vec{v} = \overrightarrow{P_0P_1} = \langle x_1-x_0,y_1-y_0\rangle$. The distance from $P_1$ to the line is then
+\[
+\len{\operatorname{proj}_{\vec{n}}\vec{v}} = \left|\frac{\vec{n}\dotp\vec{v}}{\len{\vec{n}}^2}\right|\len{\vec{n}} = \frac{\abs{a(x_1-x_0)-b(y_1-y_0)}}{a^2+b^2}\sqrt{a^2+b^2} = \frac{ax_1+by_1+c}{\sqrt{a^2+b^2}},
+\]
+since $-(ax_0+by_0)=c$.
+
+\bigskip
+
+       \item Now, let $L$ be a line in $\R^3$ through the point $P_0=(x_0,y_0,z_0)$ with direction vector $\vec{d}$. Show that the shortest distance from a point $P_1=(x_1,y_1,z_1)$ to the line is
+\[
+ \frac{\len{\overrightarrow{P_0P_1}\times \vec{d}}}{\len{d}}.
+\]
+
+\bigskip
+
+{\bf Solution:} Let $\vec{v} = \overrightarrow{P_0P_1}$, and notice that the vectors $\vec{v}$ and $\vec{d}$ span a parallelogram whose area is given by $A = \len{\vec{v}\times\vec{d}}$. Moreover, length of the base of the parallelogram is $b = \len{\vec{d}}$, and the height $h$ of the parallelogram is precisely the distance from the point $P_1$ to the line. Since the area of the parallelogram is also given by $A=bh$, we can equate the two areas and solve for $h$, and this gives the formula above.
+
+\bigskip
+
+      \end{enumerate}
+\item Find the shortest distance between the following pair of skew lines, and the points on each line that are closest together:
+\begin{align*}
+        \begin{bmatrix}x\\y\\z\end{bmatrix} & = \begin{bmatrix}1\\-1\\0\end{bmatrix}+t\begin{bmatrix}1\\1\\1\end{bmatrix}\\
+        \begin{bmatrix}x\\y\\z\end{bmatrix} & = \begin{bmatrix}2\\-1\\3\end{bmatrix}+s\begin{bmatrix}3\\1\\0\end{bmatrix}\\
+       \end{align*}
+
+\bigskip
+
+Suppose that $Q_1$ and $Q_2$ are the points on $L_1$ and $L_2$, respectively, that are closest together, where $L_1$ denotes the first line (with parameter $t$), and $L_2$ denotes the second line (with parameter $s$). We note that since the lines are skew (which you should verify), they lie in parallel planes. Indeed, if we let $\vec{d}_1 = \langle 1,1,1\rangle$ be the direction vector of the first line, and $\vec{d}_2 = \langle 3,1,0\rangle$ be the direction vector of the second line, and take $\vec{n} = \vec{d}_1\times\vec{d}_2$, then $L_1$ lies in the plane $\vec{n}\dotp \langle x-1,y+1,z\rangle=0$, and $L_2$ lies in the plane $\vec{n}\dotp\langle x-2,y+1,z-3\rangle=0$.
+
+We make two observations: first, the distance between the two lines is equal to the distance between the two planes. Second, this distance is equal to the distance between the points $Q_1$ and $Q_2$, and the vector $\overrightarrow{Q_1Q_2}$ must be parallel to $\vec{n}$, and thus orthogonal to $\vec{d}_1$ and $\vec{d}_2$. We have $Q_1 = (1+t,-1+t,t)$ for some $t\in\R$, and $Q_2 = (2+3s,-1+s,3)$ for some $s\in\R$. Thus,
+\[
+\overrightarrow{Q_1Q_2}=\langle 1+3s-t,s-t,3-t),
+\]
+and since $\vec{d}_1\dotp \overrightarrow{Q_1Q_2}=0$ and $\vec{d}_2\overrightarrow{Q_1Q_2}=0$, we must have
+\begin{align*}
+1(1+3s-t)+1(s-t)+1(3-t) &= 4s-3t+4=0,\\
+3(1+3s-5)+1(s-t)+0(3-t) &= 10s-4t+3=0.
+\end{align*}
+This gives us a system of two equations in the two variables $s$ and $t$. The solution is easily found to be $s=1/2$ and $t=2$, which gives us the points $Q_1=(3,1,2)$ and $Q_2=(7/2,-1/2,3)$. Thus, the distance between the two lines is
+\[
+d(Q_1,Q_2) = \sqrt{(7/2-2)^2+(-1/2-1)^2+(3-1)^2} = \frac{\sqrt{14}}{2}.
+\]
+To verify that we've correctly found the two closest points, we note that the distance between the two planes can also be computed as follows: we know that $P_1=(1,-1,0)$ lies on the first plane, and $P_2=(2,-1,3)$ lies on the second plane. Therefore, the distance between the two planes is given by the length of the projection of $\vec{v}=\overrightarrow{P_1P_2}$ onto the normal vector
+\[
+\vec{n}=\vec{d}_1\times\vec{d}_2 = \begin{vmatrix}
+\hat{\imath}&\hat{\jmath}&\hat{k}\\1&1&1\\3&1&0
+\end{vmatrix}=-\hat{\imath}+3\hat{\jmath}-2\hat{k}=\langle -1,3,-2\rangle.
+\]
+We have $\vec{n}\dotp\vec{v} = -7$ and $\len{\vec{n}}=\sqrt{14}$, and thus the distance between the lines is equal to
+\[
+\len{\operatorname{proj}_{\vec{n}}\vec{v} = \left|\frac{\vec{v}\dotp\vec{n}}{\len{\vec{n}}^2}\right}\len{\vec{n}} = \frac{\abs{-7}}{14}\sqrt{14} = \frac{\sqrt{14}}{2},
+\]
+which agrees with our previous calculation.
+\end{enumerate}
+
+
+\end{document}
+ 

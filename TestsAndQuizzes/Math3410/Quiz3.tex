@@ -1,0 +1,54 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 3410A}\chead{Quiz \# 3}\rhead{Friday, 30\textsuperscript{th} January, 2015}
+\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\begin{document}
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+{\bf Name:}
+
+\bigskip
+
+Solve {\bf one} of the following two questions:
+ \begin{enumerate}
+ \item  Let $U = \{p\in \mathcal{P}_4(\R) : p(6)=0\}$.
+\begin{enumerate}
+ \item Find a basis for $U$. \points{2} (Hint: note that $p(x)=x-6$ is an element of $U$.)
+ \item Extend the basis in part (a) to a basis of $\mathcal{P}_4(\R)$.\points{4}
+ \item Find a subspace $W$ of $\mathcal{P}_4(\R)$ such that $U\oplus W = \mathcal{P}_4(\R)$. \points{4}
+\end{enumerate}
+\item Suppose $U$ and $W$ are subspaces of $V$ such that $V=U\oplus W$. Show that if $\{u_1,\ldots, u_m\}$ is a basis for $U$, and $\{w_1,\ldots, w_k\}$ is a basis for $W$, then \points{10}
+\[
+ \{u_1,\ldots, u_m,w_1,\ldots, w_k\}
+\]
+is a basis for $V$.
+ \end{enumerate}
+\end{document}

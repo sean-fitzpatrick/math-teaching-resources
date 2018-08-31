@@ -1,0 +1,139 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 35}}
+\chead{MATH 4310}\lhead{Midterm}\rhead{Wednesday, 15\textsuperscript{th} October, 2014}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+15\textsuperscript{th} October, 2014, 5:00-5:50 pm\\
+{\bf Math 4310 - Term Test I}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{350pt}}\\
+\skipline
+First Name:\underline{\hspace{348pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ {\bf Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+There is a list of potentially useful formulas available on the last page of the exam.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/9\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/6\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/35\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item For each of the following, give an example, or explain why no such example exists:
+\begin{enumerate}
+\item A subset of a topological space that is both open and closed. \points{3}
+
+\vspace{1.6in}
+
+\item A continuous function $f:X\to Y$, if $X$ is equipped with the indiscrete topology. \points{3}
+
+\vspace{1.8in}
+
+\item An interior point that is not a limit point. \points{3}
+
+\vspace{1.8in}
+
+\item A metric space that is not Hausdorff. \points{3}
+\end{enumerate}
+\newpage
+
+\item Let $X=\displaystyle l^1(\mathbb{R}) = \left\{\sum_{n=1}^\infty a_n \,\left|\: \sum_{n=1}^\infty\abs{a_n}<\infty\right.\right\}$ be the space of absolutely convergent sequences of real numbers. Prove that the function $d:X\times X\to\R$ given by \points{8}
+\[
+d\left(\sum a_n, \sum b_n\right) = \sum_{n=1}^\infty\abs{a_n-b_n}
+\]
+is well-defined (i.e. that $d(x,y)$ is finite for all $x,y\in X$) and makes $X$ into a metric space.
+
+\newpage
+
+\item \begin{enumerate}
+\item Define what it means for a set $\mathcal{B}$ of subsets of a set $X$ to be a {\bf basis} for a topology on $X$. \points{3}
+
+(Either of the two definitions we discussed is acceptable.)
+
+\vspace{2in}
+
+\item Let $X$ and $Y$ be topological spaces, and let $\mathcal{B}$ be a basis for the topology on $Y$. Prove that a function $f:X\to Y$ is continuous if and only if $f^{-1}(U)$ is open in $X$ for every $U\in\mathcal{B}$. \points{6}
+\end{enumerate}
+\newpage
+
+\item Solve {\bf one} of the following two problems:\points{6}
+\begin{enumerate}
+\item Let $X, Y$, and $Z$ be topological spaces, and equip $X\times Y$ with the product topology. Show that a map $f:Z\to X\times Y$ is continuous if and only if the maps $\pi_X\circ f:Z\to X$ and $\pi_Y\circ f:Z\to Y$ are continuous.  \\(Hint: one direction is easy. For the other, use 3(b).)
+
+\item Given a topological space $X$, let $X_0$ denote the space with the same underlying set as $X$, but with the cofinite topology. Show that the identity map $I:X\to X_0$ (given by $I(x)=x$) is continuous if and only if $X$ is a $T_1$ space.
+
+Hint: $X$ is $T_1$ if and only if finite point sets are closed.
+\end{enumerate}
+\end{enumerate}
+
+
+
+\end{document}

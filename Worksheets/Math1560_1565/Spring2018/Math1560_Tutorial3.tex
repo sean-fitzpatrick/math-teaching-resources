@@ -1,0 +1,118 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=0.85in,bottom=1in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\vglue1cm
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 1560 - Tutorial \#3}\\
+Monday, January 29
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+
+\vspace*{\fill}
+
+
+
+Some additional practice (copy these into your notes but do not submit anything):
+\begin{enumerate}
+\item Compute the derivatives of the following functions using the product rule:
+\begin{multicols}{3}
+\begin{enumerate}
+\item $f(x) = x^2\cos(x)$
+\item $g(x) = \sec(x)\tan(x)$
+\item $h(x) = \sqrt{x}(x^2+1)$ 
+\end{enumerate}
+\end{multicols}
+
+\item Compute the derivatives of the following functions using the quotient rule:
+\begin{multicols}{3}
+\begin{enumerate}
+\item $f(x) = \dfrac{\sin(x)}{x^2+1}$
+\item $g(x) = \dfrac{x^3-2x^2+5x}{x^4+e^x}$
+\item $h(x) = \dfrac{x^8+\sqrt[3]{x}}{x^3}$
+\end{enumerate}
+\end{multicols}
+Note: Problems 1(c) and 2(c) can be done without the product or quotient rule, respectively. Do you see how?
+\end{enumerate}
+
+
+
+
+\newpage
+%\thispagestyle{empty}
+
+\vglue12pt
+
+  \begin{enumerate}
+    \item Let $f(x) = \dfrac{1}{\sqrt{x}}$. Compute $f'(1)$ \textbf{using the definition of the derivative}.\\
+    (Note: in the definition, one can set $x=1$ at the very beginning, or at the end. Which is going to be less work?)
+    
+    \vspace{3in}
+    
+    \item Compute the derivative of $f(x) = 6\sqrt{x^3}-7\sin(x)+4e^x +\pi.$
+    
+    \vspace{1in}
+    
+    \item Compute the derivative of $f(x)=x^3(x-1)^2$ by (a) using the product rule, and (b) first multiplying everything out. Confirm that your answers agree. Which method do you prefer? (What if you need to find where $f'(x)=0$?)
+    
+   \newpage
+    
+    \item Compute the derivative of $g(x) = \dfrac{x^7-3x^5+2x}{x^3}$ by\\ (a) using the quotient rule, and (b) simplifying first. Which method do you prefer?
+    
+\vspace{2.5in}
+    
+    \item For the following functions, find all values of $x$ such that $f'(x)=0$:
+    \begin{enumerate}
+    \item $f(x) = x^5-15x^3$
+    
+    \vspace{1.75in}
+    
+    \item $f(x) = x^{5/3}-5x^{2/3}$
+    
+    \vspace{1.75in}
+    
+    \item $f(x) = \dfrac{1-x^2}{1+x^2}$
+    \end{enumerate}
+    
+    
+  \end{enumerate}
+\end{document}

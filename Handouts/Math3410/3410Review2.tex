@@ -1,0 +1,86 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\newcommand{\F}{\mathbb{F}}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+\newcommand{\M}{\mathcal{M}}
+\author{Sean Fitzpatrick}
+\title{Term Test 2 Review}
+\begin{document}
+\maketitle
+
+The second term test for Math 3410 takes place on Friday, March 20th. The test covers sections 3.C, 3.D, and Chapter 5. (In other words, the material on the matrix of a linear map,  invertible linear maps and isomorphisms, plus everything on eigenvalues and eigenvectors.  In terms of format, you can expect something along the following lines:
+\begin{itemize}
+\item Short answer: This time the short answer questions will be {\em really} short answers -- basically, quick tests of factual knowledge.
+\item Definitions: I {\bf will} ask you for one or more definitions. 
+\item Computational questions: I'll include one computational question, involving finding either the matrix of a linear map, or the eigenvalues and eigenvectors of an operator.
+\item Theoretical questions: These will be problems similar to some of the suggested homework problems from the textbook. Basically, short proofs involving the definitions and theorems we've covered.
+\item Choices: I'll probably give you something like four different questions and ask you to do three of them. One of the questions will be computational and the other three will be short proofs, so you can't avoid proofs entirely on this test.
+\end{itemize}
+\subsection*{Things you should know}
+\subsubsection*{Previous knowledge}
+The test doesn't directly cover Chapters 1 and 2, or sections 3.A and 3.B, but that doesn't mean you can forget about the material that was covered. In particular, many of the questions from Chapter 5 still involve direct sums, subspaces, linear independence, span, linear transformations, null spaces, and ranges. So you might want to review that stuff.
+
+In particular, I hope that by now, everyone knows that in problems involving linear transformations and a basis (or independence, span, etc.) that the defining property
+\[
+ T(c_1v_1+c_2v_2+\cdots +c_nv_n) = c_1Tv_1+c_2Tv_2+\cdots +c_nTv_n
+\]
+of a linear transformation might come in handy.
+\newpage
+\subsubsection*{Definitions}
+You should know the definitions of the following:
+\begin{itemize}
+\item The matrix of a linear map $T:V\to W$ with respect to bases $B_V$ of $V$ and $B_W$ of $W$ is defined.
+\item Linear operators.
+\item What it means for a linear map to be invertible.
+\item Invariant subspaces for an operator.
+\item Powers $T^n$ of an operator.
+\item Polynomials $p(T)$ of an operator.
+\item Eigenvalues.
+\item Eigenvectors.
+\item Eigenspaces.
+\item What it means for an operator to be diagonalizable.
+
+\end{itemize}
+\subsubsection*{Theorems and other results}
+You should know the following results:
+\begin{itemize}
+\item The fact that the map $\M:\mathcal{L}(V,W)\to \F^{m,n}$ (where $\F^{m,n}$ is the space of $m\times n$ matrices with entries in a field $\F$) is {\bf linear}, and that it is an {\bf isomorphism}, and that $\M(T_1T_2)=\M(T_1)\M(T_2)$ for any composable linear maps $T_1$, and $T_2$.
+\item In particular, you should know what the previous result implies about the matrix of $p(T)$ if $T$ is an operator on a finite-dimensional vector space $V$.
+\item Inverses are unique.
+\item A linear map is invertible if and only if it is bijective.
+\item For linear operators on a finite-dimensional space, either injectivity or surjectivity implies bijectivity.
+\item (From Math 2000) That if a composition of operators $ST$ is injective, then $T$ is injective, and if $ST$ is surjective, then $S$ is surjective.
+\item Vector spaces of equal (finite) dimension are isomorphic.
+\item That a linear map between finite-dimensional vector spaces is invertible if and only if it (bijectively) maps a basis to a basis.
+\item How to find the polynomial of an operator.
+\item That polynomials of operators can be factored.
+\item You should know several conditions equivalent to the statement ``$\lambda$ is an eigenvalue of $T$''.
+\item You should know how to find the eigenvalues and eigenvectors of an operator. In particular, you should know:
+\begin{itemize}
+ \item How to construct the matrix of an operator $T$ with respect to the standard basis of a vector space $V$.
+ \item How to find the eigenvalues and eigenvectors of that matrix.
+ \item That the eigenvalues of $\M(T)$ are equal to the eigenvalues of $T$.
+ \item How to convert the eigenvectors of $\M(T)$ (in column-vector form) into the eigenvectors of $T$.
+ \item If $T$ is diagonalizable, how to construct the change of basis matrix $P$ (whose columns are the eigenvectors of $\M(T)$. 
+ \item That $P^{-1}\M(T)P$ will be a diagonal matrix, and that the diagonal entries are the eigenvalues of $T$.
+ \item That if $T$ cannot be diagonalized, it can still be put into upper-triangular form, with eigenvalues on the main diagonal.
+\end{itemize}
+\item What the invertibility (or not) of $T$ tells you about its eigenvalues.
+\item That eigenvectors corresponding to distinct eigenvalues are linearly independent.
+\item That, as a result of the above, there are at most $\dim V$ distinct eigenvalues for any operator on $T$.
+\item And, as a result, if $\lambda_1\neq \lambda_2$, then $E(\lambda_1,T)\cap E(\lambda_2, T) = \{0\}$.
+\item Also, as a result, that the sum of the dimensions of eigenspaces for distinct eigenvalues must be less than the dimension of $V$.
+\item Finally, you should know several different conditions equivalent to the statement ``$T$ is diagonalizable.''
+
+
+
+
+
+\end{itemize}
+\end{document}

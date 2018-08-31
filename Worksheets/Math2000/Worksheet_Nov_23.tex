@@ -1,0 +1,85 @@
+\documentclass[letterpaper,12pt]{article}
+
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage[canadian]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+%\usepackage[dvips]{hyperref}
+\newcommand{\divs}[2]{#1 \, | \, #2}
+\renewcommand{\cong}[3]{#1 \equiv #2 \pmod{#3}}
+
+%\author{Sean Fitzpatrick}
+%\date{2015-09-15}
+\title{Math 2000 Tutorial Worksheet}
+\begin{document}
+\maketitle
+
+ This week's tutorial covers inverses of functions, and functions acting on sets.
+\begin{enumerate}
+ \item (Section 6.5 \#4) Let $A$ and $B$ be nonempty sets and let $f:A\to B$ be a bijection. Prove that for every $y\in B$, $(f\circ f^{-1})(y) = y$.
+ \item (Section 6.5 \#6) Let $f:A\to B$ and $g:B\to A$ be functions. Let $I_A:A\to A$ and $I_B:B\to B$ be the identity functions on $A$ and $B$, respectively. Prove the following:
+\begin{enumerate}
+ \item If $g\circ f = I_A$, then $f$ is an injection.
+ \item If $f\circ g = I_B$, then $f$ is a surjection.
+ \item If $f\circ g = I_B$ and $g\circ f = I_A$, then $f$ and $g$ are bijections, and $g=f^{-1}$.
+\end{enumerate}
+Note: parts (a) and (b) are special cases of Theorem 6.21 in Section 6.4, which we proved in class. You can prove (a) and (b) by referring to this result, but you should try to prove them directly from the definitions. (It's a good exercise.) We did part (c) in class, so try it yourself, and if you get stuck, see your notes.
+
+ \item Define $f:\mathbb{R}\times\mathbb{N}\to\mathbb{N}\times\mathbb{R}$ by $f(x,y) = (y,3xy)$. Prove that $f$ is a bijection, and find a formula for $f^{-1}$.
+\end{enumerate}
+
+\vspace{24pt}
+
+The remaining problems are from Section 6.6. We weren't able to spend much time on this section in class, but at this point in the semester, you've reached the stage where you've practised the various methods of proof (including direct proof, many, many times), so given a definition and a proposition, you should be able to at least make progress on assembling a proof. Remember that the process is always the same: (i) Assume the hypothesis. (ii) Define any terms appearing in the hypothesis. (Say what you know.) (iii) Make a note of what the conclusion states. (iv) Define any terms appearing in the conclusion. (Say what you need to prove.) (v) Figure out how to connect (ii) and (iv).
+
+I'll post a handout online with proofs of some of the results from this section, with a catch: instead of dealing with the case of the union or intersection of two sets, my proofs will deal with unions and intersections of arbitrary indexed families of sets.
+
+\newpage
+
+\begin{enumerate}\setcounter{enumi}{3}
+ \item Define $f:\mathbb{R}\to\mathbb{R}$ by $f(x) = x^2+1$, and let
+\[
+ A = [0,2],\quad B = [-2,1], \quad C = [-3,-1], \quad \text{ and } \quad D = [-1,3].
+\]
+Compute the following:
+\begin{enumerate}
+ \item $f(A)$
+ \item $f(B)$
+ \item $A\cap B$
+ \item $f(A\cap B)$
+ \item $f(A)\cap f(B)$
+ \item $f^{-1}(C)$
+ \item $f^{-1}(D)$
+ \item $C\cap D$
+ \item $f^{-1}(C\cap D)$
+ \item $f^{-1}(C)\cap f^{-1}(D)$
+\end{enumerate}
+ \item Let $f:S\to T$ be a function, let $A$ and $B$ be subsets of $S$, and let $C$ and $D$ be subsets of $T$.
+\begin{enumerate}
+ \item Carefully define what it means to say that $y\in f(A\cap B)$.
+ \item Carefully define what it means to say that $y\in f(A)\cap f(B)$.
+ \item Prove that $f(A\cap B)\subseteq f(A)\cap f(B)$.
+ \item Suppose now that you know $f$ is \textit{injective}. Is it true that $f(A\cap B)=f(A)\cap f(B)$ in this case? Prove it, or give a counterexample.
+ \item Carefully define what it means to say that $x\in f^{-1}(C\cup D)$.
+ \item Carefully define what it means to say that $x\in f^{-1}(C)\cup f^{-1}(D)$.
+ \item Prove that $f^{-1}(C\cup D)\subseteq f^{-1}(C)\cup f^{-1}(D)$.
+ \item Prove that $f^{-1}(C)\cup f^{-1}(D) \subseteq f^{-1}(C\cup D)$.
+\end{enumerate}
+ \item Let $f:S\to T$ be a function, let $A\subseteq S$, and let $B\subseteq T$.
+\begin{enumerate}
+ \item Prove that $A\subseteq f^{-1}(f(A))$.
+ \item Give an example where $A\neq f^{-1}(f(A))$.
+ \item Suppose now that $f$ is \textit{injective}. Prove that $A=f^{-1}(f(A))$ in this case.
+ \item Prove that $f(f^{-1}(B))\subseteq B$.
+ \item Give an example where $f(f^{-1}(B))\neq B$.
+ \item Suppose now that $f$ is \textit{surjective}. Prove that $f(f^{-1}(B))=B$ in this case.
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
+ 

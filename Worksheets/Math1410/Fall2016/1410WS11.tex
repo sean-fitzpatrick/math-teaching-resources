@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{}
+\lhead{Math 1410}\chead{Worksheet \# 11}\rhead{November 30/December 1, 2016}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+\newcommand{\bam}{\begin{amatrix}}
+\newcommand{\eam}{\end{amatrix}}   
+                 
+\begin{document}
+{\bf \large Name:} \hspace{2.5in} {\bf Tutorial day and time:}
+
+\bigskip
+
+{\bf Select {\bf one} {\em completed} problem for feedback:}
+
+\bigskip
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{fancy}
+%\noindent{{\bf Name and student number:}}
+ \begin{enumerate}
+\item Let $A$, $B$, and $C$ be $n\times n$ matrices such that $\det(A) = 2$, $\det(B)=-1$, and $\det(C) = 3$. Evaluate $\det(A^3BC^TB^{-1})$.
+
+\vspace{1in}
+
+\item If $A$ and $B$ are $3\times 3$ matrices such that $\det(2A^{-1}) = -4 = \det(A^3(B^{-1})^T)$, what are the values of $\det(A)$ and $\det(B)$?
+
+\vspace{1in}
+
+\item The matrix $A = \bbm 3&2&1\\1&4&1\\1&2&3\ebm$ has eigenvalues $\lambda=2$ and $\lambda=6$. Find the corresponding eigenvectors.
+
+\newpage
+
+\item Compute the eigenvalues and eigenvectors of the matrix $A = \bbm 1&4\\2&3\ebm$.
+
+\vspace{5in}
+
+\item Verify that the matrix $Z = \bbm 3&1\\-2&1\ebm$ has eigenvalues $\lambda_\pm = 2\pm i$ with corresponding eigenvectors $\vec{x}_+ = \bbm 1+i\\-2\ebm$, $\vec{x}_- = \bbm 1\\-1-i\ebm$.
+
+ \end{enumerate}
+\end{document}

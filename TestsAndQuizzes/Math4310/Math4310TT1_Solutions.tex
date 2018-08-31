@@ -1,0 +1,232 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,margin=0.85in,centering]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\cfoot{Page \thepage \ of \pageref{LastPage}}\rfoot{{\bf Total Points: 35}}
+\chead{MATH 4310}\lhead{Midterm}\rhead{Wednesday, 15\textsuperscript{th} October, 2014}
+
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+
+\begin{document}
+
+\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{plain}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+15\textsuperscript{th} October, 2014, 5:00-5:50 pm\\
+{\bf Math 4310 - Term Test I}\\
+\end{center}
+\skipline \skipline \skipline \noindent \skipline
+Last Name:\underline{\hspace{50pt}{\bf SOLUTIONS}\hspace{50pt}}\\
+\skipline
+First Name:\underline{\hspace{50pt}{\bf THE}\hspace{100pt}}\\
+\skipline
+Student Number:\underline{\hspace{322pt}}\\
+
+
+\vspace{0.5in}
+
+
+\begin{quote}
+ {\bf Record your answers below each question in the space provided.    Left-hand pages may be used as scrap paper for rough work.  If you want any work on the left-hand pages to be graded, please indicate so on the right-hand page.
+ 
+ \bigskip
+ 
+Partial credit will be awarded for partially correct work, so be sure to show your work, and include all necessary justifications needed to support your arguments. 
+
+There is a list of potentially useful formulas available on the last page of the exam.}
+\end{quote}
+
+
+\vspace{0.5in}
+
+For grader's use only:
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|r|} \hline
+Page&Grade\\
+\hline \hline
+\cline{1-2} 2 & \enspace\enspace\enspace\enspace\enspace\enspace/12\\
+\cline{1-2} 3 & \enspace\enspace\enspace\enspace\enspace\enspace/8\\
+\cline{1-2} 4 & \enspace\enspace\enspace\enspace\enspace\enspace/9\\
+\cline{1-2} 5 & \enspace\enspace\enspace\enspace\enspace\enspace/6\\
+\cline{1-2} Total & \enspace\enspace\enspace\enspace\enspace\enspace/35\\
+\hline
+\end{tabular}
+
+\skipline
+
+\skipline
+
+\skipline
+
+
+\end{center}
+\end{table}
+\newpage
+
+
+\begin{enumerate}
+\item For each of the following, give an example, or explain why no such example exists:
+\begin{enumerate}
+\item A subset of a topological space that is both open and closed. \points{3}
+
+\bigskip
+
+\noindent{\bf Solution}: Let $X=\R$ with the Euclidean topology. Then $\emptyset\in\R$ is both open and closed (as it is in any topological space).
+
+\bigskip
+
+\item A continuous function $f:X\to Y$, if $X$ is equipped with the indiscrete topology. \points{3}
+
+
+\bigskip
+
+\noindent{\bf Solution}: We know that constant functions are continuous in any topology. To see this, note that if $f(x)=a$ for all $x\in\R$, for some $a\in Y$, then for any open subset $U\subseteq Y$ (in fact, for any subset), $f^{-1}(U)=X$ if $a\in U$, and $f^{-1}(U)=\emptyset$ if $a\notin U$. Thus, the topology $\{\emptyset, X\}$ is sufficient for $f$ to be continuous.
+
+\bigskip
+
+
+\item An interior point that is not a limit point. \points{3}
+
+
+\bigskip
+
+\noindent{\bf Solution}: Let $X$ have the discrete topology, let $x\in X$, and let $A=\{x\}$. Then $x$ is in the interior of $A$, since $A$ itself is an open neighbourhood of $x$ contained in $A$. However, $x$ cannot be a limit point of $A$ since every neighbourhood of $x$ would have to contain some $a\in A$ with $a\neq x$, and this is impossible if $A=\{x\}$.
+
+Note: I'm pretty sure this is the only topology in which an interior point can fail to be a limit point. 
+
+\bigskip
+
+
+\item A metric space that is not Hausdorff. \points{3}
+
+\bigskip
+
+\noindent{\bf Solution}: No such space can exist. Given any two points $x\neq y$ in a metric space $(X,d)$, let $\epsilon = d(x,y)/2$. It follows that the open neighbourhoods $N_\epsilon(x)$ and $N_\epsilon(y)$ are disjoint, since if not, there exists some $z\in N_\epsilon(x)$ with $d(z,y)<\epsilon$. But then we have
+\[
+ d(x,y)\leq d(x,z)+d(z,y) <\epsilon+\epsilon = d(x,y),
+\]
+and this is impossible.
+
+\bigskip
+
+\end{enumerate}
+\newpage
+
+\item Let $X=\displaystyle l^1(\mathbb{R}) = \left\{\sum_{n=1}^\infty a_n \,\left|\: \sum_{n=1}^\infty\abs{a_n}<\infty\right.\right\}$ be the space of absolutely convergent sequences of real numbers. Prove that the function $d:X\times X\to\R$ given by \points{8}
+\[
+d\left(\sum a_n, \sum b_n\right) = \sum_{n=1}^\infty\abs{a_n-b_n}
+\]
+is well-defined (i.e. that $d(x,y)$ is finite for all $x,y\in X$) and makes $X$ into a metric space.
+
+\bigskip
+
+\noindent{\bf Solution}: Let $x=\sum a_n$, $y=\sum b_n$ and $z=\sum c_n$ be absolutely convergent series. Since $\sum\abs{a_n}$ and $\sum\abs{b_n}$ converge and $\abs{a_n-b_n}\leq \abs{a_n}+\abs{b_n}$ for all $n\in \N$, we see that $d(x,y)=\sum\abs{a_n-b_n}$ converges by comparison.
+
+Thus, we obtain a well-defined function $d:X\times X\to\R$. We now verify that $d$ is a metric:
+\begin{itemize}
+ \item Since $\abs{a_n-b_n}\geq 0$ for all $n\in \N$, it follows that $d(x,y)\geq 0$ for all $x,y\in X$, and if $\di\sum_{n=1}\infty\abs{a_n-b_n}=0$ then we must have $\abs{a_n-b_n}=0$ for all $n\in\N$, and thus $x=y$.
+ \item Since $\abs{a_n-b_n} = \abs{b_n-a_n}$ for all $n\in\N$, it follows that $d(x,y)=d(y,x)$ for all $x,y\in X$.
+ \item Since $\abs{a_n-b_n} = \abs{a_n-c_n+c_n-b_n} \leq \abs{a_n-c_n}+\abs{c_n-b_n}$ for all $n\in \N$, it follows that for any $N\in \N$ we have
+\[
+ \sum_{i=1}^N\abs{a_i-b_i}\leq \sum_{i=1}^N\abs{a_i-c_i}+\sum_{i=1}^N\abs{c_i-b_i} \leq \sum_{i=1}^\infty\abs{a_i-c_i}+\sum_{i=1}^\infty\abs{c_i-b_i}.
+\]
+Thus, $d(x,z)+d(z,y)$ is an upper bound for the increasing sequence $s_N = \sum_{i=1}^N\abs{a_i-b_i}$, and since the limit of this sequence is $d(x,y)$, it follows that $d(x,y)\leq d(x,z)+d(z,y)$.
+\end{itemize}
+
+
+\bigskip
+
+\newpage
+
+\item \begin{enumerate}
+\item Define what it means for a set $\mathcal{B}$ of subsets of a set $X$ to be a {\bf basis} for a topology on $X$. \points{3}
+
+(Either of the two definitions we discussed is acceptable.)
+
+
+\bigskip
+
+\noindent{\bf Solution}: A collection $\B\subseteq \mathcal{P}(X)$ is a {\bf basis} for a topology on $X$ if
+\begin{enumerate}
+ \item $\di X\subseteq \bigcup_{B\in \B}B$
+ \item For any $B_1,B_2\in\B$, if $x\in B_1\cap B_2$, then there exists $B_3\in\B$ such that $x\in B_3\subseteq B_1\cap B_2$.
+\end{enumerate}
+
+Alternatively, if we are given a topology $\mathcal{T}_X$ for $X$, then a basis for $\mathcal{T}_X$ is a collection $\B\subseteq \mathcal{T}_X$ such that any $U\subseteq T_X$ can be written as a union of basic open subsets $B\in\B$.
+
+\bigskip
+
+
+\item Let $X$ and $Y$ be topological spaces, and let $\mathcal{B}$ be a basis for the topology on $Y$. Prove that a function $f:X\to Y$ is continuous if and only if $f^{-1}(U)$ is open in $X$ for every $U\in\mathcal{B}$. \points{6}
+
+
+\bigskip
+
+\noindent{\bf Solution}: If $f$ is continuous and $U\in\B$, then $U$ is open in $Y$, so $f^{-1}(U)$ is open in $X$. Conversely, suppose that $f^{-1}(U)$ is open for all $U\in\B$, and let $V$ be any open subset of $Y$. Then there exists a collection $\{B_\alpha:\alpha\in I\}\subseteq \B$ such that $\di V = \bigcup_{\alpha\in I}B_\alpha$.
+
+(Using the first definition above, we declare $V\subseteq Y$ to be open if for each $y\in Y$ there exists some $B_y\in\B$ with $y\in B_y\subseteq V$, and it follows that we can write $\di V = \bigcup_{y\in V}B_y$, but with either definition you can just state without justification that $V$ is a union of basic open sets.)
+
+It follows that $\di f^{-1}(V) f^{-1}\left(\bigcup_{\alpha\in I}B_\alpha\right) = \bigcup_{\alpha\in I}f^{-1}(B_\alpha)$ is a union of open subsets of $X$, and therefore is open.
+
+\bigskip
+
+\end{enumerate}
+\newpage
+
+\item Solve {\bf one} of the following two problems:\points{6}
+\begin{enumerate}
+\item Let $X, Y$, and $Z$ be topological spaces, and equip $X\times Y$ with the product topology. Show that a map $f:Z\to X\times Y$ is continuous if and only if the maps $\pi_X\circ f:Z\to X$ and $\pi_Y\circ f:Z\to Y$ are continuous.  \\(Hint: one direction is easy. For the other, use 3(b).)
+
+\bigskip
+
+\noindent{\bf Solution}: If $f$ is continuous, then so are $\pi_X\circ f$ and $\pi_Y\circ f$, since they are the composition of continuous functions. Conversely, suppose that $\pi_X\circ f$ and $\pi_Y\circ f$ are continuous. We wish to show that $f$ is continuous. By 3(b), it suffices to prove that $f^{-1}(U\times V)$ is open in $Z$ whenever $U$ is open in $X$ and $V$ is open in $Y$. Letting $U$ and $V$ be open subsets of $X$ and $Y$, respectively, we have
+\begin{align*}
+ f^{-1}(U\times V) & = f^{-1}((U\times Y)\cap (X\times V)\\
+& = f^{-1}(U\times Y)\cap f^{-1}(X\times V)\\
+& = f^{-1}(\pi_x^{-1}(U))\cap f^{-1}(\pi_Y^{-1}(V))\\
+& = (\pi_X\circ f)^{-1}(U)\cap (\pi_Y\circ f)^{-1}(V),
+\end{align*}
+which is open in $Z$, since it's the intersection of open sets, due to the assumption that $pi_x\circ f$ and $\pi_Y\circ f$ are continuous.
+
+
+\bigskip
+
+\item Given a topological space $X$, let $X_0$ denote the space with the same underlying set as $X$, but with the cofinite topology. Show that the identity map $I:X\to X_0$ (given by $I(x)=x$) is continuous if and only if $X$ is a $T_1$ space.
+
+Hint: $X$ is $T_1$ if and only if finite point sets are closed.
+
+\bigskip
+
+\noindent{\bf Solution}: Since $I$ is the identity map, we have $f^{-1}(A) = A$ for any $A\subseteq X_0$. (Note $X=X_0$ as sets.) Suppose $I$ is continuous. Then $I^{-1}(F)=F$ is closed in $X$ whenever $F$ is closed in $X_0$. But the closed sets of $X_0$ are the finite subsets, so every finite subset of $X$ must be closed. Thus, $X$ is $T_1$. Conversely, if $X$ is $T_1$ and $F\subseteq X_0$ is closed, then $F$ is finite, and $I^{-1}(F)=F$ is finite and therefore closed, so that $I$ must be continuous.
+
+\bigskip
+
+\end{enumerate}
+\end{enumerate}
+
+
+
+\end{document}

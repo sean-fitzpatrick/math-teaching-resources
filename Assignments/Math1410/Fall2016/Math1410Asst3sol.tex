@@ -1,0 +1,170 @@
+\documentclass[letterpaper,12pt]{amsart}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\newcommand{\len}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+                   
+\title{Math 1410 Assignment \#3 Solutions\\University of Lethbridge, Fall 2016}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+
+\begin{enumerate}
+\item An $n\times n$ matrix $A$ is called \textbf{idempotent} if $A^2=A$, where $A^2 = AA$.
+
+\medskip
+
+\begin{enumerate}
+ \item Show that the following matrices are idempotent:
+\[
+ \bbm 1&0\\0&1\ebm,\quad \bbm 1&1\\0&0\ebm,\quad \frac{1}{2}\bbm 1&1\\1&1\ebm.
+\]
+
+\bigskip
+
+For each matrix $A$, we simply form the product $A^2=A\cdot A$ as follows:
+
+\begin{align*}
+ \bbm 1&0\\0&1\ebm\bbm 1&0\\0&1\ebm &= \bbm 1(1)+0(0)&1(0)+0(1)\\0(1)+1(0)&0(0)+1(1)\ebm =\bbm 1&0\\0&1\ebm\\
+ \bbm 1&1\\0&0\ebm\bbm 1&1\\0&0\ebm &= \bbm 1(1)+1(0)&1(1)+1(0)\\0(1)+0(0)&0(1)+0(0)\ebm =\bbm 1&1\\0&0\ebm\\
+ \frac{1}{2}\bbm 1&1\\1&1\ebm\left(\frac{1}{2}\bbm 1&1\\1&1\ebm\right)&=\frac{1}{2}\left(\frac{1}{2}\right)\bbm 1&1\\1&1\ebm \bbm 1&1\\1&1\ebm = \frac{1}{4}\bbm 2&2\\2&2\ebm = \frac{1}{2}\bbm 1&1\\1&1\ebm.
+\end{align*}
+
+\bigskip
+
+ \item Let $I$ denote the $n\times n$ identity matrix. Show that if $A$ is idempotent, then so is $I-A$, and that $A(I-A)=0$.
+
+\medskip
+
+Suppose that $A$ is idempotent; that is, that $A^2=A$. Then
+\[
+ (I-A)^2 = (I-A)(I-A) = I^2-IA-AI+A^2 = I-A-A+A=I-A,
+\]
+so $I-A$ is idempotent, and
+\[
+ A(I-A) = AI-A^2 = A-A=0.
+\]
+
+\bigskip
+
+ \item Show that if $A$ is an $n\times n$ idempotent matirx and $B$ is any other $n\times n$ matrix, then
+\[
+ C = A+BA-ABA
+\]
+ is an idempotent matrix.
+
+\bigskip
+
+We have
+\begin{align*}
+ C^2 & = (A+BA-ABA)(A+BA-ABA)\\
+ & = A(A)+ABA-A(ABA)+(BA)(A)+(BA)(BA)-(BA)(ABA)-(ABA)(A)-(ABA)(BA)+(ABA)(ABA)\\
+ & = A^2 + ABA-A^2(BA)+B(A^2)+BABA-B(A^2)(BA)-AB(A^2)-ABABA+AB(A^2)(BA)\\
+ & = A + (ABA-ABA)+BA+(BABA-BABA)-ABA+(-ABABA+ABABA)\\
+ & = A+BA-ABA,
+\end{align*}
+as required.
+ \end{enumerate}
+
+\bigskip
+
+ \item Determine the matrix $A$ such the matrix transformation $T\left(\bbm x\\y\ebm\right) = A\bbm x\\y\ebm$ perfoms the following transformations of the Cartesian plane, in order:
+\begin{itemize}
+ \item First, a vertical reflection across the $x$-axis.
+ \item Second, a horizontal reflection across the $y$-axis.
+ \item Third, a counter-clockwise rotation through an angle of $90^\circ$.
+\end{itemize}
+
+\bigskip
+
+Let $T_1(\vec{x})=A_1\vec{x}$, $T_2(\vec{x})=A_2\vec{x}$, $T_3(\vec{x})=A_3\vec{x}$ denote the three given transformations, in order.
+
+From the textbook, we have:
+\[
+ A_1 = \bbm 1&0\\0&-1\ebm,\quad A_2 = \bbm -1&0\\0&1\ebm, \quad \text{ and } A_3 = \bbm 0&-1\\1&0\ebm,
+\]
+and to perform the three transformations in the given order for an arbitrary vector $\vec{x}$ in $\R^2$, we must proceed as follows:
+
+First, compute $\vec{x}_1 = T_1(\vec{x}) = A_1\vec{x}$.
+
+Second, compute $\vec{x}_2 = T_2(\vec{x}_1) = T_2(T_1(\vec{x})) = A_2(A_1\vec{x})$.
+
+Third, compute $\vec{x}_3 = T_3(\vec{x}_2) = T_3(T_2(T_1(\vec{x}))) = A_3(A_2(A_1\vec{x})) = (A_3A_2A_1)\vec{x}$.
+
+The vector $\vec{x}_3$ is our desired result from performing the three transformations on the vector $\vec{x}$. Thus, our overall transformation must be $T(\vec{x}) = A\vec{x}$, where $A = A_3A_2A_1$, and we compute
+\[
+ A = A_3A_2A_1 = \bbm 0&-1\\1&0\ebm\bbm -1&0\\0&1\ebm\bbm 1&0\\0&-1\ebm = \bbm 0&-1\\1&0\ebm\bbm -1&0\\0&-1\ebm = \bbm 0&1\\-1&0\ebm.
+\]
+(This, by the way, is the matrix for a {\em clockwise} rotation by $90^\circ$. Feel free to convince yourself that performing the three given transformations in order does indeed result in a clockwise rotation by $90^\circ$.)
+
+\bigskip
+
+
+\item In each of the following, either explain why the statement is true, or give an example showing that it is false:
+ \begin{enumerate}
+ \item If $A$ is an $m\times n$ matrix where $m<n$, then $AX=B$ has a solution for every column $B$.
+
+\bigskip
+
+This statement is false. Consider the matrices $A = \bbm 0&0&0\\0&0&0\ebm$ and $B = \bbm 1\\1\ebm$. We see that $A$ is a $2\times 3$ matrix, and $2<3$, but clearly there does not exist a vector $X = \bbm x\\y\\z\ebm$ such that $AX=B$, since $AX = \bbm 0\\0\ebm$ for any vector $X$.
+
+\bigskip
+
+
+ \item If $AX=B$ has a solution for some column $B$, then it has a solution for every column $B$.
+
+\bigskip
+
+This statement is also false. Consider the matrix $A = \bbm 1&0\\0&0\ebm$. The equation $AX=B$ has a solution for the column $B = \bbm 1\\0\ebm$, since if $AX = \bbm 1&0\\0&0\ebm \bbm x\\y\ebm = \bbm x\\0\ebm = \bbm 1\\0\ebm = B$, then we have the solution $X = \bbm 1\\0\ebm$. However, with the same matrix $A$, the equation $AX=B$ does not have a solution for the column $B=\bbm 0\\1\ebm$, since there are no values of $x$ and $y$ for which $\bbm x\\0\ebm = \bbm 0\\1\ebm$.
+
+\bigskip
+
+ \item If $X_1$ and $X_2$ are solutions to $AX=B$, then $X_1-X_2$ is a solution to $AX=0$.
+
+\bigskip
+
+This statement is true. Suppose that $X_1$ and $X_2$ are solutions to $AX=B$; that is, that $AX_1=B$ and $AX_2=B$. Then
+\[
+ A(X_1-X_2) = AX_1-AX_2 = B-B=0,
+\]
+which shows that $X_1-X_2$ is a solution to $AX=0$.
+
+\bigskip
+
+ \item If $AB=AC$ and $A\neq 0$, then $B=C$.
+
+\bigskip
+
+This statement is false. Consider the matrices $A = \bbm 1&0\\0&0\ebm$, $B = \bbm 0\\1\ebm$, and $C=\bbm 0\\2\ebm$. We have
+\[
+ AB = \bbm 1&0\\0&0\ebm\bbm 0\\1\ebm = \bbm 0\\0\ebm = \bbm 1&0\\0&0\ebm\bbm 0\\2\ebm = AC,
+\]
+but clearly, $B\neq C$, since $1\neq 2$.
+
+\bigskip
+
+ \item If $A\neq 0$, then $A^2\neq 0$.
+
+This statement is false. Consider the matrix $A = \bbm 0&1\\0&0\ebm$. We have $A\neq 0$, since the $(1,2)$-entry of $A$ is nonzero, but
+\[
+ A^2 = \bbm 0&1\\0&0\ebm\bbm 0&1\\0&0\ebm = \bbm 0&0\\0&0\ebm = 0.
+\]
+
+ \end{enumerate}
+\end{enumerate}
+
+\end{document}
+ 

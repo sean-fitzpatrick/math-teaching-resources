@@ -1,0 +1,60 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\P}{\mathcal{P}}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
+
+\title{Math 3410 Assignment \#3\\University of Lethbridge, Spring 2015}
+\author{Sean Fitzpatrick}
+\begin{document}
+ \maketitle
+
+{\bf Due date:} Thursday, March 5th, by 5 pm.
+
+\bigskip
+
+Please provide solutions to the problems below, using the same guidelines as for Assignment \#1:
+
+
+\begin{enumerate}
+ \item Let $T:\P_3(\R)\to\P_5(\R)$ be the linear transformation given by
+\[
+ (Tp)(x) = (3-2x+x^2)p(x).
+\]
+\begin{enumerate}
+ \item Compute the matrix of $T$ with respect to the standard bases $\{1,x,x^2,x^3\}$ of $\P_3(\R)$ and $\{1,x,x^2,x^3,x^4,x^5\}$ of $\P_5(\R)$.
+ \item Find the null space and range of $T$.
+\end{enumerate}
+ \item Let $T_1$ and $T_2$ be linear maps from $V$ ot $W$.
+\begin{enumerate}
+ \item Suppose that $W$ is finite-dimensional. Prove that $\nul T_1=\nul T_2$ if and only if there exists an invertible linear operator $S:W\to W$ such that $T_1=ST_2$.
+ \item Suppose that $V$ is finite-dimensional. Prove that $\range T_1=\range T_2$ if and only if there exists an invertible linear operator $S:V\to V$ such that $T_1=T_2S$.
+\end{enumerate}
+\noindent {\bf Hint:} The `only if' direction of part (a) is more difficult than it might seem at first. In particular, you are {\em not} told that $V$ is finite-dimensional, so you can't make use of the fundamental theorem of linear maps. Instead, you might try the following:
+
+We know that $\range T_1$ is a subspace of $W$, which is finite-dimensional. Therefore, there exists a basis $\{w_1,w_2,\ldots, w_m\}$ of $\range T_1$, and by definition of range, there exist vectors $v_1,\ldots, v_m\in V$ such that $T_1v_i = w_i$ for $i=1,\ldots, m$ (and by a recent quiz problem, you know that the $v_i$ are independent). Now use the assumption $\nul T_1=\nul T_2$ to conclude that the vectors $T_2v_1, \ldots, T_2v_m$ are linearly independent.
+
+Once you've done this, explain why it follows that $\dim \range T_1\leq \dim \range T_2$. Then repeat the argument to get the opposite inequality, which will let you conclude that $\dim \range T_1 = \dim \range T_2$. Finally, explain why this tells you that there exists an isomorphism between the two subspaces, and then figure out how to extend this to an invertible linear operator on $W$.
+
+ \item Let $U\subseteq \mathbb{F}^\infty$ denote the vector space of sequences
+
+with ``finite support'': for each $x=(x_n)\in U$ there exists a natural number $N_x$ such that $x_i=0$ for all $i\geq N_x$. Thus, each $x\in U$ looks like
+\[
+ x = (x_1,x_2,x_3,\ldots, x_{N_x}, 0, 0, \ldots).
+\]
+Prove that the vector space $U$ is isomorphic to the vector space $\mathcal{P}(\mathbb{F})$ of all polynomials (of arbitrary degree) with coefficients in $\mathbb{F}$.
+
+ \noindent {\bf Hint:} Both vector spaces are infinite-dimensional, which means that you can't make an argument based on dimension. Instead, you will need to figure out how to explicitly construct an isomorphism.
+ \end{enumerate}
+\end{document}
+ 

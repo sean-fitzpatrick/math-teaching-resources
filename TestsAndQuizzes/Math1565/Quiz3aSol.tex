@@ -1,0 +1,91 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[letterpaper,top=1in,bottom=1.25in,left=0.75in,right=0.75in,centering]{geometry}
+%\usepackage{fancyhdr}
+\usepackage{enumerate}
+%\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\reversemarginpar
+
+%\pagestyle{fancy}
+%\cfoot{}
+%\lhead{Math 1560}\chead{Test \# 1}\rhead{May 18th, 2017}
+%\rfoot{Total: 10 points}
+%\chead{{\bf Name:}}
+\newcommand{\points}[1]{\marginpar{\hspace{24pt}[#1]}}
+\newcommand{\skipline}{\vspace{12pt}}
+%\renewcommand{\headrulewidth}{0in}
+\headheight 30pt
+
+\newcommand{\di}{\displaystyle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\len}[1]{\lVert #1\rVert}
+\renewcommand{\i}{\mathbf{i}}
+\renewcommand{\j}{\mathbf{j}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\aaa}{\mathbf{a}}
+\newcommand{\bbb}{\mathbf{b}}
+\newcommand{\ccc}{\mathbf{c}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}                   
+                  
+\begin{document}
+
+
+%\author{Instructor: Sean Fitzpatrick}
+\thispagestyle{empty}
+\begin{center}
+\emph{University of Lethbridge}\\
+Department of Mathematics and Computer Science\\
+{\bf MATH 1565 - Quiz \#3 Solution}\\
+\end{center}
+%\skipline \skipline \skipline \noindent \skipline
+%Last Name:\underline{\hspace{350pt}}\\
+%\skipline
+%First Name:\underline{\hspace{348pt}}\\
+%\skipline
+%Student Number:\underline{\hspace{322pt}}\\
+%\skipline
+
+\thispagestyle{empty}
+\begin{enumerate}
+ \item Determine the equation of the tangent line to the curve
+ \[
+ (x^2+y^2+x)^2=x^2+y^2
+ \]
+ at the point $(0,-1)$.
+
+\end{enumerate}
+
+
+Taking the derivative of both sides with respect to $x$, we have
+\[
+2(x^2+y^2+x)\left(2x+2y\frac{dy}{dx}+1\right)=2x+2y\frac{dy}{dx}.
+\]
+Since the derivative is complete, we can substitute $x=0$, $y=-1$, giving us
+\[
+2(0+1+0)\left(0-2\frac{dy}{dx}+1\right)=0-2\frac{dy}{dx},
+\]
+or $-4\dfrac{dy}{dx}+2=-2\dfrac{dy}{dx}$. Solving for $\dfrac{dy}{dx}$, we have
+\[
+\dfrac{dy}{dx} = 1.
+\]
+Thus we have the point $(0,-1)$ and the slope $m=1$, so our line is
+\[
+y-(-1)=1(x-0), \text{ or } y=x-1.
+\]
+
+\textbf{Note:} it was not necessary to solve for $\dfrac{dy}{dx}$ in terms of $x$ and $y$ before putting in the given values, but if you did, you should get:
+\[
+4x(x^2+y^2+x)+4y(x^2+y^2+x)\frac{dy}{dx}+2(x^2+y^2+x) = 2x+2y\frac{dy}{dx}
+\]
+so
+\[
+\frac{dy}{dx} = \frac{-6x^2-4xy^2-4x^3-2y^2}{4x^2y+4y^3+4xy-2y}.
+\]
+\end{document}
