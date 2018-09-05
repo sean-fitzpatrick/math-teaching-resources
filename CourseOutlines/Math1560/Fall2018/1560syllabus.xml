@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+Copyright 2015 Robert A. Beezer
+
+This file is part of MathBook XML.
+
+MathBook XML is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 or version 3 of the
+License (at your option).
+
+MathBook XML is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
+*********************************************************************-->
+
+<!-- To process this file do                                                                      -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc mathbook/xsl/mathbook-latex.xsl minimal.xml                                     -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc mathbook/xsl/mathbook-html.xsl minimal.xml                                      -->
+<!--     <browswer>  minimal.html                                                                 -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 mathbook/xsl/mathbook-smc.xsl minimal.xml          -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 mathbook/xsl/mathbook-sage-doctest.xsl minimal.xml -->
+<!--     <read further instructions in> minimal.py                                                -->
+
+ <mathbook>
+
+    <docinfo>
+        <brandlogo url="http://www.uleth.ca/artsci/math-computer-science/" source="images/fiatlux.jpg" />
+        <macros>
+        \newcommand{\doubler}[1]{2#1}
+        </macros>
+        <initialism>M1560</initialism>
+    </docinfo>
+
+    <article xml:id="calculus-outline">
+        <title>Math 1560 Course Outline</title>
+        <subtitle>Fall 2018</subtitle>
+        <section xml:id="section-basics">
+            <title>Basic course information</title>
+            <p>
+              <ul label="">
+                <li>Course title: <alert>Math 1560</alert>, Calculus I</li>
+                <li>Course instructor: <url href="http://www.cs.uleth.ca/~fitzpat">Sean Fitzpatrick</url>.
+                Email: <url href="mailto:sean.fitzpatrick@uleth.ca">sean.fitzpatrick@uleth.ca</url> </li>
+                <li>Tutorial instructor: <url href="http://www.cs.uleth.ca/~bomhof">Arie Bomhof</url>.
+                Email: <url href="mailto:a.bomhof@uleth.ca">a.bomhof@uleth.ca</url></li>
+                <li>Course website: via <url href="https://moodle.uleth.ca">Moodle</url></li>
+                <li>Course textbook: a free, custom <term>Open Education Resource</term>.
+                There will be a <init>PDF</init> copy of the textbook available on Moodle,
+                and you can also find it in the <url href="http://www.cs.uleth.ca/~fitzpat/oer.html">OER Textbooks</url>
+                section of my website.</li>
+                <li>Class schedule: Tuesday and Thursday, in L1060. Section A meets at 10:50 am, and Section B meets at 1:40 pm.</li>
+                <li>Tutorials: see Moodle or your class timetable for details. There are <alert>no tutorials</alert> in the first week of class.</li>
+                <li>Grading: see <xref ref="section-evaluation">Section </xref> in the <init>FAQ</init>. </li>
+              </ul>
+            </p>
+        </section>
+        <section xml:id="section-FAQ">
+            <title>Course <init>FAQ</init></title>
+
+
+          <introduction>
+            <p>As you embark upon your study of calculus in this course (Math 1560), you likely have many questions, such as: <q>What is Calculus, anyway?</q> and <q>Is this on the test?</q> This <init>FAQ</init> will attempt to answer your questions, along with many others you did not think to ask.</p>
+          </introduction>
+
+        <subsection xml:id="section-general">
+          <title>Organizational questions</title>
+          <introduction><p>Questions related to the general operation of the course.</p></introduction>
+          <subsubsection>
+            <title>Can I get a print copy of the textbook?</title>
+            <p>Yes. I recommend using the Print-on-Demand service from the Campus Bookstore.
+              They will print and bind copy of the book for you.
+              It usually takes no more than a day to get a print copy from the Bookstore.</p>
+            <p>You can also print it yourself. The open license for our textbook means that you are free to do whatever you
+            want with your electronic copy,
+            and this includes printing it. </p>
+          </subsubsection>
+          <subsubsection>
+            <title>What do we do in the tutorials?</title>
+            <p>The tutorials provide an additional opportunity for you to get help with course material.
+            You will also be able to complete work contributing toward your in-class assignment grade.
+            In a typical tutorial, you will get to see some worked examples, and work on problems.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>How do I find you if I need help with something?</title>
+              <p>My (that is, Sean's) office is C540, in University Hall. Arie Bomhof is down the hall, in C510</p>
+              <p>Office hours will be available on Moodle and maybe even on our office doors.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>Do I need to make an appointment for office hours? What if I have class at that time?</title>
+            <p>You don't need an appointment -- just drop in. <term>Office hours</term> are the times that I promise
+            to be available for consultation. If the times I choose don't work, you can email me for an appointment.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>What if it's not related to the course?</title>
+            <p>Come see me anyway, or send an email. If I can't help you myself, I'll direct you to someone who can.
+              There's some <url href="https://www.uleth.ca/services-for-students/what-do-i-do-if">great general advice for
+              first year students</url> on the U of L website. They've got some great answers to related questions there.</p>
+          </subsubsection>
+          <subsubsection xml:id="question-help">
+            <title>OK, but what if it's kind of personal?</title>
+            <p>If it affects your ability to participate in the course (or even if it doesn't), you can come talk to me.
+            In many cases, you might be best off seeing Academic Advising or Counselling Services.
+            Links to these services, and general advice, can be found on the
+            <url href="https://www.uleth.ca/services-for-students/what-do-i-do-if/personal-non-academic">U of L website.</url>
+            </p>
+            <p>You may also want to visit the University's <url href="https://www.uleth.ca/services-for-students/health-safety">Health and Safety website</url> for information on other resources on campus.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>What do we learn in Math 1560?</title>
+              <p>We'll be dealing with all your favourite functions from high school:
+              polynomials, logarithms, exponentials, trig functions, <etc/> while learning about
+              limits, derivatives, and integrals.
+              </p>
+              <ul>
+                <li><term>Limits</term> tell us about the value of a function near a point.
+                A limit is simultaneously approximate and precise. In fact, most of calculus could be described as
+                <q>the art of precise approximation</q></li>
+                <li><term>Derivatives</term> tell us about how a function is <em>changing</em> near a point.
+                Most rates of change in the sciences, from speed to population growth, are quantified using derivatives.</li>
+                <li><term>Integrals</term> will be defined in the context of calculating area,
+                but they also appear whenever aggregates or averages are being considered.</li>
+              </ul>
+              <p>Both derivatives and integrals are defined using limits, and the two are related in a (possibly) surprising way.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>I'm fairly sure I won't need calculus in my other courses. What should I expect to get out of this course?</title>
+            <p>To be fair, most of the learning outcomes are tied to the material, but there are some fringe benefits.</p>
+            <ol>
+              <li>If this is your first semester, you'll learn how to organize your time.</li>
+              <li>You'll learn how to <em>write</em>. Really. Technical writing is a skill that must be learned.
+                  Solving a mathematical problem, and knowing how to communicate your results, are two different
+                  skills. You'll learn to do both in this course.</li>
+              <li>You'll also learn how to read and digest technical material.</li>
+            </ol>
+            <p><em>Hint:</em> you can't read your textbook like a novel -- it's a hands-on experience.</p>
+              <figure>
+                <caption>Source: <url href="https://abstrusegoose.com/353">Abstruse Goose</url> </caption>
+                <image source="images/abstrusegoose.png" />
+              </figure>
+          </subsubsection>
+        </subsection>
+        <subsection xml:id="section-evaluation">
+          <title>Coursework and evaluation</title>
+          <subsubsection>
+            <title>What kind of work am I going to have to do in this course?</title>
+            <p>Like any course, you'll be expected to devote time each week to learning content.
+              In addition to the textbook, there will videos for each topic.
+              I'll post the videos on YouTube and link to them on Moodle.
+              You'll be expected to arrive in class having read the book,
+              or watched the videos, or both.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>What are your expectations of students?</title>
+            <ul>
+              <li>I expect you to make your best effort to arrive prepared for each class.
+                I'm also aware that this is not always possible.</li>
+              <li>I expect quality writing: complete sentences, proper use of notation,
+                and clear exposition.
+                I don't expect this right away, but I do expect you to work at improving.</li>
+              <li>I expect you to treat your classmates with respect, and to contribute
+                to group activities to the best of your ability.</li>
+              <li>I expect you to ask for help when you need it. (Everyone does at some point.)</li>
+            </ul>
+          </subsubsection>
+          <subsubsection>
+            <title>How will I know which part of the book to read, or which videos to watch?</title>
+            <p>Every week on Moodle I'll provide an outline of what we're covering in class,
+              and what resources you should be accessing.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>Thanks, but what I really meant is, how do I earn my grade?</title>
+            <p>Oh, right. The most frequently asked question of all.
+              There are several different evaluation components that contribute to your grade:</p>
+              <table xml:id="table-evaluation">
+                <caption>Relative weights of graded activities for Math 1560</caption>
+                <tabular top="minor">
+                  <col />
+                  <col halign="center" />
+                  <col halign="center" />
+                  <row bottom="minor">
+                    <cell>Component</cell><cell>Number</cell><cell>Total Weight</cell>
+                  </row>
+                  <row>
+                    <cell>Online homework</cell><cell>12</cell><cell>10</cell>
+                  </row>
+                  <row>
+                    <cell>In-class activities</cell><cell>18</cell><cell>20</cell>
+                  </row>
+                  <row>
+                    <cell>Chapter tests</cell><cell>5</cell><cell>35</cell>
+                  </row>
+                  <row bottom="minor">
+                    <cell>Final exam</cell><cell>1</cell><cell>35</cell>
+                  </row>
+                </tabular>
+              </table>
+          </subsubsection>
+          <subsubsection>
+            <title>Whoa. That looks like a lot of work.</title>
+            <p>That's not really a question, but okay... First, it's not as bad as it looks.
+              You'll be able to do most of it during class time, with help from classmates.
+              Also, you've probably heard the adage: <q>Mathematics is not a spectator sport!</q>
+              The best way to learn calculus is by doing calculus.
+              The workload has been chosen carefully to ensure that a typical student gets
+              enough practice to succeed in the course.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>Okay, so what is involved with each of the graded components?</title>
+            <p>Here are brief descriptions of each one.</p>
+            <ul>
+              <li>
+                Online homework: we use the <term>WeBWorK</term> online homework system.
+                A new problem set will be posted each week.
+                The system gives you immediate feedback on your answer,
+                and you usually have unlimited attempts to get it right.
+              </li>
+              <li>
+                In-class activities:
+                the last 30 minutes of each lecture will be spent working on problems.
+                Each problem will be tied to of the <term>standards</term> outlined in
+                <xref ref="section-standards">Section</xref>.
+                Your grade for these activities will be based on the number of standards
+                you complete by the end of the semester.
+                See <xref ref="section-standards">Section</xref> for more details.
+              </li>
+              <li>
+                Tests: there will be one test for each chapter of the textbook.
+                The tests will be <em>two-stage</em> tests. Stage one is an individual test.
+                This is immediately followed by stage two, which is the same test,
+                but done in groups.
+              </li>
+              <li>
+                Final exam: a traditional, cumulative, three-hour exam.
+                Note that final exams are no longer scheduled according to the timetable,
+                so the date of the final exam will not be known until sometime in October.
+                You should plan to remain on campus for the entire exam period.
+                The Registrar's Office <em>will not</em> allow you to reschedule due to travel conflicts.
+              </li>
+            </ul>
+          </subsubsection>
+          <subsubsection>
+            <title>How do I access the online homework?</title>
+            <p>You will log in directly from Moodle.
+              As long as you have access to a computer and an internet connection,
+              you have access to WeBWorK.
+            </p>
+          </subsubsection>
+          <subsubsection>
+            <title>
+              Two-stage tests? How does that work?
+            </title>
+            <p>The group stage allows for immediate peer feedback on the results of the test.
+              The tests are meant to be a <em>learning</em> opportunity,
+              not simply a grading obstacle.</p>
+              <p>Each test  is worth 7<percent/>  of your grade: either 5<percent/> individual,
+              plus 2<percent/> group, or 7<percent/> individual, whichever is better.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>
+              Wait, does that mean I can just skip the group stage and take my individual score?
+            </title>
+            <p>Technically, yes. But I don't advise it.
+              It's very rare that a student's group score is less,
+              and the group discussion helps to ensure you've nailed down all the concepts,
+              even if you think you got it all right the first time.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>How do the in-class activities work?</title>
+            <p>You will choose which problems you want to work on, from a list I provide.
+              At the end of class, you submit your work to be graded.
+              Work is graded on a 3 point scale.
+              A 3 means you've mastered that standard, and you're done with it.
+              A 2 means there are minor errors. You can make corrections and resubmit your work.
+              Fixing the errors bumps you up to a 3.
+              A 1 means there are more significant issues with your work.
+              You can attempt that standard again, with a new problem.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>Does that mean I can keep resubmitting until I get it right?</title>
+            <p>Well, almost. I'll make most standards available for three classes.
+              After that, if you want to try again, you'll have to come to my office.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>How do I get my feedback and submit my revisions?</title>
+            <p>We'll be using the <url href="https://crowdmark.com/"><term>Crowdmark</term></url> online grading system to streamline the grading process.
+            As soon as your work has been graded, you'll receive an email with a link you can use to access your work.
+            If revisions are required, you can print off your work, make corrections <em>on the same</em> page, and resubmit.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>What if I lose the email with the link to my assignment?</title>
+            <p>You'll still be able to access it through Moodle.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>How are letter grades calculated?</title>
+            <p>Each of the grade components above will be assigned a numerical score.
+              These will be added to get a score out of 100 using <xref ref="table-evaluation"/>.
+              Your score out of 100 is converted into a letter grade according to the following table.
+            </p>
+            <sidebyside xml:id="table-lettergrade">
+              <tabular top="minor">
+                <row bottom="minor">
+                  <cell>A+</cell><cell>A</cell><cell>A-</cell><cell>B+</cell><cell>B</cell><cell>B-</cell>
+                  <cell>C+</cell><cell>C</cell><cell>C-</cell><cell>D+</cell><cell>D</cell><cell>F</cell>
+                </row>
+                <row bottom="minor">
+                  <cell>97-100</cell><cell>91-96</cell><cell>88-90</cell><cell>85-87</cell><cell>79-84</cell><cell>76-78</cell>
+                  <cell>73-75</cell><cell>67-72</cell><cell>64-66</cell><cell>61-63</cell><cell>55-60</cell><cell>0-54</cell>
+                </row>
+              </tabular>
+            </sidebyside>
+          </subsubsection>
+        </subsection>
+        <subsection xml:id="section-policy">
+          <title>Course policies</title>
+          <introduction><p>This section deals with questions about accommodations, missed tests,
+          and other exceptional (yet common) cases.</p>
+          </introduction>
+          <subsubsection>
+            <title>One of the tests conflicts with something else in my schedule. What are my options?</title>
+            <p>
+              If you know in advance that you will not be able to attend a test for a <q>reasonable reason</q>,
+              like varsity athletics, a conference, tea with the Queen, <etc/>, send me an email.
+              We will try to arrange an alternate sitting of the test. (Individual stage only.)
+            </p>
+          </subsubsection>
+          <subsubsection>
+            <title>I missed a test because I was sick. What do I do? Do I get a zero?</title>
+            <p>Whoa, two questions at once! If you're sick, contact me as soon as you're able to.
+              If your illness persists more than a day, it's unlikely we can make alternate arrangements.
+              However, you <alert>do not</alert> receive a zero.
+              That test is simply removed from your grade calculation.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>Do I need a doctor's note?</title>
+            <p>No. This wastes health care resources and your time.
+              Just email me to say you were sick.
+              However, if you skip more than one test due to illness,
+              we'll need to meet to discuss how to adjust your grade.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>What if my car breaks down?</title>
+            <p>Same thing, for this, or other circumstances beyond your control. Send me an email,
+              and we'll sort something out. But if there's a snowstorm forecast for the night before,
+              maybe don't plan a trip to Calgary.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>I'm on one of the Pronghorns teams.</title>
+            <p>Good for you!</p>
+            <p>Oh, you probably have some scheduling issues. Your coach should be providing you with a letter.
+              Plan to meet with me during office hours one day and we'll sort something out.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>I receive learning accommodations. What arrangements can I make?</title>
+            <p>
+              First, make sure that you have registered with the University's
+              <url href="https://www.uleth.ca/ross/accommodated-learning-centre">Accommodated Learning Centre</url>.
+              If you have exam accommodations, you'll need to schedule your exams with them.
+              No need to let me know: they'll contact me to request a copy of your exam.
+            </p>
+            <p>
+              If you require any in-class accommodations, or if there are any adjustments I can make
+              to facilitate your learning, please do not hesitate to get in touch with me.
+            </p>
+          </subsubsection>
+          <subsubsection>
+            <title>I write my tests with Accommodated Exams. How do I participate in the group stage? </title>
+            <p>
+              Make sure to meet with me early in the semester, and we'll figure out what works for you.
+              In the past, some students have chosen to write the individual stage with Accommodated Exams,
+              and then join the class prior to the group state. Others chose to write both stages with the class.
+            </p>
+          </subsubsection>
+          <subsubsection>
+            <title>Do we get to have calculators for the tests?</title>
+            <p><em>I guess...</em> Officially, you're only supposed to use a <q>basic calculator</q> --
+            one that can add, subtract, multiply, and divide. Graphing calculators are definitely not allowed.
+            Note that decmial approximations are rarely preferred over exact values.
+            Questions are usually designed so that no calculator is needed. Try not to rely on yours.</p>
+          </subsubsection>
+          <subsubsection>
+            <title>Life intervened and I can't keep up this week. What do I do?</title>
+            <p>
+              Send me an email. Extensions are usually granted as long as they're granted ahead of time.
+              (E.g. Online homework extensions need to be in place before solutions become available.)
+              See me if you're having trouble, or take a look at the other resources mentioned in <xref ref="question-help">Question</xref>.
+            </p>
+          </subsubsection>
+          <subsubsection>
+            <title>I missed class. What do I do?</title>
+            <p>If it's a one-time thing, don't worry about it. Bring any work you needed to submit during office hours.
+              If circumstances are conspiring to keep you from class on a regular basis, you'll need to meet with me
+              to come up with alternate arrangements.</p>
+          </subsubsection>
+          <subsubsection xml:id="section-communication">
+            <title>I have a question that isn't answered here. How do I contact you?</title>
+            <p>Short answer: you can <url href="mailto:sean.fitzpatrick@uleth.ca">send me an email</url>.
+            There are a few caveats, however:</p>
+            <ul>
+              <li>First, check the course page (and the announcements forum) on Moodle.
+                Any information I need to communicate to the class will be posted on Moodle,
+                or emailed to the class as an announcement via Moodle.</li>
+              <li>Is the question about homework? Email is not a good medium for discussing math.
+                Your best option is to ask me in person. If that doesn't work, we have a class discussion forum,
+                on <url href="https://piazza.com">Piazza.com</url>. You'll be able to access the forum via Moodle.</li>
+            </ul>
+          </subsubsection>
+          <subsubsection>
+            <title>I sent you an email. Why haven't you answered it yet?</title>
+            <p>Here's a short troubleshooting guide:</p>
+            <ul>
+              <li>Your email was not sent from a ULeth account and had no subject line: It went to my spam folder.</li>
+              <li>Your email sent between 10 pm and 6 am: I'm asleep. I'll answer when I get to work in the morning.</li>
+              <li>Your email sent during office hours: I'm busy helping the students who are here in person.
+              Perhaps you should drop by yourself. </li>
+              <li>Your email asked for help on a specific homework problem: Direct your question to the online forum.</li>
+              <li>Your email was about something already addressed in this <init>FAQ</init>:
+                I need time to come up with a polite reply.</li>
+            </ul>
+          </subsubsection>
+        </subsection>
+      </section>
+      <section xml:id="section-standards">
+            <title>Outcome standards for Math 1560</title>
+            <p>This page outlines the list of standards each student is expected to achieve in Math 1560.
+              There are five <q>big themes,</q> corresponding to the five chapters of the textbook.
+              Each theme comes with several standards you'll be asked to demonstrate by the end of the course.
+              In every class (except test days) and tutorial, you'll be given an opportunity to attempt some of these standards.
+            </p>
+            <p>A standard is considered <term>mastered</term> if you have:
+              <ul>
+                <li><p>Correctly solved two problems associated with that standard.
+                  <ul label="">
+                    <li>(Minor arithmetic errors are not penalized.)</li>
+                  </ul></p></li>
+                <li>Used correct notation throughout your solution.</li>
+                <li>Explained your work using complete sentences.</li>
+              </ul>
+            </p>
+            <p>
+              Standards will be graded according to the following scale:
+              <ul>
+                <li>M: standard has been mastered.</li>
+                <li>R: revisions required. This usually means your mathematics is mostly correct,
+                  but your writing needs improvement. Once you've fixed your errors,
+                  you can resubmit a corrected solution.</li>
+                <li>I: there are issues with your solution. This usually means there are significant errors in your mathematics,
+                  or the level of writing is not acceptable. You can submit another attempt with a new problem.</li>
+                <li>F: you have failed to demonstrate the standard, likely because you have not attempted it.</li>
+              </ul>
+            </p>
+            <p><alert>Note:</alert> these standards also serve as your outline for the final exam.
+            For each standard there will be a collection of associated problems.
+            Some subset of these problems (or variants of them) will constitute your final exam.</p>
+            <p>By the end of the course, you should be able to:
+            <ul label="">
+              <li><p>Chapter 1: Limits and continuity
+              <ol label="1)">
+                <li>Explain the concept of a limit using graphical and numerical information.</li>
+                <li>Apply limit laws in an abstract setting (explicit functions not given).</li>
+                <li>Use algebraic manipulation to evaluate limits.</li>
+                <li>Evaluate limits involving trigonometric functions.</li>
+                <li>Algebraically and graphically determine one-sided limits of piecewise-defined functions.</li>
+                <li>Evaluate limits involving infinity and determine asymptotic behaviour of a function.</li>
+                <li>Demonstrate continuity of a function using the definition.</li>
+                <li>Understand and apply the <term>Intermediate Value Theorem</term>.</li>
+              </ol></p></li>
+              <li><p>Chapter 2: Derivatives
+              <ol label="1)">
+                <li>Understand and apply the limit definition of the derivative.</li>
+                <li>Understand and apply basic derivative rules (sum, constant, power).</li>
+                <li>Calculate derivatives using the product rule.</li>
+                <li>Calculate derivatives using the quotient rule.</li>
+                <li>Calculate derivatives using the chain rule.</li>
+                <li>Symbolically apply derivative rules in an abstract setting (explicit functions not given).</li>
+                <li>Use implicit differentiation to compute the equation of a tangent line.</li>
+                <li>Compute derivatives using logarithmic differentiation.</li>
+                <li>Compute derivatives of trigonometric and inverse trigonometric functions.</li>
+              </ol></p></li>
+              <li><p>Chapter 3: Graphical behaviour of functions
+              <ol label="1)">
+                <li>Determine maximum and minimum values of a continuous function on a closed interval.</li>
+                <li>State the <term>Mean Value Theorem</term> and apply it to theoretical problems.</li>
+                <li>Determine intervals on which a function is increasing/decreasing, and classify critical points.</li>
+                <li>Use the second derivative to determine concavity, and understand its significance.</li>
+                <li>Produce an accurate sketch of the graph of a function without the use of technology.</li>
+              </ol></p></li>
+              <li><p>Chapter 4: Applications of the derivative
+              <ol label="1)">
+                <li>Solve word problems involving related rates of change.</li>
+                <li>Solve word problems involving optimization.</li>
+                <li>Use linear approximations to estimate function values.</li>
+                <li>Compute the Taylor polynomial of a function to a specified degree.</li>
+                <li>Quantify the error involved in a Taylor polynomial approximation.</li>
+              </ol></p></li>
+              <li><p>Chapter 5: Integration
+              <ol label="1)">
+                <li>Compute antiderivatives and solve initial value problems.</li>
+                <li>Understand and apply properties of definite integrals.</li>
+                <li>Use a left- or right-endpoint Riemann sum to approximate area under a curve.</li>
+                <li>Calculate a definite integral using the Riemann sum definition.</li>
+                <li>Use Part I of the <init>FTC</init> to compute derivatives of functions defined as integrals.</li>
+                <li>Use Part II of the <init>FTC</init> to evaluate simple definite integrals.</li>
+                <li>Use the method of substitution to evaluate definite and indefinite integrals.</li>
+                <li>Set up and evaluate a definite integral to compute area between curves.</li>
+              </ol></p></li>
+            </ul></p>
+      </section>
+      <section xml:id="section-mapping">
+          <title>Standards in the textbook</title>
+          <introduction><p>This is a reference section which indicates how to find each standard in the textbook, and which
+          exercises in the textbook provide suitable practice for each standard.</p></introduction>
+          <table xml:id="table-standards">
+            <caption>Mapping of standards to the textbook and exercises</caption>
+              <tabular>
+                <row bottom="minor">
+                  <cell>Standard</cell><cell>Section</cell><cell>Exercises</cell>
+                </row>
+                <row>
+                  <cell>1.1</cell><cell>1.1</cell><cell>7 - 16</cell>
+                </row>
+                <row>
+                  <cell>1.2</cell><cell>1.3</cell><cell>7 - 18</cell>
+                </row>
+                <row>
+                  <cell>1.3</cell><cell>1.3</cell><cell>19 - 34</cell>
+                </row>
+                <row>
+                  <cell>1.4</cell><cell>1.3</cell><cell>39 - 40</cell>
+                </row>
+                <row>
+                  <cell>1.5</cell><cell>1.4</cell><cell>5 - 21</cell>
+                </row>
+                <row>
+                  <cell>1.6</cell><cell>1.5</cell><cell>9 - 28</cell>
+                </row>
+                <row>
+                  <cell>1.7</cell><cell>1.6</cell><cell>11 -34</cell>
+                </row>
+                <row>
+                  <cell>1.8</cell><cell>1.6</cell><cell>35 - 38</cell>
+                </row>
+                <row>
+                  <cell>2.1</cell><cell>2.1</cell><cell>7 - 22</cell>
+                </row>
+                <row>
+                  <cell>2.2</cell><cell>2.3</cell><cell>11 - 32</cell>
+                </row>
+                <row>
+                  <cell>2.3</cell><cell>2.4</cell><cell>7 - 10, 15 - 36 (as applicable)</cell>
+                </row>
+                <row>
+                  <cell>2.4</cell><cell>2.4</cell><cell>11 - 14, 15 - 36 (as applicable)</cell>
+                </row>
+                <row>
+                  <cell>2.5</cell><cell>2.5</cell><cell>7 - 42</cell>
+                </row>
+                <row>
+                  <cell>2.6</cell><cell>N/A</cell><cell>via WeBWorK</cell>
+                </row>
+                <row>
+                  <cell>2.7</cell><cell>2.6</cell><cell>13 - 32</cell>
+                </row>
+                <row>
+                  <cell>2.8</cell><cell>2.6</cell><cell>37 - 42</cell>
+                </row>
+                <row>
+                  <cell>2.9</cell><cell>2.7</cell><cell>15 - 29</cell>
+                </row>
+                <row>
+                  <cell>3.1</cell><cell>3.1</cell><cell>7, 8, 17 - 26</cell>
+                </row>
+                <row>
+                  <cell>3.2</cell><cell>3.2</cell><cell>11 -20</cell>
+                </row>
+                <row>
+                  <cell>3.3</cell><cell>3.3</cell><cell>15 - 24</cell>
+                </row>
+                <row>
+                  <cell></cell><cell>3.4</cell><cell>29 - 56</cell>
+                </row>
+                <row>
+                  <cell>3.4</cell><cell>3.4</cell><cell>15 - 28</cell>
+                </row>
+                <row>
+                  <cell>3.5</cell><cell>3.5</cell><cell>13 - 26</cell>
+                </row>
+                <row>
+                  <cell>4.1</cell><cell>4.2</cell><cell>3 - 15</cell>
+                </row>
+                <row>
+                  <cell>4.2</cell><cell>4.3</cell><cell>3 - 17</cell>
+                </row>
+                <row>
+                  <cell>4.3</cell><cell>4.4</cell><cell>7 - 34</cell>
+                </row>
+                <row>
+                  <cell>4.4</cell><cell>4.5</cell><cell>5 - 20</cell>
+                </row>
+                <row>
+                  <cell>4.5</cell><cell>4.5</cell><cell>21 - 28</cell>
+                </row>
+                <row>
+                  <cell>5.1</cell><cell>5.1</cell><cell>9 - 27, 29 - 39</cell>
+                </row>
+                <row>
+                  <cell>5.2</cell><cell>5.2</cell><cell>5 - 16, 19 - 26</cell>
+                </row>
+                <row>
+                  <cell>5.3</cell><cell>5.3</cell><cell>29 - 34</cell>
+                </row>
+                <row>
+                  <cell>5.4</cell><cell>5.3</cell><cell>35 - 40</cell>
+                </row>
+                <row>
+                  <cell>5.5</cell><cell>5.4</cell><cell>55 - 58</cell>
+                </row>
+                <row>
+                  <cell>5.6</cell><cell>5.4</cell><cell>5 - 30</cell>
+                </row>
+                <row>
+                  <cell>5.7</cell><cell>5.5</cell><cell>3 - 42, 53 - 83</cell>
+                </row>
+                <row>
+                  <cell>5.8</cell><cell>5.6</cell><cell>5 - 21</cell>
+                </row>
+              </tabular>
+          </table>
+      </section>
+      <section xml:id="section-schedule">
+          <title>Course schedule</title>
+          <introduction><p>I will do my best to stick to the following course schedule. Test dates are fixed, but outcomes available
+          for in class work may vary slightly. Up to date information will be maintained on Moodle.</p></introduction>
+            <table xml:id="table-schedule">
+              <caption>Math 1560 lecture schedule for Fall 2018</caption>
+              <tabular>
+                <row>
+                  <cell>Thursday, September 6</cell><cell>Course introduction</cell>
+                </row>
+                <row>
+                  <cell>Tuesday, September 11</cell><cell>Standards 1.1 - 1.4</cell>
+                </row>
+                <row>
+                  <cell>Thursday, September 13</cell><cell>Standards 1.1 - 1.6</cell>
+                </row>
+                <row>
+                  <cell>Tuesday, September 18</cell><cell>Standards 1.3 - 1.8</cell>
+                </row>
+                <row>
+                  <cell>Thursday, September 20</cell><cell>Standards 1.5 - 2.2</cell>
+                </row>
+                <row>
+                  <cell>Tuesday, September 25</cell><cell>Test <hash /> 1</cell>
+                </row>
+                <row>
+                  <cell>Thursday, September 27</cell><cell>Standards 1.7 - 2.4</cell>
+                </row>
+                <row>
+                  <cell>Tuesday, October 2</cell><cell>Standards 2.3 - 2.8</cell>
+                </row>
+                <row>
+                  <cell>Thursday, October 4</cell><cell>Standards 2.5 - 2.9</cell>
+                </row>
+                <row>
+                  <cell>Tuesday, October 9</cell><cell>Standards 2.7 - 3.1</cell>
+                </row>
+                <row>
+                  <cell>Thursday, October 11</cell><cell>Test <hash /> 2</cell>
+                </row>
+                <row>
+                  <cell>Tuesday, October 16</cell><cell>Standards 2.8 - 3.3</cell>
+                </row>
+                <row>
+                  <cell>Thursday, October 18</cell><cell>Standards 3.1 - 3.5</cell>
+                </row>
+                <row>
+                  <cell>Tuesday, October 23</cell><cell>Standards 3.3 - 4.1</cell>
+                </row>
+                <row>
+                  <cell>Thursday, October 25</cell><cell>Test <hash /> 3 </cell>
+                </row>
+                <row>
+                  <cell>Tuesday, October 30</cell><cell>Standards 4.1 - 4.2</cell>
+                </row>
+                <row>
+                  <cell>Thursday, November 1</cell><cell>Standards 4.1 - 4.4</cell>
+                </row>
+                <row>
+                  <cell>Tuesday, November 6</cell><cell>Standards 4.2 - 5.2</cell>
+                </row>
+                <row>
+                  <cell>Thursday, November 8</cell><cell>Test <hash /> 4</cell>
+                </row>
+                <row>
+                  <cell>Tuesday, November 20</cell><cell>Standards 4.3 - 5.4</cell>
+                </row>
+                <row>
+                  <cell>Thursday, November 22</cell><cell>Standards 5.1 - 5.7</cell>
+                </row>
+                <row>
+                  <cell>Tuesday, November 27</cell><cell>Standards 5.4 - 5.8</cell>
+                </row>
+                <row>
+                  <cell>Thursday, November 29</cell><cell>Test <hash /> 5</cell>
+                </row>
+                <row>
+                  <cell>Tuesday, December 4</cell><cell>Review, Standards 5.7 - 5.8</cell>
+                </row>
+                </tabular>
+            </table>
+      </section>
+  </article>
+</mathbook>
