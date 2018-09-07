@@ -1,0 +1,883 @@
+%**************************************%
+%*    Generated from PreTeXt source   *%
+%*    on 2018-09-05T19:20:57Z    *%
+%*                                    *%
+%*   http://mathbook.pugetsound.edu   *%
+%*                                    *%
+%**************************************%
+\documentclass[10pt,]{article}
+%% Custom Preamble Entries, early (use latex.preamble.early)
+%% Default LaTeX packages
+%%   1.  always employed (or nearly so) for some purpose, or
+%%   2.  a stylewriter may assume their presence
+\usepackage[margin=2cm]{geometry}
+%% Some aspects of the preamble are conditional,
+%% the LaTeX engine is one such determinant
+\usepackage{ifthen}
+%% etoolbox has a variety of modern conveniences
+\usepackage{etoolbox}
+\usepackage{ifxetex,ifluatex}
+%% Raster graphics inclusion
+\usepackage{graphicx}
+%% Color support, xcolor package
+%% Always loaded, for: add/delete text, author tools
+%% Here, since tcolorbox loads tikz, and tikz loads xcolor
+\PassOptionsToPackage{usenames,dvipsnames,svgnames,table}{xcolor}
+\usepackage{xcolor}
+%% Colored boxes, and much more, though mostly styling
+%% skins library provides "enhanced" skin, employing tikzpicture
+%% vignette library provides fancy shaded frames
+%% boxes may be configured as "breakable" or "unbreakable"
+%% "raster" controls grids of boxes, aka side-by-side
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\tcbuselibrary{vignette}
+\tcbuselibrary{breakable}
+\tcbuselibrary{raster}
+%% xparse allows the construction of more robust commands,
+%% this is a necessity for isolating styling and behavior
+%% The tcolorbox library of the same name loads the base library
+\tcbuselibrary{xparse}
+%% Hyperref should be here, but likes to be loaded late
+%%
+%% Inline math delimiters, \(, \), need to be robust
+%% 2016-01-31:  latexrelease.sty  supersedes  fixltx2e.sty
+%% If  latexrelease.sty  exists, bugfix is in kernel
+%% If not, bugfix is in  fixltx2e.sty
+%% See:  https://tug.org/TUGboat/tb36-3/tb114ltnews22.pdf
+%% and read "Fewer fragile commands" in distribution's  latexchanges.pdf
+\IfFileExists{latexrelease.sty}{}{\usepackage{fixltx2e}}
+%% Text height identically 9 inches, text width varies on point size
+%% See Bringhurst 2.1.1 on measure for recommendations
+%% 75 characters per line (count spaces, punctuation) is target
+%% which is the upper limit of Bringhurst's recommendations
+\geometry{letterpaper,total={340pt,9.0in}}
+%% Custom Page Layout Adjustments (use latex.geometry)
+%% This LaTeX file may be compiled with pdflatex, xelatex, or lualatex
+%% The following provides engine-specific capabilities
+%% Generally, xelatex and lualatex will do better languages other than US English
+%% You can pick from the conditional if you will only ever use one engine
+\ifthenelse{\boolean{xetex} \or \boolean{luatex}}{%
+%% begin: xelatex and lualatex-specific configuration
+%% fontspec package will make Latin Modern (lmodern) the default font
+\ifxetex\usepackage{xltxtra}\fi
+\usepackage{fontspec}
+%% realscripts is the only part of xltxtra relevant to lualatex 
+\ifluatex\usepackage{realscripts}\fi
+%% 
+%% Extensive support for other languages
+\usepackage{polyglossia}
+%% Main document language is US English
+\setdefaultlanguage{english}
+%% Spanish
+\setotherlanguage{spanish}
+%% Vietnamese
+\setotherlanguage{vietnamese}
+%% end: xelatex and lualatex-specific configuration
+}{%
+%% begin: pdflatex-specific configuration
+%% translate common Unicode to their LaTeX equivalents
+%% Also, fontenc with T1 makes CM-Super the default font
+%% (\input{ix-utf8enc.dfu} from the "inputenx" package is possible addition (broken?)
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%% end: pdflatex-specific configuration
+}
+%% Symbols, align environment, bracket-matrix
+\usepackage{amsmath}
+\usepackage{amssymb}
+%% allow page breaks within display mathematics anywhere
+%% level 4 is maximally permissive
+%% this is exactly the opposite of AMSmath package philosophy
+%% there are per-display, and per-equation options to control this
+%% split, aligned, gathered, and alignedat are not affected
+\allowdisplaybreaks[4]
+%% allow more columns to a matrix
+%% can make this even bigger by overriding with  latex.preamble.late  processing option
+\setcounter{MaxMatrixCols}{30}
+%%
+%% Semantic Macros
+%% To preserve meaning in a LaTeX file
+%% Only defined here if required in this document
+%% Used to markup initialisms, text or titles
+\newcommand{\initialism}[1]{\textsc{\MakeLowercase{#1}}}
+\DeclareRobustCommand{\initialismintitle}[1]{\texorpdfstring{#1}{#1}}
+%% Used for warnings, typically bold and italic
+\newcommand{\alert}[1]{\textbf{\textit{#1}}}
+%% Used for inline definitions of terms
+\newcommand{\terminology}[1]{\textbf{#1}}
+%% Subdivision Numbering, Chapters, Sections, Subsections, etc
+%% Subdivision numbers may be turned off at some level ("depth")
+%% A section *always* has depth 1, contrary to us counting from the document root
+%% The latex default is 3.  If a larger number is present here, then
+%% removing this command may make some cross-references ambiguous
+%% The precursor variable $numbering-maxlevel is checked for consistency in the common XSL file
+\setcounter{secnumdepth}{3}
+%% begin: General AMS environment setup
+%% Environments built with amsthm package
+\usepackage{amsthm}
+%% Numbering for Theorems, Conjectures, Examples, Figures, etc
+%% Controlled by  numbering.theorems.level  processing parameter
+%% Numbering: all theorem-like numbered consecutively
+%% i.e. Corollary 4.3 follows Theorem 4.2
+%% Always need some theorem environment to set base numbering scheme
+%% even if document has no theorems (but has other environments)
+%% Create a never-used style first, always
+%% simply to provide a global counter to use, namely "cthm"
+\newtheorem{cthm}{BadTheoremStringName}[section]
+%% end: General AMS environment setup
+%% Localize LaTeX supplied names (possibly none)
+%% For improved tables
+\usepackage{array}
+%% Some extra height on each row is desirable, especially with horizontal rules
+%% Increment determined experimentally
+\setlength{\extrarowheight}{0.2ex}
+%% Define variable thickness horizontal rules, full and partial
+%% Thicknesses are 0.03, 0.05, 0.08 in the  booktabs  package
+\makeatletter
+\newcommand{\hrulethin}  {\noalign{\hrule height 0.04em}}
+\newcommand{\hrulemedium}{\noalign{\hrule height 0.07em}}
+\newcommand{\hrulethick} {\noalign{\hrule height 0.11em}}
+%% We preserve a copy of the \setlength package before other
+%% packages (extpfeil) get a chance to load packages that redefine it
+\let\oldsetlength\setlength
+\newlength{\Oldarrayrulewidth}
+\newcommand{\crulethin}[1]%
+{\noalign{\global\oldsetlength{\Oldarrayrulewidth}{\arrayrulewidth}}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{0.04em}}\cline{#1}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{\Oldarrayrulewidth}}}%
+\newcommand{\crulemedium}[1]%
+{\noalign{\global\oldsetlength{\Oldarrayrulewidth}{\arrayrulewidth}}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{0.07em}}\cline{#1}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{\Oldarrayrulewidth}}}
+\newcommand{\crulethick}[1]%
+{\noalign{\global\oldsetlength{\Oldarrayrulewidth}{\arrayrulewidth}}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{0.11em}}\cline{#1}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{\Oldarrayrulewidth}}}
+%% Single letter column specifiers defined via array package
+\newcolumntype{A}{!{\vrule width 0.04em}}
+\newcolumntype{B}{!{\vrule width 0.07em}}
+\newcolumntype{C}{!{\vrule width 0.11em}}
+\makeatother
+%% Figures, Tables, Listings, Named Lists, Floats
+%% The [H]ere option of the float package fixes floats in-place,
+%% in deference to web usage, where floats are totally irrelevant
+%% You can remove some of this setup, to restore standard LaTeX behavior
+%% HOWEVER, numbering of figures/tables AND theorems/examples/remarks, etc
+%% may de-synchronize with the numbering in the HTML version
+%% You can remove the "placement={H}" option to allow flotation and
+%% preserve numbering, BUT the numbering may then appear "out-of-order"
+%% Floating environments: http://tex.stackexchange.com/questions/95631/
+\usepackage{float}
+\usepackage{newfloat}
+\usepackage{caption}%% Adjust stock figure environment so that it no longer floats
+\SetupFloatingEnvironment{figure}{fileext=lof,placement={H},within=section,name=Figure}
+\captionsetup[figure]{labelfont=bf}
+%% http://tex.stackexchange.com/questions/16195
+\makeatletter
+\let\c@figure\c@cthm
+\makeatother
+%% Adjust stock table environment so that it no longer floats
+\SetupFloatingEnvironment{table}{fileext=lot,placement={H},within=section,name=Table}
+\captionsetup[table]{labelfont=bf}
+%% http://tex.stackexchange.com/questions/16195
+\makeatletter
+\let\c@table\c@cthm
+\makeatother
+%% More flexible list management, esp. for references
+%% But also for specifying labels (i.e. custom order) on nested lists
+\usepackage{enumitem}
+%% hyperref driver does not need to be specified, it will be detected
+\usepackage{hyperref}
+%% configure hyperref's  \url  to match listings' inline verbatim
+\renewcommand\UrlFont{\small\ttfamily}
+%% Hyperlinking active in PDFs, all links solid and blue
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,filecolor=blue,urlcolor=blue}
+\hypersetup{pdftitle={Math 1560 Course Outline}}
+%% If you manually remove hyperref, leave in this next command
+\providecommand\phantomsection{}
+%% If tikz has been loaded, replace ampersand with \amp macro
+%% tcolorbox styles for sidebyside layout
+\tcbset{ sbsstyle/.style={raster equal height=rows,raster force size=false} }
+\tcbset{ sbsheadingstyle/.style={size=minimal,halign=center,fontupper=\bfseries,colback=white,frame empty} }
+\tcbset{ sbspanelstyle/.style={size=minimal,colback=white,frame empty} }
+\tcbset{ sbscaptionstyle/.style={size=minimal,halign=center,colback=white,frame empty} }
+%% Enviroments for side-by-side and components
+%% Necessary to use \NewTColorBox for boxes of the panels
+%% "newfloat" environment to squash page-breaks within a single sidebyside
+%% \leavevmode necessary when a side-by-side comes first, right after a heading
+\DeclareFloatingEnvironment[placement={H}]{sbscontainer}
+%% "xparse" environment for entire sidebyside
+\NewDocumentEnvironment{sidebyside}{mmmm}
+  {\begin{sbscontainer}\begin{tcbraster}
+    [sbsstyle,raster columns=#1,
+    raster left skip=#2\linewidth,raster right skip=#3\linewidth,raster column skip=#4\linewidth]}
+  {\end{tcbraster}\end{sbscontainer}}
+%% "tcolorbox" environments for three components of a panel
+\NewTColorBox{sbsheading}{m}{sbsheadingstyle,width=#1\linewidth}
+\NewTColorBox{sbspanel}{mO{top}}{sbspanelstyle,width=#1\linewidth,valign=#2}
+\NewTColorBox{sbscaption}{m}{sbscaptionstyle,width=#1\linewidth}
+%% Custom Preamble Entries, late (use latex.preamble.late)
+%% Begin: Author-provided packages
+%% (From  docinfo/latex-preamble/package  elements)
+%% End: Author-provided packages
+%% Begin: Author-provided macros
+%% (From  docinfo/macros  element)
+%% Plus three from MBX for XML characters
+\newcommand{\doubler}[1]{2#1}
+\newcommand{\lt}{<}
+\newcommand{\gt}{>}
+\newcommand{\amp}{&}
+%% End: Author-provided macros
+%% Title page information for article
+\title{Math 1560 Course Outline\\
+{\large Fall 2018}}
+\date{}
+\begin{document}
+%% Target for xref to top-level element is document start
+\hypertarget{calculus-outline}{}
+\maketitle
+\thispagestyle{empty}
+%
+%
+\typeout{************************************************}
+\typeout{Section 1 Basic course information}
+\typeout{************************************************}
+%
+\section[{Basic course information}]{Basic course information}\label{section-basics}
+\hypertarget{p-1}{}%
+\leavevmode%
+\begin{itemize}[label=]
+\item{}Course title: \alert{Math 1560}, Calculus I%
+\item{}Course instructor: \href{http://www.cs.uleth.ca/\~fitzpat}{Sean Fitzpatrick}. Email: \href{mailto:sean.fitzpatrick@uleth.ca}{sean.fitzpatrick@uleth.ca}%
+\item{}Tutorial instructor: \href{http://www.cs.uleth.ca/\~bomhof}{Arie Bomhof}. Email: \href{mailto:a.bomhof@uleth.ca}{a.bomhof@uleth.ca}%
+\item{}Course website: via \href{https://moodle.uleth.ca}{Moodle}%
+\item{}Course textbook: a free, custom \terminology{Open Education Resource}. There will be a \initialism{PDF} copy of the textbook available on Moodle, and you can also find it in the \href{http://www.cs.uleth.ca/\~fitzpat/oer.html}{OER Textbooks} section of my website.%
+\item{}Class schedule: Tuesday and Thursday, in L1060. Section A meets at 10:50 am, and Section B meets at 1:40 pm.%
+\item{}Tutorials: see Moodle or your class timetable for details. There are \alert{no tutorials} in the first week of class.%
+\item{}Grading: see \hyperref[section-evaluation]{Section~\ref{section-evaluation}} in the \initialism{FAQ}.%
+\end{itemize}
+%
+%
+%
+\typeout{************************************************}
+\typeout{Section 2 Course \initialismintitle{FAQ}}
+\typeout{************************************************}
+%
+\section[{Course \initialismintitle{FAQ}}]{Course \initialismintitle{FAQ}}\label{section-FAQ}
+\hypertarget{p-2}{}%
+As you embark upon your study of calculus in this course (Math 1560), you likely have many questions, such as: ``What is Calculus, anyway?'' and ``Is this on the test?'' This \initialism{FAQ} will attempt to answer your questions, along with many others you did not think to ask.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.1 Organizational questions}
+\typeout{************************************************}
+%
+\subsection[{Organizational questions}]{Organizational questions}\label{section-general}
+\hypertarget{p-3}{}%
+Questions related to the general operation of the course.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.1.1 Can I get a print copy of the textbook?}
+\typeout{************************************************}
+%
+\subsubsection[{Can I get a print copy of the textbook?}]{Can I get a print copy of the textbook?}\label{subsubsection-1}
+\hypertarget{p-4}{}%
+Yes. I recommend using the Print-on-Demand service from the Campus Bookstore. They will print and bind copy of the book for you. It usually takes no more than a day to get a print copy from the Bookstore.%
+\par
+\hypertarget{p-5}{}%
+You can also print it yourself. The open license for our textbook means that you are free to do whatever you want with your electronic copy, and this includes printing it.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.1.2 What do we do in the tutorials?}
+\typeout{************************************************}
+%
+\subsubsection[{What do we do in the tutorials?}]{What do we do in the tutorials?}\label{subsubsection-2}
+\hypertarget{p-6}{}%
+The tutorials provide an additional opportunity for you to get help with course material. You will also be able to complete work contributing toward your in-class assignment grade. In a typical tutorial, you will get to see some worked examples, and work on problems.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.1.3 How do I find you if I need help with something?}
+\typeout{************************************************}
+%
+\subsubsection[{How do I find you if I need help with something?}]{How do I find you if I need help with something?}\label{subsubsection-3}
+\hypertarget{p-7}{}%
+My (that is, Sean's) office is C540, in University Hall. Arie Bomhof is down the hall, in C510%
+\par
+\hypertarget{p-8}{}%
+Office hours will be available on Moodle and maybe even on our office doors.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.1.4 Do I need to make an appointment for office hours? What if I have class at that time?}
+\typeout{************************************************}
+%
+\subsubsection[{Do I need to make an appointment for office hours? What if I have class at that time?}]{Do I need to make an appointment for office hours? What if I have class at that time?}\label{subsubsection-4}
+\hypertarget{p-9}{}%
+You don't need an appointment -- just drop in. \terminology{Office hours} are the times that I promise to be available for consultation. If the times I choose don't work, you can email me for an appointment.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.1.5 What if it's not related to the course?}
+\typeout{************************************************}
+%
+\subsubsection[{What if it's not related to the course?}]{What if it's not related to the course?}\label{subsubsection-5}
+\hypertarget{p-10}{}%
+Come see me anyway, or send an email. If I can't help you myself, I'll direct you to someone who can. There's some \href{https://www.uleth.ca/services-for-students/what-do-i-do-if}{great general advice for first year students} on the U of L website. They've got some great answers to related questions there.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.1.6 OK, but what if it's kind of personal?}
+\typeout{************************************************}
+%
+\subsubsection[{OK, but what if it's kind of personal?}]{OK, but what if it's kind of personal?}\label{question-help}
+\hypertarget{p-11}{}%
+If it affects your ability to participate in the course (or even if it doesn't), you can come talk to me. In many cases, you might be best off seeing Academic Advising or Counselling Services. Links to these services, and general advice, can be found on the \href{https://www.uleth.ca/services-for-students/what-do-i-do-if/personal-non-academic}{U of L website.}%
+\par
+\hypertarget{p-12}{}%
+You may also want to visit the University's \href{https://www.uleth.ca/services-for-students/health-safety}{Health and Safety website} for information on other resources on campus.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.1.7 What do we learn in Math 1560?}
+\typeout{************************************************}
+%
+\subsubsection[{What do we learn in Math 1560?}]{What do we learn in Math 1560?}\label{subsubsection-7}
+\hypertarget{p-13}{}%
+We'll be dealing with all your favourite functions from high school: polynomials, logarithms, exponentials, trig functions, etc.\@ while learning about limits, derivatives, and integrals.%
+\leavevmode%
+\begin{itemize}[label=\textbullet]
+\item{}\terminology{Limits} tell us about the value of a function near a point. A limit is simultaneously approximate and precise. In fact, most of calculus could be described as ``the art of precise approximation''%
+\item{}\terminology{Derivatives} tell us about how a function is \emph{changing} near a point. Most rates of change in the sciences, from speed to population growth, are quantified using derivatives.%
+\item{}\terminology{Integrals} will be defined in the context of calculating area, but they also appear whenever aggregates or averages are being considered.%
+\end{itemize}
+\hypertarget{p-14}{}%
+Both derivatives and integrals are defined using limits, and the two are related in a (possibly) surprising way.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.1.8 I'm fairly sure I won't need calculus in my other courses. What should I expect to get out of this course?}
+\typeout{************************************************}
+%
+\subsubsection[{I'm fairly sure I won't need calculus in my other courses. What should I expect to get out of this course?}]{I'm fairly sure I won't need calculus in my other courses. What should I expect to get out of this course?}\label{subsubsection-8}
+\hypertarget{p-15}{}%
+To be fair, most of the learning outcomes are tied to the material, but there are some fringe benefits.%
+\leavevmode%
+\begin{enumerate}
+\item\hypertarget{li-12}{}If this is your first semester, you'll learn how to organize your time.%
+\item\hypertarget{li-13}{}You'll learn how to \emph{write}. Really. Technical writing is a skill that must be learned. Solving a mathematical problem, and knowing how to communicate your results, are two different skills. You'll learn to do both in this course.%
+\item\hypertarget{li-14}{}You'll also learn how to read and digest technical material.%
+\end{enumerate}
+\hypertarget{p-16}{}%
+\emph{Hint:} you can't read your textbook like a novel -- it's a hands-on experience.%
+\begin{figure}
+\centering
+\includegraphics[width=6cm]{images/abstrusegoose.png}
+\caption{Source: \href{https://abstrusegoose.com/353}{Abstruse Goose}\label{figure-1}}
+\end{figure}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.2 Coursework and evaluation}
+\typeout{************************************************}
+%
+\subsection[{Coursework and evaluation}]{Coursework and evaluation}\label{section-evaluation}
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.2.1 What kind of work am I going to have to do in this course?}
+\typeout{************************************************}
+%
+\subsubsection[{What kind of work am I going to have to do in this course?}]{What kind of work am I going to have to do in this course?}\label{subsubsection-9}
+\hypertarget{p-17}{}%
+Like any course, you'll be expected to devote time each week to learning content. In addition to the textbook, there will videos for each topic. I'll post the videos on YouTube and link to them on Moodle. You'll be expected to arrive in class having read the book, or watched the videos, or both.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.2.2 What are your expectations of students?}
+\typeout{************************************************}
+%
+\subsubsection[{What are your expectations of students?}]{What are your expectations of students?}\label{subsubsection-10}
+\leavevmode%
+\begin{itemize}[label=\textbullet]
+\item{}I expect you to make your best effort to arrive prepared for each class. I'm also aware that this is not always possible.%
+\item{}I expect quality writing: complete sentences, proper use of notation, and clear exposition. I don't expect this right away, but I do expect you to work at improving.%
+\item{}I expect you to treat your classmates with respect, and to contribute to group activities to the best of your ability.%
+\item{}I expect you to ask for help when you need it. (Everyone does at some point.)%
+\end{itemize}
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.2.3 How will I know which part of the book to read, or which videos to watch?}
+\typeout{************************************************}
+%
+\subsubsection[{How will I know which part of the book to read, or which videos to watch?}]{How will I know which part of the book to read, or which videos to watch?}\label{subsubsection-11}
+\hypertarget{p-18}{}%
+Every week on Moodle I'll provide an outline of what we're covering in class, and what resources you should be accessing.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.2.4 Thanks, but what I really meant is, how do I earn my grade?}
+\typeout{************************************************}
+%
+\subsubsection[{Thanks, but what I really meant is, how do I earn my grade?}]{Thanks, but what I really meant is, how do I earn my grade?}\label{subsubsection-12}
+\hypertarget{p-19}{}%
+Oh, right. The most frequently asked question of all. There are several different evaluation components that contribute to your grade:%
+\begin{table}
+\centering
+\begin{tabular}{lcc}\hrulethin
+Component&Number&Total Weight\tabularnewline\hrulethin
+Online homework&12&10\tabularnewline[0pt]
+In-class activities&18&20\tabularnewline[0pt]
+Chapter tests&5&35\tabularnewline[0pt]
+Final exam&1&35\tabularnewline\hrulethin
+\end{tabular}
+\caption{Relative weights of graded activities for Math 1560\label{table-evaluation}}
+\end{table}
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.2.5 Whoa. That looks like a lot of work.}
+\typeout{************************************************}
+%
+\subsubsection[{Whoa. That looks like a lot of work.}]{Whoa. That looks like a lot of work.}\label{subsubsection-13}
+\hypertarget{p-20}{}%
+That's not really a question, but okay... First, it's not as bad as it looks. You'll be able to do most of it during class time, with help from classmates. Also, you've probably heard the adage: ``Mathematics is not a spectator sport!'' The best way to learn calculus is by doing calculus. The workload has been chosen carefully to ensure that a typical student gets enough practice to succeed in the course.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.2.6 Okay, so what is involved with each of the graded components?}
+\typeout{************************************************}
+%
+\subsubsection[{Okay, so what is involved with each of the graded components?}]{Okay, so what is involved with each of the graded components?}\label{subsubsection-14}
+\hypertarget{p-21}{}%
+Here are brief descriptions of each one.%
+\leavevmode%
+\begin{itemize}[label=\textbullet]
+\item{}Online homework: we use the \terminology{WeBWorK} online homework system. A new problem set will be posted each week. The system gives you immediate feedback on your answer, and you usually have unlimited attempts to get it right.%
+\item{}In-class activities: the last 30 minutes of each lecture will be spent working on problems. Each problem will be tied to of the \terminology{standards} outlined in \hyperref[section-standards]{Section~\ref{section-standards}}. Your grade for these activities will be based on the number of standards you complete by the end of the semester. See \hyperref[section-standards]{Section~\ref{section-standards}} for more details.%
+\item{}Tests: there will be one test for each chapter of the textbook. The tests will be \emph{two-stage} tests. Stage one is an individual test. This is immediately followed by stage two, which is the same test, but done in groups.%
+\item{}Final exam: a traditional, cumulative, three-hour exam. Note that final exams are no longer scheduled according to the timetable, so the date of the final exam will not be known until sometime in October. You should plan to remain on campus for the entire exam period. The Registrar's Office \emph{will not} allow you to reschedule due to travel conflicts.%
+\end{itemize}
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.2.7 How do I access the online homework?}
+\typeout{************************************************}
+%
+\subsubsection[{How do I access the online homework?}]{How do I access the online homework?}\label{subsubsection-15}
+\hypertarget{p-22}{}%
+You will log in directly from Moodle. As long as you have access to a computer and an internet connection, you have access to WeBWorK.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.2.8 Two-stage tests? How does that work?}
+\typeout{************************************************}
+%
+\subsubsection[{Two-stage tests? How does that work?}]{Two-stage tests? How does that work?}\label{subsubsection-16}
+\hypertarget{p-23}{}%
+The group stage allows for immediate peer feedback on the results of the test. The tests are meant to be a \emph{learning} opportunity, not simply a grading obstacle.%
+\par
+\hypertarget{p-24}{}%
+Each test  is worth 7\%  of your grade: either 5\% individual, plus 2\% group, or 7\% individual, whichever is better.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.2.9 Wait, does that mean I can just skip the group stage and take my individual score?}
+\typeout{************************************************}
+%
+\subsubsection[{Wait, does that mean I can just skip the group stage and take my individual score?}]{Wait, does that mean I can just skip the group stage and take my individual score?}\label{subsubsection-17}
+\hypertarget{p-25}{}%
+Technically, yes. But I don't advise it. It's very rare that a student's group score is less, and the group discussion helps to ensure you've nailed down all the concepts, even if you think you got it all right the first time.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.2.10 How do the in-class activities work?}
+\typeout{************************************************}
+%
+\subsubsection[{How do the in-class activities work?}]{How do the in-class activities work?}\label{subsubsection-18}
+\hypertarget{p-26}{}%
+You will choose which problems you want to work on, from a list I provide. At the end of class, you submit your work to be graded. Work is graded on a 3 point scale. A 3 means you've mastered that standard, and you're done with it. A 2 means there are minor errors. You can make corrections and resubmit your work. Fixing the errors bumps you up to a 3. A 1 means there are more significant issues with your work. You can attempt that standard again, with a new problem.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.2.11 Does that mean I can keep resubmitting until I get it right?}
+\typeout{************************************************}
+%
+\subsubsection[{Does that mean I can keep resubmitting until I get it right?}]{Does that mean I can keep resubmitting until I get it right?}\label{subsubsection-19}
+\hypertarget{p-27}{}%
+Well, almost. I'll make most standards available for three classes. After that, if you want to try again, you'll have to come to my office.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.2.12 How do I get my feedback and submit my revisions?}
+\typeout{************************************************}
+%
+\subsubsection[{How do I get my feedback and submit my revisions?}]{How do I get my feedback and submit my revisions?}\label{subsubsection-20}
+\hypertarget{p-28}{}%
+We'll be using the \href{https://crowdmark.com/}{\terminology{Crowdmark}} online grading system to streamline the grading process. As soon as your work has been graded, you'll receive an email with a link you can use to access your work. If revisions are required, you can print off your work, make corrections \emph{on the same} page, and resubmit.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.2.13 What if I lose the email with the link to my assignment?}
+\typeout{************************************************}
+%
+\subsubsection[{What if I lose the email with the link to my assignment?}]{What if I lose the email with the link to my assignment?}\label{subsubsection-21}
+\hypertarget{p-29}{}%
+You'll still be able to access it through Moodle.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.2.14 How are letter grades calculated?}
+\typeout{************************************************}
+%
+\subsubsection[{How are letter grades calculated?}]{How are letter grades calculated?}\label{subsubsection-22}
+\hypertarget{p-30}{}%
+Each of the grade components above will be assigned a numerical score. These will be added to get a score out of 100 using \hyperref[table-evaluation]{Table~\ref{table-evaluation}}. Your score out of 100 is converted into a letter grade according to the following table.%
+\begin{sidebyside}{1}{0}{0}{0}
+\begin{sbspanel}{1}
+{\centering%
+\begin{tabular}{llllllllllll}\hrulethin
+A+&A&A-&B+&B&B-&C+&C&C-&D+&D&F\tabularnewline\hrulethin
+97-100&91-96&88-90&85-87&79-84&76-78&73-75&67-72&64-66&61-63&55-60&0-54\tabularnewline\hrulethin
+\end{tabular}
+\par}
+\end{sbspanel}
+\end{sidebyside}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.3 Course policies}
+\typeout{************************************************}
+%
+\subsection[{Course policies}]{Course policies}\label{section-policy}
+\hypertarget{p-31}{}%
+This section deals with questions about accommodations, missed tests, and other exceptional (yet common) cases.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.3.1 One of the tests conflicts with something else in my schedule. What are my options?}
+\typeout{************************************************}
+%
+\subsubsection[{One of the tests conflicts with something else in my schedule. What are my options?}]{One of the tests conflicts with something else in my schedule. What are my options?}\label{subsubsection-23}
+\hypertarget{p-32}{}%
+If you know in advance that you will not be able to attend a test for a ``reasonable reason'', like varsity athletics, a conference, tea with the Queen, etc.\@, send me an email. We will try to arrange an alternate sitting of the test. (Individual stage only.)%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.3.2 I missed a test because I was sick. What do I do? Do I get a zero?}
+\typeout{************************************************}
+%
+\subsubsection[{I missed a test because I was sick. What do I do? Do I get a zero?}]{I missed a test because I was sick. What do I do? Do I get a zero?}\label{subsubsection-24}
+\hypertarget{p-33}{}%
+Whoa, two questions at once! If you're sick, contact me as soon as you're able to. If your illness persists more than a day, it's unlikely we can make alternate arrangements. However, you \alert{do not} receive a zero. That test is simply removed from your grade calculation.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.3.3 Do I need a doctor's note?}
+\typeout{************************************************}
+%
+\subsubsection[{Do I need a doctor's note?}]{Do I need a doctor's note?}\label{subsubsection-25}
+\hypertarget{p-34}{}%
+No. This wastes health care resources and your time. Just email me to say you were sick. However, if you skip more than one test due to illness, we'll need to meet to discuss how to adjust your grade.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.3.4 What if my car breaks down?}
+\typeout{************************************************}
+%
+\subsubsection[{What if my car breaks down?}]{What if my car breaks down?}\label{subsubsection-26}
+\hypertarget{p-35}{}%
+Same thing, for this, or other circumstances beyond your control. Send me an email, and we'll sort something out. But if there's a snowstorm forecast for the night before, maybe don't plan a trip to Calgary.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.3.5 I'm on one of the Pronghorns teams.}
+\typeout{************************************************}
+%
+\subsubsection[{I'm on one of the Pronghorns teams.}]{I'm on one of the Pronghorns teams.}\label{subsubsection-27}
+\hypertarget{p-36}{}%
+Good for you!%
+\par
+\hypertarget{p-37}{}%
+Oh, you probably have some scheduling issues. Your coach should be providing you with a letter. Plan to meet with me during office hours one day and we'll sort something out.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.3.6 I receive learning accommodations. What arrangements can I make?}
+\typeout{************************************************}
+%
+\subsubsection[{I receive learning accommodations. What arrangements can I make?}]{I receive learning accommodations. What arrangements can I make?}\label{subsubsection-28}
+\hypertarget{p-38}{}%
+First, make sure that you have registered with the University's \href{https://www.uleth.ca/ross/accommodated-learning-centre}{Accommodated Learning Centre}. If you have exam accommodations, you'll need to schedule your exams with them. No need to let me know: they'll contact me to request a copy of your exam.%
+\par
+\hypertarget{p-39}{}%
+If you require any in-class accommodations, or if there are any adjustments I can make to facilitate your learning, please do not hesitate to get in touch with me.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.3.7 I write my tests with Accommodated Exams. How do I participate in the group stage?}
+\typeout{************************************************}
+%
+\subsubsection[{I write my tests with Accommodated Exams. How do I participate in the group stage?}]{I write my tests with Accommodated Exams. How do I participate in the group stage?}\label{subsubsection-29}
+\hypertarget{p-40}{}%
+Make sure to meet with me early in the semester, and we'll figure out what works for you. In the past, some students have chosen to write the individual stage with Accommodated Exams, and then join the class prior to the group state. Others chose to write both stages with the class.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.3.8 Do we get to have calculators for the tests?}
+\typeout{************************************************}
+%
+\subsubsection[{Do we get to have calculators for the tests?}]{Do we get to have calculators for the tests?}\label{subsubsection-30}
+\hypertarget{p-41}{}%
+\emph{I guess...} Officially, you're only supposed to use a ``basic calculator'' -- one that can add, subtract, multiply, and divide. Graphing calculators are definitely not allowed. Note that decmial approximations are rarely preferred over exact values. Questions are usually designed so that no calculator is needed. Try not to rely on yours.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.3.9 Life intervened and I can't keep up this week. What do I do?}
+\typeout{************************************************}
+%
+\subsubsection[{Life intervened and I can't keep up this week. What do I do?}]{Life intervened and I can't keep up this week. What do I do?}\label{subsubsection-31}
+\hypertarget{p-42}{}%
+Send me an email. Extensions are usually granted as long as they're granted ahead of time. (E.g. Online homework extensions need to be in place before solutions become available.) See me if you're having trouble, or take a look at the other resources mentioned in \hyperref[question-help]{Question~\ref{question-help}}.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.3.10 I missed class. What do I do?}
+\typeout{************************************************}
+%
+\subsubsection[{I missed class. What do I do?}]{I missed class. What do I do?}\label{subsubsection-32}
+\hypertarget{p-43}{}%
+If it's a one-time thing, don't worry about it. Bring any work you needed to submit during office hours. If circumstances are conspiring to keep you from class on a regular basis, you'll need to meet with me to come up with alternate arrangements.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.3.11 I have a question that isn't answered here. How do I contact you?}
+\typeout{************************************************}
+%
+\subsubsection[{I have a question that isn't answered here. How do I contact you?}]{I have a question that isn't answered here. How do I contact you?}\label{section-communication}
+\hypertarget{p-44}{}%
+Short answer: you can \href{mailto:sean.fitzpatrick@uleth.ca}{send me an email}. There are a few caveats, however:%
+\leavevmode%
+\begin{itemize}[label=\textbullet]
+\item{}First, check the course page (and the announcements forum) on Moodle. Any information I need to communicate to the class will be posted on Moodle, or emailed to the class as an announcement via Moodle.%
+\item{}Is the question about homework? Email is not a good medium for discussing math. Your best option is to ask me in person. If that doesn't work, we have a class discussion forum, on \href{https://piazza.com}{Piazza.com}. You'll be able to access the forum via Moodle.%
+\end{itemize}
+%
+%
+\typeout{************************************************}
+\typeout{Subsubsection 2.3.12 I sent you an email. Why haven't you answered it yet?}
+\typeout{************************************************}
+%
+\subsubsection[{I sent you an email. Why haven't you answered it yet?}]{I sent you an email. Why haven't you answered it yet?}\label{subsubsection-34}
+\hypertarget{p-45}{}%
+Here's a short troubleshooting guide:%
+\leavevmode%
+\begin{itemize}[label=\textbullet]
+\item{}Your email was not sent from a ULeth account and had no subject line: It went to my spam folder.%
+\item{}Your email sent between 10 pm and 6 am: I'm asleep. I'll answer when I get to work in the morning.%
+\item{}Your email sent during office hours: I'm busy helping the students who are here in person. Perhaps you should drop by yourself.%
+\item{}Your email asked for help on a specific homework problem: Direct your question to the online forum.%
+\item{}Your email was about something already addressed in this \initialism{FAQ}: I need time to come up with a polite reply.%
+\end{itemize}
+%
+%
+\typeout{************************************************}
+\typeout{Section 3 Outcome standards for Math 1560}
+\typeout{************************************************}
+%
+\pagebreak
+\section[{Outcome standards for Math 1560}]{Outcome standards for Math 1560}\label{section-standards}
+\hypertarget{p-46}{}%
+This page outlines the list of standards each student is expected to achieve in Math 1560. There are five ``big themes,'' corresponding to the five chapters of the textbook. Each theme comes with several standards you'll be asked to demonstrate by the end of the course. In every class (except test days) and tutorial, you'll be given an opportunity to attempt some of these standards.%
+\par
+\hypertarget{p-47}{}%
+A standard is considered \terminology{mastered} if you have: \leavevmode%
+\begin{itemize}[label=\textbullet]
+\item{}\hypertarget{p-48}{}%
+Correctly solved two problems associated with that standard. %
+\begin{itemize}[label=]
+\item{}(Minor arithmetic errors are not penalized.)%
+\end{itemize}
+%
+\item{}Used correct notation throughout your solution.%
+\item{}Explained your work using complete sentences.%
+\end{itemize}
+%
+\par
+\hypertarget{p-49}{}%
+Standards will be graded according to the following scale: \leavevmode%
+\begin{itemize}[label=\textbullet]
+\item{}M: standard has been mastered.%
+\item{}R: revisions required. This usually means your mathematics is mostly correct, but your writing needs improvement. Once you've fixed your errors, you can resubmit a corrected solution.%
+\item{}I: there are issues with your solution. This usually means there are significant errors in your mathematics, or the level of writing is not acceptable. You can submit another attempt with a new problem.%
+\item{}F: you have failed to demonstrate the standard, likely because you have not attempted it.%
+\end{itemize}
+%
+\par
+\hypertarget{p-50}{}%
+\alert{Note:} these standards also serve as your outline for the final exam. For each standard there will be a collection of associated problems. Some subset of these problems (or variants of them) will constitute your final exam.%
+\par
+\hypertarget{p-51}{}%
+By the end of the course, you should be able to: \leavevmode%
+\begin{itemize}[label=]
+\item{}\hypertarget{p-52}{}%
+Chapter 1: Limits and continuity %
+\begin{enumerate}[label=\arabic*)]
+\item\hypertarget{li-39}{}Explain the concept of a limit using graphical and numerical information.%
+\item\hypertarget{li-40}{}Apply limit laws in an abstract setting (explicit functions not given).%
+\item\hypertarget{li-41}{}Use algebraic manipulation to evaluate limits.%
+\item\hypertarget{li-42}{}Evaluate limits involving trigonometric functions.%
+\item\hypertarget{li-43}{}Algebraically and graphically determine one-sided limits of piecewise-defined functions.%
+\item\hypertarget{li-44}{}Evaluate limits involving infinity and determine asymptotic behaviour of a function.%
+\item\hypertarget{li-45}{}Demonstrate continuity of a function using the definition.%
+\item\hypertarget{li-46}{}Understand and apply the \terminology{Intermediate Value Theorem}.%
+\end{enumerate}
+%
+\item{}\hypertarget{p-53}{}%
+Chapter 2: Derivatives %
+\begin{enumerate}[label=\arabic*)]
+\item\hypertarget{li-48}{}Understand and apply the limit definition of the derivative.%
+\item\hypertarget{li-49}{}Understand and apply basic derivative rules (sum, constant, power).%
+\item\hypertarget{li-50}{}Calculate derivatives using the product rule.%
+\item\hypertarget{li-51}{}Calculate derivatives using the quotient rule.%
+\item\hypertarget{li-52}{}Calculate derivatives using the chain rule.%
+\item\hypertarget{li-53}{}Symbolically apply derivative rules in an abstract setting (explicit functions not given).%
+\item\hypertarget{li-54}{}Use implicit differentiation to compute the equation of a tangent line.%
+\item\hypertarget{li-55}{}Compute derivatives using logarithmic differentiation.%
+\item\hypertarget{li-56}{}Compute derivatives of trigonometric and inverse trigonometric functions.%
+\end{enumerate}
+%
+\pagebreak
+\item{}\hypertarget{p-54}{}%
+Chapter 3: Graphical behaviour of functions %
+\begin{enumerate}[label=\arabic*)]
+\item\hypertarget{li-58}{}Determine maximum and minimum values of a continuous function on a closed interval.%
+\item\hypertarget{li-59}{}State the \terminology{Mean Value Theorem} and apply it to theoretical problems.%
+\item\hypertarget{li-60}{}Determine intervals on which a function is increasing/decreasing, and classify critical points.%
+\item\hypertarget{li-61}{}Use the second derivative to determine concavity, and understand its significance.%
+\item\hypertarget{li-62}{}Produce an accurate sketch of the graph of a function without the use of technology.%
+\end{enumerate}
+%
+\item{}\hypertarget{p-55}{}%
+Chapter 4: Applications of the derivative %
+\begin{enumerate}[label=\arabic*)]
+\item\hypertarget{li-64}{}Solve word problems involving related rates of change.%
+\item\hypertarget{li-65}{}Solve word problems involving optimization.%
+\item\hypertarget{li-66}{}Use linear approximations to estimate function values.%
+\item\hypertarget{li-67}{}Compute the Taylor polynomial of a function to a specified degree.%
+\item\hypertarget{li-68}{}Quantify the error involved in a Taylor polynomial approximation.%
+\end{enumerate}
+%
+\item{}\hypertarget{p-56}{}%
+Chapter 5: Integration %
+\begin{enumerate}[label=\arabic*)]
+\item\hypertarget{li-70}{}Compute antiderivatives and solve initial value problems.%
+\item\hypertarget{li-71}{}Understand and apply properties of definite integrals.%
+\item\hypertarget{li-72}{}Use a left- or right-endpoint Riemann sum to approximate area under a curve.%
+\item\hypertarget{li-73}{}Calculate a definite integral using the Riemann sum definition.%
+\item\hypertarget{li-74}{}Use Part I of the \initialism{FTC} to compute derivatives of functions defined as integrals.%
+\item\hypertarget{li-75}{}Use Part II of the \initialism{FTC} to evaluate simple definite integrals.%
+\item\hypertarget{li-76}{}Use the method of substitution to evaluate definite and indefinite integrals.%
+\item\hypertarget{li-77}{}Set up and evaluate a definite integral to compute area between curves.%
+\end{enumerate}
+%
+\end{itemize}
+%
+%
+%
+\typeout{************************************************}
+\typeout{Section 4 Standards in the textbook}
+\typeout{************************************************}
+%
+\pagebreak
+\section[{Standards in the textbook}]{Standards in the textbook}\label{section-mapping}
+\hypertarget{p-57}{}%
+This is a reference section which indicates how to find each standard in the textbook, and which exercises in the textbook provide suitable practice for each standard.%
+\begin{table}
+\centering
+\begin{tabular}{lll}
+Standard&Section&Exercises\tabularnewline\hrulethin
+1.1&1.1&7 - 16\tabularnewline[0pt]
+1.2&1.3&7 - 18\tabularnewline[0pt]
+1.3&1.3&19 - 34\tabularnewline[0pt]
+1.4&1.3&39 - 40\tabularnewline[0pt]
+1.5&1.4&5 - 21\tabularnewline[0pt]
+1.6&1.5&9 - 28\tabularnewline[0pt]
+1.7&1.6&11 -34\tabularnewline[0pt]
+1.8&1.6&35 - 38\tabularnewline[0pt]
+2.1&2.1&7 - 22\tabularnewline[0pt]
+2.2&2.3&11 - 32\tabularnewline[0pt]
+2.3&2.4&7 - 10, 15 - 36 (as applicable)\tabularnewline[0pt]
+2.4&2.4&11 - 14, 15 - 36 (as applicable)\tabularnewline[0pt]
+2.5&2.5&7 - 42\tabularnewline[0pt]
+2.6&N/A&via WeBWorK\tabularnewline[0pt]
+2.7&2.6&13 - 32\tabularnewline[0pt]
+2.8&2.6&37 - 42\tabularnewline[0pt]
+2.9&2.7&15 - 29\tabularnewline[0pt]
+3.1&3.1&7, 8, 17 - 26\tabularnewline[0pt]
+3.2&3.2&11 -20\tabularnewline[0pt]
+3.3&3.3&15 - 24\tabularnewline[0pt]
+&3.4&29 - 56\tabularnewline[0pt]
+3.4&3.4&15 - 28\tabularnewline[0pt]
+3.5&3.5&13 - 26\tabularnewline[0pt]
+4.1&4.2&3 - 15\tabularnewline[0pt]
+4.2&4.3&3 - 17\tabularnewline[0pt]
+4.3&4.4&7 - 34\tabularnewline[0pt]
+4.4&4.5&5 - 20\tabularnewline[0pt]
+4.5&4.5&21 - 28\tabularnewline[0pt]
+5.1&5.1&9 - 27, 29 - 39\tabularnewline[0pt]
+5.2&5.2&5 - 16, 19 - 26\tabularnewline[0pt]
+5.3&5.3&29 - 34\tabularnewline[0pt]
+5.4&5.3&35 - 40\tabularnewline[0pt]
+5.5&5.4&55 - 58\tabularnewline[0pt]
+5.6&5.4&5 - 30\tabularnewline[0pt]
+5.7&5.5&3 - 42, 53 - 83\tabularnewline[0pt]
+5.8&5.6&5 - 21
+\end{tabular}
+\caption{Mapping of standards to the textbook and exercises\label{table-standards}}
+\end{table}
+%
+%
+\typeout{************************************************}
+\typeout{Section 5 Course schedule}
+\typeout{************************************************}
+%
+\pagebreak
+\section[{Course schedule}]{Course schedule}\label{section-schedule}
+\hypertarget{p-58}{}%
+I will do my best to stick to the following course schedule. Test dates are fixed, but outcomes available for in class work may vary slightly. Up to date information will be maintained on Moodle.%
+\begin{table}
+\centering
+\begin{tabular}{ll}
+Thursday, September 6&Course introduction\tabularnewline[0pt]
+Tuesday, September 11&Standards 1.1 - 1.4\tabularnewline[0pt]
+Thursday, September 13&Standards 1.1 - 1.6\tabularnewline[0pt]
+Tuesday, September 18&Standards 1.3 - 1.8\tabularnewline[0pt]
+Thursday, September 20&Standards 1.5 - 2.2\tabularnewline[0pt]
+Tuesday, September 25&Test \# 1\tabularnewline[0pt]
+Thursday, September 27&Standards 1.7 - 2.4\tabularnewline[0pt]
+Tuesday, October 2&Standards 2.3 - 2.8\tabularnewline[0pt]
+Thursday, October 4&Standards 2.5 - 2.9\tabularnewline[0pt]
+Tuesday, October 9&Standards 2.7 - 3.1\tabularnewline[0pt]
+Thursday, October 11&Test \# 2\tabularnewline[0pt]
+Tuesday, October 16&Standards 2.8 - 3.3\tabularnewline[0pt]
+Thursday, October 18&Standards 3.1 - 3.5\tabularnewline[0pt]
+Tuesday, October 23&Standards 3.3 - 4.1\tabularnewline[0pt]
+Thursday, October 25&Test \# 3\tabularnewline[0pt]
+Tuesday, October 30&Standards 4.1 - 4.2\tabularnewline[0pt]
+Thursday, November 1&Standards 4.1 - 4.4\tabularnewline[0pt]
+Tuesday, November 6&Standards 4.2 - 5.2\tabularnewline[0pt]
+Thursday, November 8&Test \# 4\tabularnewline[0pt]
+Tuesday, November 20&Standards 4.3 - 5.4\tabularnewline[0pt]
+Thursday, November 22&Standards 5.1 - 5.7\tabularnewline[0pt]
+Tuesday, November 27&Standards 5.4 - 5.8\tabularnewline[0pt]
+Thursday, November 29&Test \# 5\tabularnewline[0pt]
+Tuesday, December 4&Review, Standards 5.7 - 5.8
+\end{tabular}
+\caption{Math 1560 lecture schedule for Fall 2018\label{table-schedule}}
+\end{table}
+\end{document}
