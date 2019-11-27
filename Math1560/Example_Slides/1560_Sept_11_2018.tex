@@ -1,0 +1,97 @@
+\documentclass[11pt]{beamer}
+\usetheme{Madrid}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{tikz,pgfplots}
+%\author{}
+%\title{}
+%\setbeamercovered{transparent} 
+\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+%\date{} 
+%\subject{} 
+\newcommand{\di}{\displaystyle}
+\newtheorem{question}{Question}
+\begin{document}
+
+%\begin{frame}
+%\titlepage
+%\end{frame}
+
+%\begin{frame}
+%\tableofcontents
+%\end{frame}
+
+\begin{frame}{Definition of the limit}
+\begin{definition}
+Let $f$ be a function defined for all values of $x$ in an open interval containing $a$, except possibly at $a$. We say that the \alert{limit of $f(x)$ as $x$ approaches $a$ is $L$}, and write
+\[
+\lim_{x\to a}f(x) = L,
+\]
+if we can make the value of $f(x)$ arbitrarily close to $L$ by choosing $x$ sufficiently close (but not equal) to $a$.
+\end{definition}
+
+\alert{Note:} limits are all about how the value of $f(x)$ is \emph{trending}.
+
+Exploring the definition of the limit: \href{https://www.geogebra.org/m/nwAS4XFS}{https://www.geogebra.org/m/nwAS4XFS}
+\end{frame}
+\begin{frame}{Concept of the limit}
+\begin{question}
+The graph of a function $f$ is shown.
+\[
+\text{True or false? } \quad \lim_{x\to -1}f\,(x)=2.
+\]
+\end{question}
+\begin{multicols}{2}
+\begin{enumerate}[label=\Alph*]
+\item True, and I'm sure
+\item True, but I'm not sure
+\item False, but I'm not sure
+\item False, and I'm sure
+\end{enumerate}
+\columnbreak
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=7cm,%
+tick label style={font=\scriptsize},axis y line=middle,axis x line=middle,name=myplot,%
+%axis equal,
+			xtick={-3,-2,-1,1,2,3},% 
+%			extra x ticks={3.14,1.57},
+%			extra x tick labels={$\pi$,$\pi/2$},
+			ytick={-2,-1,1,2,3},
+			%minor y tick num=1,%extra y ticks={-5,-3,...,7},%
+%			minor x tick num=4,
+			ymin=-2.3,ymax=3.3,%
+			xmin=-3.3,xmax=3.3%
+]
+\addplot [thick,color=blue,domain={-1:3}] {-0.1*(x+3)*(x-4)+1};
+\addplot [thick,color=blue,domain={-3:-1}] {-0.1*(x+3)*(x-4)+1};
+\addplot [color=blue, only marks, style={mark=*, fill=blue}] coordinates {(-1,1)};
+\addplot [color=blue, only marks, style={mark=*, fill=white}] coordinates {(-1,2)};
+\end{axis}
+
+
+\node [right] at (myplot.right of origin) {\scriptsize $x$};
+\node [above] at (myplot.above origin) {\scriptsize $y$};
+
+
+\end{tikzpicture}
+\end{center}
+\end{multicols}
+
+\end{frame}
+\begin{frame}{Limit properties}
+Provide all limits below exist,
+\begin{itemize}
+\item $\di \lim_{x\to a}(f(x)+g(x)) = \lim_{x\to a}f(x)+\lim_{x\to a}g(x)$
+\item $\di \lim_{x\to a}(kf(x)) = k\lim_{x\to a}f(x)$ \quad for any constant $k$
+\item $\di \lim_{x\to a}(f(x)(g(x)) = \lim_{x\to a}f(x)\cdot \lim_{x\to a}g(x)$
+\item $\di \lim_{x\to a}x = a$
+\end{itemize}
+\end{frame}
+\end{document}

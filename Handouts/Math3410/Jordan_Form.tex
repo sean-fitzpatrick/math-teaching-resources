@@ -1,5 +1,6 @@
 \documentclass[12pt,letterpaper]{article}
-\usepackage[utf8]{inputenc}
+
+%\usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -20,7 +21,7 @@
 \title{Jordan Canonical Form}
 
 \renewcommand{\L}{\mathcal{L}}
-\newcommand{\M}{\mathcal{M}}
+%\newcommand{\M}{\mathcal{M}}
 \newcommand{\R}{\mathbb{R}}
 \DeclareMathOperator{\spn}{span}
 \DeclareMathOperator{\nul}{null}
@@ -39,7 +40,7 @@ Let $T\in\L(V)$ be a linear operator on a complex vector space $V$ of dimension 
 \]
 where the numbers $k_1,\ldots, k_m\in\mathbb{N}$ are the {\bf multiplicities} of the eigenvalues, given by
 \[
- k_j = \dim G(\lambda_j,T) = \dim \nul (T-\lambda_j I)^n.
+ k_j = \dim G(\lambda_j,T) = \dim \ker (T-\lambda_j I)^n.
 \]
 Here, $G(\lambda_j,T)$ is the generalized eigenspace of $T$ associated to the eigenvalue $\lambda_j$. Since 
 \[
@@ -74,7 +75,7 @@ where each block $A_j$ (a {\bf Jordan block}) is of the form
 0&0&\cdots&0 &\lambda_j
        \end{bmatrix}
 \]
-We say that a basis $B=\{v_1,v_2,\ldots, v_n\}$ for $V$ is a {\bf Jordan basis} if the matrix $\M(T)$ of $T$ with respect to $B$ is in Jordan Canonical Form.
+We say that a basis $B=\{v_1,v_2,\ldots, v_n\}$ for $V$ is a {\bf Jordan basis} if the matrix $M_B(T)$ of $T$ with respect to $B$ is in Jordan Canonical Form.
 \end{definition}
 Note that the Jordan Canonical Form is unique, up to permutation of the Jordan blocks. Changing the order of the Jordan blocks amounts to changing the order in which we list the eigenvalues. Note however that it's possible to have Jordan blocks of different size for the same eigenvalue. For example, the matrix $A=\begin{bmatrix}2&0&0\\0&2&1\\0&0&2\end{bmatrix}$ has 2 as its only eigenvalue, and has one $1\times 1$ Jordan block and one $2\times 2$ Jordan block. Another acceptable Jordan Canonical Form for this matrix would be $\begin{bmatrix}2&1&0\\0&2&0\\0&0&2\end{bmatrix}$.
 
@@ -88,16 +89,16 @@ As a corollary of this, we have
 \begin{theorem}
  An operator $T\in\L(V)$ is diagonalizable if and only if there are no repeated roots in the minimal polynomial of $T$.
 \end{theorem}
-You'll recall that a repeated root in the characteristic polynomial does not spell doom for the diagonalization of an operator. If an eigenvalue has multiplicity greater than one, we have to calculat the dimension of the eigenspace to determine whether it is equal to, or less than, the multiplicity.
+You'll recall that a repeated root in the characteristic polynomial does not spell doom for the diagonalization of an operator. If an eigenvalue has multiplicity greater than one, we have to calculate the dimension of the eigenspace to determine whether it is equal to, or less than, the multiplicity.
 
 \begin{example}
- Suppose that an operator $T$ has characteristic polynomial $c_T(z) = (z-1)^2(z-2)^4$ and minimal polynomial $m_T(z) = (z-1)(z-2)^2$. What are the possible Jordan Canonical Forms for $\M(T)$?
+ Suppose that an operator $T$ has characteristic polynomial $c_T(z) = (z-1)^2(z-2)^4$ and minimal polynomial $m_T(z) = (z-1)(z-2)^2$. What are the possible Jordan Canonical Forms for $M(T)$?
 
 \bigskip
 
 {\bf Solution:} We know that we must have two $1\times 1$ Jordan blocks for $\lambda=1$. For $\lambda=2$, there's actually some ambiguity: we could have two $2\times 2$ Jordan blocks, or one $2\times 2$ Jordan block and two $1\times 1$ Jordan blocks. Thus, there are two possible JCFs:
 \[
- \M(T) = \begin{bmatrix}1&0&0&0&0&0\\
+ M(T) = \begin{bmatrix}1&0&0&0&0&0\\
           0&1&0&0&0&0\\
           0&0&2&1&0&0\\
           0&0&0&2&0&0\\
@@ -105,7 +106,7 @@ You'll recall that a repeated root in the characteristic polynomial does not spe
           0&0&0&0&0&2
          \end{bmatrix}
 \text{ or }
-\M(T) = \begin{bmatrix}1&0&0&0&0&0\\
+M(T) = \begin{bmatrix}1&0&0&0&0&0\\
           0&1&0&0&0&0\\
           0&0&2&0&0&0\\
           0&0&0&2&0&0\\
@@ -128,18 +129,18 @@ It follows that we can form a basis for $U$ using the following steps:
  \item If $l=k$, the set $\{u_1,Nu_1,\ldots, N^{k-1}u_1\}$ forms a basis for $U$.
  \item If $l<k$, choose some vector $u_2$ not in the span of the vectors above, and continue.
 \end{enumerate}
-Well, almost. What ends up happeing in practice is the following:
+Well, almost. What ends up happening in practice is the following:
 \begin{enumerate}
- \item Find a basis $\{x_1,\ldots, x_k\}$ for $\nul N$. If $N=0$, this is a basis for $U$ and you're done.
- \item But chances are $N\neq 0$ or this problem wouldn't be very interesting. So we look for a vector $y\in U$ such that $Ny\in \nul N$, which implies that $N^2y=0$, so $y\in N^2$. We do this by solving the equation $Ny=x$, where $x=c_1x_1+\cdots +c_kx_k$ for some scalars $c_1,\ldots, c_k$.
+ \item Find a basis $\{x_1,\ldots, x_k\}$ for $\ker N$. If $N=0$, this is a basis for $U$ and you're done.
+ \item But chances are $N\neq 0$ or this problem wouldn't be very interesting. So we look for a vector $y\in U$ such that $Ny\in \ker N$, which implies that $N^2y=0$, so $y\in \ker N^2$. We do this by solving the equation $Ny=x$, where $x=c_1x_1+\cdots +c_kx_k$ for some scalars $c_1,\ldots, c_k$.
 
- Let's assume that we can solve $Ny=x_k$. If not, we simply change the basis for $\nul N$.
+ Let's assume that we can solve $Ny=x_k$. If not, we simply change the basis for $\ker N$.
  \item Having found $y$, we look for a vector $z\in U$ such that $Nz=y$, which implies that
 \[
  N^3z = N^2y = Nx_k = 0,
 \]
-so $z\in \nul N^3$.
- \item Continue until either you have enough vectors to form a basis for $U$, or you reach a step where $N^l=0$. If this happens, you need to go back to the beginning, and choose another vector in $\nul N$ that is not a multiple of the first, and repeat.
+so $z\in \ker N^3$.
+ \item Continue until either you have enough vectors to form a basis for $U$, or you reach a step where $N^l=0$. If this happens, you need to go back to the beginning, and choose another vector in $\ker N$ that is not a multiple of the first, and repeat.
 \end{enumerate}
 OK, so how does this help? Imagine that $U=G(\lambda ,T)$ for some eigenvalue $\lambda$, and $N = (T-\lambda I)|_{G(\lambda,T)}$. If you find a basis as above, you'll have:
 \[
@@ -213,7 +214,7 @@ Since we already have the vectors $X_1$ and $X_2$ in $E(4,\lambda)$, we set $s=t
  \item $(A-4I_4)^2Y=0$, so $Y\in \nul (A-4I_4)^2$, as expected.
  \item $AY = 4Y+X_2$, so $Y$ is `almost' an eigenvector.
 \end{enumerate}
-We now have three vectors $X_1,X_2,Y$, but we need four for a basis of $\R^4$, so we move on to $\nul (A-4I_4)^3$. You can verify for yourself (or have Wolfram Alpha do it) that $(A-4I_4)^3=0$, so $A-4I_4$ is nilpotent, as expected, and thus the generalized eigenspace $G(4,\lambda)$ is all of $\R^4$. We could therefore take any vector not in the span of $X_1, X_2$, and $Y$, but with the JCF in mind we want $Z\in\nul(A-4I_4)^3$ to satisfy
+We now have three vectors $X_1,X_2,Y$, but we need four for a basis of $\R^4$, so we move on to $\nul (A-4I_4)^3$. You can verify for yourself (or ask the computer to do it) that $(A-4I_4)^3=0$, so $A-4I_4$ is nilpotent, as expected, and thus the generalized eigenspace $G(4,\lambda)$ is all of $\R^4$. We could therefore take any vector not in the span of $X_1, X_2$, and $Y$, but with the JCF in mind we want $Z\in\nul(A-4I_4)^3$ to satisfy
 \[
  (A-4I_4)Z=Y.
 \]
@@ -238,7 +239,7 @@ is then a Jordan Basis, and the JCF of $A$ is given by
 \[
  \jcf(A) = \begin{bmatrix}4&0&0&0\\0&4&1&0\\0&0&4&1\\0&0&0&4\end{bmatrix}.
 \]
-Note: if $T:\R^4\to \R^4$ is the linear operator such that $\M(T)=A$ with respect to the standard basis of $\R^4$, then we have the following:
+Note: if $T:\R^4\to \R^4$ is the linear operator such that $M(T)=A$ with respect to the standard basis of $\R^4$, then we have the following:
 \begin{align*}
  TX_1 & = 4X_1 = 4X_1+0X_2+0Y+0Z\\
  TX_2 & = 4X_2 = 0X_1+4X_2+0Y+0Z\\
@@ -298,13 +299,13 @@ In this case we expect to get one more generalized eigenvector, since we know th
 \]
 which has rank 1, and thus a 3-dimensional null space. We have two options for finding our fourth vector to complete our set of three eigenvectors to a basis. One is simply to compute $\nul(A-2I)^2$ directly. We can see that if $(A-2I)^2Z=0$, then
 \[
- Z = \begin{bmatrix}3v+2w\\u\\2v\\2w\end{bmatrix}=u\begin{bmatrix}0\\1\\0\\0\end{bmatrix} +v\begin{bmatrix}3\\0\\2\\0\end{bmatrix}+w\begin{bmatrix}1\\0\\0\\1\end{bmatrix}=uY_1+2wY_2+v\begin{bmatrix}3\\0\\2\\0\end{bmatrix},
+ Z = \begin{bmatrix}3v+2w\\u\\2v\\2w\end{bmatrix}=u\begin{bmatrix}0\\1\\0\\0\end{bmatrix} +v\begin{bmatrix}3\\0\\2\\0\end{bmatrix}+w\begin{bmatrix}2\\0\\0\\2\end{bmatrix}=uY_1+2wY_2+v\begin{bmatrix}3\\0\\2\\0\end{bmatrix},
 \]
 so setting $u=w=0$ and $v=1$ gives us the new vector $Z=\begin{bmatrix}3&0&2&0\end{bmatrix}^T$. We then have to check that this vector is indeed part of a Jordan basis. We find that
 \[
  AZ = \begin{bmatrix}4\\1\\4\\-2\end{bmatrix} = 2\begin{bmatrix}3\\0\\2\\0\end{bmatrix}+\begin{bmatrix}-2\\1\\0\\-2\end{bmatrix}.
 \]
-Hmm... what is that leftover vector? Well, with a bit of checking we can see that it's actually equal to $Y_1-2Y_2$. Thus, if we want a Jordan basis, we shouldn't take the basis $\{X,Y_1,Y_2,Z\}$, since the last column would contain the entries 0,1,-2,2, and we want 0,0,1,2. How do we fix this? Well, there's no rule forcing us to use the original $\lambda=2$ eigenvectors as the basis for $E(2,A)$. We can replace the basis $\{Y_1,Y_2\}$ by the basis $\{Y_1',Y_2'\}$, where $Y_1'=Y_1$, and $Y_2'=Y_2-2Y_1$. The basis $\{X,Y_1',Y_2',Z\}$ is then a Jordan basis, and the Jordan Canonical Form is given by
+Hmm... what is that leftover vector? Well, with a bit of checking we can see that it's actually equal to $Y_1-2Y_2$. Thus, if we want a Jordan basis, we shouldn't take the basis $\{X,Y_1,Y_2,Z\}$, since the last column of our matrix would contain the entries 0,1,-2,2, and we want 0,0,1,2. How do we fix this? Well, there's no rule forcing us to use the original $\lambda=2$ eigenvectors as the basis for $E(2,A)$. We can replace the basis $\{Y_1,Y_2\}$ by the basis $\{Y_1',Y_2'\}$, where $Y_1'=Y_1$, and $Y_2'=Y_2-2Y_1$. The basis $\{X,Y_1',Y_2',Z\}$ is then a Jordan basis, and the Jordan Canonical Form is given by
 \[
  \jcf(A) = \begin{bmatrix}4&0&0&0\\0&2&0&0\\0&0&2&1\\0&0&0&2\end{bmatrix}.
 \]
