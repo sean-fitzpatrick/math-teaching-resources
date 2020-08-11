@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<pretext>
+
+  <docinfo>
+    <brandlogo url="http://www.uleth.ca/artsci/math-computer-science/" source="images/fiatlux.jpg" />
+    <initialism>M1560</initialism>
+  </docinfo>
+
+  <article xml:id="calculus-outline">
+    <title>Math 1560 Course Outline</title>
+
+    <frontmatter>
+
+        <titlepage>
+            <author>
+                <personname>Sean Fitzpatrick</personname>
+                <institution>University of Lethbridge</institution>
+            </author>
+            <date>Fall 2020</date>
+        </titlepage>
+
+      <introduction>
+        <p>
+          As you embark upon your study of calculus in this course (Math 1560),
+          you likely have many questions, such as: <q>What is Calculus, anyway?</q>
+          and <q>Is this on the test?</q>
+        </p>
+        <p>
+          The transition to online teaching prompts even more questions.
+          This outline is intended to serve as a roadmap,
+          to guide you through the various components of the course.
+        </p>
+      </introduction>
+    </frontmatter>
+
+    <section xml:id="section-introduction">
+      <title>Introduction to Math 1560</title>
+      <introduction>
+        <p>
+          Welcome to Math 1560, Calculus I.
+          I'm glad you've chosen to embark on this journey through a mathematical classic.
+          The Fall 2020 offering of this course will be an adventure,
+          as we attempt to offer the course fully online for the first time.
+        </p>
+        <p>
+          Let's get one thing out of the way before we begin:
+          Calculus I isn't nearly as bad as its reputation might suggest.
+          Most students do well in Math 1560 <fn>In Fall 2019, out of 262 students who completed the course,
+          104 received a grade of A- or better. (That's almost 40% of the class.)
+          More than two thirds of the class received A or B grades.</fn>.
+          We will do our best to support you in your online learning,
+          and ensure that students continue to do well in this course.
+        </p>
+        <p>
+          We begin with some introductions: to the university, to the staff, and to the course.
+        </p>
+      </introduction>
+
+      <subsection xml:id="subsec-welcome">
+        <title>Welcome to the University of Lethbridge</title>
+        <p>
+          Oki, and welcome to the University of Lethbridge.
+          Our University’s Blackfoot name is Iniskim, meaning Sacred Buffalo Stone.
+          The University of Lethbridge acknowledges and deeply appreciates the Siksikaitsitapii peoples’ connection to their traditional territory.
+          We, as people living and benefiting from Blackfoot Confederacy traditional territory,
+          honour the traditions of people who have cared for this land since time immemorial.
+          We recognize the diverse population of Aboriginal peoples who attend the University of Lethbridge and the
+          contributions these Aboriginal peoples have made in shaping and strengthening the University community in the
+          past, present, and in the future.
+        </p>
+        <p>
+          For most of you, this is your first semester at the University of Lethbridge,
+          or at any post-secondary institution.
+          University is an exciting time. You'll be exposed to new people,
+          new ideas, and new experiences.
+          Making connections as we learn remotely will be a challenge,
+          but somehow we'll do our best to make this happen.
+        </p>
+        <p>
+          Most of your courses, including this one, will be facilitated using the
+          <url href="https://moodle.uleth.ca">Moodle</url> learning management system.
+          You'll want to spend time as soon as you can familiarizing yourself with your course Moodle pages,
+          and plan to check each one on a daily basis.
+        </p>
+        <p>
+          Transitioning to learning in the university environment is a challenge at the best of times.
+          Doing so in the middle of a global pandemic while also trying to learn online,
+          and learn to use all the technological tools needed for that, will be additionally challenging.
+          Everyone here at U of L will be doing our best to help you through this time.
+        </p>
+        <p>
+          Don't hesitate to reach out if you have questions.
+          I'll do my best to answer all of your course-related questions as quickly as possible.
+          (See <xref ref="section-communication">Section</xref> for details on how to get in touch.)
+          If you have questions that are not related to the course,
+          you can ask those too, and I'll try to answer, or to direct you to someone who can.
+        </p>
+        <p>
+          There's some
+          <url href="https://www.uleth.ca/services-for-students/what-do-i-do-if">great general advice for first year students</url>
+          on the U of L website, including links to Academic Advising and advice on study skills from the Student Success Centre.
+          Other resources can be found on the University's
+          <url href="https://www.uleth.ca/services-for-students/health-safety">Health and Safety website</url>.
+        </p>
+      </subsection>
+      <subsection xml:id="subsec-staff">
+        <title>Course staff and contact information</title>
+        <p>
+          Math 1560 is running in three sections for Fall 2020: A, B, and C.
+          My name is <url href="http://www.cs.uleth.ca/~fitzpat">Sean Fitzpatrick</url>.
+          I'm in charge of all three lecture sections (A, B, and C).
+          I can be reached via email at
+          <url href="mailto:sean.fitzpatrick@uleth.ca">sean.fitzpatrick@uleth.ca</url>.
+        </p>
+        <p>
+          Tutorial sections 4, 9, 11, and 12 are taught by <url href="mailto:jana.archibald@uleth.ca">Dr. Jana Archibald</url>.
+          All the other tutorial sections are taught by <url href="mailto:azar.eftekharitarghi@uleth.ca">Azar Efekhari Targhi</url>.
+          Jana and Azar handled our Summer 2020 offering of Math 1560,
+          so they've already had their first adventure in teaching calculus online,
+          and I'll be relying on their experience and expertise with what works best online.
+        </p>
+      </subsection>
+      <subsection xml:id="subsec-course-description">
+        <title>Course description</title>
+        <p>
+          This is Math 1560, Calculus I. It's a first course in calculus,
+          covering limits, derivatives, and integrals of functions of one variable.
+        </p>
+        <p>
+          We'll be dealing with all your favourite functions from high school:
+          polynomials, logarithms, exponentials, even trigonometric functions.
+        </p>
+        <p>
+          <ul>
+            <li><term>Limits</term> tell us about the value of a function near a point.
+            A limit is simulataneously approximate and precise. In fact, most of calculus could be described as <q>the art of precise approximation</q></li>
+            <li><term>Derivatives</term> tell us about how a function is <em>changing</em> near a point.
+            Most rates of change in the sciences, from speed to population growth, are quantified using derivatives.</li>
+            <li><term>Integrals</term> will be defined in the context of calclating area,
+            but they also appear whenever aggregates or averages are being considered.</li>
+          </ul>
+          Both derivatives and intergrals are defined using limits, and the two are related in a (possibly) surprising way.
+        </p>
+      </subsection>
+    </section>
+
+    <section xml:id="sec-essentials">
+      <title>Essential course information</title>
+      <introduction>
+        <p>
+          This section covers essential course information,
+          including the meeting times, textbook, and grading scheme.
+        </p>
+      </introduction>
+      <subsection xml:id="subsec-website">
+        <title>Course website</title>
+        <p>
+          The primary course website is <url href="https://moodle.uleth.ca">Moodle</url>.
+          On Moodle, you can expect to find:
+        </p>
+        <p>
+          <ol>
+            <li>
+              <p>
+                Links to important resources, like this syllabus, and the textbook.
+              </p>
+            </li>
+            <li>
+              <p>
+                Links to key course activities, including the online homework,
+                and the discussion forum. (These will log you into those services automatically.)
+              </p>
+            </li>
+            <li>
+              <p>
+                Details about your grades and assessments.
+              </p>
+            </li>
+            <li>
+              <p>
+                A weekly topics schedule.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          As you learn to navigate online learning (and as I learn how to guide you),
+          the weekly topics schedules will be key to staying on top of your course material.
+          Every week you can expect to receive details on readings, videos,
+          homework, and assessments, as well as information on what will be taking place in class,
+          and how to access those classes.
+        </p>
+        <p>
+          In case there's a day when Moodle isn't working properly and you need access to course materials,
+          you can find some of them (like this syllabus) on my <url href="http://www.cs.uleth.ca/~fitzpat/teaching.html">personal website</url>.
+          The textbook for this course (and many others) is available on our <url href="https://opentext.uleth.ca">Open Textbook Server</url>.
+        </p>
+      </subsection>
+      <subsection xml:id="subsec-meetings">
+        <title>Scheduled classes</title>
+        <p>
+          Math 1560 will be taught using a blend of synchronous and asynchronous instruction.
+          Asynchronous components are explained in later sections.
+          We have maintained the originally scheduled class meeting times,
+          which are as follows:
+        </p>
+        <p>
+          <dl>
+            <li>
+              <title>Math 1560A</title>
+              <p>
+                Monday and Wednesday, 1:30 - 2:45 pm.
+              </p>
+            </li>
+            <li>
+              <title>Math 1560B</title>
+              <p>
+                Monday and Wednesday, 4:30 - 5:45 pm.
+              </p>
+            </li>
+            <li>
+              <title>Math 1560C</title>
+              <p>
+                Monday and Wednesday, 9:00 - 10:15 am.
+              </p>
+            </li>
+          </dl>
+        </p>
+        <p>
+          There is also a weekly <em>tutorial</em>.
+          Tutorials take place on Thursday and Friday.
+          Since there are 12 tutorial sections, we won't list them all here.
+          The easiest way to access your tutorial information is by looking up your personal schedule on <url href="https://bridge.uleth.ca/">the Bridge</url>.
+        </p>
+        <p>
+          Our synchronous class meetings will come in two types.
+          <ol>
+            <li>
+              <title>Monday Q&amp;A</title>
+              <p>
+                On Mondays, I will broadcast via YouTube live.
+                The broadcast will be accompanied by a live Q&amp;A session on our discussion forum.
+                You will be able to use the forum ahead of time to vote for the topics
+                and homework problems you most want to see covered.
+                I will cover those problems in the live feed.
+                Note that the live feed is automatically recorded,
+                and will be available for you to review at any time.
+              </p>
+            </li>
+            <li>
+              <title>Wednesday problem sessions</title>
+              <p>
+                On Wednesdays, you will be the ones doing the problem solving.
+                I will present you with questions to work on in groups.
+                The questions will be provided ahead of time, and submitted later,
+                but this will be your opportunity to work on those problems with both peer and instructor support.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Tutorials will also be synchronous, and facilitated by a tutorial instructor.
+          You will use tutorials to work on the basic computational skills essential to success in calculus.
+          Work in tutorial will be graded for feedback.
+        </p>
+      </subsection>
+      <subsection xml:id="sec-textbook">
+        <title>Course textbook</title>
+        <p>
+          Our course textbook is <init>APEX</init> Calculus, by Greg Hartman.
+          This book is an <term>open education resource</term> (<init>OER</init>).
+          That means that the book is fully free, both in terms of cost,
+          your freedom to use and share the book however you see fit.
+        </p>
+        <p>
+          For the last year or so,
+          I've been working with Greg and others to convert the textbook to a system called <pretext/>.
+          The <pretext/> language allows us to write a book that can be produced in a variety of formats.
+        </p>
+        <p>
+          There is a <init>PDF</init> version (the original format of the book),
+          which will be available on Moodle.
+          The <init>PDF</init> version is useful if you want to print the book,
+          or simply want to be able to read when there is no access to internet.
+        </p>
+        <p>
+          The real advantage of <pretext/> is that we can output to <init>HTML</init> format.
+          The <init>HTML</init> version of the textbook can be found at
+          <url href="http://www.cs.uleth.ca/~fitzpat/apex-calculus"/>.
+          This version of the book can be read on both desktop and mobile web browsers.
+          It also contains a number of nice features, including embedded videos,
+          interactive graphics, and annotation tools.
+        </p>
+      </subsection>
+      <subsection xml:id="subsec-grading">
+        <title>Grading scheme</title>
+        <p>
+          Traditionally Math 1560 has been a mostly skills-focused course:
+          the focus was on learning how to compute limits and derivatives,
+          and the tests mostly checked your proficiency in these skills.
+          This doesn't work well online, when most routine calculations can be done easily on the computer!
+          Our assessment principles this year:
+        </p>
+        <p>
+          <ul>
+            <li>
+              <p>
+                No big high stakes assessments: lots of little ones instead.
+              </p>
+            </li>
+            <li>
+              <p>
+                More concepts, and less rote computation.
+                (Less <mdash/> not none. Your follow-on courses will still assume you know how to take a derivative.)
+              </p>
+            </li>
+            <li>
+              <p>
+                Classes (the synchronous part) will be used for work, not lecture.
+                (Nobody wants to sit though a 75 minute Zoom lecture on Calculus, including your instructor.)
+              </p>
+            </li>
+            <li>
+              <p>
+                Group work is good for you. (Even if you don't always like it!)
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          The various graded components of the course are explained below.
+          At first it will seem like there's a lot to do!
+          But most items are small, and many can be done during class time.
+        </p>
+        <p>
+          <dl>
+            <li>
+              <title>Tutorials (10%)</title>
+              <p>
+                Every tutorial will involve an assignment to be completed.
+                You will be encouraged to work on these problems in groups,
+                but each student will submit their own work for evaluation.
+                Evaluation will be strictly <em>formative</em>:
+                you will receive feedback on the work that you submit,
+                but any sincere demonstration of effort will receive full credit.
+              </p>
+            </li>
+            <li>
+              <title>Online Homework (10%)</title>
+              <p>
+                The homework, like tutorial,
+                will focus on building fluency with the computational procedures of calculus.
+                Homework will be delivered through the <term>WeBWorK</term> online homework system.
+                See <href ref="section-webwork"/> for details.
+              </p>
+            </li>
+            <li>
+              <title>Assignments (10%)</title>
+              <p>
+                Assignments will be done in groups,
+                and there will be time set aside in each class to work on them.
+                Each assignment have only one or two problems,
+                but these will typically involve multiple steps,
+                and you will be expected to provide a written explanation
+              </p>
+            </li>
+            <li>
+              <title>Tests (65%)</title>
+              <p>
+                Each of the five chapters will conclude with a test.
+                The test will be open book. There will be a time limit,
+                but you will have some flexibility in terms of when you choose to begin.
+                Details on test dates can be found in <href ref="section-schedule"/>.
+              </p>
+              <p>
+                The following grading notes apply. Each test is worth a total of 13 points.
+                <ol>
+                  <li>
+                    <p>
+                      Prior to each test you will be asked to submit a <q>study sheet</q>.
+                      This will be worth 2 points.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      You will be asked to give (anonymous) feedback on the study sheets of three other students.
+                      This will be worth 1 point.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      You will write the test <em>individually</em>,
+                      and submit via <term>Crowdmark</term>.
+                      The individual test will be worth 6 points.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      After the individual test, there will be a follow-up <em>group test</em>.
+                      This will take place in class, and will be worth 2 points.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      After your test has been graded,
+                      you will be asked to submit a short reflection piece,
+                      where you comment on your performance and the feedback you receive.
+                    </p>
+                    <p>
+                      Typically, you will be asked to comment on the following:
+                      <ol>
+                        <li>
+                          <p>
+                            What did you do to prepare for the test?
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            What types of mistakes did you make on the test?
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            What (if anything) could you do differently next time?
+                          </p>
+                        </li>
+                      </ol>
+                    </p>
+                    <p>
+                      Post-test reflection will also be worth 2 points.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      There are five tests in total.
+                      I will automatically take your best 4 out of 5 test scores.
+                      That way you can miss a test (or have a bad day) without affecting your grade.
+                    </p>
+                  </li>
+                </ol>
+              </p>
+            </li>
+            <li>
+              <title>Reading questions (5%)</title>
+              <p>
+                To encourage you to keep up to date with the textbook readings/videos,
+                there will be a weekly quiz, delivered via WeBWorK.
+                The quiz questions will check your reading; not your math.
+                Reading questions will be due by 8 am every Wednesday.
+                The main purpose of the questions is for me to be able to identify
+                (from your responses) what areas of the content need to be addressed in class.
+                Typically any reasonable effort to answer will receive full credit.
+              </p>
+            </li>
+            <li>
+              <title>Participation (bonus)</title>
+              <p>
+                Participation credit can be earned as follows:
+                <ul>
+                  <li>
+                    <p>
+                      Contributions to the discussion forum
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Contributions to annotations in the textbook
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Active participation in synchronous meetings
+                    </p>
+                  </li>
+                </ul>
+              </p>
+              <p>
+                Participation is not required, but it can earn you course credit.
+                Quality participation is regular (at least weekly),
+                and enhances the learning experience for your classmates.
+                Students can earn up to 5% bonus credit through quality participation.
+              </p>
+            </li>
+          </dl>
+        </p>
+        <p>
+          Each of the grade components above will be assigned a numerical score.
+          These will be added to get a score out of 100.
+          Your score out of 100 is converted into a letter grade according to the following table.
+        </p>
+        <table xml:id="table-lettergrade">
+          <title>Conversion of percentage scores to letter grades in Math 1560</title>
+          <tabular top="minor">
+            <row bottom="minor">
+              <cell>A+</cell><cell>A</cell><cell>A-</cell><cell>B+</cell><cell>B</cell><cell>B-</cell>
+              <cell>C+</cell><cell>C</cell><cell>C-</cell><cell>D+</cell><cell>D</cell><cell>F</cell>
+            </row>
+            <row bottom="minor">
+              <cell>97-100</cell><cell>91-96</cell><cell>87-90</cell><cell>83-86</cell><cell>78-82</cell><cell>74-77</cell>
+              <cell>70-73</cell><cell>64-69</cell><cell>60-63</cell><cell>56-59</cell><cell>50-55</cell><cell>0-49</cell>
+            </row>
+          </tabular>
+        </table>
+      </subsection>
+    </section>
+
+    <section xml:id="section-communication">
+      <title>Communication</title>
+      <p>
+        The following communication channels are available in this course:
+        <ol>
+          <li>
+            <title>Forums</title>
+            <p>
+              There will be a primary course Q&amp;A forum using <url href="https://piazza.com">Piazza</url>.
+              We use Piazza rather than the internal Moodle forums due to a couple of useful features:
+            </p>
+            <p>
+              <ol>
+                <li>
+                  <p>
+                    Students can choose to remain anonymous (to their peers) when asking a question.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    There is a <q>live</q> Q&amp;A feature that we can use during class.
+                  </p>
+                </li>
+              </ol>
+            </p>
+            <p>
+              The Piazza forum should be your primary communication channel.
+              In particular, any questions about homework and course content should be asked on Piazza,
+              since I can reply there with mathematical notation.
+              You will also get a much faster reply on the forum than you will from email.
+            </p>
+            <p>
+              There is one exception: in our WeBWorK online homework system,
+              there is an <q>Email Instructor</q> button you can click to send feedback.
+              This is useful if you think there's an error in the question,
+              or if you've tried it several times and can't figure out why you're wrong.
+              See <xref ref="subsec-webwork"/> for details.
+            </p>
+          </li>
+          <li>
+            <title>Email</title>
+            <p>
+              You can email me for questions that aren't related to course content.
+              For example, if you have to miss class, or a test, you can email me to let me know.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </section>
+    <section xml:id="sec-technology">
+      <title>Technology elements</title>
+      <introduction>
+        <p>
+          To facilitate online teaching,
+          our course will rely on several technological solutions.
+          This section provides details on navigating the technology.
+        </p>
+      </introduction>
+      <subsection xml:id="subsec-webwork">
+        <title>Online homework</title>
+        <p>
+          Online homework is delivered via WeBWorK.
+          WeBWorK is an open source homework system that I maintain on a local server.
+          This service is provided to you free of charge, and your data never leaves campus.
+          <fn>Okay, this is not entirely true. Since faculty are expected to teach from home,
+          your data does travel from campus to my house via the university VPN.</fn>
+        </p>
+        <p>
+          The value of WeBWorK is that questions are automatically graded,
+          providing you with immediate feedback on your work.
+          This is an excellent source of guided practice.
+        </p>
+        <p>
+          <em>To access WeBWorK</em>: simply click the relevant link in Moodle.
+          You will be signed in automatically <mdash/> there is no user name or password.
+          But keep in mind that if your session times out due to inactivity,
+          you have to return to Moodle to log in again.
+        </p>
+        <p>
+          <em>Submitting answers</em>: WeBWorK has an automatic preview feature.
+          The mathematics in your answer will be rendered as you type.
+          (You can turn this off in the user settings if you don't like it.)
+          If everything looks good, click the Submit button.
+          The system will immediately respond with <q>Correct</q> or <q>Incorrect</q>.
+          If your answer is correct, there is nothing more to do: your answer has been recorded,
+          and you have credit for that problem.
+          If your answer is incorrect, you get to try again.
+          (<em>Exception</em>: I typically do not give unlimited attempts for true/false and multiple choice questions.)
+        </p>
+        <p>
+          <em>Other notes</em>:
+          <ul>
+            <li>
+              <p>
+                Some questions are <q>scaffolded</q> <mdash /> there are multiple parts,
+                and you need to complete one part before being allowed to access the next.
+                For these, you want to click the Preview Answers button, rather than Submit,
+                to check your work and move on to the next step.
+              </p>
+            </li>
+            <li>
+              <p>
+                If you need to include scientific units in an answer,
+                the automatic equation rendering can cause trouble.
+                There's a little tool bar on the right hand side that lets you switch to <em>text mode</em> to enter units.
+              </p>
+            </li>
+            <li>
+              <p>
+                At the bottom of each page is an <q>Email Instructor</q> button.
+                If you are stuck on a problem, or if you think there is an error in the programming (it happens!)
+                you can use this to let me know.
+                WeBWorK will send me an email with your message,
+                along with a link to the exact version of the problem you were working on.
+                Often I can figure out where you're going wrong by looking at your answer.
+              </p>
+              <p>
+                Please <em>do not</em> use the email button to ask me how to solve a problem.
+                That's what the discussion forum is for.
+                It should only be used afer you've made several attempts at the problem,
+                or if you see an error message of some sort.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Finally, some general advice: WeBWorK is not a new addition for the online environment.
+          I've used it for awhile. The students who do well in this course are the ones who start their problem sets early.
+          Please do not wait until the due date to begin: it leaves you no time to ask questions!
+          The most effective way to use WeBWorK is to read the relevant portion of the textbook,
+          try the problems, and then ask for help on the ones you're stuck on.
+        </p>
+        <p>
+          Oh, and please do not wait until you've made 50 unsuccessful attempts at a problem to ask for help.
+          If you haven't figured out a question after 5 or 6 attempts, set it aside, and come back to it a bit later.
+          If you still can't figure it out, go the discussion forum.
+        </p>
+      </subsection>
+
+      <subsection xml:id="subsec-crowdmark">
+        <title>Crowdmark</title>
+        <p>
+          Tests and assignments will be submitted through Crowdmark.
+          Like WeBWorK, Crowdmark is connected to Moodle,
+          so you just have to click a link in Moodle to access your assessement and submit your work.
+          Unlike WeBWorK, Crowdmark lets you do your work using pencil and paper.
+          For ease of reference, I've placed <url href="http://www.cs.uleth.ca/~fitzpat/crowdmark.html">advice for using Crowdmark</url>
+          on a separate page.
+        </p>
+        <p>
+          Basic advice:
+          <ul>
+            <li>
+              <p>
+                Start each question on a clean sheet of paper.
+              </p>
+            </li>
+            <li>
+              <p>
+                Use a scanner, or a scanning app on your smartphone.
+                PDF is best, but JPG and PNG files are also supported.
+              </p>
+            </li>
+            <li>
+              <p>
+                When you submit, make sure your pages are in order, and rotated correctly.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </subsection>
+
+      <subsection xml:id="subsec-zoom">
+        <title>Zoom and YouTube</title>
+        <p>
+          Classes and tutorials will meet using Zoom.
+          This is the officially supported meeting app for U of L classes,
+          so you'll very quickly become familar with (and tired of) Zoom.
+        </p>
+        <p>
+          We will <em>not</em> use Zoom for <q>content delivery</q>.
+          This is the job of the textbook and the prerecorded videos.
+          Those videos are embedded into the textbook, so you can watch them as you read.
+          Alternatively, you can subscribe to <url href="https://www.youtube.com/channel/UCNTQSJzbc90IjFJjlCIQpGQ">my channel on YouTube</url>.
+        </p>
+        <p>
+          I may choose to record some parts of our classes on Zoom.
+          Any time I record, you will receive a warning (in case you want to turn off your camera, perhaps).
+          Note that Zoom does not record breakout rooms.
+          Typically, I will only record when I am presenting the solution to a problem.
+          Those recordings will then be posted on YouTube for later access.
+        </p>
+        <list xml:id="zoom-guidelines">
+          <title>Zoom guidelines and etiquette</title>
+          <ul>
+            <li>
+              <p>
+                Sign on using your U of L email and your proper name.
+                I will be putting you into <q>breakout rooms</q> using pre-assigned groups.
+                This will not work if your name doesn't match what's on the class list.
+              </p>
+            </li>
+            <li>
+              <p>
+                You <alert>do not</alert> need to have your camera on at all times.
+                But please consider adding a profile photo.
+                Using your camera while in breakout rooms is recommended.
+                (Otherwise it's just weird for your group members.)
+              </p>
+            </li>
+            <li>
+              <p>
+                Please <alert>do</alert> mute your microphone when everyone is together in the main room.
+                You can unmute if you are called upon to ask a question.
+              </p>
+            </li>
+            <li>
+              <p>
+                Please <alert>don't</alert> mute your microphone while in a breakout room.
+                (With reasonable exceptions: some of you might be in noisy environments like a house with kids.)
+              </p>
+            </li>
+          </ul>
+        </list>
+        <list xml:id="zoom-questions">
+          <title>Asking questions during class</title>
+          <ol>
+            <li>
+              <p>
+                The chat box in Zoom. This is probably most useful to quickly ask for clarification on something I just said.
+              </p>
+            </li>
+            <li>
+              <p>
+                Using the discussion forum. I'll monitor this during class.
+                This will let you ask more detailed questions than the Zoom chat.
+                (For example, if you want to ask about a particular homework question.)
+              </p>
+            </li>
+            <li>
+              <p>
+                Using the <q>raise hand</q> feature in Zoom.
+                If you're not shy and want to ask a question in person (with your voice instead of your keyboard!)
+                you can raise your hand using the Zoom participants list.
+                Once I invite you to ask your question, you can unmute and ask it.
+              </p>
+            </li>
+          </ol>
+        </list>
+        <paragraphs>
+          <title>Group work in Zoom</title>
+          <p>
+            During most Zoom sessions, you will be put into smaller breakout rooms to work on problems.
+            Breakout rooms are not recorded, and I cannot actively monitor the breakout rooms <mdash />
+            these are essentially private working sessions for your group.
+            I <em>do</em> have the ability to join a breakout room temporarily,
+            but will only do so when invited.
+            If you need my help during a breakout session, there is an <q>Ask for help</q> button you can use to get my attention.
+          </p>
+          <p>
+            You will be encouraged to use Microsoft OneNote to collaborate with your group.
+            OneNote lets you type notes, insert photos, and use handwriting, if you have a touch-enabled device.
+            Unlike the Zoom chat and whiteboard features,
+            your OneNote notebook will remain available after class for you to refer to.
+            See <xref ref="subsec-onenote"/> for more details.
+          </p>
+        </paragraphs>
+      </subsection>
+
+      <subsection xml:id="subsec-onenote">
+        <title>Using OneNote</title>
+        <p>
+          OneNote will be used both for class presentations,
+          and for student collaboration.
+          Details here will include how to access class notebooks,
+          how to edit collaboratively, how to print, <etc />.
+        </p>
+        <p>
+          Students will have access to OneNote through their Office 365 accounts,
+          and IT is working on getting it integrated with Moodle.
+          I'll update this section once details are finalized with IT.
+        </p>
+      </subsection>
+    </section>
+
+    <section xml:id="sec-policies">
+      <title>Course policies</title>
+      <p>
+        This section will go over policies like accommodated learning,
+        academic honesty, lateness, missed tests, and other things like that.
+      </p>
+    </section>
+    <section xml:id="section-outcomes">
+      <title>Learning outcomes for Math 1560</title>
+      <p>
+        This page outlines the list of competencies each student is expected to achieve in Math 1560.
+        There are five <q>big themes,</q> corresponding to the five chapters of the textbook.
+        (The number following each outcome below indicates the corresponding textbook section.)
+        The online homework, tutorial assignments, and tests are all designed to help you achieve these outcomes.
+      </p>
+
+      <p>
+        <alert>Note:</alert> this list of learning outcomes should also serve as your outline for the final exam.
+        The exam might not be able to test <em>all</em> outcomes, but all outcomes are potentially on the exam.
+      </p>
+
+      <p>
+        By the end of the course, you should be able to:
+        <ul label="">
+          <li>
+            <p>
+              Chapter 1: Limits and continuity
+              <ol label="1)">
+                <li>Explain the concept of a limit using graphical and numerical information. (1.1)</li>
+                <li>Apply limit laws in an abstract setting (explicit functions not given). (1.3)</li>
+                <li>Use algebraic manipulation to evaluate limits. (1.3)</li>
+                <li>Evaluate limits involving trigonometric functions. (1.3)</li>
+                <li>Algebraically and graphically determine one-sided limits of piecewise-defined functions. (1.4)</li>
+                <li>Evaluate limits involving infinity and determine asymptotic behaviour of a function. (1.5)</li>
+                <li>Demonstrate continuity of a function using the definition. (1.6)</li>
+                <li>Understand and apply the <term>Intermediate Value Theorem</term>. (1.6)</li>
+              </ol>
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Chapter 2: Derivatives
+              <ol label="1)">
+                <li>Understand and apply the limit definition of the derivative. (2.1)</li>
+                <li>Understand the practical meaning of the derivative in terms of rates of change. (2.2)</li>
+                <li>Understand and apply basic derivative rules (sum, constant, power). (2.3)</li>
+                <li>Calculate derivatives using the product and quotient rules. (2.4)</li>
+                <li>Calculate derivatives using the chain rule. (2.5)</li>
+                <li>Use implicit differentiation to compute the equation of a tangent line. (2.6)</li>
+                <li>Compute derivatives using logarithmic differentiation. (2.6)</li>
+                <li>Understand inverse functions and their derivatives. (2.7)</li>
+              </ol>
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Chapter 3: Graphical behaviour of functions
+              <ol label="1)">
+                <li>Determine maximum and minimum values of a continuous function on a closed interval. (3.1)</li>
+                <li>Understand the significance of the <term>Mean Value Theorem</term>. (3.2)</li>
+                <li>Determine intervals on which a function is increasing/decreasing, and classify critical points. (3.3)</li>
+                <li>Use the second derivative to determine concavity, and understand its significance. (3.4)</li>
+                <li>Produce an accurate sketch of the graph of a function without the use of technology. (3.5)</li>
+              </ol>
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Chapter 4: Applications of the derivative
+              <ol label="1)">
+                <li>Solve word problems involving related rates of change. (4.2)</li>
+                <li>Solve word problems involving optimization. (4.3)</li>
+                <li>Use linear approximations to estimate function values. (4.4)</li>
+                <li>Compute the Taylor polynomial of a function to a specified degree. (4.5)</li>
+                <li>Understand the practical significance of differential calculus.</li>
+              </ol>
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Chapter 5: Integration
+              <ol label="1)">
+                <li>Compute antiderivatives and solve initial value problems. (5.1)</li>
+                <li>Understand and apply properties of definite integrals. (5.2)</li>
+                <li>Use a left- or right-endpoint Riemann sum to approximate area under a curve. (5.3)</li>
+                <li>Calculate a definite integral using the Riemann sum definition. (5.3)</li>
+                <li>Use Part I of the <init>FTC</init> to compute derivatives of functions defined as integrals. (5.4)</li>
+                <li>Use Part II of the <init>FTC</init> to evaluate simple definite integrals. (5.4)</li>
+                <li>Use the method of substitution to evaluate definite and indefinite integrals. (5.5)</li>
+                <li>Set up and evaluate a definite integral to compute area between curves. (5.6)</li>
+              </ol>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </section>
+    <section xml:id="section-schedule">
+      <title>Course schedule</title>
+        <p>
+          I will do my best to stick to the following course schedule. Test dates are fixed, but outcomes available
+          for in class work may vary slightly. Up to date information will be maintained on Moodle.
+        </p>
+        <p>
+          <alert>This is the Fall 2019 Schedule!</alert> Don't forget to update it, Sean!
+        </p>
+        <table xml:id="table-schedule">
+          <title>Math 1560 topics schedule for Fall 2019</title>
+          <tabular>
+            <row>
+              <cell>Thursday, September 5</cell><cell>Syllabus, Section 1.1</cell>
+            </row>
+            <row>
+              <cell>Tuesday, September 10</cell><cell>Section 1.3</cell>
+            </row>
+            <row>
+              <cell>Thursday, September 12</cell><cell>Sections 1.4 and 1.5</cell>
+            </row>
+            <row>
+              <cell>Tuesday, September 17</cell><cell>Section 1.6</cell>
+            </row>
+            <row>
+              <cell>Thursday, September 19</cell><cell>Section 2.1</cell>
+            </row>
+            <row>
+              <cell>Tuesday, September 24</cell><cell>Test #1</cell>
+            </row>
+            <row>
+              <cell>Thursday, September 26</cell><cell>Sections 2.3 and 2.4</cell>
+            </row>
+            <row>
+              <cell>Tuesday, October 1</cell><cell>Sections 2.5 and 2.6</cell>
+            </row>
+            <row>
+              <cell>Thursday, October 3</cell><cell>Section 2.7</cell>
+            </row>
+            <row>
+              <cell>Tuesday, October 8</cell><cell>Sections 3.1 and 3.2</cell>
+            </row>
+            <row>
+              <cell>Thursday, October 10</cell><cell>Test #2</cell>
+            </row>
+            <row>
+              <cell>Tuesday, October 15</cell><cell>Sections 3.3 and 3.4</cell>
+            </row>
+            <row>
+              <cell>Thursday, October 17</cell><cell>Section 3.5</cell>
+            </row>
+            <row>
+              <cell>Tuesday, October 22</cell><cell>Section 4.2</cell>
+            </row>
+            <row>
+              <cell>Thursday, October 24</cell><cell>Test #3 </cell>
+            </row>
+            <row>
+              <cell>Tuesday, October 29</cell><cell>Section 4.3</cell>
+            </row>
+            <row>
+              <cell>Thursday, October 31</cell><cell>Sections 4.4 and 4.5</cell>
+            </row>
+            <row>
+              <cell>Tuesday, November 5</cell><cell>Sections 5.1 and 5.2</cell>
+            </row>
+            <row>
+              <cell>Thursday, November 7</cell><cell>Test #4</cell>
+            </row>
+            <row>
+              <cell>Tuesday, November 19</cell><cell>Section 5.3</cell>
+            </row>
+            <row>
+              <cell>Thursday, November 21</cell><cell>Section 5.4</cell>
+            </row>
+            <row>
+              <cell>Tuesday, November 27</cell><cell>Section 5.5</cell>
+            </row>
+            <row>
+              <cell>Thursday, November 29</cell><cell>Section 5.6</cell>
+            </row>
+            <row>
+              <cell>Tuesday, December 3</cell><cell>Test #5</cell>
+            </row>
+          </tabular>
+        </table>
+    </section>
+  </article>
+
+</pretext>
