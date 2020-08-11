@@ -41,12 +41,13 @@
           Welcome to Math 1560, Calculus I.
           I'm glad you've chosen to embark on this journey through a mathematical classic.
           The Fall 2020 offering of this course will be an adventure,
-          as we attempt to offer the course fully online for the first time.
+          as I attempt to offer the course fully online for the first time.
         </p>
         <p>
           Let's get one thing out of the way before we begin:
           Calculus I isn't nearly as bad as its reputation might suggest.
-          Most students do well in Math 1560 <fn>In Fall 2019, out of 262 students who completed the course,
+          Most students who put in the work do well in Math 1560
+          <fn>In Fall 2019, out of 262 students who completed the course,
           104 received a grade of A- or better. (That's almost 40% of the class.)
           More than two thirds of the class received A or B grades.</fn>.
           We will do our best to support you in your online learning,
@@ -169,7 +170,7 @@
             <li>
               <p>
                 Links to key course activities, including the online homework,
-                and the discussion forum. (These will log you into those services automatically.)
+                and the discussion forum. (The links will log you into those services automatically.)
               </p>
             </li>
             <li>
@@ -234,30 +235,34 @@
           The easiest way to access your tutorial information is by looking up your personal schedule on <url href="https://bridge.uleth.ca/">the Bridge</url>.
         </p>
         <p>
-          Our synchronous class meetings will come in two types.
-          <ol>
+          Classes will be a mixture of Q&amp;A (where I do examples by request)
+          and group work (using Zoom's <term>breakout room</term> feature).
+          Sometimes I will provide a problem for discussion that you will work on as a group,
+          and then we reconvene as a class to compare group responses.
+          You will also have time in class to work on group assignments,
+          and after each test there will be a group test that takes place in class.
+        </p>
+        <p>
+          For the Q&amp;A portion:
+          <ul>
             <li>
-              <title>Monday Q&amp;A</title>
               <p>
-                On Mondays, I will broadcast via YouTube live.
-                The broadcast will be accompanied by a live Q&amp;A session on our discussion forum.
-                You will be able to use the forum ahead of time to vote for the topics
-                and homework problems you most want to see covered.
-                I will cover those problems in the live feed.
-                Note that the live feed is automatically recorded,
-                and will be available for you to review at any time.
+                You can use the discussion forum to recommend problems for us to discuss.
+                (See <xref ref="section-communication"/>. I'll run a live Q&amp;A session on Piazza.)
               </p>
             </li>
             <li>
-              <title>Wednesday problem sessions</title>
               <p>
-                On Wednesdays, you will be the ones doing the problem solving.
-                I will present you with questions to work on in groups.
-                The questions will be provided ahead of time, and submitted later,
-                but this will be your opportunity to work on those problems with both peer and instructor support.
+                Once we choose a question to solve, I'll give the class an opportunity for input on how to solve it.
               </p>
             </li>
-          </ol>
+            <li>
+              <p>
+                I will record my solution (based on your input) and upload later to YouTube.
+                Recording will be done so that only my video is captured.
+              </p>
+            </li>
+          </ul>
         </p>
         <p>
           Tutorials will also be synchronous, and facilitated by a tutorial instructor.
@@ -287,7 +292,7 @@
         <p>
           The real advantage of <pretext/> is that we can output to <init>HTML</init> format.
           The <init>HTML</init> version of the textbook can be found at
-          <url href="http://www.cs.uleth.ca/~fitzpat/apex-calculus"/>.
+          <url href="https://opentext.uleth.ca/apex-standard/part-calculus-I.html"/>.
           This version of the book can be read on both desktop and mobile web browsers.
           It also contains a number of nice features, including embedded videos,
           interactive graphics, and annotation tools.
@@ -351,6 +356,7 @@
               <p>
                 The homework, like tutorial,
                 will focus on building fluency with the computational procedures of calculus.
+                You can expect a new problem set every week.
                 Homework will be delivered through the <term>WeBWorK</term> online homework system.
                 See <href ref="section-webwork"/> for details.
               </p>
@@ -362,7 +368,13 @@
                 and there will be time set aside in each class to work on them.
                 Each assignment have only one or two problems,
                 but these will typically involve multiple steps,
-                and you will be expected to provide a written explanation
+                and you will be graded as much on the quality of your explanation as on the validity of your mathematics.
+              </p>
+              <p>
+                Typically a written assignment is expected,
+                but interested students are encouraged to explore alternative formats.
+                For example, if a group wants to submit a video presentation instead of written work,
+                that sounds like fun, and I will totally be on board with that.
               </p>
             </li>
             <li>
@@ -724,7 +736,8 @@
             <li>
               <p>
                 Please <alert>don't</alert> mute your microphone while in a breakout room.
-                (With reasonable exceptions: some of you might be in noisy environments like a house with kids.)
+                (With reasonable exceptions: some of you might be in noisy environments,
+                such as a construction site, or a house with kids.)
               </p>
             </li>
           </ul>
@@ -734,7 +747,7 @@
           <ol>
             <li>
               <p>
-                The chat box in Zoom. This is probably most useful to quickly ask for clarification on something I just said.
+                Using the chat box in Zoom. This is probably most useful to quickly ask for clarification on something I just said.
               </p>
             </li>
             <li>
@@ -791,11 +804,129 @@
     </section>
 
     <section xml:id="sec-policies">
-      <title>Course policies</title>
+      <title>Course policies (an FAQ)</title>
       <p>
-        This section will go over policies like accommodated learning,
-        academic honesty, lateness, missed tests, and other things like that.
+        This section deals with questions about accommodations, missed tests,
+        and other exceptional (yet common) cases.
       </p>
+      <ol>
+        <li>
+          <title>I don't think I can attend the classes regularly. Can I still take the course?</title>
+          <p>
+            Short answer: yes. I recognize that not all students have access to the same technology.
+            If your home internet is unreliable, attending Zoom sessions could be a challenge.
+            If you can't attend synchronous sessions, I will arrange alternatives for graded work done synchronously.
+            I will also try to connect you with other students in the same situation,
+            so that you still have a group you can work with.
+          </p>
+        </li>
+        <li>
+          <title>What exactly does academic honesty mean?</title>
+          <p>
+            In short, that any work you represent as your own, is your own.
+            Much of your work can be done in groups, but not all of it.
+            I will assume that you have access to a calculator,
+            including online tools (like <url href="https://www.symbolab.com/">Symbolab</url>)
+            that give you step-by-step solutions.
+          </p>
+          <p>
+            Use of these tools is acceptable, but take care that you are not overly reliant on them.
+            What is not acceptable is having someone else do your work for you.
+            This includes tutors, classmates, friends, family members, and online <q>homework help</q> sites.
+            If you are paying money in exchange for answers to graded work,
+            you are committing an academic offence.
+          </p>
+          <p>
+            Penalties for academic dishonesty are outlined in the
+            <url href="https://www.uleth.ca/policy/resources/student-discipline-policy-academic-offences-undergraduate-students">Academic Calendar</url>.
+            Depending on the severity of the offence, penalties for a first offence can range from a grade of zero on an assessment,
+            to an F in the courses.
+            Academic offences are also reported to the Dean of Arts &amp; Sciences.
+            They keep a record of each offence, and students with multiple offences can be subject to supplementary discipline.
+          </p>
+        </li>
+        <li>
+          <title>Does that mean I'm not allowed to get help with my homework?</title>
+          <p>
+            Not at all! But keep in mind that your course instructors will be available for help,
+            free of charge. (OK, maybe not free of charge, but you've already paid for it with your tuition.)
+            We will be responding on the discussion forum regularly,
+            There will be time to ask questions in every class, and there will be online office hours.
+            The Student Success Centre will also be running free help sessions (details TBA).
+          </p>
+          <p>
+            Some of you may still decide to pay for tutoring, and that's fine.
+            But you have a duty to disclose sources of help on an assignment,
+            and the individual tests are still tests, even if you won't have someone watching over your shoulder.
+          </p>
+          <p>
+            You should probably avoid the various paid <q>homework help</q> websites.
+            Most of these don't offer help. They offer worked solutions for a price.
+            Getting those solutions won't help with your understanding.
+            More importantly, the people working for these sites are paid (poorly) per solution,
+            and they often provide incorrect and/or badly written work.
+            (We saw plenty of examples of this last Spring, and yes, all those students now have discipline reports on file.)
+          </p>
+        </li>
+        <li>
+          <title>I missed a test! What do I do? Do I get a zero?</title>
+          <p>
+            First, contact me as soon as possible for any missed test.
+            There are <em>five</em> tests, and I only count <em>four</em> towards your grade.
+            As long as you only miss one test, there is no penalty.
+            This is true regardless of your reason for missing the test.
+          </p>
+        </li>
+        <li>
+          <title>What if I really wanted to write that test?</title>
+          <p>
+            Inform me of this when you contact me to explain your absence.
+            There's no guarantee that I can schedule a makeup test, but I'll try.
+            You're more likely to get a makeup test if you've contacted me in advance.
+          </p>
+        </li>
+        <li>
+          <title>Do I need a doctor's note?</title>
+          <p>
+            No. This wastes health care resources and your time.
+            (That was my answer before the pandemic, and it's doubly so now.)
+            Just email me to say you were sick.
+            However, if you miss more than one test due to illness,
+            we'll need to meet to discuss how to adjust your grade.
+          </p>
+        </li>
+        <li>
+          <title>I receive learning accommodations. What arrangements can I make?</title>
+          <p>
+            First, make sure that you have registered with the University's
+            <url href="https://www.uleth.ca/ross/accommodated-learning-centre">Accommodated Learning Centre</url>.
+            No need to let me know: they notify me of every student with accommodations.
+          </p>
+
+          <p>
+            Some accommodations will look a bit different this year,
+            but exam accommodations such as extra time are still possible.
+          </p>
+
+          <p>
+            If there are any adjustments I can make
+            to facilitate your learning, please do not hesitate to get in touch with me.
+            All students deserve an equal opportunity to learn.
+            Note that the <init>HTML</init> textbook is designed with accessibility in mind,
+            and should work with screen readers.
+            However, I regret that we have not had the time (or paid help) necessary to add elements such as alt-text descriptions for images.
+            It's on the to-do list, but that list is long, and growing.
+          </p>
+        </li>
+        <li>
+          <title>Life intervened and I can't keep up this week. What do I do?</title>
+          <p>
+            Send me an email. Extensions are usually granted as long as they're granted ahead of time.
+            Online homework extensions need to be in place before solutions become available.
+            Book an appointment with me as soon as you feel like you're falling behind and I'll do my best to get you up to speed.
+          </p>
+        </li>
+      </ol>
     </section>
     <section xml:id="section-outcomes">
       <title>Learning outcomes for Math 1560</title>
@@ -893,86 +1024,214 @@
     <section xml:id="section-schedule">
       <title>Course schedule</title>
         <p>
-          I will do my best to stick to the following course schedule. Test dates are fixed, but outcomes available
-          for in class work may vary slightly. Up to date information will be maintained on Moodle.
+          I will attempt to follow the schedule below,
+          bearing in mind that some adjustments are always needed,
+          and this is probably more likely as we attempt to navigate an online environment.
+          Numbers below refer to textbook sections.
         </p>
         <p>
-          <alert>This is the Fall 2019 Schedule!</alert> Don't forget to update it, Sean!
+          Every class will have some time for Q&amp;A, and for discussion.
+          Wednesday classes will have time dedicated to group work.
+          Depending on the week, this group work could be the group portion of a test,
+          or time to work on one of the assignments.
+        </p>
+        <p>
+          Online homework assignments will be due Mondays.
+          This is because tests will run on Tuesdays,
+          and you are better off on a test if you've done your homework ahead of time.
+        </p>
+        <p>
+          Acronyms used below: CS <mdash /> chapter summary. GA <mdash /> group assignment.
+          IT <mdash /> individual test. GT <mdash /> group test.
         </p>
         <table xml:id="table-schedule">
-          <title>Math 1560 topics schedule for Fall 2019</title>
+          <title>Schedule for Fall 2020</title>
           <tabular>
-            <row>
-              <cell>Thursday, September 5</cell><cell>Syllabus, Section 1.1</cell>
+            <col width="25%"/>
+            <col width="25%"/>
+            <col width="20%"/>
+            <col width="25%"/>
+            <row bottom="minor">
+              <cell>Monday</cell><cell>Wednesday</cell><cell>Tutorial</cell><cell>Deadlines</cell>
             </row>
             <row>
-              <cell>Tuesday, September 10</cell><cell>Section 1.3</cell>
+              <cell></cell>
+              <cell>
+                <p>
+                  Sept. 9: Orientation
+                </p>
+              </cell>
+              <cell><p>
+                Technology Intro
+              </p></cell>
+              <cell></cell>
             </row>
             <row>
-              <cell>Thursday, September 12</cell><cell>Sections 1.4 and 1.5</cell>
+              <cell><p>
+                Sept. 14: Limit intro
+              </p><p>
+                1.1 and 1.3.
+              </p></cell>
+              <cell><p>
+                Sept. 16: Further limits
+              </p>
+            <p>
+              1.4 and 1.5
+            </p></cell>
+            <cell><p>
+              Evaluating limts
+            </p></cell><cell>GA1 due Friday</cell>
             </row>
             <row>
-              <cell>Tuesday, September 17</cell><cell>Section 1.6</cell>
+              <cell><p>
+                Sept. 21: Continuity
+              </p><p>
+                1.6
+              </p></cell>
+              <cell><p>
+                Sept. 23: Derivatives as limits
+              </p><p>
+                2.1
+              </p></cell><cell><p>
+                Limits and continuity
+              </p></cell>
+              <cell><p>
+                CS1 due Friday.
+              </p></cell>
             </row>
             <row>
-              <cell>Thursday, September 19</cell><cell>Section 2.1</cell>
+              <cell><p>
+                Sept. 28: Ch.1 Q&amp;A; intro to derivatives.
+              </p><p>
+                2.2, 2.3
+              </p></cell>
+              <cell><p>
+                Sept. 30: GT1, derivative rules.
+              </p><p>
+                2.3, 2.4
+              </p></cell><cell><p>
+                Derivative intro
+              </p></cell><cell>IT1 on Tuesday</cell>
             </row>
             <row>
-              <cell>Tuesday, September 24</cell><cell>Test #1</cell>
+              <cell><p>
+                Oct. 5: Chain rule
+              </p><p>
+                2.5
+              </p></cell><cell><p>
+                Oct. 7: Implicit differentiation.
+              </p>
+            <p>
+              2.6
+            </p></cell><cell><p>
+              Derivative rules
+            </p></cell><cell><p>
+              GA2 due Friday
+            </p></cell>
             </row>
             <row>
-              <cell>Thursday, September 26</cell><cell>Sections 2.3 and 2.4</cell>
+              <cell><p>
+                Oct. 12: Thanksgiving
+              </p><p>
+                No class
+              </p></cell><cell><p>
+                Oct. 14: Inverse functions
+              </p><p>
+                2.7
+              </p></cell><cell><p>
+                Advanced derivatives
+              </p></cell><cell><p>
+                CS2 due Friday
+              </p></cell>
             </row>
             <row>
-              <cell>Tuesday, October 1</cell><cell>Sections 2.5 and 2.6</cell>
+              <cell><p>
+                Oct. 19: Ch. 2 Q&amp;A; Extreme values
+              </p><p>
+                3.1
+              </p></cell><cell><p>
+                Oct. 21: GT2, Mean Value Theorem
+              </p><p>
+                3.2
+              </p></cell><cell><p>
+                Finding max/min values
+              </p></cell><cell><p>
+                IT2 on Tuesday
+              </p></cell>
             </row>
             <row>
-              <cell>Thursday, October 3</cell><cell>Section 2.7</cell>
+              <cell><p>
+                Oct. 26: graph behaviour
+              </p><p>
+                3.3, 3.4
+              </p></cell><cell><p>
+                Oct. 28: curve sketching
+              </p><p>
+                3.5
+              </p></cell><cell><p>
+                Curve sketching
+              </p></cell><cell>CS3 due Friday</cell>
             </row>
             <row>
-              <cell>Tuesday, October 8</cell><cell>Sections 3.1 and 3.2</cell>
+              <cell><p>
+                Nov. 2: Ch. 3 Q&amp;A; Related rates
+              </p><p>
+                4.2
+              </p></cell><cell><p>
+                Nov. 4: GT3, Optimization
+              </p><p>
+                4.3
+              </p></cell><cell><p>
+                Word problems
+              </p></cell><cell><p>
+                TI3 on Tuesday, GA3 due Friday
+              </p></cell>
             </row>
             <row>
-              <cell>Thursday, October 10</cell><cell>Test #2</cell>
+              <cell><p>
+                Nov. 16: differentials
+              </p><p>
+                4.4
+              </p></cell><cell><p>
+                Nov. 18: Taylor polynomials
+              </p></cell><cell><p>
+                Approximation
+              </p></cell><cell><p>
+                CS4 due Friday
+              </p></cell>
             </row>
             <row>
-              <cell>Tuesday, October 15</cell><cell>Sections 3.3 and 3.4</cell>
+              <cell><p>
+                Nov. 23: Ch. 4 Q&amp;A; Antiderivatives
+              </p><p>
+                5.1
+              </p></cell><cell><p>
+                Nov. 25: GT4, Intro to integration
+              </p><p>
+                5.2, 5.3
+              </p></cell><cell>Integrals</cell><cell>IT4 on Tuesday, GA4 due Friday</cell>
             </row>
             <row>
-              <cell>Thursday, October 17</cell><cell>Section 3.5</cell>
+              <cell><p>
+                Nov. 30: Fundamental Theorem of Calculus
+              </p><p>
+                5.4
+              </p></cell><cell><p>
+                Dec. 2: Substitution
+              </p><p>
+                6.1
+              </p></cell><cell><p>
+                Using the FTC
+              </p></cell><cell>CS5 due Friday</cell>
             </row>
             <row>
-              <cell>Tuesday, October 22</cell><cell>Section 4.2</cell>
-            </row>
-            <row>
-              <cell>Thursday, October 24</cell><cell>Test #3 </cell>
-            </row>
-            <row>
-              <cell>Tuesday, October 29</cell><cell>Section 4.3</cell>
-            </row>
-            <row>
-              <cell>Thursday, October 31</cell><cell>Sections 4.4 and 4.5</cell>
-            </row>
-            <row>
-              <cell>Tuesday, November 5</cell><cell>Sections 5.1 and 5.2</cell>
-            </row>
-            <row>
-              <cell>Thursday, November 7</cell><cell>Test #4</cell>
-            </row>
-            <row>
-              <cell>Tuesday, November 19</cell><cell>Section 5.3</cell>
-            </row>
-            <row>
-              <cell>Thursday, November 21</cell><cell>Section 5.4</cell>
-            </row>
-            <row>
-              <cell>Tuesday, November 27</cell><cell>Section 5.5</cell>
-            </row>
-            <row>
-              <cell>Thursday, November 29</cell><cell>Section 5.6</cell>
-            </row>
-            <row>
-              <cell>Tuesday, December 3</cell><cell>Test #5</cell>
+              <cell><p>
+                Dec. 7: Ch. 5 Q&amp;A, Area between curves
+              </p><p>
+                7.1
+              </p></cell><cell><p>
+                Dec. 9: GT5
+              </p></cell><cell>No tutorial</cell><cell>IT5 on Tuesday, GA5 due Friday</cell>
             </row>
           </tabular>
         </table>
