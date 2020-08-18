@@ -20,7 +20,7 @@
             <date>Fall 2020</date>
         </titlepage>
 
-      <introduction>
+      <abstract>
         <p>
           As you embark upon your study of calculus in this course (Math 1560),
           you likely have many questions, such as: <q>What is Calculus, anyway?</q>
@@ -31,7 +31,7 @@
           This outline is intended to serve as a roadmap,
           to guide you through the various components of the course.
         </p>
-      </introduction>
+      </abstract>
       <video youtube="p_NyQMvlgZ8" xml:id="video-syllabus-intro"/>
     </frontmatter>
 
@@ -463,7 +463,7 @@
                 will focus on building fluency with the computational procedures of calculus.
                 You can expect a new problem set every week.
                 Homework will be delivered through the <term>WeBWorK</term> online homework system.
-                See <href ref="section-webwork"/> for details.
+                See <xref ref="section-webwork"/> for details.
               </p>
             </li>
             <li>
@@ -523,7 +523,7 @@
                 Each of the five chapters will conclude with a test.
                 The test will be open book. There will be a time limit,
                 but you will have some flexibility in terms of when you choose to begin.
-                Details on test dates can be found in <href ref="section-schedule"/>.
+                Details on test dates can be found in <xref ref="section-schedule"/>.
               </p>
               <p>
                 The following grading notes apply. Each test is worth a total of 13 points.
@@ -1016,134 +1016,136 @@
         This section deals with questions about accommodations, missed tests,
         and other exceptional (yet common) cases.
       </p>
-      <ol>
-        <li>
-          <title>I don't think I can attend the classes regularly. Can I still take the course?</title>
-          <p>
-            Short answer: yes. I recognize that not all students have access to the same technology.
-            If your home internet is unreliable, attending Zoom sessions could be a challenge.
-            If you can't attend synchronous sessions, I will arrange alternatives for graded work done asynchronously.
-            I will also try to connect you with other students in the same situation,
-            so that you still have a group you can work with.
-          </p>
-        </li>
-        <li>
-          <title>What happens if I get sick?</title>
-          <p>
-            I'll do my best to be accommodating of any illness that interrupts your studies.
-            There is no need to provide details of the illness.
-            If you miss a week or more of work, please get in touch to make a plan for catching up.
-            One of the biggest challenges in math is that once you fall behind,
-            it's difficult to catch up on your own.
-          </p>
-        </li>
-        <li>
-          <title>What exactly does academic honesty mean?</title>
-          <p>
-            In short, that any work you represent as your own, is your own.
-            Much of your work can be done in groups, but not all of it.
-            I will assume that you have access to a calculator,
-            including online tools (like <url href="https://www.symbolab.com/">Symbolab</url>)
-            that give you step-by-step solutions.
-          </p>
-          <p>
-            Use of these tools is acceptable, but take care that you are not overly reliant on them.
-            What is not acceptable is having someone else do your work for you.
-            This includes tutors, classmates, friends, family members, and online <q>homework help</q> sites.
-            If you are paying money in exchange for answers to graded work,
-            you are committing an academic offence.
-          </p>
-          <p>
-            Penalties for academic dishonesty are outlined in the
-            <url href="https://www.uleth.ca/policy/resources/student-discipline-policy-academic-offences-undergraduate-students">Academic Calendar</url>.
-            Depending on the severity of the offence, penalties for a first offence can range from a grade of zero on an assessment,
-            to an F in the courses.
-            Academic offences are also reported to the Dean of Arts &amp; Sciences.
-            They keep a record of each offence, and students with multiple offences can be subject to supplementary discipline.
-          </p>
-        </li>
-        <li>
-          <title>Does that mean I'm not allowed to get help with my homework?</title>
-          <p>
-            Not at all! But keep in mind that your course instructors will be available for help,
-            free of charge. (OK, maybe not free of charge, but you've already paid for it with your tuition.)
-            We will be responding on the discussion forum regularly,
-            There will be time to ask questions in every class, and there will be online office hours.
-            The Student Success Centre will also be running free help sessions (details TBA).
-          </p>
-          <p>
-            Some of you may still decide to pay for tutoring, and that's fine.
-            But you have a duty to disclose sources of help on an assignment,
-            and the individual tests are still tests, even if you won't have someone watching over your shoulder.
-          </p>
-          <p>
-            You should probably avoid the various paid <q>homework help</q> websites.
-            Most of these don't offer help. They offer worked solutions for a price.
-            Getting those solutions won't help with your understanding.
-            More importantly, the people working for these sites are paid (poorly) per solution,
-            and they often provide incorrect and/or badly written work.
-            (We saw plenty of examples of this last Spring, and yes, all those students now have discipline reports on file.)
-          </p>
-        </li>
-        <li>
-          <title>I missed a test! What do I do? Do I get a zero?</title>
-          <p>
-            First, contact me as soon as possible for any missed test.
-            There are <em>five</em> tests, and I only count <em>four</em> towards your grade.
-            As long as you only miss one test, there is no penalty.
-            This is true regardless of your reason for missing the test.
-          </p>
-        </li>
-        <li>
-          <title>What if I really wanted to write that test?</title>
-          <p>
-            Inform me of this when you contact me to explain your absence.
-            There's no guarantee that I can schedule a makeup test, but I'll try.
-            You're more likely to get a makeup test if you've contacted me in advance.
-          </p>
-        </li>
-        <li>
-          <title>Do I need a doctor's note?</title>
-          <p>
-            No. This wastes health care resources and your time.
-            (That was my answer before the pandemic, and it's doubly so now.)
-            Just email me to say you were sick.
-            However, if you miss more than one test due to illness,
-            we'll need to meet to discuss how to adjust your grade.
-          </p>
-        </li>
-        <li>
-          <title>I receive learning accommodations. What arrangements can I make?</title>
-          <p>
-            First, make sure that you have registered with the University's
-            <url href="https://www.uleth.ca/ross/accommodated-learning-centre">Accommodated Learning Centre</url>.
-            No need to let me know: they notify me of every student with accommodations.
-          </p>
+      <p>
+        <ol>
+          <li>
+            <title>I don't think I can attend the classes regularly. Can I still take the course?</title>
+            <p>
+              Short answer: yes. I recognize that not all students have access to the same technology.
+              If your home internet is unreliable, attending Zoom sessions could be a challenge.
+              If you can't attend synchronous sessions, I will arrange alternatives for graded work done asynchronously.
+              I will also try to connect you with other students in the same situation,
+              so that you still have a group you can work with.
+            </p>
+          </li>
+          <li>
+            <title>What happens if I get sick?</title>
+            <p>
+              I'll do my best to be accommodating of any illness that interrupts your studies.
+              There is no need to provide details of the illness.
+              If you miss a week or more of work, please get in touch to make a plan for catching up.
+              One of the biggest challenges in math is that once you fall behind,
+              it's difficult to catch up on your own.
+            </p>
+          </li>
+          <li>
+            <title>What exactly does academic honesty mean?</title>
+            <p>
+              In short, that any work you represent as your own, is your own.
+              Much of your work can be done in groups, but not all of it.
+              I will assume that you have access to a calculator,
+              including online tools (like <url href="https://www.symbolab.com/">Symbolab</url>)
+              that give you step-by-step solutions.
+            </p>
+            <p>
+              Use of these tools is acceptable, but take care that you are not overly reliant on them.
+              What is not acceptable is having someone else do your work for you.
+              This includes tutors, classmates, friends, family members, and online <q>homework help</q> sites.
+              If you are paying money in exchange for answers to graded work,
+              you are committing an academic offence.
+            </p>
+            <p>
+              Penalties for academic dishonesty are outlined in the
+              <url href="https://www.uleth.ca/policy/resources/student-discipline-policy-academic-offences-undergraduate-students">Academic Calendar</url>.
+              Depending on the severity of the offence, penalties for a first offence can range from a grade of zero on an assessment,
+              to an F in the courses.
+              Academic offences are also reported to the Dean of Arts &amp; Sciences.
+              They keep a record of each offence, and students with multiple offences can be subject to supplementary discipline.
+            </p>
+          </li>
+          <li>
+            <title>Does that mean I'm not allowed to get help with my homework?</title>
+            <p>
+              Not at all! But keep in mind that your course instructors will be available for help,
+              free of charge. (OK, maybe not free of charge, but you've already paid for it with your tuition.)
+              We will be responding on the discussion forum regularly,
+              There will be time to ask questions in every class, and there will be online office hours.
+              The Student Success Centre will also be running free help sessions (details TBA).
+            </p>
+            <p>
+              Some of you may still decide to pay for tutoring, and that's fine.
+              But you have a duty to disclose sources of help on an assignment,
+              and the individual tests are still tests, even if you won't have someone watching over your shoulder.
+            </p>
+            <p>
+              You should probably avoid the various paid <q>homework help</q> websites.
+              Most of these don't offer help. They offer worked solutions for a price.
+              Getting those solutions won't help with your understanding.
+              More importantly, the people working for these sites are paid (poorly) per solution,
+              and they often provide incorrect and/or badly written work.
+              (We saw plenty of examples of this last Spring, and yes, all those students now have discipline reports on file.)
+            </p>
+          </li>
+          <li>
+            <title>I missed a test! What do I do? Do I get a zero?</title>
+            <p>
+              First, contact me as soon as possible for any missed test.
+              There are <em>five</em> tests, and I only count <em>four</em> towards your grade.
+              As long as you only miss one test, there is no penalty.
+              This is true regardless of your reason for missing the test.
+            </p>
+          </li>
+          <li>
+            <title>What if I really wanted to write that test?</title>
+            <p>
+              Inform me of this when you contact me to explain your absence.
+              There's no guarantee that I can schedule a makeup test, but I'll try.
+              You're more likely to get a makeup test if you've contacted me in advance.
+            </p>
+          </li>
+          <li>
+            <title>Do I need a doctor's note?</title>
+            <p>
+              No. This wastes health care resources and your time.
+              (That was my answer before the pandemic, and it's doubly so now.)
+              Just email me to say you were sick.
+              However, if you miss more than one test due to illness,
+              we'll need to meet to discuss how to adjust your grade.
+            </p>
+          </li>
+          <li>
+            <title>I receive learning accommodations. What arrangements can I make?</title>
+            <p>
+              First, make sure that you have registered with the University's
+              <url href="https://www.uleth.ca/ross/accommodated-learning-centre">Accommodated Learning Centre</url>.
+              No need to let me know: they notify me of every student with accommodations.
+            </p>
 
-          <p>
-            Some accommodations will look a bit different this year,
-            but exam accommodations such as extra time are still possible.
-          </p>
+            <p>
+              Some accommodations will look a bit different this year,
+              but exam accommodations such as extra time are still possible.
+            </p>
 
-          <p>
-            If there are any adjustments I can make
-            to facilitate your learning, please do not hesitate to get in touch with me.
-            All students deserve an equal opportunity to learn.
-            Note that the <init>HTML</init> textbook is designed with accessibility in mind,
-            and should work with screen readers.
-            However, I regret that we have not had the time (or paid help) necessary to add elements such as alt-text descriptions for images.
-            It's on the to-do list, but that list is long, and growing.
-          </p>
-        </li>
-        <li>
-          <title>Life intervened and I can't keep up this week. What do I do?</title>
-          <p>
-            Send me an email. Extensions are usually granted as long as they're granted ahead of time.
-            Online homework extensions need to be in place before solutions become available.
-            Book an appointment with me as soon as you feel like you're falling behind and I'll do my best to get you up to speed.
-          </p>
-        </li>
-      </ol>
+            <p>
+              If there are any adjustments I can make
+              to facilitate your learning, please do not hesitate to get in touch with me.
+              All students deserve an equal opportunity to learn.
+              Note that the <init>HTML</init> textbook is designed with accessibility in mind,
+              and should work with screen readers.
+              However, I regret that we have not had the time (or paid help) necessary to add elements such as alt-text descriptions for images.
+              It's on the to-do list, but that list is long, and growing.
+            </p>
+          </li>
+          <li>
+            <title>Life intervened and I can't keep up this week. What do I do?</title>
+            <p>
+              Send me an email. Extensions are usually granted as long as they're granted ahead of time.
+              Online homework extensions need to be in place before solutions become available.
+              Book an appointment with me as soon as you feel like you're falling behind and I'll do my best to get you up to speed.
+            </p>
+          </li>
+        </ol>
+      </p>
     </section>
     <section xml:id="section-outcomes">
       <title>Learning outcomes for Math 1560</title>
