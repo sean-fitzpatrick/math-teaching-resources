@@ -32,6 +32,7 @@
           to guide you through the various components of the course.
         </p>
       </introduction>
+      <video youtube="p_NyQMvlgZ8" xml:id="video-syllabus-intro"/>
     </frontmatter>
 
     <section xml:id="section-introduction">
@@ -144,6 +145,98 @@
           Both derivatives and intergrals are defined using limits, and the two are related in a (possibly) surprising way.
         </p>
       </subsection>
+      <subsection xml:id="pars-online">
+        <title>And what about the whole online thing?</title>
+        <p>
+          Ah, right! More details on that throughout the outline.
+          But to get us started: what changes?
+          <ul>
+            <li>
+              <p>
+                More emphasis on:
+                <ul>
+                  <li>
+                    <p>
+                      Conceptual understanding
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Discussion
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Context (the whole <q>what is this good for?</q> routine)
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Being generally swell human beings
+                    </p>
+                  </li>
+                </ul>
+              </p>
+            </li>
+            <li>
+              <p>
+                Less emphasis on:
+                <ul>
+                  <li>
+                    <p>
+                      Memorization (because how am I gonna stop you from looking stuff up, anyway?)
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Routine computational proficiency (let's be honest: the computer can do this better than us most of the time)
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Tests and exams (so I can spend more time teaching and less time as the Math Police)
+                    </p>
+                  </li>
+                </ul>
+              </p>
+            </li>
+          </ul>
+        </p>
+
+        <p>
+          The course is set up with synchronous meetings (via Zoom)
+          that follow the original timetable.
+          It's great if you can come to these. There will be opportinuties for discussion,
+          and to work on problems (including ones you'll be handing in)
+          with your classmates.
+        </p>
+
+        <p>
+          It's also understandable if you can't. Bad internet.
+          Bosses who don't understand that online classes still have, well, classes.
+          Maybe you have to share your computer with your little brother.
+          Maybe travel restrictions mean that when class meets, it's 2 am where you are.
+          Whatever.
+        </p>
+
+        <p>
+          Fortunately, I'll do my best to work the asynchronous angle as well.
+          Lots can be done on your own time, even if you do make it to class.
+          The textbook is free, online, and full of videos.
+          We'll run an online Q&amp;A forum you can use to ask questions any time of day.
+          Tests <alert>are not</alert> during class time. You'll have a 24 hour window.
+        </p>
+
+        <p>
+          In <xref ref="subsec-grading"/> you're going to see that there are lots of pieces to your grade.
+          And yes, most of them have deadlines. But don't worry!
+          Most of those pieces are small: designed to be done in class,
+          or to take up no more than an hour or so of your time.
+          Learning any kind of math is a marathon, not a sprint.
+          So I'm giving you a little bit to do every day.
+          Keep at it, and you'll do well.
+        </p>
+      </subsection>
     </section>
 
     <section xml:id="sec-essentials">
@@ -238,7 +331,7 @@
           Classes will be a mixture of Q&amp;A (where I do examples by request)
           and group work (using Zoom's <term>breakout room</term> feature).
           Sometimes I will provide a problem for discussion that you will work on as a group,
-          and then we reconvene as a class to compare group responses.
+          and then we'll reconvene as a class to compare group responses.
           You will also have time in class to work on group assignments,
           and after each test there will be a group test that takes place in class.
         </p>
@@ -260,14 +353,21 @@
               <p>
                 I will record my solution (based on your input) and upload later to YouTube.
                 Recording will be done so that only my video is captured.
+                (That is: if you all want to turn on your cameras so I can see your smiling/frowning faces,
+                I promise not to record you and put it on YouTube.
+                Otherwise I might have no idea what my students look like, which seems like it'll be weird.)
               </p>
             </li>
           </ul>
         </p>
         <p>
-          Tutorials will also be synchronous, and facilitated by a tutorial instructor.
+          Tutorials will be synchronous, and facilitated by a tutorial instructor.
           You will use tutorials to work on the basic computational skills essential to success in calculus.
-          Work in tutorial will be graded for feedback.
+          Work in tutorial will be done in groups, and graded for feedback.
+        </p>
+        <p>
+          If you can't attend tutorial synchronously, please let me know.
+          I'll try to accommodate. This is the one part of the class where I think you'll be way better off if you can attend in person.
         </p>
       </subsection>
       <subsection xml:id="sec-textbook">
@@ -297,6 +397,7 @@
           It also contains a number of nice features, including embedded videos,
           interactive graphics, and annotation tools.
         </p>
+        <video youtube="wELGr5mUNt4" xml:id="video-textbook"/>
       </subsection>
       <subsection xml:id="subsec-grading">
         <title>Grading scheme</title>
@@ -344,11 +445,15 @@
               <title>Tutorials (10%)</title>
               <p>
                 Every tutorial will involve an assignment to be completed.
-                You will be encouraged to work on these problems in groups,
-                but each student will submit their own work for evaluation.
+                You will be encouraged to work on these problems in groups.
                 Evaluation will be strictly <em>formative</em>:
                 you will receive feedback on the work that you submit,
                 but any sincere demonstration of effort will receive full credit.
+              </p>
+              <p>
+                In subsequent tutorials I may check to see if you've actually read the feedback you receive.
+                Since you're not being graded on whether you're right or wrong,
+                we'll use tutorials as an opportunity for you to learn all the basic computational skills.
               </p>
             </li>
             <li>
@@ -375,6 +480,41 @@
                 but interested students are encouraged to explore alternative formats.
                 For example, if a group wants to submit a video presentation instead of written work,
                 that sounds like fun, and I will totally be on board with that.
+              </p>
+              <p>
+                Here is a fictitious (but possibly informative) grading rubric for assignments:
+                <ul>
+                  <li>
+                    <p>
+                      A: wow, they clearly discussed this as a group, and nailed down all the key points!
+                      I also appreciate how the work is legible and relatively free of frustrated scribbling.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      B: everyone had something to say, but I'm not sure they all agreed.
+                      There's an obvious mistake that someone should have caught,
+                      suggesting that nobody thought to read it over before submitting.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      C: most of the details are there but this was clearly done in the last hour before the deadline.
+                      Also, it looks suspiciously like one person did all the work.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      D: looks like parts (a), (b), (c), and (d) were each done by a different person,
+                      and then arranged randomly on the page.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      F: nothing submitted. Or work is a crude drawing of what appears to be an integral attacking a kitten.
+                    </p>
+                  </li>
+                </ul>
               </p>
             </li>
             <li>
@@ -449,6 +589,18 @@
                       I will automatically take your best 4 out of 5 test scores.
                       That way you can miss a test (or have a bad day) without affecting your grade.
                     </p>
+                    <p>
+                      Notice that the individual portion of the test (<ie/> <q>the test</q>)
+                      is only worth just under half the total test grade.
+                      So you can tank the test and still pass the test, if that makes sense.
+                      (But if you've done the pre-test activity I bet you won't tank it.)
+                    </p>
+                    <p>
+                      Note that the group test is scheduled to take place in class.
+                      I will be working to identify students for whom this would be a hardship.
+                      Those of you who legitimately cannot attend (you know, for reasons)
+                      will be grouped together and given an alternative activity.
+                    </p>
                   </li>
                 </ol>
               </p>
@@ -466,7 +618,7 @@
               </p>
             </li>
             <li>
-              <title>Participation (bonus)</title>
+              <title>Participation</title>
               <p>
                 Participation credit can be earned as follows:
                 <ul>
@@ -488,10 +640,61 @@
                 </ul>
               </p>
               <p>
-                Participation is not required, but it can earn you course credit.
+                Participation is not required, and does not directly affect your grade.
                 Quality participation is regular (at least weekly),
                 and enhances the learning experience for your classmates.
-                Students can earn up to 5% bonus credit through quality participation.
+              </p>
+              <p>
+                For many students, life intervenes and you miss a deadline,
+                forget an assignment, <etc/>
+                Participation is your way to demonstrate continued engagement in the class,
+                even if you mess up on the occasional assessment.
+              </p>
+              <p>
+                With that in mind, participation credit is <alert>redeemable</alert>.
+                <fn>
+                  To redeem: send me an email that says something like,
+                  <q>Hey Sean, I need two more days on that homework assignment,
+                  and by the way, did you notice I answered three questions on the forum this week?</q>
+                </fn>
+              </p>
+              <p>
+                You can redeem your quality course participation for:
+                <fn>
+                  Maximum three redemptions per category. Some restrictions may apply.
+                  As your instructor for details.
+                </fn>
+                <ul>
+                  <li>
+                    <p>
+                      A no-questions-asked extension for online homework or an assignment.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      A hint during a test.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Forgetting to do your reading questions.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Forgetting to do your post-test reflection.
+                      (Depending on how you did on the test. I might decide you really need to do it.)
+                    </p>
+                  </li>
+                </ul>
+              </p>
+              <p>
+                Alternatively, you can save up those participation credits for the <term>big ask</term>.
+                Namely, there comes a point at the end of semester where a student looks at their grade,
+                (and possibly <xref ref="table-lettergrade"/> below) and sends an email saying something like,
+                <q>But I'm only 2% away from an A-!</q>
+                If you've been participating regularly throughout the semester,
+                I may be willing to entertain such a request.
               </p>
             </li>
           </dl>
@@ -555,6 +758,11 @@
               or if you've tried it several times and can't figure out why you're wrong.
               See <xref ref="subsec-webwork"/> for details.
             </p>
+            <p>
+              <alert>Note:</alert> Piazza will be accessible from Moodle as a plugin.
+              In the past we encountered a bug where two students get assiged the same account ID.
+              If you find yourself signed in as someone else, let me know.
+            </p>
           </li>
           <li>
             <title>Email</title>
@@ -589,6 +797,7 @@
           providing you with immediate feedback on your work.
           This is an excellent source of guided practice.
         </p>
+        <video youtube="79kRzUV7f2U" xml:id="video-webwork"/>
         <p>
           <em>To access WeBWorK</em>: simply click the relevant link in Moodle.
           You will be signed in automatically <mdash/> there is no user name or password.
@@ -715,7 +924,7 @@
             <li>
               <p>
                 Sign on using your U of L email and your proper name.
-                I will be putting you into <q>breakout rooms</q> using pre-assigned groups.
+                I'm hoping to be able to put you into <q>breakout rooms</q> using pre-assigned groups.
                 This will not work if your name doesn't match what's on the class list.
               </p>
             </li>
@@ -723,8 +932,6 @@
               <p>
                 You <alert>do not</alert> need to have your camera on at all times.
                 But please consider adding a profile photo.
-                Using your camera while in breakout rooms is recommended.
-                (Otherwise it's just weird for your group members.)
               </p>
             </li>
             <li>
@@ -815,9 +1022,19 @@
           <p>
             Short answer: yes. I recognize that not all students have access to the same technology.
             If your home internet is unreliable, attending Zoom sessions could be a challenge.
-            If you can't attend synchronous sessions, I will arrange alternatives for graded work done synchronously.
+            If you can't attend synchronous sessions, I will arrange alternatives for graded work done asynchronously.
             I will also try to connect you with other students in the same situation,
             so that you still have a group you can work with.
+          </p>
+        </li>
+        <li>
+          <title>What happens if I get sick?</title>
+          <p>
+            I'll do my best to be accommodating of any illness that interrupts your studies.
+            There is no need to provide details of the illness.
+            If you miss a week or more of work, please get in touch to make a plan for catching up.
+            One of the biggest challenges in math is that once you fall behind,
+            it's difficult to catch up on your own.
           </p>
         </li>
         <li>
@@ -951,12 +1168,11 @@
               <ol label="1)">
                 <li>Explain the concept of a limit using graphical and numerical information. (1.1)</li>
                 <li>Apply limit laws in an abstract setting (explicit functions not given). (1.3)</li>
-                <li>Use algebraic manipulation to evaluate limits. (1.3)</li>
-                <li>Evaluate limits involving trigonometric functions. (1.3)</li>
+                <li>Use algebraic (or trigonometric) manipulation to evaluate limits. (1.3)</li>
                 <li>Algebraically and graphically determine one-sided limits of piecewise-defined functions. (1.4)</li>
-                <li>Evaluate limits involving infinity and determine asymptotic behaviour of a function. (1.5)</li>
-                <li>Demonstrate continuity of a function using the definition. (1.6)</li>
+                <li>Understand the meaning of continuity, both precisely and intuitively. (1.6)</li>
                 <li>Understand and apply the <term>Intermediate Value Theorem</term>. (1.6)</li>
+                <li>Evaluate limits involving infinity and determine asymptotic behaviour of a function. (1.5)</li>
               </ol>
             </p>
           </li>
@@ -967,11 +1183,9 @@
               <ol label="1)">
                 <li>Understand and apply the limit definition of the derivative. (2.1)</li>
                 <li>Understand the practical meaning of the derivative in terms of rates of change. (2.2)</li>
-                <li>Understand and apply basic derivative rules (sum, constant, power). (2.3)</li>
-                <li>Calculate derivatives using the product and quotient rules. (2.4)</li>
+                <li>Understand and apply derivative rules (sum, constant, power, product, quotient). (2.3, 2.4)</li>
                 <li>Calculate derivatives using the chain rule. (2.5)</li>
-                <li>Use implicit differentiation to compute the equation of a tangent line. (2.6)</li>
-                <li>Compute derivatives using logarithmic differentiation. (2.6)</li>
+                <li>Understand and apply implicit and logarithmic differentiation. (2.6)</li>
                 <li>Understand inverse functions and their derivatives. (2.7)</li>
               </ol>
             </p>
@@ -983,7 +1197,7 @@
               <ol label="1)">
                 <li>Determine maximum and minimum values of a continuous function on a closed interval. (3.1)</li>
                 <li>Understand the significance of the <term>Mean Value Theorem</term>. (3.2)</li>
-                <li>Determine intervals on which a function is increasing/decreasing, and classify critical points. (3.3)</li>
+                <li>Understand the relationship between the first derivative and the shape of a graph. (3.3)</li>
                 <li>Use the second derivative to determine concavity, and understand its significance. (3.4)</li>
                 <li>Produce an accurate sketch of the graph of a function without the use of technology. (3.5)</li>
               </ol>
@@ -1009,8 +1223,7 @@
               <ol label="1)">
                 <li>Compute antiderivatives and solve initial value problems. (5.1)</li>
                 <li>Understand and apply properties of definite integrals. (5.2)</li>
-                <li>Use a left- or right-endpoint Riemann sum to approximate area under a curve. (5.3)</li>
-                <li>Calculate a definite integral using the Riemann sum definition. (5.3)</li>
+                <li>Understand the Riemann sum definition of the integral, and use it to approximate an integral. (5.3)</li>
                 <li>Use Part I of the <init>FTC</init> to compute derivatives of functions defined as integrals. (5.4)</li>
                 <li>Use Part II of the <init>FTC</init> to evaluate simple definite integrals. (5.4)</li>
                 <li>Use the method of substitution to evaluate definite and indefinite integrals. (5.5)</li>
@@ -1041,8 +1254,29 @@
           and you are better off on a test if you've done your homework ahead of time.
         </p>
         <p>
-          Acronyms used below: CS <mdash /> chapter summary. GA <mdash /> group assignment.
-          IT <mdash /> individual test. GT <mdash /> group test.
+          Acronyms used below:
+          <ul>
+            <li>
+              <p>
+                 CS <mdash /> chapter summary
+              </p>
+            </li>
+            <li>
+              <p>
+                GA <mdash /> group assignment
+              </p>
+            </li>
+            <li>
+              <p>
+                IT <mdash /> individual test
+              </p>
+            </li>
+            <li>
+              <p>
+                GT <mdash /> group test
+              </p>
+            </li>
+          </ul>
         </p>
         <table xml:id="table-schedule">
           <title>Schedule for Fall 2020</title>
@@ -1066,32 +1300,31 @@
               </p></cell>
               <cell></cell>
             </row>
-            <row bottom="minor">
+            <row>
               <cell><p>
                 Sept. 14: Limit intro
-              </p><p>
-                1.1 and 1.3.
               </p></cell>
               <cell><p>
                 Sept. 16: Further limits
               </p>
-            <p>
-              1.4 and 1.5
-            </p></cell>
+            </cell>
             <cell><p>
               Evaluating limts
             </p></cell><cell>GA1 due Friday</cell>
             </row>
             <row bottom="minor">
               <cell><p>
+                1.1 and 1.3.
+              </p></cell><cell><p>
+                1.4 and 1.5
+              </p></cell><cell></cell><cell></cell>
+            </row>
+            <row>
+              <cell><p>
                 Sept. 21: Continuity
-              </p><p>
-                1.6
               </p></cell>
               <cell><p>
                 Sept. 23: Derivatives as limits
-              </p><p>
-                2.1
               </p></cell><cell><p>
                 Limits and continuity
               </p></cell>
@@ -1099,31 +1332,37 @@
                 CS1 due Friday.
               </p></cell>
             </row>
-            <row bottom="minor">
+            <row bottom= "minor">
+              <cell><p>
+                1.6
+              </p></cell><cell><p>
+                2.1
+              </p></cell><cell></cell><cell></cell>
+            </row>
+            <row>
               <cell><p>
                 Sept. 28: Ch.1 Q&amp;A; intro to derivatives.
-              </p><p>
-                2.2, 2.3
               </p></cell>
               <cell><p>
                 Sept. 30: GT1, derivative rules.
-              </p><p>
-                2.3, 2.4
               </p></cell><cell><p>
                 Derivative intro
               </p></cell><cell>IT1 on Tuesday</cell>
             </row>
             <row bottom="minor">
               <cell><p>
+                2.2, 2.3
+              </p></cell><cell><p>
+                2.3, 2.4
+              </p></cell><cell></cell><cell></cell>
+            </row>
+            <row>
+              <cell><p>
                 Oct. 5: Chain rule
-              </p><p>
-                2.5
               </p></cell><cell><p>
                 Oct. 7: Implicit differentiation.
               </p>
-            <p>
-              2.6
-            </p></cell><cell><p>
+            </cell><cell><p>
               Derivative rules
             </p></cell><cell><p>
               GA2 due Friday
@@ -1131,13 +1370,16 @@
             </row>
             <row bottom="minor">
               <cell><p>
+                2.5
+              </p></cell><cell><p>
+                2.6
+              </p></cell><cell></cell><cell></cell>
+            </row>
+            <row>
+              <cell><p>
                 Oct. 12: Thanksgiving
-              </p><p>
-                No class
               </p></cell><cell><p>
                 Oct. 14: Inverse functions
-              </p><p>
-                2.7
               </p></cell><cell><p>
                 Advanced derivatives
               </p></cell><cell><p>
@@ -1146,13 +1388,16 @@
             </row>
             <row bottom="minor">
               <cell><p>
+                No class
+              </p></cell><cell><p>
+                2.7
+              </p></cell><cell></cell><cell></cell>
+            </row>
+            <row>
+              <cell><p>
                 Oct. 19: Ch. 2 Q&amp;A; Extreme values
-              </p><p>
-                3.1
               </p></cell><cell><p>
                 Oct. 21: GT2, Mean Value Theorem
-              </p><p>
-                3.2
               </p></cell><cell><p>
                 Finding max/min values
               </p></cell><cell><p>
@@ -1161,37 +1406,48 @@
             </row>
             <row bottom="minor">
               <cell><p>
+                3.1
+              </p></cell><cell><p>
+                3.2
+              </p></cell><cell></cell><cell></cell>
+            </row>
+            <row>
+              <cell><p>
                 Oct. 26: graph behaviour
-              </p><p>
-                3.3, 3.4
               </p></cell><cell><p>
                 Oct. 28: curve sketching
-              </p><p>
-                3.5
               </p></cell><cell><p>
                 Curve sketching
               </p></cell><cell>CS3 due Friday</cell>
             </row>
             <row bottom="minor">
               <cell><p>
+                3.3, 3.4
+              </p></cell><cell><p>
+                3.5
+              </p></cell><cell></cell><cell></cell>
+            </row>
+            <row>
+              <cell><p>
                 Nov. 2: Ch. 3 Q&amp;A; Related rates
-              </p><p>
-                4.2
               </p></cell><cell><p>
                 Nov. 4: GT3, Optimization
-              </p><p>
-                4.3
               </p></cell><cell><p>
                 Word problems
               </p></cell><cell><p>
-                TI3 on Tuesday, GA3 due Friday
+                IT3 on Tuesday, GA3 due Friday
               </p></cell>
             </row>
             <row bottom="minor">
               <cell><p>
+                4.2
+              </p></cell><cell><p>
+                4.3
+              </p></cell><cell></cell><cell></cell>
+            </row>
+            <row>
+              <cell><p>
                 Nov. 16: differentials
-              </p><p>
-                4.4
               </p></cell><cell><p>
                 Nov. 18: Taylor polynomials
               </p></cell><cell><p>
@@ -1202,36 +1458,52 @@
             </row>
             <row bottom="minor">
               <cell><p>
+                4.4
+              </p></cell><cell><p>
+                4.5
+              </p></cell><cell></cell><cell></cell>
+            </row>
+            <row>
+              <cell><p>
                 Nov. 23: Ch. 4 Q&amp;A; Antiderivatives
-              </p><p>
-                5.1
               </p></cell><cell><p>
                 Nov. 25: GT4, Intro to integration
-              </p><p>
-                5.2, 5.3
               </p></cell><cell>Integrals</cell><cell>IT4 on Tuesday, GA4 due Friday</cell>
             </row>
             <row bottom="minor">
               <cell><p>
+                5.1
+              </p></cell><cell><p>
+                5.2, 5.3
+              </p></cell><cell></cell><cell></cell>
+            </row>
+            <row>
+              <cell><p>
                 Nov. 30: Fundamental Theorem of Calculus
-              </p><p>
-                5.4
               </p></cell><cell><p>
                 Dec. 2: Substitution
-              </p><p>
-                6.1
               </p></cell><cell><p>
                 Using the FTC
               </p></cell><cell>CS5 due Friday</cell>
             </row>
             <row bottom="minor">
               <cell><p>
+                5.4
+              </p></cell><cell><p>
+                6.1
+              </p></cell><cell></cell><cell></cell>
+            </row>
+            <row>
+              <cell><p>
                 Dec. 7: Ch. 5 Q&amp;A, Area between curves
-              </p><p>
-                7.1
               </p></cell><cell><p>
                 Dec. 9: GT5
               </p></cell><cell>No tutorial</cell><cell>IT5 on Tuesday, GA5 due Friday</cell>
+            </row>
+            <row bottom="minor">
+              <cell><p>
+                7.1
+              </p></cell><cell></cell><cell></cell><cell></cell>
             </row>
           </tabular>
         </table>
