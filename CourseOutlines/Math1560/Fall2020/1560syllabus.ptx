@@ -3,7 +3,7 @@
 <pretext>
 
   <docinfo>
-    <brandlogo url="http://www.uleth.ca/artsci/math-computer-science/" source="images/fiatlux.jpg" />
+    <brandlogo url="http://www.uleth.ca/artsci/math-computer-science/" source="http://www.cs.uleth.ca/graphics/fiatlux/fiatlux76by75.jpg" />
     <initialism>M1560</initialism>
   </docinfo>
 
@@ -53,6 +53,15 @@
           More than two thirds of the class received A or B grades.</fn>.
           We will do our best to support you in your online learning,
           and ensure that students continue to do well in this course.
+        </p>
+        <p>
+          There are many of us in this class, coming from many different backgrounds and situations.
+          If the <q>default settings</q> for the class don't work for you,
+          please don't hesitate to ask for accommodation.
+          Not everyone has reliable high speed internet.
+          Not everyone is able to attend scheduled classes without work/family/life getting in the way.
+          But everyone deserves a fulfilling, enjoyable learning experience in each class.
+          (Yes, including calculus. You are here to experience the joy of doing mathematics, no?)
         </p>
         <p>
           We begin with some introductions: to the university, to the staff, and to the course.
@@ -114,6 +123,15 @@
           I'm in charge of all three lecture sections (A, B, and C).
           I can be reached via email at
           <url href="mailto:sean.fitzpatrick@uleth.ca">sean.fitzpatrick@uleth.ca</url>.
+        </p>
+        <p>
+          <alert>Office hours:</alert> as long as it's convenient for most students,
+          I will extend our scheduled Zoom classes to include office hours.
+          That is, I'll stick around for half an hour after class ends to answer questions.
+          (Section B runs until 5:45 pm, and by that time I'll have been on Zoom for 5-6 hours.
+          I might choose to do office hours for Section B <em>before</em> class.)
+          Check Moodle for the most up to date information on office hours.
+          I will also use Moodle's <term>Scheduler</term> booking system to let you book individual appointments.
         </p>
         <p>
           Tutorial sections 4, 9, 11, and 12 are taught by <url href="mailto:jana.archibald@uleth.ca">Dr. Jana Archibald</url>.
@@ -216,11 +234,10 @@
           Bosses who don't understand that online classes still have, well, classes.
           Maybe you have to share your computer with your little brother.
           Maybe travel restrictions mean that when class meets, it's 2 am where you are.
-          Whatever.
         </p>
 
         <p>
-          Fortunately, I'll do my best to work the asynchronous angle as well.
+          Fortunately, I'll do my best to also support asynchronous learning.
           Lots can be done on your own time, even if you do make it to class.
           The textbook is free, online, and full of videos.
           We'll run an online Q&amp;A forum you can use to ask questions any time of day.
@@ -322,9 +339,15 @@
           </dl>
         </p>
         <p>
+          You should try to attend your assigned section, or it'll mess up the group work dynamics.
+          But that's not always realistic, so attend when you can. (I won't tell the Registrar if you don't.)
+          Let me know if you want to change times permanently.
+          And if group members are expecting you, let them know too!
+        </p>
+        <p>
           There is also a weekly <em>tutorial</em>.
           Tutorials take place on Thursday and Friday.
-          Since there are 12 tutorial sections, we won't list them all here.
+          Since there are 11 tutorial sections, we won't list them all here.
           The easiest way to access your tutorial information is by looking up your personal schedule on <url href="https://bridge.uleth.ca/">the Bridge</url>.
         </p>
         <p>
@@ -354,8 +377,7 @@
                 I will record my solution (based on your input) and upload later to YouTube.
                 Recording will be done so that only my video is captured.
                 (That is: if you all want to turn on your cameras so I can see your smiling/frowning faces,
-                I promise not to record you and put it on YouTube.
-                Otherwise I might have no idea what my students look like, which seems like it'll be weird.)
+                I promise not to record you and put it on YouTube.)
               </p>
             </li>
           </ul>
@@ -379,7 +401,32 @@
           your freedom to use and share the book however you see fit.
         </p>
         <p>
-          For the last year or so,
+          If getting the book for free somehow feels wrong,
+          or you worry you're missing out by not buying anything,
+          here are two great books you can buy:
+          <ol>
+            <li>
+              <p>
+                <url href="https://www.chapters.indigo.ca/en-ca/books/mathematics-for-human-flourishing/9780300237139-item.html">Mathematics for Human Flourishing</url>,
+                by Francis Su
+              </p>
+            </li>
+            <li>
+              <p>
+                <url href="https://www.chapters.indigo.ca/en-ca/books/change-is-the-only-constant/9780316509084-item.html">Change is the Only Constant</url>,
+                by Ben Orlin
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Neither of these books are in any way needed for the course.
+          But they're cool books, and they're about math. (The second is even about Calculus!)
+          So if you feel like you need to spend money on a book, you can.
+          (Or I don't know, go to the library or something.)
+        </p>
+        <p>
+          About APEX: For the last year or so,
           I've been working with Greg and others to convert the textbook to a system called <pretext/>.
           The <pretext/> language allows us to write a book that can be produced in a variety of formats.
         </p>
@@ -441,6 +488,18 @@
         </p>
         <p>
           <dl>
+            <li>
+              <title>Reading questions (5%)</title>
+              <p>
+                To encourage you to keep up to date with the textbook readings/videos,
+                there will be a weekly quiz, delivered via WeBWorK.
+                The quiz questions will check your reading; not your math.
+                Reading questions will be due by 8 am every Wednesday.
+                The main purpose of the questions is for me to be able to identify
+                (from your responses) what areas of the content need to be addressed in class.
+                Typically any reasonable effort to answer will receive full credit.
+              </p>
+            </li>
             <li>
               <title>Tutorials (10%)</title>
               <p>
@@ -604,19 +663,7 @@
                   </li>
                 </ol>
               </p>
-            </li>
-            <li>
-              <title>Reading questions (5%)</title>
-              <p>
-                To encourage you to keep up to date with the textbook readings/videos,
-                there will be a weekly quiz, delivered via WeBWorK.
-                The quiz questions will check your reading; not your math.
-                Reading questions will be due by 8 am every Wednesday.
-                The main purpose of the questions is for me to be able to identify
-                (from your responses) what areas of the content need to be addressed in class.
-                Typically any reasonable effort to answer will receive full credit.
-              </p>
-            </li>
+            </li>            
             <li>
               <title>Participation</title>
               <p>
@@ -931,13 +978,14 @@
             <li>
               <p>
                 You <alert>do not</alert> need to have your camera on at all times.
-                But please consider adding a profile photo.
+                But do consider adding a profile photo or avatar,
+                so I don't have to spend class looking at a grid of black rectangles.
               </p>
             </li>
             <li>
               <p>
                 Please <alert>do</alert> mute your microphone when everyone is together in the main room.
-                You can unmute if you are called upon to ask a question.
+                You can unmute if you want to ask a question.
               </p>
             </li>
             <li>
@@ -966,10 +1014,8 @@
             </li>
             <li>
               <p>
-                Using the <q>raise hand</q> feature in Zoom.
-                If you're not shy and want to ask a question in person (with your voice instead of your keyboard!)
-                you can raise your hand using the Zoom participants list.
-                Once I invite you to ask your question, you can unmute and ask it.
+                Using your voice! There is a <q>raise hand</q> feature if you don't want to interrupt,
+                but it's often perfectly reasonable to interrupt, especially if you notice me getting something wrong!
               </p>
             </li>
           </ol>
@@ -992,6 +1038,22 @@
             See <xref ref="subsec-onenote"/> for more details.
           </p>
         </paragraphs>
+        <paragraphs xml:id="pars-recording">
+          <title>Recording</title>
+          <p>
+            First of all: I do not intend to record entire Zoom meetings.
+            I will record myself if I'm doing an example or solving a problem someone has requested,
+            and post those recordings online for later reference.
+            I have things set up so that I only record myself, with recording anyone else.
+            This should let us avoid any privacy concerns.
+          </p>
+          <p>
+            Please be aware that it is an <alert>academic offence</alert> to record a class,
+            or anyone in it, without prior authorization.
+            If all members of a breakout room agree to having someone record your discussion,
+            this is fine. When are in the <q>main room</q> of Zoom, recording is not permitted.
+          </p>
+        </paragraphs>
       </subsection>
 
       <subsection xml:id="subsec-onenote">
@@ -1003,9 +1065,10 @@
           how to edit collaboratively, how to print, <etc />.
         </p>
         <p>
-          Students will have access to OneNote through their Office 365 accounts,
-          and IT is working on getting it integrated with Moodle.
-          I'll update this section once details are finalized with IT.
+          Students will have access to OneNote through their Office 365 accounts.
+          There were early promises of Moodle integration that don't seem to have worked out.
+          What we got instead are class <q>teams</q> on Microsoft Teams.
+          There's one team per section, and each team has a class notebook attached to it.
         </p>
       </subsection>
     </section>
@@ -1157,11 +1220,6 @@
       </p>
 
       <p>
-        <alert>Note:</alert> this list of learning outcomes should also serve as your outline for the final exam.
-        The exam might not be able to test <em>all</em> outcomes, but all outcomes are potentially on the exam.
-      </p>
-
-      <p>
         By the end of the course, you should be able to:
         <ul label="">
           <li>
@@ -1307,7 +1365,7 @@
                 Sept. 14: Limit intro
               </p></cell>
               <cell><p>
-                Sept. 16: Further limits
+                Sept. 16: One-sided limits and continuity
               </p>
             </cell>
             <cell><p>
@@ -1323,7 +1381,7 @@
             </row>
             <row>
               <cell><p>
-                Sept. 21: Continuity
+                Sept. 21: Limits involving infinity
               </p></cell>
               <cell><p>
                 Sept. 23: Derivatives as limits
